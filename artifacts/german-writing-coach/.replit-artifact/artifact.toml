@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "German Writing Coach"
+version = "1.0.0"
+id = "artifacts/german-writing-coach"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22661
+
+[services.development]
+run = "pnpm --filter @workspace/german-writing-coach run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/german-writing-coach", "run", "build" ]
+publicDir = "artifacts/german-writing-coach/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22661"
+BASE_PATH = "/"

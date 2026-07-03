@@ -1,0 +1,408 @@
+Build a beautiful, modern, animated frontend MVP for a German writing correction tool.
+
+This is a new standalone app for my personal German teaching workflow and Physics Wallah-related student practice. The app is mainly for A1/A2 German learners.
+
+Working app name:
+German Writing Coach
+
+Main purpose:
+Students should be able to log in, choose a predefined German writing question, paste their answer, and receive accurate line-by-line correction.
+
+The most important requirement:
+The correction system must not overcorrect.
+
+If a student writes a simple but correct A1/A2 sentence, the app should show that the sentence is correct. It should not rewrite it into advanced German. It should only correct real mistakes such as grammar, articles, case, verb position, conjugation, spelling, tense, prepositions, or unclear meaning.
+
+Build frontend only for now:
+
+* No real Supabase connection yet
+* No real DeepSeek connection yet
+* Use mock data and local state
+* Make the frontend look complete and demo-ready
+* Prepare clean placeholder files for future Supabase and DeepSeek integration
+
+Tech preference:
+
+* React / Vite or Next.js style
+* Tailwind CSS
+* Component-based clean structure
+* Fully responsive for desktop, tablet, and mobile
+* Smooth animations and micro-interactions
+* Premium dashboard-style UI
+
+Design style:
+
+* Modern education platform look
+* Clean, premium, student-friendly
+* Purple / indigo / blue theme with soft yellow accents
+* Soft gradient backgrounds
+* Rounded cards
+* Smooth shadows
+* Hover effects
+* Animated loading states
+* Clean sidebar and top navigation
+* Beautiful empty states
+* Grammar topic chips
+* Clear correction highlights
+
+Main roles:
+
+1. Student
+2. Teacher/Admin
+
+Authentication screen:
+Create a beautiful login page with:
+
+* App name: German Writing Coach
+* Tagline: “Line-by-line German writing feedback for A1/A2 learners”
+* Email/password login UI
+* Magic link option as visual placeholder
+* Demo role switch: Student / Teacher
+* Buttons:
+
+  * Enter as Student
+  * Enter as Teacher
+* Animated hero section showing a German sentence being corrected
+
+Student dashboard:
+After student login, show:
+
+* Welcome message
+* Current batch name
+* Total submissions
+* Recent feedback summary
+* Weak grammar topics:
+
+  * Articles
+  * Verb position
+  * Perfekt
+  * Dativ/Akkusativ
+  * Prepositions
+* Button: Start New Writing
+* Button: View My Past Submissions
+
+Question selection page:
+Students can:
+
+* Select from predefined questions
+* Filter by level: A1 / A2
+* Filter by topic:
+
+  * Familie
+  * Alltag
+  * Hobby
+  * Reise
+  * Beruf
+  * E-Mail schreiben
+  * Einladung
+  * Entschuldigung
+  * Meinung schreiben
+* See beautiful question cards with:
+
+  * Level
+  * Topic
+  * Question title
+  * Full instruction
+  * Expected word range
+  * Estimated time
+* Also include a Free Text option where students can paste any German text not connected to a predefined question
+
+Writing workspace page:
+Make this page very beautiful and focused.
+
+Include:
+
+* Selected question at the top
+* Clear writing instructions
+* Large writing editor
+* Word count
+* Character count
+* Small reminder:
+  “Simple German is okay. Write naturally.”
+* Buttons:
+
+  * Check My Writing
+  * Save Draft
+  * Clear
+
+When the student clicks “Check My Writing”, show an animated checking state with steps:
+
+* Checking grammar…
+* Checking meaning…
+* Checking A1/A2 suitability…
+* Avoiding unnecessary overcorrection…
+* Preparing line-by-line feedback…
+
+Use mock local state for this.
+
+Correction result page:
+This is the most important page.
+
+Show:
+
+* Overall feedback card
+* Original answer
+* Corrected answer
+* Line-by-line correction cards
+
+Each line card should show:
+
+1. Original line
+2. Corrected line
+3. Status badge:
+
+   * Correct
+   * Good for A1/A2
+   * Small grammar issue
+   * Major issue
+   * Needs teacher review
+4. Highlight changed words clearly
+5. Short explanation in simple English
+6. Grammar topic
+7. Optional teacher note placeholder
+
+Important correction behavior:
+
+* If a line is correct, show green badge:
+  “Correct. No correction needed.”
+* If a line is acceptable for A1/A2, show:
+  “This is good for your level. No need to make it more complicated.”
+* If only one word is wrong, highlight only that word
+* Do not make the full sentence look wrong if only one small part changed
+* Add toggle:
+
+  * Show simple explanation
+  * Show detailed explanation
+
+Use this mock feedback:
+
+Line 1:
+Original: “Ich habe meinen Mutter ein Geschenk gegeben.”
+Corrected: “Ich habe meiner Mutter ein Geschenk gegeben.”
+Status: Small grammar issue
+Changed: “meinen” → “meiner”
+Explanation: “After ‘geben’, the person receiving something is usually in Dativ. ‘Die Mutter’ becomes ‘meiner Mutter’.”
+Grammar topic: Dativ
+
+Line 2:
+Original: “Ich spiele gern Badminton im Park.”
+Corrected: “Ich spiele gern Badminton im Park.”
+Status: Correct
+Explanation: “Correct. No correction needed.”
+Grammar topic: Word order
+
+Line 3:
+Original: “Gestern ich bin ins Kino gegangen.”
+Corrected: “Gestern bin ich ins Kino gegangen.”
+Status: Small grammar issue
+Changed: “ich bin” → “bin ich”
+Explanation: “When the sentence starts with ‘Gestern’, the verb comes in position 2.”
+Grammar topic: Verb position
+
+Line 4:
+Original: “Ich habe gehen Schule.”
+Corrected: “Ich bin zur Schule gegangen.”
+Status: Major issue
+Explanation: “The original sentence is not grammatically clear. For movement in the past, use ‘bin ... gegangen’.”
+Grammar topic: Perfekt
+
+Result page buttons:
+
+* Save to My History
+* Try Another Writing
+* Ask Teacher to Review
+* Download / Print Feedback as visual placeholder
+
+Student history page:
+Show previous submissions in cards or table:
+
+* Date
+* Question title
+* Level
+* Status
+* Number of corrections
+* Main grammar issues
+* Button: Open Feedback
+
+Submission detail page:
+Show saved submission:
+
+* Question
+* Original answer
+* Corrected answer
+* Line-by-line feedback
+* Teacher notes if available
+
+Teacher/Admin dashboard:
+Create a polished admin dashboard with:
+
+* Total students
+* Total batches
+* Total submissions
+* Submissions this week
+* Most common grammar problems
+* Recent student submissions
+* Filters by batch, student, level, and topic
+
+Batch management page:
+Show batch cards:
+
+* A2 Morning Batch
+* A2 Evening Batch
+* A1 Beginner Batch
+
+Each batch card should show:
+
+* Batch name
+* Number of students
+* Number of submissions
+* Average correction count
+* Button: View Students
+* Button: View Submissions
+
+Student management page:
+Teacher can see students separated by batch:
+
+* Student name
+* Email
+* Batch
+* Total submissions
+* Last active
+* Weak grammar topics
+* Button: View Work
+
+Question bank page:
+Teacher can manage predefined questions using mock local data.
+
+Question card fields:
+
+* Title
+* Level
+* Topic
+* Full question prompt
+* Expected word range
+* Active/inactive status
+
+Add visual/local actions:
+
+* Create new question
+* Edit question
+* Delete question
+* Search questions
+* Filter by A1/A2/topic
+
+Teacher submissions page:
+Teacher can view all submissions.
+
+Filters:
+
+* Batch
+* Student email
+* Level
+* Question
+* Date
+* Grammar topic
+* Status
+
+Submission list should show:
+
+* Student name
+* Email
+* Batch
+* Question
+* Date
+* Number of small issues
+* Number of major issues
+* Button: Open
+
+Teacher submission detail page:
+Teacher can see:
+
+* Student details
+* Batch
+* Question
+* Original answer
+* Corrected answer
+* AI-style line-by-line feedback
+* Area to add teacher note
+* Button: Save Teacher Note using local state
+* Button: Mark Reviewed using local state
+
+Sample predefined questions:
+
+1. Schreiben Sie eine kurze E-Mail an Ihren Freund. Laden Sie ihn zu Ihrer Geburtstagsparty ein.
+2. Schreiben Sie über Ihr Lieblingshobby.
+3. Beschreiben Sie Ihre Familie.
+4. Schreiben Sie eine Entschuldigung an Ihre Lehrerin, weil Sie nicht zum Kurs kommen können.
+5. Schreiben Sie über Ihren letzten Urlaub.
+6. Schreiben Sie eine Nachricht an Ihren Freund und fragen Sie nach seiner Telefonnummer.
+7. Schreiben Sie über Ihren Alltag.
+8. Schreiben Sie eine kurze Meinung: Ist Sport wichtig?
+
+Sample students:
+
+* Rahul Sharma
+* Ananya Verma
+* Priya Singh
+* Aman Gupta
+* Saloni Mehta
+
+Sample batches:
+
+* A2 Morning Batch
+* A2 Evening Batch
+* A1 Beginner Batch
+
+Future AI response structure:
+Prepare the frontend to handle this kind of response later:
+
+{
+"submission_id": "string",
+"overall_summary": "string",
+"level_detected": "A1/A2",
+"lines": [
+{
+"line_number": 1,
+"original_line": "string",
+"corrected_line": "string",
+"status": "correct | acceptable_a1_a2 | minor_issue | major_issue | unclear",
+"changed_parts": [
+{
+"from": "string",
+"to": "string",
+"reason": "string"
+}
+],
+"short_explanation": "string",
+"grammar_topic": "string"
+}
+]
+}
+
+Create this project structure:
+
+* components/
+* pages/ or routes/
+* data/mockData.ts
+* types/
+* services/aiCorrectionService.ts
+* services/supabaseService.ts
+* utils/diffHighlighter.ts
+
+The service files should only contain placeholders for now.
+
+Do not connect any real backend yet.
+Do not call any real AI API yet.
+Do not add payment logic.
+Do not add unnecessary complex features.
+
+Final goal:
+Create a polished, beautiful, animated, demo-ready frontend where it is immediately clear that:
+
+* Students can submit German writing
+* The app checks line by line
+* Correct A1/A2 sentences are not overcorrected
+* Students can view past feedback
+* Teacher can access student submissions
+* Students are organized by batch and email
+* The app is ready for Supabase and DeepSeek integration later

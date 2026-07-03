@@ -1,0 +1,1 @@
+- [Design subagent early exit](design-subagent-early-exit.md) — a DESIGN subagent can self-report "completed" after only scaffolding types/mock-data, leaving pages/App.tsx untouched; always verify page files exist before presenting.
