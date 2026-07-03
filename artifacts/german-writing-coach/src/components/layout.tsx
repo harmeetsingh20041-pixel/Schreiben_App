@@ -28,19 +28,19 @@ export function Layout({ children }: { children: ReactNode }) {
     : [];
 
   return (
-    <div className="min-h-[100dvh] flex flex-col bg-background">
-      <header className="sticky top-0 z-40 w-full border-b border-border bg-card/80 backdrop-blur-md">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 font-bold text-xl text-primary tracking-tight">
-              <div className="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center">
-                <PenTool className="w-5 h-5" />
+    <div className="min-h-[100dvh] flex flex-col bg-background font-sans text-foreground">
+      <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/90 backdrop-blur-md">
+        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-3 font-serif font-medium text-xl text-primary tracking-tight">
+              <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-sm">
+                <PenTool className="w-4 h-4" />
               </div>
               German Writing Coach
             </div>
             
             {role && (
-              <nav className="hidden md:flex items-center gap-1 ml-4">
+              <nav className="hidden md:flex items-center gap-1">
                 {navItems.map((item) => {
                   const isActive = location === item.href || location.startsWith(`${item.href}/`);
                   return (
@@ -57,10 +57,10 @@ export function Layout({ children }: { children: ReactNode }) {
           <div className="flex items-center gap-4">
             {role && (
               <div className="flex items-center gap-4">
-                <span className="text-sm text-muted-foreground hidden sm:inline-block">
+                <span className="text-sm text-muted-foreground hidden sm:inline-block border-r border-border/60 pr-4">
                   Logged in as <span className="font-semibold text-foreground capitalize">{role}</span>
                 </span>
-                <Button variant="ghost" size="sm" onClick={logout}>
+                <Button variant="ghost" size="sm" onClick={logout} className="text-muted-foreground hover:text-foreground">
                   <LogOut className="w-4 h-4 mr-2" />
                   Logout
                 </Button>
