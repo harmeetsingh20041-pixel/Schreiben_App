@@ -16,6 +16,8 @@ import StudentResult from "@/pages/student/result";
 import StudentHistory from "@/pages/student/history";
 import StudentSubmissionDetail from "@/pages/student/submission";
 
+import StudentPractice from "@/pages/student/practice";
+
 // Teacher Pages
 import TeacherDashboard from "@/pages/teacher/dashboard";
 import TeacherBatches from "@/pages/teacher/batches";
@@ -52,6 +54,7 @@ function Router() {
       <ProtectedRoute path="/student/dashboard" role="student" component={StudentDashboard} />
       <ProtectedRoute path="/student/questions" role="student" component={StudentQuestions} />
       <ProtectedRoute path="/student/write" role="student" component={StudentWrite} />
+      <ProtectedRoute path="/student/practice" role="student" component={StudentPractice} />
       <ProtectedRoute path="/student/result/:id" role="student" component={StudentResult} />
       <ProtectedRoute path="/student/history" role="student" component={StudentHistory} />
       <ProtectedRoute path="/student/submission/:id" role="student" component={StudentSubmissionDetail} />

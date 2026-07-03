@@ -50,15 +50,20 @@ export default function StudentDashboard() {
               Focus Areas
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex flex-col h-[calc(100%-3rem)]">
             <p className="text-sm text-muted-foreground mb-5 leading-relaxed">Grammar topics to review based on your mistakes.</p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 mb-6 flex-1">
               {student.weak_topics.map(topic => (
                 <Badge key={topic} variant="secondary" className="bg-secondary/50 text-secondary-foreground border-border/50 font-medium">
                   {topic}
                 </Badge>
               ))}
             </div>
+            <Link href="/student/practice" className="mt-auto">
+              <Button variant="outline" className="w-full shadow-sm hover:border-primary hover:text-primary transition-colors">
+                <PenTool className="w-4 h-4 mr-2" /> Practice Weak Topics
+              </Button>
+            </Link>
           </CardContent>
         </Card>
 

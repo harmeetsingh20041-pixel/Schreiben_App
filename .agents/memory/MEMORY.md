@@ -1,1 +1,2 @@
 - [Design subagent early exit](design-subagent-early-exit.md) — a DESIGN subagent can self-report "completed" after only scaffolding types/mock-data, leaving pages/App.tsx untouched; always verify page files exist before presenting.
+- [Design subagent mock-data edits](design-subagent-mockdata-edits.md) — always run typecheck immediately after a design subagent finishes; large mockData.ts array edits are prone to dropped export declarations/brackets.

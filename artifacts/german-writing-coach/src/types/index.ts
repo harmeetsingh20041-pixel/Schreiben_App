@@ -57,10 +57,24 @@ export interface Submission {
   studentId: string;
   questionId: string | null;
   date: string;
-  status: "Reviewed" | "Pending";
+  status: "Reviewed" | "Pending" | "Not reviewed";
   main_grammar_issues: string[];
   number_of_corrections: number;
   original_answer: string;
   ai_response: AIResponse;
   teacher_note?: string;
+}
+
+export interface GrammarTopicInfo {
+  topic: string;
+  explanation: string;
+}
+
+export interface PracticeExercise {
+  id: string;
+  topic: string;
+  question: string;
+  options: string[];
+  correctAnswer: string;
+  explanation: string;
 }

@@ -1,4 +1,4 @@
-import { AIResponse, Question, Student, Batch, Submission } from "../types";
+import { AIResponse, Question, Student, Batch, Submission, PracticeExercise } from "../types";
 
 export const MOCK_QUESTIONS: Question[] = [
   {
@@ -140,6 +140,92 @@ export const MOCK_AI_RESPONSE: AIResponse = {
     }
   ]
 };
+
+export const GRAMMAR_TOPIC_INFO: Record<string, string> = {
+  "Dativ": "The Dativ case is used for the indirect object (the receiver of an action). Certain prepositions (aus, bei, mit, nach, seit, von, zu) always require Dativ.",
+  "Akkusativ": "The Akkusativ case is used for the direct object (the thing being acted upon). Certain prepositions (durch, für, gegen, ohne, um) always require Akkusativ.",
+  "Dativ/Akkusativ": "Distinguishing between Dativ and Akkusativ is essential. Use Dativ for 'where?' (location) and Akkusativ for 'where to?' (movement) with two-way prepositions.",
+  "Verb position": "In main clauses, the conjugated verb is always in position 2. In subordinate clauses (starting with weil, dass, wenn), the verb goes to the very end.",
+  "Perfekt": "The Perfekt tense is formed with 'haben' or 'sein' + the past participle. Use 'sein' for verbs of movement or change of state, and 'haben' for most other verbs.",
+  "Word order": "Standard word order follows Time - Manner - Place (TeKaMoLo). Time expressions usually come right after the verb in position 2.",
+  "Articles": "Nouns in German have genders (der, die, das) which change based on their role in the sentence (Nominativ, Akkusativ, Dativ).",
+  "Prepositions": "Prepositions connect words and determine the case of the noun that follows them."
+};
+
+export const PRACTICE_EXERCISES: PracticeExercise[] = [
+  {
+    id: "pe1",
+    topic: "Dativ/Akkusativ",
+    question: "Ich gebe ____ Mutter das Buch.",
+    options: ["meine", "meiner", "meinen"],
+    correctAnswer: "meiner",
+    explanation: "The verb 'geben' requires a Dativ indirect object. 'Die Mutter' (feminine) becomes 'der Mutter' in Dativ, so it is 'meiner Mutter'."
+  },
+  {
+    id: "pe2",
+    topic: "Dativ/Akkusativ",
+    question: "Wir gehen durch ____ Park.",
+    options: ["der", "den", "dem"],
+    correctAnswer: "den",
+    explanation: "The preposition 'durch' always takes the Akkusativ. 'Der Park' (masculine) becomes 'den Park'."
+  },
+  {
+    id: "pe3",
+    topic: "Dativ/Akkusativ",
+    question: "Das Bild hängt an ____ Wand.",
+    options: ["die", "der", "den"],
+    correctAnswer: "der",
+    explanation: "'an' is a two-way preposition. Because the picture is already hanging there (location, 'wo?'), it takes the Dativ: 'der Wand'."
+  },
+  {
+    id: "pe4",
+    topic: "Verb position",
+    question: "Gestern ____ ich ins Kino gegangen.",
+    options: ["ich bin", "bin ich", "bin"],
+    correctAnswer: "bin ich",
+    explanation: "Since 'Gestern' takes position 1, the verb 'bin' must be in position 2, followed by the subject 'ich'."
+  },
+  {
+    id: "pe5",
+    topic: "Verb position",
+    question: "Ich bleibe zu Hause, weil ich krank ____.",
+    options: ["bin", "ich bin", "bin ich"],
+    correctAnswer: "bin",
+    explanation: "'weil' introduces a subordinate clause, pushing the conjugated verb 'bin' to the very end of the sentence."
+  },
+  {
+    id: "pe6",
+    topic: "Verb position",
+    question: "Am Wochenende ____ wir oft Fußball.",
+    options: ["wir spielen", "spielen wir", "spielen"],
+    correctAnswer: "spielen wir",
+    explanation: "Time element 'Am Wochenende' is in position 1, so the verb 'spielen' takes position 2, followed by 'wir'."
+  },
+  {
+    id: "pe7",
+    topic: "Perfekt",
+    question: "Wir ____ gestern Pizza gegessen.",
+    options: ["sind", "haben", "hatten"],
+    correctAnswer: "haben",
+    explanation: "'essen' does not indicate a movement from A to B or a change of state, so it forms the Perfekt with 'haben'."
+  },
+  {
+    id: "pe8",
+    topic: "Perfekt",
+    question: "Wann ____ du nach Berlin gefahren?",
+    options: ["hast", "bist", "warst"],
+    correctAnswer: "bist",
+    explanation: "'fahren' is a verb of movement from one place to another, so it forms the Perfekt with 'sein' (here: 'bist')."
+  },
+  {
+    id: "pe9",
+    topic: "Perfekt",
+    question: "Ich habe das Buch auf den Tisch ____.",
+    options: ["gelegen", "gelegt", "legen"],
+    correctAnswer: "gelegt",
+    explanation: "The past participle of 'legen' (to put/lay) is 'gelegt'."
+  }
+];
 
 export const MOCK_SUBMISSIONS: Submission[] = [
   {

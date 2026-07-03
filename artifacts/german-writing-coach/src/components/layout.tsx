@@ -14,7 +14,8 @@ export function Layout({ children }: { children: ReactNode }) {
   const navItems = isStudent
     ? [
         { label: "Dashboard", href: "/student/dashboard", icon: <LayoutDashboard className="w-4 h-4 mr-2" /> },
-        { label: "Practice", href: "/student/questions", icon: <PenTool className="w-4 h-4 mr-2" /> },
+        { label: "Practice Center", href: "/student/practice", icon: <PenTool className="w-4 h-4 mr-2" /> },
+        { label: "Write", href: "/student/questions", icon: <FileText className="w-4 h-4 mr-2" /> },
         { label: "History", href: "/student/history", icon: <BookOpen className="w-4 h-4 mr-2" /> },
       ]
     : isTeacher
