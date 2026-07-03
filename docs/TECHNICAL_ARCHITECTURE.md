@@ -151,6 +151,16 @@ Phase 3 should replace localStorage demo auth with Supabase Auth.
 
 Phase 4/5 should replace mock questions, batches, students, and submissions with real Supabase data.
 
+Phase 2 implementation now includes:
+
+- `artifacts/german-writing-coach/src/lib/supabaseClient.ts`
+- `artifacts/german-writing-coach/src/types/database.ts`
+- `supabase/migrations/202607040001_initial_schema.sql`
+- `supabase/seed.sql`
+- `docs/SUPABASE_FOUNDATION.md`
+
+The Supabase client intentionally returns `null` when frontend-safe env vars are missing, so the current mock demo still runs without a Supabase project.
+
 ## DeepSeek Integration Plan
 
 DeepSeek should be connected only after submissions are persisted and authorization is real.
@@ -237,4 +247,3 @@ Possible uses:
 - teacher-reviewed audio support later
 
 Audio generation should be rate-limited and optionally cached.
-

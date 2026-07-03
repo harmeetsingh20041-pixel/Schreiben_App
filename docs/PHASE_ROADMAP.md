@@ -28,24 +28,25 @@ Expected output: File-by-file plan and documentation for backend integration.
 
 Goal: Add Supabase foundation without changing the visual UI.
 
-Will implement:
+Implemented in `phase-2-supabase-foundation`:
 
 - Supabase environment variable documentation
 - Supabase client wrapper
-- database migration plan or SQL migration files
-- RLS policy draft
-- typed data access boundaries
+- database migration SQL
+- RLS policies and helper functions
+- typed database entity boundaries
+- idempotent grammar topic seed SQL
 
-Will not implement yet:
+Not implemented yet:
 
 - full login replacement
 - DeepSeek calls
 - OCR/audio
 - generated practice tests
 
-Testing requirement: typecheck, build, and any new schema validation checks.
+Testing requirement: typecheck, build, and install after dependency changes.
 
-Expected output: Safe Supabase-ready foundation.
+Expected output: Safe Supabase-ready foundation that keeps the mock UI working.
 
 ## Phase 3: Real Authentication And Roles
 
@@ -248,4 +249,3 @@ Will not implement yet:
 Testing requirement: full typecheck, full build, deployment preview, auth/RLS checks, abuse case checks.
 
 Expected output: Safe deployable app.
-
