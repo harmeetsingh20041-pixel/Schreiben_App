@@ -9,6 +9,17 @@ type InvitationRow = Database["public"]["Tables"]["student_invitations"]["Row"];
 type ProfileRow = Database["public"]["Tables"]["profiles"]["Row"];
 type WorkspaceMemberRow = Database["public"]["Tables"]["workspace_members"]["Row"];
 
+const STUDENT_QUERY_LIMITS = {
+  myAssignments: 20,
+  workspaceStudents: 60,
+  workspaceBatches: 100,
+  workspaceAssignments: 300,
+  workspaceSubmissionStats: 300,
+  invitations: 50,
+  joinRequests: 50,
+  myJoinRequests: 20,
+} as const;
+
 function requireClient() {
   const client = getSupabaseClient();
   if (!client) {
@@ -106,7 +117,8 @@ export async function listMyBatchAssignments(studentId: string): Promise<Student
   const { data: assignments, error: assignmentsError } = await client
     .from("batch_students")
     .select("*")
-    .eq("student_id", studentId);
+    .eq("student_id", studentId)
+    .limit(STUDENT_QUERY_LIMITS.myAssignments);
 
   if (assignmentsError) throw assignmentsError;
 
@@ -130,25 +142,51 @@ export async function listWorkspaceStudents(workspaceId: string): Promise<Worksp
   const [
     { data: memberships, error: membershipsError },
     { data: batches, error: batchesError },
-    { data: assignments, error: assignmentsError },
-    { data: submissions, error: submissionsError },
   ] = await Promise.all([
     client
       .from("workspace_members")
       .select("id, workspace_id, user_id, role, profiles!workspace_members_user_id_fkey(id, full_name, email)")
       .eq("workspace_id", workspaceId)
       .eq("role", "student")
-      .order("created_at", { ascending: false }),
-    client.from("batches").select("*").eq("workspace_id", workspaceId),
-    client.from("batch_students").select("*").eq("workspace_id", workspaceId),
+      .order("created_at", { ascending: false })
+      .limit(STUDENT_QUERY_LIMITS.workspaceStudents),
     client
-      .from("submissions")
-      .select("student_id, created_at")
-      .eq("workspace_id", workspaceId),
+      .from("batches")
+      .select("*")
+      .eq("workspace_id", workspaceId)
+      .limit(STUDENT_QUERY_LIMITS.workspaceBatches),
   ]);
 
   if (membershipsError) throw membershipsError;
   if (batchesError) throw batchesError;
+
+  const memberRows = (memberships ?? []) as (WorkspaceMemberRow & { profiles: ProfileRow | null })[];
+  const studentIds = memberRows.map((membership) => membership.user_id);
+
+  const [
+    { data: assignments, error: assignmentsError },
+    { data: submissions, error: submissionsError },
+  ] = studentIds.length === 0
+    ? [
+        { data: [], error: null },
+        { data: [], error: null },
+      ]
+    : await Promise.all([
+        client
+          .from("batch_students")
+          .select("*")
+          .eq("workspace_id", workspaceId)
+          .in("student_id", studentIds)
+          .limit(STUDENT_QUERY_LIMITS.workspaceAssignments),
+        client
+          .from("submissions")
+          .select("student_id, created_at")
+          .eq("workspace_id", workspaceId)
+          .in("student_id", studentIds)
+          .order("created_at", { ascending: false })
+          .limit(STUDENT_QUERY_LIMITS.workspaceSubmissionStats),
+      ]);
+
   if (assignmentsError) throw assignmentsError;
   if (submissionsError) throw submissionsError;
 
@@ -176,8 +214,7 @@ export async function listWorkspaceStudents(workspaceId: string): Promise<Worksp
     statsByStudent.set(submission.student_id, current);
   }
 
-  return (memberships ?? []).map((membership) => {
-    const member = membership as WorkspaceMemberRow & { profiles: ProfileRow | null };
+  return memberRows.map((member) => {
     const profile = member.profiles;
     const studentAssignments = (assignmentsByStudent.get(member.user_id) ?? [])
       .map((assignment) => {
@@ -215,8 +252,13 @@ export async function listStudentInvitations(workspaceId: string): Promise<Stude
       .from("student_invitations")
       .select("*")
       .eq("workspace_id", workspaceId)
-      .order("created_at", { ascending: false }),
-    client.from("batches").select("id, name, level").eq("workspace_id", workspaceId),
+      .order("created_at", { ascending: false })
+      .limit(STUDENT_QUERY_LIMITS.invitations),
+    client
+      .from("batches")
+      .select("id, name, level")
+      .eq("workspace_id", workspaceId)
+      .limit(STUDENT_QUERY_LIMITS.workspaceBatches),
   ]);
 
   if (invitationsError) throw invitationsError;
@@ -279,7 +321,8 @@ export async function listBatchJoinRequests(workspaceId: string): Promise<BatchJ
     .from("batch_join_requests")
     .select("*")
     .eq("workspace_id", workspaceId)
-    .order("requested_at", { ascending: false });
+    .order("requested_at", { ascending: false })
+    .limit(STUDENT_QUERY_LIMITS.joinRequests);
 
   if (requestsError) throw requestsError;
 
@@ -307,7 +350,8 @@ export async function listMyBatchJoinRequests(studentId: string): Promise<BatchJ
     .from("batch_join_requests")
     .select("*")
     .eq("student_id", studentId)
-    .order("requested_at", { ascending: false });
+    .order("requested_at", { ascending: false })
+    .limit(STUDENT_QUERY_LIMITS.myJoinRequests);
 
   if (requestsError) throw requestsError;
 

@@ -33,7 +33,7 @@ export default function StudentDashboard() {
       const [nextAssignments, nextRequests, nextSubmissions] = await Promise.all([
         listMyBatchAssignments(user.id),
         listMyBatchJoinRequests(user.id),
-        listStudentSubmissions(user.id),
+        listStudentSubmissions(user.id, 4),
       ]);
       setBatchAssignments(nextAssignments);
       setJoinRequests(nextRequests);

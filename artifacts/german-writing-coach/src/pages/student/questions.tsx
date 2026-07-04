@@ -88,7 +88,7 @@ export default function StudentQuestions() {
           listStudentAssignedQuestions(user!.id),
           listMyBatchAssignments(user!.id),
           listMyBatchJoinRequests(user!.id),
-          listStudentSubmissions(user!.id),
+          listStudentSubmissions(user!.id, 100),
         ]);
         setRealQuestions(nextQuestions);
         setBatchAssignments(nextAssignments);
@@ -110,7 +110,7 @@ export default function StudentQuestions() {
       listStudentAssignedQuestions(user.id),
       listMyBatchAssignments(user.id),
       listMyBatchJoinRequests(user.id),
-      listStudentSubmissions(user.id),
+      listStudentSubmissions(user.id, 100),
     ]);
     setRealQuestions(nextQuestions);
     setBatchAssignments(nextAssignments);

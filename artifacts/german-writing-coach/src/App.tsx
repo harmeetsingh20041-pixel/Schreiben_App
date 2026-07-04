@@ -1,47 +1,68 @@
+import { lazy, Suspense, type ComponentType } from "react";
 import { Switch, Route, Router as WouterRouter, Redirect } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import { Layout } from "@/components/layout";
-import NotFound from "@/pages/not-found";
 
 import Login from "@/pages/login";
 
 // Student Pages
-import StudentDashboard from "@/pages/student/dashboard";
-import StudentQuestions from "@/pages/student/questions";
-import StudentWrite from "@/pages/student/write";
-import StudentResult from "@/pages/student/result";
-import StudentHistory from "@/pages/student/history";
-import StudentSubmissionDetail from "@/pages/student/submission";
-
-import StudentPractice from "@/pages/student/practice";
+const StudentDashboard = lazy(() => import("@/pages/student/dashboard"));
+const StudentQuestions = lazy(() => import("@/pages/student/questions"));
+const StudentWrite = lazy(() => import("@/pages/student/write"));
+const StudentResult = lazy(() => import("@/pages/student/result"));
+const StudentHistory = lazy(() => import("@/pages/student/history"));
+const StudentSubmissionDetail = lazy(() => import("@/pages/student/submission"));
+const StudentPractice = lazy(() => import("@/pages/student/practice"));
 
 // Teacher Pages
-import TeacherDashboard from "@/pages/teacher/dashboard";
-import TeacherBatches from "@/pages/teacher/batches";
-import TeacherStudents from "@/pages/teacher/students";
-import TeacherQuestions from "@/pages/teacher/questions";
-import TeacherSubmissions from "@/pages/teacher/submissions";
-import TeacherSubmissionDetail from "@/pages/teacher/submission";
-import TeacherOnboarding from "@/pages/teacher/onboarding";
+const TeacherDashboard = lazy(() => import("@/pages/teacher/dashboard"));
+const TeacherBatches = lazy(() => import("@/pages/teacher/batches"));
+const TeacherStudents = lazy(() => import("@/pages/teacher/students"));
+const TeacherQuestions = lazy(() => import("@/pages/teacher/questions"));
+const TeacherSubmissions = lazy(() => import("@/pages/teacher/submissions"));
+const TeacherSubmissionDetail = lazy(() => import("@/pages/teacher/submission"));
+const TeacherOnboarding = lazy(() => import("@/pages/teacher/onboarding"));
+
+const NotFound = lazy(() => import("@/pages/not-found"));
 
 const queryClient = new QueryClient();
 
-function ProtectedRoute({ component: Component, role, path }: any) {
+function RouteLoading() {
+  return (
+    <div className="flex min-h-[40vh] items-center justify-center px-4">
+      <div className="rounded-lg border bg-card px-5 py-3 text-sm text-muted-foreground shadow-sm">
+        Loading...
+      </div>
+    </div>
+  );
+}
+
+function ProtectedRoute({
+  component: Component,
+  role,
+  path,
+}: {
+  component: ComponentType;
+  role: "student" | "teacher";
+  path: string;
+}) {
   return (
     <Route path={path}>
       {() => {
         const { loading, role: currentRole, needsWorkspace } = useAuth();
-        if (loading) return null;
+        if (loading) return <RouteLoading />;
         if (currentRole !== role) return <Redirect to="/" />;
         if (role === "teacher" && needsWorkspace && path !== "/teacher/onboarding") {
           return <Redirect to="/teacher/onboarding" />;
         }
         return (
           <Layout>
-            <Component />
+            <Suspense fallback={<RouteLoading />}>
+              <Component />
+            </Suspense>
           </Layout>
         );
       }}
@@ -74,7 +95,11 @@ function Router() {
       <ProtectedRoute path="/teacher/submission/:id" role="teacher" component={TeacherSubmissionDetail} />
 
       <Route>
-        <Layout><NotFound /></Layout>
+        <Layout>
+          <Suspense fallback={<RouteLoading />}>
+            <NotFound />
+          </Suspense>
+        </Layout>
       </Route>
     </Switch>
   );
