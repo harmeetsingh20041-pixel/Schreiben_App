@@ -21,6 +21,6 @@ export function getSupabaseClient(): SupabaseClient | null {
   return client;
 }
 
-// Phase 2 foundation only. Real auth and data calls are intentionally deferred
-// to Phase 3/4 so the approved mock frontend keeps working without env vars.
+// Real auth starts in Phase 3. Data-heavy workflows still keep the approved
+// mock fallback until Phase 4 replaces them gradually.
 export const supabase = getSupabaseClient();
