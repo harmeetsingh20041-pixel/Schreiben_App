@@ -5,6 +5,13 @@ import type { Database } from "@/types/supabase";
 type QuestionRow = Database["public"]["Tables"]["questions"]["Row"];
 type GlobalQuestionRow = Database["public"]["Tables"]["global_questions"]["Row"];
 
+const QUESTION_QUERY_LIMITS = {
+  workspace: 120,
+  global: 160,
+  studentAssignments: 20,
+  studentWorkspaceQuestions: 120,
+} as const;
+
 function requireClient() {
   const client = getSupabaseClient();
   if (!client) {
@@ -75,26 +82,34 @@ function mapGlobalQuestion(question: GlobalQuestionRow): WorkspaceQuestion {
   };
 }
 
-export async function listWorkspaceQuestions(workspaceId: string): Promise<WorkspaceQuestion[]> {
+export async function listWorkspaceQuestions(
+  workspaceId: string,
+  limit = QUESTION_QUERY_LIMITS.workspace,
+): Promise<WorkspaceQuestion[]> {
   const client = requireClient();
   const { data, error } = await client
     .from("questions")
     .select("*")
     .eq("workspace_id", workspaceId)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .limit(limit);
 
   if (error) throw error;
   return ((data ?? []) as QuestionRow[]).map(mapQuestion);
 }
 
-export async function listGlobalQuestions(levels?: WorkspaceLevel[]): Promise<WorkspaceQuestion[]> {
+export async function listGlobalQuestions(
+  levels?: WorkspaceLevel[],
+  limit = QUESTION_QUERY_LIMITS.global,
+): Promise<WorkspaceQuestion[]> {
   const client = requireClient();
   let query = client
     .from("global_questions")
     .select("*")
     .eq("is_active", true)
     .order("sort_order", { ascending: true })
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .limit(limit);
 
   if (levels && levels.length > 0) {
     query = query.in("level", levels);
@@ -110,7 +125,8 @@ export async function listStudentAssignedQuestions(studentId: string): Promise<W
   const { data: assignments, error: assignmentsError } = await client
     .from("batch_students")
     .select("workspace_id, batch_id")
-    .eq("student_id", studentId);
+    .eq("student_id", studentId)
+    .limit(QUESTION_QUERY_LIMITS.studentAssignments);
 
   if (assignmentsError) throw assignmentsError;
 
@@ -159,7 +175,8 @@ export async function listStudentAssignedQuestions(studentId: string): Promise<W
     .in("workspace_id", workspaceIds)
     .in("level", levels)
     .eq("is_active", true)
-      .order("created_at", { ascending: false }),
+      .order("created_at", { ascending: false })
+      .limit(QUESTION_QUERY_LIMITS.studentWorkspaceQuestions),
     listGlobalQuestions(levels),
   ]);
 

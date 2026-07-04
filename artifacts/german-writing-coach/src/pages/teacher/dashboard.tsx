@@ -45,7 +45,7 @@ export default function TeacherDashboard() {
           listWorkspaceQuestions(workspaceId!),
           listStudentInvitations(workspaceId!),
           listBatchJoinRequests(workspaceId!),
-          listTeacherWorkspaceSubmissions(workspaceId!),
+          listTeacherWorkspaceSubmissions(workspaceId!, 5),
         ]);
         setBatches(nextBatches);
         setStudents(nextStudents);

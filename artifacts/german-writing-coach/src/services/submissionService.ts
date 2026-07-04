@@ -14,6 +14,11 @@ type GlobalQuestionRow = Pick<
 >;
 type ProfileRow = Pick<Database["public"]["Tables"]["profiles"]["Row"], "id" | "full_name" | "email">;
 
+const SUBMISSION_QUERY_LIMITS = {
+  studentHistory: 20,
+  teacherList: 25,
+} as const;
+
 export type SubmissionQuestionSource = "workspace_question" | "global_question" | "free_text";
 export type WritingSubmissionStatus = "draft" | "submitted" | "checked" | "needs_review" | "failed";
 
@@ -190,13 +195,17 @@ export async function saveDraftSubmission(input: CreateWritingSubmissionInput): 
   return createWritingSubmission({ ...input, saveAsDraft: true });
 }
 
-export async function listStudentSubmissions(studentId: string): Promise<WritingSubmission[]> {
+export async function listStudentSubmissions(
+  studentId: string,
+  limit: number = SUBMISSION_QUERY_LIMITS.studentHistory,
+): Promise<WritingSubmission[]> {
   const client = requireClient();
   const { data, error } = await client
     .from("submissions")
     .select("*")
     .eq("student_id", studentId)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .limit(limit);
 
   if (error) throw error;
   return hydrateSubmissions((data ?? []) as SubmissionRow[], false);
@@ -221,13 +230,15 @@ export async function getStudentSubmissionDetail(
 
 export async function listTeacherWorkspaceSubmissions(
   workspaceId: string,
+  limit: number = SUBMISSION_QUERY_LIMITS.teacherList,
 ): Promise<WritingSubmission[]> {
   const client = requireClient();
   const { data, error } = await client
     .from("submissions")
     .select("*")
     .eq("workspace_id", workspaceId)
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .limit(limit);
 
   if (error) throw error;
   return hydrateSubmissions((data ?? []) as SubmissionRow[], true);

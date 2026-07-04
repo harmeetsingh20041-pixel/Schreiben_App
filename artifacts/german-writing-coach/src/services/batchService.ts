@@ -4,6 +4,11 @@ import type { Database } from "@/types/supabase";
 
 type BatchRow = Database["public"]["Tables"]["batches"]["Row"];
 
+const BATCH_QUERY_LIMITS = {
+  batches: 100,
+  countRows: 1000,
+} as const;
+
 function requireClient() {
   const client = getSupabaseClient();
   if (!client) {
@@ -62,9 +67,18 @@ export async function listWorkspaceBatches(workspaceId: string): Promise<Workspa
       .from("batches")
       .select("*")
       .eq("workspace_id", workspaceId)
-      .order("created_at", { ascending: false }),
-    client.from("batch_students").select("batch_id").eq("workspace_id", workspaceId),
-    client.from("submissions").select("batch_id").eq("workspace_id", workspaceId),
+      .order("created_at", { ascending: false })
+      .limit(BATCH_QUERY_LIMITS.batches),
+    client
+      .from("batch_students")
+      .select("batch_id")
+      .eq("workspace_id", workspaceId)
+      .limit(BATCH_QUERY_LIMITS.countRows),
+    client
+      .from("submissions")
+      .select("batch_id")
+      .eq("workspace_id", workspaceId)
+      .limit(BATCH_QUERY_LIMITS.countRows),
   ]);
 
   if (batchesError) throw batchesError;

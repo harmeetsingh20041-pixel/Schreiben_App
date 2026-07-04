@@ -151,10 +151,16 @@ Will implement:
 
 - Vite large chunk optimization
 - route-based lazy loading and code splitting
-- pagination for questions, students, and submissions
-- database indexes for common filters and search
+- explicit query limits for questions, students, invitations, join requests, and submissions
+- database index review for common filters and search
 - avoiding full-table row loads in teacher/student screens
 - low-device and mobile smoothness review
+
+Phase 5C implementation note: use route-level lazy loading first, then split stable vendor chunks in Vite so student and teacher pages do not load the full app upfront.
+
+Phase 5C data note: keep the first optimization conservative with bounded Supabase reads. Full pagination or "Load more" UI for questions, students, and submissions should be added when real class sizes grow beyond the initial limits.
+
+Phase 5C index note: do not duplicate existing indexes. Current migrations already cover the main Phase 5C access paths for global questions, submissions, invitations, join requests, workspace members, and batch students.
 
 ## Phase 6: DeepSeek V4 Flash Writing Checker
 
