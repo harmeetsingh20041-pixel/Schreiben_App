@@ -4,11 +4,13 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { PromptText } from "@/components/prompt-text";
 import { Search, Clock, Edit3, KeyRound } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, LEVEL_OPTIONS } from "@/lib/workspaceData";
 import { listStudentAssignedQuestions, type WorkspaceQuestion } from "@/services/questionService";
+import { listStudentSubmissions, type WritingSubmission } from "@/services/submissionService";
 import { listMyBatchAssignments, listMyBatchJoinRequests, requestJoinBatchByCode, type BatchJoinRequest, type StudentBatchAssignment } from "@/services/studentService";
 import { MOCK_QUESTIONS } from "@/data/mockData";
 
@@ -43,6 +45,22 @@ function wordRange(question: WorkspaceQuestion) {
   return "Flexible";
 }
 
+const completedSubmissionStatuses = new Set(["submitted", "checked", "needs_review"]);
+
+function questionSubmissionKey(question: WorkspaceQuestion) {
+  return `${question.source}:${question.id}`;
+}
+
+function submissionQuestionKey(submission: WritingSubmission) {
+  if (submission.question_source === "global_question" && submission.global_question_id) {
+    return `global:${submission.global_question_id}`;
+  }
+  if (submission.question_source === "workspace_question" && submission.question_id) {
+    return `workspace:${submission.question_id}`;
+  }
+  return null;
+}
+
 export default function StudentQuestions() {
   const { authMode, user } = useAuth();
   const { toast } = useToast();
@@ -50,6 +68,7 @@ export default function StudentQuestions() {
   const [search, setSearch] = useState("");
   const [levelFilter, setLevelFilter] = useState<string>("All");
   const [realQuestions, setRealQuestions] = useState<WorkspaceQuestion[]>([]);
+  const [realSubmissions, setRealSubmissions] = useState<WritingSubmission[]>([]);
   const [batchAssignments, setBatchAssignments] = useState<StudentBatchAssignment[]>([]);
   const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
   const [joinCode, setJoinCode] = useState("");
@@ -65,14 +84,16 @@ export default function StudentQuestions() {
       try {
         setLoading(true);
         setError(null);
-        const [nextQuestions, nextAssignments, nextJoinRequests] = await Promise.all([
+        const [nextQuestions, nextAssignments, nextJoinRequests, nextSubmissions] = await Promise.all([
           listStudentAssignedQuestions(user!.id),
           listMyBatchAssignments(user!.id),
           listMyBatchJoinRequests(user!.id),
+          listStudentSubmissions(user!.id),
         ]);
         setRealQuestions(nextQuestions);
         setBatchAssignments(nextAssignments);
         setJoinRequests(nextJoinRequests);
+        setRealSubmissions(nextSubmissions);
       } catch (loadError) {
         setError(formatErrorMessage(loadError, "Unable to load assigned prompts."));
       } finally {
@@ -85,14 +106,16 @@ export default function StudentQuestions() {
 
   const reloadStudentData = async () => {
     if (!user) return;
-    const [nextQuestions, nextAssignments, nextJoinRequests] = await Promise.all([
+    const [nextQuestions, nextAssignments, nextJoinRequests, nextSubmissions] = await Promise.all([
       listStudentAssignedQuestions(user.id),
       listMyBatchAssignments(user.id),
       listMyBatchJoinRequests(user.id),
+      listStudentSubmissions(user.id),
     ]);
     setRealQuestions(nextQuestions);
     setBatchAssignments(nextAssignments);
     setJoinRequests(nextJoinRequests);
+    setRealSubmissions(nextSubmissions);
   };
 
   const questions = useRealData ? realQuestions : MOCK_QUESTIONS.map(mockToWorkspaceQuestion);
@@ -105,6 +128,16 @@ export default function StudentQuestions() {
     const matchesLevel = levelFilter === "All" || question.level === levelFilter;
     return matchesSearch && matchesLevel && question.is_active;
   }), [levelFilter, questions, search]);
+
+  const latestSubmissionByQuestion = useMemo(() => {
+    const map = new Map<string, WritingSubmission>();
+    for (const submission of realSubmissions) {
+      if (!completedSubmissionStatuses.has(submission.status)) continue;
+      const key = submissionQuestionKey(submission);
+      if (key && !map.has(key)) map.set(key, submission);
+    }
+    return map;
+  }, [realSubmissions]);
 
   const selectPrompt = (question: WorkspaceQuestion) => {
     sessionStorage.setItem(
@@ -262,37 +295,52 @@ export default function StudentQuestions() {
             </CardContent>
           </Card>
         ) : (
-          filteredQuestions.map((question, i) => (
-            <Card key={question.id} className="flex flex-col group hover:shadow-md transition-all duration-300 animate-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 50}ms` }}>
-              <CardHeader className="pb-4">
-                <div className="flex justify-between items-start mb-2">
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
-                      {question.level}
-                    </Badge>
-                    {question.source === "global" && <Badge variant="outline">Global</Badge>}
+          filteredQuestions.map((question, i) => {
+            const latestSubmission = useRealData
+              ? latestSubmissionByQuestion.get(questionSubmissionKey(question))
+              : null;
+
+            return (
+              <Card key={question.id} className="flex flex-col group hover:shadow-md transition-all duration-300 animate-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 50}ms` }}>
+                <CardHeader className="pb-4">
+                  <div className="flex justify-between items-start mb-2">
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
+                        {question.level}
+                      </Badge>
+                      {question.source === "global" && <Badge variant="outline">Global</Badge>}
+                      {latestSubmission && (
+                        <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                          Submitted
+                        </Badge>
+                      )}
+                    </div>
+                    <div className="flex items-center text-xs text-muted-foreground bg-muted px-2 py-1 rounded-md">
+                      <Clock className="w-3 h-3 mr-1" />
+                      {question.estimated_minutes ? `${question.estimated_minutes} mins` : "flex"}
+                    </div>
                   </div>
-                  <div className="flex items-center text-xs text-muted-foreground bg-muted px-2 py-1 rounded-md">
-                    <Clock className="w-3 h-3 mr-1" />
-                    {question.estimated_minutes ? `${question.estimated_minutes} mins` : "flex"}
+                  <CardTitle className="text-lg line-clamp-2">{question.title}</CardTitle>
+                  <CardDescription className="text-xs font-medium text-primary">Topic: {question.topic}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1 pb-4">
+                  <PromptText prompt={question.prompt} preview className="text-sm text-foreground line-clamp-3 mb-4" />
+                  <div className="text-xs text-muted-foreground bg-accent/10 text-accent-foreground border border-accent/20 px-3 py-2 rounded-md inline-block">
+                    Expected: {wordRange(question)} words
                   </div>
-                </div>
-                <CardTitle className="text-lg line-clamp-2">{question.title}</CardTitle>
-                <CardDescription className="text-xs font-medium text-primary">Topic: {question.topic}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-1 pb-4">
-                <p className="text-sm text-foreground line-clamp-3 mb-4">{question.prompt}</p>
-                <div className="text-xs text-muted-foreground bg-accent/10 text-accent-foreground border border-accent/20 px-3 py-2 rounded-md inline-block">
-                  Expected: {wordRange(question)} words
-                </div>
-              </CardContent>
-              <CardFooter>
-                <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors" onClick={() => selectPrompt(question)}>
-                  Select Prompt
-                </Button>
-              </CardFooter>
-            </Card>
-          ))
+                </CardContent>
+                <CardFooter>
+                  <Button
+                    variant="outline"
+                    className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors"
+                    onClick={() => latestSubmission ? setLocation(`/student/submission/${latestSubmission.id}`) : selectPrompt(question)}
+                  >
+                    {latestSubmission ? "View Submission" : "Select Prompt"}
+                  </Button>
+                </CardFooter>
+              </Card>
+            );
+          })
         )}
       </div>
     </div>

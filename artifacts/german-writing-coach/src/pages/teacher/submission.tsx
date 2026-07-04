@@ -3,6 +3,7 @@ import { useParams } from "wouter";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { PromptText } from "@/components/prompt-text";
 import { ArrowLeft, Clock } from "lucide-react";
 import { SubmissionReview } from "@/components/submission-review";
 import { useAuth } from "@/lib/auth";
@@ -104,7 +105,7 @@ export default function TeacherSubmissionDetail() {
                   <CardTitle className="text-sm font-semibold uppercase tracking-widest text-primary">Prompt</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="leading-relaxed">{realSubmission.question_prompt}</p>
+                  <PromptText prompt={realSubmission.question_prompt} />
                 </CardContent>
               </Card>
             )}

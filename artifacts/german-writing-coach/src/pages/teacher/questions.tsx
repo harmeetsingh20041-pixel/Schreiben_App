@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { PromptText } from "@/components/prompt-text";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
@@ -405,7 +406,7 @@ export default function TeacherQuestions() {
               </CardHeader>
               <CardContent className="flex-1 pb-4">
                 <p className="text-xs text-primary font-medium mb-2">Topic: {question.topic}</p>
-                <p className="text-sm text-foreground line-clamp-3 mb-3">{question.prompt}</p>
+                <PromptText prompt={question.prompt} preview className="text-sm text-foreground line-clamp-3 mb-3" />
                 <div className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded inline-block">
                   {wordRange(question)} words • ~{question.estimated_minutes ?? "flex"} mins
                 </div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useSearch } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { PromptText } from "@/components/prompt-text";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2, ArrowLeft, Save, Trash2, CheckCircle2, PenTool } from "lucide-react";
 import { MOCK_QUESTIONS } from "@/data/mockData";
@@ -198,7 +199,7 @@ export default function StudentWrite() {
               <span className="text-sm font-medium text-primary">Topic: {question?.topic}</span>
             </div>
             <h1 className="text-xl font-bold mb-3">{question?.title}</h1>
-            <p className="text-foreground text-base leading-relaxed">{question?.prompt}</p>
+            <PromptText prompt={question?.prompt} className="text-foreground text-base" />
             <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">
               <span>Target: <strong>{question?.expected_word_range} words</strong></span>
               <span>Time: <strong>~{question?.estimated_time}</strong></span>
@@ -247,11 +248,11 @@ export default function StudentWrite() {
           />
           
           <div className="bg-background px-6 py-4 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-muted-foreground flex flex-wrap gap-4">
-              <span className={isFree ? "" : wordCount > 0 ? (wordCount >= parseInt(question?.expected_word_range.split('-')[0] || "0") ? "text-green-600 font-medium" : "text-accent-foreground font-medium") : ""}>
+            <div className={`text-sm text-foreground flex flex-wrap gap-4 ${isChecking ? "opacity-80" : ""}`}>
+              <span className={isFree ? "font-medium" : wordCount > 0 ? (wordCount >= parseInt(question?.expected_word_range.split('-')[0] || "0") ? "text-green-700 dark:text-green-300 font-semibold" : "text-amber-700 dark:text-amber-300 font-semibold") : "font-medium"}>
                 <strong>{wordCount}</strong> words
               </span>
-              <span><strong>{text.length}</strong> characters</span>
+              <span className="font-medium"><strong>{text.length}</strong> characters</span>
               {submitError && <span className="text-destructive font-medium">{submitError}</span>}
             </div>
             
