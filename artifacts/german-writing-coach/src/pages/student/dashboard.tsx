@@ -16,8 +16,8 @@ export default function StudentDashboard() {
   const { authMode, user, profile } = useAuth();
   const { toast } = useToast();
   const student = MOCK_STUDENTS[0]; // Rahul Sharma
-  const recentSubmissions = MOCK_SUBMISSIONS.filter(s => s.studentId === student.id).slice(0, 3);
   const useRealData = authMode === "supabase" && Boolean(user);
+  const recentSubmissions = useRealData ? [] : MOCK_SUBMISSIONS.filter(s => s.studentId === student.id).slice(0, 3);
   const [batchAssignments, setBatchAssignments] = useState<StudentBatchAssignment[]>([]);
   const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
   const [joinCode, setJoinCode] = useState("");
@@ -157,9 +157,11 @@ export default function StudentDashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-4xl font-serif text-foreground mb-3">85%</div>
-            <p className="text-sm text-muted-foreground mb-5 leading-relaxed">Average correct sentences in last 5 submissions.</p>
-            <Progress value={85} className="h-1.5 bg-muted" />
+            <div className="text-4xl font-serif text-foreground mb-3">{useRealData ? "-" : "85%"}</div>
+            <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+              {useRealData ? "No real submissions yet." : "Average correct sentences in last 5 submissions."}
+            </p>
+            <Progress value={useRealData ? 0 : 85} className="h-1.5 bg-muted" />
           </CardContent>
         </Card>
 
@@ -171,13 +173,21 @@ export default function StudentDashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col h-[calc(100%-3rem)]">
-            <p className="text-sm text-muted-foreground mb-5 leading-relaxed">Grammar topics to review based on your mistakes.</p>
+            <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+              {useRealData
+                ? "Writing feedback will appear after students submit work."
+                : "Grammar topics to review based on your mistakes."}
+            </p>
             <div className="flex flex-wrap gap-2 mb-6 flex-1">
-              {student.weak_topics.map(topic => (
-                <Badge key={topic} variant="secondary" className="bg-secondary/50 text-secondary-foreground border-border/50 font-medium">
-                  {topic}
-                </Badge>
-              ))}
+              {useRealData ? (
+                <span className="text-sm text-muted-foreground">No focus areas yet.</span>
+              ) : (
+                student.weak_topics.map(topic => (
+                  <Badge key={topic} variant="secondary" className="bg-secondary/50 text-secondary-foreground border-border/50 font-medium">
+                    {topic}
+                  </Badge>
+                ))
+              )}
             </div>
             <Link href="/student/practice" className="mt-auto">
               <Button variant="outline" className="w-full shadow-sm hover:border-primary hover:text-primary transition-colors">
@@ -199,8 +209,12 @@ export default function StudentDashboard() {
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 mt-2 rounded-full bg-primary" />
                 <div>
-                  <p className="text-sm font-medium text-foreground">Review Dativ/Akkusativ</p>
-                  <p className="text-xs text-muted-foreground mt-1">Recommended before next writing</p>
+                  <p className="text-sm font-medium text-foreground">
+                    {useRealData ? "Start an assigned writing prompt" : "Review Dativ/Akkusativ"}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {useRealData ? "Feedback will appear after real submissions are saved" : "Recommended before next writing"}
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -217,7 +231,14 @@ export default function StudentDashboard() {
 
       <h2 className="text-2xl font-serif tracking-tight mb-6">Recent Feedback</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {recentSubmissions.map((sub, i) => (
+        {useRealData ? (
+          <Card className="md:col-span-2 border-dashed bg-muted/20">
+            <CardContent className="p-8 text-center">
+              <h3 className="text-lg font-semibold mb-2">No real submissions yet.</h3>
+              <p className="text-sm text-muted-foreground">Writing submissions will appear here after students submit work.</p>
+            </CardContent>
+          </Card>
+        ) : recentSubmissions.map((sub, i) => (
           <Card key={sub.id} className="hover:border-primary/30 transition-all duration-300 shadow-sm border-border rounded-xl animate-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 50}ms` }}>
             <CardContent className="p-6">
               <div className="flex justify-between items-start mb-4">

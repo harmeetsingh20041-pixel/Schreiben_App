@@ -175,7 +175,7 @@ export default function TeacherDashboard() {
             <Card className="border-dashed shadow-sm border-border rounded-xl">
               <CardContent className="p-8 text-center">
                 <h3 className="text-lg font-medium mb-2">No real submissions yet</h3>
-                <p className="text-sm text-muted-foreground">Submission review stays mocked until the next data phase.</p>
+                <p className="text-sm text-muted-foreground">Writing submissions will appear here after students submit work.</p>
               </CardContent>
             </Card>
           ) : (

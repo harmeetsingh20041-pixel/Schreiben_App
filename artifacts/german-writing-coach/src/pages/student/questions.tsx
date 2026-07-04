@@ -175,7 +175,9 @@ export default function StudentQuestions() {
             <Button
               key={level}
               variant={levelFilter === level ? "default" : "outline"}
-              className="bg-card"
+              className={levelFilter === level
+                ? "min-w-[4.5rem]"
+                : "min-w-[4.5rem] bg-card text-foreground"}
               onClick={() => setLevelFilter(level)}
             >
               {level === "All" ? "All Levels" : level}

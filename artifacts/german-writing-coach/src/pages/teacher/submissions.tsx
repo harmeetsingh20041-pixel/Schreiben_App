@@ -5,17 +5,20 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Eye, Calendar, Clock, CheckCircle2 } from "lucide-react";
-import { MOCK_SUBMISSIONS, MOCK_STUDENTS, MOCK_BATCHES, MOCK_QUESTIONS } from "@/data/mockData";
+import { useAuth } from "@/lib/auth";
+import { MOCK_SUBMISSIONS, MOCK_STUDENTS, MOCK_QUESTIONS } from "@/data/mockData";
 
 export default function TeacherSubmissions() {
+  const { authMode, user } = useAuth();
+  const useRealData = authMode === "supabase" && Boolean(user);
   const searchParams = new URLSearchParams(useSearch());
   const filterStudent = searchParams.get("student");
   const filterBatch = searchParams.get("batch");
 
-  let filtered = MOCK_SUBMISSIONS;
-  if (filterStudent) {
+  let filtered = useRealData ? [] : MOCK_SUBMISSIONS;
+  if (!useRealData && filterStudent) {
     filtered = filtered.filter(s => s.studentId === filterStudent);
-  } else if (filterBatch) {
+  } else if (!useRealData && filterBatch) {
     filtered = filtered.filter(s => {
       const student = MOCK_STUDENTS.find(st => st.id === s.studentId);
       return student?.batchId === filterBatch;
@@ -44,7 +47,14 @@ export default function TeacherSubmissions() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {filtered.map(sub => {
+            {useRealData ? (
+              <TableRow>
+                <TableCell colSpan={6} className="text-center py-12">
+                  <h2 className="text-lg font-semibold mb-2 text-foreground">No real submissions yet.</h2>
+                  <p className="text-sm text-muted-foreground">Writing submissions will appear here after students submit work.</p>
+                </TableCell>
+              </TableRow>
+            ) : filtered.map(sub => {
               const student = MOCK_STUDENTS.find(s => s.id === sub.studentId);
               const question = MOCK_QUESTIONS.find(q => q.id === sub.questionId);
               const isReviewed = sub.status === "Reviewed";
@@ -92,7 +102,7 @@ export default function TeacherSubmissions() {
                 </TableRow>
               );
             })}
-            {filtered.length === 0 && (
+            {!useRealData && filtered.length === 0 && (
               <TableRow>
                 <TableCell colSpan={6} className="text-center py-12 text-muted-foreground">
                   No submissions found.
