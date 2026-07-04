@@ -55,7 +55,10 @@ The local `.env.local` now uses the project URL and a frontend publishable key. 
 - Linked project migration history matches local migrations through `20260704085609`.
 - `public.grammar_topics` contains 10 seed rows.
 - Auth/profile hardening triggers exist in the remote database.
-- Live teacher signup created an Auth user and profile, but email confirmation blocked login before UI onboarding could be completed.
+- Live teacher login passed after manual email confirmation for `phase3.teacher.20260704.authcheck@gmail.com`.
+- Teacher onboarding created `Phase 3 Test Workspace`, inserted an `owner` membership, and redirected to `/teacher/dashboard`.
+- Sign out/sign in passed after workspace creation; the teacher returned to `/teacher/dashboard` instead of onboarding.
+- Student signup smoke was blocked by Supabase email rate limiting before account creation; no student test rows were created.
 - Rolled-back RLS probes confirmed profile role updates are blocked, direct owner membership creation is blocked, and `create_teacher_workspace` works.
 - Supabase security advisors report one project-level Auth warning: leaked password protection is disabled.
 - Supabase performance advisors report no issues.
