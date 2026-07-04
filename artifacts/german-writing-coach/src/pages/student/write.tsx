@@ -49,7 +49,7 @@ export default function StudentWrite() {
   
   const stages = useRealData ? [
     "Saving your writing...",
-    "Preparing pending correction status..."
+    "Preparing review status..."
   ] : [
     "Checking grammar and vocabulary...",
     "Checking meaning and context...",
@@ -174,7 +174,7 @@ export default function StudentWrite() {
   };
 
   if (!isFree && !question) {
-    return <div className="p-8 text-center">Prompt not found.</div>;
+    return <div className="p-8 text-center">Writing task not found.</div>;
   }
 
   if (submittedId) {
@@ -190,7 +190,7 @@ export default function StudentWrite() {
               <CheckCircle2 className="w-7 h-7" />
             </div>
             <h1 className="text-2xl font-serif mb-2">Writing submitted.</h1>
-            <p className="text-muted-foreground mb-6">AI correction will be available in the next phase.</p>
+            <p className="text-muted-foreground mb-6">Feedback is being prepared. Check back later for line-by-line feedback.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
               <Button onClick={() => setLocation(`/student/submission/${submittedId}`)}>
                 View Submission

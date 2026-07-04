@@ -102,7 +102,7 @@ export default function TeacherSubmissionDetail() {
             {realSubmission.question_prompt && (
               <Card className="bg-primary/5 border-primary/20">
                 <CardHeader>
-                  <CardTitle className="text-sm font-semibold uppercase tracking-widest text-primary">Prompt</CardTitle>
+                  <CardTitle className="text-sm font-semibold uppercase tracking-widest text-primary">Writing Task</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <PromptText prompt={realSubmission.question_prompt} />
@@ -121,8 +121,8 @@ export default function TeacherSubmissionDetail() {
 
             <Card className="border-dashed bg-muted/20">
               <CardContent className="p-8 text-center">
-                <h2 className="text-lg font-semibold mb-2">AI feedback pending.</h2>
-                <p className="text-sm text-muted-foreground">Line-by-line correction and grammar insights will appear after AI checking is connected.</p>
+                <h2 className="text-lg font-semibold mb-2">Feedback pending.</h2>
+                <p className="text-sm text-muted-foreground">Line-by-line correction and grammar insights will appear after review is available.</p>
               </CardContent>
             </Card>
           </div>

@@ -204,7 +204,7 @@ export function SubmissionReview({ submission, student, question, isTeacherView 
                   <div className="p-6 bg-card border-t border-border/60">
                     <div className="flex gap-4 items-start">
                       <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 border border-primary/20">
-                        <span className="text-primary font-serif font-semibold text-sm">AI</span>
+                        <span className="text-primary font-serif font-semibold text-sm">Tip</span>
                       </div>
                       <div className="pt-1">
                         {line.status === "correct" ? (

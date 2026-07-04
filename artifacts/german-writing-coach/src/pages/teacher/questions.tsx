@@ -186,7 +186,7 @@ export default function TeacherQuestions() {
 
   const handleSave = async () => {
     if (!formData.title.trim() || !formData.prompt.trim() || !formData.topic.trim()) {
-      toast({ title: "Prompt details required", description: "Add a title, topic, and prompt." });
+      toast({ title: "Writing task details required", description: "Add a title, topic, and task text." });
       return;
     }
 
@@ -212,10 +212,10 @@ export default function TeacherQuestions() {
         }
         setIsDialogOpen(false);
         await loadQuestions();
-        toast({ title: editingQuestion ? "Prompt updated" : "Prompt created" });
+        toast({ title: editingQuestion ? "Writing task updated" : "Writing task created" });
       } catch (saveError) {
         toast({
-          title: "Could not save prompt",
+          title: "Could not save writing task",
           description: formatErrorMessage(saveError, "Please try again."),
         });
       }
@@ -265,7 +265,7 @@ export default function TeacherQuestions() {
         await loadQuestions();
       } catch (toggleError) {
         toast({
-          title: "Could not update prompt",
+          title: "Could not update writing task",
           description: formatErrorMessage(toggleError, "Please try again."),
         });
       }
@@ -281,13 +281,13 @@ export default function TeacherQuestions() {
     <div className="container mx-auto px-4 py-8 max-w-6xl animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Question Bank</h1>
-          <p className="text-muted-foreground mt-1">Manage writing prompts for your students.</p>
+          <h1 className="text-3xl font-bold tracking-tight">Writing Task Bank</h1>
+          <p className="text-muted-foreground mt-1">Manage writing tasks for your students.</p>
         </div>
         {!isGlobalBank && (
           <Button onClick={() => handleOpenDialog()} className="shadow-md">
             <Plus className="w-4 h-4 mr-2" />
-            Create Workspace Prompt
+            Create Workspace Writing Task
           </Button>
         )}
       </div>
@@ -297,11 +297,11 @@ export default function TeacherQuestions() {
           <TabsList>
             <TabsTrigger value="global">
               <Globe2 className="mr-2 h-4 w-4" />
-              Global Bank
+              Global Writing Tasks
             </TabsTrigger>
             <TabsTrigger value="workspace">
               <FileText className="mr-2 h-4 w-4" />
-              My Workspace Prompts
+              My Workspace Writing Tasks
             </TabsTrigger>
           </TabsList>
         </Tabs>
@@ -311,7 +311,7 @@ export default function TeacherQuestions() {
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
-            placeholder="Search prompts..."
+            placeholder="Search writing tasks..."
             className="pl-9 bg-card"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
@@ -370,7 +370,7 @@ export default function TeacherQuestions() {
 
       {loading ? (
         <Card>
-          <CardContent className="py-10 text-center text-muted-foreground">Loading questions...</CardContent>
+          <CardContent className="py-10 text-center text-muted-foreground">Loading writing tasks...</CardContent>
         </Card>
       ) : filteredQuestions.length === 0 ? (
         <Card className="border-dashed">
@@ -379,14 +379,14 @@ export default function TeacherQuestions() {
               <FileText className="h-5 w-5" />
             </div>
             <h2 className="text-xl font-semibold mb-2">
-              {isGlobalBank ? "No global questions yet" : "Add your first writing question"}
+              {isGlobalBank ? "No global writing tasks yet" : "Add your first writing task"}
             </h2>
             <p className="text-muted-foreground mb-5">
               {isGlobalBank
-                ? "Global A1-B2 prompts will appear here after the real bank is imported."
-                : "Create prompts for A1, A2, B1, or B2 students."}
+                ? "Global A1-B2 writing tasks will appear here after the real bank is imported."
+                : "Create writing tasks for A1, A2, B1, or B2 students."}
             </p>
-            {!isGlobalBank && <Button onClick={() => handleOpenDialog()}>Create Prompt</Button>}
+            {!isGlobalBank && <Button onClick={() => handleOpenDialog()}>Create Writing Task</Button>}
           </CardContent>
         </Card>
       ) : (
@@ -398,7 +398,7 @@ export default function TeacherQuestions() {
                   <div className="flex gap-2">
                     <Badge variant="outline" className={levelBadgeClass(question.level)}>{question.level}</Badge>
                     <Badge variant="secondary">{formatTaskType(question.task_type)}</Badge>
-                    {question.source === "global" && <Badge variant="outline">Global</Badge>}
+                    {question.source === "global" && <Badge variant="outline">Global Task</Badge>}
                   </div>
                   {!isGlobalBank && <Switch checked={question.is_active} onCheckedChange={() => toggleActive(question)} />}
                 </div>
@@ -413,7 +413,7 @@ export default function TeacherQuestions() {
               </CardContent>
               <CardFooter className="border-t border-border pt-4 bg-muted/10 flex justify-end gap-2">
                 {isGlobalBank ? (
-                  <p className="text-xs text-muted-foreground">Read-only shared prompt</p>
+                  <p className="text-xs text-muted-foreground">Read-only shared writing task</p>
                 ) : (
                   <Button variant="ghost" size="sm" onClick={() => handleOpenDialog(question)}>
                     <Edit className="w-4 h-4 mr-2" /> Edit
@@ -428,7 +428,7 @@ export default function TeacherQuestions() {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-[640px]">
           <DialogHeader>
-            <DialogTitle>{editingQuestion ? "Edit Prompt" : "Create New Prompt"}</DialogTitle>
+            <DialogTitle>{editingQuestion ? "Edit Writing Task" : "Create New Writing Task"}</DialogTitle>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="space-y-2">
@@ -478,7 +478,7 @@ export default function TeacherQuestions() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="question-prompt">Prompt</Label>
+              <Label htmlFor="question-prompt">Task Text</Label>
               <Textarea
                 id="question-prompt"
                 value={formData.prompt}
@@ -523,7 +523,7 @@ export default function TeacherQuestions() {
               </div>
             </div>
             <div className="flex items-center justify-between rounded-md border p-3">
-              <Label htmlFor="question-active">Active prompt</Label>
+              <Label htmlFor="question-active">Active writing task</Label>
               <Switch
                 id="question-active"
                 checked={formData.is_active}
@@ -533,7 +533,7 @@ export default function TeacherQuestions() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setIsDialogOpen(false)}>Cancel</Button>
-            <Button onClick={handleSave}>Save Prompt</Button>
+            <Button onClick={handleSave}>Save Writing Task</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
