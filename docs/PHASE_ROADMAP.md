@@ -168,19 +168,25 @@ Phase 5C completion note: route-based code splitting, conservative query limits,
 
 Goal: Add server-side AI correction with strict validation.
 
-Will implement:
+Phase 6A implements:
 
-- server-side AI endpoint or Supabase Edge Function
+- server-side Supabase Edge Function
 - protected DeepSeek API key
 - no-overcorrection prompt
-- strict Zod schema for AI JSON
+- strict JSON validation for feedback output
 - server-side input length and line limits
 - safe error handling
+- teacher-triggered `Prepare Feedback` action
+- saved line-by-line feedback in Supabase
 
-Will not implement yet:
+Will not implement in Phase 6A:
 
+- automatic immediate or delayed student feedback
 - generated tests unless needed for separate phase
 - OCR/audio
+- admin panel
+- timer/exam mode
+- daily launch limits
 
 Testing requirement: typecheck, build, schema validation tests, malformed AI response tests, rate-limit checks.
 

@@ -4,11 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PromptText } from "@/components/prompt-text";
-import { ArrowLeft, Clock } from "lucide-react";
+import { ArrowLeft, Clock, Loader2, Sparkles } from "lucide-react";
 import { SubmissionReview } from "@/components/submission-review";
+import { RealFeedbackReview } from "@/components/real-feedback-review";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId } from "@/lib/workspaceData";
-import { getTeacherSubmissionDetail, type WritingSubmission } from "@/services/submissionService";
+import { getSubmissionFeedback, getTeacherSubmissionDetail, prepareWritingFeedback, type WritingFeedback, type WritingSubmission } from "@/services/submissionService";
+import { useToast } from "@/hooks/use-toast";
 import { MOCK_SUBMISSIONS, MOCK_STUDENTS, MOCK_QUESTIONS } from "@/data/mockData";
 
 function formatSubmissionDate(value: string) {
@@ -22,33 +24,55 @@ function formatSubmissionDate(value: string) {
 export default function TeacherSubmissionDetail() {
   const { id } = useParams();
   const { authMode, user, workspaceMemberships } = useAuth();
+  const { toast } = useToast();
   const useRealData = authMode === "supabase" && Boolean(user);
   const workspaceId = getActiveWorkspaceId(workspaceMemberships);
   const [realSubmission, setRealSubmission] = useState<WritingSubmission | null>(null);
+  const [feedback, setFeedback] = useState<WritingFeedback | null>(null);
   const [loading, setLoading] = useState(useRealData);
+  const [preparingFeedback, setPreparingFeedback] = useState(false);
   const [error, setError] = useState<string | null>(null);
   
   const submission = MOCK_SUBMISSIONS.find(s => s.id === id) || MOCK_SUBMISSIONS[0];
   const student = MOCK_STUDENTS.find(s => s.id === submission.studentId);
   const question = MOCK_QUESTIONS.find(q => q.id === submission.questionId);
 
-  useEffect(() => {
+  async function loadSubmission() {
     if (!useRealData || !workspaceId || !id) return;
-
-    async function loadSubmission() {
-      try {
-        setLoading(true);
-        setError(null);
-        setRealSubmission(await getTeacherSubmissionDetail(workspaceId!, id!));
-      } catch (loadError) {
-        setError(formatErrorMessage(loadError, "Unable to load this submission."));
-      } finally {
-        setLoading(false);
-      }
+    try {
+      setLoading(true);
+      setError(null);
+      const nextSubmission = await getTeacherSubmissionDetail(workspaceId, id);
+      setRealSubmission(nextSubmission);
+      setFeedback(nextSubmission ? await getSubmissionFeedback(nextSubmission.id) : null);
+    } catch (loadError) {
+      setError(formatErrorMessage(loadError, "Unable to load this submission."));
+    } finally {
+      setLoading(false);
     }
+  }
 
+  useEffect(() => {
     void loadSubmission();
   }, [id, useRealData, workspaceId]);
+
+  const handlePrepareFeedback = async () => {
+    if (!realSubmission) return;
+    try {
+      setPreparingFeedback(true);
+      setError(null);
+      await prepareWritingFeedback(realSubmission.id);
+      await loadSubmission();
+      toast({ title: "Feedback ready", description: "Line-by-line feedback was saved for this submission." });
+    } catch (prepareError) {
+      const message = formatErrorMessage(prepareError, "Feedback could not be prepared.");
+      setError(message);
+      toast({ title: "Feedback failed", description: message });
+      await loadSubmission();
+    } finally {
+      setPreparingFeedback(false);
+    }
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
@@ -110,21 +134,42 @@ export default function TeacherSubmissionDetail() {
               </Card>
             )}
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Student Submission</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="whitespace-pre-wrap leading-relaxed">{realSubmission.original_text}</p>
-              </CardContent>
-            </Card>
+            {feedback ? (
+              <RealFeedbackReview submission={realSubmission} feedback={feedback} />
+            ) : (
+              <>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Student Submission</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="whitespace-pre-wrap leading-relaxed">{realSubmission.original_text}</p>
+                  </CardContent>
+                </Card>
 
-            <Card className="border-dashed bg-muted/20">
-              <CardContent className="p-8 text-center">
-                <h2 className="text-lg font-semibold mb-2">Feedback pending.</h2>
-                <p className="text-sm text-muted-foreground">Line-by-line correction and grammar insights will appear after review is available.</p>
-              </CardContent>
-            </Card>
+                <Card className="border-dashed bg-muted/20">
+                  <CardContent className="p-8 text-center">
+                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <Sparkles className="h-6 w-6" />
+                    </div>
+                    <h2 className="text-lg font-semibold mb-2">Feedback pending.</h2>
+                    <p className="text-sm text-muted-foreground mb-6">Prepare line-by-line feedback for this submitted writing.</p>
+                    <Button
+                      onClick={handlePrepareFeedback}
+                      disabled={preparingFeedback || realSubmission.status === "checking" || realSubmission.status === "draft"}
+                      className="shadow-sm"
+                    >
+                      {preparingFeedback || realSubmission.status === "checking" ? (
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      ) : (
+                        <Sparkles className="mr-2 h-4 w-4" />
+                      )}
+                      {preparingFeedback || realSubmission.status === "checking" ? "Preparing feedback..." : "Prepare Feedback"}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </>
+            )}
           </div>
         ) : (
           <Card className="border-dashed bg-muted/20">

@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 import { PromptText } from "@/components/prompt-text";
 import { ArrowLeft, Clock } from "lucide-react";
 import { SubmissionReview } from "@/components/submission-review";
+import { RealFeedbackReview } from "@/components/real-feedback-review";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage } from "@/lib/workspaceData";
-import { getStudentSubmissionDetail, type WritingSubmission } from "@/services/submissionService";
+import { getStudentSubmissionDetail, getSubmissionFeedback, type WritingFeedback, type WritingSubmission } from "@/services/submissionService";
 import { MOCK_SUBMISSIONS, MOCK_QUESTIONS, MOCK_STUDENTS } from "@/data/mockData";
 
 function formatSubmissionDate(value: string) {
@@ -24,6 +25,7 @@ export default function StudentSubmissionDetail() {
   const { authMode, user } = useAuth();
   const useRealData = authMode === "supabase" && Boolean(user);
   const [realSubmission, setRealSubmission] = useState<WritingSubmission | null>(null);
+  const [feedback, setFeedback] = useState<WritingFeedback | null>(null);
   const [loading, setLoading] = useState(useRealData);
   const [error, setError] = useState<string | null>(null);
   
@@ -38,7 +40,9 @@ export default function StudentSubmissionDetail() {
       try {
         setLoading(true);
         setError(null);
-        setRealSubmission(await getStudentSubmissionDetail(id!, user!.id));
+        const nextSubmission = await getStudentSubmissionDetail(id!, user!.id);
+        setRealSubmission(nextSubmission);
+        setFeedback(nextSubmission ? await getSubmissionFeedback(nextSubmission.id) : null);
       } catch (loadError) {
         setError(formatErrorMessage(loadError, "Unable to load this submission."));
       } finally {
@@ -103,21 +107,27 @@ export default function StudentSubmissionDetail() {
               </Card>
             )}
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Original Submission</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="whitespace-pre-wrap leading-relaxed">{realSubmission.original_text}</p>
-              </CardContent>
-            </Card>
+            {feedback ? (
+              <RealFeedbackReview submission={realSubmission} feedback={feedback} />
+            ) : (
+              <>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">Original Submission</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="whitespace-pre-wrap leading-relaxed">{realSubmission.original_text}</p>
+                  </CardContent>
+                </Card>
 
-            <Card className="border-dashed bg-muted/20">
-              <CardContent className="p-8 text-center">
-                <h2 className="text-lg font-semibold mb-2">Correction pending.</h2>
-                <p className="text-sm text-muted-foreground">Line-by-line feedback will appear here after review.</p>
-              </CardContent>
-            </Card>
+                <Card className="border-dashed bg-muted/20">
+                  <CardContent className="p-8 text-center">
+                    <h2 className="text-lg font-semibold mb-2">Correction pending.</h2>
+                    <p className="text-sm text-muted-foreground">Feedback is being prepared. Check back later for line-by-line feedback.</p>
+                  </CardContent>
+                </Card>
+              </>
+            )}
           </div>
         ) : (
           <Card className="border-dashed bg-muted/20">
