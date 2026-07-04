@@ -21,6 +21,7 @@ Phase 3 adds the auth foundation while keeping the existing demo UI available.
   - Revoked exposed execution for `rls_auto_enable` when present.
   - Moved privileged helper logic into the non-exposed `app_private` schema.
   - Split broad `FOR ALL` RLS policies into explicit insert/update/delete policies.
+  - Allowed the trusted onboarding RPC to create the first owner membership while direct client owner inserts stay blocked.
 - Live Supabase TypeScript types generated into `artifacts/german-writing-coach/src/types/supabase.ts`.
 - Supabase project migrations applied to project `vzcgalzspdehmnvqczfw`.
 - Grammar topic seed data applied to the linked project.
@@ -51,10 +52,12 @@ The local `.env.local` now uses the project URL and a frontend publishable key. 
 
 ## Verification
 
-- Linked project migration history matches local migrations through `202607040005`.
+- Linked project migration history matches local migrations through `20260704085609`.
 - `public.grammar_topics` contains 10 seed rows.
 - Auth/profile hardening triggers exist in the remote database.
-- Supabase security advisors report no issues.
+- Live teacher signup created an Auth user and profile, but email confirmation blocked login before UI onboarding could be completed.
+- Rolled-back RLS probes confirmed profile role updates are blocked, direct owner membership creation is blocked, and `create_teacher_workspace` works.
+- Supabase security advisors report one project-level Auth warning: leaked password protection is disabled.
 - Supabase performance advisors report no issues.
 
 ## Phase 4 Recommendation

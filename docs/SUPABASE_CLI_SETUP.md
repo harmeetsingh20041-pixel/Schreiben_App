@@ -50,8 +50,9 @@ The final linked migration list contains:
 - `202607040003_security_advisor_fixes.sql`
 - `202607040004_move_privileged_helpers_private.sql`
 - `202607040005_split_manage_policies.sql`
+- `20260704085609_allow_workspace_owner_onboarding.sql`
 
-Supabase security and performance advisors were rerun after the final migrations and reported no issues.
+Supabase security and performance advisors were rerun after the final migrations. Performance reported no issues. Security reported one project-level Auth warning: leaked password protection is disabled.
 
 ## Local Environment
 
