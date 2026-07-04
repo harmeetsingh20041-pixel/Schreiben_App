@@ -93,6 +93,7 @@ export async function listGlobalQuestions(levels?: WorkspaceLevel[]): Promise<Wo
     .from("global_questions")
     .select("*")
     .eq("is_active", true)
+    .order("sort_order", { ascending: true })
     .order("created_at", { ascending: false });
 
   if (levels && levels.length > 0) {

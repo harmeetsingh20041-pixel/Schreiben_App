@@ -205,6 +205,9 @@ export type Database = {
           is_active: boolean
           level: string
           prompt: string
+          sort_order: number | null
+          source_key: string | null
+          source_label: string | null
           task_type: string
           title: string
           topic: string
@@ -220,6 +223,9 @@ export type Database = {
           is_active?: boolean
           level: string
           prompt: string
+          sort_order?: number | null
+          source_key?: string | null
+          source_label?: string | null
           task_type: string
           title: string
           topic: string
@@ -235,6 +241,9 @@ export type Database = {
           is_active?: boolean
           level?: string
           prompt?: string
+          sort_order?: number | null
+          source_key?: string | null
+          source_label?: string | null
           task_type?: string
           title?: string
           topic?: string
