@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation, useSearch } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,6 +12,8 @@ import { useAuth } from "@/lib/auth";
 import { useToast } from "@/hooks/use-toast";
 import { formatErrorMessage } from "@/lib/workspaceData";
 import type { Question } from "@/types";
+
+const GERMAN_SPECIAL_LETTERS = ["ä", "ö", "ü", "ß", "Ä", "Ö", "Ü"];
 
 export default function StudentWrite() {
   const { authMode, user } = useAuth();
@@ -40,6 +42,8 @@ export default function StudentWrite() {
   const [checkStage, setCheckStage] = useState(0);
   const [submittedId, setSubmittedId] = useState<string | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const selectionRef = useRef<{ start: number; end: number } | null>(null);
   
   const wordCount = text.trim().split(/\s+/).filter(w => w.length > 0).length;
   
@@ -142,6 +146,33 @@ export default function StudentWrite() {
     });
   };
 
+  const rememberSelection = () => {
+    const textarea = textareaRef.current;
+    if (!textarea) return;
+    selectionRef.current = {
+      start: textarea.selectionStart ?? text.length,
+      end: textarea.selectionEnd ?? text.length,
+    };
+  };
+
+  const insertSpecialLetter = (letter: string) => {
+    const textarea = textareaRef.current;
+    if (!textarea || isChecking) return;
+
+    const savedSelection = selectionRef.current;
+    const start = Math.min(savedSelection?.start ?? textarea.selectionStart ?? text.length, text.length);
+    const end = Math.min(savedSelection?.end ?? textarea.selectionEnd ?? text.length, text.length);
+    const nextText = `${text.slice(0, start)}${letter}${text.slice(end)}`;
+    const nextCursor = start + letter.length;
+
+    setText(nextText);
+    selectionRef.current = { start: nextCursor, end: nextCursor };
+    requestAnimationFrame(() => {
+      textarea.focus();
+      textarea.setSelectionRange(nextCursor, nextCursor);
+    });
+  };
+
   if (!isFree && !question) {
     return <div className="p-8 text-center">Prompt not found.</div>;
   }
@@ -238,12 +269,40 @@ export default function StudentWrite() {
               Simple German is okay. Write naturally.
             </span>
           </div>
+
+          <div className="px-4 py-3 border-b border-border bg-background/70 flex flex-col sm:flex-row sm:items-center gap-3">
+            <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+              German letters
+            </span>
+            <div className="flex flex-wrap gap-2" aria-label="German special letters">
+              {GERMAN_SPECIAL_LETTERS.map((letter) => (
+                <Button
+                  key={letter}
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="h-8 min-w-8 px-2 text-base font-semibold leading-none bg-card"
+                  aria-label={`Insert ${letter}`}
+                  disabled={isChecking}
+                  onMouseDown={(event) => event.preventDefault()}
+                  onClick={() => insertSpecialLetter(letter)}
+                >
+                  {letter}
+                </Button>
+              ))}
+            </div>
+          </div>
           
           <Textarea 
+            ref={textareaRef}
             className="flex-1 resize-none border-0 focus-visible:ring-0 rounded-none p-6 text-lg leading-relaxed shadow-none bg-transparent"
             placeholder="Type your German text here..."
             value={text}
             onChange={(e) => setText(e.target.value)}
+            onClick={rememberSelection}
+            onFocus={rememberSelection}
+            onKeyUp={rememberSelection}
+            onSelect={rememberSelection}
             disabled={isChecking}
           />
           

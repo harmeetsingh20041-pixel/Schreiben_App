@@ -127,12 +127,21 @@ Will not implement yet:
 
 - full repeat-question workflow
 - question timers or exam mode
+- OCR/photo upload
+- daily writing/check limits
+- question priority or teacher-assigned required-question queues
 - AI correction
 - performance optimization beyond small query/order fixes
 
 Future repeat workflow note: after AI or teacher review exists, a submission can be marked `repeat_required` so the student can intentionally repeat the same prompt. Until then, submitted prompts should only show the latest submitted answer.
 
 Future timer/exam mode note: add question timers, timed writing sessions, draft/autosave, submit-on-timer-end behavior, and per-level timer defaults in a later phase.
+
+Future OCR/photo upload note: image upload, OCR extraction, editable extracted text, and storage/file validation should stay in a later OCR phase.
+
+Future usage-control note: daily writing/check limits should be designed with server-side enforcement after real AI cost controls exist.
+
+Future question-planning note: teacher priority, required assigned questions, and ordered student queues should be a later workflow phase rather than part of the A2 bank import.
 
 ## Phase 5C: Performance and Scale Polish
 
