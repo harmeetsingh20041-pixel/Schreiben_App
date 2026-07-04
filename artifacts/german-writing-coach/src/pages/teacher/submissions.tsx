@@ -67,7 +67,7 @@ export default function TeacherSubmissions() {
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Student Submissions</h1>
-          <p className="text-muted-foreground mt-1">Review AI-corrected work and add teacher notes.</p>
+          <p className="text-muted-foreground mt-1">Review submitted writing and add teacher notes.</p>
         </div>
       </div>
 

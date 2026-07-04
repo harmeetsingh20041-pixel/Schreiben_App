@@ -105,7 +105,7 @@ export default function Login() {
           <div className="grid grid-cols-3 gap-4 mt-5 max-w-md">
             <div className="flex flex-col gap-1.5">
               <BookOpen className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium">40+ prompts</span>
+              <span className="text-sm font-medium">40+ writing tasks</span>
               <span className="text-xs text-muted-foreground">A1-B2 topics</span>
             </div>
             <div className="flex flex-col gap-1.5">

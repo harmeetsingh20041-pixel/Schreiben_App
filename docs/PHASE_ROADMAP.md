@@ -112,16 +112,16 @@ Testing requirement: typecheck, build, submission create/read checks, authorizat
 
 Expected output: Submissions are persistent.
 
-## Phase 5B: Global Question Bank Polish
+## Phase 5B: Global Writing Task Bank Polish
 
-Goal: Import and polish the shared A2 global Schreiben prompt bank while preserving teacher workspace prompts.
+Goal: Import and polish the shared A2 global Schreiben writing task bank while preserving teacher workspace writing tasks.
 
 Will implement:
 
-- active A2 global prompts
-- prompt formatting with preserved line breaks
-- submitted-state awareness on student prompt cards
-- latest-submission navigation for already submitted prompts
+- active A2 global writing tasks
+- writing task text formatting with preserved line breaks
+- submitted-state awareness on student writing task cards
+- latest-submission navigation for already submitted writing tasks
 
 Will not implement yet:
 
@@ -133,15 +133,15 @@ Will not implement yet:
 - AI correction
 - performance optimization beyond small query/order fixes
 
-Future repeat workflow note: after AI or teacher review exists, a submission can be marked `repeat_required` so the student can intentionally repeat the same prompt. Until then, submitted prompts should only show the latest submitted answer.
+Future repeat workflow note: after AI or teacher review exists, a submission can be marked `repeat_required` so the student can intentionally repeat the same writing task. Until then, submitted writing tasks should only show the latest submitted answer.
 
 Future timer/exam mode note: add question timers, timed writing sessions, draft/autosave, submit-on-timer-end behavior, and per-level timer defaults in a later phase.
 
-Future OCR/photo upload note: image upload, OCR extraction, editable extracted text, and storage/file validation should stay in a later OCR phase.
+Future OCR/photo upload note: a student should select a writing task, upload or capture a photo of a handwritten answer, let OCR extract text, and then review/edit that extracted text before submitting. Raw images should not be stored by default unless explicitly needed, and OCR accuracy/cost must be tested before release.
 
 Future usage-control note: daily writing/check limits should be designed with server-side enforcement after real AI cost controls exist.
 
-Future question-planning note: teacher priority, required assigned questions, and ordered student queues should be a later workflow phase rather than part of the A2 bank import.
+Future writing task planning note: teacher priority, required assigned writing tasks, and ordered student queues should be a later workflow phase rather than part of the A2 bank import.
 
 ## Phase 5C: Performance and Scale Polish
 
@@ -161,6 +161,8 @@ Phase 5C implementation note: use route-level lazy loading first, then split sta
 Phase 5C data note: keep the first optimization conservative with bounded Supabase reads. Full pagination or "Load more" UI for questions, students, and submissions should be added when real class sizes grow beyond the initial limits.
 
 Phase 5C index note: do not duplicate existing indexes. Current migrations already cover the main Phase 5C access paths for global questions, submissions, invitations, join requests, workspace members, and batch students.
+
+Phase 5C completion note: route-based code splitting, conservative query limits, and Vite chunk organization are complete. Future scale work can still improve load-more pagination, searchable server-side filters, and low-device/mobile smoothness once real class data grows.
 
 ## Phase 6: DeepSeek V4 Flash Writing Checker
 
@@ -183,6 +185,55 @@ Will not implement yet:
 Testing requirement: typecheck, build, schema validation tests, malformed AI response tests, rate-limit checks.
 
 Expected output: Line-by-line correction works through validated server-side AI.
+
+## Future Phase 6B: Feedback Timing Modes
+
+Goal: Let teachers control when students receive feedback without requiring students to keep the website open.
+
+Will implement later:
+
+- batch-level feedback timing setting: immediate feedback, delayed feedback, or teacher review only
+- optional scheduled feedback time per submission
+- server-side scheduled job or edge function to process due submissions
+- student-facing states that say feedback is being prepared or to check back later
+- teacher review and override controls after feedback is generated or prepared
+
+Will not implement in Phase 5D: database changes, scheduling jobs, edge functions, or delayed feedback behavior.
+
+## Future Admin Panel
+
+Goal: Give platform admins a separate operational area that is not mixed into teacher workspace screens.
+
+Will implement later:
+
+- view/manage teachers, workspaces, batches, students, submissions, and the global writing task bank
+- manage global A1/A2/B1/B2 writing tasks
+- review usage, cost, and security overview metrics once production usage exists
+- keep admin controls separate from normal teacher workspace UI
+
+## Future OCR / Photo Upload
+
+Goal: Support handwritten answers while keeping students in control of the extracted text.
+
+Will implement later:
+
+- student selects a writing task before uploading or capturing an answer image
+- OCR extracts text from the image
+- student reviews and edits extracted text before final submission
+- raw images are not stored by default unless explicitly needed
+- accuracy, latency, and cost are tested before release
+
+## Future Priority, Repeat, Timer, And Limits
+
+Goal: Add classroom control and launch safety after the core writing loop is stable.
+
+Will implement later:
+
+- teacher-assigned or priority writing tasks
+- repeat-required workflow after teacher or AI review
+- timer/exam mode with autosave and submit-on-timer-end behavior
+- daily submission/check limits before real launch
+- additional load-more pagination and server-side search/filter improvements when class data grows
 
 ## Phase 7: Grammar Weakness Tracking
 

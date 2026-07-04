@@ -137,7 +137,7 @@ export default function TeacherDashboard() {
                 <FileText className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">{useRealData ? "Questions" : "Submissions"}</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">{useRealData ? "Writing Tasks" : "Submissions"}</p>
                 <h3 className="text-3xl font-serif text-foreground">{loading ? "..." : totalQuestions}</h3>
               </div>
             </div>

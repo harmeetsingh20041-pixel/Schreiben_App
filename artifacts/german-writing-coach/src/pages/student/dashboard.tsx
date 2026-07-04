@@ -120,7 +120,7 @@ export default function StudentDashboard() {
               </div>
               <div>
                 <CardTitle>Join your batch</CardTitle>
-                <CardDescription>Enter your teacher's batch code. They will approve your request before prompts appear.</CardDescription>
+                <CardDescription>Enter your teacher's batch code. They will approve your request before writing tasks appear.</CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -214,7 +214,7 @@ export default function StudentDashboard() {
                 <div className="w-1.5 h-1.5 mt-2 rounded-full bg-primary" />
                 <div>
                   <p className="text-sm font-medium text-foreground">
-                    {useRealData ? "Start an assigned writing prompt" : "Review Dativ/Akkusativ"}
+                    {useRealData ? "Start an assigned writing task" : "Review Dativ/Akkusativ"}
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
                     {useRealData ? "Feedback will appear after real submissions are saved" : "Recommended before next writing"}
@@ -225,7 +225,7 @@ export default function StudentDashboard() {
                 <div className="w-1.5 h-1.5 mt-2 rounded-full bg-muted-foreground/30" />
                 <div>
                   <p className="text-sm font-medium text-foreground">Complete assigned writing topic</p>
-                  <p className="text-xs text-muted-foreground mt-1">Try a new practice prompt</p>
+                  <p className="text-xs text-muted-foreground mt-1">Try a new writing task</p>
                 </div>
               </div>
             </div>
@@ -258,7 +258,7 @@ export default function StudentDashboard() {
                 {submission.question_title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-6">
-                Correction pending. AI feedback will appear in the next phase.
+                Correction pending. Feedback is being prepared.
               </p>
               <div className="flex justify-between items-center mt-auto border-t border-border/60 pt-4">
                 <div className="text-xs text-muted-foreground font-medium uppercase tracking-wider">

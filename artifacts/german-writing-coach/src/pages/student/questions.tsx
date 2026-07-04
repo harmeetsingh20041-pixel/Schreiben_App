@@ -95,7 +95,7 @@ export default function StudentQuestions() {
         setJoinRequests(nextJoinRequests);
         setRealSubmissions(nextSubmissions);
       } catch (loadError) {
-        setError(formatErrorMessage(loadError, "Unable to load assigned prompts."));
+        setError(formatErrorMessage(loadError, "Unable to load assigned writing tasks."));
       } finally {
         setLoading(false);
       }
@@ -139,7 +139,7 @@ export default function StudentQuestions() {
     return map;
   }, [realSubmissions]);
 
-  const selectPrompt = (question: WorkspaceQuestion) => {
+  const startWritingTask = (question: WorkspaceQuestion) => {
     sessionStorage.setItem(
       "gwc_selected_question",
       JSON.stringify({
@@ -191,8 +191,8 @@ export default function StudentQuestions() {
     <div className="container mx-auto px-4 py-8 max-w-6xl animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Practice Prompts</h1>
-          <p className="text-muted-foreground mt-1">Choose a topic to practice your writing skills.</p>
+          <h1 className="text-3xl font-bold tracking-tight">Writing Tasks</h1>
+          <p className="text-muted-foreground mt-1">Choose an Aufgabe to practice your writing skills.</p>
         </div>
       </div>
 
@@ -269,7 +269,7 @@ export default function StudentQuestions() {
               <Edit3 className="w-5 h-5 text-primary" />
             </div>
             <CardTitle className="text-xl">Free Writing</CardTitle>
-            <CardDescription>Practice without a specific prompt</CardDescription>
+            <CardDescription>Practice without a specific writing task</CardDescription>
           </CardHeader>
           <CardContent className="flex-1">
             <p className="text-sm text-muted-foreground">
@@ -285,13 +285,13 @@ export default function StudentQuestions() {
 
         {loading ? (
           <Card>
-            <CardContent className="py-10 text-center text-muted-foreground">Loading assigned prompts...</CardContent>
+            <CardContent className="py-10 text-center text-muted-foreground">Loading assigned writing tasks...</CardContent>
           </Card>
         ) : filteredQuestions.length === 0 ? (
           <Card className="border-dashed">
             <CardContent className="py-10 text-center">
-              <h2 className="text-lg font-semibold mb-2">No assigned prompts yet</h2>
-              <p className="text-sm text-muted-foreground">Your teacher can assign batches and prompts from the workspace.</p>
+              <h2 className="text-lg font-semibold mb-2">No assigned writing tasks yet</h2>
+              <p className="text-sm text-muted-foreground">Your teacher can assign batches and writing tasks from the workspace.</p>
             </CardContent>
           </Card>
         ) : (
@@ -308,7 +308,7 @@ export default function StudentQuestions() {
                       <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
                         {question.level}
                       </Badge>
-                      {question.source === "global" && <Badge variant="outline">Global</Badge>}
+                      {question.source === "global" && <Badge variant="outline">Global Task</Badge>}
                       {latestSubmission && (
                         <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
                           Submitted
@@ -333,9 +333,9 @@ export default function StudentQuestions() {
                   <Button
                     variant="outline"
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors"
-                    onClick={() => latestSubmission ? setLocation(`/student/submission/${latestSubmission.id}`) : selectPrompt(question)}
+                    onClick={() => latestSubmission ? setLocation(`/student/submission/${latestSubmission.id}`) : startWritingTask(question)}
                   >
-                    {latestSubmission ? "View Submission" : "Select Prompt"}
+                    {latestSubmission ? "View Submission" : "Start Writing"}
                   </Button>
                 </CardFooter>
               </Card>
