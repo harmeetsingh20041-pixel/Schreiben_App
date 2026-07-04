@@ -34,6 +34,7 @@ node_modules
 /coverage
 /artifacts/*/.env.local
 /.env.local
+/supabase/.temp/
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log

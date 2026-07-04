@@ -1,21 +1,24 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/types/supabase";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as
   | string
   | undefined;
 
-let client: SupabaseClient | null = null;
+type AppSupabaseClient = SupabaseClient<Database>;
+
+let client: AppSupabaseClient | null = null;
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 
-export function getSupabaseClient(): SupabaseClient | null {
+export function getSupabaseClient(): AppSupabaseClient | null {
   if (!isSupabaseConfigured) {
     return null;
   }
 
   if (!client) {
-    client = createClient(supabaseUrl!, supabaseAnonKey!);
+    client = createClient<Database>(supabaseUrl!, supabaseAnonKey!);
   }
 
   return client;
