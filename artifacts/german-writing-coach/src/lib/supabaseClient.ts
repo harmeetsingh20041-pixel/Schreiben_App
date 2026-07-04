@@ -1,26 +1,29 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/types/supabase";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as
   | string
   | undefined;
 
-let client: SupabaseClient | null = null;
+type AppSupabaseClient = SupabaseClient<Database>;
+
+let client: AppSupabaseClient | null = null;
 
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 
-export function getSupabaseClient(): SupabaseClient | null {
+export function getSupabaseClient(): AppSupabaseClient | null {
   if (!isSupabaseConfigured) {
     return null;
   }
 
   if (!client) {
-    client = createClient(supabaseUrl!, supabaseAnonKey!);
+    client = createClient<Database>(supabaseUrl!, supabaseAnonKey!);
   }
 
   return client;
 }
 
-// Phase 2 foundation only. Real auth and data calls are intentionally deferred
-// to Phase 3/4 so the approved mock frontend keeps working without env vars.
+// Real auth starts in Phase 3. Data-heavy workflows still keep the approved
+// mock fallback until Phase 4 replaces them gradually.
 export const supabase = getSupabaseClient();

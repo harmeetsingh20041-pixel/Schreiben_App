@@ -25,6 +25,7 @@ import TeacherStudents from "@/pages/teacher/students";
 import TeacherQuestions from "@/pages/teacher/questions";
 import TeacherSubmissions from "@/pages/teacher/submissions";
 import TeacherSubmissionDetail from "@/pages/teacher/submission";
+import TeacherOnboarding from "@/pages/teacher/onboarding";
 
 const queryClient = new QueryClient();
 
@@ -32,8 +33,12 @@ function ProtectedRoute({ component: Component, role, path }: any) {
   return (
     <Route path={path}>
       {() => {
-        const { role: currentRole } = useAuth();
+        const { loading, role: currentRole, needsWorkspace } = useAuth();
+        if (loading) return null;
         if (currentRole !== role) return <Redirect to="/" />;
+        if (role === "teacher" && needsWorkspace && path !== "/teacher/onboarding") {
+          return <Redirect to="/teacher/onboarding" />;
+        }
         return (
           <Layout>
             <Component />
@@ -60,6 +65,7 @@ function Router() {
       <ProtectedRoute path="/student/submission/:id" role="student" component={StudentSubmissionDetail} />
       
       {/* Teacher Routes */}
+      <ProtectedRoute path="/teacher/onboarding" role="teacher" component={TeacherOnboarding} />
       <ProtectedRoute path="/teacher/dashboard" role="teacher" component={TeacherDashboard} />
       <ProtectedRoute path="/teacher/batches" role="teacher" component={TeacherBatches} />
       <ProtectedRoute path="/teacher/students" role="teacher" component={TeacherStudents} />

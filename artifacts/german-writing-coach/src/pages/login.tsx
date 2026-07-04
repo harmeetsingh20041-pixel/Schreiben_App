@@ -8,15 +8,22 @@ import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 
 export default function Login() {
-  const { login, role } = useAuth();
+  const { authMode, login, loading, needsWorkspace, role, signIn, signUp } = useAuth();
   const [, setLocation] = useLocation();
   const [isAnimating, setIsAnimating] = useState(false);
   const [heroText, setHeroText] = useState("Ich habe meinen Hausaufgaben gemacht.");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [accountType, setAccountType] = useState<"student" | "teacher">("teacher");
+  const [formMode, setFormMode] = useState<"sign-in" | "sign-up">("sign-in");
+  const [error, setError] = useState<string | null>(null);
   
   useEffect(() => {
+    if (needsWorkspace) setLocation("/teacher/onboarding");
     if (role === "student") setLocation("/student/dashboard");
-    if (role === "teacher") setLocation("/teacher/dashboard");
-  }, [role, setLocation]);
+    if (role === "teacher" && !needsWorkspace) setLocation("/teacher/dashboard");
+  }, [needsWorkspace, role, setLocation]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,6 +41,19 @@ export default function Login() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleEmailAuth = async () => {
+    setError(null);
+    try {
+      if (formMode === "sign-in") {
+        await signIn(email, password);
+      } else {
+        await signUp({ email, password, fullName, accountType });
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Authentication failed.");
+    }
+  };
 
   return (
     <div className="min-h-[100dvh] flex flex-col lg:flex-row bg-background relative font-sans text-foreground">
@@ -115,17 +135,94 @@ export default function Login() {
 
           <div className="space-y-6">
             <div className="space-y-4">
+              {formMode === "sign-up" && (
+                <div className="space-y-2">
+                  <Label htmlFor="full-name" className="text-muted-foreground">Full name</Label>
+                  <Input
+                    id="full-name"
+                    type="text"
+                    placeholder="Rahul Sharma"
+                    value={fullName}
+                    onChange={(event) => setFullName(event.target.value)}
+                    disabled={authMode !== "supabase" || loading}
+                    className="bg-background border-border/70"
+                  />
+                </div>
+              )}
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-muted-foreground">Email</Label>
-                <Input id="email" type="email" placeholder="name@example.com" disabled className="bg-muted/50 border-border/50" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="name@example.com"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  disabled={authMode !== "supabase" || loading}
+                  className="bg-background border-border/70 disabled:bg-muted/50 disabled:border-border/50"
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="password" className="text-muted-foreground">Password</Label>
-                <Input id="password" type="password" disabled value="••••••••" className="bg-muted/50 border-border/50" />
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder={authMode === "supabase" ? "Enter password" : "••••••••"}
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  disabled={authMode !== "supabase" || loading}
+                  className="bg-background border-border/70 disabled:bg-muted/50 disabled:border-border/50"
+                />
               </div>
-              <Button className="w-full h-11 text-base shadow-sm" disabled variant="secondary">
-                Sign in with Email
+              {formMode === "sign-up" && (
+                <div className="grid grid-cols-2 gap-2">
+                  <Button
+                    type="button"
+                    variant={accountType === "teacher" ? "default" : "outline"}
+                    onClick={() => setAccountType("teacher")}
+                    disabled={authMode !== "supabase" || loading}
+                  >
+                    Teacher
+                  </Button>
+                  <Button
+                    type="button"
+                    variant={accountType === "student" ? "default" : "outline"}
+                    onClick={() => setAccountType("student")}
+                    disabled={authMode !== "supabase" || loading}
+                  >
+                    Student
+                  </Button>
+                </div>
+              )}
+              {error && (
+                <div className="rounded-md border border-destructive/30 bg-destructive/10 px-3 py-2 text-sm text-destructive">
+                  {error}
+                </div>
+              )}
+              <Button
+                className="w-full h-11 text-base shadow-sm"
+                disabled={authMode !== "supabase" || loading || !email || !password}
+                variant={authMode === "supabase" ? "default" : "secondary"}
+                onClick={handleEmailAuth}
+              >
+                {loading ? "Please wait..." : formMode === "sign-in" ? "Sign in with Email" : "Create Account"}
               </Button>
+              <Button
+                type="button"
+                variant="ghost"
+                className="w-full text-muted-foreground"
+                onClick={() => {
+                  setError(null);
+                  setFormMode(formMode === "sign-in" ? "sign-up" : "sign-in");
+                }}
+                disabled={authMode !== "supabase" || loading}
+              >
+                {formMode === "sign-in" ? "Create a teacher or student account" : "Use an existing account"}
+              </Button>
+              {authMode !== "supabase" && (
+                <p className="text-xs text-muted-foreground text-center">
+                  Email auth turns on after Supabase env vars are added locally.
+                </p>
+              )}
             </div>
 
             <div className="relative">
