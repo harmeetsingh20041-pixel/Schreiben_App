@@ -64,3 +64,9 @@ VITE_SUPABASE_ANON_KEY=<publishable-or-anon-key>
 ```
 
 The local file is `artifacts/german-writing-coach/.env.local`. It is intentionally gitignored.
+
+## Email-Safe Testing
+
+Remote Supabase Auth tests must use real reachable email addresses or owned Gmail aliases. Do not create fake remote Auth users, do not resend confirmations to unreachable addresses, and use Mailpit only with local Supabase testing.
+
+See `docs/SUPABASE_EMAIL_TESTING_POLICY.md` for the full policy.
