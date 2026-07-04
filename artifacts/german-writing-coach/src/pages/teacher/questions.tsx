@@ -72,6 +72,7 @@ function mockToWorkspaceQuestion(question: Question): WorkspaceQuestion {
     id: question.id,
     workspace_id: "mock",
     source: "workspace",
+    batch_id: null,
     title: question.title,
     prompt: question.prompt,
     level: question.level,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useSearch } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,14 +6,51 @@ import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Eye, Calendar, Clock, CheckCircle2 } from "lucide-react";
 import { useAuth } from "@/lib/auth";
+import { formatErrorMessage, getActiveWorkspaceId } from "@/lib/workspaceData";
+import { listTeacherWorkspaceSubmissions, type WritingSubmission } from "@/services/submissionService";
 import { MOCK_SUBMISSIONS, MOCK_STUDENTS, MOCK_QUESTIONS } from "@/data/mockData";
 
+function formatSubmissionDate(value: string) {
+  return new Date(value).toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
 export default function TeacherSubmissions() {
-  const { authMode, user } = useAuth();
+  const { authMode, user, workspaceMemberships } = useAuth();
   const useRealData = authMode === "supabase" && Boolean(user);
+  const workspaceId = getActiveWorkspaceId(workspaceMemberships);
   const searchParams = new URLSearchParams(useSearch());
   const filterStudent = searchParams.get("student");
   const filterBatch = searchParams.get("batch");
+  const [realSubmissions, setRealSubmissions] = useState<WritingSubmission[]>([]);
+  const [loading, setLoading] = useState(useRealData);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!useRealData) return;
+    if (!workspaceId) {
+      setLoading(false);
+      setError("No workspace found.");
+      return;
+    }
+
+    async function loadSubmissions() {
+      try {
+        setLoading(true);
+        setError(null);
+        setRealSubmissions(await listTeacherWorkspaceSubmissions(workspaceId!));
+      } catch (loadError) {
+        setError(formatErrorMessage(loadError, "Unable to load real submissions."));
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    void loadSubmissions();
+  }, [useRealData, workspaceId]);
 
   let filtered = useRealData ? [] : MOCK_SUBMISSIONS;
   if (!useRealData && filterStudent) {
@@ -47,14 +84,65 @@ export default function TeacherSubmissions() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {useRealData ? (
+            {useRealData && loading ? (
+              <TableRow>
+                <TableCell colSpan={6} className="text-center py-12 text-muted-foreground">
+                  Loading real submissions...
+                </TableCell>
+              </TableRow>
+            ) : useRealData && error ? (
+              <TableRow>
+                <TableCell colSpan={6} className="text-center py-12 text-destructive">
+                  {error}
+                </TableCell>
+              </TableRow>
+            ) : useRealData && realSubmissions.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6} className="text-center py-12">
                   <h2 className="text-lg font-semibold mb-2 text-foreground">No real submissions yet.</h2>
                   <p className="text-sm text-muted-foreground">Writing submissions will appear here after students submit work.</p>
                 </TableCell>
               </TableRow>
-            ) : filtered.map(sub => {
+            ) : useRealData ? realSubmissions
+              .filter((submission) => !filterStudent || submission.student_id === filterStudent)
+              .filter((submission) => !filterBatch || submission.batch_id === filterBatch)
+              .map((submission) => (
+                <TableRow key={submission.id}>
+                  <TableCell>
+                    <div className="font-medium text-foreground">{submission.student_name ?? "Student"}</div>
+                    <div className="text-xs text-muted-foreground hidden sm:block">{submission.student_email}</div>
+                  </TableCell>
+                  <TableCell>
+                    <div className="font-medium text-sm line-clamp-1">{submission.question_title}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {submission.question_source_label}
+                      {submission.question_level && ` · Level ${submission.question_level}`}
+                      {submission.batch_name && ` · ${submission.batch_name}`}
+                    </div>
+                  </TableCell>
+                  <TableCell className="hidden md:table-cell text-sm text-muted-foreground">
+                    <div className="flex items-center">
+                      <Calendar className="w-3 h-3 mr-1" /> {formatSubmissionDate(submission.created_at)}
+                    </div>
+                  </TableCell>
+                  <TableCell className="hidden sm:table-cell">
+                    <span className="text-xs text-muted-foreground">Correction pending</span>
+                  </TableCell>
+                  <TableCell>
+                    <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20">
+                      <Clock className="w-3 h-3 mr-1" />
+                      {submission.status}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="text-right">
+                    <Link href={`/teacher/submission/${submission.id}`}>
+                      <Button variant="ghost" size="sm" className="hover:bg-primary/10 hover:text-primary">
+                        <Eye className="w-4 h-4 mr-2" /> Open
+                      </Button>
+                    </Link>
+                  </TableCell>
+                </TableRow>
+              )) : filtered.map(sub => {
               const student = MOCK_STUDENTS.find(s => s.id === sub.studentId);
               const question = MOCK_QUESTIONS.find(q => q.id === sub.questionId);
               const isReviewed = sub.status === "Reviewed";

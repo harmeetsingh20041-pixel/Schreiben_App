@@ -11,6 +11,7 @@ import { useAuth } from "@/lib/auth";
 import { formatErrorMessage } from "@/lib/workspaceData";
 import { useToast } from "@/hooks/use-toast";
 import { listMyBatchAssignments, listMyBatchJoinRequests, requestJoinBatchByCode, type BatchJoinRequest, type StudentBatchAssignment } from "@/services/studentService";
+import { listStudentSubmissions, type WritingSubmission } from "@/services/submissionService";
 
 export default function StudentDashboard() {
   const { authMode, user, profile } = useAuth();
@@ -20,6 +21,7 @@ export default function StudentDashboard() {
   const recentSubmissions = useRealData ? [] : MOCK_SUBMISSIONS.filter(s => s.studentId === student.id).slice(0, 3);
   const [batchAssignments, setBatchAssignments] = useState<StudentBatchAssignment[]>([]);
   const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
+  const [realSubmissions, setRealSubmissions] = useState<WritingSubmission[]>([]);
   const [joinCode, setJoinCode] = useState("");
   const [loading, setLoading] = useState(useRealData);
   const [submittingJoinCode, setSubmittingJoinCode] = useState(false);
@@ -28,12 +30,14 @@ export default function StudentDashboard() {
     if (!user) return;
     try {
       setLoading(true);
-      const [nextAssignments, nextRequests] = await Promise.all([
+      const [nextAssignments, nextRequests, nextSubmissions] = await Promise.all([
         listMyBatchAssignments(user.id),
         listMyBatchJoinRequests(user.id),
+        listStudentSubmissions(user.id),
       ]);
       setBatchAssignments(nextAssignments);
       setJoinRequests(nextRequests);
+      setRealSubmissions(nextSubmissions);
     } catch (error) {
       toast({
         title: "Could not load batch access",
@@ -231,14 +235,42 @@ export default function StudentDashboard() {
 
       <h2 className="text-2xl font-serif tracking-tight mb-6">Recent Feedback</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {useRealData ? (
+        {useRealData && realSubmissions.length === 0 ? (
           <Card className="md:col-span-2 border-dashed bg-muted/20">
             <CardContent className="p-8 text-center">
               <h3 className="text-lg font-semibold mb-2">No real submissions yet.</h3>
               <p className="text-sm text-muted-foreground">Writing submissions will appear here after students submit work.</p>
             </CardContent>
           </Card>
-        ) : recentSubmissions.map((sub, i) => (
+        ) : useRealData ? realSubmissions.slice(0, 4).map((submission, i) => (
+          <Card key={submission.id} className="hover:border-primary/30 transition-all duration-300 shadow-sm border-border rounded-xl animate-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 50}ms` }}>
+            <CardContent className="p-6">
+              <div className="flex justify-between items-start mb-4">
+                <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20 font-medium">
+                  {submission.status}
+                </Badge>
+                <div className="flex items-center text-xs font-mono text-muted-foreground">
+                  <Clock className="w-3.5 h-3.5 mr-1.5" />
+                  {new Date(submission.created_at).toLocaleDateString()}
+                </div>
+              </div>
+              <h3 className="font-serif text-xl mb-3 text-foreground">
+                {submission.question_title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-6">
+                Correction pending. AI feedback will appear in the next phase.
+              </p>
+              <div className="flex justify-between items-center mt-auto border-t border-border/60 pt-4">
+                <div className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
+                  {submission.question_source_label}
+                </div>
+                <Link href={`/student/submission/${submission.id}`} className="text-sm text-primary font-medium hover:underline flex items-center tracking-wide">
+                  Open <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+        )) : recentSubmissions.map((sub, i) => (
           <Card key={sub.id} className="hover:border-primary/30 transition-all duration-300 shadow-sm border-border rounded-xl animate-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 50}ms` }}>
             <CardContent className="p-6">
               <div className="flex justify-between items-start mb-4">
