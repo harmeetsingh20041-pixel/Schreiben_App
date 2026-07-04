@@ -12,15 +12,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId, LEVEL_OPTIONS, type WorkspaceLevel } from "@/lib/workspaceData";
-import { createWorkspaceBatch, listWorkspaceBatches, setBatchActive, updateWorkspaceBatch, type WorkspaceBatch } from "@/services/batchService";
+import { createWorkspaceBatch, listWorkspaceBatches, rotateBatchJoinCode, setBatchActive, updateWorkspaceBatch, type WorkspaceBatch } from "@/services/batchService";
 import { MOCK_BATCHES } from "@/data/mockData";
-import { Archive, CheckCircle2, Edit, FileText, Plus, Users } from "lucide-react";
+import { Archive, CheckCircle2, Copy, Edit, FileText, KeyRound, Plus, RefreshCw, Users } from "lucide-react";
 
 interface BatchFormState {
   name: string;
   level: WorkspaceLevel;
   description: string;
   is_active: boolean;
+  join_code_enabled: boolean;
+  join_requires_approval: boolean;
 }
 
 const initialForm: BatchFormState = {
@@ -28,6 +30,8 @@ const initialForm: BatchFormState = {
   level: "A1",
   description: "",
   is_active: true,
+  join_code_enabled: true,
+  join_requires_approval: true,
 };
 
 function levelBadgeClass(level: string) {
@@ -99,6 +103,9 @@ export default function TeacherBatches() {
       level: (batch.level ?? "A2") as WorkspaceLevel,
       description: null,
       is_active: true,
+      join_code: `DEMO${batch.id.toUpperCase()}`.replace(/[^A-Z0-9]/g, "").slice(0, 10),
+      join_code_enabled: true,
+      join_requires_approval: true,
       created_by: null,
       created_at: "",
       updated_at: "",
@@ -115,6 +122,8 @@ export default function TeacherBatches() {
         level: batch.level,
         description: batch.description ?? "",
         is_active: batch.is_active,
+        join_code_enabled: batch.join_code_enabled,
+        join_requires_approval: batch.join_requires_approval,
       });
     } else {
       setEditingBatch(null);
@@ -164,6 +173,28 @@ export default function TeacherBatches() {
       toast({
         title: "Could not update batch",
         description: formatErrorMessage(toggleError, "Please try again."),
+      });
+    }
+  };
+
+  const copyJoinCode = async (batch: WorkspaceBatch) => {
+    try {
+      await navigator.clipboard.writeText(batch.join_code);
+      toast({ title: "Join code copied", description: `${batch.name}: ${batch.join_code}` });
+    } catch {
+      toast({ title: "Copy failed", description: "Select the code and copy it manually." });
+    }
+  };
+
+  const rotateJoinCode = async (batch: WorkspaceBatch) => {
+    try {
+      const nextCode = await rotateBatchJoinCode(batch.id);
+      await loadBatches();
+      toast({ title: "Join code rotated", description: `${batch.name}: ${nextCode}` });
+    } catch (rotateError) {
+      toast({
+        title: "Could not rotate code",
+        description: formatErrorMessage(rotateError, "Please try again."),
       });
     }
   };
@@ -268,6 +299,51 @@ export default function TeacherBatches() {
                     </div>
                     <span className="font-semibold">{batch.is_active ? "Active" : "Inactive"}</span>
                   </div>
+                  {useRealData && (
+                    <div className="rounded-md border bg-card p-3">
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                            <KeyRound className="h-3.5 w-3.5" />
+                            Join Code
+                          </div>
+                          <p className="mt-1 font-mono text-base tracking-wider text-foreground">{batch.join_code}</p>
+                        </div>
+                        <div className="flex shrink-0 gap-1">
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                            title="Copy join code"
+                            aria-label={`Copy join code for ${batch.name}`}
+                            onClick={() => copyJoinCode(batch)}
+                          >
+                            <Copy className="h-4 w-4" />
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                            title="Rotate join code"
+                            aria-label={`Rotate join code for ${batch.name}`}
+                            onClick={() => rotateJoinCode(batch)}
+                          >
+                            <RefreshCw className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        <Badge variant="outline" className={batch.join_code_enabled ? "bg-green-50 text-green-700 border-green-200" : "bg-muted text-muted-foreground"}>
+                          {batch.join_code_enabled ? "Code enabled" : "Code disabled"}
+                        </Badge>
+                        <Badge variant="outline" className={batch.join_requires_approval ? "bg-amber-50 text-amber-700 border-amber-200" : "bg-blue-50 text-blue-700 border-blue-200"}>
+                          {batch.join_requires_approval ? "Approval required" : "Auto-approve"}
+                        </Badge>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </CardContent>
               <CardFooter className="grid grid-cols-2 gap-3 bg-muted/10 pt-4">
@@ -339,6 +415,28 @@ export default function TeacherBatches() {
                 id="batch-active"
                 checked={formData.is_active}
                 onCheckedChange={(checked) => setFormData({ ...formData, is_active: checked })}
+              />
+            </div>
+            <div className="flex items-center justify-between rounded-md border p-3">
+              <div>
+                <Label htmlFor="batch-code-enabled">Batch code enabled</Label>
+                <p className="text-xs text-muted-foreground mt-1">Students can request to join with this batch code.</p>
+              </div>
+              <Switch
+                id="batch-code-enabled"
+                checked={formData.join_code_enabled}
+                onCheckedChange={(checked) => setFormData({ ...formData, join_code_enabled: checked })}
+              />
+            </div>
+            <div className="flex items-center justify-between rounded-md border p-3">
+              <div>
+                <Label htmlFor="batch-approval-required">Teacher approval required</Label>
+                <p className="text-xs text-muted-foreground mt-1">Keep this on unless you want instant joins.</p>
+              </div>
+              <Switch
+                id="batch-approval-required"
+                checked={formData.join_requires_approval}
+                onCheckedChange={(checked) => setFormData({ ...formData, join_requires_approval: checked })}
               />
             </div>
           </div>

@@ -19,6 +19,9 @@ export interface WorkspaceBatch {
   level: WorkspaceLevel;
   description: string | null;
   is_active: boolean;
+  join_code: string;
+  join_code_enabled: boolean;
+  join_requires_approval: boolean;
   created_by: string | null;
   created_at: string;
   updated_at: string;
@@ -31,6 +34,8 @@ export interface BatchInput {
   level: WorkspaceLevel;
   description?: string | null;
   is_active?: boolean;
+  join_code_enabled?: boolean;
+  join_requires_approval?: boolean;
 }
 
 function mapBatch(
@@ -91,10 +96,13 @@ export async function createWorkspaceBatch(
   const { error } = await client.from("batches").insert({
     workspace_id: workspaceId,
     created_by: userId,
+    join_code: "",
     name: input.name,
     level: input.level,
     description: input.description || null,
     is_active: input.is_active ?? true,
+    join_code_enabled: input.join_code_enabled ?? true,
+    join_requires_approval: input.join_requires_approval ?? true,
   });
 
   if (error) throw error;
@@ -113,11 +121,23 @@ export async function updateWorkspaceBatch(
       level: input.level,
       description: input.description || null,
       is_active: input.is_active ?? true,
+      join_code_enabled: input.join_code_enabled ?? true,
+      join_requires_approval: input.join_requires_approval ?? true,
     })
     .eq("id", batchId)
     .eq("workspace_id", workspaceId);
 
   if (error) throw error;
+}
+
+export async function rotateBatchJoinCode(batchId: string): Promise<string> {
+  const client = requireClient();
+  const { data, error } = await client
+    .rpc("rotate_batch_join_code", { target_batch_id: batchId })
+    .single();
+
+  if (error) throw error;
+  return data.join_code;
 }
 
 export async function setBatchActive(

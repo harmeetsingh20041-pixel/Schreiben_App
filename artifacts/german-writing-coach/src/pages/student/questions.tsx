@@ -4,10 +4,12 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Clock, Edit3 } from "lucide-react";
+import { Search, Clock, Edit3, KeyRound } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, LEVEL_OPTIONS } from "@/lib/workspaceData";
 import { listStudentAssignedQuestions, type WorkspaceQuestion } from "@/services/questionService";
+import { listMyBatchAssignments, listMyBatchJoinRequests, requestJoinBatchByCode, type BatchJoinRequest, type StudentBatchAssignment } from "@/services/studentService";
 import { MOCK_QUESTIONS } from "@/data/mockData";
 
 function mockToWorkspaceQuestion(question: (typeof MOCK_QUESTIONS)[number]): WorkspaceQuestion {
@@ -15,6 +17,7 @@ function mockToWorkspaceQuestion(question: (typeof MOCK_QUESTIONS)[number]): Wor
   return {
     id: question.id,
     workspace_id: "mock",
+    source: "workspace",
     title: question.title,
     prompt: question.prompt,
     level: question.level,
@@ -41,10 +44,15 @@ function wordRange(question: WorkspaceQuestion) {
 
 export default function StudentQuestions() {
   const { authMode, user } = useAuth();
+  const { toast } = useToast();
   const useRealData = authMode === "supabase" && Boolean(user);
   const [search, setSearch] = useState("");
   const [levelFilter, setLevelFilter] = useState<string>("All");
   const [realQuestions, setRealQuestions] = useState<WorkspaceQuestion[]>([]);
+  const [batchAssignments, setBatchAssignments] = useState<StudentBatchAssignment[]>([]);
+  const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
+  const [joinCode, setJoinCode] = useState("");
+  const [submittingJoinCode, setSubmittingJoinCode] = useState(false);
   const [loading, setLoading] = useState(useRealData);
   const [error, setError] = useState<string | null>(null);
   const [, setLocation] = useLocation();
@@ -56,7 +64,14 @@ export default function StudentQuestions() {
       try {
         setLoading(true);
         setError(null);
-        setRealQuestions(await listStudentAssignedQuestions(user!.id));
+        const [nextQuestions, nextAssignments, nextJoinRequests] = await Promise.all([
+          listStudentAssignedQuestions(user!.id),
+          listMyBatchAssignments(user!.id),
+          listMyBatchJoinRequests(user!.id),
+        ]);
+        setRealQuestions(nextQuestions);
+        setBatchAssignments(nextAssignments);
+        setJoinRequests(nextJoinRequests);
       } catch (loadError) {
         setError(formatErrorMessage(loadError, "Unable to load assigned prompts."));
       } finally {
@@ -66,6 +81,18 @@ export default function StudentQuestions() {
 
     void loadQuestions();
   }, [useRealData, user]);
+
+  const reloadStudentData = async () => {
+    if (!user) return;
+    const [nextQuestions, nextAssignments, nextJoinRequests] = await Promise.all([
+      listStudentAssignedQuestions(user.id),
+      listMyBatchAssignments(user.id),
+      listMyBatchJoinRequests(user.id),
+    ]);
+    setRealQuestions(nextQuestions);
+    setBatchAssignments(nextAssignments);
+    setJoinRequests(nextJoinRequests);
+  };
 
   const questions = useRealData ? realQuestions : MOCK_QUESTIONS.map(mockToWorkspaceQuestion);
 
@@ -94,6 +121,35 @@ export default function StudentQuestions() {
     );
     setLocation(`/student/write?q=${question.id}`);
   };
+
+  const submitJoinCode = async () => {
+    if (!joinCode.trim()) {
+      toast({ title: "Batch code required", description: "Enter the code your teacher shared." });
+      return;
+    }
+
+    try {
+      setSubmittingJoinCode(true);
+      const result = await requestJoinBatchByCode(joinCode);
+      await reloadStudentData();
+      setJoinCode("");
+      toast({
+        title: result.status === "approved" ? "Joined batch" : "Request sent",
+        description: result.status === "approved"
+          ? `${result.batch_name} is ready.`
+          : "Waiting for teacher approval.",
+      });
+    } catch (joinError) {
+      toast({
+        title: "Could not request batch",
+        description: formatErrorMessage(joinError, "Check the code and try again."),
+      });
+    } finally {
+      setSubmittingJoinCode(false);
+    }
+  };
+
+  const latestJoinRequest = joinRequests[0];
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl animate-in fade-in duration-500">
@@ -134,6 +190,40 @@ export default function StudentQuestions() {
         </Card>
       )}
 
+      {useRealData && !loading && batchAssignments.length === 0 && (
+        <Card className="mb-8 border-primary/25 bg-primary/5">
+          <CardHeader>
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/15">
+                <KeyRound className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <CardTitle>Join your batch</CardTitle>
+                <CardDescription>Enter the code your teacher shared. Most batches wait for teacher approval.</CardDescription>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Input
+                value={joinCode}
+                onChange={(event) => setJoinCode(event.target.value.toUpperCase())}
+                placeholder="Enter batch code"
+                className="font-mono tracking-wider bg-card"
+              />
+              <Button onClick={submitJoinCode} disabled={submittingJoinCode}>
+                {submittingJoinCode ? "Sending..." : "Request Access"}
+              </Button>
+            </div>
+            {latestJoinRequest && (
+              <p className="mt-3 text-sm text-muted-foreground">
+                Latest request: {latestJoinRequest.batch_name} · {latestJoinRequest.batch_level} · {latestJoinRequest.status}
+              </p>
+            )}
+          </CardContent>
+        </Card>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Card className="border-primary/30 shadow-md bg-gradient-to-br from-card to-primary/5 flex flex-col group hover:shadow-lg transition-all duration-300">
           <CardHeader>
@@ -171,9 +261,12 @@ export default function StudentQuestions() {
             <Card key={question.id} className="flex flex-col group hover:shadow-md transition-all duration-300 animate-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 50}ms` }}>
               <CardHeader className="pb-4">
                 <div className="flex justify-between items-start mb-2">
-                  <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
-                    {question.level}
-                  </Badge>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
+                      {question.level}
+                    </Badge>
+                    {question.source === "global" && <Badge variant="outline">Global</Badge>}
+                  </div>
                   <div className="flex items-center text-xs text-muted-foreground bg-muted px-2 py-1 rounded-md">
                     <Clock className="w-3 h-3 mr-1" />
                     {question.estimated_minutes ? `${question.estimated_minutes} mins` : "flex"}

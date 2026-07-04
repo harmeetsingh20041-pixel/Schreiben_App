@@ -7,7 +7,7 @@ import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId } from "@/lib/workspaceData";
 import { listWorkspaceBatches, type WorkspaceBatch } from "@/services/batchService";
 import { listWorkspaceQuestions } from "@/services/questionService";
-import { listStudentInvitations, listWorkspaceStudents, type StudentInvitation, type WorkspaceStudent } from "@/services/studentService";
+import { listBatchJoinRequests, listStudentInvitations, listWorkspaceStudents, type BatchJoinRequest, type StudentInvitation, type WorkspaceStudent } from "@/services/studentService";
 import { Users, FileText, CheckCircle, AlertTriangle } from "lucide-react";
 import { MOCK_STUDENTS, MOCK_SUBMISSIONS, MOCK_BATCHES } from "@/data/mockData";
 
@@ -21,6 +21,7 @@ export default function TeacherDashboard() {
   const [students, setStudents] = useState<WorkspaceStudent[]>([]);
   const [questionCount, setQuestionCount] = useState(0);
   const [invitations, setInvitations] = useState<StudentInvitation[]>([]);
+  const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
   const [loading, setLoading] = useState(useRealData);
   const [error, setError] = useState<string | null>(null);
 
@@ -36,16 +37,18 @@ export default function TeacherDashboard() {
       try {
         setLoading(true);
         setError(null);
-        const [nextBatches, nextStudents, nextQuestions, nextInvitations] = await Promise.all([
+        const [nextBatches, nextStudents, nextQuestions, nextInvitations, nextJoinRequests] = await Promise.all([
           listWorkspaceBatches(workspaceId!),
           listWorkspaceStudents(workspaceId!),
           listWorkspaceQuestions(workspaceId!),
           listStudentInvitations(workspaceId!),
+          listBatchJoinRequests(workspaceId!),
         ]);
         setBatches(nextBatches);
         setStudents(nextStudents);
         setQuestionCount(nextQuestions.length);
         setInvitations(nextInvitations);
+        setJoinRequests(nextJoinRequests);
       } catch (loadError) {
         setError(formatErrorMessage(loadError, "Unable to load dashboard data."));
       } finally {
@@ -74,6 +77,8 @@ export default function TeacherDashboard() {
   const totalBatches = useRealData ? batches.length : MOCK_BATCHES.length;
   const totalQuestions = useRealData ? questionCount : MOCK_SUBMISSIONS.length;
   const pendingInvitationCount = invitations.filter((invitation) => invitation.status === "pending").length;
+  const pendingJoinRequestCount = joinRequests.filter((request) => request.status === "pending").length;
+  const totalPendingAccess = pendingInvitationCount + pendingJoinRequestCount;
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl animate-in fade-in duration-700">
@@ -153,9 +158,9 @@ export default function TeacherDashboard() {
                 <AlertTriangle className="w-5 h-5 text-accent" />
               </div>
               <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">{useRealData ? "Pending Invites" : "Common Issues"}</p>
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">{useRealData ? "Pending Access" : "Common Issues"}</p>
                 <h3 className="text-lg font-serif text-foreground truncate mt-1">
-                  {useRealData ? (loading ? "..." : pendingInvitationCount) : "Verb pos., Dativ"}
+                  {useRealData ? (loading ? "..." : totalPendingAccess) : "Verb pos., Dativ"}
                 </h3>
               </div>
             </div>

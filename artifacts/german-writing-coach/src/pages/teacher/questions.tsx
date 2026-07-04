@@ -5,14 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
-import { Search, Plus, Edit, FileText } from "lucide-react";
+import { Search, Plus, Edit, FileText, Globe2 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, formatTaskType, getActiveWorkspaceId, LEVEL_OPTIONS, TASK_TYPE_OPTIONS, type QuestionTaskType, type WorkspaceLevel } from "@/lib/workspaceData";
-import { createWorkspaceQuestion, listWorkspaceQuestions, setQuestionActive, updateWorkspaceQuestion, type WorkspaceQuestion } from "@/services/questionService";
+import { createWorkspaceQuestion, listGlobalQuestions, listWorkspaceQuestions, setQuestionActive, updateWorkspaceQuestion, type WorkspaceQuestion } from "@/services/questionService";
 import { MOCK_QUESTIONS } from "@/data/mockData";
 import { Question } from "@/types";
 
@@ -70,6 +71,7 @@ function mockToWorkspaceQuestion(question: Question): WorkspaceQuestion {
   return {
     id: question.id,
     workspace_id: "mock",
+    source: "workspace",
     title: question.title,
     prompt: question.prompt,
     level: question.level,
@@ -92,9 +94,11 @@ export default function TeacherQuestions() {
   const useRealData = authMode === "supabase" && Boolean(user);
 
   const [realQuestions, setRealQuestions] = useState<WorkspaceQuestion[]>([]);
+  const [globalQuestions, setGlobalQuestions] = useState<WorkspaceQuestion[]>([]);
   const [mockQuestions, setMockQuestions] = useState<Question[]>(MOCK_QUESTIONS);
   const [loading, setLoading] = useState(useRealData);
   const [error, setError] = useState<string | null>(null);
+  const [questionSource, setQuestionSource] = useState<"global" | "workspace">("workspace");
   const [search, setSearch] = useState("");
   const [levelFilter, setLevelFilter] = useState("all");
   const [topicFilter, setTopicFilter] = useState("all");
@@ -115,7 +119,12 @@ export default function TeacherQuestions() {
     try {
       setLoading(true);
       setError(null);
-      setRealQuestions(await listWorkspaceQuestions(workspaceId));
+      const [nextWorkspaceQuestions, nextGlobalQuestions] = await Promise.all([
+        listWorkspaceQuestions(workspaceId),
+        listGlobalQuestions(),
+      ]);
+      setRealQuestions(nextWorkspaceQuestions);
+      setGlobalQuestions(nextGlobalQuestions);
     } catch (loadError) {
       setError(formatErrorMessage(loadError, "Unable to load questions."));
     } finally {
@@ -127,7 +136,10 @@ export default function TeacherQuestions() {
     void loadQuestions();
   }, [useRealData, workspaceId]);
 
-  const questions = useRealData ? realQuestions : mockQuestions.map(mockToWorkspaceQuestion);
+  const isGlobalBank = useRealData && questionSource === "global";
+  const questions = useRealData
+    ? (isGlobalBank ? globalQuestions : realQuestions)
+    : mockQuestions.map(mockToWorkspaceQuestion);
 
   const topics = useMemo(
     () => Array.from(new Set(questions.map((question) => question.topic).filter(Boolean))).sort(),
@@ -270,11 +282,28 @@ export default function TeacherQuestions() {
           <h1 className="text-3xl font-bold tracking-tight">Question Bank</h1>
           <p className="text-muted-foreground mt-1">Manage writing prompts for your students.</p>
         </div>
-        <Button onClick={() => handleOpenDialog()} className="shadow-md">
-          <Plus className="w-4 h-4 mr-2" />
-          Create Prompt
-        </Button>
+        {!isGlobalBank && (
+          <Button onClick={() => handleOpenDialog()} className="shadow-md">
+            <Plus className="w-4 h-4 mr-2" />
+            Create Workspace Prompt
+          </Button>
+        )}
       </div>
+
+      {useRealData && (
+        <Tabs value={questionSource} onValueChange={(value) => setQuestionSource(value as "global" | "workspace")} className="mb-6">
+          <TabsList>
+            <TabsTrigger value="global">
+              <Globe2 className="mr-2 h-4 w-4" />
+              Global Bank
+            </TabsTrigger>
+            <TabsTrigger value="workspace">
+              <FileText className="mr-2 h-4 w-4" />
+              My Workspace Prompts
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_160px_180px_180px_160px] gap-3 mb-6">
         <div className="relative">
@@ -347,9 +376,15 @@ export default function TeacherQuestions() {
             <div className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-muted">
               <FileText className="h-5 w-5" />
             </div>
-            <h2 className="text-xl font-semibold mb-2">Add your first writing question</h2>
-            <p className="text-muted-foreground mb-5">Create prompts for A1, A2, B1, or B2 students.</p>
-            <Button onClick={() => handleOpenDialog()}>Create Prompt</Button>
+            <h2 className="text-xl font-semibold mb-2">
+              {isGlobalBank ? "No global questions yet" : "Add your first writing question"}
+            </h2>
+            <p className="text-muted-foreground mb-5">
+              {isGlobalBank
+                ? "Global A1-B2 prompts will appear here after the real bank is imported."
+                : "Create prompts for A1, A2, B1, or B2 students."}
+            </p>
+            {!isGlobalBank && <Button onClick={() => handleOpenDialog()}>Create Prompt</Button>}
           </CardContent>
         </Card>
       ) : (
@@ -361,8 +396,9 @@ export default function TeacherQuestions() {
                   <div className="flex gap-2">
                     <Badge variant="outline" className={levelBadgeClass(question.level)}>{question.level}</Badge>
                     <Badge variant="secondary">{formatTaskType(question.task_type)}</Badge>
+                    {question.source === "global" && <Badge variant="outline">Global</Badge>}
                   </div>
-                  <Switch checked={question.is_active} onCheckedChange={() => toggleActive(question)} />
+                  {!isGlobalBank && <Switch checked={question.is_active} onCheckedChange={() => toggleActive(question)} />}
                 </div>
                 <CardTitle className="text-lg line-clamp-1" title={question.title}>{question.title}</CardTitle>
               </CardHeader>
@@ -374,9 +410,13 @@ export default function TeacherQuestions() {
                 </div>
               </CardContent>
               <CardFooter className="border-t border-border pt-4 bg-muted/10 flex justify-end gap-2">
-                <Button variant="ghost" size="sm" onClick={() => handleOpenDialog(question)}>
-                  <Edit className="w-4 h-4 mr-2" /> Edit
-                </Button>
+                {isGlobalBank ? (
+                  <p className="text-xs text-muted-foreground">Read-only shared prompt</p>
+                ) : (
+                  <Button variant="ghost" size="sm" onClick={() => handleOpenDialog(question)}>
+                    <Edit className="w-4 h-4 mr-2" /> Edit
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           ))}

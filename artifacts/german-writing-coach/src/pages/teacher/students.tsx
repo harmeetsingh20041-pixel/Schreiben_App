@@ -12,14 +12,16 @@ import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId, LEVEL_OPTIONS } from "@/lib/workspaceData";
 import { listWorkspaceBatches, type WorkspaceBatch } from "@/services/batchService";
-import { assignStudentToBatch, inviteStudentByEmail, listStudentInvitations, listWorkspaceStudents, removeStudentBatchAssignment, type StudentInvitation, type WorkspaceStudent } from "@/services/studentService";
+import { approveBatchJoinRequest, assignStudentToBatch, inviteStudentByEmail, listBatchJoinRequests, listStudentInvitations, listWorkspaceStudents, rejectBatchJoinRequest, removeStudentBatchAssignment, type BatchJoinRequest, type StudentInvitation, type WorkspaceStudent } from "@/services/studentService";
 import { MOCK_BATCHES, MOCK_STUDENTS } from "@/data/mockData";
-import { Eye, Search, UserPlus, X } from "lucide-react";
+import { Check, Eye, KeyRound, Search, UserPlus, X, XCircle } from "lucide-react";
 
 function statusBadgeClass(status: string) {
   const classes: Record<string, string> = {
     pending: "bg-amber-50 text-amber-700 border-amber-200",
     accepted: "bg-green-50 text-green-700 border-green-200",
+    approved: "bg-green-50 text-green-700 border-green-200",
+    rejected: "bg-destructive/10 text-destructive border-destructive/20",
     cancelled: "bg-muted text-muted-foreground",
     expired: "bg-destructive/10 text-destructive border-destructive/20",
   };
@@ -40,6 +42,7 @@ export default function TeacherStudents() {
   const [batches, setBatches] = useState<WorkspaceBatch[]>([]);
   const [students, setStudents] = useState<WorkspaceStudent[]>([]);
   const [invitations, setInvitations] = useState<StudentInvitation[]>([]);
+  const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
   const [loading, setLoading] = useState(useRealData);
   const [error, setError] = useState<string | null>(null);
   const [inviteOpen, setInviteOpen] = useState(false);
@@ -57,14 +60,16 @@ export default function TeacherStudents() {
     try {
       setLoading(true);
       setError(null);
-      const [nextBatches, nextStudents, nextInvitations] = await Promise.all([
+      const [nextBatches, nextStudents, nextInvitations, nextJoinRequests] = await Promise.all([
         listWorkspaceBatches(workspaceId),
         listWorkspaceStudents(workspaceId),
         listStudentInvitations(workspaceId),
+        listBatchJoinRequests(workspaceId),
       ]);
       setBatches(nextBatches);
       setStudents(nextStudents);
       setInvitations(nextInvitations);
+      setJoinRequests(nextJoinRequests);
     } catch (loadError) {
       setError(formatErrorMessage(loadError, "Unable to load students."));
     } finally {
@@ -123,6 +128,7 @@ export default function TeacherStudents() {
   }, [batchFilter, levelFilter, mockBatchMap, search, students, useRealData]);
 
   const pendingInvitations = invitations.filter((invitation) => invitation.status === "pending");
+  const pendingJoinRequests = joinRequests.filter((request) => request.status === "pending");
 
   const sendInvite = async () => {
     if (!inviteEmail.trim()) {
@@ -166,6 +172,32 @@ export default function TeacherStudents() {
       toast({
         title: "Could not remove assignment",
         description: formatErrorMessage(removeError, "Please try again."),
+      });
+    }
+  };
+
+  const approveJoinRequest = async (requestId: string) => {
+    try {
+      await approveBatchJoinRequest(requestId);
+      await loadStudents();
+      toast({ title: "Join request approved", description: "The student was added to the batch." });
+    } catch (approveError) {
+      toast({
+        title: "Could not approve request",
+        description: formatErrorMessage(approveError, "Please try again."),
+      });
+    }
+  };
+
+  const rejectJoinRequest = async (requestId: string) => {
+    try {
+      await rejectBatchJoinRequest(requestId);
+      await loadStudents();
+      toast({ title: "Join request rejected" });
+    } catch (rejectError) {
+      toast({
+        title: "Could not reject request",
+        description: formatErrorMessage(rejectError, "Please try again."),
       });
     }
   };
@@ -310,6 +342,49 @@ export default function TeacherStudents() {
           </TableBody>
         </Table>
       </Card>
+
+      {useRealData && (
+        <Card className="shadow-sm mb-8">
+          <CardHeader className="pb-4 border-b border-border/60 bg-muted/20">
+            <CardTitle className="flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+              <KeyRound className="h-4 w-4" />
+              Batch Code Requests
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="pt-5">
+            {pendingJoinRequests.length === 0 ? (
+              <p className="text-sm text-muted-foreground">No pending batch code requests.</p>
+            ) : (
+              <div className="space-y-3">
+                {pendingJoinRequests.map((request) => (
+                  <div key={request.id} className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 rounded-lg border p-4">
+                    <div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <p className="font-medium">{request.student_name}</p>
+                        <Badge variant="outline" className={statusBadgeClass(request.status)}>{request.status}</Badge>
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-1">{request.student_email}</p>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {request.batch_name} · {request.batch_level} · requested {new Date(request.requested_at).toLocaleDateString()}
+                      </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <Button size="sm" onClick={() => approveJoinRequest(request.id)}>
+                        <Check className="h-4 w-4 mr-2" />
+                        Approve
+                      </Button>
+                      <Button size="sm" variant="outline" onClick={() => rejectJoinRequest(request.id)}>
+                        <XCircle className="h-4 w-4 mr-2" />
+                        Reject
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      )}
 
       {useRealData && (
         <Card className="shadow-sm">

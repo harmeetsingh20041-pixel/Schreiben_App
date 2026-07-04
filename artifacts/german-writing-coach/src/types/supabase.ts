@@ -14,6 +14,80 @@ export type Database = {
   }
   public: {
     Tables: {
+      batch_join_requests: {
+        Row: {
+          batch_id: string
+          created_at: string
+          decided_at: string | null
+          decided_by: string | null
+          id: string
+          requested_at: string
+          status: string
+          student_email: string
+          student_id: string
+          student_name: string | null
+          updated_at: string
+          workspace_id: string
+        }
+        Insert: {
+          batch_id: string
+          created_at?: string
+          decided_at?: string | null
+          decided_by?: string | null
+          id?: string
+          requested_at?: string
+          status?: string
+          student_email: string
+          student_id: string
+          student_name?: string | null
+          updated_at?: string
+          workspace_id: string
+        }
+        Update: {
+          batch_id?: string
+          created_at?: string
+          decided_at?: string | null
+          decided_by?: string | null
+          id?: string
+          requested_at?: string
+          status?: string
+          student_email?: string
+          student_id?: string
+          student_name?: string | null
+          updated_at?: string
+          workspace_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "batch_join_requests_batch_id_fkey"
+            columns: ["batch_id"]
+            isOneToOne: false
+            referencedRelation: "batches"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "batch_join_requests_decided_by_fkey"
+            columns: ["decided_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "batch_join_requests_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "batch_join_requests_workspace_id_fkey"
+            columns: ["workspace_id"]
+            isOneToOne: false
+            referencedRelation: "workspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       batch_students: {
         Row: {
           batch_id: string
@@ -67,6 +141,9 @@ export type Database = {
           description: string | null
           id: string
           is_active: boolean
+          join_code: string
+          join_code_enabled: boolean
+          join_requires_approval: boolean
           level: string
           name: string
           updated_at: string
@@ -78,6 +155,9 @@ export type Database = {
           description?: string | null
           id?: string
           is_active?: boolean
+          join_code: string
+          join_code_enabled?: boolean
+          join_requires_approval?: boolean
           level: string
           name: string
           updated_at?: string
@@ -89,6 +169,9 @@ export type Database = {
           description?: string | null
           id?: string
           is_active?: boolean
+          join_code?: string
+          join_code_enabled?: boolean
+          join_requires_approval?: boolean
           level?: string
           name?: string
           updated_at?: string
@@ -107,6 +190,62 @@ export type Database = {
             columns: ["workspace_id"]
             isOneToOne: false
             referencedRelation: "workspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      global_questions: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          estimated_minutes: number | null
+          expected_word_max: number | null
+          expected_word_min: number | null
+          id: string
+          is_active: boolean
+          level: string
+          prompt: string
+          task_type: string
+          title: string
+          topic: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          estimated_minutes?: number | null
+          expected_word_max?: number | null
+          expected_word_min?: number | null
+          id?: string
+          is_active?: boolean
+          level: string
+          prompt: string
+          task_type: string
+          title: string
+          topic: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          estimated_minutes?: number | null
+          expected_word_max?: number | null
+          expected_word_min?: number | null
+          id?: string
+          is_active?: boolean
+          level?: string
+          prompt?: string
+          task_type?: string
+          title?: string
+          topic?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "global_questions_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
         ]
@@ -899,6 +1038,18 @@ export type Database = {
           workspace_id: string
         }[]
       }
+      approve_batch_join_request: {
+        Args: { request_id: string }
+        Returns: {
+          approved_request_id: string
+          batch_id: string
+          batch_student_id: string
+          membership_id: string
+          status: string
+          student_id: string
+          workspace_id: string
+        }[]
+      }
       create_teacher_workspace: {
         Args: { workspace_name?: string }
         Returns: {
@@ -926,6 +1077,35 @@ export type Database = {
       is_workspace_member: {
         Args: { target_workspace_id: string }
         Returns: boolean
+      }
+      reject_batch_join_request: {
+        Args: { request_id: string }
+        Returns: {
+          batch_id: string
+          rejected_request_id: string
+          status: string
+          student_id: string
+          workspace_id: string
+        }[]
+      }
+      request_join_batch_by_code: {
+        Args: { join_code: string }
+        Returns: {
+          batch_id: string
+          batch_name: string
+          level: string
+          request_id: string
+          requires_approval: boolean
+          status: string
+          workspace_id: string
+        }[]
+      }
+      rotate_batch_join_code: {
+        Args: { target_batch_id: string }
+        Returns: {
+          batch_id: string
+          join_code: string
+        }[]
       }
     }
     Enums: {
