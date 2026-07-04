@@ -1,18 +1,25 @@
 import { useState, useEffect } from "react";
 import { useLocation, useSearch } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { Loader2, ArrowLeft, Send, Save, Trash2, CheckCircle2, PenTool } from "lucide-react";
+import { Loader2, ArrowLeft, Save, Trash2, CheckCircle2, PenTool } from "lucide-react";
 import { MOCK_QUESTIONS } from "@/data/mockData";
 import { checkWriting } from "@/services/aiCorrectionService";
+import { createWritingSubmission, saveDraftSubmission, type SubmissionQuestionSource } from "@/services/submissionService";
+import { useAuth } from "@/lib/auth";
+import { useToast } from "@/hooks/use-toast";
+import { formatErrorMessage } from "@/lib/workspaceData";
 import type { Question } from "@/types";
 
 export default function StudentWrite() {
+  const { authMode, user } = useAuth();
+  const { toast } = useToast();
   const [, setLocation] = useLocation();
   const searchParams = new URLSearchParams(useSearch());
   const qId = searchParams.get("q");
   const isFree = searchParams.get("mode") === "free";
+  const useRealData = authMode === "supabase" && Boolean(user);
   const storedQuestion = (() => {
     if (!qId) return null;
     try {
@@ -28,11 +35,17 @@ export default function StudentWrite() {
   
   const [text, setText] = useState("");
   const [isChecking, setIsChecking] = useState(false);
+  const [isSavingDraft, setIsSavingDraft] = useState(false);
   const [checkStage, setCheckStage] = useState(0);
+  const [submittedId, setSubmittedId] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   
   const wordCount = text.trim().split(/\s+/).filter(w => w.length > 0).length;
   
-  const stages = [
+  const stages = useRealData ? [
+    "Saving your writing...",
+    "Preparing pending correction status..."
+  ] : [
     "Checking grammar and vocabulary...",
     "Checking meaning and context...",
     "Checking level suitability...",
@@ -53,10 +66,57 @@ export default function StudentWrite() {
       });
     }, 600);
     return () => clearInterval(interval);
-  }, [isChecking]);
+  }, [isChecking, stages.length]);
+
+  const getQuestionSource = (): SubmissionQuestionSource => {
+    if (isFree) return "free_text";
+    return question?.source === "global" ? "global_question" : "workspace_question";
+  };
+
+  const submitRealWriting = async (saveAsDraft = false) => {
+    if (!text.trim()) return;
+    setSubmitError(null);
+    if (saveAsDraft) {
+      setIsSavingDraft(true);
+    } else {
+      setIsChecking(true);
+      setCheckStage(0);
+    }
+
+    try {
+      const service = saveAsDraft ? saveDraftSubmission : createWritingSubmission;
+      const nextSubmissionId = await service({
+        questionSource: getQuestionSource(),
+        questionId: isFree ? null : question?.id ?? qId,
+        batchId: isFree ? null : question?.batch_id ?? null,
+        answerText: text,
+      });
+
+      if (saveAsDraft) {
+        toast({
+          title: "Draft saved",
+          description: "Your writing draft was saved in Supabase.",
+        });
+      } else {
+        setSubmittedId(nextSubmissionId);
+      }
+    } catch (error) {
+      const message = formatErrorMessage(error, "Could not save your writing.");
+      setSubmitError(message);
+      toast({ title: "Submission failed", description: message });
+    } finally {
+      setIsSavingDraft(false);
+      setIsChecking(false);
+    }
+  };
 
   const handleCheck = async () => {
     if (!text.trim()) return;
+    if (useRealData) {
+      await submitRealWriting(false);
+      return;
+    }
+
     setIsChecking(true);
     setCheckStage(0);
     
@@ -69,8 +129,51 @@ export default function StudentWrite() {
     }
   };
 
+  const handleSaveDraft = async () => {
+    if (!text.trim()) return;
+    if (useRealData) {
+      await submitRealWriting(true);
+      return;
+    }
+    toast({
+      title: "Draft kept locally",
+      description: "Demo mode keeps the existing mock writing flow.",
+    });
+  };
+
   if (!isFree && !question) {
     return <div className="p-8 text-center">Prompt not found.</div>;
+  }
+
+  if (submittedId) {
+    return (
+      <div className="container mx-auto px-4 py-8 max-w-4xl animate-in fade-in duration-300">
+        <Button variant="ghost" size="sm" className="mb-6 text-muted-foreground hover:text-foreground -ml-3" onClick={() => setLocation("/student/questions")}>
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to Writing
+        </Button>
+        <Card className="border-primary/25 bg-primary/5">
+          <CardContent className="p-10 text-center">
+            <div className="w-14 h-14 rounded-xl bg-primary/15 text-primary flex items-center justify-center mx-auto mb-5">
+              <CheckCircle2 className="w-7 h-7" />
+            </div>
+            <h1 className="text-2xl font-serif mb-2">Writing submitted.</h1>
+            <p className="text-muted-foreground mb-6">AI correction will be available in the next phase.</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <Button onClick={() => setLocation(`/student/submission/${submittedId}`)}>
+                View Submission
+              </Button>
+              <Button variant="outline" onClick={() => {
+                setSubmittedId(null);
+                setText("");
+              }}>
+                Back to Writing
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
   return (
@@ -110,7 +213,7 @@ export default function StudentWrite() {
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 shadow-inner">
               <Loader2 className="w-8 h-8 text-primary animate-spin" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Analyzing your writing</h3>
+            <h3 className="text-xl font-bold mb-2">{useRealData ? "Submitting your writing" : "Analyzing your writing"}</h3>
             <div className="h-6 overflow-hidden relative w-64 text-center">
               <div className="text-sm font-medium text-muted-foreground transition-all duration-300" key={checkStage}>
                 {stages[checkStage]}
@@ -144,23 +247,25 @@ export default function StudentWrite() {
           />
           
           <div className="bg-background px-6 py-4 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-muted-foreground flex gap-4">
+            <div className="text-sm text-muted-foreground flex flex-wrap gap-4">
               <span className={isFree ? "" : wordCount > 0 ? (wordCount >= parseInt(question?.expected_word_range.split('-')[0] || "0") ? "text-green-600 font-medium" : "text-accent-foreground font-medium") : ""}>
                 <strong>{wordCount}</strong> words
               </span>
               <span><strong>{text.length}</strong> characters</span>
+              {submitError && <span className="text-destructive font-medium">{submitError}</span>}
             </div>
             
             <div className="flex gap-2 w-full sm:w-auto">
               <Button variant="ghost" size="sm" className="text-muted-foreground" onClick={() => setText("")} disabled={!text || isChecking}>
                 <Trash2 className="w-4 h-4 mr-2" /> Clear
               </Button>
-              <Button variant="outline" size="sm" disabled={!text || isChecking}>
-                <Save className="w-4 h-4 mr-2" /> Save Draft
+              <Button variant="outline" size="sm" onClick={handleSaveDraft} disabled={!text || isChecking || isSavingDraft}>
+                {isSavingDraft ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
+                Save Draft
               </Button>
               <Button onClick={handleCheck} disabled={!text.trim() || isChecking} className="shadow-md">
-                <CheckCircle2 className="w-4 h-4 mr-2" />
-                Check My Writing
+                {isChecking ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <CheckCircle2 className="w-4 h-4 mr-2" />}
+                {useRealData ? "Submit Writing" : "Check My Writing"}
               </Button>
             </div>
           </div>

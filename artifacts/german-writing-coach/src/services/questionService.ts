@@ -17,6 +17,7 @@ export interface WorkspaceQuestion {
   id: string;
   workspace_id: string;
   source: "workspace" | "global";
+  batch_id: string | null;
   title: string;
   prompt: string;
   level: WorkspaceLevel;
@@ -47,6 +48,7 @@ function mapQuestion(question: QuestionRow): WorkspaceQuestion {
   return {
     ...question,
     source: "workspace",
+    batch_id: null,
     level: question.level as WorkspaceLevel,
     task_type: question.task_type as QuestionTaskType,
   };
@@ -57,6 +59,7 @@ function mapGlobalQuestion(question: GlobalQuestionRow): WorkspaceQuestion {
     id: question.id,
     workspace_id: "global",
     source: "global",
+    batch_id: null,
     title: question.title,
     prompt: question.prompt,
     level: question.level as WorkspaceLevel,
@@ -121,7 +124,7 @@ export async function listStudentAssignedQuestions(studentId: string): Promise<W
 
   const { data: batches, error: batchesError } = await client
     .from("batches")
-    .select("id, level")
+    .select("id, workspace_id, level")
     .in("id", batchIds);
 
   if (batchesError) throw batchesError;
@@ -131,6 +134,19 @@ export async function listStudentAssignedQuestions(studentId: string): Promise<W
   );
 
   if (levels.length === 0) return [];
+
+  const assignmentContexts = (assignments ?? [])
+    .map((assignment) => {
+      const batch = (batches ?? []).find((candidate) => candidate.id === assignment.batch_id);
+      return batch
+        ? {
+            batch_id: assignment.batch_id,
+            workspace_id: assignment.workspace_id,
+            level: batch.level as WorkspaceLevel,
+          }
+        : null;
+    })
+    .filter((context): context is { batch_id: string; workspace_id: string; level: WorkspaceLevel } => Boolean(context));
 
   const [
     { data: workspaceQuestions, error: workspaceQuestionsError },
@@ -148,8 +164,23 @@ export async function listStudentAssignedQuestions(studentId: string): Promise<W
 
   if (workspaceQuestionsError) throw workspaceQuestionsError;
   return [
-    ...globalQuestions,
-    ...((workspaceQuestions ?? []) as QuestionRow[]).map(mapQuestion),
+    ...globalQuestions.map((question) => ({
+      ...question,
+      batch_id:
+        assignmentContexts.find((assignment) => assignment.level === question.level)?.batch_id ?? null,
+    })),
+    ...((workspaceQuestions ?? []) as QuestionRow[]).map((question) => {
+      const mapped = mapQuestion(question);
+      return {
+        ...mapped,
+        batch_id:
+          assignmentContexts.find(
+            (assignment) =>
+              assignment.workspace_id === question.workspace_id &&
+              assignment.level === question.level,
+          )?.batch_id ?? null,
+      };
+    }),
   ];
 }
 

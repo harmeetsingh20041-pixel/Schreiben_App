@@ -18,6 +18,7 @@ function mockToWorkspaceQuestion(question: (typeof MOCK_QUESTIONS)[number]): Wor
     id: question.id,
     workspace_id: "mock",
     source: "workspace",
+    batch_id: null,
     title: question.title,
     prompt: question.prompt,
     level: question.level,
@@ -111,6 +112,8 @@ export default function StudentQuestions() {
       JSON.stringify({
         id: question.id,
         title: question.title,
+        source: question.source,
+        batch_id: question.batch_id,
         level: question.level,
         topic: question.topic,
         prompt: question.prompt,

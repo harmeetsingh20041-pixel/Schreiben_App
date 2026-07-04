@@ -32,6 +32,8 @@ export interface Question {
   expected_word_range: string;
   estimated_time: string;
   active: boolean;
+  source?: "workspace" | "global";
+  batch_id?: string | null;
 }
 
 export interface Student {

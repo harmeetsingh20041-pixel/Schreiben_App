@@ -789,12 +789,14 @@ export type Database = {
           checked_at: string | null
           corrected_text: string | null
           created_at: string
+          global_question_id: string | null
           id: string
           level_detected: string | null
           mode: string
           original_text: string
           overall_summary: string | null
           question_id: string | null
+          question_source: string | null
           status: string
           student_id: string
           updated_at: string
@@ -806,12 +808,14 @@ export type Database = {
           checked_at?: string | null
           corrected_text?: string | null
           created_at?: string
+          global_question_id?: string | null
           id?: string
           level_detected?: string | null
           mode: string
           original_text: string
           overall_summary?: string | null
           question_id?: string | null
+          question_source?: string | null
           status?: string
           student_id: string
           updated_at?: string
@@ -823,12 +827,14 @@ export type Database = {
           checked_at?: string | null
           corrected_text?: string | null
           created_at?: string
+          global_question_id?: string | null
           id?: string
           level_detected?: string | null
           mode?: string
           original_text?: string
           overall_summary?: string | null
           question_id?: string | null
+          question_source?: string | null
           status?: string
           student_id?: string
           updated_at?: string
@@ -840,6 +846,13 @@ export type Database = {
             columns: ["batch_id"]
             isOneToOne: false
             referencedRelation: "batches"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "submissions_global_question_id_fkey"
+            columns: ["global_question_id"]
+            isOneToOne: false
+            referencedRelation: "global_questions"
             referencedColumns: ["id"]
           },
           {
@@ -1055,6 +1068,18 @@ export type Database = {
         Returns: {
           membership_id: string
           workspace_id: string
+        }[]
+      }
+      create_writing_submission: {
+        Args: {
+          answer_text: string
+          save_as_draft?: boolean
+          target_batch_id: string
+          target_question_id: string
+          target_question_source: string
+        }
+        Returns: {
+          submission_id: string
         }[]
       }
       has_workspace_role: {

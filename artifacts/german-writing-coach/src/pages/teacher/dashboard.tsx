@@ -7,6 +7,7 @@ import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId } from "@/lib/workspaceData";
 import { listWorkspaceBatches, type WorkspaceBatch } from "@/services/batchService";
 import { listWorkspaceQuestions } from "@/services/questionService";
+import { listTeacherWorkspaceSubmissions, type WritingSubmission } from "@/services/submissionService";
 import { listBatchJoinRequests, listStudentInvitations, listWorkspaceStudents, type BatchJoinRequest, type StudentInvitation, type WorkspaceStudent } from "@/services/studentService";
 import { Users, FileText, CheckCircle, AlertTriangle } from "lucide-react";
 import { MOCK_STUDENTS, MOCK_SUBMISSIONS, MOCK_BATCHES } from "@/data/mockData";
@@ -22,6 +23,7 @@ export default function TeacherDashboard() {
   const [questionCount, setQuestionCount] = useState(0);
   const [invitations, setInvitations] = useState<StudentInvitation[]>([]);
   const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
+  const [realSubmissions, setRealSubmissions] = useState<WritingSubmission[]>([]);
   const [loading, setLoading] = useState(useRealData);
   const [error, setError] = useState<string | null>(null);
 
@@ -37,18 +39,20 @@ export default function TeacherDashboard() {
       try {
         setLoading(true);
         setError(null);
-        const [nextBatches, nextStudents, nextQuestions, nextInvitations, nextJoinRequests] = await Promise.all([
+        const [nextBatches, nextStudents, nextQuestions, nextInvitations, nextJoinRequests, nextSubmissions] = await Promise.all([
           listWorkspaceBatches(workspaceId!),
           listWorkspaceStudents(workspaceId!),
           listWorkspaceQuestions(workspaceId!),
           listStudentInvitations(workspaceId!),
           listBatchJoinRequests(workspaceId!),
+          listTeacherWorkspaceSubmissions(workspaceId!),
         ]);
         setBatches(nextBatches);
         setStudents(nextStudents);
         setQuestionCount(nextQuestions.length);
         setInvitations(nextInvitations);
         setJoinRequests(nextJoinRequests);
+        setRealSubmissions(nextSubmissions);
       } catch (loadError) {
         setError(formatErrorMessage(loadError, "Unable to load dashboard data."));
       } finally {
@@ -72,6 +76,9 @@ export default function TeacherDashboard() {
         const student = MOCK_STUDENTS.find((item) => item.id === sub.studentId);
         return student?.batchId === batchFilter;
       });
+  const realFilteredSubmissions = batchFilter === "all"
+    ? realSubmissions
+    : realSubmissions.filter((submission) => submission.batch_id === batchFilter);
 
   const totalStudents = useRealData ? realFilteredStudents.length : MOCK_STUDENTS.length;
   const totalBatches = useRealData ? batches.length : MOCK_BATCHES.length;
@@ -172,12 +179,44 @@ export default function TeacherDashboard() {
         <div className="lg:col-span-2 space-y-6">
           <h2 className="text-2xl font-serif tracking-tight text-foreground">Recent Submissions</h2>
           {useRealData ? (
-            <Card className="border-dashed shadow-sm border-border rounded-xl">
-              <CardContent className="p-8 text-center">
-                <h3 className="text-lg font-medium mb-2">No real submissions yet</h3>
-                <p className="text-sm text-muted-foreground">Writing submissions will appear here after students submit work.</p>
-              </CardContent>
-            </Card>
+            realFilteredSubmissions.length === 0 ? (
+              <Card className="border-dashed shadow-sm border-border rounded-xl">
+                <CardContent className="p-8 text-center">
+                  <h3 className="text-lg font-medium mb-2">No real submissions yet</h3>
+                  <p className="text-sm text-muted-foreground">Writing submissions will appear here after students submit work.</p>
+                </CardContent>
+              </Card>
+            ) : (
+              realFilteredSubmissions.slice(0, 5).map((submission) => (
+                <Card key={submission.id} className="hover:border-primary/40 transition-all duration-300 shadow-sm border-border rounded-xl">
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-start mb-4 gap-4">
+                      <div>
+                        <h4 className="font-medium text-foreground">{submission.student_name ?? "Student"}</h4>
+                        <p className="text-xs font-mono text-muted-foreground mt-0.5">
+                          {new Date(submission.created_at).toLocaleDateString()}
+                        </p>
+                      </div>
+                      <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20">
+                        {submission.status}
+                      </Badge>
+                    </div>
+                    <div className="mt-4">
+                      <p className="text-sm font-medium text-foreground mb-1 line-clamp-1">{submission.question_title}</p>
+                      <p className="text-sm text-foreground/80 mb-5 line-clamp-2 leading-relaxed italic border-l-2 border-border/50 pl-4">
+                        {submission.original_text}
+                      </p>
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs text-muted-foreground">Correction pending</span>
+                        <Link href={`/teacher/submission/${submission.id}`} className="text-sm text-primary font-medium hover:underline flex items-center group">
+                          Review <span className="ml-1 transition-transform group-hover:translate-x-1">-&gt;</span>
+                        </Link>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))
+            )
           ) : (
             filteredSubmissions.slice(0, 5).map((sub) => {
               const student = MOCK_STUDENTS.find((item) => item.id === sub.studentId);
