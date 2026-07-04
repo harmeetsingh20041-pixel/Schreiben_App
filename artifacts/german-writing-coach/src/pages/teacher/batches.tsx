@@ -1,59 +1,353 @@
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Users, FileText, CheckCircle2 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/lib/auth";
+import { formatErrorMessage, getActiveWorkspaceId, LEVEL_OPTIONS, type WorkspaceLevel } from "@/lib/workspaceData";
+import { createWorkspaceBatch, listWorkspaceBatches, setBatchActive, updateWorkspaceBatch, type WorkspaceBatch } from "@/services/batchService";
 import { MOCK_BATCHES } from "@/data/mockData";
+import { Archive, CheckCircle2, Edit, FileText, Plus, Users } from "lucide-react";
+
+interface BatchFormState {
+  name: string;
+  level: WorkspaceLevel;
+  description: string;
+  is_active: boolean;
+}
+
+const initialForm: BatchFormState = {
+  name: "",
+  level: "A1",
+  description: "",
+  is_active: true,
+};
+
+function levelBadgeClass(level: string) {
+  const classes: Record<string, string> = {
+    A1: "border-green-300 text-green-700 bg-green-50",
+    A2: "border-blue-300 text-blue-700 bg-blue-50",
+    B1: "border-violet-300 text-violet-700 bg-violet-50",
+    B2: "border-amber-300 text-amber-700 bg-amber-50",
+  };
+  return classes[level] ?? "bg-muted";
+}
 
 export default function TeacherBatches() {
+  const { authMode, user, workspaceMemberships } = useAuth();
+  const { toast } = useToast();
+  const workspaceId = getActiveWorkspaceId(workspaceMemberships);
+  const useRealData = authMode === "supabase" && Boolean(user);
+
+  const [batches, setBatches] = useState<WorkspaceBatch[]>([]);
+  const [loading, setLoading] = useState(useRealData);
+  const [error, setError] = useState<string | null>(null);
+  const [levelFilter, setLevelFilter] = useState("all");
+  const [statusFilter, setStatusFilter] = useState("active");
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [editingBatch, setEditingBatch] = useState<WorkspaceBatch | null>(null);
+  const [formData, setFormData] = useState<BatchFormState>(initialForm);
+
+  const loadBatches = async () => {
+    if (!useRealData) return;
+    if (!workspaceId) {
+      setError("No workspace found. Create a workspace before managing batches.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setError(null);
+      setBatches(await listWorkspaceBatches(workspaceId));
+    } catch (loadError) {
+      setError(formatErrorMessage(loadError, "Unable to load batches."));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    void loadBatches();
+  }, [useRealData, workspaceId]);
+
+  const displayBatches = useMemo(() => {
+    if (useRealData) {
+      return batches.filter((batch) => {
+        const matchesLevel = levelFilter === "all" || batch.level === levelFilter;
+        const matchesStatus =
+          statusFilter === "all" ||
+          (statusFilter === "active" ? batch.is_active : !batch.is_active);
+        return matchesLevel && matchesStatus;
+      });
+    }
+
+    return MOCK_BATCHES.filter((batch) => {
+      const matchesLevel = levelFilter === "all" || batch.level === levelFilter;
+      return matchesLevel && statusFilter !== "inactive";
+    }).map((batch) => ({
+      id: batch.id,
+      workspace_id: "mock",
+      name: batch.name,
+      level: (batch.level ?? "A2") as WorkspaceLevel,
+      description: null,
+      is_active: true,
+      created_by: null,
+      created_at: "",
+      updated_at: "",
+      student_count: batch.student_count,
+      submission_count: batch.submission_count,
+    }));
+  }, [batches, levelFilter, statusFilter, useRealData]);
+
+  const openDialog = (batch?: WorkspaceBatch) => {
+    if (batch) {
+      setEditingBatch(batch);
+      setFormData({
+        name: batch.name,
+        level: batch.level,
+        description: batch.description ?? "",
+        is_active: batch.is_active,
+      });
+    } else {
+      setEditingBatch(null);
+      setFormData(initialForm);
+    }
+    setDialogOpen(true);
+  };
+
+  const saveBatch = async () => {
+    if (!workspaceId || !user) return;
+    if (!formData.name.trim()) {
+      toast({ title: "Batch name required", description: "Give this batch a clear name." });
+      return;
+    }
+
+    try {
+      if (editingBatch) {
+        await updateWorkspaceBatch(workspaceId, editingBatch.id, {
+          ...formData,
+          name: formData.name.trim(),
+          description: formData.description.trim(),
+        });
+      } else {
+        await createWorkspaceBatch(workspaceId, user.id, {
+          ...formData,
+          name: formData.name.trim(),
+          description: formData.description.trim(),
+        });
+      }
+      setDialogOpen(false);
+      await loadBatches();
+      toast({ title: editingBatch ? "Batch updated" : "Batch created" });
+    } catch (saveError) {
+      toast({
+        title: "Could not save batch",
+        description: formatErrorMessage(saveError, "Please try again."),
+      });
+    }
+  };
+
+  const toggleBatch = async (batch: WorkspaceBatch) => {
+    if (!workspaceId) return;
+    try {
+      await setBatchActive(workspaceId, batch.id, !batch.is_active);
+      await loadBatches();
+    } catch (toggleError) {
+      toast({
+        title: "Could not update batch",
+        description: formatErrorMessage(toggleError, "Please try again."),
+      });
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl animate-in fade-in duration-500">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Batches</h1>
-        <p className="text-muted-foreground mt-1">Manage your class batches and view aggregate performance.</p>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Batches</h1>
+          <p className="text-muted-foreground mt-1">Manage your class batches and view aggregate performance.</p>
+        </div>
+        {useRealData && (
+          <Button onClick={() => openDialog()} className="shadow-md">
+            <Plus className="w-4 h-4 mr-2" />
+            Create Batch
+          </Button>
+        )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {MOCK_BATCHES.map((batch, i) => (
-          <Card key={batch.id} className="hover:shadow-md transition-shadow animate-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 50}ms` }}>
-            <CardHeader className="pb-4 border-b border-border bg-muted/30">
-              <CardTitle className="text-xl">{batch.name}</CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center text-muted-foreground">
-                    <Users className="w-4 h-4 mr-2" />
-                    <span className="text-sm">Students</span>
-                  </div>
-                  <span className="font-semibold">{batch.student_count}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center text-muted-foreground">
-                    <FileText className="w-4 h-4 mr-2" />
-                    <span className="text-sm">Total Submissions</span>
-                  </div>
-                  <span className="font-semibold">{batch.submission_count}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 mr-2 text-green-600" />
-                    <span className="text-sm">Avg Corrections/Submission</span>
-                  </div>
-                  <span className="font-semibold">{batch.avg_correction_count}</span>
-                </div>
-              </div>
-            </CardContent>
-            <CardFooter className="grid grid-cols-2 gap-3 bg-muted/10 pt-4">
-              <Link href={`/teacher/students?batch=${batch.id}`} className="w-full">
-                <Button variant="outline" className="w-full text-xs">View Students</Button>
-              </Link>
-              <Link href={`/teacher/submissions?batch=${batch.id}`} className="w-full">
-                <Button className="w-full text-xs">Submissions</Button>
-              </Link>
-            </CardFooter>
-          </Card>
-        ))}
+      <div className="flex flex-col md:flex-row gap-3 mb-6">
+        <div className="w-full md:w-48">
+          <Select value={levelFilter} onValueChange={setLevelFilter}>
+            <SelectTrigger className="bg-card">
+              <SelectValue placeholder="Level" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Levels</SelectItem>
+              {LEVEL_OPTIONS.map((level) => (
+                <SelectItem key={level} value={level}>{level}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="w-full md:w-48">
+          <Select value={statusFilter} onValueChange={setStatusFilter}>
+            <SelectTrigger className="bg-card">
+              <SelectValue placeholder="Status" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="active">Active</SelectItem>
+              <SelectItem value="inactive">Inactive</SelectItem>
+              <SelectItem value="all">All Statuses</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
+
+      {error && (
+        <Card className="mb-6 border-destructive/30 bg-destructive/5">
+          <CardContent className="py-4 text-sm text-destructive">{error}</CardContent>
+        </Card>
+      )}
+
+      {loading ? (
+        <Card>
+          <CardContent className="py-10 text-center text-muted-foreground">Loading batches...</CardContent>
+        </Card>
+      ) : displayBatches.length === 0 ? (
+        <Card className="border-dashed">
+          <CardContent className="py-14 text-center">
+            <h2 className="text-xl font-semibold mb-2">Create your first batch</h2>
+            <p className="text-muted-foreground mb-5">Organize students by level from A1 through B2.</p>
+            {useRealData && <Button onClick={() => openDialog()}>Create Batch</Button>}
+          </CardContent>
+        </Card>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {displayBatches.map((batch, i) => (
+            <Card key={batch.id} className={`hover:shadow-md transition-shadow animate-in slide-in-from-bottom-4 ${!batch.is_active ? "opacity-70" : ""}`} style={{ animationDelay: `${i * 50}ms` }}>
+              <CardHeader className="pb-4 border-b border-border bg-muted/30">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <Badge variant="outline" className={levelBadgeClass(batch.level)}>{batch.level}</Badge>
+                    <CardTitle className="text-xl mt-3">{batch.name}</CardTitle>
+                  </div>
+                  {!batch.is_active && <Badge variant="secondary">Inactive</Badge>}
+                </div>
+              </CardHeader>
+              <CardContent className="pt-6">
+                {batch.description && (
+                  <p className="text-sm text-muted-foreground mb-5 line-clamp-2">{batch.description}</p>
+                )}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-muted-foreground">
+                      <Users className="w-4 h-4 mr-2" />
+                      <span className="text-sm">Students</span>
+                    </div>
+                    <span className="font-semibold">{batch.student_count}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-muted-foreground">
+                      <FileText className="w-4 h-4 mr-2" />
+                      <span className="text-sm">Total Submissions</span>
+                    </div>
+                    <span className="font-semibold">{batch.submission_count}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-muted-foreground">
+                      <CheckCircle2 className="w-4 h-4 mr-2 text-green-600" />
+                      <span className="text-sm">Status</span>
+                    </div>
+                    <span className="font-semibold">{batch.is_active ? "Active" : "Inactive"}</span>
+                  </div>
+                </div>
+              </CardContent>
+              <CardFooter className="grid grid-cols-2 gap-3 bg-muted/10 pt-4">
+                <Link href={`/teacher/students?batch=${batch.id}`} className="w-full">
+                  <Button variant="outline" className="w-full text-xs">View Students</Button>
+                </Link>
+                {useRealData ? (
+                  <Button variant="outline" className="w-full text-xs" onClick={() => openDialog(batch)}>
+                    <Edit className="w-3 h-3 mr-1" />
+                    Edit
+                  </Button>
+                ) : (
+                  <Link href={`/teacher/submissions?batch=${batch.id}`} className="w-full">
+                    <Button className="w-full text-xs">Submissions</Button>
+                  </Link>
+                )}
+                {useRealData && (
+                  <Button variant="ghost" className="col-span-2 text-xs" onClick={() => toggleBatch(batch)}>
+                    <Archive className="w-3 h-3 mr-1" />
+                    {batch.is_active ? "Archive Batch" : "Reactivate Batch"}
+                  </Button>
+                )}
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      )}
+
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="sm:max-w-[560px]">
+          <DialogHeader>
+            <DialogTitle>{editingBatch ? "Edit Batch" : "Create Batch"}</DialogTitle>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="batch-name">Batch name</Label>
+              <Input
+                id="batch-name"
+                value={formData.name}
+                onChange={(event) => setFormData({ ...formData, name: event.target.value })}
+                placeholder="Phase 4 A2 Test Batch"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>Level</Label>
+              <Select value={formData.level} onValueChange={(value) => setFormData({ ...formData, level: value as WorkspaceLevel })}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select level" />
+                </SelectTrigger>
+                <SelectContent>
+                  {LEVEL_OPTIONS.map((level) => (
+                    <SelectItem key={level} value={level}>{level}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="batch-description">Description</Label>
+              <Textarea
+                id="batch-description"
+                value={formData.description}
+                onChange={(event) => setFormData({ ...formData, description: event.target.value })}
+                placeholder="Optional notes for this class group"
+              />
+            </div>
+            <div className="flex items-center justify-between rounded-md border p-3">
+              <Label htmlFor="batch-active">Active batch</Label>
+              <Switch
+                id="batch-active"
+                checked={formData.is_active}
+                onCheckedChange={(checked) => setFormData({ ...formData, is_active: checked })}
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancel</Button>
+            <Button onClick={saveBatch}>Save Batch</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

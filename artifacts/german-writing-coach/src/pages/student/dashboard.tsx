@@ -15,7 +15,7 @@ export default function StudentDashboard() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6 border-b border-border/60 pb-8">
         <div>
           <h1 className="text-4xl font-serif tracking-tight mb-2">Welcome back, {student.name.split(' ')[0]}!</h1>
-          <p className="text-muted-foreground">Batch: A2 Morning • {student.total_submissions} submissions so far</p>
+          <p className="text-muted-foreground">Batch: {student.batchId.toUpperCase()} • {student.total_submissions} submissions so far</p>
         </div>
         <div className="flex gap-4">
           <Link href="/student/history" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-card hover:bg-accent hover:text-accent-foreground h-11 px-6 shadow-sm">
@@ -86,7 +86,7 @@ export default function StudentDashboard() {
               <div className="flex items-start gap-3">
                 <div className="w-1.5 h-1.5 mt-2 rounded-full bg-muted-foreground/30" />
                 <div>
-                  <p className="text-sm font-medium text-foreground">Complete A2 Topic: Travel</p>
+                  <p className="text-sm font-medium text-foreground">Complete assigned writing topic</p>
                   <p className="text-xs text-muted-foreground mt-1">Try a new practice prompt</p>
                 </div>
               </div>

@@ -470,6 +470,77 @@ export type Database = {
           },
         ]
       }
+      student_invitations: {
+        Row: {
+          accepted_at: string | null
+          accepted_by: string | null
+          batch_id: string | null
+          created_at: string
+          email: string
+          expires_at: string | null
+          id: string
+          invited_by: string | null
+          status: string
+          updated_at: string
+          workspace_id: string
+        }
+        Insert: {
+          accepted_at?: string | null
+          accepted_by?: string | null
+          batch_id?: string | null
+          created_at?: string
+          email: string
+          expires_at?: string | null
+          id?: string
+          invited_by?: string | null
+          status?: string
+          updated_at?: string
+          workspace_id: string
+        }
+        Update: {
+          accepted_at?: string | null
+          accepted_by?: string | null
+          batch_id?: string | null
+          created_at?: string
+          email?: string
+          expires_at?: string | null
+          id?: string
+          invited_by?: string | null
+          status?: string
+          updated_at?: string
+          workspace_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "student_invitations_accepted_by_fkey"
+            columns: ["accepted_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_invitations_batch_id_fkey"
+            columns: ["batch_id"]
+            isOneToOne: false
+            referencedRelation: "batches"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_invitations_invited_by_fkey"
+            columns: ["invited_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_invitations_workspace_id_fkey"
+            columns: ["workspace_id"]
+            isOneToOne: false
+            referencedRelation: "workspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       submission_grammar_topics: {
         Row: {
           count: number
@@ -818,6 +889,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      accept_workspace_invitation: {
+        Args: { invitation_id: string }
+        Returns: {
+          accepted_invitation_id: string
+          batch_id: string
+          batch_student_id: string
+          membership_id: string
+          workspace_id: string
+        }[]
+      }
       create_teacher_workspace: {
         Args: { workspace_name?: string }
         Returns: {
@@ -828,6 +909,18 @@ export type Database = {
       has_workspace_role: {
         Args: { allowed_roles: string[]; target_workspace_id: string }
         Returns: boolean
+      }
+      invite_student_by_email: {
+        Args: { target_batch_id?: string; target_email: string }
+        Returns: {
+          batch_id: string
+          batch_student_id: string
+          invitation_id: string
+          invitation_status: string
+          membership_id: string
+          student_id: string
+          workspace_id: string
+        }[]
       }
       is_platform_admin: { Args: never; Returns: boolean }
       is_workspace_member: {

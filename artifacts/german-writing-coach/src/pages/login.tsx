@@ -75,7 +75,7 @@ export default function Login() {
             Master German Writing, <span className="text-primary italic">Line by Line.</span>
           </h1>
           <p className="text-base lg:text-lg text-muted-foreground mb-6 max-w-md leading-relaxed">
-            Precise feedback for A1/A2 learners that corrects mistakes without overcomplicating your sentences. Build confidence in your natural writing.
+            Precise feedback for A1-B2 learners that corrects mistakes without overcomplicating your sentences. Build confidence in your natural writing.
           </p>
 
           <div className="relative bg-card border border-border rounded-lg p-5 shadow-sm max-w-md font-mono text-sm leading-loose flex flex-col">
@@ -106,7 +106,7 @@ export default function Login() {
             <div className="flex flex-col gap-1.5">
               <BookOpen className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium">40+ prompts</span>
-              <span className="text-xs text-muted-foreground">A1 & A2 topics</span>
+              <span className="text-xs text-muted-foreground">A1-B2 topics</span>
             </div>
             <div className="flex flex-col gap-1.5">
               <Sparkles className="w-4 h-4 text-primary" />

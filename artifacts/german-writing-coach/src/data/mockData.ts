@@ -80,13 +80,34 @@ export const MOCK_QUESTIONS: Question[] = [
     expected_word_range: "50-80",
     estimated_time: "15 mins",
     active: true,
+  },
+  {
+    id: "q9",
+    title: "Meinung zu Online-Unterricht",
+    level: "B1",
+    topic: "Argumentation",
+    prompt: "Schreiben Sie Ihre Meinung zu Online-Unterricht. Nennen Sie Vorteile, Nachteile und ein Beispiel.",
+    expected_word_range: "100-140",
+    estimated_time: "25 mins",
+    active: true,
+  },
+  {
+    id: "q10",
+    title: "Formelle Beschwerde",
+    level: "B2",
+    topic: "Formeller Brief",
+    prompt: "Schreiben Sie eine formelle Beschwerde über einen schlechten Service. Achten Sie auf Struktur und höflichen Ton.",
+    expected_word_range: "140-180",
+    estimated_time: "35 mins",
+    active: true,
   }
 ];
 
 export const MOCK_BATCHES: Batch[] = [
-  { id: "b1", name: "A2 Morning Batch", student_count: 12, submission_count: 45, avg_correction_count: 3 },
-  { id: "b2", name: "A2 Evening Batch", student_count: 15, submission_count: 38, avg_correction_count: 4 },
-  { id: "b3", name: "A1 Beginner Batch", student_count: 10, submission_count: 22, avg_correction_count: 2 },
+  { id: "b1", name: "A2 Morning Batch", level: "A2", student_count: 12, submission_count: 45, avg_correction_count: 3 },
+  { id: "b2", name: "B1 Evening Batch", level: "B1", student_count: 15, submission_count: 38, avg_correction_count: 4 },
+  { id: "b3", name: "A1 Beginner Batch", level: "A1", student_count: 10, submission_count: 22, avg_correction_count: 2 },
+  { id: "b4", name: "B2 Writing Lab", level: "B2", student_count: 6, submission_count: 14, avg_correction_count: 5 },
 ];
 
 export const MOCK_STUDENTS: Student[] = [

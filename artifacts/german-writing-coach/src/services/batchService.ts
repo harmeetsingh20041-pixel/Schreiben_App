@@ -1,0 +1,136 @@
+import { getSupabaseClient } from "@/lib/supabaseClient";
+import type { WorkspaceLevel } from "@/lib/workspaceData";
+import type { Database } from "@/types/supabase";
+
+type BatchRow = Database["public"]["Tables"]["batches"]["Row"];
+
+function requireClient() {
+  const client = getSupabaseClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Demo mode is still available.");
+  }
+  return client;
+}
+
+export interface WorkspaceBatch {
+  id: string;
+  workspace_id: string;
+  name: string;
+  level: WorkspaceLevel;
+  description: string | null;
+  is_active: boolean;
+  created_by: string | null;
+  created_at: string;
+  updated_at: string;
+  student_count: number;
+  submission_count: number;
+}
+
+export interface BatchInput {
+  name: string;
+  level: WorkspaceLevel;
+  description?: string | null;
+  is_active?: boolean;
+}
+
+function mapBatch(
+  batch: BatchRow,
+  studentCounts: Map<string, number>,
+  submissionCounts: Map<string, number>,
+): WorkspaceBatch {
+  return {
+    ...batch,
+    level: batch.level as WorkspaceLevel,
+    student_count: studentCounts.get(batch.id) ?? 0,
+    submission_count: submissionCounts.get(batch.id) ?? 0,
+  };
+}
+
+export async function listWorkspaceBatches(workspaceId: string): Promise<WorkspaceBatch[]> {
+  const client = requireClient();
+  const [
+    { data: batches, error: batchesError },
+    { data: batchStudents, error: batchStudentsError },
+    { data: submissions, error: submissionsError },
+  ] = await Promise.all([
+    client
+      .from("batches")
+      .select("*")
+      .eq("workspace_id", workspaceId)
+      .order("created_at", { ascending: false }),
+    client.from("batch_students").select("batch_id").eq("workspace_id", workspaceId),
+    client.from("submissions").select("batch_id").eq("workspace_id", workspaceId),
+  ]);
+
+  if (batchesError) throw batchesError;
+  if (batchStudentsError) throw batchStudentsError;
+  if (submissionsError) throw submissionsError;
+
+  const studentCounts = new Map<string, number>();
+  for (const row of batchStudents ?? []) {
+    studentCounts.set(row.batch_id, (studentCounts.get(row.batch_id) ?? 0) + 1);
+  }
+
+  const submissionCounts = new Map<string, number>();
+  for (const row of submissions ?? []) {
+    if (!row.batch_id) continue;
+    submissionCounts.set(row.batch_id, (submissionCounts.get(row.batch_id) ?? 0) + 1);
+  }
+
+  return ((batches ?? []) as BatchRow[]).map((batch) =>
+    mapBatch(batch, studentCounts, submissionCounts),
+  );
+}
+
+export async function createWorkspaceBatch(
+  workspaceId: string,
+  userId: string,
+  input: BatchInput,
+): Promise<void> {
+  const client = requireClient();
+  const { error } = await client.from("batches").insert({
+    workspace_id: workspaceId,
+    created_by: userId,
+    name: input.name,
+    level: input.level,
+    description: input.description || null,
+    is_active: input.is_active ?? true,
+  });
+
+  if (error) throw error;
+}
+
+export async function updateWorkspaceBatch(
+  workspaceId: string,
+  batchId: string,
+  input: BatchInput,
+): Promise<void> {
+  const client = requireClient();
+  const { error } = await client
+    .from("batches")
+    .update({
+      name: input.name,
+      level: input.level,
+      description: input.description || null,
+      is_active: input.is_active ?? true,
+    })
+    .eq("id", batchId)
+    .eq("workspace_id", workspaceId);
+
+  if (error) throw error;
+}
+
+export async function setBatchActive(
+  workspaceId: string,
+  batchId: string,
+  isActive: boolean,
+): Promise<void> {
+  const client = requireClient();
+  const { error } = await client
+    .from("batches")
+    .update({ is_active: isActive })
+    .eq("id", batchId)
+    .eq("workspace_id", workspaceId);
+
+  if (error) throw error;
+}
