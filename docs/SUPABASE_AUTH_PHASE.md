@@ -45,10 +45,12 @@ The local `.env.local` now uses the project URL and a frontend publishable key. 
 
 1. Add `artifacts/german-writing-coach/.env.local` with the project URL and publishable/anon key.
 2. Start the app.
-3. Create a teacher account from the login page.
+3. Create a teacher account from the login page using a real reachable email address or an owned Gmail alias.
 4. If the Supabase project requires email confirmation, confirm the email first, then sign in.
 5. The app routes teachers with no workspace to `/teacher/onboarding`.
 6. Create the workspace. The database function creates the workspace and owner membership together.
+
+Remote Supabase Auth testing must follow `docs/SUPABASE_EMAIL_TESTING_POLICY.md`. Fake or unreachable email addresses must not be used for hosted Auth signups or confirmation resends.
 
 ## Verification
 

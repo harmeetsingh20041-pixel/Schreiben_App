@@ -6,14 +6,25 @@ import { Textarea } from "@/components/ui/textarea";
 import { Loader2, ArrowLeft, Send, Save, Trash2, CheckCircle2, PenTool } from "lucide-react";
 import { MOCK_QUESTIONS } from "@/data/mockData";
 import { checkWriting } from "@/services/aiCorrectionService";
+import type { Question } from "@/types";
 
 export default function StudentWrite() {
   const [, setLocation] = useLocation();
   const searchParams = new URLSearchParams(useSearch());
   const qId = searchParams.get("q");
   const isFree = searchParams.get("mode") === "free";
-  
-  const question = MOCK_QUESTIONS.find(q => q.id === qId);
+  const storedQuestion = (() => {
+    if (!qId) return null;
+    try {
+      const raw = sessionStorage.getItem("gwc_selected_question");
+      if (!raw) return null;
+      const parsed = JSON.parse(raw) as Question;
+      return parsed.id === qId ? parsed : null;
+    } catch {
+      return null;
+    }
+  })();
+  const question = MOCK_QUESTIONS.find(q => q.id === qId) ?? storedQuestion;
   
   const [text, setText] = useState("");
   const [isChecking, setIsChecking] = useState(false);
@@ -24,7 +35,7 @@ export default function StudentWrite() {
   const stages = [
     "Checking grammar and vocabulary...",
     "Checking meaning and context...",
-    "Checking A1/A2 suitability...",
+    "Checking level suitability...",
     "Avoiding unnecessary overcorrection...",
     "Preparing line-by-line feedback..."
   ];

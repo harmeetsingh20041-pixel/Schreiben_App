@@ -1,12 +1,14 @@
-import { useState } from "react";
 import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FileText, Calendar, CheckCircle2, Clock, Eye } from "lucide-react";
+import { useAuth } from "@/lib/auth";
 import { MOCK_SUBMISSIONS, MOCK_QUESTIONS } from "@/data/mockData";
 
 export default function StudentHistory() {
+  const { authMode, user } = useAuth();
+  const useRealData = authMode === "supabase" && Boolean(user);
   const studentSubmissions = MOCK_SUBMISSIONS.filter(s => s.studentId === "s1");
   
   return (
@@ -17,7 +19,18 @@ export default function StudentHistory() {
       </div>
 
       <div className="space-y-4">
-        {studentSubmissions.map((sub, i) => {
+        {useRealData ? (
+          <Card className="p-12 text-center border-dashed bg-muted/30">
+            <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+              <FileText className="w-8 h-8 text-muted-foreground" />
+            </div>
+            <h3 className="text-lg font-semibold mb-2">No real submissions yet.</h3>
+            <p className="text-muted-foreground mb-6">Writing submissions will appear here after students submit work.</p>
+            <Link href="/student/questions">
+              <Button>Start Practice</Button>
+            </Link>
+          </Card>
+        ) : studentSubmissions.map((sub, i) => {
           const question = MOCK_QUESTIONS.find(q => q.id === sub.questionId);
           const isReviewed = sub.status === "Reviewed";
           
@@ -79,7 +92,7 @@ export default function StudentHistory() {
         })}
       </div>
       
-      {studentSubmissions.length === 0 && (
+      {!useRealData && studentSubmissions.length === 0 && (
         <Card className="p-12 text-center border-dashed bg-muted/30">
           <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
             <FileText className="w-8 h-8 text-muted-foreground" />

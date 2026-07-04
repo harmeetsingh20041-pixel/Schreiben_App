@@ -48,7 +48,7 @@ export function SubmissionReview({ submission, student, question, isTeacherView 
 
   const statusConfig: Record<Status, { icon: any, color: string, bg: string, border: string, label: string }> = {
     correct: { icon: CheckCircle2, color: "text-[#2E7D32]", bg: "bg-[#2E7D32]/5", border: "border-[#2E7D32]/20", label: "Correct" },
-    acceptable_a1_a2: { icon: ThumbsUp, color: "text-[#0277BD]", bg: "bg-[#0277BD]/5", border: "border-[#0277BD]/20", label: "Good for A1/A2" },
+    acceptable_a1_a2: { icon: ThumbsUp, color: "text-[#0277BD]", bg: "bg-[#0277BD]/5", border: "border-[#0277BD]/20", label: "Good for level" },
     minor_issue: { icon: AlertTriangle, color: "text-[#F57C00]", bg: "bg-[#F57C00]/5", border: "border-[#F57C00]/20", label: "Small Issue" },
     major_issue: { icon: AlertOctagon, color: "text-[#D32F2F]", bg: "bg-[#D32F2F]/5", border: "border-[#D32F2F]/20", label: "Major Issue" },
     unclear: { icon: AlertCircle, color: "text-slate-600", bg: "bg-slate-50", border: "border-slate-200", label: "Unclear" }
@@ -86,7 +86,7 @@ export function SubmissionReview({ submission, student, question, isTeacherView 
                 <span className="w-1 h-1 rounded-full bg-border"></span>
                 <span>{student.name}</span>
                 <span className="w-1 h-1 rounded-full bg-border"></span>
-                <span>Batch A2</span>
+                <span>Batch {question?.level || submission.ai_response.level_detected}</span>
               </>
             )}
             <span className="w-1 h-1 rounded-full bg-border"></span>

@@ -19,14 +19,14 @@ export interface CorrectionLine {
 export interface AIResponse {
   submission_id: string;
   overall_summary: string;
-  level_detected: "A1" | "A2";
+  level_detected: "A1" | "A2" | "B1" | "B2";
   lines: CorrectionLine[];
 }
 
 export interface Question {
   id: string;
   title: string;
-  level: "A1" | "A2";
+  level: "A1" | "A2" | "B1" | "B2";
   topic: string;
   prompt: string;
   expected_word_range: string;
@@ -47,6 +47,7 @@ export interface Student {
 export interface Batch {
   id: string;
   name: string;
+  level?: "A1" | "A2" | "B1" | "B2";
   student_count: number;
   submission_count: number;
   avg_correction_count: number;
