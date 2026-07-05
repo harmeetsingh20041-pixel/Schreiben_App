@@ -288,6 +288,8 @@ Will implement:
 - `student_grammar_stats` updates
 - weak topic thresholds
 - teacher/student weak topic views backed by real data
+- student Practice Center remains the student-facing place for unlocked grammar practice
+- teacher-side visibility uses Grammar Focus Areas and Student Weak Areas; teacher practice management comes with worksheet phases
 - no worksheet generation; weak topics only unlock future practice
 
 Will not implement yet:

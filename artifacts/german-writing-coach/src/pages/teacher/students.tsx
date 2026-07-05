@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId, LEVEL_OPTIONS } from "@/lib/workspaceData";
 import { listWorkspaceBatches, type WorkspaceBatch } from "@/services/batchService";
+import { formatIssueCount, getWeaknessBadgeClass, getWeaknessLabel, listWorkspaceGrammarStats, type StudentGrammarStat } from "@/services/grammarStatsService";
 import { approveBatchJoinRequest, assignStudentToBatch, inviteStudentByEmail, listBatchJoinRequests, listStudentInvitations, listWorkspaceStudents, rejectBatchJoinRequest, removeStudentBatchAssignment, type BatchJoinRequest, type StudentInvitation, type WorkspaceStudent } from "@/services/studentService";
 import { MOCK_BATCHES, MOCK_STUDENTS } from "@/data/mockData";
 import { Check, Eye, KeyRound, Search, UserPlus, X, XCircle } from "lucide-react";
@@ -43,6 +44,7 @@ export default function TeacherStudents() {
   const [students, setStudents] = useState<WorkspaceStudent[]>([]);
   const [invitations, setInvitations] = useState<StudentInvitation[]>([]);
   const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
+  const [grammarStats, setGrammarStats] = useState<StudentGrammarStat[]>([]);
   const [loading, setLoading] = useState(useRealData);
   const [error, setError] = useState<string | null>(null);
   const [inviteOpen, setInviteOpen] = useState(false);
@@ -60,16 +62,18 @@ export default function TeacherStudents() {
     try {
       setLoading(true);
       setError(null);
-      const [nextBatches, nextStudents, nextInvitations, nextJoinRequests] = await Promise.all([
+      const [nextBatches, nextStudents, nextInvitations, nextJoinRequests, nextGrammarStats] = await Promise.all([
         listWorkspaceBatches(workspaceId),
         listWorkspaceStudents(workspaceId),
         listStudentInvitations(workspaceId),
         listBatchJoinRequests(workspaceId),
+        listWorkspaceGrammarStats(workspaceId, 80),
       ]);
       setBatches(nextBatches);
       setStudents(nextStudents);
       setInvitations(nextInvitations);
       setJoinRequests(nextJoinRequests);
+      setGrammarStats(nextGrammarStats);
     } catch (loadError) {
       setError(formatErrorMessage(loadError, "Unable to load students."));
     } finally {
@@ -129,6 +133,21 @@ export default function TeacherStudents() {
 
   const pendingInvitations = invitations.filter((invitation) => invitation.status === "pending");
   const pendingJoinRequests = joinRequests.filter((request) => request.status === "pending");
+
+  const grammarStatsByStudent = useMemo(() => {
+    const statsByStudent = new Map<string, StudentGrammarStat[]>();
+    grammarStats.forEach((stat) => {
+      const currentStats = statsByStudent.get(stat.student_id) ?? [];
+      if (currentStats.length < 3) {
+        statsByStudent.set(stat.student_id, [...currentStats, stat]);
+      }
+    });
+    return statsByStudent;
+  }, [grammarStats]);
+
+  const mockWeakTopicsByStudent = useMemo(() => (
+    new Map(MOCK_STUDENTS.map((student) => [student.id, student.weak_topics.slice(0, 3)]))
+  ), []);
 
   const sendInvite = async () => {
     if (!inviteEmail.trim()) {
@@ -263,6 +282,7 @@ export default function TeacherStudents() {
             <TableRow>
               <TableHead>Student</TableHead>
               <TableHead>Assigned Batches</TableHead>
+              <TableHead>Student Weak Areas</TableHead>
               <TableHead className="hidden md:table-cell">Submissions</TableHead>
               <TableHead className="hidden sm:table-cell">Last Active</TableHead>
               <TableHead className="text-right">Action</TableHead>
@@ -271,68 +291,105 @@ export default function TeacherStudents() {
           <TableBody>
             {loading ? (
               <TableRow>
-                <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
+                <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
                   Loading students...
                 </TableCell>
               </TableRow>
             ) : displayStudents.length > 0 ? (
-              displayStudents.map((student) => (
-                <TableRow key={student.id}>
-                  <TableCell>
-                    <div className="font-medium">{student.name}</div>
-                    <div className="text-xs text-muted-foreground">{student.email}</div>
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex flex-wrap gap-2">
-                      {student.batches.length === 0 && (
-                        <Badge variant="outline" className="bg-muted">Unassigned</Badge>
-                      )}
-                      {student.batches.map((batch) => (
-                        <Badge key={batch.id} variant="outline" className="bg-muted gap-1">
-                          {batch.batch_name} · {batch.level}
-                          {useRealData && (
-                            <button
-                              type="button"
-                              className="ml-1 rounded-sm hover:text-destructive"
-                              onClick={() => removeAssignment(batch.id)}
-                              aria-label={`Remove ${batch.batch_name}`}
-                            >
-                              <X className="h-3 w-3" />
-                            </button>
-                          )}
-                        </Badge>
-                      ))}
-                    </div>
-                    {useRealData && displayBatches.length > 0 && (
-                      <div className="mt-2 max-w-56">
-                        <Select value="none" onValueChange={(value) => assignBatch(student.id, value)}>
-                          <SelectTrigger className="h-8 text-xs bg-card">
-                            <SelectValue placeholder="Assign batch" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="none">Assign batch</SelectItem>
-                            {displayBatches.map((batch) => (
-                              <SelectItem key={batch.id} value={batch.id}>{batch.name}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+              displayStudents.map((student) => {
+                const studentGrammarStats = grammarStatsByStudent.get(student.id) ?? [];
+                const mockWeakTopics = mockWeakTopicsByStudent.get(student.id) ?? [];
+
+                return (
+                  <TableRow key={student.id}>
+                    <TableCell>
+                      <div className="font-medium">{student.name}</div>
+                      <div className="text-xs text-muted-foreground">{student.email}</div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex flex-wrap gap-2">
+                        {student.batches.length === 0 && (
+                          <Badge variant="outline" className="bg-muted">Unassigned</Badge>
+                        )}
+                        {student.batches.map((batch) => (
+                          <Badge key={batch.id} variant="outline" className="bg-muted gap-1">
+                            {batch.batch_name} · {batch.level}
+                            {useRealData && (
+                              <button
+                                type="button"
+                                className="ml-1 rounded-sm hover:text-destructive"
+                                onClick={() => removeAssignment(batch.id)}
+                                aria-label={`Remove ${batch.batch_name}`}
+                              >
+                                <X className="h-3 w-3" />
+                              </button>
+                            )}
+                          </Badge>
+                        ))}
                       </div>
-                    )}
-                  </TableCell>
-                  <TableCell className="hidden md:table-cell">{student.total_submissions}</TableCell>
-                  <TableCell className="hidden sm:table-cell text-muted-foreground text-sm">{student.last_active}</TableCell>
-                  <TableCell className="text-right">
-                    <Link href={`/teacher/submissions?student=${student.id}`}>
-                      <Button variant="ghost" size="sm" className="text-primary hover:text-primary hover:bg-primary/10">
-                        <Eye className="w-4 h-4 mr-2" /> View Work
-                      </Button>
-                    </Link>
-                  </TableCell>
-                </TableRow>
-              ))
+                      {useRealData && displayBatches.length > 0 && (
+                        <div className="mt-2 max-w-56">
+                          <Select value="none" onValueChange={(value) => assignBatch(student.id, value)}>
+                            <SelectTrigger className="h-8 text-xs bg-card">
+                              <SelectValue placeholder="Assign batch" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="none">Assign batch</SelectItem>
+                              {displayBatches.map((batch) => (
+                                <SelectItem key={batch.id} value={batch.id}>{batch.name}</SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      )}
+                    </TableCell>
+                    <TableCell className="min-w-52">
+                      {useRealData ? (
+                        studentGrammarStats.length > 0 ? (
+                          <div className="flex flex-col gap-1.5">
+                            {studentGrammarStats.map((stat) => (
+                              <div key={stat.id} className="flex flex-wrap items-center gap-1.5">
+                                <Badge variant="outline" className={getWeaknessBadgeClass(stat.weakness_level, stat.practice_unlocked)}>
+                                  {stat.topic_name}
+                                </Badge>
+                                <span className="text-[11px] text-muted-foreground">
+                                  {getWeaknessLabel(stat.weakness_level, stat.practice_unlocked)} · {formatIssueCount(stat)}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">No focus areas yet</span>
+                        )
+                      ) : (
+                        <div className="flex flex-wrap gap-1.5">
+                          {mockWeakTopics.length > 0 ? (
+                            mockWeakTopics.map((topic) => (
+                              <Badge key={topic} variant="outline" className="bg-muted">
+                                {topic}
+                              </Badge>
+                            ))
+                          ) : (
+                            <span className="text-xs text-muted-foreground">No focus areas yet</span>
+                          )}
+                        </div>
+                      )}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">{student.total_submissions}</TableCell>
+                    <TableCell className="hidden sm:table-cell text-muted-foreground text-sm">{student.last_active}</TableCell>
+                    <TableCell className="text-right">
+                      <Link href={`/teacher/submissions?student=${student.id}`}>
+                        <Button variant="ghost" size="sm" className="text-primary hover:text-primary hover:bg-primary/10">
+                          <Eye className="w-4 h-4 mr-2" /> View Work
+                        </Button>
+                      </Link>
+                    </TableCell>
+                  </TableRow>
+                );
+              })
             ) : (
               <TableRow>
-                <TableCell colSpan={5} className="text-center py-12">
+                <TableCell colSpan={6} className="text-center py-12">
                   <h2 className="text-lg font-semibold mb-2">Invite your first student</h2>
                   <p className="text-muted-foreground mb-4">Students appear here after accepting an invitation or when their account already exists.</p>
                   {useRealData && <Button onClick={() => setInviteOpen(true)}>Invite Student</Button>}

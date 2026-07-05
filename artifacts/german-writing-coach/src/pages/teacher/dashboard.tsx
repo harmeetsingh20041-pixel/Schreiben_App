@@ -271,7 +271,7 @@ export default function TeacherDashboard() {
           <Card className="shadow-sm border-border rounded-xl">
             <CardHeader className="pb-4 border-b border-border/60 bg-muted/20">
               <CardTitle className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-                {useRealData ? "Grammar focus areas" : "Struggling with Dativ"}
+                {useRealData ? "Grammar Focus Areas" : "Struggling with Dativ"}
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-5 space-y-5">
