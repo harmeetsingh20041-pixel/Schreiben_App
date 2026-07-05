@@ -13,6 +13,8 @@ type PracticeAssignmentRpcRow =
   | Database["public"]["Functions"]["submit_practice_attempt"]["Returns"][number];
 type PracticeQuestionRpcRow =
   Database["public"]["Functions"]["get_practice_assignment_questions"]["Returns"][number];
+type PracticeReviewRpcRow =
+  Database["public"]["Functions"]["get_practice_assignment_review"]["Returns"][number];
 
 export type PracticeAssignmentStatus =
   | "unlocked"
@@ -86,6 +88,11 @@ export interface PracticeWorksheetQuestion {
   question_type: PracticeQuestionType;
   prompt: string;
   options: string[];
+  student_answer?: string | null;
+  correct_answer?: string | null;
+  explanation?: string | null;
+  is_correct?: boolean | null;
+  review_status?: "correct" | "incorrect" | "submitted_for_review" | string | null;
 }
 
 export interface PracticeWorksheetDetail {
@@ -183,6 +190,39 @@ type PracticeTestWithMiniLesson = PracticeTestRow & {
 };
 
 function mapRpcAssignment(row: PracticeAssignmentRpcRow): PracticeAssignmentSummary {
+  return {
+    id: row.assignment_id,
+    workspace_id: row.workspace_id,
+    student_id: row.student_id,
+    grammar_topic_id: row.grammar_topic_id,
+    grammar_topic_name: row.grammar_topic_name,
+    grammar_topic_slug: row.grammar_topic_slug,
+    grammar_topic_description: null,
+    practice_test_id: row.practice_test_id,
+    worksheet_title: row.worksheet_title,
+    worksheet_level: row.worksheet_level,
+    worksheet_difficulty: row.worksheet_difficulty,
+    worksheet_mini_lesson: null,
+    status: normalizeStatus(row.status),
+    source: row.source,
+    assigned_at: row.assigned_at,
+    started_at: row.started_at,
+    completed_at: row.completed_at,
+    latest_attempt_id: row.latest_attempt_id,
+    latest_attempt_status: normalizeAttemptStatus(row.latest_attempt_status),
+    score: row.score,
+    max_score: row.max_score,
+    score_percent: row.score_percent,
+    passed: row.passed,
+    question_count: row.question_count,
+    generation_status: normalizeGenerationStatus(null, Boolean(row.practice_test_id)),
+    generation_started_at: null,
+    generation_completed_at: null,
+    generation_error: null,
+  };
+}
+
+function mapReviewAssignment(row: PracticeReviewRpcRow): PracticeAssignmentSummary {
   return {
     id: row.assignment_id,
     workspace_id: row.workspace_id,
@@ -516,6 +556,60 @@ export async function getPracticeWorksheetDetail(assignmentId: string): Promise<
       question_type: question.question_type,
       prompt: question.prompt,
       options: parseOptions(question.options),
+    })),
+  };
+}
+
+export async function getPracticeWorksheetReview(assignmentId: string): Promise<PracticeWorksheetDetail> {
+  const client = requireClient();
+  const { data, error } = await client.rpc("get_practice_assignment_review", {
+    target_assignment_id: assignmentId,
+  });
+
+  if (error) throw error;
+  const reviewRows = (data ?? []) as PracticeReviewRpcRow[];
+  const firstRow = reviewRows[0];
+  if (!firstRow) throw new Error("Worksheet review is not available yet.");
+
+  let assignment = mapReviewAssignment(firstRow);
+  const { data: assignmentRow, error: assignmentError } = await client
+    .from("student_practice_assignments")
+    .select("*")
+    .eq("id", assignmentId)
+    .maybeSingle();
+
+  if (assignmentError) throw assignmentError;
+  if (assignmentRow) {
+    const hydrated = await hydrateAssignments([assignmentRow as PracticeAssignmentWithGeneration]);
+    assignment = {
+      ...assignment,
+      ...hydrated[0],
+      question_count: reviewRows.length,
+      latest_attempt_id: firstRow.latest_attempt_id,
+      latest_attempt_status: normalizeAttemptStatus(firstRow.latest_attempt_status),
+      score: firstRow.score,
+      max_score: firstRow.max_score,
+      score_percent: firstRow.score_percent,
+      passed: firstRow.passed,
+    };
+  }
+
+  return {
+    assignment: {
+      ...assignment,
+      question_count: reviewRows.length,
+    },
+    questions: reviewRows.map((question) => ({
+      id: question.question_id,
+      question_number: question.question_number,
+      question_type: question.question_type,
+      prompt: question.prompt,
+      options: parseOptions(question.options),
+      student_answer: question.student_answer,
+      correct_answer: question.correct_answer,
+      explanation: question.explanation,
+      is_correct: question.is_correct,
+      review_status: question.review_status,
     })),
   };
 }

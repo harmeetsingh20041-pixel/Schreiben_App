@@ -71,6 +71,7 @@ Generated worksheets must:
 - Keep examples anonymized and within the same workspace/student.
 - Use mistake snippets to understand patterns, not as text to copy into reusable worksheets.
 - Include a useful mini lesson.
+- Align A1/A2 style and topic progression with Netzwerk-style classroom grammar progression where possible without copying copyrighted textbook exercises or wording.
 - Avoid duplicate, near-duplicate, impossible, or ambiguous questions.
 - Avoid B1/B2 grammar in A1/A2 worksheets.
 - Avoid childish filler and generic grammar drills.
@@ -105,8 +106,10 @@ Exact-answer safety means:
 - `multiple_choice` is safe only when the correct answer appears exactly once in the display options.
 - `fill_blank` is safe only when exactly one blank and one exact answer are expected.
 - `sentence_correction` is safe only when the prompt asks for one corrected sentence.
-- `word_order` is safe only when all required words or phrases are provided and one exact target answer is expected.
+- `word_order` is safe only when all required words or phrases are provided and one exact target answer is expected. Phase 7C requires enough chunks to be meaningful and rejects starting-hint prompts that make the answer obvious.
 - `transformation` and `rewrite_sentence` are safe only when tightly controlled with one exact expected answer.
+
+For A2 verb-position worksheets, generated word-order tasks should practice meaningful clause patterns such as main clauses with a fronted element, simple subordinate clauses with `weil`/`dass`/`ob`, or verb-second versus verb-final contrast. Proper-noun capitalization must not be the only real challenge.
 
 The broader system remains open to future types, but Phase 7C generation should not use them:
 
@@ -124,7 +127,7 @@ A good generated A2 worksheet should have 8-10 questions. The current prompt ask
 - 2 multiple-choice questions
 - 2 fill-the-blank questions
 - 2 sentence-correction questions
-- 1 word-order, transformation, rewrite, or short production question
+- 1 word-order, transformation, or rewrite question
 
 Every question must have a non-empty answer/explanation where needed, and questions must not be duplicates.
 
@@ -140,6 +143,7 @@ Generated worksheet validation checks:
 - Question types are supported.
 - Local answer keys are non-empty for locally scorable questions.
 - Generated questions are exact-answer-safe and do not contain answer alternatives.
+- Word-order prompts provide enough chunks, avoid answer-revealing starting hints, and are not trivial reorderings.
 - Multiple-choice options are plain strings and include the correct answer exactly once.
 - Options do not contain hidden metadata.
 - Student-visible fields do not mention AI, DeepSeek, model names, answer keys, or scoring metadata.
@@ -160,11 +164,15 @@ Students receive questions only through `get_practice_assignment_questions`, whi
 
 Raw `practice_test_questions.options` must never be relied on as student-safe storage. Future generation and editing tools must not place hidden answers, explanations, `is_correct`, answer keys, or scoring metadata inside options.
 
-Post-submit explanations remain deferred to a secure Phase 7D flow.
+After submission, students can load review data only through `get_practice_assignment_review`. That RPC requires the caller to be the assignment student, a teacher/owner in the workspace, or a platform admin, and it only returns answers/explanations after the assignment is completed/passed/failed or the latest attempt is submitted/checked.
 
 ## Answer Evaluation
 
 Phase 7C does not add DeepSeek answer evaluation. Local scoring still applies only when the entire worksheet is safely locally scorable. If any question is manual/unscored, the attempt is submitted and the assignment is completed without passed/failed.
+
+For non-capitalization/spelling topics, local scoring trims whitespace, collapses repeated spaces, ignores simple final punctuation such as `.`, `!`, and `?`, and compares case-insensitively. It does not ignore word-order or word-choice differences. For capitalization, spelling, Rechtschreibung, or orthography topics, scoring is stricter and capitalization matters, while whitespace normalization and optional final punctuation still apply.
+
+Worksheet submissions are bounded server-side: at most 20 answers, at most 1000 characters per answer, and about 25 KB of submitted answer JSON.
 
 ## Test Fixture
 

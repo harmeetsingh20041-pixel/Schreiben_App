@@ -1356,6 +1356,43 @@ export type Database = {
           question_type: string
         }[]
       }
+      get_practice_assignment_review: {
+        Args: { target_assignment_id: string }
+        Returns: {
+          assigned_at: string
+          assignment_id: string
+          completed_at: string
+          correct_answer: string
+          explanation: string
+          grammar_topic_id: string
+          grammar_topic_name: string
+          grammar_topic_slug: string
+          is_correct: boolean
+          latest_attempt_id: string
+          latest_attempt_status: string
+          max_score: number
+          options: Json
+          passed: boolean
+          practice_test_id: string
+          prompt: string
+          question_count: number
+          question_id: string
+          question_number: number
+          question_type: string
+          review_status: string
+          score: number
+          score_percent: number
+          source: string
+          started_at: string
+          status: string
+          student_answer: string
+          student_id: string
+          worksheet_difficulty: string
+          worksheet_level: string
+          worksheet_title: string
+          workspace_id: string
+        }[]
+      }
       has_workspace_role: {
         Args: { allowed_roles: string[]; target_workspace_id: string }
         Returns: boolean

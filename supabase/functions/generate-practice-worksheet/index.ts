@@ -111,6 +111,20 @@ function hasAlternativeAnswerMarker(value: string) {
   return /\s(?:or|oder)\s|\/|\||;|\b(any|either)\b/i.test(value);
 }
 
+function extractWordOrderChunks(prompt: string) {
+  if (!prompt.includes("/")) return [];
+  return prompt
+    .split("/")
+    .map((chunk, index) => {
+      const withoutLeadIn = index === 0 ? chunk.replace(/^.*:/, "") : chunk;
+      return withoutLeadIn
+        .replace(/[.!?]+$/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    })
+    .filter(Boolean);
+}
+
 function isGenerationLockRecent(assignment: AssignmentRow) {
   if (assignment.generation_status !== "generating") return false;
   if (!assignment.generation_started_at) return false;
@@ -119,7 +133,12 @@ function isGenerationLockRecent(assignment: AssignmentRow) {
   return Date.now() - startedAt < STALE_GENERATION_LOCK_MS;
 }
 
-function assertExactAnswerSafeQuestion(questionType: string, prompt: string, correctAnswer: string) {
+function assertExactAnswerSafeQuestion(
+  questionType: string,
+  prompt: string,
+  correctAnswer: string,
+  args: { topic: GrammarTopicRow; level: Level },
+) {
   const normalizedPrompt = normalizeText(prompt);
   const normalizedAnswer = normalizeText(correctAnswer);
   if (hasAlternativeAnswerMarker(normalizedAnswer)) {
@@ -143,8 +162,21 @@ function assertExactAnswerSafeQuestion(questionType: string, prompt: string, cor
   }
 
   if (questionType === "word_order") {
-    if (!/\/|\b(parts|words|phrases|order|put|arrange|ordne|sortiere)\b/i.test(prompt)) {
+    const chunks = extractWordOrderChunks(prompt);
+    if (chunks.length === 0 || !/\b(parts|words|phrases|order|put|arrange|ordne|sortiere)\b/i.test(prompt)) {
       throw new Error("Word-order questions must provide all required parts.");
+    }
+    if (chunks.length < 6) {
+      throw new Error("Word-order questions must provide enough chunks to be meaningful.");
+    }
+    if (/\b(starting with|starts with|begin with|begins with|start sentence with|fang.*an|beginn.*mit)\b/i.test(normalizedPrompt)) {
+      throw new Error("Word-order questions must not reveal the answer through a starting hint.");
+    }
+    const topicKey = `${args.topic.slug} ${args.topic.name}`.toLowerCase();
+    if (args.level === "A2" && (topicKey.includes("word") || topicKey.includes("verb-position") || topicKey.includes("satz"))) {
+      if (!/\b(weil|dass|ob|deshalb|trotzdem|gestern|heute|morgen|dann|zuerst|am)\b/i.test(normalizedAnswer)) {
+        throw new Error("A2 verb-position word-order questions need a meaningful clause pattern or fronted element.");
+      }
     }
   }
 
@@ -169,7 +201,8 @@ function topicGuidance(topic: GrammarTopicRow) {
   if (key.includes("word") || key.includes("verb-position") || key.includes("satz")) {
     return [
       "Use sentence-part ordering and verb-position correction.",
-      "Include main clause and simple subordinate clause patterns appropriate for the target level.",
+      "For A2, include meaningful verb-position patterns: main clauses with a fronted element, simple subordinate clauses with weil/dass/ob, and verb-second versus verb-final contrast.",
+      "Word-order tasks must include enough chunks to make the exercise meaningful; do not rely on proper-noun capitalization as the only challenge.",
     ].join("\n");
   }
   if (key.includes("capital") || key.includes("spelling") || key.includes("rechtschreib")) {
@@ -322,7 +355,7 @@ function validateWorksheetPayload(value: unknown, args: {
     if (localScorableTypes.has(questionType) && !correctAnswer) {
       throw new Error("Locally scorable questions require a non-empty answer key.");
     }
-    assertExactAnswerSafeQuestion(questionType, prompt, correctAnswer);
+    assertExactAnswerSafeQuestion(questionType, prompt, correctAnswer, { topic: args.topic, level: args.level });
     if (questionType === "multiple_choice") {
       multipleChoiceCount += 1;
       if (options.length < 3 || options.length > 4) {
@@ -735,11 +768,13 @@ Worksheet requirements:
 - For A2 include at least 2 multiple_choice, 2 fill_blank, 2 sentence_correction, and at least 1 word_order/transformation/rewrite_sentence.
 - Use only these exact-answer-safe types: multiple_choice, fill_blank, sentence_correction, word_order, transformation, rewrite_sentence.
 - Do not use mini_writing, short_answer, matching, error_detection, free writing, or flexible-answer tasks.
+- Align A1/A2 style and topic progression with Netzwerk-style classroom grammar progression where possible, but do not copy textbook exercises or wording.
 - Keep all answer keys exact, non-empty, and single-answer. Do not use "or", "/", semicolons, pipes, or answer alternatives.
 - multiple_choice is safe only when the correct answer appears exactly once in options.
 - fill_blank is safe only when exactly one blank and one exact answer are expected.
 - sentence_correction is safe only when the prompt asks for one corrected sentence.
-- word_order is safe only when all required words/phrases are given and one exact target answer is expected.
+- word_order is safe only when all required words/phrases are given and one exact target answer is expected. Use at least 6 chunks, avoid "starting with" hints, and do not make proper-noun capitalization the only real challenge.
+- For A2 verb-position or word-order worksheets, word_order tasks should practice fronted elements, weil/dass/ob subordinate clauses, or verb-second versus verb-final contrast.
 - transformation and rewrite_sentence are safe only when tightly controlled with one exact expected answer.
 - Each question must include a student-safe explanation.
 - Multiple-choice options must be an array of plain strings only and include the correct answer exactly once.
