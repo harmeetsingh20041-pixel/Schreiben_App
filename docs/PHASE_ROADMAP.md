@@ -224,6 +224,26 @@ Operational note:
 
 Will not implement in Phase 6B: notification bell/read-unread system, OCR/photo upload, timer/exam mode, admin panel, or daily launch limits.
 
+## Phase 6C: Scheduled Feedback Processing
+
+Goal: Run due feedback preparation from Supabase server-side scheduling so immediate and automatic delayed feedback continue even when students close the website.
+
+Phase 6C implements:
+
+- Supabase `pg_cron` plus `pg_net` scheduled invocation of `process-due-feedback`
+- Vault-backed storage for the scheduler copy of `PROCESS_FEEDBACK_SECRET`
+- a production-like `process-due-feedback-every-5-minutes` job
+- secret-free setup SQL for safely recreating or disabling the job
+- documentation for monitoring, timezone behavior, and cost limits
+
+Operational note:
+
+- The scheduler uses server-side `timestamptz` comparisons and does not rely on browser timezone.
+- The scheduled due processor uses a small limit of 3 submissions per run; the Edge Function still caps ad hoc requests at 5.
+- See `docs/PHASE_6C_SCHEDULED_FEEDBACK.md` for setup and rollback notes.
+
+Will not implement in Phase 6C: notification bell/read-unread system, OCR/photo upload, timer/exam mode, admin panel, daily launch limits, or feedback prompt changes.
+
 ## Future Admin Panel
 
 Goal: Give platform admins a separate operational area that is not mixed into teacher workspace screens.
