@@ -4,9 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PromptText } from "@/components/prompt-text";
-import { ArrowLeft, Clock } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { SubmissionReview } from "@/components/submission-review";
 import { RealFeedbackReview } from "@/components/real-feedback-review";
+import { getSubmissionStatusMeta, getSubmissionStudentSummary, SubmissionStatusBadge } from "@/components/submission-status-badge";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage } from "@/lib/workspaceData";
 import { getStudentSubmissionDetail, getSubmissionFeedback, type WritingFeedback, type WritingSubmission } from "@/services/submissionService";
@@ -32,6 +33,13 @@ export default function StudentSubmissionDetail() {
   const submission = MOCK_SUBMISSIONS.find(s => s.id === id) || MOCK_SUBMISSIONS[0];
   const question = MOCK_QUESTIONS.find(q => q.id === submission.questionId);
   const student = MOCK_STUDENTS.find(s => s.id === submission.studentId);
+
+  const emptyFeedbackTitle = realSubmission ? getSubmissionStatusMeta(realSubmission.status).label : "Feedback pending";
+  const emptyFeedbackMessage = realSubmission?.status === "checked"
+    ? "Feedback is marked ready, but line-by-line details are not available yet. Please refresh or ask your teacher."
+    : realSubmission
+      ? getSubmissionStudentSummary(realSubmission.status)
+      : "Feedback is being prepared.";
 
   useEffect(() => {
     if (!useRealData || !user || !id) return;
@@ -90,10 +98,7 @@ export default function StudentSubmissionDetail() {
                   )}
                 </div>
               </div>
-              <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20">
-                <Clock className="w-3 h-3 mr-1" />
-                {realSubmission.status}
-              </Badge>
+              <SubmissionStatusBadge status={realSubmission.status} />
             </div>
 
             {realSubmission.question_prompt && (
@@ -122,8 +127,8 @@ export default function StudentSubmissionDetail() {
 
                 <Card className="border-dashed bg-muted/20">
                   <CardContent className="p-8 text-center">
-                    <h2 className="text-lg font-semibold mb-2">Correction pending.</h2>
-                    <p className="text-sm text-muted-foreground">Feedback is being prepared. Check back later for line-by-line feedback.</p>
+                    <h2 className="text-lg font-semibold mb-2">{emptyFeedbackTitle}.</h2>
+                    <p className="text-sm text-muted-foreground">{emptyFeedbackMessage}</p>
                   </CardContent>
                 </Card>
               </>

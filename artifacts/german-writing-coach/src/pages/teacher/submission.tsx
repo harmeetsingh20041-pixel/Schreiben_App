@@ -4,9 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { PromptText } from "@/components/prompt-text";
-import { ArrowLeft, Clock, Loader2, Sparkles } from "lucide-react";
+import { ArrowLeft, Loader2, Sparkles } from "lucide-react";
 import { SubmissionReview } from "@/components/submission-review";
 import { RealFeedbackReview } from "@/components/real-feedback-review";
+import { getSubmissionStatusMeta, getSubmissionStudentSummary, SubmissionStatusBadge } from "@/components/submission-status-badge";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId } from "@/lib/workspaceData";
 import { getSubmissionFeedback, getTeacherSubmissionDetail, prepareWritingFeedback, type WritingFeedback, type WritingSubmission } from "@/services/submissionService";
@@ -36,6 +37,16 @@ export default function TeacherSubmissionDetail() {
   const submission = MOCK_SUBMISSIONS.find(s => s.id === id) || MOCK_SUBMISSIONS[0];
   const student = MOCK_STUDENTS.find(s => s.id === submission.studentId);
   const question = MOCK_QUESTIONS.find(q => q.id === submission.questionId);
+
+  const emptyFeedbackTitle = realSubmission ? getSubmissionStatusMeta(realSubmission.status).label : "Feedback pending";
+  const emptyFeedbackMessage = realSubmission?.status === "checked"
+    ? "Feedback is marked ready, but line-by-line details are not available. Refresh this page before preparing feedback again."
+    : realSubmission?.status === "failed"
+      ? "Feedback could not be prepared. You can try preparing it again."
+      : realSubmission
+        ? getSubmissionStudentSummary(realSubmission.status)
+        : "Prepare line-by-line feedback for this submitted writing.";
+  const canPrepareFeedback = Boolean(realSubmission && !["draft", "checking", "checked"].includes(realSubmission.status));
 
   async function loadSubmission() {
     if (!useRealData || !workspaceId || !id) return;
@@ -117,10 +128,7 @@ export default function TeacherSubmissionDetail() {
                   )}
                 </div>
               </div>
-              <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20">
-                <Clock className="w-3 h-3 mr-1" />
-                {realSubmission.status}
-              </Badge>
+              <SubmissionStatusBadge status={realSubmission.status} />
             </div>
 
             {realSubmission.question_prompt && (
@@ -152,20 +160,22 @@ export default function TeacherSubmissionDetail() {
                     <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                       <Sparkles className="h-6 w-6" />
                     </div>
-                    <h2 className="text-lg font-semibold mb-2">Feedback pending.</h2>
-                    <p className="text-sm text-muted-foreground mb-6">Prepare line-by-line feedback for this submitted writing.</p>
-                    <Button
-                      onClick={handlePrepareFeedback}
-                      disabled={preparingFeedback || realSubmission.status === "checking" || realSubmission.status === "draft"}
-                      className="shadow-sm"
-                    >
-                      {preparingFeedback || realSubmission.status === "checking" ? (
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      ) : (
-                        <Sparkles className="mr-2 h-4 w-4" />
-                      )}
-                      {preparingFeedback || realSubmission.status === "checking" ? "Preparing feedback..." : "Prepare Feedback"}
-                    </Button>
+                    <h2 className="text-lg font-semibold mb-2">{emptyFeedbackTitle}.</h2>
+                    <p className="text-sm text-muted-foreground mb-6">{emptyFeedbackMessage}</p>
+                    {canPrepareFeedback && (
+                      <Button
+                        onClick={handlePrepareFeedback}
+                        disabled={preparingFeedback}
+                        className="shadow-sm"
+                      >
+                        {preparingFeedback ? (
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        ) : (
+                          <Sparkles className="mr-2 h-4 w-4" />
+                        )}
+                        {preparingFeedback ? "Preparing feedback..." : "Prepare Feedback"}
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               </>

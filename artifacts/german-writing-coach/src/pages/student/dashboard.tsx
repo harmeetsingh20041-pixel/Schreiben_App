@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { PenTool, Clock, BookOpen, AlertCircle, TrendingUp, KeyRound } from "lucide-react";
 import { Link } from "wouter";
 import { MOCK_STUDENTS, MOCK_SUBMISSIONS } from "@/data/mockData";
+import { getSubmissionActionLabel, getSubmissionStudentSummary, isFeedbackReadyStatus, SubmissionStatusBadge } from "@/components/submission-status-badge";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage } from "@/lib/workspaceData";
 import { useToast } from "@/hooks/use-toast";
@@ -82,6 +83,9 @@ export default function StudentDashboard() {
 
   const primaryBatch = batchAssignments[0];
   const latestJoinRequest = joinRequests[0];
+  const readySubmissions = useRealData
+    ? realSubmissions.filter((submission) => isFeedbackReadyStatus(submission.status)).slice(0, 3)
+    : [];
   const firstName = useRealData
     ? (profile?.full_name || user?.email || "there").split(/[ @]/)[0]
     : student.name.split(' ')[0];
@@ -163,7 +167,11 @@ export default function StudentDashboard() {
           <CardContent>
             <div className="text-4xl font-serif text-foreground mb-3">{useRealData ? "-" : "85%"}</div>
             <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-              {useRealData ? "No real submissions yet." : "Average correct sentences in last 5 submissions."}
+              {useRealData
+                ? realSubmissions.length > 0
+                  ? `${realSubmissions.length} real submission${realSubmissions.length === 1 ? "" : "s"} saved.`
+                  : "No real submissions yet."
+                : "Average correct sentences in last 5 submissions."}
             </p>
             <Progress value={useRealData ? 0 : 85} className="h-1.5 bg-muted" />
           </CardContent>
@@ -179,7 +187,9 @@ export default function StudentDashboard() {
           <CardContent className="flex flex-col h-[calc(100%-3rem)]">
             <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
               {useRealData
-                ? "Writing feedback will appear after students submit work."
+                ? readySubmissions.length > 0
+                  ? "Feedback is ready for recent writing."
+                  : "Writing feedback will appear after students submit work."
                 : "Grammar topics to review based on your mistakes."}
             </p>
             <div className="flex flex-wrap gap-2 mb-6 flex-1">
@@ -233,6 +243,30 @@ export default function StudentDashboard() {
         </Card>
       </div>
 
+      {useRealData && readySubmissions.length > 0 && (
+        <Card className="mb-10 border-green-300 bg-green-50 shadow-sm dark:border-green-700 dark:bg-green-950/40">
+          <CardHeader>
+            <CardTitle className="text-lg font-serif text-green-950 dark:text-green-100">Feedback ready</CardTitle>
+            <CardDescription className="text-green-900/80 dark:text-green-100/80">
+              Open your latest line-by-line feedback.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {readySubmissions.map((submission) => (
+              <Link
+                key={submission.id}
+                href={`/student/submission/${submission.id}`}
+                className="rounded-lg border border-green-300 bg-card p-4 shadow-sm transition-colors hover:border-green-500 dark:border-green-700"
+              >
+                <SubmissionStatusBadge status={submission.status} className="mb-3" />
+                <h3 className="font-medium text-foreground line-clamp-1">{submission.question_title}</h3>
+                <p className="mt-1 text-xs text-muted-foreground">{new Date(submission.created_at).toLocaleDateString()}</p>
+              </Link>
+            ))}
+          </CardContent>
+        </Card>
+      )}
+
       <h2 className="text-2xl font-serif tracking-tight mb-6">Recent Feedback</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {useRealData && realSubmissions.length === 0 ? (
@@ -246,9 +280,7 @@ export default function StudentDashboard() {
           <Card key={submission.id} className="hover:border-primary/30 transition-all duration-300 shadow-sm border-border rounded-xl animate-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 50}ms` }}>
             <CardContent className="p-6">
               <div className="flex justify-between items-start mb-4">
-                <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20 font-medium">
-                  {submission.status}
-                </Badge>
+                <SubmissionStatusBadge status={submission.status} />
                 <div className="flex items-center text-xs font-mono text-muted-foreground">
                   <Clock className="w-3.5 h-3.5 mr-1.5" />
                   {new Date(submission.created_at).toLocaleDateString()}
@@ -258,14 +290,14 @@ export default function StudentDashboard() {
                 {submission.question_title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-6">
-                Correction pending. Feedback is being prepared.
+                {getSubmissionStudentSummary(submission.status)}
               </p>
               <div className="flex justify-between items-center mt-auto border-t border-border/60 pt-4">
                 <div className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
                   {submission.question_source_label}
                 </div>
                 <Link href={`/student/submission/${submission.id}`} className="text-sm text-primary font-medium hover:underline flex items-center tracking-wide">
-                  Open <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                  {getSubmissionActionLabel(submission.status)} <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </div>
             </CardContent>
