@@ -57,6 +57,10 @@ A1 can prefer easy with medium fallback. A2/B1/B2 prefer medium with easy fallba
 
 The Edge Function updates an active assignment from `idle`/`failed`/`ready` to `generating` only when `practice_test_id` is still null. If another request wins the lock, the caller receives a friendly preparing state. If a worksheet was already attached, the existing assignment is returned.
 
+If an assignment remains `generating` for less than 15 minutes, the Edge Function treats the lock as active and returns the current preparing state. If `generation_started_at` is missing or older than 15 minutes, the function marks the stale lock as `failed` with the safe retry message, then reacquires the lock through the normal single-assignment update path. This prevents students from being stuck forever while still avoiding duplicate worksheet attachment.
+
+DeepSeek requests use an 80-second provider timeout. Timeout and provider failures mark the assignment as `failed`, leave `practice_test_id` null, and return only: "Worksheet could not be prepared. Please try again later."
+
 ## Worksheet Quality Standard
 
 Generated worksheets must:
@@ -87,7 +91,7 @@ The student worksheet page may show this mini lesson before questions. It must n
 
 ## Question Types
 
-Phase 7C prefers locally scorable types:
+Phase 7C generates only exact-answer-safe types:
 
 - `multiple_choice`
 - `fill_blank`
@@ -96,7 +100,15 @@ Phase 7C prefers locally scorable types:
 - `transformation`
 - `rewrite_sentence`
 
-The broader system remains open to future types:
+Exact-answer safety means:
+
+- `multiple_choice` is safe only when the correct answer appears exactly once in the display options.
+- `fill_blank` is safe only when exactly one blank and one exact answer are expected.
+- `sentence_correction` is safe only when the prompt asks for one corrected sentence.
+- `word_order` is safe only when all required words or phrases are provided and one exact target answer is expected.
+- `transformation` and `rewrite_sentence` are safe only when tightly controlled with one exact expected answer.
+
+The broader system remains open to future types, but Phase 7C generation should not use them:
 
 - `short_answer`
 - `mini_writing`
@@ -127,6 +139,7 @@ Generated worksheet validation checks:
 - Question count is reasonable.
 - Question types are supported.
 - Local answer keys are non-empty for locally scorable questions.
+- Generated questions are exact-answer-safe and do not contain answer alternatives.
 - Multiple-choice options are plain strings and include the correct answer exactly once.
 - Options do not contain hidden metadata.
 - Student-visible fields do not mention AI, DeepSeek, model names, answer keys, or scoring metadata.
