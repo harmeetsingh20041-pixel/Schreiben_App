@@ -12,7 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId, LEVEL_OPTIONS, type WorkspaceLevel } from "@/lib/workspaceData";
-import { createWorkspaceBatch, listWorkspaceBatches, rotateBatchJoinCode, setBatchActive, updateWorkspaceBatch, type WorkspaceBatch } from "@/services/batchService";
+import { createWorkspaceBatch, listWorkspaceBatches, rotateBatchJoinCode, setBatchActive, updateWorkspaceBatch, type BatchFeedbackMode, type WorkspaceBatch } from "@/services/batchService";
 import { MOCK_BATCHES } from "@/data/mockData";
 import { Archive, CheckCircle2, Copy, Edit, FileText, KeyRound, Plus, RefreshCw, Users } from "lucide-react";
 
@@ -23,6 +23,9 @@ interface BatchFormState {
   is_active: boolean;
   join_code_enabled: boolean;
   join_requires_approval: boolean;
+  feedback_mode: BatchFeedbackMode;
+  feedback_delay_min_minutes: number;
+  feedback_delay_max_minutes: number;
 }
 
 const initialForm: BatchFormState = {
@@ -32,6 +35,9 @@ const initialForm: BatchFormState = {
   is_active: true,
   join_code_enabled: true,
   join_requires_approval: true,
+  feedback_mode: "teacher_review_only",
+  feedback_delay_min_minutes: 15,
+  feedback_delay_max_minutes: 180,
 };
 
 function levelBadgeClass(level: string) {
@@ -42,6 +48,18 @@ function levelBadgeClass(level: string) {
     B2: "border-amber-300 text-amber-700 bg-amber-50",
   };
   return classes[level] ?? "bg-muted";
+}
+
+const feedbackModeLabels: Record<BatchFeedbackMode, string> = {
+  immediate: "Immediate feedback",
+  automatic_delayed: "Automatic delayed feedback",
+  teacher_review_only: "Teacher review only",
+};
+
+function feedbackModeBadgeClass(mode: BatchFeedbackMode) {
+  if (mode === "immediate") return "bg-blue-50 text-blue-700 border-blue-200";
+  if (mode === "automatic_delayed") return "bg-violet-50 text-violet-700 border-violet-200";
+  return "bg-slate-50 text-slate-700 border-slate-200";
 }
 
 export default function TeacherBatches() {
@@ -111,6 +129,9 @@ export default function TeacherBatches() {
       updated_at: "",
       student_count: batch.student_count,
       submission_count: batch.submission_count,
+      feedback_mode: "teacher_review_only" as BatchFeedbackMode,
+      feedback_delay_min_minutes: 15,
+      feedback_delay_max_minutes: 180,
     }));
   }, [batches, levelFilter, statusFilter, useRealData]);
 
@@ -124,6 +145,9 @@ export default function TeacherBatches() {
         is_active: batch.is_active,
         join_code_enabled: batch.join_code_enabled,
         join_requires_approval: batch.join_requires_approval,
+        feedback_mode: batch.feedback_mode,
+        feedback_delay_min_minutes: batch.feedback_delay_min_minutes,
+        feedback_delay_max_minutes: batch.feedback_delay_max_minutes,
       });
     } else {
       setEditingBatch(null);
@@ -136,6 +160,17 @@ export default function TeacherBatches() {
     if (!workspaceId || !user) return;
     if (!formData.name.trim()) {
       toast({ title: "Batch name required", description: "Give this batch a clear name." });
+      return;
+    }
+    if (
+      formData.feedback_delay_min_minutes < 0 ||
+      formData.feedback_delay_max_minutes < formData.feedback_delay_min_minutes ||
+      formData.feedback_delay_max_minutes > 10080
+    ) {
+      toast({
+        title: "Delay range needs attention",
+        description: "Use 0 or more minutes, keep maximum above minimum, and stay under 7 days.",
+      });
       return;
     }
 
@@ -302,6 +337,21 @@ export default function TeacherBatches() {
                   {useRealData && (
                     <div className="rounded-md border bg-card p-3">
                       <div className="flex items-center justify-between gap-3">
+                        <span className="text-sm text-muted-foreground">Feedback timing</span>
+                        <Badge variant="outline" className={feedbackModeBadgeClass(batch.feedback_mode)}>
+                          {feedbackModeLabels[batch.feedback_mode]}
+                        </Badge>
+                      </div>
+                      {batch.feedback_mode === "automatic_delayed" && (
+                        <p className="mt-2 text-xs text-muted-foreground">
+                          Randomized between {batch.feedback_delay_min_minutes} and {batch.feedback_delay_max_minutes} minutes.
+                        </p>
+                      )}
+                    </div>
+                  )}
+                  {useRealData && (
+                    <div className="rounded-md border bg-card p-3">
+                      <div className="flex items-center justify-between gap-3">
                         <div className="min-w-0">
                           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                             <KeyRound className="h-3.5 w-3.5" />
@@ -439,6 +489,60 @@ export default function TeacherBatches() {
                 onCheckedChange={(checked) => setFormData({ ...formData, join_requires_approval: checked })}
               />
             </div>
+            <div className="space-y-2 rounded-md border p-3">
+              <Label>Feedback timing</Label>
+              <Select
+                value={formData.feedback_mode}
+                onValueChange={(value) => setFormData({ ...formData, feedback_mode: value as BatchFeedbackMode })}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select timing mode" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="teacher_review_only">Teacher review only</SelectItem>
+                  <SelectItem value="immediate">Immediate feedback</SelectItem>
+                  <SelectItem value="automatic_delayed">Automatic delayed feedback</SelectItem>
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-muted-foreground">
+                Teacher review only keeps feedback manual. Immediate and automatic delayed modes are handled by the scheduled processor.
+              </p>
+            </div>
+            {formData.feedback_mode === "automatic_delayed" && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 rounded-md border p-3">
+                <div className="space-y-2">
+                  <Label htmlFor="feedback-delay-min">Minimum delay</Label>
+                  <Input
+                    id="feedback-delay-min"
+                    type="number"
+                    min={0}
+                    max={10080}
+                    value={formData.feedback_delay_min_minutes}
+                    onChange={(event) => setFormData({
+                      ...formData,
+                      feedback_delay_min_minutes: Number(event.target.value),
+                    })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="feedback-delay-max">Maximum delay</Label>
+                  <Input
+                    id="feedback-delay-max"
+                    type="number"
+                    min={0}
+                    max={10080}
+                    value={formData.feedback_delay_max_minutes}
+                    onChange={(event) => setFormData({
+                      ...formData,
+                      feedback_delay_max_minutes: Number(event.target.value),
+                    })}
+                  />
+                </div>
+                <p className="sm:col-span-2 text-xs text-muted-foreground">
+                  Each submission gets a different feedback time inside this range.
+                </p>
+              </div>
+            )}
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancel</Button>

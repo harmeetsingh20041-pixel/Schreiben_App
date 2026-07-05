@@ -204,19 +204,25 @@ Will implement later:
 - feedback-ready alerts
 - delayed feedback mode integration
 
-## Future Phase 6B: Feedback Timing Modes
+## Phase 6B: Feedback Timing Modes
 
 Goal: Let teachers control when students receive feedback without requiring students to keep the website open.
 
-Will implement later:
+Phase 6B implements:
 
-- batch-level feedback timing setting: immediate feedback, delayed feedback, or teacher review only
-- optional scheduled feedback time per submission
-- server-side scheduled job or edge function to process due submissions
+- batch-level feedback timing setting: immediate feedback, automatic delayed feedback, or teacher review only
+- randomized per-submission scheduled feedback time for automatic delayed batches
+- server-side due-feedback Edge Function for immediate and automatic delayed submissions
 - student-facing states that say feedback is being prepared or to check back later
-- teacher review and override controls after feedback is generated or prepared
+- teacher review-only remains the safest default for existing and new batches
 
-Will not implement in Phase 5D: database changes, scheduling jobs, edge functions, or delayed feedback behavior.
+Operational note:
+
+- Background processing is active only after `process-due-feedback` is invoked by Supabase cron or another trusted scheduler.
+- The scheduler must provide a secret header stored outside frontend code.
+- See `docs/PHASE_6B_FEEDBACK_TIMING.md` for setup notes.
+
+Will not implement in Phase 6B: notification bell/read-unread system, OCR/photo upload, timer/exam mode, admin panel, or daily launch limits.
 
 ## Future Admin Panel
 

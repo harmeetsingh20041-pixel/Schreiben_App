@@ -198,7 +198,11 @@ export default function TeacherDashboard() {
                           {new Date(submission.created_at).toLocaleDateString()}
                         </p>
                       </div>
-                      <SubmissionStatusBadge status={submission.status} />
+                      <SubmissionStatusBadge
+                        status={submission.status}
+                        feedbackMode={submission.feedback_mode}
+                        feedbackScheduledAt={submission.feedback_scheduled_at}
+                      />
                     </div>
                     <div className="mt-4">
                       <p className="text-sm font-medium text-foreground mb-1 line-clamp-1">{submission.question_title}</p>
@@ -206,7 +210,7 @@ export default function TeacherDashboard() {
                         {submission.original_text}
                       </p>
                       <div className="flex justify-between items-center">
-                        <span className="text-xs font-medium text-foreground">{getSubmissionIssueLabel(submission.status)}</span>
+                        <span className="text-xs font-medium text-foreground">{getSubmissionIssueLabel(submission)}</span>
                         <Link href={`/teacher/submission/${submission.id}`} className="text-sm text-primary font-medium hover:underline flex items-center group">
                           Review <span className="ml-1 transition-transform group-hover:translate-x-1">-&gt;</span>
                         </Link>

@@ -27,12 +27,17 @@ export interface WorkspaceBatch {
   join_code: string;
   join_code_enabled: boolean;
   join_requires_approval: boolean;
+  feedback_mode: BatchFeedbackMode;
+  feedback_delay_min_minutes: number;
+  feedback_delay_max_minutes: number;
   created_by: string | null;
   created_at: string;
   updated_at: string;
   student_count: number;
   submission_count: number;
 }
+
+export type BatchFeedbackMode = "immediate" | "automatic_delayed" | "teacher_review_only";
 
 export interface BatchInput {
   name: string;
@@ -41,6 +46,9 @@ export interface BatchInput {
   is_active?: boolean;
   join_code_enabled?: boolean;
   join_requires_approval?: boolean;
+  feedback_mode?: BatchFeedbackMode;
+  feedback_delay_min_minutes?: number;
+  feedback_delay_max_minutes?: number;
 }
 
 function mapBatch(
@@ -51,6 +59,9 @@ function mapBatch(
   return {
     ...batch,
     level: batch.level as WorkspaceLevel,
+    feedback_mode: (batch.feedback_mode ?? "teacher_review_only") as BatchFeedbackMode,
+    feedback_delay_min_minutes: batch.feedback_delay_min_minutes ?? 15,
+    feedback_delay_max_minutes: batch.feedback_delay_max_minutes ?? 180,
     student_count: studentCounts.get(batch.id) ?? 0,
     submission_count: submissionCounts.get(batch.id) ?? 0,
   };
@@ -117,6 +128,9 @@ export async function createWorkspaceBatch(
     is_active: input.is_active ?? true,
     join_code_enabled: input.join_code_enabled ?? true,
     join_requires_approval: input.join_requires_approval ?? true,
+    feedback_mode: input.feedback_mode ?? "teacher_review_only",
+    feedback_delay_min_minutes: input.feedback_delay_min_minutes ?? 15,
+    feedback_delay_max_minutes: input.feedback_delay_max_minutes ?? 180,
   });
 
   if (error) throw error;
@@ -137,6 +151,9 @@ export async function updateWorkspaceBatch(
       is_active: input.is_active ?? true,
       join_code_enabled: input.join_code_enabled ?? true,
       join_requires_approval: input.join_requires_approval ?? true,
+      feedback_mode: input.feedback_mode ?? "teacher_review_only",
+      feedback_delay_min_minutes: input.feedback_delay_min_minutes ?? 15,
+      feedback_delay_max_minutes: input.feedback_delay_max_minutes ?? 180,
     })
     .eq("id", batchId)
     .eq("workspace_id", workspaceId);

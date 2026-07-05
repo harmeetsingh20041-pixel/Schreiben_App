@@ -12,6 +12,31 @@ export type Database = {
   __InternalSupabase: {
     PostgrestVersion: "14.5"
   }
+  graphql_public: {
+    Tables: {
+      [_ in never]: never
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      graphql: {
+        Args: {
+          extensions?: Json
+          operationName?: string
+          query?: string
+          variables?: Json
+        }
+        Returns: Json
+      }
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
   public: {
     Tables: {
       batch_join_requests: {
@@ -139,6 +164,9 @@ export type Database = {
           created_at: string
           created_by: string | null
           description: string | null
+          feedback_delay_max_minutes: number
+          feedback_delay_min_minutes: number
+          feedback_mode: string
           id: string
           is_active: boolean
           join_code: string
@@ -153,6 +181,9 @@ export type Database = {
           created_at?: string
           created_by?: string | null
           description?: string | null
+          feedback_delay_max_minutes?: number
+          feedback_delay_min_minutes?: number
+          feedback_mode?: string
           id?: string
           is_active?: boolean
           join_code: string
@@ -167,6 +198,9 @@ export type Database = {
           created_at?: string
           created_by?: string | null
           description?: string | null
+          feedback_delay_max_minutes?: number
+          feedback_delay_min_minutes?: number
+          feedback_mode?: string
           id?: string
           is_active?: boolean
           join_code?: string
@@ -798,6 +832,11 @@ export type Database = {
           checked_at: string | null
           corrected_text: string | null
           created_at: string
+          feedback_completed_at: string | null
+          feedback_error: string | null
+          feedback_mode: string | null
+          feedback_scheduled_at: string | null
+          feedback_started_at: string | null
           global_question_id: string | null
           id: string
           level_detected: string | null
@@ -817,6 +856,11 @@ export type Database = {
           checked_at?: string | null
           corrected_text?: string | null
           created_at?: string
+          feedback_completed_at?: string | null
+          feedback_error?: string | null
+          feedback_mode?: string | null
+          feedback_scheduled_at?: string | null
+          feedback_started_at?: string | null
           global_question_id?: string | null
           id?: string
           level_detected?: string | null
@@ -836,6 +880,11 @@ export type Database = {
           checked_at?: string | null
           corrected_text?: string | null
           created_at?: string
+          feedback_completed_at?: string | null
+          feedback_error?: string | null
+          feedback_mode?: string | null
+          feedback_scheduled_at?: string | null
+          feedback_started_at?: string | null
           global_question_id?: string | null
           id?: string
           level_detected?: string | null
@@ -1088,6 +1137,8 @@ export type Database = {
           target_question_source: string
         }
         Returns: {
+          feedback_mode: string
+          feedback_scheduled_at: string
           submission_id: string
         }[]
       }
@@ -1269,6 +1320,9 @@ export type CompositeTypes<
     : never
 
 export const Constants = {
+  graphql_public: {
+    Enums: {},
+  },
   public: {
     Enums: {},
   },

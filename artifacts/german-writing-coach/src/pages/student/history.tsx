@@ -82,7 +82,11 @@ export default function StudentHistory() {
                     <Calendar className="w-4 h-4 mr-2 text-primary" />
                     {formatSubmissionDate(submission.created_at)}
                   </div>
-                  <SubmissionStatusBadge status={submission.status} />
+                  <SubmissionStatusBadge
+                    status={submission.status}
+                    feedbackMode={submission.feedback_mode}
+                    feedbackScheduledAt={submission.feedback_scheduled_at}
+                  />
                 </div>
 
                 <div className="p-5 flex-1 flex flex-col justify-center">
@@ -98,7 +102,7 @@ export default function StudentHistory() {
                       </p>
                     </div>
                     <div className="text-right hidden sm:block text-sm font-medium text-foreground">
-                      {getSubmissionIssueLabel(submission.status)}
+                      {getSubmissionIssueLabel(submission)}
                     </div>
                   </div>
 
@@ -110,7 +114,7 @@ export default function StudentHistory() {
                 <div className="p-5 border-t md:border-t-0 md:border-l border-border bg-muted/5 flex items-center justify-end">
                   <Link href={`/student/submission/${submission.id}`}>
                     <Button variant="outline" className="w-full md:w-auto shadow-sm group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors">
-                      <Eye className="w-4 h-4 mr-2" /> {getSubmissionActionLabel(submission.status)}
+                      <Eye className="w-4 h-4 mr-2" /> {getSubmissionActionLabel(submission)}
                     </Button>
                   </Link>
                 </div>

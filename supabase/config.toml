@@ -1,0 +1,2 @@
+[functions.process-due-feedback]
+verify_jwt = false
