@@ -318,6 +318,7 @@ Will implement:
 - local scoring for objective questions
 - student worksheet start/submit flow
 - teacher worksheet status visibility
+- documentation that `Phase 7B Manual Dativ Worksheet` is a test fixture only
 
 Will not implement yet:
 
@@ -346,14 +347,23 @@ Will implement:
 - local objective scoring remains the first choice
 - DeepSeek answer evaluation only for open-ended answers where needed
 - abuse limits for generation
+- level-matched worksheets for A1, A2, B1, and B2 students
+- exact weak-topic targeting rather than generic grammar drills
+- examples connected to the student's actual mistakes where appropriate
+- exercise type variety, including `multiple_choice`, `fill_blank`, `sentence_correction`, `word_order`, `transformation`, `short_answer`, `mini_writing`, `matching`, `error_detection`, and `rewrite_sentence`
+- a default A2 worksheet target of 8-10 questions with at least 2 multiple-choice, 2 fill-the-blank, 2 sentence-correction, 1 word-order/transformation, and 1-2 short production questions
+- answer keys and explanations for every generated question
+- duplicate and impossible-question checks before assigning generated worksheets
+- lifecycle rules after completion: passed moves the topic toward improving, failed can unlock/generate another worksheet later, repeated failure should notify the teacher in a later phase
 
 Will not implement yet:
 
 - OCR/audio
+- broad teacher worksheet management beyond review/edit needs
 
 Testing requirement: typecheck, build, schema validation, cost/rate-limit checks.
 
-Expected output: Reusable AI-generated tests.
+Expected output: Reusable, level-appropriate AI-generated worksheets that are useful enough to help students improve.
 
 ## Phase 10: OCR / Image Upload
 

@@ -48,10 +48,24 @@ export interface PracticeAssignmentSummary {
   student_email?: string | null;
 }
 
+export type PracticeQuestionType =
+  | "multiple_choice"
+  | "fill_blank"
+  | "sentence_correction"
+  | "correction"
+  | "word_order"
+  | "transformation"
+  | "short_answer"
+  | "mini_writing"
+  | "matching"
+  | "error_detection"
+  | "rewrite_sentence"
+  | (string & {});
+
 export interface PracticeWorksheetQuestion {
   id: string;
   question_number: number;
-  question_type: string;
+  question_type: PracticeQuestionType;
   prompt: string;
   options: string[];
   correct_answer?: string;

@@ -20,6 +20,18 @@ import {
   type PracticeWorksheetQuestion,
 } from "@/services/practiceWorksheetService";
 
+const CHOICE_QUESTION_TYPES = new Set(["multiple_choice", "matching"]);
+const LONG_TEXT_QUESTION_TYPES = new Set([
+  "sentence_correction",
+  "correction",
+  "word_order",
+  "transformation",
+  "short_answer",
+  "mini_writing",
+  "error_detection",
+  "rewrite_sentence",
+]);
+
 function isOpenAssignment(status: string) {
   return status === "unlocked" || status === "in_progress";
 }
@@ -39,7 +51,7 @@ function QuestionAnswerControl({
   disabled: boolean;
   onChange: (value: string) => void;
 }) {
-  if (question.question_type === "multiple_choice" && question.options.length > 0) {
+  if (CHOICE_QUESTION_TYPES.has(question.question_type) && question.options.length > 0) {
     return (
       <div className="grid gap-3">
         {question.options.map((option) => {
@@ -61,7 +73,7 @@ function QuestionAnswerControl({
     );
   }
 
-  if (question.question_type === "short_answer" || question.question_type === "correction") {
+  if (LONG_TEXT_QUESTION_TYPES.has(question.question_type)) {
     return (
       <Textarea
         value={value}
