@@ -170,7 +170,7 @@ After submission, students can load review data only through `get_practice_assig
 
 Phase 7C does not add DeepSeek answer evaluation. Local scoring still applies only when the entire worksheet is safely locally scorable. If any question is manual/unscored, the attempt is submitted and the assignment is completed without passed/failed.
 
-For non-capitalization/spelling topics, local scoring trims whitespace, collapses repeated spaces, ignores simple final punctuation such as `.`, `!`, and `?`, and compares case-insensitively. It does not ignore word-order or word-choice differences. For capitalization, spelling, Rechtschreibung, or orthography topics, scoring is stricter and capitalization matters, while whitespace normalization and optional final punctuation still apply.
+For non-capitalization/spelling topics, local scoring trims whitespace, collapses repeated spaces, ignores simple final punctuation such as `.`, `!`, and `?`, and compares case-insensitively. It does not ignore word-order or word-choice differences. Post-submit review uses `minor_formatting` when the answer is accepted under this normalization but differs only by formatting such as capitalization or final punctuation, so the student still sees the polished correct answer without being told the grammar was fully wrong. For capitalization, spelling, Rechtschreibung, or orthography topics, scoring is stricter and capitalization matters, while whitespace normalization and optional final punctuation still apply.
 
 Worksheet submissions are bounded server-side: at most 20 answers, at most 1000 characters per answer, and about 25 KB of submitted answer JSON.
 

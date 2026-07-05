@@ -63,6 +63,9 @@ function getReviewBadgeClass(reviewStatus: string | null | undefined) {
   if (reviewStatus === "correct") {
     return "bg-green-50 text-green-800 border-green-200 dark:bg-green-950/40 dark:text-green-100 dark:border-green-700";
   }
+  if (reviewStatus === "minor_formatting") {
+    return "bg-emerald-50 text-emerald-800 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-100 dark:border-emerald-700";
+  }
   if (reviewStatus === "incorrect") {
     return "bg-orange-50 text-orange-800 border-orange-200 dark:bg-orange-950/40 dark:text-orange-100 dark:border-orange-700";
   }
@@ -71,6 +74,7 @@ function getReviewBadgeClass(reviewStatus: string | null | undefined) {
 
 function getReviewLabel(reviewStatus: string | null | undefined) {
   if (reviewStatus === "correct") return "Correct";
+  if (reviewStatus === "minor_formatting") return "Accepted — minor formatting";
   if (reviewStatus === "incorrect") return "Incorrect";
   return "Submitted for review";
 }

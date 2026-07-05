@@ -92,7 +92,7 @@ export interface PracticeWorksheetQuestion {
   correct_answer?: string | null;
   explanation?: string | null;
   is_correct?: boolean | null;
-  review_status?: "correct" | "incorrect" | "submitted_for_review" | string | null;
+  review_status?: "correct" | "minor_formatting" | "incorrect" | "submitted_for_review" | string | null;
 }
 
 export interface PracticeWorksheetDetail {
