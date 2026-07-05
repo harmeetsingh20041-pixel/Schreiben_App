@@ -25,8 +25,11 @@ Students must not receive worksheet answer keys, correct answers, explanations, 
 
 - Direct `practice_test_questions` reads are limited to platform admins and workspace teachers.
 - Student worksheet rendering uses `get_practice_assignment_questions`, which returns only pre-submission-safe fields.
+- `get_practice_assignment_questions` must never return raw `options` JSON. It returns display-safe option strings only: direct string array values, or string values from an object `choices`/`options` array. All other keys are stripped.
 
 The student worksheet page does not show explanations in Phase 7B. Secure post-submit explanations should be added later through a dedicated server-side path, after the assignment is completed, passed, or failed. That follow-up belongs to Phase 7D unless Phase 7C needs a smaller reviewed-content preview.
+
+Raw worksheet option payloads must not be treated as student-safe storage for hidden answers. Future generators and teacher tools should avoid placing `correct_answer`, `answer_key`, `explanation`, `is_correct`, scoring metadata, or similar hidden answer data inside `options`, even though the student RPC strips those keys.
 
 ## Worksheet Reuse
 
@@ -101,14 +104,20 @@ The initial pass threshold is 70%.
 
 Only objective questions with a non-empty answer key are counted in local scoring. If a locally scorable question has a missing or blank answer key, it is treated as unscored/manual-review-needed instead of wrong.
 
+Passed/failed is only allowed when the entire worksheet is safely locally scorable. Phase 7B counts all questions in the worksheet, then subtracts safely scorable questions to find manual/unscored questions. Future rich types such as `mini_writing`, `rewrite_sentence`, `transformation`, `matching`, or not-yet-safe `word_order` should keep the attempt in submitted/completed review state until Phase 7D evaluation exists.
+
 Attempt feedback records:
 
 - `objective_questions`
 - `scored_questions`
+- `total_questions`
 - `unscored_questions`
+- `manual_review_needed`
 - `scoring`: `local_objective`, `partial_local`, or `manual_review_needed`
 
 If no questions are safely scorable, the assignment is marked `completed`, the attempt is marked `submitted`, `score_percent` and `passed` stay `null`, and the app does not pretend the student failed.
+
+If some questions are locally scored but any questions remain manual/unscored, the attempt is marked `submitted`, the assignment is marked `completed`, `passed` stays `null`, and the partial score is only a local objective subtotal. It must not mark the worksheet as passed or failed.
 
 ## One Active Worksheet Rule
 

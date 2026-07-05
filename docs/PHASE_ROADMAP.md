@@ -347,6 +347,7 @@ Will implement:
 - local objective scoring remains the first choice
 - DeepSeek answer evaluation only for open-ended answers where needed
 - keep student question delivery free of answer keys, explanations, and scoring metadata before submission
+- sanitize displayed option payloads so raw worksheet options never leak hidden answer metadata to students
 - add secure post-submit explanation delivery later, only after completion/pass/fail
 - abuse limits for generation
 - level-matched worksheets for A1, A2, B1, and B2 students
@@ -357,6 +358,8 @@ Will implement:
 - exercise type variety, including `multiple_choice`, `fill_blank`, `sentence_correction`, `word_order`, `transformation`, `short_answer`, `mini_writing`, `matching`, `error_detection`, and `rewrite_sentence`
 - a default A2 worksheet target of 8-10 questions with at least 2 multiple-choice, 2 fill-the-blank, 2 sentence-correction, 1 word-order/transformation, and 1-2 short production questions
 - answer keys and explanations for every generated question
+- keep passed/failed results limited to fully locally scorable worksheets until secure manual/open-ended evaluation exists
+- submit mixed local/manual worksheets for review instead of pretending the local subtotal is a full pass/fail result
 - duplicate and impossible-question checks before assigning generated worksheets
 - lifecycle rules after completion: passed moves the topic toward improving, failed can unlock/generate another worksheet later, repeated failure should notify the teacher in a later phase
 
