@@ -107,7 +107,7 @@ export default function TeacherStudents() {
             email: student.email,
             membership_id: student.id,
             batches: batch
-              ? [{ id: student.batchId, batch_id: student.batchId, batch_name: batch.name, level: batch.level ?? "A2" }]
+              ? [{ id: student.batchId, workspace_id: "mock", batch_id: student.batchId, batch_name: batch.name, level: batch.level ?? "A2" }]
               : [],
             total_submissions: student.total_submissions,
             last_active: student.last_active,

@@ -1,15 +1,29 @@
-import { useState } from "react";
-import { Link, useLocation } from "wouter";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { ArrowLeft, CheckCircle2, XCircle, ArrowRight, BrainCircuit, RefreshCw } from "lucide-react";
 import { PRACTICE_EXERCISES, MOCK_STUDENTS } from "@/data/mockData";
+import { useAuth } from "@/lib/auth";
+import { formatErrorMessage } from "@/lib/workspaceData";
+import { listMyBatchAssignments } from "@/services/studentService";
+import {
+  formatIssueCount,
+  getWeaknessBadgeClass,
+  getWeaknessLabel,
+  listStudentGrammarStats,
+  type StudentGrammarStat,
+} from "@/services/grammarStatsService";
 
 export default function StudentPractice() {
+  const { authMode, user } = useAuth();
+  const useRealData = authMode === "supabase" && Boolean(user);
   const student = MOCK_STUDENTS[0];
   const weakTopics = student.weak_topics;
+  const [realStats, setRealStats] = useState<StudentGrammarStat[]>([]);
+  const [loadingRealStats, setLoadingRealStats] = useState(useRealData);
+  const [realStatsError, setRealStatsError] = useState<string | null>(null);
   
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [exercises, setExercises] = useState(PRACTICE_EXERCISES);
@@ -20,6 +34,29 @@ export default function StudentPractice() {
   const [isFinished, setIsFinished] = useState(false);
 
   const topics = Array.from(new Set(PRACTICE_EXERCISES.map(e => e.topic)));
+
+  useEffect(() => {
+    if (!useRealData || !user) return;
+
+    async function loadRealPracticeTopics() {
+      try {
+        setLoadingRealStats(true);
+        setRealStatsError(null);
+        const assignments = await listMyBatchAssignments(user!.id);
+        const workspaceId = assignments[0]?.workspace_id ?? null;
+        const stats = workspaceId
+          ? await listStudentGrammarStats(workspaceId, user!.id, 12)
+          : [];
+        setRealStats(stats);
+      } catch (error) {
+        setRealStatsError(formatErrorMessage(error, "Unable to load practice topics."));
+      } finally {
+        setLoadingRealStats(false);
+      }
+    }
+
+    void loadRealPracticeTopics();
+  }, [useRealData, user]);
 
   const handleSelectTopic = (topic: string) => {
     setSelectedTopic(topic);
@@ -51,6 +88,79 @@ export default function StudentPractice() {
   };
 
   const progress = exercises.length > 0 ? ((currentIdx + (isFinished ? 1 : 0)) / exercises.length) * 100 : 0;
+
+  if (useRealData) {
+    const groupedStats = {
+      unlocked: realStats.filter((stat) => stat.practice_unlocked || stat.weakness_level === "unlocked"),
+      weak: realStats.filter((stat) => !stat.practice_unlocked && stat.weakness_level === "weak"),
+      tracking: realStats.filter((stat) => !stat.practice_unlocked && stat.weakness_level === "tracking"),
+      improving: realStats.filter((stat) => stat.weakness_level === "improving"),
+      mastered: realStats.filter((stat) => stat.weakness_level === "mastered"),
+    };
+
+    const sections = [
+      { title: "Practice unlocked", stats: groupedStats.unlocked },
+      { title: "Weak", stats: groupedStats.weak },
+      { title: "Tracking", stats: groupedStats.tracking },
+      { title: "Improving", stats: groupedStats.improving },
+      { title: "Mastered", stats: groupedStats.mastered },
+    ].filter((section) => section.stats.length > 0);
+
+    return (
+      <div className="container mx-auto px-4 py-12 max-w-5xl animate-in fade-in duration-500">
+        <h1 className="text-4xl font-serif tracking-tight mb-2">Practice Center</h1>
+        <p className="text-muted-foreground text-lg mb-10">Review grammar topics unlocked from feedback on your writings.</p>
+
+        {loadingRealStats ? (
+          <Card className="border-border shadow-sm">
+            <CardContent className="p-8 text-center text-muted-foreground">Loading practice profile...</CardContent>
+          </Card>
+        ) : realStatsError ? (
+          <Card className="border-destructive/30 bg-destructive/5">
+            <CardContent className="p-6 text-sm text-destructive">{realStatsError}</CardContent>
+          </Card>
+        ) : realStats.length === 0 ? (
+          <Card className="border-dashed bg-muted/20">
+            <CardContent className="p-10 text-center">
+              <h2 className="text-2xl font-serif mb-3">No focus areas yet.</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Feedback from future writings will build your practice profile. Practice worksheets will be added next.
+              </p>
+            </CardContent>
+          </Card>
+        ) : (
+          <div className="space-y-8">
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2 className="text-xl font-serif tracking-tight mb-4">{section.title}</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {section.stats.map((stat) => (
+                    <Card key={stat.id} className="border-border shadow-sm">
+                      <CardContent className="p-6">
+                        <div className="flex justify-between items-start gap-4 mb-4">
+                          <Badge variant="outline" className={getWeaknessBadgeClass(stat.weakness_level, stat.practice_unlocked)}>
+                            {getWeaknessLabel(stat.weakness_level, stat.practice_unlocked)}
+                          </Badge>
+                          <span className="text-xs font-mono text-muted-foreground">{formatIssueCount(stat)}</span>
+                        </div>
+                        <h3 className="font-serif text-2xl text-foreground mb-2">{stat.topic_name}</h3>
+                        <p className="text-sm text-muted-foreground leading-relaxed min-h-10">
+                          {stat.topic_description ?? "Review this grammar topic based on feedback from your writings."}
+                        </p>
+                        <div className="mt-6 rounded-lg border border-dashed bg-muted/25 p-4 text-sm text-muted-foreground">
+                          Practice worksheets will be added next.
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   if (!selectedTopic) {
     return (

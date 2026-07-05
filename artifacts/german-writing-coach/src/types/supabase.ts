@@ -1163,6 +1163,24 @@ export type Database = {
         Args: { target_workspace_id: string }
         Returns: boolean
       }
+      refresh_student_grammar_stats: {
+        Args: { target_student_id: string; target_workspace_id: string }
+        Returns: {
+          grammar_topic_id: string
+          grammar_topic_name: string
+          grammar_topic_slug: string
+          id: string
+          last_seen_at: string
+          practice_unlocked: boolean
+          student_id: string
+          total_correct_after_practice: number
+          total_major_issues: number
+          total_minor_issues: number
+          updated_at: string
+          weakness_level: string
+          workspace_id: string
+        }[]
+      }
       reject_batch_join_request: {
         Args: { request_id: string }
         Returns: {

@@ -288,10 +288,12 @@ Will implement:
 - `student_grammar_stats` updates
 - weak topic thresholds
 - teacher/student weak topic views backed by real data
+- no worksheet generation; weak topics only unlock future practice
 
 Will not implement yet:
 
 - AI-generated practice tests
+- generated worksheets
 - OCR/audio
 
 Testing requirement: typecheck, build, stats update tests, repeated-topic threshold tests.
@@ -308,6 +310,9 @@ Will implement:
 - unlock rules
 - test assignment/visibility
 - attempt tracking
+- one active worksheet/test per student/topic
+- no new worksheet/test for the same topic until the previous one is completed
+- after each worksheet/test result, decide whether to improve the topic status or unlock another attempt
 
 Will not implement yet:
 
