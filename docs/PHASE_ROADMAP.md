@@ -302,37 +302,49 @@ Testing requirement: typecheck, build, stats update tests, repeated-topic thresh
 
 Expected output: Weak grammar topics appear per student.
 
-## Phase 8: Practice Test Unlock And Reuse
+## Phase 7B: Practice Worksheet Assignment And Attempts
 
-Goal: Unlock topic practice when weak areas are detected and reuse saved tests first.
+Goal: Unlock topic practice when weak areas are detected, reuse saved worksheets first, and track assignment/attempt status.
 
 Will implement:
 
-- practice test lookup by workspace, level, topic, and difficulty
+- `student_practice_assignments`
+- practice worksheet lookup by workspace, level, topic, and difficulty
 - unlock rules
-- test assignment/visibility
+- worksheet assignment/visibility
 - attempt tracking
-- one active worksheet/test per student/topic
-- no new worksheet/test for the same topic until the previous one is completed
-- after each worksheet/test result, decide whether to improve the topic status or unlock another attempt
+- one active worksheet per student/topic
+- no new worksheet for the same topic until the previous one is completed
+- local scoring for objective questions
+- student worksheet start/submit flow
+- teacher worksheet status visibility
 
 Will not implement yet:
 
-- generating new tests with DeepSeek unless no saved test exists in the next phase
+- generating new worksheets with DeepSeek
+- DeepSeek answer evaluation for open-ended worksheet answers
+- OCR/photo upload
+- timer/exam mode
+- daily limits
 
 Testing requirement: typecheck, build, unlock threshold tests, reuse selection tests.
 
-Expected output: Students can practice weak grammar topics with reusable saved tests.
+Expected output: Students can practice weak grammar topics with reusable saved worksheets when available.
 
-## Phase 9: Practice Test Generation With DeepSeek
+## Phase 7C: Practice Worksheet Generation With DeepSeek
 
-Goal: Generate tests only when reuse is unavailable.
+Goal: Generate worksheets only when reuse is unavailable, without breaking the one-active-worksheet rule.
 
 Will implement:
 
-- server-side test generation endpoint
-- strict generated test schema
-- save/reuse generated tests
+- server-side worksheet generation endpoint
+- strict generated worksheet JSON schema
+- generated-question quality checks
+- save/reuse generated worksheets
+- reuse existing worksheets before generating new ones
+- do not generate another worksheet for the same student/topic until the previous one is completed
+- local objective scoring remains the first choice
+- DeepSeek answer evaluation only for open-ended answers where needed
 - abuse limits for generation
 
 Will not implement yet:

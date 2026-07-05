@@ -323,41 +323,66 @@ export type Database = {
       practice_test_attempts: {
         Row: {
           answers: Json
+          assignment_id: string | null
           completed_at: string | null
           created_at: string
           feedback: Json | null
           id: string
           max_score: number
+          passed: boolean | null
           practice_test_id: string
           score: number
+          score_percent: number | null
+          started_at: string | null
+          status: string
           student_id: string
+          submitted_at: string | null
           workspace_id: string
         }
         Insert: {
           answers?: Json
+          assignment_id?: string | null
           completed_at?: string | null
           created_at?: string
           feedback?: Json | null
           id?: string
           max_score?: number
+          passed?: boolean | null
           practice_test_id: string
           score?: number
+          score_percent?: number | null
+          started_at?: string | null
+          status?: string
           student_id: string
+          submitted_at?: string | null
           workspace_id: string
         }
         Update: {
           answers?: Json
+          assignment_id?: string | null
           completed_at?: string | null
           created_at?: string
           feedback?: Json | null
           id?: string
           max_score?: number
+          passed?: boolean | null
           practice_test_id?: string
           score?: number
+          score_percent?: number | null
+          started_at?: string | null
+          status?: string
           student_id?: string
+          submitted_at?: string | null
           workspace_id?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "practice_test_attempts_assignment_id_fkey"
+            columns: ["assignment_id"]
+            isOneToOne: false
+            referencedRelation: "student_practice_assignments"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "practice_test_attempts_practice_test_id_fkey"
             columns: ["practice_test_id"]
@@ -716,6 +741,97 @@ export type Database = {
           },
           {
             foreignKeyName: "student_invitations_workspace_id_fkey"
+            columns: ["workspace_id"]
+            isOneToOne: false
+            referencedRelation: "workspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      student_practice_assignments: {
+        Row: {
+          assigned_at: string
+          assigned_by: string | null
+          completed_at: string | null
+          grammar_topic_id: string
+          id: string
+          latest_attempt_id: string | null
+          practice_test_id: string | null
+          source: string
+          started_at: string | null
+          status: string
+          student_id: string
+          updated_at: string
+          workspace_id: string
+        }
+        Insert: {
+          assigned_at?: string
+          assigned_by?: string | null
+          completed_at?: string | null
+          grammar_topic_id: string
+          id?: string
+          latest_attempt_id?: string | null
+          practice_test_id?: string | null
+          source?: string
+          started_at?: string | null
+          status?: string
+          student_id: string
+          updated_at?: string
+          workspace_id: string
+        }
+        Update: {
+          assigned_at?: string
+          assigned_by?: string | null
+          completed_at?: string | null
+          grammar_topic_id?: string
+          id?: string
+          latest_attempt_id?: string | null
+          practice_test_id?: string | null
+          source?: string
+          started_at?: string | null
+          status?: string
+          student_id?: string
+          updated_at?: string
+          workspace_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "student_practice_assignments_assigned_by_fkey"
+            columns: ["assigned_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_practice_assignments_grammar_topic_id_fkey"
+            columns: ["grammar_topic_id"]
+            isOneToOne: false
+            referencedRelation: "grammar_topics"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_practice_assignments_latest_attempt_id_fkey"
+            columns: ["latest_attempt_id"]
+            isOneToOne: false
+            referencedRelation: "practice_test_attempts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_practice_assignments_practice_test_id_fkey"
+            columns: ["practice_test_id"]
+            isOneToOne: false
+            referencedRelation: "practice_tests"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_practice_assignments_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_practice_assignments_workspace_id_fkey"
             columns: ["workspace_id"]
             isOneToOne: false
             referencedRelation: "workspaces"
@@ -1142,6 +1258,37 @@ export type Database = {
           submission_id: string
         }[]
       }
+      ensure_student_practice_assignment: {
+        Args: {
+          target_grammar_topic_id: string
+          target_student_id: string
+          target_workspace_id: string
+        }
+        Returns: {
+          assigned_at: string
+          assignment_id: string
+          completed_at: string
+          grammar_topic_id: string
+          grammar_topic_name: string
+          grammar_topic_slug: string
+          latest_attempt_id: string
+          latest_attempt_status: string
+          max_score: number
+          passed: boolean
+          practice_test_id: string
+          question_count: number
+          score: number
+          score_percent: number
+          source: string
+          started_at: string
+          status: string
+          student_id: string
+          worksheet_difficulty: string
+          worksheet_level: string
+          worksheet_title: string
+          workspace_id: string
+        }[]
+      }
       has_workspace_role: {
         Args: { allowed_roles: string[]; target_workspace_id: string }
         Returns: boolean
@@ -1208,6 +1355,60 @@ export type Database = {
         Returns: {
           batch_id: string
           join_code: string
+        }[]
+      }
+      start_practice_assignment: {
+        Args: { target_assignment_id: string }
+        Returns: {
+          assigned_at: string
+          assignment_id: string
+          completed_at: string
+          grammar_topic_id: string
+          grammar_topic_name: string
+          grammar_topic_slug: string
+          latest_attempt_id: string
+          latest_attempt_status: string
+          max_score: number
+          passed: boolean
+          practice_test_id: string
+          question_count: number
+          score: number
+          score_percent: number
+          source: string
+          started_at: string
+          status: string
+          student_id: string
+          worksheet_difficulty: string
+          worksheet_level: string
+          worksheet_title: string
+          workspace_id: string
+        }[]
+      }
+      submit_practice_attempt: {
+        Args: { submitted_answers: Json; target_assignment_id: string }
+        Returns: {
+          assigned_at: string
+          assignment_id: string
+          completed_at: string
+          grammar_topic_id: string
+          grammar_topic_name: string
+          grammar_topic_slug: string
+          latest_attempt_id: string
+          latest_attempt_status: string
+          max_score: number
+          passed: boolean
+          practice_test_id: string
+          question_count: number
+          score: number
+          score_percent: number
+          source: string
+          started_at: string
+          status: string
+          student_id: string
+          worksheet_difficulty: string
+          worksheet_level: string
+          worksheet_title: string
+          workspace_id: string
         }[]
       }
     }

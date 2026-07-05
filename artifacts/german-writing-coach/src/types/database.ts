@@ -37,6 +37,18 @@ export type WeaknessLevel =
   | "mastered";
 export type PracticeDifficulty = "easy" | "medium" | "hard";
 export type PracticeVisibility = "workspace" | "private";
+export type PracticeAssignmentSource =
+  | "weakness_auto"
+  | "teacher_assigned"
+  | "manual";
+export type PracticeAssignmentStatus =
+  | "unlocked"
+  | "in_progress"
+  | "completed"
+  | "passed"
+  | "failed"
+  | "cancelled";
+export type PracticeAttemptStatus = "in_progress" | "submitted" | "checked";
 
 export interface Profile {
   id: string;
@@ -202,14 +214,36 @@ export interface PracticeTestQuestion {
   created_at: string;
 }
 
+export interface StudentPracticeAssignment {
+  id: string;
+  workspace_id: string;
+  student_id: string;
+  grammar_topic_id: string;
+  practice_test_id: string | null;
+  source: PracticeAssignmentSource;
+  status: PracticeAssignmentStatus;
+  assigned_by: string | null;
+  latest_attempt_id: string | null;
+  assigned_at: string;
+  started_at: string | null;
+  completed_at: string | null;
+  updated_at: string;
+}
+
 export interface PracticeTestAttempt {
   id: string;
   practice_test_id: string;
   student_id: string;
   workspace_id: string;
+  assignment_id: string | null;
   answers: Json;
   score: number;
   max_score: number;
+  status: PracticeAttemptStatus;
+  started_at: string | null;
+  submitted_at: string | null;
+  score_percent: number | null;
+  passed: boolean | null;
   feedback: Json | null;
   completed_at: string | null;
   created_at: string;

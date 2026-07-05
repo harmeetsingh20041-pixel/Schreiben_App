@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, CheckCircle2, XCircle, ArrowRight, BrainCircuit, RefreshCw } from "lucide-react";
+import { ArrowLeft, CheckCircle2, XCircle, ArrowRight, BrainCircuit, RefreshCw, ClipboardList } from "lucide-react";
 import { PRACTICE_EXERCISES, MOCK_STUDENTS } from "@/data/mockData";
 import { useAuth } from "@/lib/auth";
-import { formatErrorMessage } from "@/lib/workspaceData";
-import { listMyBatchAssignments } from "@/services/studentService";
+import { formatErrorMessage, getActiveWorkspaceId } from "@/lib/workspaceData";
 import {
   formatIssueCount,
   getWeaknessBadgeClass,
@@ -15,13 +15,23 @@ import {
   listStudentGrammarStats,
   type StudentGrammarStat,
 } from "@/services/grammarStatsService";
+import {
+  ensureStudentPracticeAssignment,
+  formatPracticeScore,
+  getPracticeAssignmentBadgeClass,
+  getPracticeAssignmentLabel,
+  listStudentPracticeAssignments,
+  type PracticeAssignmentSummary,
+} from "@/services/practiceWorksheetService";
 
 export default function StudentPractice() {
-  const { authMode, user } = useAuth();
+  const { authMode, user, workspaceMemberships } = useAuth();
   const useRealData = authMode === "supabase" && Boolean(user);
+  const workspaceId = getActiveWorkspaceId(workspaceMemberships);
   const student = MOCK_STUDENTS[0];
   const weakTopics = student.weak_topics;
   const [realStats, setRealStats] = useState<StudentGrammarStat[]>([]);
+  const [realAssignments, setRealAssignments] = useState<PracticeAssignmentSummary[]>([]);
   const [loadingRealStats, setLoadingRealStats] = useState(useRealData);
   const [realStatsError, setRealStatsError] = useState<string | null>(null);
   
@@ -42,12 +52,21 @@ export default function StudentPractice() {
       try {
         setLoadingRealStats(true);
         setRealStatsError(null);
-        const assignments = await listMyBatchAssignments(user!.id);
-        const workspaceId = assignments[0]?.workspace_id ?? null;
-        const stats = workspaceId
-          ? await listStudentGrammarStats(workspaceId, user!.id, 12)
-          : [];
+        if (!workspaceId) {
+          setRealStats([]);
+          setRealAssignments([]);
+          return;
+        }
+        const stats = await listStudentGrammarStats(workspaceId, user!.id, 12);
+        const unlockedStats = stats.filter((stat) => stat.practice_unlocked || stat.weakness_level === "unlocked");
+        await Promise.all(
+          unlockedStats.map((stat) =>
+            ensureStudentPracticeAssignment(workspaceId, user!.id, stat.grammar_topic_id),
+          ),
+        );
+        const assignments = await listStudentPracticeAssignments(workspaceId, user!.id);
         setRealStats(stats);
+        setRealAssignments(assignments);
       } catch (error) {
         setRealStatsError(formatErrorMessage(error, "Unable to load practice topics."));
       } finally {
@@ -56,7 +75,7 @@ export default function StudentPractice() {
     }
 
     void loadRealPracticeTopics();
-  }, [useRealData, user]);
+  }, [useRealData, user, workspaceId]);
 
   const handleSelectTopic = (topic: string) => {
     setSelectedTopic(topic);
@@ -90,6 +109,7 @@ export default function StudentPractice() {
   const progress = exercises.length > 0 ? ((currentIdx + (isFinished ? 1 : 0)) / exercises.length) * 100 : 0;
 
   if (useRealData) {
+    const assignmentsByTopic = new Map(realAssignments.map((assignment) => [assignment.grammar_topic_id, assignment]));
     const groupedStats = {
       unlocked: realStats.filter((stat) => stat.practice_unlocked || stat.weakness_level === "unlocked"),
       weak: realStats.filter((stat) => !stat.practice_unlocked && stat.weakness_level === "weak"),
@@ -147,9 +167,58 @@ export default function StudentPractice() {
                         <p className="text-sm text-muted-foreground leading-relaxed min-h-10">
                           {stat.topic_description ?? "Review this grammar topic based on feedback from your writings."}
                         </p>
-                        <div className="mt-6 rounded-lg border border-dashed bg-muted/25 p-4 text-sm text-muted-foreground">
-                          Practice worksheets will be added next.
-                        </div>
+                        {(() => {
+                          const assignment = assignmentsByTopic.get(stat.grammar_topic_id);
+                          const scoreLabel = assignment ? formatPracticeScore(assignment) : null;
+
+                          if (!assignment) {
+                            return (
+                              <div className="mt-6 rounded-lg border border-dashed bg-muted/25 p-4 text-sm text-muted-foreground">
+                                Practice unlock is being prepared.
+                              </div>
+                            );
+                          }
+
+                          if (!assignment.practice_test_id) {
+                            return (
+                              <div className="mt-6 rounded-lg border border-dashed bg-muted/25 p-4 text-sm text-muted-foreground">
+                                Practice unlocked. Worksheet will be available soon.
+                              </div>
+                            );
+                          }
+
+                          return (
+                            <div className="mt-6 rounded-lg border bg-muted/20 p-4">
+                              <div className="flex flex-wrap items-center justify-between gap-3">
+                                <div className="min-w-0">
+                                  <div className="flex flex-wrap items-center gap-2">
+                                    <Badge variant="outline" className={getPracticeAssignmentBadgeClass(assignment)}>
+                                      {getPracticeAssignmentLabel(assignment)}
+                                    </Badge>
+                                    {scoreLabel && <span className="text-xs text-muted-foreground">{scoreLabel}</span>}
+                                  </div>
+                                  <p className="mt-2 text-sm font-medium text-foreground truncate">
+                                    {assignment.worksheet_title ?? "Practice Worksheet"}
+                                  </p>
+                                  <p className="text-xs text-muted-foreground">
+                                    {assignment.question_count} questions
+                                    {assignment.worksheet_level ? ` · ${assignment.worksheet_level}` : ""}
+                                  </p>
+                                </div>
+                                <Link href={`/student/practice/${assignment.id}`}>
+                                  <Button size="sm" variant={assignment.status === "in_progress" ? "default" : "outline"}>
+                                    <ClipboardList className="h-4 w-4 mr-2" />
+                                    {assignment.status === "in_progress"
+                                      ? "Continue worksheet"
+                                      : assignment.status === "unlocked"
+                                        ? "Start worksheet"
+                                        : "Review worksheet"}
+                                  </Button>
+                                </Link>
+                              </div>
+                            </div>
+                          );
+                        })()}
                       </CardContent>
                     </Card>
                   ))}
