@@ -346,10 +346,14 @@ Will implement:
 - do not generate another worksheet for the same student/topic until the previous one is completed
 - local objective scoring remains the first choice
 - DeepSeek answer evaluation only for open-ended answers where needed
+- keep student question delivery free of answer keys, explanations, and scoring metadata before submission
+- add secure post-submit explanation delivery later, only after completion/pass/fail
 - abuse limits for generation
 - level-matched worksheets for A1, A2, B1, and B2 students
 - exact weak-topic targeting rather than generic grammar drills
 - examples connected to the student's actual mistakes where appropriate
+- difficulty selection based on level, repeated weakness, previous worksheet result, and exact topic need
+- avoid automatically making every failed follow-up harder; target the remaining misunderstanding instead
 - exercise type variety, including `multiple_choice`, `fill_blank`, `sentence_correction`, `word_order`, `transformation`, `short_answer`, `mini_writing`, `matching`, `error_detection`, and `rewrite_sentence`
 - a default A2 worksheet target of 8-10 questions with at least 2 multiple-choice, 2 fill-the-blank, 2 sentence-correction, 1 word-order/transformation, and 1-2 short production questions
 - answer keys and explanations for every generated question

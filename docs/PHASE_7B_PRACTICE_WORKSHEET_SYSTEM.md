@@ -15,8 +15,18 @@ Phase 7B adds real worksheet assignment and attempt tracking for grammar weaknes
   - `submit_practice_attempt(target_assignment_id, submitted_answers)`
 - Assignment creation is idempotent for the current grammar-stats cycle and reuses an existing active assignment instead of creating duplicates.
 - If a matching saved worksheet exists, it is attached; otherwise the assignment remains unlocked without a worksheet.
+- Students receive worksheet questions through a safe RPC that returns only `id`, `question_number`, `question_type`, `prompt`, and `options`.
 - Student Practice Center shows worksheet assignment state and links to the worksheet page.
 - Teachers can see worksheet status beside grammar focus areas.
+
+## Answer Key Safety
+
+Students must not receive worksheet answer keys, correct answers, explanations, or scoring metadata before submission. Phase 7B enforces this in two places:
+
+- Direct `practice_test_questions` reads are limited to platform admins and workspace teachers.
+- Student worksheet rendering uses `get_practice_assignment_questions`, which returns only pre-submission-safe fields.
+
+The student worksheet page does not show explanations in Phase 7B. Secure post-submit explanations should be added later through a dedicated server-side path, after the assignment is completed, passed, or failed. That follow-up belongs to Phase 7D unless Phase 7C needs a smaller reviewed-content preview.
 
 ## Worksheet Reuse
 
@@ -30,6 +40,8 @@ The assignment RPC looks for saved worksheets with:
 - difficulty `easy` or `medium`
 
 If no saved worksheet exists, students see: "Practice unlocked. Worksheet will be available soon."
+
+Current reuse is intentionally simple. A1 may use easy or medium worksheets depending on the topic. For A2, B1, and B2, the app should not automatically pick the easiest worksheet for repeated weaknesses; Phase 7B prefers medium before easy when both are available. Phase 7C should choose difficulty from the student's level, repeated weakness history, previous worksheet result, and exact topic need. A failed worksheet does not always mean the next worksheet should be harder; it should target the remaining misunderstanding.
 
 ## Worksheet Quality Standard
 
@@ -87,7 +99,16 @@ Objective question types are scored locally:
 
 The initial pass threshold is 70%.
 
-If no locally scorable questions exist, the attempt is submitted as needing review instead of pretending correctness.
+Only objective questions with a non-empty answer key are counted in local scoring. If a locally scorable question has a missing or blank answer key, it is treated as unscored/manual-review-needed instead of wrong.
+
+Attempt feedback records:
+
+- `objective_questions`
+- `scored_questions`
+- `unscored_questions`
+- `scoring`: `local_objective`, `partial_local`, or `manual_review_needed`
+
+If no questions are safely scorable, the assignment is marked `completed`, the attempt is marked `submitted`, `score_percent` and `passed` stay `null`, and the app does not pretend the student failed.
 
 ## One Active Worksheet Rule
 
@@ -118,6 +139,7 @@ Do not make Phase 7C depend on one fixed worksheet shape. The app should support
 - Generate or reuse worksheets with DeepSeek.
 - Validate generated worksheet JSON.
 - Quality-check generated questions before students receive them.
+- Choose worksheet difficulty from level, repeated weakness, previous result, and the exact remaining misunderstanding.
 - Reuse existing worksheets before generating new ones.
 - Keep one active worksheet per student/topic.
 - Do not generate another worksheet for the same student/topic until the previous one is completed.

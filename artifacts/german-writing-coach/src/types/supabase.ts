@@ -1289,6 +1289,16 @@ export type Database = {
           workspace_id: string
         }[]
       }
+      get_practice_assignment_questions: {
+        Args: { target_assignment_id: string }
+        Returns: {
+          id: string
+          options: Json
+          prompt: string
+          question_number: number
+          question_type: string
+        }[]
+      }
       has_workspace_role: {
         Args: { allowed_roles: string[]; target_workspace_id: string }
         Returns: boolean
@@ -1309,6 +1319,33 @@ export type Database = {
       is_workspace_member: {
         Args: { target_workspace_id: string }
         Returns: boolean
+      }
+      list_student_practice_assignments: {
+        Args: { target_student_id: string; target_workspace_id: string }
+        Returns: {
+          assigned_at: string
+          assignment_id: string
+          completed_at: string
+          grammar_topic_id: string
+          grammar_topic_name: string
+          grammar_topic_slug: string
+          latest_attempt_id: string
+          latest_attempt_status: string
+          max_score: number
+          passed: boolean
+          practice_test_id: string
+          question_count: number
+          score: number
+          score_percent: number
+          source: string
+          started_at: string
+          status: string
+          student_id: string
+          worksheet_difficulty: string
+          worksheet_level: string
+          worksheet_title: string
+          workspace_id: string
+        }[]
       }
       refresh_student_grammar_stats: {
         Args: { target_student_id: string; target_workspace_id: string }

@@ -271,9 +271,6 @@ export default function StudentWorksheet() {
                     disabled={isCompleted || submitting}
                     onChange={(value) => setAnswers((current) => ({ ...current, [question.id]: value }))}
                   />
-                  {isCompleted && question.explanation && (
-                    <p className="rounded-lg bg-muted/30 p-3 text-sm text-muted-foreground">{question.explanation}</p>
-                  )}
                 </CardContent>
               </Card>
             ))}

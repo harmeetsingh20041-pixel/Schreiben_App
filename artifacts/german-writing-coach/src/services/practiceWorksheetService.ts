@@ -4,11 +4,15 @@ import type { Database, Json } from "@/types/supabase";
 type PracticeAssignmentRow = Database["public"]["Tables"]["student_practice_assignments"]["Row"];
 type PracticeAttemptRow = Database["public"]["Tables"]["practice_test_attempts"]["Row"];
 type PracticeTestRow = Database["public"]["Tables"]["practice_tests"]["Row"];
-type PracticeQuestionRow = Database["public"]["Tables"]["practice_test_questions"]["Row"];
 type GrammarTopicRow = Pick<Database["public"]["Tables"]["grammar_topics"]["Row"], "id" | "name" | "slug" | "description">;
 type ProfileRow = Pick<Database["public"]["Tables"]["profiles"]["Row"], "id" | "full_name" | "email">;
 type PracticeAssignmentRpcRow =
-  Database["public"]["Functions"]["ensure_student_practice_assignment"]["Returns"][number];
+  | Database["public"]["Functions"]["ensure_student_practice_assignment"]["Returns"][number]
+  | Database["public"]["Functions"]["list_student_practice_assignments"]["Returns"][number]
+  | Database["public"]["Functions"]["start_practice_assignment"]["Returns"][number]
+  | Database["public"]["Functions"]["submit_practice_attempt"]["Returns"][number];
+type PracticeQuestionRpcRow =
+  Database["public"]["Functions"]["get_practice_assignment_questions"]["Returns"][number];
 
 export type PracticeAssignmentStatus =
   | "unlocked"
@@ -68,8 +72,6 @@ export interface PracticeWorksheetQuestion {
   question_type: PracticeQuestionType;
   prompt: string;
   options: string[];
-  correct_answer?: string;
-  explanation: string | null;
 }
 
 export interface PracticeWorksheetDetail {
@@ -209,7 +211,6 @@ async function hydrateAssignments(assignments: PracticeAssignmentRow[]): Promise
     { data: worksheets, error: worksheetsError },
     { data: attempts, error: attemptsError },
     { data: profiles, error: profilesError },
-    { data: questions, error: questionsError },
   ] = await Promise.all([
     client.from("grammar_topics").select("id, name, slug, description").in("id", topicIds),
     worksheetIds.length === 0
@@ -221,25 +222,17 @@ async function hydrateAssignments(assignments: PracticeAssignmentRow[]): Promise
     studentIds.length === 0
       ? Promise.resolve({ data: [], error: null })
       : client.from("profiles").select("id, full_name, email").in("id", studentIds),
-    worksheetIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from("practice_test_questions").select("practice_test_id").in("practice_test_id", worksheetIds),
   ]);
 
   if (topicsError) throw topicsError;
   if (worksheetsError) throw worksheetsError;
   if (attemptsError) throw attemptsError;
   if (profilesError) throw profilesError;
-  if (questionsError) throw questionsError;
 
   const topicMap = new Map(((topics ?? []) as GrammarTopicRow[]).map((topic) => [topic.id, topic]));
   const worksheetMap = new Map(((worksheets ?? []) as PracticeTestRow[]).map((worksheet) => [worksheet.id, worksheet]));
   const attemptMap = new Map(((attempts ?? []) as PracticeAttemptRow[]).map((attempt) => [attempt.id, attempt]));
   const profileMap = new Map(((profiles ?? []) as ProfileRow[]).map((profile) => [profile.id, profile]));
-  const questionCounts = new Map<string, number>();
-  for (const question of (questions ?? []) as Pick<PracticeQuestionRow, "practice_test_id">[]) {
-    questionCounts.set(question.practice_test_id, (questionCounts.get(question.practice_test_id) ?? 0) + 1);
-  }
 
   return assignments.map((assignment) =>
     mapAssignmentFromTables(
@@ -248,7 +241,7 @@ async function hydrateAssignments(assignments: PracticeAssignmentRow[]): Promise
       assignment.practice_test_id ? worksheetMap.get(assignment.practice_test_id) : undefined,
       assignment.latest_attempt_id ? attemptMap.get(assignment.latest_attempt_id) : undefined,
       profileMap.get(assignment.student_id),
-      assignment.practice_test_id ? questionCounts.get(assignment.practice_test_id) ?? 0 : 0,
+      0,
     ),
   );
 }
@@ -276,16 +269,15 @@ export async function listStudentPracticeAssignments(
   studentId: string,
 ): Promise<PracticeAssignmentSummary[]> {
   const client = requireClient();
-  const { data, error } = await client
-    .from("student_practice_assignments")
-    .select("*")
-    .eq("workspace_id", workspaceId)
-    .eq("student_id", studentId)
-    .order("updated_at", { ascending: false })
-    .limit(PRACTICE_ASSIGNMENT_LIMITS.student);
+  const { data, error } = await client.rpc("list_student_practice_assignments", {
+    target_workspace_id: workspaceId,
+    target_student_id: studentId,
+  });
 
   if (error) throw error;
-  return hydrateAssignments((data ?? []) as PracticeAssignmentRow[]);
+  return ((data ?? []) as PracticeAssignmentRpcRow[])
+    .slice(0, PRACTICE_ASSIGNMENT_LIMITS.student)
+    .map(mapRpcAssignment);
 }
 
 export async function listWorkspacePracticeAssignments(
@@ -349,22 +341,24 @@ export async function getPracticeWorksheetDetail(assignmentId: string): Promise<
   }
 
   const { data: questions, error: questionsError } = await client
-    .from("practice_test_questions")
-    .select("*")
-    .eq("practice_test_id", summary.practice_test_id)
-    .order("question_number", { ascending: true });
+    .rpc("get_practice_assignment_questions", {
+      target_assignment_id: assignmentId,
+    });
 
   if (questionsError) throw questionsError;
+  const safeQuestions = (questions ?? []) as PracticeQuestionRpcRow[];
 
   return {
-    assignment: summary,
-    questions: ((questions ?? []) as PracticeQuestionRow[]).map((question) => ({
+    assignment: {
+      ...summary,
+      question_count: safeQuestions.length,
+    },
+    questions: safeQuestions.map((question) => ({
       id: question.id,
       question_number: question.question_number,
       question_type: question.question_type,
       prompt: question.prompt,
       options: parseOptions(question.options),
-      explanation: question.explanation,
     })),
   };
 }
