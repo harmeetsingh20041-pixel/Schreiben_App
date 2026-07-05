@@ -48,6 +48,7 @@ export function SubmissionReview({ submission, student, question, isTeacherView 
 
   const statusConfig: Record<Status, { icon: any, color: string, bg: string, border: string, label: string }> = {
     correct: { icon: CheckCircle2, color: "text-[#2E7D32]", bg: "bg-[#2E7D32]/5", border: "border-[#2E7D32]/20", label: "Correct" },
+    acceptable_for_level: { icon: ThumbsUp, color: "text-[#0277BD]", bg: "bg-[#0277BD]/5", border: "border-[#0277BD]/20", label: "Good for level" },
     acceptable_a1_a2: { icon: ThumbsUp, color: "text-[#0277BD]", bg: "bg-[#0277BD]/5", border: "border-[#0277BD]/20", label: "Good for level" },
     minor_issue: { icon: AlertTriangle, color: "text-[#F57C00]", bg: "bg-[#F57C00]/5", border: "border-[#F57C00]/20", label: "Small Issue" },
     major_issue: { icon: AlertOctagon, color: "text-[#D32F2F]", bg: "bg-[#D32F2F]/5", border: "border-[#D32F2F]/20", label: "Major Issue" },
@@ -56,7 +57,7 @@ export function SubmissionReview({ submission, student, question, isTeacherView 
 
   const stats = {
     correct: submission.ai_response.lines.filter(l => l.status === "correct").length,
-    good: submission.ai_response.lines.filter(l => l.status === "acceptable_a1_a2").length,
+    good: submission.ai_response.lines.filter(l => l.status === "acceptable_for_level" || l.status === "acceptable_a1_a2").length,
     minor: submission.ai_response.lines.filter(l => l.status === "minor_issue").length,
     major: submission.ai_response.lines.filter(l => l.status === "major_issue").length,
     unclear: submission.ai_response.lines.filter(l => l.status === "unclear").length,
@@ -65,7 +66,7 @@ export function SubmissionReview({ submission, student, question, isTeacherView 
   const linesChecked = submission.ai_response.lines.length;
 
   const grammarGroups = submission.ai_response.lines.reduce((acc, line) => {
-    if (line.grammar_topic && line.status !== "correct" && line.status !== "acceptable_a1_a2") {
+    if (line.grammar_topic && line.status !== "correct" && line.status !== "acceptable_for_level" && line.status !== "acceptable_a1_a2") {
       if (!acc[line.grammar_topic]) acc[line.grammar_topic] = [];
       acc[line.grammar_topic].push(line);
     }
@@ -209,7 +210,7 @@ export function SubmissionReview({ submission, student, question, isTeacherView 
                       <div className="pt-1">
                         {line.status === "correct" ? (
                           <p className="text-foreground font-medium">Correct. No correction needed.</p>
-                        ) : line.status === "acceptable_a1_a2" ? (
+                        ) : line.status === "acceptable_for_level" || line.status === "acceptable_a1_a2" ? (
                           <p className="text-foreground font-medium">This is good for your level. No need to make it more complicated.</p>
                         ) : (
                           <div>

@@ -9,6 +9,7 @@ import { listWorkspaceBatches, type WorkspaceBatch } from "@/services/batchServi
 import { listWorkspaceQuestions } from "@/services/questionService";
 import { listTeacherWorkspaceSubmissions, type WritingSubmission } from "@/services/submissionService";
 import { listBatchJoinRequests, listStudentInvitations, listWorkspaceStudents, type BatchJoinRequest, type StudentInvitation, type WorkspaceStudent } from "@/services/studentService";
+import { getSubmissionIssueLabel, SubmissionStatusBadge } from "@/components/submission-status-badge";
 import { Users, FileText, CheckCircle, AlertTriangle } from "lucide-react";
 import { MOCK_STUDENTS, MOCK_SUBMISSIONS, MOCK_BATCHES } from "@/data/mockData";
 
@@ -197,9 +198,7 @@ export default function TeacherDashboard() {
                           {new Date(submission.created_at).toLocaleDateString()}
                         </p>
                       </div>
-                      <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20">
-                        {submission.status}
-                      </Badge>
+                      <SubmissionStatusBadge status={submission.status} />
                     </div>
                     <div className="mt-4">
                       <p className="text-sm font-medium text-foreground mb-1 line-clamp-1">{submission.question_title}</p>
@@ -207,7 +206,7 @@ export default function TeacherDashboard() {
                         {submission.original_text}
                       </p>
                       <div className="flex justify-between items-center">
-                        <span className="text-xs text-muted-foreground">Correction pending</span>
+                        <span className="text-xs font-medium text-foreground">{getSubmissionIssueLabel(submission.status)}</span>
                         <Link href={`/teacher/submission/${submission.id}`} className="text-sm text-primary font-medium hover:underline flex items-center group">
                           Review <span className="ml-1 transition-transform group-hover:translate-x-1">-&gt;</span>
                         </Link>

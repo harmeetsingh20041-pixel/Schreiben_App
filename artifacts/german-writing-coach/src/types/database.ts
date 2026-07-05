@@ -13,11 +13,13 @@ export type SubmissionMode = "predefined_question" | "free_text";
 export type SubmissionStatus =
   | "draft"
   | "submitted"
+  | "checking"
   | "checked"
   | "needs_review"
   | "failed";
 export type CorrectionStatus =
   | "correct"
+  | "acceptable_for_level"
   | "acceptable_a1_a2"
   | "minor_issue"
   | "major_issue"

@@ -1,4 +1,4 @@
-export type Status = "correct" | "acceptable_a1_a2" | "minor_issue" | "major_issue" | "unclear";
+export type Status = "correct" | "acceptable_for_level" | "acceptable_a1_a2" | "minor_issue" | "major_issue" | "unclear";
 
 export interface ChangedPart {
   from: string;
@@ -13,6 +13,7 @@ export interface CorrectionLine {
   status: Status;
   changed_parts: ChangedPart[];
   short_explanation: string;
+  detailed_explanation?: string;
   grammar_topic: string;
 }
 

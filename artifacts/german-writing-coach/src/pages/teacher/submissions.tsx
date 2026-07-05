@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Eye, Calendar, Clock, CheckCircle2 } from "lucide-react";
+import { getSubmissionIssueLabel, SubmissionStatusBadge } from "@/components/submission-status-badge";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId } from "@/lib/workspaceData";
 import { listTeacherWorkspaceSubmissions, type WritingSubmission } from "@/services/submissionService";
@@ -126,13 +127,10 @@ export default function TeacherSubmissions() {
                     </div>
                   </TableCell>
                   <TableCell className="hidden sm:table-cell">
-                    <span className="text-xs text-muted-foreground">Correction pending</span>
+                    <span className="text-xs font-medium text-foreground">{getSubmissionIssueLabel(submission.status)}</span>
                   </TableCell>
                   <TableCell>
-                    <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20">
-                      <Clock className="w-3 h-3 mr-1" />
-                      {submission.status}
-                    </Badge>
+                    <SubmissionStatusBadge status={submission.status} />
                   </TableCell>
                   <TableCell className="text-right">
                     <Link href={`/teacher/submission/${submission.id}`}>

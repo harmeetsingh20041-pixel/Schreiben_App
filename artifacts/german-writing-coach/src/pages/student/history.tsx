@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FileText, Calendar, CheckCircle2, Clock, Eye } from "lucide-react";
+import { getSubmissionActionLabel, getSubmissionIssueLabel, SubmissionStatusBadge } from "@/components/submission-status-badge";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage } from "@/lib/workspaceData";
 import { listStudentSubmissions, type WritingSubmission } from "@/services/submissionService";
@@ -81,10 +82,7 @@ export default function StudentHistory() {
                     <Calendar className="w-4 h-4 mr-2 text-primary" />
                     {formatSubmissionDate(submission.created_at)}
                   </div>
-                  <Badge variant="outline" className="bg-accent/10 text-accent-foreground border-accent/20">
-                    <Clock className="w-3 h-3 mr-1" />
-                    {submission.status}
-                  </Badge>
+                  <SubmissionStatusBadge status={submission.status} />
                 </div>
 
                 <div className="p-5 flex-1 flex flex-col justify-center">
@@ -99,8 +97,8 @@ export default function StudentHistory() {
                         {submission.batch_name && ` · ${submission.batch_name}`}
                       </p>
                     </div>
-                    <div className="text-right hidden sm:block text-sm text-muted-foreground">
-                      Correction pending
+                    <div className="text-right hidden sm:block text-sm font-medium text-foreground">
+                      {getSubmissionIssueLabel(submission.status)}
                     </div>
                   </div>
 
@@ -112,7 +110,7 @@ export default function StudentHistory() {
                 <div className="p-5 border-t md:border-t-0 md:border-l border-border bg-muted/5 flex items-center justify-end">
                   <Link href={`/student/submission/${submission.id}`}>
                     <Button variant="outline" className="w-full md:w-auto shadow-sm group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors">
-                      <Eye className="w-4 h-4 mr-2" /> Open Submission
+                      <Eye className="w-4 h-4 mr-2" /> {getSubmissionActionLabel(submission.status)}
                     </Button>
                   </Link>
                 </div>
