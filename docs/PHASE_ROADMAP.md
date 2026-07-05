@@ -302,46 +302,75 @@ Testing requirement: typecheck, build, stats update tests, repeated-topic thresh
 
 Expected output: Weak grammar topics appear per student.
 
-## Phase 8: Practice Test Unlock And Reuse
+## Phase 7B: Practice Worksheet Assignment And Attempts
 
-Goal: Unlock topic practice when weak areas are detected and reuse saved tests first.
+Goal: Unlock topic practice when weak areas are detected, reuse saved worksheets first, and track assignment/attempt status.
 
 Will implement:
 
-- practice test lookup by workspace, level, topic, and difficulty
+- `student_practice_assignments`
+- practice worksheet lookup by workspace, level, topic, and difficulty
 - unlock rules
-- test assignment/visibility
+- worksheet assignment/visibility
 - attempt tracking
-- one active worksheet/test per student/topic
-- no new worksheet/test for the same topic until the previous one is completed
-- after each worksheet/test result, decide whether to improve the topic status or unlock another attempt
+- one active worksheet per student/topic
+- no new worksheet for the same topic until the previous one is completed
+- local scoring for objective questions
+- student worksheet start/submit flow
+- teacher worksheet status visibility
+- documentation that `Phase 7B Manual Dativ Worksheet` is a test fixture only
 
 Will not implement yet:
 
-- generating new tests with DeepSeek unless no saved test exists in the next phase
+- generating new worksheets with DeepSeek
+- DeepSeek answer evaluation for open-ended worksheet answers
+- OCR/photo upload
+- timer/exam mode
+- daily limits
 
 Testing requirement: typecheck, build, unlock threshold tests, reuse selection tests.
 
-Expected output: Students can practice weak grammar topics with reusable saved tests.
+Expected output: Students can practice weak grammar topics with reusable saved worksheets when available.
 
-## Phase 9: Practice Test Generation With DeepSeek
+## Phase 7C: Practice Worksheet Generation With DeepSeek
 
-Goal: Generate tests only when reuse is unavailable.
+Goal: Generate worksheets only when reuse is unavailable, without breaking the one-active-worksheet rule.
 
 Will implement:
 
-- server-side test generation endpoint
-- strict generated test schema
-- save/reuse generated tests
+- server-side worksheet generation endpoint
+- strict generated worksheet JSON schema
+- generated-question quality checks
+- save/reuse generated worksheets
+- reuse existing worksheets before generating new ones
+- do not generate another worksheet for the same student/topic until the previous one is completed
+- local objective scoring remains the first choice
+- DeepSeek answer evaluation only for open-ended answers where needed
+- keep student question delivery free of answer keys, explanations, and scoring metadata before submission
+- sanitize displayed option payloads so raw worksheet options never leak hidden answer metadata to students
+- add secure post-submit explanation delivery later, only after completion/pass/fail
 - abuse limits for generation
+- level-matched worksheets for A1, A2, B1, and B2 students
+- exact weak-topic targeting rather than generic grammar drills
+- examples connected to the student's actual mistakes where appropriate
+- difficulty selection based on level, repeated weakness, previous worksheet result, and exact topic need
+- avoid automatically making every failed follow-up harder; target the remaining misunderstanding instead
+- exercise type variety, including `multiple_choice`, `fill_blank`, `sentence_correction`, `word_order`, `transformation`, `short_answer`, `mini_writing`, `matching`, `error_detection`, and `rewrite_sentence`
+- a default A2 worksheet target of 8-10 questions with at least 2 multiple-choice, 2 fill-the-blank, 2 sentence-correction, 1 word-order/transformation, and 1-2 short production questions
+- answer keys and explanations for every generated question
+- keep passed/failed results limited to fully locally scorable worksheets until secure manual/open-ended evaluation exists
+- submit mixed local/manual worksheets for review instead of pretending the local subtotal is a full pass/fail result
+- duplicate and impossible-question checks before assigning generated worksheets
+- lifecycle rules after completion: passed moves the topic toward improving, failed can unlock/generate another worksheet later, repeated failure should notify the teacher in a later phase
 
 Will not implement yet:
 
 - OCR/audio
+- broad teacher worksheet management beyond review/edit needs
 
 Testing requirement: typecheck, build, schema validation, cost/rate-limit checks.
 
-Expected output: Reusable AI-generated tests.
+Expected output: Reusable, level-appropriate AI-generated worksheets that are useful enough to help students improve.
 
 ## Phase 10: OCR / Image Upload
 

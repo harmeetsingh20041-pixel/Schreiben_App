@@ -11,6 +11,7 @@ import { listTeacherWorkspaceSubmissions, type WritingSubmission } from "@/servi
 import { listBatchJoinRequests, listStudentInvitations, listWorkspaceStudents, type BatchJoinRequest, type StudentInvitation, type WorkspaceStudent } from "@/services/studentService";
 import { getSubmissionIssueLabel, SubmissionStatusBadge } from "@/components/submission-status-badge";
 import { formatIssueCount, getWeaknessBadgeClass, getWeaknessLabel, listWorkspaceGrammarStats, type StudentGrammarStat } from "@/services/grammarStatsService";
+import { getPracticeAssignmentBadgeClass, getPracticeAssignmentLabel, listWorkspacePracticeAssignments, type PracticeAssignmentSummary } from "@/services/practiceWorksheetService";
 import { Users, FileText, CheckCircle, AlertTriangle } from "lucide-react";
 import { MOCK_STUDENTS, MOCK_SUBMISSIONS, MOCK_BATCHES } from "@/data/mockData";
 
@@ -27,6 +28,7 @@ export default function TeacherDashboard() {
   const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
   const [realSubmissions, setRealSubmissions] = useState<WritingSubmission[]>([]);
   const [grammarStats, setGrammarStats] = useState<StudentGrammarStat[]>([]);
+  const [practiceAssignments, setPracticeAssignments] = useState<PracticeAssignmentSummary[]>([]);
   const [loading, setLoading] = useState(useRealData);
   const [error, setError] = useState<string | null>(null);
 
@@ -42,7 +44,7 @@ export default function TeacherDashboard() {
       try {
         setLoading(true);
         setError(null);
-        const [nextBatches, nextStudents, nextQuestions, nextInvitations, nextJoinRequests, nextSubmissions, nextGrammarStats] = await Promise.all([
+        const [nextBatches, nextStudents, nextQuestions, nextInvitations, nextJoinRequests, nextSubmissions, nextGrammarStats, nextPracticeAssignments] = await Promise.all([
           listWorkspaceBatches(workspaceId!),
           listWorkspaceStudents(workspaceId!),
           listWorkspaceQuestions(workspaceId!),
@@ -50,6 +52,7 @@ export default function TeacherDashboard() {
           listBatchJoinRequests(workspaceId!),
           listTeacherWorkspaceSubmissions(workspaceId!, 5),
           listWorkspaceGrammarStats(workspaceId!, 12),
+          listWorkspacePracticeAssignments(workspaceId!),
         ]);
         setBatches(nextBatches);
         setStudents(nextStudents);
@@ -58,6 +61,7 @@ export default function TeacherDashboard() {
         setJoinRequests(nextJoinRequests);
         setRealSubmissions(nextSubmissions);
         setGrammarStats(nextGrammarStats);
+        setPracticeAssignments(nextPracticeAssignments);
       } catch (loadError) {
         setError(formatErrorMessage(loadError, "Unable to load dashboard data."));
       } finally {
@@ -91,6 +95,16 @@ export default function TeacherDashboard() {
   const pendingInvitationCount = invitations.filter((invitation) => invitation.status === "pending").length;
   const pendingJoinRequestCount = joinRequests.filter((request) => request.status === "pending").length;
   const totalPendingAccess = pendingInvitationCount + pendingJoinRequestCount;
+  const practiceAssignmentByStudentTopic = useMemo(() => {
+    const assignmentMap = new Map<string, PracticeAssignmentSummary>();
+    for (const assignment of practiceAssignments) {
+      const key = `${assignment.student_id}:${assignment.grammar_topic_id}`;
+      if (!assignmentMap.has(key)) {
+        assignmentMap.set(key, assignment);
+      }
+    }
+    return assignmentMap;
+  }, [practiceAssignments]);
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl animate-in fade-in duration-700">
@@ -279,20 +293,33 @@ export default function TeacherDashboard() {
                 grammarStats.length === 0 ? (
                   <p className="text-sm text-muted-foreground">No real grammar focus areas yet.</p>
                 ) : (
-                  grammarStats.slice(0, 6).map((stat) => (
-                    <div key={stat.id} className="space-y-2 rounded-lg border bg-card p-3">
-                      <div className="flex items-start justify-between gap-3">
-                        <div>
-                          <p className="text-sm font-medium text-foreground">{stat.topic_name}</p>
-                          <p className="text-xs text-muted-foreground mt-0.5">{stat.student_name ?? "Student"}</p>
+                  grammarStats.slice(0, 6).map((stat) => {
+                    const assignment = practiceAssignmentByStudentTopic.get(`${stat.student_id}:${stat.grammar_topic_id}`);
+                    return (
+                      <div key={stat.id} className="space-y-2 rounded-lg border bg-card p-3">
+                        <div className="flex items-start justify-between gap-3">
+                          <div>
+                            <p className="text-sm font-medium text-foreground">{stat.topic_name}</p>
+                            <p className="text-xs text-muted-foreground mt-0.5">{stat.student_name ?? "Student"}</p>
+                          </div>
+                          <Badge variant="outline" className={getWeaknessBadgeClass(stat.weakness_level, stat.practice_unlocked)}>
+                            {getWeaknessLabel(stat.weakness_level, stat.practice_unlocked)}
+                          </Badge>
                         </div>
-                        <Badge variant="outline" className={getWeaknessBadgeClass(stat.weakness_level, stat.practice_unlocked)}>
-                          {getWeaknessLabel(stat.weakness_level, stat.practice_unlocked)}
-                        </Badge>
+                        <p className="text-xs text-muted-foreground">{formatIssueCount(stat)}</p>
+                        {assignment && (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <Badge variant="outline" className={getPracticeAssignmentBadgeClass(assignment)}>
+                              {getPracticeAssignmentLabel(assignment)}
+                            </Badge>
+                            {assignment.worksheet_title && (
+                              <span className="text-xs text-muted-foreground truncate">{assignment.worksheet_title}</span>
+                            )}
+                          </div>
+                        )}
                       </div>
-                      <p className="text-xs text-muted-foreground">{formatIssueCount(stat)}</p>
-                    </div>
-                  ))
+                    );
+                  })
                 )
               ) : (
                 MOCK_STUDENTS.filter((student) => student.weak_topics.includes("Dativ/Akkusativ")).map((student) => (

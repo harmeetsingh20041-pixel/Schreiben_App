@@ -13,6 +13,7 @@ import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId, LEVEL_OPTIONS } from "@/lib/workspaceData";
 import { listWorkspaceBatches, type WorkspaceBatch } from "@/services/batchService";
 import { formatIssueCount, getWeaknessBadgeClass, getWeaknessLabel, listWorkspaceGrammarStats, type StudentGrammarStat } from "@/services/grammarStatsService";
+import { getPracticeAssignmentBadgeClass, getPracticeAssignmentLabel, listWorkspacePracticeAssignments, type PracticeAssignmentSummary } from "@/services/practiceWorksheetService";
 import { approveBatchJoinRequest, assignStudentToBatch, inviteStudentByEmail, listBatchJoinRequests, listStudentInvitations, listWorkspaceStudents, rejectBatchJoinRequest, removeStudentBatchAssignment, type BatchJoinRequest, type StudentInvitation, type WorkspaceStudent } from "@/services/studentService";
 import { MOCK_BATCHES, MOCK_STUDENTS } from "@/data/mockData";
 import { Check, Eye, KeyRound, Search, UserPlus, X, XCircle } from "lucide-react";
@@ -45,6 +46,7 @@ export default function TeacherStudents() {
   const [invitations, setInvitations] = useState<StudentInvitation[]>([]);
   const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
   const [grammarStats, setGrammarStats] = useState<StudentGrammarStat[]>([]);
+  const [practiceAssignments, setPracticeAssignments] = useState<PracticeAssignmentSummary[]>([]);
   const [loading, setLoading] = useState(useRealData);
   const [error, setError] = useState<string | null>(null);
   const [inviteOpen, setInviteOpen] = useState(false);
@@ -62,18 +64,20 @@ export default function TeacherStudents() {
     try {
       setLoading(true);
       setError(null);
-      const [nextBatches, nextStudents, nextInvitations, nextJoinRequests, nextGrammarStats] = await Promise.all([
+      const [nextBatches, nextStudents, nextInvitations, nextJoinRequests, nextGrammarStats, nextPracticeAssignments] = await Promise.all([
         listWorkspaceBatches(workspaceId),
         listWorkspaceStudents(workspaceId),
         listStudentInvitations(workspaceId),
         listBatchJoinRequests(workspaceId),
         listWorkspaceGrammarStats(workspaceId, 80),
+        listWorkspacePracticeAssignments(workspaceId),
       ]);
       setBatches(nextBatches);
       setStudents(nextStudents);
       setInvitations(nextInvitations);
       setJoinRequests(nextJoinRequests);
       setGrammarStats(nextGrammarStats);
+      setPracticeAssignments(nextPracticeAssignments);
     } catch (loadError) {
       setError(formatErrorMessage(loadError, "Unable to load students."));
     } finally {
@@ -144,6 +148,17 @@ export default function TeacherStudents() {
     });
     return statsByStudent;
   }, [grammarStats]);
+
+  const practiceAssignmentByStudentTopic = useMemo(() => {
+    const assignmentMap = new Map<string, PracticeAssignmentSummary>();
+    for (const assignment of practiceAssignments) {
+      const key = `${assignment.student_id}:${assignment.grammar_topic_id}`;
+      if (!assignmentMap.has(key)) {
+        assignmentMap.set(key, assignment);
+      }
+    }
+    return assignmentMap;
+  }, [practiceAssignments]);
 
   const mockWeakTopicsByStudent = useMemo(() => (
     new Map(MOCK_STUDENTS.map((student) => [student.id, student.weak_topics.slice(0, 3)]))
@@ -347,16 +362,31 @@ export default function TeacherStudents() {
                       {useRealData ? (
                         studentGrammarStats.length > 0 ? (
                           <div className="flex flex-col gap-1.5">
-                            {studentGrammarStats.map((stat) => (
-                              <div key={stat.id} className="flex flex-wrap items-center gap-1.5">
-                                <Badge variant="outline" className={getWeaknessBadgeClass(stat.weakness_level, stat.practice_unlocked)}>
-                                  {stat.topic_name}
-                                </Badge>
-                                <span className="text-[11px] text-muted-foreground">
-                                  {getWeaknessLabel(stat.weakness_level, stat.practice_unlocked)} · {formatIssueCount(stat)}
-                                </span>
-                              </div>
-                            ))}
+                            {studentGrammarStats.map((stat) => {
+                              const assignment = practiceAssignmentByStudentTopic.get(`${stat.student_id}:${stat.grammar_topic_id}`);
+                              return (
+                                <div key={stat.id} className="flex flex-col gap-1">
+                                  <div className="flex flex-wrap items-center gap-1.5">
+                                    <Badge variant="outline" className={getWeaknessBadgeClass(stat.weakness_level, stat.practice_unlocked)}>
+                                      {stat.topic_name}
+                                    </Badge>
+                                    <span className="text-[11px] text-muted-foreground">
+                                      {getWeaknessLabel(stat.weakness_level, stat.practice_unlocked)} · {formatIssueCount(stat)}
+                                    </span>
+                                  </div>
+                                  {assignment && (
+                                    <div className="flex flex-wrap items-center gap-1.5">
+                                      <Badge variant="outline" className={getPracticeAssignmentBadgeClass(assignment)}>
+                                        {getPracticeAssignmentLabel(assignment)}
+                                      </Badge>
+                                      {assignment.worksheet_title && (
+                                        <span className="text-[11px] text-muted-foreground truncate">{assignment.worksheet_title}</span>
+                                      )}
+                                    </div>
+                                  )}
+                                </div>
+                              );
+                            })}
                           </div>
                         ) : (
                           <span className="text-xs text-muted-foreground">No focus areas yet</span>

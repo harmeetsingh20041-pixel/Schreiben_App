@@ -16,6 +16,7 @@ const StudentResult = lazy(() => import("@/pages/student/result"));
 const StudentHistory = lazy(() => import("@/pages/student/history"));
 const StudentSubmissionDetail = lazy(() => import("@/pages/student/submission"));
 const StudentPractice = lazy(() => import("@/pages/student/practice"));
+const StudentWorksheet = lazy(() => import("@/pages/student/worksheet"));
 
 // Teacher Pages
 const TeacherDashboard = lazy(() => import("@/pages/teacher/dashboard"));
@@ -81,6 +82,7 @@ function Router() {
       <ProtectedRoute path="/student/questions" role="student" component={StudentQuestions} />
       <ProtectedRoute path="/student/write" role="student" component={StudentWrite} />
       <ProtectedRoute path="/student/practice" role="student" component={StudentPractice} />
+      <ProtectedRoute path="/student/practice/:id" role="student" component={StudentWorksheet} />
       <ProtectedRoute path="/student/result/:id" role="student" component={StudentResult} />
       <ProtectedRoute path="/student/history" role="student" component={StudentHistory} />
       <ProtectedRoute path="/student/submission/:id" role="student" component={StudentSubmissionDetail} />
