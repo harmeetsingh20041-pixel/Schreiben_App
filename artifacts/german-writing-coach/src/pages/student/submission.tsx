@@ -34,11 +34,11 @@ export default function StudentSubmissionDetail() {
   const question = MOCK_QUESTIONS.find(q => q.id === submission.questionId);
   const student = MOCK_STUDENTS.find(s => s.id === submission.studentId);
 
-  const emptyFeedbackTitle = realSubmission ? getSubmissionStatusMeta(realSubmission.status).label : "Feedback pending";
+  const emptyFeedbackTitle = realSubmission ? getSubmissionStatusMeta(realSubmission).label : "Feedback pending";
   const emptyFeedbackMessage = realSubmission?.status === "checked"
     ? "Feedback is marked ready, but line-by-line details are not available yet. Please refresh or ask your teacher."
     : realSubmission
-      ? getSubmissionStudentSummary(realSubmission.status)
+      ? getSubmissionStudentSummary(realSubmission)
       : "Feedback is being prepared.";
 
   useEffect(() => {
@@ -98,7 +98,11 @@ export default function StudentSubmissionDetail() {
                   )}
                 </div>
               </div>
-              <SubmissionStatusBadge status={realSubmission.status} />
+              <SubmissionStatusBadge
+                status={realSubmission.status}
+                feedbackMode={realSubmission.feedback_mode}
+                feedbackScheduledAt={realSubmission.feedback_scheduled_at}
+              />
             </div>
 
             {realSubmission.question_prompt && (

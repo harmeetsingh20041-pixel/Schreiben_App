@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Loader2, ArrowLeft, Save, Trash2, CheckCircle2, PenTool } from "lucide-react";
 import { MOCK_QUESTIONS } from "@/data/mockData";
 import { checkWriting } from "@/services/aiCorrectionService";
-import { createWritingSubmission, saveDraftSubmission, type SubmissionQuestionSource } from "@/services/submissionService";
+import { createWritingSubmission, saveDraftSubmission, type CreatedWritingSubmission, type SubmissionQuestionSource } from "@/services/submissionService";
 import { useAuth } from "@/lib/auth";
 import { useToast } from "@/hooks/use-toast";
 import { formatErrorMessage } from "@/lib/workspaceData";
@@ -40,7 +40,7 @@ export default function StudentWrite() {
   const [isChecking, setIsChecking] = useState(false);
   const [isSavingDraft, setIsSavingDraft] = useState(false);
   const [checkStage, setCheckStage] = useState(0);
-  const [submittedId, setSubmittedId] = useState<string | null>(null);
+  const [submittedSubmission, setSubmittedSubmission] = useState<CreatedWritingSubmission | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const selectionRef = useRef<{ start: number; end: number } | null>(null);
@@ -90,7 +90,7 @@ export default function StudentWrite() {
 
     try {
       const service = saveAsDraft ? saveDraftSubmission : createWritingSubmission;
-      const nextSubmissionId = await service({
+      const nextSubmission = await service({
         questionSource: getQuestionSource(),
         questionId: isFree ? null : question?.id ?? qId,
         batchId: isFree ? null : question?.batch_id ?? null,
@@ -103,7 +103,7 @@ export default function StudentWrite() {
           description: "Your writing draft was saved in Supabase.",
         });
       } else {
-        setSubmittedId(nextSubmissionId);
+        setSubmittedSubmission(nextSubmission);
       }
     } catch (error) {
       const message = formatErrorMessage(error, "Could not save your writing.");
@@ -177,7 +177,11 @@ export default function StudentWrite() {
     return <div className="p-8 text-center">Writing task not found.</div>;
   }
 
-  if (submittedId) {
+  const submittedFeedbackMessage = submittedSubmission?.feedback_mode === "teacher_review_only"
+    ? "Waiting for review. Check back later for line-by-line feedback."
+    : "Feedback is being prepared. Check back later for line-by-line feedback.";
+
+  if (submittedSubmission) {
     return (
       <div className="container mx-auto px-4 py-8 max-w-4xl animate-in fade-in duration-300">
         <Button variant="ghost" size="sm" className="mb-6 text-muted-foreground hover:text-foreground -ml-3" onClick={() => setLocation("/student/questions")}>
@@ -190,13 +194,13 @@ export default function StudentWrite() {
               <CheckCircle2 className="w-7 h-7" />
             </div>
             <h1 className="text-2xl font-serif mb-2">Writing submitted.</h1>
-            <p className="text-muted-foreground mb-6">Feedback is being prepared. Check back later for line-by-line feedback.</p>
+            <p className="text-muted-foreground mb-6">{submittedFeedbackMessage}</p>
             <div className="flex flex-col sm:flex-row justify-center gap-3">
-              <Button onClick={() => setLocation(`/student/submission/${submittedId}`)}>
+              <Button onClick={() => setLocation(`/student/submission/${submittedSubmission.submission_id}`)}>
                 View Submission
               </Button>
               <Button variant="outline" onClick={() => {
-                setSubmittedId(null);
+                setSubmittedSubmission(null);
                 setText("");
               }}>
                 Back to Writing

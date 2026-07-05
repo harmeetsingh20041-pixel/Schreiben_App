@@ -38,15 +38,15 @@ export default function TeacherSubmissionDetail() {
   const student = MOCK_STUDENTS.find(s => s.id === submission.studentId);
   const question = MOCK_QUESTIONS.find(q => q.id === submission.questionId);
 
-  const emptyFeedbackTitle = realSubmission ? getSubmissionStatusMeta(realSubmission.status).label : "Feedback pending";
+  const emptyFeedbackTitle = realSubmission ? getSubmissionStatusMeta(realSubmission).label : "Feedback pending";
   const emptyFeedbackMessage = realSubmission?.status === "checked"
     ? "Feedback is marked ready, but line-by-line details are not available. Refresh this page before preparing feedback again."
     : realSubmission?.status === "failed"
       ? "Feedback could not be prepared. You can try preparing it again."
       : realSubmission
-        ? getSubmissionStudentSummary(realSubmission.status)
+        ? getSubmissionStudentSummary(realSubmission)
         : "Prepare line-by-line feedback for this submitted writing.";
-  const canPrepareFeedback = Boolean(realSubmission && !["draft", "checking", "checked"].includes(realSubmission.status));
+  const canPrepareFeedback = Boolean(realSubmission && !["draft", "checking", "checked", "needs_review"].includes(realSubmission.status));
 
   async function loadSubmission() {
     if (!useRealData || !workspaceId || !id) return;
@@ -128,7 +128,11 @@ export default function TeacherSubmissionDetail() {
                   )}
                 </div>
               </div>
-              <SubmissionStatusBadge status={realSubmission.status} />
+              <SubmissionStatusBadge
+                status={realSubmission.status}
+                feedbackMode={realSubmission.feedback_mode}
+                feedbackScheduledAt={realSubmission.feedback_scheduled_at}
+              />
             </div>
 
             {realSubmission.question_prompt && (

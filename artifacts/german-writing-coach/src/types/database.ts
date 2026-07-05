@@ -17,6 +17,10 @@ export type SubmissionStatus =
   | "checked"
   | "needs_review"
   | "failed";
+export type FeedbackMode =
+  | "immediate"
+  | "automatic_delayed"
+  | "teacher_review_only";
 export type CorrectionStatus =
   | "correct"
   | "acceptable_for_level"
@@ -67,6 +71,9 @@ export interface Batch {
   level: Level;
   description: string | null;
   is_active: boolean;
+  feedback_mode: FeedbackMode;
+  feedback_delay_min_minutes: number;
+  feedback_delay_max_minutes: number;
   created_by: string | null;
   created_at: string;
   updated_at: string;
@@ -118,6 +125,11 @@ export interface Submission {
   overall_summary: string | null;
   level_detected: Level | null;
   status: SubmissionStatus;
+  feedback_mode: FeedbackMode | null;
+  feedback_scheduled_at: string | null;
+  feedback_started_at: string | null;
+  feedback_completed_at: string | null;
+  feedback_error: string | null;
   ai_model: string | null;
   checked_at: string | null;
   created_at: string;

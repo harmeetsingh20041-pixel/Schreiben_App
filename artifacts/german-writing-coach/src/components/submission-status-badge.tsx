@@ -1,7 +1,7 @@
 import { AlertCircle, CheckCircle2, Clock, FileText, Loader2, XCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import type { WritingSubmissionStatus } from "@/services/submissionService";
+import type { FeedbackMode, WritingSubmissionStatus } from "@/services/submissionService";
 
 const fallbackStatus: WritingSubmissionStatus = "submitted";
 
@@ -66,37 +66,100 @@ const statusMeta = {
   }
 >;
 
+interface SubmissionStatusContext {
+  status: WritingSubmissionStatus | string | null | undefined;
+  feedback_mode?: FeedbackMode | string | null;
+  feedback_scheduled_at?: string | null;
+}
+
+type SubmissionStatusInput = SubmissionStatusContext | WritingSubmissionStatus | string | null | undefined;
+
 function normalizeStatus(status: WritingSubmissionStatus | string | null | undefined): WritingSubmissionStatus {
   return status && status in statusMeta ? (status as WritingSubmissionStatus) : fallbackStatus;
 }
 
-export function getSubmissionStatusMeta(status: WritingSubmissionStatus | string | null | undefined) {
-  return statusMeta[normalizeStatus(status)];
+function getStatusContext(input: SubmissionStatusInput): SubmissionStatusContext {
+  if (input && typeof input === "object") {
+    return input;
+  }
+  return { status: input };
 }
 
-export function getSubmissionIssueLabel(status: WritingSubmissionStatus | string | null | undefined) {
-  return getSubmissionStatusMeta(status).issueLabel;
+function formatRelativeDueTime(value: string | null | undefined) {
+  if (!value) return "Scheduled for later";
+  const dueAt = new Date(value).getTime();
+  if (Number.isNaN(dueAt)) return "Scheduled for later";
+  const diffMs = dueAt - Date.now();
+  if (diffMs <= 0) return "Due now";
+  const minutes = Math.ceil(diffMs / 60000);
+  if (minutes < 60) return `Due in ${minutes} minute${minutes === 1 ? "" : "s"}`;
+  const hours = Math.ceil(minutes / 60);
+  if (hours < 24) return `Due in ${hours} hour${hours === 1 ? "" : "s"}`;
+  const days = Math.ceil(hours / 24);
+  return `Due in ${days} day${days === 1 ? "" : "s"}`;
 }
 
-export function getSubmissionStudentSummary(status: WritingSubmissionStatus | string | null | undefined) {
-  return getSubmissionStatusMeta(status).studentSummary;
+export function getSubmissionStatusMeta(input: SubmissionStatusInput) {
+  const context = getStatusContext(input);
+  const status = normalizeStatus(context.status);
+  const base = statusMeta[status];
+
+  if (status !== "submitted") {
+    return base;
+  }
+
+  if (context.feedback_mode === "teacher_review_only") {
+    return {
+      ...base,
+      label: "Waiting for review",
+      className: "bg-slate-100 text-slate-800 border-slate-300 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-600",
+      issueLabel: "Waiting for review",
+      studentSummary: "Waiting for review.",
+    };
+  }
+
+  if (context.feedback_mode === "automatic_delayed") {
+    const dueLabel = formatRelativeDueTime(context.feedback_scheduled_at);
+    return {
+      ...base,
+      label: dueLabel === "Due now" ? "Feedback pending" : "Scheduled for later",
+      issueLabel: dueLabel,
+      studentSummary: "Feedback is being prepared. Check back later for line-by-line feedback.",
+    };
+  }
+
+  return base;
 }
 
-export function getSubmissionActionLabel(status: WritingSubmissionStatus | string | null | undefined) {
-  return getSubmissionStatusMeta(status).actionLabel;
+export function getSubmissionIssueLabel(input: SubmissionStatusInput) {
+  return getSubmissionStatusMeta(input).issueLabel;
 }
 
-export function isFeedbackReadyStatus(status: WritingSubmissionStatus | string | null | undefined) {
-  return normalizeStatus(status) === "checked";
+export function getSubmissionStudentSummary(input: SubmissionStatusInput) {
+  return getSubmissionStatusMeta(input).studentSummary;
+}
+
+export function getSubmissionActionLabel(input: SubmissionStatusInput) {
+  return getSubmissionStatusMeta(input).actionLabel;
+}
+
+export function isFeedbackReadyStatus(input: SubmissionStatusInput) {
+  return normalizeStatus(getStatusContext(input).status) === "checked";
 }
 
 interface SubmissionStatusBadgeProps {
   status: WritingSubmissionStatus | string | null | undefined;
+  feedbackMode?: FeedbackMode | string | null;
+  feedbackScheduledAt?: string | null;
   className?: string;
 }
 
-export function SubmissionStatusBadge({ status, className }: SubmissionStatusBadgeProps) {
-  const meta = getSubmissionStatusMeta(status);
+export function SubmissionStatusBadge({ status, feedbackMode, feedbackScheduledAt, className }: SubmissionStatusBadgeProps) {
+  const meta = getSubmissionStatusMeta({
+    status,
+    feedback_mode: feedbackMode,
+    feedback_scheduled_at: feedbackScheduledAt,
+  });
   const Icon = meta.icon;
 
   return (

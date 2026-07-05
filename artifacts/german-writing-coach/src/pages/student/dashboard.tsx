@@ -84,7 +84,7 @@ export default function StudentDashboard() {
   const primaryBatch = batchAssignments[0];
   const latestJoinRequest = joinRequests[0];
   const readySubmissions = useRealData
-    ? realSubmissions.filter((submission) => isFeedbackReadyStatus(submission.status))
+    ? realSubmissions.filter((submission) => isFeedbackReadyStatus(submission))
     : [];
   const latestReadySubmission = readySubmissions[0];
   const firstName = useRealData
@@ -290,7 +290,11 @@ export default function StudentDashboard() {
           <Card key={submission.id} className="hover:border-primary/30 transition-all duration-300 shadow-sm border-border rounded-xl animate-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 50}ms` }}>
             <CardContent className="p-6">
               <div className="flex justify-between items-start mb-4">
-                <SubmissionStatusBadge status={submission.status} />
+                <SubmissionStatusBadge
+                  status={submission.status}
+                  feedbackMode={submission.feedback_mode}
+                  feedbackScheduledAt={submission.feedback_scheduled_at}
+                />
                 <div className="flex items-center text-xs font-mono text-muted-foreground">
                   <Clock className="w-3.5 h-3.5 mr-1.5" />
                   {new Date(submission.created_at).toLocaleDateString()}
@@ -300,14 +304,14 @@ export default function StudentDashboard() {
                 {submission.question_title}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 mb-6">
-                {getSubmissionStudentSummary(submission.status)}
+                {getSubmissionStudentSummary(submission)}
               </p>
               <div className="flex justify-between items-center mt-auto border-t border-border/60 pt-4">
                 <div className="text-xs text-muted-foreground font-medium uppercase tracking-wider">
                   {submission.question_source_label}
                 </div>
                 <Link href={`/student/submission/${submission.id}`} className="text-sm text-primary font-medium hover:underline flex items-center tracking-wide">
-                  {getSubmissionActionLabel(submission.status)} <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
+                  {getSubmissionActionLabel(submission)} <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </div>
             </CardContent>

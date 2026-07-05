@@ -24,6 +24,7 @@ const SUBMISSION_QUERY_LIMITS = {
 
 export type SubmissionQuestionSource = "workspace_question" | "global_question" | "free_text";
 export type WritingSubmissionStatus = "draft" | "submitted" | "checking" | "checked" | "needs_review" | "failed";
+export type FeedbackMode = "immediate" | "automatic_delayed" | "teacher_review_only";
 export type FeedbackLineStatus =
   | "correct"
   | "acceptable_for_level"
@@ -40,6 +41,12 @@ export interface CreateWritingSubmissionInput {
   saveAsDraft?: boolean;
 }
 
+export interface CreatedWritingSubmission {
+  submission_id: string;
+  feedback_mode: FeedbackMode | null;
+  feedback_scheduled_at: string | null;
+}
+
 export interface WritingSubmission {
   id: string;
   workspace_id: string;
@@ -54,6 +61,11 @@ export interface WritingSubmission {
   overall_summary: string | null;
   level_detected: WorkspaceLevel | null;
   status: WritingSubmissionStatus;
+  feedback_mode: FeedbackMode | null;
+  feedback_scheduled_at: string | null;
+  feedback_started_at: string | null;
+  feedback_completed_at: string | null;
+  feedback_error: string | null;
   created_at: string;
   updated_at: string;
   checked_at: string | null;
@@ -205,6 +217,11 @@ async function hydrateSubmissions(
       overall_summary: row.overall_summary,
       level_detected: row.level_detected as WorkspaceLevel | null,
       status: row.status as WritingSubmissionStatus,
+      feedback_mode: (row.feedback_mode as FeedbackMode | null) ?? null,
+      feedback_scheduled_at: row.feedback_scheduled_at ?? null,
+      feedback_started_at: row.feedback_started_at ?? null,
+      feedback_completed_at: row.feedback_completed_at ?? null,
+      feedback_error: row.feedback_error ?? null,
       created_at: row.created_at,
       updated_at: row.updated_at,
       checked_at: row.checked_at,
@@ -221,7 +238,7 @@ async function hydrateSubmissions(
   });
 }
 
-export async function createWritingSubmission(input: CreateWritingSubmissionInput): Promise<string> {
+export async function createWritingSubmission(input: CreateWritingSubmissionInput): Promise<CreatedWritingSubmission> {
   const client = requireClient();
   const { data, error } = await client
     .rpc("create_writing_submission", {
@@ -234,10 +251,14 @@ export async function createWritingSubmission(input: CreateWritingSubmissionInpu
     .single();
 
   if (error) throw error;
-  return data.submission_id;
+  return {
+    submission_id: data.submission_id,
+    feedback_mode: (data.feedback_mode as FeedbackMode | null) ?? null,
+    feedback_scheduled_at: data.feedback_scheduled_at ?? null,
+  };
 }
 
-export async function saveDraftSubmission(input: CreateWritingSubmissionInput): Promise<string> {
+export async function saveDraftSubmission(input: CreateWritingSubmissionInput): Promise<CreatedWritingSubmission> {
   return createWritingSubmission({ ...input, saveAsDraft: true });
 }
 

@@ -127,10 +127,14 @@ export default function TeacherSubmissions() {
                     </div>
                   </TableCell>
                   <TableCell className="hidden sm:table-cell">
-                    <span className="text-xs font-medium text-foreground">{getSubmissionIssueLabel(submission.status)}</span>
+                    <span className="text-xs font-medium text-foreground">{getSubmissionIssueLabel(submission)}</span>
                   </TableCell>
                   <TableCell>
-                    <SubmissionStatusBadge status={submission.status} />
+                    <SubmissionStatusBadge
+                      status={submission.status}
+                      feedbackMode={submission.feedback_mode}
+                      feedbackScheduledAt={submission.feedback_scheduled_at}
+                    />
                   </TableCell>
                   <TableCell className="text-right">
                     <Link href={`/teacher/submission/${submission.id}`}>
