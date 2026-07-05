@@ -84,8 +84,9 @@ export default function StudentDashboard() {
   const primaryBatch = batchAssignments[0];
   const latestJoinRequest = joinRequests[0];
   const readySubmissions = useRealData
-    ? realSubmissions.filter((submission) => isFeedbackReadyStatus(submission.status)).slice(0, 3)
+    ? realSubmissions.filter((submission) => isFeedbackReadyStatus(submission.status))
     : [];
+  const latestReadySubmission = readySubmissions[0];
   const firstName = useRealData
     ? (profile?.full_name || user?.email || "there").split(/[ @]/)[0]
     : student.name.split(' ')[0];
@@ -245,24 +246,33 @@ export default function StudentDashboard() {
 
       {useRealData && readySubmissions.length > 0 && (
         <Card className="mb-10 border-green-300 bg-green-50 shadow-sm dark:border-green-700 dark:bg-green-950/40">
-          <CardHeader>
-            <CardTitle className="text-lg font-serif text-green-950 dark:text-green-100">Feedback ready</CardTitle>
-            <CardDescription className="text-green-900/80 dark:text-green-100/80">
-              Open your latest line-by-line feedback.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {readySubmissions.map((submission) => (
-              <Link
-                key={submission.id}
-                href={`/student/submission/${submission.id}`}
-                className="rounded-lg border border-green-300 bg-card p-4 shadow-sm transition-colors hover:border-green-500 dark:border-green-700"
-              >
-                <SubmissionStatusBadge status={submission.status} className="mb-3" />
-                <h3 className="font-medium text-foreground line-clamp-1">{submission.question_title}</h3>
-                <p className="mt-1 text-xs text-muted-foreground">{new Date(submission.created_at).toLocaleDateString()}</p>
-              </Link>
-            ))}
+          <CardContent className="p-5 md:p-6">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="flex items-start gap-4">
+                <div className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-green-300 bg-card text-green-800 shadow-sm dark:border-green-700 dark:text-green-100">
+                  <BookOpen className="h-5 w-5" />
+                </div>
+                <div>
+                  <SubmissionStatusBadge status="checked" className="mb-2" />
+                  <h2 className="text-lg font-serif text-green-950 dark:text-green-100">Feedback ready</h2>
+                  <p className="text-sm text-green-900/80 dark:text-green-100/80">
+                    {readySubmissions.length === 1
+                      ? "1 writing has feedback ready."
+                      : `${readySubmissions.length} writings have line-by-line feedback ready.`}
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2 md:justify-end">
+                {latestReadySubmission && (
+                  <Button asChild className="shadow-sm">
+                    <Link href={`/student/submission/${latestReadySubmission.id}`}>Open latest feedback</Link>
+                  </Button>
+                )}
+                <Button asChild variant="outline" className="bg-card shadow-sm">
+                  <Link href="/student/history">View all feedback</Link>
+                </Button>
+              </div>
+            </div>
           </CardContent>
         </Card>
       )}

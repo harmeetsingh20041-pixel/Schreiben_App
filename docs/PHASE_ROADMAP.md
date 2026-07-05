@@ -182,6 +182,7 @@ Phase 6A implements:
 Will not implement in Phase 6A:
 
 - automatic immediate or delayed student feedback
+- full read/unread notification system
 - generated tests unless needed for separate phase
 - OCR/audio
 - admin panel
@@ -191,6 +192,17 @@ Will not implement in Phase 6A:
 Testing requirement: typecheck, build, schema validation tests, malformed AI response tests, rate-limit checks.
 
 Expected output: Line-by-line correction works through validated server-side AI.
+
+## Future Notification System
+
+Goal: Surface feedback-ready events without duplicating dashboard content.
+
+Will implement later:
+
+- read/unread feedback notifications
+- notification bell
+- feedback-ready alerts
+- delayed feedback mode integration
 
 ## Future Phase 6B: Feedback Timing Modes
 
