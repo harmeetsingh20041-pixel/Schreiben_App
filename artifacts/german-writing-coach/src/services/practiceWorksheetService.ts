@@ -23,6 +23,15 @@ export type PracticeAssignmentStatus =
   | "cancelled";
 
 export type PracticeAttemptStatus = "in_progress" | "submitted" | "checked";
+export type PracticeGenerationStatus = "idle" | "generating" | "ready" | "failed";
+
+export interface PracticeMiniLesson {
+  short_explanation: string;
+  key_rule: string;
+  correct_examples: string[];
+  common_mistake_warning: string;
+  what_to_revise: string;
+}
 
 export interface PracticeAssignmentSummary {
   id: string;
@@ -36,6 +45,7 @@ export interface PracticeAssignmentSummary {
   worksheet_title: string | null;
   worksheet_level: string | null;
   worksheet_difficulty: string | null;
+  worksheet_mini_lesson: PracticeMiniLesson | null;
   status: PracticeAssignmentStatus;
   source: string;
   assigned_at: string;
@@ -48,6 +58,10 @@ export interface PracticeAssignmentSummary {
   score_percent: number | null;
   passed: boolean | null;
   question_count: number;
+  generation_status: PracticeGenerationStatus;
+  generation_started_at: string | null;
+  generation_completed_at: string | null;
+  generation_error: string | null;
   student_name?: string | null;
   student_email?: string | null;
 }
@@ -113,6 +127,26 @@ function parseOptions(options: Json | null): string[] {
   return [];
 }
 
+function parseMiniLesson(value: Json | null | undefined): PracticeMiniLesson | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const record = value as Record<string, unknown>;
+  const examples = Array.isArray(record.correct_examples)
+    ? record.correct_examples.filter((example): example is string => typeof example === "string")
+    : [];
+
+  const miniLesson = {
+    short_explanation: typeof record.short_explanation === "string" ? record.short_explanation : "",
+    key_rule: typeof record.key_rule === "string" ? record.key_rule : "",
+    correct_examples: examples,
+    common_mistake_warning: typeof record.common_mistake_warning === "string" ? record.common_mistake_warning : "",
+    what_to_revise: typeof record.what_to_revise === "string" ? record.what_to_revise : "",
+  };
+
+  return miniLesson.short_explanation || miniLesson.key_rule || miniLesson.correct_examples.length > 0
+    ? miniLesson
+    : null;
+}
+
 function normalizeStatus(status: string): PracticeAssignmentStatus {
   if (
     status === "unlocked" ||
@@ -132,6 +166,22 @@ function normalizeAttemptStatus(status: string | null): PracticeAttemptStatus | 
   return null;
 }
 
+function normalizeGenerationStatus(status: string | null | undefined, hasWorksheet = false): PracticeGenerationStatus {
+  if (status === "idle" || status === "generating" || status === "ready" || status === "failed") return status;
+  return hasWorksheet ? "ready" : "idle";
+}
+
+type PracticeAssignmentWithGeneration = PracticeAssignmentRow & {
+  generation_status?: string | null;
+  generation_started_at?: string | null;
+  generation_completed_at?: string | null;
+  generation_error?: string | null;
+};
+
+type PracticeTestWithMiniLesson = PracticeTestRow & {
+  mini_lesson?: Json | null;
+};
+
 function mapRpcAssignment(row: PracticeAssignmentRpcRow): PracticeAssignmentSummary {
   return {
     id: row.assignment_id,
@@ -145,6 +195,7 @@ function mapRpcAssignment(row: PracticeAssignmentRpcRow): PracticeAssignmentSumm
     worksheet_title: row.worksheet_title,
     worksheet_level: row.worksheet_level,
     worksheet_difficulty: row.worksheet_difficulty,
+    worksheet_mini_lesson: null,
     status: normalizeStatus(row.status),
     source: row.source,
     assigned_at: row.assigned_at,
@@ -157,13 +208,17 @@ function mapRpcAssignment(row: PracticeAssignmentRpcRow): PracticeAssignmentSumm
     score_percent: row.score_percent,
     passed: row.passed,
     question_count: row.question_count,
+    generation_status: normalizeGenerationStatus(null, Boolean(row.practice_test_id)),
+    generation_started_at: null,
+    generation_completed_at: null,
+    generation_error: null,
   };
 }
 
 function mapAssignmentFromTables(
-  assignment: PracticeAssignmentRow,
+  assignment: PracticeAssignmentWithGeneration,
   topic: GrammarTopicRow | undefined,
-  worksheet: PracticeTestRow | undefined,
+  worksheet: PracticeTestWithMiniLesson | undefined,
   latestAttempt: PracticeAttemptRow | undefined,
   student?: ProfileRow | undefined,
   questionCount = 0,
@@ -180,6 +235,7 @@ function mapAssignmentFromTables(
     worksheet_title: worksheet?.title ?? null,
     worksheet_level: worksheet?.level ?? null,
     worksheet_difficulty: worksheet?.difficulty ?? null,
+    worksheet_mini_lesson: parseMiniLesson(worksheet?.mini_lesson),
     status: normalizeStatus(assignment.status),
     source: assignment.source,
     assigned_at: assignment.assigned_at,
@@ -192,12 +248,16 @@ function mapAssignmentFromTables(
     score_percent: latestAttempt?.score_percent ?? null,
     passed: latestAttempt?.passed ?? null,
     question_count: questionCount,
+    generation_status: normalizeGenerationStatus(assignment.generation_status, Boolean(assignment.practice_test_id)),
+    generation_started_at: assignment.generation_started_at ?? null,
+    generation_completed_at: assignment.generation_completed_at ?? null,
+    generation_error: assignment.generation_error ?? null,
     student_name: student?.full_name ?? student?.email ?? null,
     student_email: student?.email ?? null,
   };
 }
 
-async function hydrateAssignments(assignments: PracticeAssignmentRow[]): Promise<PracticeAssignmentSummary[]> {
+async function hydrateAssignments(assignments: PracticeAssignmentWithGeneration[]): Promise<PracticeAssignmentSummary[]> {
   if (assignments.length === 0) return [];
 
   const client = requireClient();
@@ -230,7 +290,7 @@ async function hydrateAssignments(assignments: PracticeAssignmentRow[]): Promise
   if (profilesError) throw profilesError;
 
   const topicMap = new Map(((topics ?? []) as GrammarTopicRow[]).map((topic) => [topic.id, topic]));
-  const worksheetMap = new Map(((worksheets ?? []) as PracticeTestRow[]).map((worksheet) => [worksheet.id, worksheet]));
+  const worksheetMap = new Map(((worksheets ?? []) as PracticeTestWithMiniLesson[]).map((worksheet) => [worksheet.id, worksheet]));
   const attemptMap = new Map(((attempts ?? []) as PracticeAttemptRow[]).map((attempt) => [attempt.id, attempt]));
   const profileMap = new Map(((profiles ?? []) as ProfileRow[]).map((profile) => [profile.id, profile]));
 
@@ -244,6 +304,64 @@ async function hydrateAssignments(assignments: PracticeAssignmentRow[]): Promise
       0,
     ),
   );
+}
+
+type EdgeAssignmentSummary = Partial<PracticeAssignmentSummary> & {
+  id?: string;
+  assignment_id?: string;
+};
+
+function asString(value: unknown, fallback = "") {
+  return typeof value === "string" ? value : fallback;
+}
+
+function asNullableString(value: unknown) {
+  return typeof value === "string" ? value : null;
+}
+
+function asNullableNumber(value: unknown) {
+  return typeof value === "number" ? value : null;
+}
+
+function mapEdgeAssignment(row: EdgeAssignmentSummary): PracticeAssignmentSummary {
+  const id = asString(row.id ?? row.assignment_id);
+  const practiceTestId = asNullableString(row.practice_test_id);
+  if (!id) {
+    throw new Error("Practice assignment was not returned.");
+  }
+
+  return {
+    id,
+    workspace_id: asString(row.workspace_id),
+    student_id: asString(row.student_id),
+    grammar_topic_id: asString(row.grammar_topic_id),
+    grammar_topic_name: asString(row.grammar_topic_name, "Grammar topic"),
+    grammar_topic_slug: asString(row.grammar_topic_slug, "grammar-topic"),
+    grammar_topic_description: asNullableString(row.grammar_topic_description),
+    practice_test_id: practiceTestId,
+    worksheet_title: asNullableString(row.worksheet_title),
+    worksheet_level: asNullableString(row.worksheet_level),
+    worksheet_difficulty: asNullableString(row.worksheet_difficulty),
+    worksheet_mini_lesson: parseMiniLesson(row.worksheet_mini_lesson as Json | null | undefined),
+    status: normalizeStatus(asString(row.status, "unlocked")),
+    source: asString(row.source, "weakness_auto"),
+    assigned_at: asString(row.assigned_at),
+    started_at: asNullableString(row.started_at),
+    completed_at: asNullableString(row.completed_at),
+    latest_attempt_id: asNullableString(row.latest_attempt_id),
+    latest_attempt_status: normalizeAttemptStatus(asNullableString(row.latest_attempt_status)),
+    score: asNullableNumber(row.score),
+    max_score: asNullableNumber(row.max_score),
+    score_percent: asNullableNumber(row.score_percent),
+    passed: typeof row.passed === "boolean" ? row.passed : null,
+    question_count: typeof row.question_count === "number" ? row.question_count : 0,
+    generation_status: normalizeGenerationStatus(asNullableString(row.generation_status), Boolean(practiceTestId)),
+    generation_started_at: asNullableString(row.generation_started_at),
+    generation_completed_at: asNullableString(row.generation_completed_at),
+    generation_error: asNullableString(row.generation_error),
+    student_name: asNullableString(row.student_name),
+    student_email: asNullableString(row.student_email),
+  };
 }
 
 export async function ensureStudentPracticeAssignment(
@@ -275,9 +393,48 @@ export async function listStudentPracticeAssignments(
   });
 
   if (error) throw error;
-  return ((data ?? []) as PracticeAssignmentRpcRow[])
+  const summaries = ((data ?? []) as PracticeAssignmentRpcRow[])
     .slice(0, PRACTICE_ASSIGNMENT_LIMITS.student)
     .map(mapRpcAssignment);
+  const assignmentIds = summaries.map((assignment) => assignment.id);
+  if (assignmentIds.length === 0) return summaries;
+
+  const { data: assignments, error: assignmentError } = await client
+    .from("student_practice_assignments")
+    .select("*")
+    .in("id", assignmentIds);
+
+  if (assignmentError) throw assignmentError;
+  const assignmentMap = new Map(
+    ((assignments ?? []) as PracticeAssignmentWithGeneration[]).map((assignment) => [assignment.id, assignment]),
+  );
+
+  return summaries.map((summary) => {
+    const assignment = assignmentMap.get(summary.id);
+    if (!assignment) return summary;
+    return {
+      ...summary,
+      generation_status: normalizeGenerationStatus(assignment.generation_status, Boolean(summary.practice_test_id)),
+      generation_started_at: assignment.generation_started_at ?? null,
+      generation_completed_at: assignment.generation_completed_at ?? null,
+      generation_error: assignment.generation_error ?? null,
+    };
+  });
+}
+
+export async function preparePracticeWorksheet(assignmentId: string): Promise<PracticeAssignmentSummary> {
+  const client = requireClient();
+  const { data, error } = await client.functions.invoke<{
+    error?: string;
+    assignment?: EdgeAssignmentSummary;
+  }>("generate-practice-worksheet", {
+    body: { assignment_id: assignmentId },
+  });
+
+  if (error) throw error;
+  if (data?.error) throw new Error(data.error);
+  if (!data?.assignment) throw new Error("Worksheet preparation did not return an assignment.");
+  return mapEdgeAssignment(data.assignment);
 }
 
 export async function listWorkspacePracticeAssignments(
@@ -292,7 +449,7 @@ export async function listWorkspacePracticeAssignments(
     .limit(PRACTICE_ASSIGNMENT_LIMITS.workspace);
 
   if (error) throw error;
-  return hydrateAssignments((data ?? []) as PracticeAssignmentRow[]);
+  return hydrateAssignments((data ?? []) as PracticeAssignmentWithGeneration[]);
 }
 
 export async function startPracticeAssignment(assignmentId: string): Promise<PracticeAssignmentSummary> {
@@ -334,7 +491,7 @@ export async function getPracticeWorksheetDetail(assignmentId: string): Promise<
   if (assignmentError) throw assignmentError;
   if (!assignment) throw new Error("Practice assignment was not found.");
 
-  const summaries = await hydrateAssignments([assignment as PracticeAssignmentRow]);
+  const summaries = await hydrateAssignments([assignment as PracticeAssignmentWithGeneration]);
   const summary = summaries[0];
   if (!summary.practice_test_id) {
     return { assignment: summary, questions: [] };
@@ -364,6 +521,8 @@ export async function getPracticeWorksheetDetail(assignmentId: string): Promise<
 }
 
 export function getPracticeAssignmentLabel(assignment: PracticeAssignmentSummary) {
+  if (!assignment.practice_test_id && assignment.generation_status === "generating") return "Preparing worksheet";
+  if (!assignment.practice_test_id && assignment.generation_status === "failed") return "Preparation failed";
   if (assignment.status === "unlocked" && !assignment.practice_test_id) return "Practice unlocked";
   if (assignment.status === "unlocked") return "Worksheet assigned";
   if (assignment.status === "in_progress") return "In progress";
@@ -375,6 +534,12 @@ export function getPracticeAssignmentLabel(assignment: PracticeAssignmentSummary
 }
 
 export function getPracticeAssignmentBadgeClass(assignment: PracticeAssignmentSummary) {
+  if (!assignment.practice_test_id && assignment.generation_status === "failed") {
+    return "bg-destructive/10 text-destructive border-destructive/30";
+  }
+  if (!assignment.practice_test_id && assignment.generation_status === "generating") {
+    return "bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-950/40 dark:text-blue-100 dark:border-blue-700";
+  }
   if (assignment.status === "passed") {
     return "bg-green-50 text-green-800 border-green-200 dark:bg-green-950/40 dark:text-green-100 dark:border-green-700";
   }

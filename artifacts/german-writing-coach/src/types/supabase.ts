@@ -457,9 +457,17 @@ export type Database = {
           created_by_ai: boolean
           description: string | null
           difficulty: string
+          generated_from_assignment_id: string | null
+          generated_from_student_id: string | null
+          generation_source: string
           grammar_topic_id: string
           id: string
           level: string
+          mini_lesson: Json | null
+          quality_notes: string | null
+          quality_status: string
+          reviewed_at: string | null
+          reviewed_by: string | null
           teacher_reviewed: boolean
           title: string
           updated_at: string
@@ -472,9 +480,17 @@ export type Database = {
           created_by_ai?: boolean
           description?: string | null
           difficulty: string
+          generated_from_assignment_id?: string | null
+          generated_from_student_id?: string | null
+          generation_source?: string
           grammar_topic_id: string
           id?: string
           level: string
+          mini_lesson?: Json | null
+          quality_notes?: string | null
+          quality_status?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
           teacher_reviewed?: boolean
           title: string
           updated_at?: string
@@ -487,9 +503,17 @@ export type Database = {
           created_by_ai?: boolean
           description?: string | null
           difficulty?: string
+          generated_from_assignment_id?: string | null
+          generated_from_student_id?: string | null
+          generation_source?: string
           grammar_topic_id?: string
           id?: string
           level?: string
+          mini_lesson?: Json | null
+          quality_notes?: string | null
+          quality_status?: string
+          reviewed_at?: string | null
+          reviewed_by?: string | null
           teacher_reviewed?: boolean
           title?: string
           updated_at?: string
@@ -505,10 +529,31 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "practice_tests_generated_from_assignment_id_fkey"
+            columns: ["generated_from_assignment_id"]
+            isOneToOne: false
+            referencedRelation: "student_practice_assignments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "practice_tests_generated_from_student_id_fkey"
+            columns: ["generated_from_student_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "practice_tests_grammar_topic_id_fkey"
             columns: ["grammar_topic_id"]
             isOneToOne: false
             referencedRelation: "grammar_topics"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "practice_tests_reviewed_by_fkey"
+            columns: ["reviewed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
           {
@@ -753,6 +798,10 @@ export type Database = {
           assigned_at: string
           assigned_by: string | null
           completed_at: string | null
+          generation_completed_at: string | null
+          generation_error: string | null
+          generation_started_at: string | null
+          generation_status: string
           grammar_topic_id: string
           id: string
           latest_attempt_id: string | null
@@ -768,6 +817,10 @@ export type Database = {
           assigned_at?: string
           assigned_by?: string | null
           completed_at?: string | null
+          generation_completed_at?: string | null
+          generation_error?: string | null
+          generation_started_at?: string | null
+          generation_status?: string
           grammar_topic_id: string
           id?: string
           latest_attempt_id?: string | null
@@ -783,6 +836,10 @@ export type Database = {
           assigned_at?: string
           assigned_by?: string | null
           completed_at?: string | null
+          generation_completed_at?: string | null
+          generation_error?: string | null
+          generation_started_at?: string | null
+          generation_status?: string
           grammar_topic_id?: string
           id?: string
           latest_attempt_id?: string | null

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, CheckCircle2, XCircle, ArrowRight, BrainCircuit, RefreshCw, ClipboardList } from "lucide-react";
+import { ArrowLeft, CheckCircle2, XCircle, ArrowRight, BrainCircuit, RefreshCw, ClipboardList, Loader2 } from "lucide-react";
 import { PRACTICE_EXERCISES, MOCK_STUDENTS } from "@/data/mockData";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, getActiveWorkspaceId } from "@/lib/workspaceData";
@@ -21,6 +21,7 @@ import {
   getPracticeAssignmentBadgeClass,
   getPracticeAssignmentLabel,
   listStudentPracticeAssignments,
+  preparePracticeWorksheet,
   type PracticeAssignmentSummary,
 } from "@/services/practiceWorksheetService";
 
@@ -34,6 +35,7 @@ export default function StudentPractice() {
   const [realAssignments, setRealAssignments] = useState<PracticeAssignmentSummary[]>([]);
   const [loadingRealStats, setLoadingRealStats] = useState(useRealData);
   const [realStatsError, setRealStatsError] = useState<string | null>(null);
+  const [preparingAssignments, setPreparingAssignments] = useState<Set<string>>(new Set());
   
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [exercises, setExercises] = useState(PRACTICE_EXERCISES);
@@ -103,6 +105,36 @@ export default function StudentPractice() {
       setShowExplanation(false);
     } else {
       setIsFinished(true);
+    }
+  };
+
+  const handlePrepareWorksheet = async (assignment: PracticeAssignmentSummary) => {
+    try {
+      setRealStatsError(null);
+      setPreparingAssignments((current) => new Set(current).add(assignment.id));
+      const preparedAssignment = await preparePracticeWorksheet(assignment.id);
+      setRealAssignments((current) =>
+        current.map((item) => (item.id === preparedAssignment.id ? preparedAssignment : item)),
+      );
+    } catch {
+      const message = "Worksheet could not be prepared. Please try again later.";
+      setRealAssignments((current) =>
+        current.map((item) => (
+          item.id === assignment.id
+            ? {
+              ...item,
+              generation_status: "failed",
+              generation_error: message,
+            }
+            : item
+        )),
+      );
+    } finally {
+      setPreparingAssignments((current) => {
+        const next = new Set(current);
+        next.delete(assignment.id);
+        return next;
+      });
     }
   };
 
@@ -180,9 +212,38 @@ export default function StudentPractice() {
                           }
 
                           if (!assignment.practice_test_id) {
+                            const isPreparing = preparingAssignments.has(assignment.id) || assignment.generation_status === "generating";
+                            const didFail = assignment.generation_status === "failed";
                             return (
-                              <div className="mt-6 rounded-lg border border-dashed bg-muted/25 p-4 text-sm text-muted-foreground">
-                                Practice unlocked. Worksheet will be available soon.
+                              <div className="mt-6 rounded-lg border border-dashed bg-muted/25 p-4">
+                                <div className="flex flex-wrap items-center justify-between gap-3">
+                                  <div className="min-w-0">
+                                    <Badge variant="outline" className={getPracticeAssignmentBadgeClass(assignment)}>
+                                      {getPracticeAssignmentLabel(assignment)}
+                                    </Badge>
+                                    <p className="mt-2 text-sm text-muted-foreground">
+                                      {isPreparing
+                                        ? "Preparing worksheet..."
+                                        : didFail
+                                          ? assignment.generation_error ?? "Worksheet could not be prepared. Please try again later."
+                                          : "Practice unlocked. Prepare a worksheet when you are ready."}
+                                    </p>
+                                  </div>
+                                  <Button
+                                    type="button"
+                                    size="sm"
+                                    variant={didFail ? "default" : "outline"}
+                                    disabled={isPreparing}
+                                    onClick={() => void handlePrepareWorksheet(assignment)}
+                                  >
+                                    {isPreparing ? (
+                                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                                    ) : (
+                                      <ClipboardList className="h-4 w-4 mr-2" />
+                                    )}
+                                    {isPreparing ? "Preparing..." : didFail ? "Try again" : "Prepare worksheet"}
+                                  </Button>
+                                </div>
                               </div>
                             );
                           }

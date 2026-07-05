@@ -147,7 +147,14 @@ export default function StudentWorksheet() {
           answer: answers[question.id] ?? "",
         })),
       );
-      setDetail({ ...detail, assignment: result });
+      setDetail({
+        ...detail,
+        assignment: {
+          ...detail.assignment,
+          ...result,
+          worksheet_mini_lesson: detail.assignment.worksheet_mini_lesson,
+        },
+      });
       toast({
         title: result.passed ? "Worksheet passed" : "Worksheet submitted",
         description: formatPracticeScore(result) ?? getPracticeAssignmentLabel(result),
@@ -234,6 +241,54 @@ export default function StudentWorksheet() {
                     <p className="font-medium text-foreground">{getPracticeAssignmentLabel(assignment)}</p>
                     <p className="text-sm text-muted-foreground mt-1">
                       {scoreLabel ?? "Your answers were submitted for review."}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {assignment.worksheet_mini_lesson && (
+            <Card className="border-border shadow-sm">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-base font-semibold text-muted-foreground">Mini lesson</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <p className="font-medium text-foreground">Key idea</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {assignment.worksheet_mini_lesson.short_explanation}
+                  </p>
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">Rule</p>
+                  <p className="text-sm leading-relaxed text-muted-foreground">
+                    {assignment.worksheet_mini_lesson.key_rule}
+                  </p>
+                </div>
+                {assignment.worksheet_mini_lesson.correct_examples.length > 0 && (
+                  <div>
+                    <p className="font-medium text-foreground">Examples</p>
+                    <div className="mt-2 grid gap-2">
+                      {assignment.worksheet_mini_lesson.correct_examples.map((example) => (
+                        <p key={example} className="rounded-md border bg-muted/20 px-3 py-2 text-sm text-foreground">
+                          {example}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div className="rounded-md border bg-muted/20 p-3">
+                    <p className="font-medium text-foreground">Watch for</p>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                      {assignment.worksheet_mini_lesson.common_mistake_warning}
+                    </p>
+                  </div>
+                  <div className="rounded-md border bg-muted/20 p-3">
+                    <p className="font-medium text-foreground">Revise</p>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                      {assignment.worksheet_mini_lesson.what_to_revise}
                     </p>
                   </div>
                 </div>

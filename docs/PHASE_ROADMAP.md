@@ -336,7 +336,7 @@ Expected output: Students can practice weak grammar topics with reusable saved w
 
 Goal: Generate worksheets only when reuse is unavailable, without breaking the one-active-worksheet rule.
 
-Will implement:
+Phase 7C implementation focus:
 
 - server-side worksheet generation endpoint
 - strict generated worksheet JSON schema
@@ -345,11 +345,11 @@ Will implement:
 - reuse existing worksheets before generating new ones
 - do not generate another worksheet for the same student/topic until the previous one is completed
 - local objective scoring remains the first choice
-- DeepSeek answer evaluation only for open-ended answers where needed
+- defer DeepSeek answer evaluation for open-ended answers to Phase 7D
 - keep student question delivery free of answer keys, explanations, and scoring metadata before submission
 - sanitize displayed option payloads so raw worksheet options never leak hidden answer metadata to students
 - add secure post-submit explanation delivery later, only after completion/pass/fail
-- abuse limits for generation
+- basic generation abuse protection through reuse checks, active-assignment checks, and generation locking
 - level-matched worksheets for A1, A2, B1, and B2 students
 - exact weak-topic targeting rather than generic grammar drills
 - examples connected to the student's actual mistakes where appropriate
