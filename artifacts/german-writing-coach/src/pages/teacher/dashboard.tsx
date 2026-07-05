@@ -10,6 +10,7 @@ import { listWorkspaceQuestions } from "@/services/questionService";
 import { listTeacherWorkspaceSubmissions, type WritingSubmission } from "@/services/submissionService";
 import { listBatchJoinRequests, listStudentInvitations, listWorkspaceStudents, type BatchJoinRequest, type StudentInvitation, type WorkspaceStudent } from "@/services/studentService";
 import { getSubmissionIssueLabel, SubmissionStatusBadge } from "@/components/submission-status-badge";
+import { formatIssueCount, getWeaknessBadgeClass, getWeaknessLabel, listWorkspaceGrammarStats, type StudentGrammarStat } from "@/services/grammarStatsService";
 import { Users, FileText, CheckCircle, AlertTriangle } from "lucide-react";
 import { MOCK_STUDENTS, MOCK_SUBMISSIONS, MOCK_BATCHES } from "@/data/mockData";
 
@@ -25,6 +26,7 @@ export default function TeacherDashboard() {
   const [invitations, setInvitations] = useState<StudentInvitation[]>([]);
   const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
   const [realSubmissions, setRealSubmissions] = useState<WritingSubmission[]>([]);
+  const [grammarStats, setGrammarStats] = useState<StudentGrammarStat[]>([]);
   const [loading, setLoading] = useState(useRealData);
   const [error, setError] = useState<string | null>(null);
 
@@ -40,13 +42,14 @@ export default function TeacherDashboard() {
       try {
         setLoading(true);
         setError(null);
-        const [nextBatches, nextStudents, nextQuestions, nextInvitations, nextJoinRequests, nextSubmissions] = await Promise.all([
+        const [nextBatches, nextStudents, nextQuestions, nextInvitations, nextJoinRequests, nextSubmissions, nextGrammarStats] = await Promise.all([
           listWorkspaceBatches(workspaceId!),
           listWorkspaceStudents(workspaceId!),
           listWorkspaceQuestions(workspaceId!),
           listStudentInvitations(workspaceId!),
           listBatchJoinRequests(workspaceId!),
           listTeacherWorkspaceSubmissions(workspaceId!, 5),
+          listWorkspaceGrammarStats(workspaceId!, 12),
         ]);
         setBatches(nextBatches);
         setStudents(nextStudents);
@@ -54,6 +57,7 @@ export default function TeacherDashboard() {
         setInvitations(nextInvitations);
         setJoinRequests(nextJoinRequests);
         setRealSubmissions(nextSubmissions);
+        setGrammarStats(nextGrammarStats);
       } catch (loadError) {
         setError(formatErrorMessage(loadError, "Unable to load dashboard data."));
       } finally {
@@ -267,12 +271,29 @@ export default function TeacherDashboard() {
           <Card className="shadow-sm border-border rounded-xl">
             <CardHeader className="pb-4 border-b border-border/60 bg-muted/20">
               <CardTitle className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-                {useRealData ? "Grammar insights pending" : "Struggling with Dativ"}
+                {useRealData ? "Grammar Focus Areas" : "Struggling with Dativ"}
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-5 space-y-5">
               {useRealData ? (
-                <p className="text-sm text-muted-foreground">Real grammar weakness stats will arrive with the correction phase.</p>
+                grammarStats.length === 0 ? (
+                  <p className="text-sm text-muted-foreground">No real grammar focus areas yet.</p>
+                ) : (
+                  grammarStats.slice(0, 6).map((stat) => (
+                    <div key={stat.id} className="space-y-2 rounded-lg border bg-card p-3">
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <p className="text-sm font-medium text-foreground">{stat.topic_name}</p>
+                          <p className="text-xs text-muted-foreground mt-0.5">{stat.student_name ?? "Student"}</p>
+                        </div>
+                        <Badge variant="outline" className={getWeaknessBadgeClass(stat.weakness_level, stat.practice_unlocked)}>
+                          {getWeaknessLabel(stat.weakness_level, stat.practice_unlocked)}
+                        </Badge>
+                      </div>
+                      <p className="text-xs text-muted-foreground">{formatIssueCount(stat)}</p>
+                    </div>
+                  ))
+                )
               ) : (
                 MOCK_STUDENTS.filter((student) => student.weak_topics.includes("Dativ/Akkusativ")).map((student) => (
                   <div key={student.id} className="flex justify-between items-center group">

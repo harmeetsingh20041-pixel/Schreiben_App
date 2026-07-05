@@ -93,6 +93,9 @@ export function jsonResponse(body: Record<string, unknown>, status = 200) {
 }
 
 function getSecretKey() {
+  const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+  if (serviceRoleKey) return serviceRoleKey;
+
   const secretKeysRaw = Deno.env.get("SUPABASE_SECRET_KEYS");
   if (secretKeysRaw) {
     try {
@@ -129,7 +132,44 @@ export function cleanString(value: unknown, fallback = "") {
 }
 
 function normalizeTopicKey(value: string) {
-  return value.trim().toLowerCase().replace(/[_\s]+/g, "-");
+  return value.trim().toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-+|-+$/g, "");
+}
+
+const grammarTopicAliases: Record<string, string> = {
+  dative: "dativ",
+  "dative-case": "dativ",
+  accusative: "akkusativ",
+  "accusative-case": "akkusativ",
+  article: "articles",
+  artikel: "articles",
+  artikeln: "articles",
+  artikelgebrauch: "articles",
+  articles: "articles",
+  "verb-position": "verb-position",
+  "verb-positions": "verb-position",
+  "verb-positioning": "verb-position",
+  "word-order": "word-order",
+  "sentence-order": "word-order",
+  perfekt: "perfekt",
+  "past-tense": "perfekt",
+  "perfect-tense": "perfekt",
+  preposition: "prepositions",
+  prepositions: "prepositions",
+  "präpositionen": "prepositions",
+  conjugation: "conjugation",
+  "verb-conjugation": "conjugation",
+  konjugation: "conjugation",
+  spelling: "spelling",
+  rechtschreibung: "spelling",
+  capitalization: "spelling",
+  "sentence-structure": "sentence-structure",
+  "sentence-construction": "sentence-structure",
+  structure: "sentence-structure",
+};
+
+function resolveGrammarTopicId(topicMap: Map<string, string>, value: string) {
+  const normalized = normalizeTopicKey(value);
+  return topicMap.get(normalized) ?? topicMap.get(grammarTopicAliases[normalized] ?? "") ?? null;
 }
 
 function extractJsonObject(content: string) {
@@ -536,7 +576,7 @@ export async function prepareSubmissionFeedback({
       changed_parts: line.changed_parts,
       short_explanation: line.short_explanation,
       detailed_explanation: line.detailed_explanation,
-      grammar_topic_id: line.grammar_topic ? topicMap.get(normalizeTopicKey(line.grammar_topic)) ?? null : null,
+      grammar_topic_id: line.grammar_topic ? resolveGrammarTopicId(topicMap, line.grammar_topic) : null,
     }));
 
     const { error: lineError } = await admin.from("submission_lines").insert(lineRows);
@@ -545,7 +585,7 @@ export async function prepareSubmissionFeedback({
     const topicRows = feedback.grammar_topics
       .map((topic) => ({
         submission_id: submissionId,
-        grammar_topic_id: topicMap.get(normalizeTopicKey(topic.topic)),
+        grammar_topic_id: resolveGrammarTopicId(topicMap, topic.topic),
         count: topic.count,
         severity: topic.severity,
         simple_explanation: topic.simple_explanation,
@@ -586,6 +626,21 @@ export async function prepareSubmissionFeedback({
         source,
       },
     });
+
+    try {
+      const { error: statsError } = await admin.rpc("refresh_student_grammar_stats", {
+        target_workspace_id: lockedSubmission.workspace_id,
+        target_student_id: lockedSubmission.student_id,
+      });
+      if (statsError) {
+        console.error("prepare-writing-feedback stats refresh failed", statsError.message);
+      }
+    } catch (statsRefreshError) {
+      console.error(
+        "prepare-writing-feedback stats refresh failed",
+        statsRefreshError instanceof Error ? statsRefreshError.message : "unknown",
+      );
+    }
 
     return {
       submission_id: submissionId,

@@ -13,6 +13,7 @@ import { formatErrorMessage } from "@/lib/workspaceData";
 import { useToast } from "@/hooks/use-toast";
 import { listMyBatchAssignments, listMyBatchJoinRequests, requestJoinBatchByCode, type BatchJoinRequest, type StudentBatchAssignment } from "@/services/studentService";
 import { listStudentSubmissions, type WritingSubmission } from "@/services/submissionService";
+import { formatIssueCount, getWeaknessBadgeClass, getWeaknessLabel, listStudentGrammarStats, type StudentGrammarStat } from "@/services/grammarStatsService";
 
 export default function StudentDashboard() {
   const { authMode, user, profile } = useAuth();
@@ -23,6 +24,7 @@ export default function StudentDashboard() {
   const [batchAssignments, setBatchAssignments] = useState<StudentBatchAssignment[]>([]);
   const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
   const [realSubmissions, setRealSubmissions] = useState<WritingSubmission[]>([]);
+  const [grammarStats, setGrammarStats] = useState<StudentGrammarStat[]>([]);
   const [joinCode, setJoinCode] = useState("");
   const [loading, setLoading] = useState(useRealData);
   const [submittingJoinCode, setSubmittingJoinCode] = useState(false);
@@ -36,9 +38,14 @@ export default function StudentDashboard() {
         listMyBatchJoinRequests(user.id),
         listStudentSubmissions(user.id, 4),
       ]);
+      const nextWorkspaceId = nextAssignments[0]?.workspace_id ?? null;
+      const nextGrammarStats = nextWorkspaceId
+        ? await listStudentGrammarStats(nextWorkspaceId, user.id, 6)
+        : [];
       setBatchAssignments(nextAssignments);
       setJoinRequests(nextRequests);
       setRealSubmissions(nextSubmissions);
+      setGrammarStats(nextGrammarStats);
     } catch (error) {
       toast({
         title: "Could not load batch access",
@@ -188,14 +195,26 @@ export default function StudentDashboard() {
           <CardContent className="flex flex-col h-[calc(100%-3rem)]">
             <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
               {useRealData
-                ? readySubmissions.length > 0
-                  ? "Feedback is ready for recent writing."
-                  : "Writing feedback will appear after students submit work."
+                ? grammarStats.length > 0
+                  ? "Feedback from your writings is building your practice profile."
+                  : "Feedback from future writings will build your practice profile."
                 : "Grammar topics to review based on your mistakes."}
             </p>
             <div className="flex flex-wrap gap-2 mb-6 flex-1">
               {useRealData ? (
-                <span className="text-sm text-muted-foreground">No focus areas yet.</span>
+                grammarStats.length > 0 ? (
+                  grammarStats.slice(0, 4).map((stat) => (
+                    <Badge
+                      key={stat.id}
+                      variant="outline"
+                      className={getWeaknessBadgeClass(stat.weakness_level, stat.practice_unlocked)}
+                    >
+                      {stat.topic_name}
+                    </Badge>
+                  ))
+                ) : (
+                  <span className="text-sm text-muted-foreground">No focus areas yet.</span>
+                )
               ) : (
                 student.weak_topics.map(topic => (
                   <Badge key={topic} variant="secondary" className="bg-secondary/50 text-secondary-foreground border-border/50 font-medium">
@@ -225,10 +244,18 @@ export default function StudentDashboard() {
                 <div className="w-1.5 h-1.5 mt-2 rounded-full bg-primary" />
                 <div>
                   <p className="text-sm font-medium text-foreground">
-                    {useRealData ? "Start an assigned writing task" : "Review Dativ/Akkusativ"}
+                    {useRealData
+                      ? grammarStats[0]
+                        ? `Review ${grammarStats[0].topic_name}`
+                        : "Start an assigned writing task"
+                      : "Review Dativ/Akkusativ"}
                   </p>
                   <p className="text-xs text-muted-foreground mt-1">
-                    {useRealData ? "Feedback will appear after real submissions are saved" : "Recommended before next writing"}
+                    {useRealData
+                      ? grammarStats[0]
+                        ? `${getWeaknessLabel(grammarStats[0].weakness_level, grammarStats[0].practice_unlocked)} · ${formatIssueCount(grammarStats[0])}`
+                        : "Feedback will appear after real submissions are saved"
+                      : "Recommended before next writing"}
                   </p>
                 </div>
               </div>

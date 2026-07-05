@@ -30,6 +30,7 @@ function requireClient() {
 
 export interface StudentBatchAssignment {
   id: string;
+  workspace_id: string;
   batch_id: string;
   batch_name: string;
   level: WorkspaceLevel;
@@ -104,6 +105,7 @@ function mapBatchAssignments(
       if (!batch) return null;
       return {
         id: assignment.id,
+        workspace_id: assignment.workspace_id,
         batch_id: assignment.batch_id,
         batch_name: batch.name,
         level: batch.level as WorkspaceLevel,
@@ -222,6 +224,7 @@ export async function listWorkspaceStudents(workspaceId: string): Promise<Worksp
         if (!batch) return null;
         return {
           id: assignment.id,
+          workspace_id: assignment.workspace_id,
           batch_id: assignment.batch_id,
           batch_name: batch.name,
           level: batch.level as WorkspaceLevel,
