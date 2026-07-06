@@ -1,0 +1,106 @@
+{
+  "title": "A2 Prepositions Practice 1",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "prepositions",
+    "name": "Prepositions"
+  },
+  "difficulty": "medium",
+  "visibility": "workspace",
+  "source": "manual_import",
+  "source_label": "Teacher approved worksheet bank",
+  "tags": ["a2", "prepositions", "local-exact"],
+  "mini_lesson": {
+    "short_explanation": "Prepositions connect sentence parts and often belong to fixed phrases.",
+    "key_rule": "Learn a preposition together with the noun phrase or verb pattern that follows it.",
+    "correct_examples": [
+      "Ich warte auf den Bus.",
+      "Wir fahren mit dem Zug."
+    ],
+    "common_mistake_warning": "Do not choose a preposition only by translating one English word.",
+    "what_to_revise": "Review common A2 phrases such as warten auf, sprechen mit, sich interessieren für, and fahren mit."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Choose the best option: Ich warte ___ den Bus.",
+      "options": ["auf", "mit", "bei", "nach"],
+      "correct_answer": "auf",
+      "explanation": "The fixed phrase is auf den Bus warten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Choose the best option: Wir sprechen ___ der Lehrerin.",
+      "options": ["mit", "für", "gegen", "ohne"],
+      "correct_answer": "mit",
+      "explanation": "Sprechen mit means to speak with a person.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Complete the sentence with one preposition: Sie interessiert sich ___ Musik.",
+      "options": [],
+      "correct_answer": "für",
+      "explanation": "Sich interessieren für is the phrase for being interested in something.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Complete the sentence with one preposition: Am Samstag fahre ich ___ dem Zug nach Köln.",
+      "options": [],
+      "correct_answer": "mit",
+      "explanation": "Use mit for means of transport such as mit dem Zug.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "sentence_correction",
+      "prompt": "Correct this sentence: Ich warte für den Bus.",
+      "options": [],
+      "correct_answer": "Ich warte auf den Bus.",
+      "explanation": "The phrase is auf den Bus warten, not für den Bus warten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Correct this sentence: Wir fahren bei dem Bus zur Schule.",
+      "options": [],
+      "correct_answer": "Wir fahren mit dem Bus zur Schule.",
+      "explanation": "For means of transport, use mit dem Bus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Put the parts in order: am Nachmittag / mit dem Bus / fährt / Lara / zur Bibliothek / oft",
+      "options": [],
+      "correct_answer": "Am Nachmittag fährt Lara oft mit dem Bus zur Bibliothek.",
+      "explanation": "The time phrase starts the sentence, so the conjugated verb fährt comes second.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Rewrite the sentence with the time phrase first: Lara fährt oft mit dem Bus zur Bibliothek am Nachmittag.",
+      "options": [],
+      "correct_answer": "Am Nachmittag fährt Lara oft mit dem Bus zur Bibliothek.",
+      "explanation": "After a fronted time phrase, the verb stays in position two.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Rewrite the sentence correctly: Ich gehe mit meine Schwester ins Kino.",
+      "options": [],
+      "correct_answer": "Ich gehe mit meiner Schwester ins Kino.",
+      "explanation": "Mit takes dative, so meine Schwester becomes meiner Schwester.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

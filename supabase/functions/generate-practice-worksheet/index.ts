@@ -67,6 +67,14 @@ type WorksheetEnvelope = Omit<GeneratedWorksheet, "questions"> & {
 type GenerationStage = "reuse_lookup" | "provider_call" | "parse" | "validate" | "save" | "fallback";
 type GenerationSafeStatus = "started" | "failed" | "succeeded";
 type GenerationSource = "deepseek" | "system_fallback";
+type ReusableWorksheetRow = {
+  id: string;
+  difficulty: string;
+  created_at: string;
+  teacher_reviewed: boolean;
+  quality_status: string;
+  generation_source: string;
+};
 
 const localScorableTypes = new Set([
   "multiple_choice",
@@ -353,6 +361,25 @@ function difficultyRank(level: Level, difficulty: string) {
   if (difficulty === "medium") return 1;
   if (difficulty === "easy") return 2;
   return 3;
+}
+
+function isReviewedOrApprovedWorksheet(worksheet: Pick<ReusableWorksheetRow, "teacher_reviewed" | "quality_status">) {
+  return worksheet.teacher_reviewed || worksheet.quality_status === "approved" || worksheet.quality_status === "passed";
+}
+
+function reusableSourceRank(worksheet: Pick<ReusableWorksheetRow, "generation_source" | "teacher_reviewed" | "quality_status">) {
+  if (!isReviewedOrApprovedWorksheet(worksheet)) return 99;
+
+  if (["manual_import", "teacher_created", "manual", "fixture"].includes(worksheet.generation_source)) {
+    return 1;
+  }
+  if (worksheet.generation_source === "deepseek") {
+    return 2;
+  }
+  if (worksheet.generation_source === "system_fallback") {
+    return 3;
+  }
+  return 4;
 }
 
 function validateMiniLesson(value: unknown): MiniLesson {
@@ -784,47 +811,49 @@ async function determineLevel(admin: SupabaseAdminClient, assignment: Assignment
 
 async function findReusableWorksheet(admin: SupabaseAdminClient, assignment: AssignmentRow, level: Level) {
   const excludedPracticeTestIds = new Set<string>();
-  if (assignment.source === "adaptive_repeat") {
-    const { data: attemptedAssignments, error: attemptedError } = await admin
-      .from("student_practice_assignments")
-      .select("practice_test_id")
-      .eq("workspace_id", assignment.workspace_id)
-      .eq("student_id", assignment.student_id)
-      .eq("grammar_topic_id", assignment.grammar_topic_id)
-      .in("status", ["completed", "passed", "failed"])
-      .not("practice_test_id", "is", null);
 
-    if (attemptedError) {
-      console.error("generate-practice-worksheet attempted worksheet lookup failed", attemptedError.message);
-      throw new WorksheetHttpError("Could not look up previous worksheets.", 500);
-    }
+  const { data: attemptedAssignments, error: attemptedError } = await admin
+    .from("student_practice_assignments")
+    .select("practice_test_id")
+    .eq("workspace_id", assignment.workspace_id)
+    .eq("student_id", assignment.student_id)
+    .eq("grammar_topic_id", assignment.grammar_topic_id)
+    .in("status", ["completed", "passed", "failed"])
+    .not("practice_test_id", "is", null);
 
-    for (const attemptedAssignment of attemptedAssignments ?? []) {
-      if (attemptedAssignment.practice_test_id) {
-        excludedPracticeTestIds.add(attemptedAssignment.practice_test_id);
-      }
+  if (attemptedError) {
+    console.error("generate-practice-worksheet attempted worksheet lookup failed", attemptedError.message);
+    throw new WorksheetHttpError("Could not look up previous worksheets.", 500);
+  }
+
+  for (const attemptedAssignment of attemptedAssignments ?? []) {
+    if (attemptedAssignment.practice_test_id) {
+      excludedPracticeTestIds.add(attemptedAssignment.practice_test_id);
     }
   }
 
   const { data, error } = await admin
     .from("practice_tests")
-    .select("id, difficulty, created_at, teacher_reviewed, quality_status")
+    .select("id, difficulty, created_at, teacher_reviewed, quality_status, generation_source")
     .eq("workspace_id", assignment.workspace_id)
     .eq("grammar_topic_id", assignment.grammar_topic_id)
     .eq("level", level)
     .eq("visibility", "workspace")
     .in("difficulty", ["easy", "medium"])
-    .or("teacher_reviewed.eq.true,quality_status.eq.passed")
     .order("created_at", { ascending: false })
-    .limit(50);
+    .limit(100);
 
   if (error) {
     console.error("generate-practice-worksheet reusable lookup failed", error.message);
     throw new WorksheetHttpError("Could not look up reusable worksheets.", 500);
   }
 
-  const candidates = (data ?? []).filter((candidate) => !excludedPracticeTestIds.has(candidate.id));
+  const candidates = ((data ?? []) as ReusableWorksheetRow[]).filter((candidate) =>
+    isReviewedOrApprovedWorksheet(candidate) && !excludedPracticeTestIds.has(candidate.id)
+  );
   candidates.sort((left, right) => {
+    const sourceDelta = reusableSourceRank(left) - reusableSourceRank(right);
+    if (sourceDelta !== 0) return sourceDelta;
     const rankDelta = difficultyRank(level, left.difficulty) - difficultyRank(level, right.difficulty);
     if (rankDelta !== 0) return rankDelta;
     return new Date(right.created_at).getTime() - new Date(left.created_at).getTime();
