@@ -869,15 +869,17 @@ Deno.serve(async (req) => {
       throw new WorksheetHttpError("Practice assignment is not active.", 409);
     }
 
-    const { data: stats } = await admin
-      .from("student_grammar_stats")
-      .select("practice_unlocked, weakness_level")
-      .eq("workspace_id", assignment.workspace_id)
-      .eq("student_id", assignment.student_id)
-      .eq("grammar_topic_id", assignment.grammar_topic_id)
-      .maybeSingle();
-    if (!stats || (!stats.practice_unlocked && stats.weakness_level !== "unlocked")) {
-      throw new WorksheetHttpError("Practice is not currently unlocked for this topic.", 409);
+    if (assignment.source !== "adaptive_repeat") {
+      const { data: stats } = await admin
+        .from("student_grammar_stats")
+        .select("practice_unlocked, weakness_level")
+        .eq("workspace_id", assignment.workspace_id)
+        .eq("student_id", assignment.student_id)
+        .eq("grammar_topic_id", assignment.grammar_topic_id)
+        .maybeSingle();
+      if (!stats || (!stats.practice_unlocked && stats.weakness_level !== "unlocked")) {
+        throw new WorksheetHttpError("Practice is not currently unlocked for this topic.", 409);
+      }
     }
 
     if (assignment.practice_test_id) {

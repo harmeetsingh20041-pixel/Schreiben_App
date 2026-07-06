@@ -34,6 +34,8 @@ Repeat assignments store:
 
 Phase 7E-1 uses this metadata for traceability and one reuse guard. Worksheet generation still starts from an empty assignment and keeps reuse-before-generate behavior, but adaptive repeats must not reattach the exact worksheet from the immediately previous failed assignment.
 
+For normal `weakness_auto` assignments, worksheet preparation still depends on `student_grammar_stats.practice_unlocked` or an unlocked weakness level. For `adaptive_repeat` assignments, the repeat assignment itself is the unlock signal because it can only be created after `create_next_practice_assignment` validates a completed failed worksheet and caller permissions.
+
 ## Deferred To Phase 7E-2
 
 Future adaptive generation can use a safe, short summary of the previous attempt:

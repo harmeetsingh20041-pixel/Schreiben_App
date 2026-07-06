@@ -412,6 +412,7 @@ Phase 7E-1 implements:
 - repeat practice creates a new active assignment linked to the previous assignment and attempt
 - existing one-active-assignment-per-student/topic enforcement remains in place
 - repeated clicks return the existing active repeat assignment
+- adaptive repeat assignments are the unlock signal for preparing the next worksheet; normal weakness-auto assignments still require `student_grammar_stats` to be unlocked
 - repeat assignments stay source-agnostic and can later use reusable, generated, teacher-created, or imported worksheet content
 
 Phase 7E-1 defers:
