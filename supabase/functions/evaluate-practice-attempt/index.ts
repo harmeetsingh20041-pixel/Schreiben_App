@@ -69,6 +69,22 @@ type ProviderReview = {
   short_reason: string;
 };
 
+type QuestionReviewRow = {
+  attempt_id: string;
+  assignment_id: string;
+  workspace_id: string;
+  student_id: string;
+  question_id: string;
+  review_status: string;
+  points_awarded: number;
+  max_points: number;
+  evaluator_source: "deepseek" | "manual";
+  feedback_text: string;
+  corrected_answer: string | null;
+  model_answer: string | null;
+  short_reason: string;
+};
+
 const SAFE_EVALUATION_ERROR = "Feedback could not be prepared. Try again.";
 const STALE_EVALUATION_LOCK_MS = 15 * 60 * 1000;
 const PROVIDER_TIMEOUT_MS = 80 * 1000;
@@ -326,7 +342,7 @@ async function loadQuestions(admin: SupabaseAdminClient, practiceTestId: string)
   return (data ?? []) as QuestionRow[];
 }
 
-function getOpenQuestionsForEvaluation(attempt: AttemptRow, questions: QuestionRow[]) {
+function getOpenQuestions(attempt: AttemptRow, questions: QuestionRow[]) {
   const answerMap = parseAnswerMap(attempt.answers);
   return questions
     .filter((question) => !isLocallyScorable(question))
@@ -337,8 +353,40 @@ function getOpenQuestionsForEvaluation(attempt: AttemptRow, questions: QuestionR
       prompt: compactText(question.prompt, 800),
       student_answer: answerMap.get(question.id) ?? "",
       max_points: 1,
-    }))
-    .filter((question) => question.prompt && question.student_answer.trim().length > 0);
+    }));
+}
+
+function buildBlankAnswerReviewRows(
+  attempt: AttemptRow,
+  assignment: AssignmentRow,
+  questions: OpenQuestionForEvaluation[],
+): QuestionReviewRow[] {
+  return questions.map((question) => ({
+    attempt_id: attempt.id,
+    assignment_id: assignment.id,
+    workspace_id: assignment.workspace_id,
+    student_id: assignment.student_id,
+    question_id: question.question_id,
+    review_status: "incorrect",
+    points_awarded: 0,
+    max_points: 1,
+    evaluator_source: "manual",
+    feedback_text: "No answer was submitted for this question.",
+    corrected_answer: null,
+    model_answer: null,
+    short_reason: "Blank answer.",
+  }));
+}
+
+async function saveQuestionReviews(admin: SupabaseAdminClient, reviewRows: QuestionReviewRow[]) {
+  if (reviewRows.length === 0) return;
+  const { error } = await admin
+    .from("practice_attempt_question_reviews")
+    .upsert(reviewRows, { onConflict: "attempt_id,question_id" });
+  if (error) {
+    console.error("evaluate-practice-attempt save reviews failed", error.message);
+    throw new Error("Practice answer reviews could not be saved.");
+  }
 }
 
 async function fetchDeepSeekEvaluation(apiKey: string, body: unknown) {
@@ -534,7 +582,7 @@ Deno.serve(async (req) => {
     }
 
     const questions = await loadQuestions(admin, initialAttempt.practice_test_id);
-    const openQuestions = getOpenQuestionsForEvaluation(initialAttempt, questions);
+    const openQuestions = getOpenQuestions(initialAttempt, questions);
     if (openQuestions.length === 0) {
       const { data: finalized, error: finalizeError } = await admin.rpc("finalize_practice_attempt_evaluation", {
         target_attempt_id: initialAttempt.id,
@@ -552,12 +600,15 @@ Deno.serve(async (req) => {
       });
     }
 
-    if (openQuestions.length > MAX_OPEN_QUESTIONS_PER_ATTEMPT) {
+    const blankOpenQuestions = openQuestions.filter((question) => question.student_answer.trim().length === 0);
+    const answeredOpenQuestions = openQuestions.filter((question) => question.student_answer.trim().length > 0);
+
+    if (answeredOpenQuestions.length > MAX_OPEN_QUESTIONS_PER_ATTEMPT) {
       await markEvaluationFailed(admin, initialAttempt.id, SAFE_EVALUATION_ERROR);
       throw new PracticeEvaluationHttpError(SAFE_EVALUATION_ERROR, 400);
     }
 
-    if (openQuestions.some((question) => question.student_answer.length > MAX_ANSWER_LENGTH)) {
+    if (answeredOpenQuestions.some((question) => question.student_answer.length > MAX_ANSWER_LENGTH)) {
       await markEvaluationFailed(admin, initialAttempt.id, SAFE_EVALUATION_ERROR);
       throw new PracticeEvaluationHttpError(SAFE_EVALUATION_ERROR, 400);
     }
@@ -571,14 +622,9 @@ Deno.serve(async (req) => {
       });
     }
 
-    const apiKey = Deno.env.get("DEEPSEEK_API_KEY");
-    const model = Deno.env.get("DEEPSEEK_MODEL") || "deepseek-v4-flash";
-    if (!apiKey) {
-      await markEvaluationFailed(admin, initialAttempt.id, SAFE_EVALUATION_ERROR);
-      throw new PracticeEvaluationHttpError(SAFE_EVALUATION_ERROR, 503);
-    }
-
-    const lockedAttempt = await acquireEvaluationLock(admin, initialAttempt, model);
+    const providerModel = Deno.env.get("DEEPSEEK_MODEL") || "deepseek-v4-flash";
+    const evaluationModel = answeredOpenQuestions.length > 0 ? providerModel : "local_blank_answer";
+    const lockedAttempt = await acquireEvaluationLock(admin, initialAttempt, evaluationModel);
     if (!lockedAttempt) {
       return jsonResponse({
         status: "evaluating",
@@ -589,8 +635,35 @@ Deno.serve(async (req) => {
     }
     lockedAttemptId = lockedAttempt.id;
 
+    await saveQuestionReviews(admin, buildBlankAnswerReviewRows(lockedAttempt, assignment, blankOpenQuestions));
+
+    if (answeredOpenQuestions.length === 0) {
+      const { data: finalized, error: finalizeError } = await admin.rpc("finalize_practice_attempt_evaluation", {
+        target_attempt_id: lockedAttempt.id,
+      });
+      if (finalizeError) {
+        console.error("evaluate-practice-attempt blank-only finalize failed", finalizeError.message);
+        throw new Error("Practice answer score could not be finalized.");
+      }
+
+      return jsonResponse({
+        status: "completed",
+        evaluated: false,
+        attempt_id: lockedAttempt.id,
+        assignment_id: assignment.id,
+        blank_open_question_count: blankOpenQuestions.length,
+        result: finalized?.[0] ?? null,
+      });
+    }
+
+    const apiKey = Deno.env.get("DEEPSEEK_API_KEY");
+    if (!apiKey) {
+      await markEvaluationFailed(admin, lockedAttempt.id, SAFE_EVALUATION_ERROR);
+      throw new PracticeEvaluationHttpError(SAFE_EVALUATION_ERROR, 503);
+    }
+
     const providerResponse = await fetchDeepSeekEvaluation(apiKey, {
-      model,
+      model: providerModel,
       messages: [
         { role: "system", content: buildSystemPrompt() },
         {
@@ -599,7 +672,7 @@ Deno.serve(async (req) => {
             topic,
             worksheet,
             strictScoring: isStrictTopic(topic),
-            questions: openQuestions,
+            questions: answeredOpenQuestions,
           }),
         },
       ],
@@ -620,8 +693,8 @@ Deno.serve(async (req) => {
       throw new Error("Practice answer provider returned empty content.");
     }
 
-    const reviews = validateProviderReviews(JSON.parse(extractJsonObject(content)), openQuestions);
-    const reviewRows = reviews.map((review) => ({
+    const reviews = validateProviderReviews(JSON.parse(extractJsonObject(content)), answeredOpenQuestions);
+    const reviewRows: QuestionReviewRow[] = reviews.map((review) => ({
       attempt_id: lockedAttempt.id,
       assignment_id: assignment.id,
       workspace_id: assignment.workspace_id,
@@ -637,13 +710,7 @@ Deno.serve(async (req) => {
       short_reason: review.short_reason,
     }));
 
-    const { error: reviewError } = await admin
-      .from("practice_attempt_question_reviews")
-      .upsert(reviewRows, { onConflict: "attempt_id,question_id" });
-    if (reviewError) {
-      console.error("evaluate-practice-attempt save reviews failed", reviewError.message);
-      throw new Error("Practice answer reviews could not be saved.");
-    }
+    await saveQuestionReviews(admin, reviewRows);
 
     const { data: finalized, error: finalizeError } = await admin.rpc("finalize_practice_attempt_evaluation", {
       target_attempt_id: lockedAttempt.id,
@@ -663,7 +730,8 @@ Deno.serve(async (req) => {
         student_id: assignment.student_id,
         grammar_topic_id: assignment.grammar_topic_id,
         evaluated_question_count: reviews.length,
-        model,
+        blank_open_question_count: blankOpenQuestions.length,
+        model: providerModel,
       },
     });
 
@@ -673,6 +741,7 @@ Deno.serve(async (req) => {
       attempt_id: lockedAttempt.id,
       assignment_id: assignment.id,
       evaluated_question_count: reviews.length,
+      blank_open_question_count: blankOpenQuestions.length,
       result: finalized?.[0] ?? null,
     });
   } catch (error) {

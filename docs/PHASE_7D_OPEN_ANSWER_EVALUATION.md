@@ -32,10 +32,11 @@ Flexible questions use a non-local answer key marker such as `manual_review`, so
 2. `submit_practice_attempt` scores exact local questions with the Phase 7D-1 rules.
 3. If any open/flexible questions remain, the attempt is marked `evaluation_status = pending`.
 4. The worksheet review page shows "Preparing detailed feedback..." and calls `evaluate-practice-attempt`.
-5. The Edge Function evaluates only open/flexible questions, in one provider call per attempt.
-6. Results are stored in `practice_attempt_question_reviews`.
-7. `finalize_practice_attempt_evaluation` combines local points and stored open-answer points.
-8. The attempt becomes `checked`, and the assignment becomes `passed` or `failed` using the 70% threshold.
+5. Blank open/flexible answers are stored as local 0-point reviews and are not sent to the provider.
+6. The Edge Function evaluates only non-blank open/flexible questions, in one provider call per attempt.
+7. Results are stored in `practice_attempt_question_reviews`.
+8. `finalize_practice_attempt_evaluation` combines local points, blank-answer 0-point reviews, and stored open-answer points.
+9. The attempt becomes `checked`, and the assignment becomes `passed` or `failed` using the 70% threshold.
 
 ## Safety
 
@@ -49,6 +50,7 @@ Flexible questions use a non-local answer key marker such as `manual_review`, so
 ## Cost Guards
 
 - Local-scored questions are skipped.
+- Blank open/flexible answers are skipped and receive `incorrect`, `0/1`, with feedback that no answer was submitted.
 - At most 3 open/flexible questions are evaluated per attempt for now.
 - Answers are capped at 1000 characters.
 - Duplicate evaluation is prevented with `evaluation_status = evaluating`.
