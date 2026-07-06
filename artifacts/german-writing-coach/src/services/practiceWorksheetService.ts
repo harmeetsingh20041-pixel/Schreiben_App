@@ -57,6 +57,9 @@ export interface PracticeAssignmentSummary {
   latest_attempt_status: PracticeAttemptStatus | null;
   score: number | null;
   max_score: number | null;
+  score_points: number | null;
+  max_score_points: number | null;
+  scoring_version: string | null;
   score_percent: number | null;
   passed: boolean | null;
   question_count: number;
@@ -92,7 +95,17 @@ export interface PracticeWorksheetQuestion {
   correct_answer?: string | null;
   explanation?: string | null;
   is_correct?: boolean | null;
-  review_status?: "correct" | "minor_formatting" | "incorrect" | "submitted_for_review" | string | null;
+  review_status?:
+    | "correct"
+    | "minor_punctuation"
+    | "capitalization_issue"
+    | "minor_formatting"
+    | "incorrect"
+    | "submitted_for_review"
+    | string
+    | null;
+  points_awarded?: number | null;
+  max_points?: number | null;
 }
 
 export interface PracticeWorksheetDetail {
@@ -212,6 +225,9 @@ function mapRpcAssignment(row: PracticeAssignmentRpcRow): PracticeAssignmentSumm
     latest_attempt_status: normalizeAttemptStatus(row.latest_attempt_status),
     score: row.score,
     max_score: row.max_score,
+    score_points: null,
+    max_score_points: null,
+    scoring_version: null,
     score_percent: row.score_percent,
     passed: row.passed,
     question_count: row.question_count,
@@ -245,6 +261,9 @@ function mapReviewAssignment(row: PracticeReviewRpcRow): PracticeAssignmentSumma
     latest_attempt_status: normalizeAttemptStatus(row.latest_attempt_status),
     score: row.score,
     max_score: row.max_score,
+    score_points: asNullableNumber((row as PracticeReviewRpcRow & { score_points?: unknown }).score_points),
+    max_score_points: asNullableNumber((row as PracticeReviewRpcRow & { max_score_points?: unknown }).max_score_points),
+    scoring_version: asNullableString((row as PracticeReviewRpcRow & { scoring_version?: unknown }).scoring_version),
     score_percent: row.score_percent,
     passed: row.passed,
     question_count: row.question_count,
@@ -263,6 +282,14 @@ function mapAssignmentFromTables(
   student?: ProfileRow | undefined,
   questionCount = 0,
 ): PracticeAssignmentSummary {
+  const latestAttemptWithPoints = latestAttempt as
+    | (PracticeAttemptRow & {
+      score_points?: number | null;
+      max_score_points?: number | null;
+      scoring_version?: string | null;
+    })
+    | undefined;
+
   return {
     id: assignment.id,
     workspace_id: assignment.workspace_id,
@@ -285,8 +312,11 @@ function mapAssignmentFromTables(
     latest_attempt_status: normalizeAttemptStatus(latestAttempt?.status ?? null),
     score: latestAttempt?.score ?? null,
     max_score: latestAttempt?.max_score ?? null,
-    score_percent: latestAttempt?.score_percent ?? null,
-    passed: latestAttempt?.passed ?? null,
+    score_points: latestAttemptWithPoints?.score_points ?? null,
+    max_score_points: latestAttemptWithPoints?.max_score_points ?? null,
+    scoring_version: latestAttemptWithPoints?.scoring_version ?? null,
+    score_percent: latestAttemptWithPoints?.score_percent ?? null,
+    passed: latestAttemptWithPoints?.passed ?? null,
     question_count: questionCount,
     generation_status: normalizeGenerationStatus(assignment.generation_status, Boolean(assignment.practice_test_id)),
     generation_started_at: assignment.generation_started_at ?? null,
@@ -360,7 +390,12 @@ function asNullableString(value: unknown) {
 }
 
 function asNullableNumber(value: unknown) {
-  return typeof value === "number" ? value : null;
+  if (typeof value === "number") return value;
+  if (typeof value === "string") {
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  return null;
 }
 
 function mapEdgeAssignment(row: EdgeAssignmentSummary): PracticeAssignmentSummary {
@@ -392,6 +427,9 @@ function mapEdgeAssignment(row: EdgeAssignmentSummary): PracticeAssignmentSummar
     latest_attempt_status: normalizeAttemptStatus(asNullableString(row.latest_attempt_status)),
     score: asNullableNumber(row.score),
     max_score: asNullableNumber(row.max_score),
+    score_points: asNullableNumber(row.score_points),
+    max_score_points: asNullableNumber(row.max_score_points),
+    scoring_version: asNullableString(row.scoring_version),
     score_percent: asNullableNumber(row.score_percent),
     passed: typeof row.passed === "boolean" ? row.passed : null,
     question_count: typeof row.question_count === "number" ? row.question_count : 0,
@@ -438,26 +476,51 @@ export async function listStudentPracticeAssignments(
     .map(mapRpcAssignment);
   const assignmentIds = summaries.map((assignment) => assignment.id);
   if (assignmentIds.length === 0) return summaries;
+  const attemptIds = Array.from(new Set(summaries.map((assignment) => assignment.latest_attempt_id).filter((id): id is string => Boolean(id))));
 
-  const { data: assignments, error: assignmentError } = await client
-    .from("student_practice_assignments")
-    .select("*")
-    .in("id", assignmentIds);
+  const [
+    { data: assignments, error: assignmentError },
+    { data: attempts, error: attemptsError },
+  ] = await Promise.all([
+    client
+      .from("student_practice_assignments")
+      .select("*")
+      .in("id", assignmentIds),
+    attemptIds.length === 0
+      ? Promise.resolve({ data: [], error: null })
+      : client.from("practice_test_attempts").select("*").in("id", attemptIds),
+  ]);
 
   if (assignmentError) throw assignmentError;
+  if (attemptsError) throw attemptsError;
   const assignmentMap = new Map(
     ((assignments ?? []) as PracticeAssignmentWithGeneration[]).map((assignment) => [assignment.id, assignment]),
   );
+  const attemptMap = new Map(((attempts ?? []) as PracticeAttemptRow[]).map((attempt) => [attempt.id, attempt]));
 
   return summaries.map((summary) => {
     const assignment = assignmentMap.get(summary.id);
-    if (!assignment) return summary;
+    const latestAttempt = summary.latest_attempt_id ? attemptMap.get(summary.latest_attempt_id) : undefined;
+    const attemptWithPoints = latestAttempt as
+      | (PracticeAttemptRow & {
+        score_points?: number | null;
+        max_score_points?: number | null;
+        scoring_version?: string | null;
+      })
+      | undefined;
     return {
       ...summary,
-      generation_status: normalizeGenerationStatus(assignment.generation_status, Boolean(summary.practice_test_id)),
-      generation_started_at: assignment.generation_started_at ?? null,
-      generation_completed_at: assignment.generation_completed_at ?? null,
-      generation_error: assignment.generation_error ?? null,
+      score: latestAttempt?.score ?? summary.score,
+      max_score: latestAttempt?.max_score ?? summary.max_score,
+      score_points: attemptWithPoints?.score_points ?? summary.score_points,
+      max_score_points: attemptWithPoints?.max_score_points ?? summary.max_score_points,
+      scoring_version: attemptWithPoints?.scoring_version ?? summary.scoring_version,
+      score_percent: latestAttempt?.score_percent ?? summary.score_percent,
+      passed: latestAttempt?.passed ?? summary.passed,
+      generation_status: normalizeGenerationStatus(assignment?.generation_status, Boolean(summary.practice_test_id)),
+      generation_started_at: assignment?.generation_started_at ?? null,
+      generation_completed_at: assignment?.generation_completed_at ?? null,
+      generation_error: assignment?.generation_error ?? null,
     };
   });
 }
@@ -589,6 +652,9 @@ export async function getPracticeWorksheetReview(assignmentId: string): Promise<
       latest_attempt_status: normalizeAttemptStatus(firstRow.latest_attempt_status),
       score: firstRow.score,
       max_score: firstRow.max_score,
+      score_points: asNullableNumber((firstRow as PracticeReviewRpcRow & { score_points?: unknown }).score_points),
+      max_score_points: asNullableNumber((firstRow as PracticeReviewRpcRow & { max_score_points?: unknown }).max_score_points),
+      scoring_version: asNullableString((firstRow as PracticeReviewRpcRow & { scoring_version?: unknown }).scoring_version),
       score_percent: firstRow.score_percent,
       passed: firstRow.passed,
     };
@@ -610,6 +676,8 @@ export async function getPracticeWorksheetReview(assignmentId: string): Promise<
       explanation: question.explanation,
       is_correct: question.is_correct,
       review_status: question.review_status,
+      points_awarded: asNullableNumber((question as PracticeReviewRpcRow & { points_awarded?: unknown }).points_awarded),
+      max_points: asNullableNumber((question as PracticeReviewRpcRow & { max_points?: unknown }).max_points),
     })),
   };
 }
@@ -650,6 +718,20 @@ export function getPracticeAssignmentBadgeClass(assignment: PracticeAssignmentSu
 }
 
 export function formatPracticeScore(assignment: PracticeAssignmentSummary) {
+  const formatPointValue = (value: number) => {
+    if (Number.isInteger(value)) return value.toString();
+    return value.toFixed(2).replace(/\.?0+$/, "");
+  };
+
+  if (
+    assignment.score_points != null &&
+    assignment.max_score_points != null &&
+    assignment.max_score_points > 0
+  ) {
+    const percent = assignment.score_percent ?? ((assignment.score_points * 100) / assignment.max_score_points);
+    return `${formatPointValue(assignment.score_points)}/${formatPointValue(assignment.max_score_points)} (${Math.round(percent)}%)`;
+  }
+
   if (assignment.score_percent == null || assignment.max_score == null || assignment.max_score === 0) {
     return null;
   }

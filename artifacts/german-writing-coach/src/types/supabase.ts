@@ -329,10 +329,13 @@ export type Database = {
           feedback: Json | null
           id: string
           max_score: number
+          max_score_points: number | null
           passed: boolean | null
           practice_test_id: string
           score: number
           score_percent: number | null
+          score_points: number | null
+          scoring_version: string | null
           started_at: string | null
           status: string
           student_id: string
@@ -347,10 +350,13 @@ export type Database = {
           feedback?: Json | null
           id?: string
           max_score?: number
+          max_score_points?: number | null
           passed?: boolean | null
           practice_test_id: string
           score?: number
           score_percent?: number | null
+          score_points?: number | null
+          scoring_version?: string | null
           started_at?: string | null
           status?: string
           student_id: string
@@ -365,10 +371,13 @@ export type Database = {
           feedback?: Json | null
           id?: string
           max_score?: number
+          max_score_points?: number | null
           passed?: boolean | null
           practice_test_id?: string
           score?: number
           score_percent?: number | null
+          score_points?: number | null
+          scoring_version?: string | null
           started_at?: string | null
           status?: string
           student_id?: string
@@ -1370,9 +1379,12 @@ export type Database = {
           is_correct: boolean
           latest_attempt_id: string
           latest_attempt_status: string
+          max_points: number
           max_score: number
+          max_score_points: number
           options: Json
           passed: boolean
+          points_awarded: number
           practice_test_id: string
           prompt: string
           question_count: number
@@ -1382,6 +1394,8 @@ export type Database = {
           review_status: string
           score: number
           score_percent: number
+          score_points: number
+          scoring_version: string
           source: string
           started_at: string
           status: string

@@ -170,7 +170,11 @@ After submission, students can load review data only through `get_practice_assig
 
 Phase 7C does not add DeepSeek answer evaluation. Local scoring still applies only when the entire worksheet is safely locally scorable. If any question is manual/unscored, the attempt is submitted and the assignment is completed without passed/failed.
 
-For non-capitalization/spelling topics, local scoring trims whitespace, collapses repeated spaces, ignores simple final punctuation such as `.`, `!`, and `?`, and compares case-insensitively. It does not ignore word-order or word-choice differences. Post-submit review uses `minor_formatting` when the answer is accepted under this normalization but differs only by formatting such as capitalization or final punctuation, so the student still sees the polished correct answer without being told the grammar was fully wrong. For capitalization, spelling, Rechtschreibung, or orthography topics, scoring is stricter and capitalization matters, while whitespace normalization and optional final punctuation still apply.
+Phase 7D-1 adds point-based local scoring for exact-answer worksheets. For non-capitalization/spelling topics, local scoring trims whitespace, collapses repeated spaces, and first checks for an exact normalized match. If only optional final punctuation such as `.`, `!`, or `?` differs, the answer receives full credit with `review_status = minor_punctuation`. If capitalization differs but words and order still match after removing final punctuation and lowercasing both answers, the answer receives partial credit with `review_status = capitalization_issue`. Word-order or word-choice differences remain `incorrect`.
+
+For capitalization, spelling, Rechtschreibung, or orthography topics, capitalization is strict. A capitalization mismatch must not be relaxed into `capitalization_issue`; it remains incorrect unless the exact capitalization matches. This keeps capitalization-focused practice from hiding the skill being tested.
+
+New locally scored attempts store decimal scoring fields on `practice_test_attempts`: `score_points`, `max_score_points`, and `scoring_version`. The integer `score` and `max_score` remain for backward compatibility, but the UI should prefer the decimal point fields when available.
 
 Worksheet submissions are bounded server-side: at most 20 answers, at most 1000 characters per answer, and about 25 KB of submitted answer JSON.
 

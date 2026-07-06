@@ -363,7 +363,7 @@ Phase 7C implementation focus:
 - future exercise type variety, including `short_answer`, `mini_writing`, `matching`, and `error_detection`, after secure review/evaluation exists
 - a default A2 worksheet target of 8-10 questions with at least 2 multiple-choice, 2 fill-the-blank, 2 sentence-correction, and 1 word-order/transformation/rewrite question
 - answer keys and explanations for every generated question
-- topic-aware local scoring normalization: flexible case-insensitive comparison for normal grammar topics, stricter capitalization-sensitive comparison for spelling/capitalization topics
+- topic-aware local scoring normalization: exact matches receive full credit, punctuation-only differences receive accepted punctuation status, capitalization-only differences receive partial credit for normal grammar topics, and spelling/capitalization topics keep strict capitalization-sensitive scoring
 - answer payload limits to prevent oversized worksheet submissions
 - keep passed/failed results limited to fully locally scorable worksheets until secure manual/open-ended evaluation exists
 - submit mixed local/manual worksheets for review instead of pretending the local subtotal is a full pass/fail result

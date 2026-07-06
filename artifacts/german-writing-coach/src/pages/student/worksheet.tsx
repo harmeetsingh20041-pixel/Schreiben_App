@@ -63,8 +63,11 @@ function getReviewBadgeClass(reviewStatus: string | null | undefined) {
   if (reviewStatus === "correct") {
     return "bg-green-50 text-green-800 border-green-200 dark:bg-green-950/40 dark:text-green-100 dark:border-green-700";
   }
-  if (reviewStatus === "minor_formatting") {
+  if (reviewStatus === "minor_punctuation" || reviewStatus === "minor_formatting") {
     return "bg-emerald-50 text-emerald-800 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-100 dark:border-emerald-700";
+  }
+  if (reviewStatus === "capitalization_issue") {
+    return "bg-yellow-50 text-yellow-800 border-yellow-200 dark:bg-yellow-950/40 dark:text-yellow-100 dark:border-yellow-700";
   }
   if (reviewStatus === "incorrect") {
     return "bg-orange-50 text-orange-800 border-orange-200 dark:bg-orange-950/40 dark:text-orange-100 dark:border-orange-700";
@@ -74,9 +77,19 @@ function getReviewBadgeClass(reviewStatus: string | null | undefined) {
 
 function getReviewLabel(reviewStatus: string | null | undefined) {
   if (reviewStatus === "correct") return "Correct";
+  if (reviewStatus === "minor_punctuation") return "Accepted — check punctuation";
+  if (reviewStatus === "capitalization_issue") return "Capitalization issue — partial credit";
   if (reviewStatus === "minor_formatting") return "Accepted — minor formatting";
   if (reviewStatus === "incorrect") return "Incorrect";
   return "Submitted for review";
+}
+
+function formatQuestionPoints(question: PracticeWorksheetQuestion) {
+  if (question.points_awarded == null || question.max_points == null || question.max_points <= 0) return null;
+  const formatPoint = (value: number) => (
+    Number.isInteger(value) ? value.toString() : value.toFixed(2).replace(/\.?0+$/, "")
+  );
+  return `${formatPoint(question.points_awarded)}/${formatPoint(question.max_points)}`;
 }
 
 function buildAnswerMap(questions: PracticeWorksheetQuestion[]) {
@@ -263,15 +276,16 @@ export default function StudentWorksheet() {
       setDetail({
         ...reviewDetail,
         assignment: {
-          ...reviewDetail.assignment,
           ...result,
+          ...reviewDetail.assignment,
           worksheet_mini_lesson: detail.assignment.worksheet_mini_lesson,
         },
       });
       setAnswers(buildAnswerMap(reviewDetail.questions));
+      const reviewScoreLabel = formatPracticeScore(reviewDetail.assignment);
       toast({
-        title: result.passed ? "Worksheet passed" : "Worksheet submitted",
-        description: formatPracticeScore(result) ?? getPracticeAssignmentLabel(result),
+        title: reviewDetail.assignment.passed ? "Worksheet passed" : "Worksheet submitted",
+        description: reviewScoreLabel ?? getPracticeAssignmentLabel(reviewDetail.assignment),
       });
     } catch (submitError) {
       setError(formatErrorMessage(submitError, "Unable to submit this worksheet."));
@@ -431,9 +445,21 @@ export default function StudentWorksheet() {
                   <CardTitle className="flex flex-wrap items-center justify-between gap-2 text-base font-semibold text-muted-foreground">
                     <span>Question {question.question_number}</span>
                     {isCompleted && question.review_status && (
-                      <Badge variant="outline" className={getReviewBadgeClass(question.review_status)}>
-                        {getReviewLabel(question.review_status)}
-                      </Badge>
+                      (() => {
+                        const pointsLabel = formatQuestionPoints(question);
+                        return (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <Badge variant="outline" className={getReviewBadgeClass(question.review_status)}>
+                              {getReviewLabel(question.review_status)}
+                            </Badge>
+                            {pointsLabel && (
+                              <Badge variant="outline" className="bg-card text-muted-foreground border-border">
+                                {pointsLabel}
+                              </Badge>
+                            )}
+                          </div>
+                        );
+                      })()
                     )}
                   </CardTitle>
                 </CardHeader>
