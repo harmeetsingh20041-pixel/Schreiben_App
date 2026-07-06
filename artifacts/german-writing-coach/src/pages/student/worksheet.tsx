@@ -13,6 +13,7 @@ import {
   createNextPracticeAssignment,
   evaluatePracticeAttempt,
   formatPracticeScore,
+  getChildPracticeAssignment,
   getPracticeAssignmentBadgeClass,
   getPracticeAssignmentLabel,
   getPracticeWorksheetReview,
@@ -20,6 +21,7 @@ import {
   preparePracticeWorksheet,
   startPracticeAssignment,
   submitPracticeAttempt,
+  type PracticeAssignmentSummary,
   type PracticeWorksheetDetail,
   type PracticeWorksheetQuestion,
 } from "@/services/practiceWorksheetService";
@@ -226,12 +228,14 @@ export default function StudentWorksheet() {
   const [creatingNextPractice, setCreatingNextPractice] = useState(false);
   const [preparingWorksheet, setPreparingWorksheet] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [nextAssignment, setNextAssignment] = useState<PracticeAssignmentSummary | null>(null);
 
   async function loadWorksheet() {
     if (!id) return;
     try {
       setLoading(true);
       setError(null);
+      setNextAssignment(null);
       const nextDetail = await getPracticeWorksheetDetail(id);
       const loadedDetail = nextDetail.assignment.practice_test_id && isOpenAssignment(nextDetail.assignment.status)
         ? await startPracticeAssignment(id).then(() => getPracticeWorksheetDetail(id))
@@ -239,6 +243,10 @@ export default function StudentWorksheet() {
 
       if (isCompletedAssignment(loadedDetail.assignment.status)) {
         const reviewDetail = await getPracticeWorksheetReview(id);
+        if (reviewDetail.assignment.status === "failed") {
+          const existingNextAssignment = await getChildPracticeAssignment(id);
+          setNextAssignment(existingNextAssignment);
+        }
         setDetail({
           ...reviewDetail,
           assignment: {
@@ -368,12 +376,20 @@ export default function StudentWorksheet() {
 
   const handlePracticeAgain = async () => {
     if (!id || !detail || detail.assignment.status !== "failed" || creatingNextPractice) return;
+    if (detail.assignment.source === "adaptive_repeat") return;
+    if (nextAssignment) {
+      navigate(`/student/practice/${nextAssignment.id}`);
+      return;
+    }
 
     try {
       setCreatingNextPractice(true);
       setError(null);
       const nextAssignment = await createNextPracticeAssignment(id);
-      navigate(`/student/practice/${nextAssignment.id}`);
+      setNextAssignment(nextAssignment);
+      if (nextAssignment.id !== id) {
+        navigate(`/student/practice/${nextAssignment.id}`);
+      }
     } catch (nextError) {
       setError(formatErrorMessage(nextError, "Unable to prepare the next worksheet."));
     } finally {
@@ -529,18 +545,32 @@ export default function StudentWorksheet() {
                     )}
                     {assignment.status === "failed" && !isPreparingDetailedFeedback && (
                       <div className="mt-4">
-                        <Button
-                          type="button"
-                          disabled={creatingNextPractice}
-                          onClick={() => void handlePracticeAgain()}
-                        >
-                          {creatingNextPractice ? (
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          ) : (
-                            <ClipboardList className="mr-2 h-4 w-4" />
+                        {assignment.source === "adaptive_repeat" ? (
+                          <p className="text-sm font-medium text-foreground">Please review this with your teacher.</p>
+                        ) : nextAssignment ? (
+                          <div className="flex flex-wrap items-center gap-3">
+                            <p className="text-sm font-medium text-foreground">Next practice already created.</p>
+                            <Link href={`/student/practice/${nextAssignment.id}`}>
+                              <Button type="button" size="sm">
+                                <ClipboardList className="mr-2 h-4 w-4" />
+                                Go to next worksheet
+                              </Button>
+                            </Link>
+                          </div>
+                        ) : (
+                          <Button
+                            type="button"
+                            disabled={creatingNextPractice}
+                            onClick={() => void handlePracticeAgain()}
+                          >
+                            {creatingNextPractice ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <ClipboardList className="mr-2 h-4 w-4" />
+                            )}
+                            Practice again
+                          </Button>
                           )}
-                          Practice again
-                        </Button>
                       </div>
                     )}
                   </div>

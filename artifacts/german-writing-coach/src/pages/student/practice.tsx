@@ -26,6 +26,29 @@ import {
   type PracticeAssignmentSummary,
 } from "@/services/practiceWorksheetService";
 
+const SAFE_PREPARATION_ERROR = "Worksheet could not be prepared. Please try again later.";
+
+function isActivePracticeAssignment(assignment: PracticeAssignmentSummary) {
+  return assignment.status === "unlocked" || assignment.status === "in_progress";
+}
+
+function isCompletedPracticeAssignment(assignment: PracticeAssignmentSummary) {
+  return assignment.status === "completed" || assignment.status === "passed" || assignment.status === "failed";
+}
+
+function sortNewestPracticeAssignment(
+  left: PracticeAssignmentSummary,
+  right: PracticeAssignmentSummary,
+) {
+  return new Date(right.assigned_at).getTime() - new Date(left.assigned_at).getTime();
+}
+
+function getHistoryStatusLabel(assignment: PracticeAssignmentSummary) {
+  if (assignment.status === "passed") return "Passed";
+  if (assignment.status === "failed") return "Needs more practice";
+  return "Completed";
+}
+
 export default function StudentPractice() {
   const { authMode, user, workspaceMemberships } = useAuth();
   const [, navigate] = useLocation();
@@ -125,14 +148,13 @@ export default function StudentPractice() {
         current.map((item) => (item.id === preparedAssignment.id ? preparedAssignment : item)),
       );
     } catch {
-      const message = "Worksheet could not be prepared. Please try again later.";
       setRealAssignments((current) =>
         current.map((item) => (
           item.id === assignment.id
             ? {
               ...item,
               generation_status: "failed",
-              generation_error: message,
+              generation_error: SAFE_PREPARATION_ERROR,
             }
             : item
         )),
@@ -172,17 +194,22 @@ export default function StudentPractice() {
   const progress = exercises.length > 0 ? ((currentIdx + (isFinished ? 1 : 0)) / exercises.length) * 100 : 0;
 
   if (useRealData) {
-    const assignmentsByTopic = new Map<string, PracticeAssignmentSummary>();
+    const assignmentsByTopic = new Map<string, PracticeAssignmentSummary[]>();
     for (const assignment of realAssignments) {
-      const existing = assignmentsByTopic.get(assignment.grammar_topic_id);
-      if (!existing) {
-        assignmentsByTopic.set(assignment.grammar_topic_id, assignment);
-        continue;
-      }
-      const assignmentIsActive = assignment.status === "unlocked" || assignment.status === "in_progress";
-      const existingIsActive = existing.status === "unlocked" || existing.status === "in_progress";
-      if (assignmentIsActive && !existingIsActive) {
-        assignmentsByTopic.set(assignment.grammar_topic_id, assignment);
+      const current = assignmentsByTopic.get(assignment.grammar_topic_id) ?? [];
+      current.push(assignment);
+      assignmentsByTopic.set(assignment.grammar_topic_id, current);
+    }
+    for (const assignments of assignmentsByTopic.values()) {
+      assignments.sort(sortNewestPracticeAssignment);
+    }
+    const childAssignmentsByPrevious = new Map<string, PracticeAssignmentSummary>();
+    for (const assignment of realAssignments) {
+      if (assignment.previous_assignment_id && assignment.source === "adaptive_repeat" && assignment.status !== "cancelled") {
+        const existing = childAssignmentsByPrevious.get(assignment.previous_assignment_id);
+        if (!existing || sortNewestPracticeAssignment(assignment, existing) < 0) {
+          childAssignmentsByPrevious.set(assignment.previous_assignment_id, assignment);
+        }
       }
     }
     const groupedStats = {
@@ -243,10 +270,13 @@ export default function StudentPractice() {
                           {stat.topic_description ?? "Review this grammar topic based on feedback from your writings."}
                         </p>
                         {(() => {
-                          const assignment = assignmentsByTopic.get(stat.grammar_topic_id);
-                          const scoreLabel = assignment ? formatPracticeScore(assignment) : null;
+                          const topicAssignments = assignmentsByTopic.get(stat.grammar_topic_id) ?? [];
+                          const activeAssignment = topicAssignments.find(isActivePracticeAssignment) ?? null;
+                          const historyAssignments = topicAssignments
+                            .filter(isCompletedPracticeAssignment)
+                            .slice(0, 3);
 
-                          if (!assignment) {
+                          if (!activeAssignment && historyAssignments.length === 0) {
                             return (
                               <div className="mt-6 rounded-lg border border-dashed bg-muted/25 p-4 text-sm text-muted-foreground">
                                 Practice unlock is being prepared.
@@ -254,12 +284,17 @@ export default function StudentPractice() {
                             );
                           }
 
-                          if (!assignment.practice_test_id) {
+                          return (
+                            <div className="mt-6 space-y-4">
+                              {activeAssignment ? (() => {
+                                const assignment = activeAssignment;
+                                const scoreLabel = formatPracticeScore(assignment);
+                                if (!assignment.practice_test_id) {
                             const isPreparing = preparingAssignments.has(assignment.id) || assignment.generation_status === "generating";
                             const didFail = assignment.generation_status === "failed";
                             const isRepeat = assignment.source === "adaptive_repeat";
                             return (
-                              <div className="mt-6 rounded-lg border border-dashed bg-muted/25 p-4">
+                              <div className="rounded-lg border border-dashed bg-muted/25 p-4">
                                 <div className="flex flex-wrap items-center justify-between gap-3">
                                   <div className="min-w-0">
                                     <Badge variant="outline" className={getPracticeAssignmentBadgeClass(assignment)}>
@@ -269,7 +304,7 @@ export default function StudentPractice() {
                                       {isPreparing
                                         ? "Preparing worksheet..."
                                         : didFail
-                                          ? assignment.generation_error ?? "Worksheet could not be prepared. Please try again later."
+                                          ? SAFE_PREPARATION_ERROR
                                           : isRepeat
                                             ? "Practice again is unlocked. Prepare the next worksheet when you are ready."
                                             : "Practice unlocked. Prepare a worksheet when you are ready."}
@@ -308,10 +343,10 @@ export default function StudentPractice() {
                                 </div>
                               </div>
                             );
-                          }
+                                }
 
                           return (
-                            <div className="mt-6 rounded-lg border bg-muted/20 p-4">
+                            <div className="rounded-lg border bg-muted/20 p-4">
                               <div className="flex flex-wrap items-center justify-between gap-3">
                                 <div className="min-w-0">
                                   <div className="flex flex-wrap items-center gap-2">
@@ -347,23 +382,93 @@ export default function StudentPractice() {
                                           : "Review worksheet"}
                                     </Button>
                                   </Link>
-                                  {assignment.status === "failed" && (
-                                    <Button
-                                      type="button"
-                                      size="sm"
-                                      disabled={advancingAssignments.has(assignment.id)}
-                                      onClick={() => void handleCreateNextPractice(assignment)}
-                                    >
-                                      {advancingAssignments.has(assignment.id) ? (
-                                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                                      ) : (
-                                        <RefreshCw className="h-4 w-4 mr-2" />
-                                      )}
-                                      Practice again
-                                    </Button>
-                                  )}
                                 </div>
                               </div>
+                            </div>
+                          );
+                              })() : (
+                                <div className="rounded-lg border border-dashed bg-muted/20 p-4 text-sm text-muted-foreground">
+                                  No current worksheet for this topic.
+                                </div>
+                              )}
+
+                              {historyAssignments.length > 0 && (
+                                <div className="rounded-lg border bg-card p-4">
+                                  <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                                    Recent worksheets
+                                  </p>
+                                  <div className="space-y-3">
+                                    {historyAssignments.map((historyAssignment) => {
+                                      const historyScoreLabel = formatPracticeScore(historyAssignment);
+                                      const childAssignment = childAssignmentsByPrevious.get(historyAssignment.id);
+                                      const canCreateRepeat = historyAssignment.status === "failed"
+                                        && historyAssignment.source !== "adaptive_repeat"
+                                        && !childAssignment;
+                                      const repeatAlreadyCreated = historyAssignment.status === "failed" && Boolean(childAssignment);
+                                      const repeatNeedsTeacher = historyAssignment.status === "failed"
+                                        && historyAssignment.source === "adaptive_repeat";
+
+                                      return (
+                                        <div
+                                          key={historyAssignment.id}
+                                          className="flex flex-wrap items-center justify-between gap-3 rounded-md border bg-muted/10 px-3 py-3"
+                                        >
+                                          <div className="min-w-0">
+                                            <div className="flex flex-wrap items-center gap-2">
+                                              <Badge variant="outline" className={getPracticeAssignmentBadgeClass(historyAssignment)}>
+                                                {getHistoryStatusLabel(historyAssignment)}
+                                              </Badge>
+                                              {historyScoreLabel && (
+                                                <span className="text-xs text-muted-foreground">{historyScoreLabel}</span>
+                                              )}
+                                            </div>
+                                            <p className="mt-1 truncate text-sm font-medium text-foreground">
+                                              {historyAssignment.worksheet_title ?? "Practice Worksheet"}
+                                            </p>
+                                            {repeatAlreadyCreated && (
+                                              <p className="mt-1 text-xs text-muted-foreground">Next practice already created.</p>
+                                            )}
+                                            {repeatNeedsTeacher && (
+                                              <p className="mt-1 text-xs text-muted-foreground">Please review this with your teacher.</p>
+                                            )}
+                                          </div>
+                                          <div className="flex flex-wrap gap-2">
+                                            <Link href={`/student/practice/${historyAssignment.id}`}>
+                                              <Button size="sm" variant="outline">
+                                                <ClipboardList className="h-4 w-4 mr-2" />
+                                                Review worksheet
+                                              </Button>
+                                            </Link>
+                                            {repeatAlreadyCreated && childAssignment && (
+                                              <Link href={`/student/practice/${childAssignment.id}`}>
+                                                <Button size="sm">
+                                                  <ArrowRight className="h-4 w-4 mr-2" />
+                                                  Go to next worksheet
+                                                </Button>
+                                              </Link>
+                                            )}
+                                            {canCreateRepeat && (
+                                              <Button
+                                                type="button"
+                                                size="sm"
+                                                disabled={advancingAssignments.has(historyAssignment.id)}
+                                                onClick={() => void handleCreateNextPractice(historyAssignment)}
+                                              >
+                                                {advancingAssignments.has(historyAssignment.id) ? (
+                                                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                                                ) : (
+                                                  <RefreshCw className="h-4 w-4 mr-2" />
+                                                )}
+                                                Practice again
+                                              </Button>
+                                            )}
+                                          </div>
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           );
                         })()}

@@ -17,6 +17,9 @@ Phase 7E-1 adds the repeat loop after worksheet completion. It keeps worksheet h
 - Create a new active assignment instead of overwriting the failed assignment.
 - Link the repeat assignment to the previous assignment and latest attempt.
 - Show a `Review previous worksheet` link from an adaptive repeat so the old failed review remains discoverable.
+- Show recent topic worksheet history directly in Practice Center with status, score, and a review action.
+- If a repeat already exists for a failed worksheet, hide `Practice again` for that old worksheet and show `Next practice already created` with a `Go to next worksheet` action.
+- If an adaptive repeat fails, do not create another automatic repeat in Phase 7E-1. Show teacher-support guidance instead.
 - If an active repeat already exists for the same student/topic, return it instead of creating a duplicate.
 - Do not accept blank or incomplete worksheet submissions; students must answer every question before submitting.
 
@@ -37,6 +40,10 @@ Repeat assignments store:
 Phase 7E-1 uses this metadata for traceability and reuse guards. Worksheet generation still starts from an empty assignment and keeps reuse-before-generate behavior, but adaptive repeats must not reattach any worksheet already attempted by the same student for the same grammar topic. If no unseen reviewed/approved reusable worksheet exists, the system should generate a new worksheet instead of cycling back to old failed practice.
 
 For normal `weakness_auto` assignments, worksheet preparation still depends on `student_grammar_stats.practice_unlocked` or an unlocked weakness level. For `adaptive_repeat` assignments, the repeat assignment itself is the unlock signal because it can only be created after `create_next_practice_assignment` validates a completed failed worksheet and caller permissions.
+
+## Worksheet Quality Stabilization
+
+Generated worksheets must fail validation before saving or attaching when they are spoon-fed or meaningless. Phase 7E-1 rejects fill-blank prompts that leak the correct answer in the prompt, including article hints such as `___ (den)` or `___ (ein)`, and rejects word-order tasks whose chunks are already in the final answer order. Provider/internal validation details stay in logs only; students see the safe retry message: `Worksheet could not be prepared. Please try again later.`
 
 ## Deferred To Phase 7E-2
 
@@ -59,3 +66,5 @@ Phase 7E-1 must not make practice DeepSeek-only. Repeat assignments should remai
 - generated questions saved for reuse
 - source metadata such as `deepseek_generated`, `teacher_created`, and `manual_import`
 - topic, level, difficulty, and question-type filtering
+
+Phase 7F or later should add Teacher Question Bank + Manual Import + Approved Reuse. Approved question-bank content should be searched by topic, level, difficulty, and question type before falling back to DeepSeek generation.

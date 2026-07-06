@@ -72,6 +72,7 @@ const localScorableTypes = new Set([
 const SAFE_GENERATION_ERROR = "Worksheet could not be prepared. Please try again later.";
 const STALE_GENERATION_LOCK_MS = 15 * 60 * 1000;
 const PROVIDER_TIMEOUT_MS = 80 * 1000;
+const MAX_GENERATION_ATTEMPTS = 3;
 
 class WorksheetHttpError extends Error {
   status: number;
@@ -84,9 +85,12 @@ class WorksheetHttpError extends Error {
 }
 
 class WorksheetQualityError extends WorksheetHttpError {
+  detail: string;
+
   constructor(reason: string) {
-    super(`Worksheet quality check failed: ${compactText(reason, 220) || "Generated worksheet did not meet the quality standard."}`, 422);
+    super(SAFE_GENERATION_ERROR, 422);
     this.name = "WorksheetQualityError";
+    this.detail = compactText(reason, 500) || "Generated worksheet did not meet the quality standard.";
   }
 }
 
@@ -143,6 +147,53 @@ function extractWordOrderChunks(prompt: string) {
     .filter(Boolean);
 }
 
+function escapeRegExp(value: string) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function normalizeForSequence(value: string) {
+  return value
+    .normalize("NFC")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}äöüß]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function maskFillBlankPrompt(prompt: string) {
+  return prompt
+    .replace(/_{2,}|\[blank\]|\(\s*blank\s*\)/gi, " ")
+    .replace(/\s+/g, " ");
+}
+
+function promptContainsExactAnswer(prompt: string, correctAnswer: string) {
+  const normalizedPrompt = normalizeForSequence(maskFillBlankPrompt(prompt));
+  const normalizedAnswer = normalizeForSequence(correctAnswer);
+  if (!normalizedPrompt || !normalizedAnswer) return false;
+  return new RegExp(`(^|\\s)${escapeRegExp(normalizedAnswer)}(\\s|$)`, "u").test(normalizedPrompt);
+}
+
+function isCaseArticleTopic(topic: GrammarTopicRow) {
+  const key = `${topic.slug} ${topic.name}`.toLowerCase();
+  return key.includes("akkusativ") || key.includes("dativ") || key.includes("case") || key.includes("fälle");
+}
+
+function isArticleAnswer(value: string) {
+  return /^(der|den|dem|des|die|das|ein|eine|einen|einem|einer|eines|kein|keine|keinen|keinem|keiner|keines|mein|meine|meinen|meinem|meiner|meines|dein|deine|deinen|deinem|deiner|deines)$/i.test(value.trim());
+}
+
+function assertFillBlankDoesNotLeakAnswer(prompt: string, correctAnswer: string, topic: GrammarTopicRow) {
+  if (/\b_{2,}\s*[\[(]\s*(der|den|dem|des|die|das|ein|eine|einen|einem|einer|eines|kein|keine|keinen|keinem|keiner|keines)\s*[\])]/i.test(prompt)) {
+    throw new Error("Fill-blank prompt leaks an article answer in parentheses.");
+  }
+  if (promptContainsExactAnswer(prompt, correctAnswer)) {
+    throw new Error("Fill-blank prompt contains the correct answer outside the blank.");
+  }
+  if (isCaseArticleTopic(topic) && isArticleAnswer(correctAnswer) && /\([\wäöüßÄÖÜ]+\)|\[[\wäöüßÄÖÜ]+\]/.test(prompt)) {
+    throw new Error("Case/article fill-blank prompt contains a parenthetical hint.");
+  }
+}
+
 function isGenerationLockRecent(assignment: AssignmentRow) {
   if (assignment.generation_status !== "generating") return false;
   if (!assignment.generation_started_at) return false;
@@ -168,6 +219,7 @@ function assertExactAnswerSafeQuestion(
     if (blankCount !== 1) {
       throw new Error("Fill-blank questions must contain exactly one blank.");
     }
+    assertFillBlankDoesNotLeakAnswer(prompt, correctAnswer, args.topic);
   }
 
   if (questionType === "sentence_correction") {
@@ -196,6 +248,13 @@ function assertExactAnswerSafeQuestion(
     if (/\b(starting with|starts with|begin with|begins with|start sentence with|fang.*an|beginn.*mit)\b/i.test(normalizedPrompt)) {
       throw new Error("Word-order questions must not reveal the answer through a starting hint.");
     }
+    const joinedChunks = normalizeForSequence(chunks.join(" "));
+    if (joinedChunks && joinedChunks === normalizeForSequence(correctAnswer)) {
+      throw new Error("Word-order chunks are already in the correct final order.");
+    }
+    if (new Set(chunks.map(normalizeForSequence)).size !== chunks.length) {
+      throw new Error("Word-order chunks must not be duplicated.");
+    }
     const topicKey = `${args.topic.slug} ${args.topic.name}`.toLowerCase();
     if (args.level === "A2" && (topicKey.includes("word") || topicKey.includes("verb-position") || topicKey.includes("satz"))) {
       if (!/\b(weil|dass|ob|deshalb|trotzdem|gestern|heute|morgen|dann|zuerst|am)\b/i.test(normalizedAnswer)) {
@@ -221,7 +280,10 @@ function topicGuidance(topic: GrammarTopicRow) {
       "Use article choice, fill-the-article, wrong-case sentence correction, and tightly controlled sentence transformation.",
       "If you ask students to identify the receiver/person or direct object, make it multiple_choice. Do not use open short_answer tasks.",
       "Use exact question_type values. For corrections, use sentence_correction, not correction.",
-      "Keep the case contrast visible. Do not drift into advanced adjective endings.",
+      "Keep the case contrast visible. Prefer masculine direct/indirect-object article changes where the case difference is visible.",
+      "Do not put the answer article in parentheses, brackets, hints, or prompt text. Fill-blank prompts must show a real blank only.",
+      "Use feminine, neuter, and plural examples only when the task still tests case understanding and does not reveal the answer.",
+      "Do not drift into advanced adjective endings.",
     ].join("\n");
   }
   if (key.includes("word") || key.includes("verb-position") || key.includes("satz")) {
@@ -564,6 +626,11 @@ async function loadAssignmentSummary(admin: SupabaseAdminClient, assignmentId: s
     generation_started_at: assignment.generation_started_at,
     generation_completed_at: assignment.generation_completed_at,
     generation_error: assignment.generation_error,
+    previous_assignment_id: assignment.previous_assignment_id,
+    previous_attempt_id: assignment.previous_attempt_id,
+    repeat_number: assignment.repeat_number ?? 0,
+    adaptive_reason: assignment.adaptive_reason,
+    adaptive_status: assignment.adaptive_status,
   };
 }
 
@@ -789,6 +856,7 @@ function buildUserPrompt(args: {
   level: Level;
   difficulty: Difficulty;
   snippets: Array<{ original: string; corrected: string; note: string }>;
+  previousRejectionReasons?: string[];
 }) {
   const questionTarget = args.level === "A2"
     ? "Create exactly 9 questions."
@@ -798,6 +866,9 @@ function buildUserPrompt(args: {
       `${index + 1}. Original: ${snippet.original}\n   Better: ${snippet.corrected}\n   Note: ${snippet.note}`
     )).join("\n")
     : "No recent mistake snippets are available. Use realistic short learner examples for this exact topic.";
+  const repairContext = args.previousRejectionReasons?.length
+    ? `\nPrevious generated draft failed local validation for these reasons:\n${args.previousRejectionReasons.map((reason) => `- ${reason}`).join("\n")}\nRepair all of those issues. Do not repeat the failed pattern.\n`
+    : "";
 
   return `Target level: ${args.level}
 Target grammar topic: ${args.topic.name}
@@ -810,6 +881,7 @@ ${topicGuidance(args.topic)}
 
 Recent same-student mistake snippets, anonymized and shortened:
 ${snippets}
+${repairContext}
 
 Worksheet requirements:
 - ${questionTarget}
@@ -821,8 +893,11 @@ Worksheet requirements:
 - Keep all answer keys exact, non-empty, and single-answer. Do not use "or", "/", semicolons, pipes, or answer alternatives.
 - multiple_choice is safe only when the correct answer appears exactly once in options.
 - fill_blank is safe only when exactly one blank and one exact answer are expected.
+- For fill_blank questions, never include the correct answer in parentheses, brackets, hints, or surrounding prompt text.
+- For Dativ/Akkusativ article questions, do not write hints such as "___ (den)" or "___ (ein)". The blank itself must carry the challenge.
 - sentence_correction is safe only when the prompt explicitly asks for the full corrected sentence. Use clear wording like "Correct this sentence:" or "Rewrite the sentence correctly:".
 - word_order is safe only when all required words/phrases are given and one exact target answer is expected. Use at least 6 chunks, avoid "starting with" hints, and do not make proper-noun capitalization the only real challenge.
+- For word_order, the chunks must be shuffled; do not list chunks in the same order as the correct answer.
 - For A2 verb-position or word-order worksheets, word_order tasks should practice fronted elements, weil/dass/ob subordinate clauses, or verb-second versus verb-final contrast.
 - transformation and rewrite_sentence are safe only when tightly controlled with one exact expected answer.
 - Each question must include a student-safe explanation.
@@ -853,6 +928,72 @@ Return exactly this JSON shape:
     }
   ]
 }`;
+}
+
+async function generateValidatedWorksheet(args: {
+  apiKey: string;
+  model: string;
+  grammarTopic: GrammarTopicRow;
+  level: Level;
+  difficulty: Difficulty;
+  snippets: Array<{ original: string; corrected: string; note: string }>;
+}) {
+  const rejectionReasons: string[] = [];
+
+  for (let attempt = 1; attempt <= MAX_GENERATION_ATTEMPTS; attempt += 1) {
+    const providerResponse = await fetchDeepSeekWorksheet(args.apiKey, {
+      model: args.model,
+      messages: [
+        { role: "system", content: buildSystemPrompt() },
+        {
+          role: "user",
+          content: buildUserPrompt({
+            topic: args.grammarTopic,
+            level: args.level,
+            difficulty: args.difficulty,
+            snippets: args.snippets,
+            previousRejectionReasons: rejectionReasons.slice(-2),
+          }),
+        },
+      ],
+      response_format: { type: "json_object" },
+      temperature: attempt === 1 ? 0.35 : 0.2,
+      max_tokens: 7000,
+      stream: false,
+    });
+
+    if (!providerResponse.ok) {
+      console.error("generate-practice-worksheet provider failed", providerResponse.status);
+      throw new Error("Worksheet provider returned an error.");
+    }
+
+    try {
+      const providerJson = await providerResponse.json();
+      const content = providerJson?.choices?.[0]?.message?.content;
+      if (typeof content !== "string" || !content.trim()) {
+        throw new Error("Worksheet provider returned empty content.");
+      }
+
+      const worksheet = validateWorksheetPayload(JSON.parse(extractJsonObject(content)), {
+        level: args.level,
+        topic: args.grammarTopic,
+        difficulty: args.difficulty,
+      });
+      assertNoSnippetLeak(worksheet, args.snippets);
+      return worksheet;
+    } catch (qualityError) {
+      const qualityMessage = qualityError instanceof Error
+        ? qualityError.message
+        : "Generated worksheet did not meet the quality standard.";
+      rejectionReasons.push(compactText(qualityMessage, 220));
+      console.warn(
+        "generate-practice-worksheet validation rejected candidate",
+        JSON.stringify({ attempt, reason: rejectionReasons[rejectionReasons.length - 1] }),
+      );
+    }
+  }
+
+  throw new WorksheetQualityError(rejectionReasons.join(" | "));
 }
 
 Deno.serve(async (req) => {
@@ -995,41 +1136,14 @@ Deno.serve(async (req) => {
     const snippets = await loadRecentMistakeSnippets(admin, lockedAssignment);
     const difficulty = chooseDifficulty(level, null);
 
-    const providerResponse = await fetchDeepSeekWorksheet(apiKey, {
+    const worksheet = await generateValidatedWorksheet({
+      apiKey,
       model,
-      messages: [
-        { role: "system", content: buildSystemPrompt() },
-        { role: "user", content: buildUserPrompt({ topic: grammarTopic, level, difficulty, snippets }) },
-      ],
-      response_format: { type: "json_object" },
-      temperature: 0.35,
-      max_tokens: 7000,
-      stream: false,
+      grammarTopic,
+      level,
+      difficulty,
+      snippets,
     });
-
-    if (!providerResponse.ok) {
-      console.error("generate-practice-worksheet provider failed", providerResponse.status);
-      throw new Error("Worksheet provider returned an error.");
-    }
-
-    let worksheet: GeneratedWorksheet;
-    try {
-      const providerJson = await providerResponse.json();
-      const content = providerJson?.choices?.[0]?.message?.content;
-      if (typeof content !== "string" || !content.trim()) {
-        throw new Error("Worksheet provider returned empty content.");
-      }
-
-      worksheet = validateWorksheetPayload(JSON.parse(extractJsonObject(content)), {
-        level,
-        topic: grammarTopic,
-        difficulty,
-      });
-      assertNoSnippetLeak(worksheet, snippets);
-    } catch (qualityError) {
-      const qualityMessage = qualityError instanceof Error ? qualityError.message : "Generated worksheet did not meet the quality standard.";
-      throw new WorksheetQualityError(qualityMessage);
-    }
 
     const { data: savedWorksheet, error: worksheetError } = await admin
       .from("practice_tests")
@@ -1103,15 +1217,16 @@ Deno.serve(async (req) => {
   } catch (error) {
     const status = error instanceof WorksheetHttpError ? error.status : 500;
     const message = error instanceof Error ? error.message : "Worksheet could not be prepared. Please try again later.";
-    const responseMessage = status >= 500
-      ? SAFE_GENERATION_ERROR
-      : message;
     if (error instanceof WorksheetQualityError) {
-      await markGenerationFailed(admin, assignmentId, message);
+      console.error("generate-practice-worksheet validation failed", error.detail);
+      await markGenerationFailed(admin, assignmentId, SAFE_GENERATION_ERROR);
     } else if (!(error instanceof WorksheetHttpError) || status >= 500) {
       console.error("generate-practice-worksheet failed", message);
       await markGenerationFailed(admin, assignmentId, SAFE_GENERATION_ERROR);
     }
+    const responseMessage = error instanceof WorksheetQualityError || status >= 500
+      ? SAFE_GENERATION_ERROR
+      : message;
     return jsonResponse({ error: responseMessage }, status);
   }
 });

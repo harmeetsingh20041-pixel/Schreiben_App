@@ -590,6 +590,11 @@ export async function listStudentPracticeAssignments(
       generation_started_at: assignment?.generation_started_at ?? null,
       generation_completed_at: assignment?.generation_completed_at ?? null,
       generation_error: assignment?.generation_error ?? null,
+      previous_assignment_id: assignment?.previous_assignment_id ?? null,
+      previous_attempt_id: assignment?.previous_attempt_id ?? null,
+      repeat_number: assignment?.repeat_number ?? 0,
+      adaptive_reason: assignment?.adaptive_reason ?? null,
+      adaptive_status: assignment?.adaptive_status ?? null,
     };
   });
 }
@@ -676,6 +681,25 @@ export async function createNextPracticeAssignment(assignmentId: string): Promis
     ...summary,
     ...hydrated[0],
   };
+}
+
+export async function getChildPracticeAssignment(assignmentId: string): Promise<PracticeAssignmentSummary | null> {
+  const client = requireClient();
+  const { data, error } = await client
+    .from("student_practice_assignments")
+    .select("*")
+    .eq("previous_assignment_id", assignmentId)
+    .eq("source", "adaptive_repeat")
+    .neq("status", "cancelled")
+    .order("assigned_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (error) throw error;
+  if (!data) return null;
+
+  const hydrated = await hydrateAssignments([data as PracticeAssignmentWithGeneration]);
+  return hydrated[0] ?? null;
 }
 
 export async function evaluatePracticeAttempt(assignmentId: string): Promise<{
