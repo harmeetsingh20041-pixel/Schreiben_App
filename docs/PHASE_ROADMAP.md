@@ -401,6 +401,42 @@ Phase 7D-2 does not implement:
 - admin panel
 - broad teacher editing UI
 
+## Phase 7E: Adaptive Practice Loop
+
+Goal: Continue practice after failed worksheets without overwriting history or creating duplicate active worksheets.
+
+Phase 7E-1 implements:
+
+- passed worksheets remain review-only
+- failed worksheets show `Practice again`
+- repeat practice creates a new active assignment linked to the previous assignment and attempt
+- existing one-active-assignment-per-student/topic enforcement remains in place
+- repeated clicks return the existing active repeat assignment
+- adaptive repeat assignments are the unlock signal for preparing the next worksheet; normal weakness-auto assignments still require `student_grammar_stats` to be unlocked
+- repeat assignments stay source-agnostic and can later use reusable, generated, teacher-created, or imported worksheet content
+
+Phase 7E-1 defers:
+
+- adaptive prompt context from previous mistake summaries
+- teacher controls for assigning repeats
+- full question-bank management
+- making every repeat worksheet harder
+
+Phase 7E-2 can add safe previous-attempt context to worksheet generation. It should target the remaining misunderstanding, not simply increase difficulty.
+
+## Phase 7F: Teacher Question Bank, Manual Import, Approved Reuse
+
+Goal: Let teachers provide grammar practice questions topic-by-topic for A1/A2/B1/B2 and reuse approved content before generation.
+
+Future question-bank work should support:
+
+- teacher-created questions and worksheets
+- manual import
+- approved reusable question-bank items
+- generated questions saved for review and reuse
+- source metadata such as `deepseek_generated`, `teacher_created`, and `manual_import`
+- topic, level, difficulty, and question-type filtering
+
 ## Phase 10: OCR / Image Upload
 
 Goal: Allow image upload and text extraction.

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link, useParams } from "wouter";
+import { Link, useLocation, useParams } from "wouter";
 import { AlertCircle, ArrowLeft, CheckCircle2, ClipboardList, Loader2, Send } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,14 +10,18 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { formatErrorMessage } from "@/lib/workspaceData";
 import {
+  createNextPracticeAssignment,
   evaluatePracticeAttempt,
   formatPracticeScore,
+  getChildPracticeAssignment,
   getPracticeAssignmentBadgeClass,
   getPracticeAssignmentLabel,
   getPracticeWorksheetReview,
   getPracticeWorksheetDetail,
+  preparePracticeWorksheet,
   startPracticeAssignment,
   submitPracticeAttempt,
+  type PracticeAssignmentSummary,
   type PracticeWorksheetDetail,
   type PracticeWorksheetQuestion,
 } from "@/services/practiceWorksheetService";
@@ -214,19 +218,24 @@ function QuestionAnswerControl({
 
 export default function StudentWorksheet() {
   const { id } = useParams();
+  const [, navigate] = useLocation();
   const { toast } = useToast();
   const [detail, setDetail] = useState<PracticeWorksheetDetail | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [evaluatingFeedback, setEvaluatingFeedback] = useState(false);
+  const [creatingNextPractice, setCreatingNextPractice] = useState(false);
+  const [preparingWorksheet, setPreparingWorksheet] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [nextAssignment, setNextAssignment] = useState<PracticeAssignmentSummary | null>(null);
 
   async function loadWorksheet() {
     if (!id) return;
     try {
       setLoading(true);
       setError(null);
+      setNextAssignment(null);
       const nextDetail = await getPracticeWorksheetDetail(id);
       const loadedDetail = nextDetail.assignment.practice_test_id && isOpenAssignment(nextDetail.assignment.status)
         ? await startPracticeAssignment(id).then(() => getPracticeWorksheetDetail(id))
@@ -234,6 +243,10 @@ export default function StudentWorksheet() {
 
       if (isCompletedAssignment(loadedDetail.assignment.status)) {
         const reviewDetail = await getPracticeWorksheetReview(id);
+        if (reviewDetail.assignment.status === "failed") {
+          const existingNextAssignment = await getChildPracticeAssignment(id);
+          setNextAssignment(existingNextAssignment);
+        }
         setDetail({
           ...reviewDetail,
           assignment: {
@@ -260,6 +273,9 @@ export default function StudentWorksheet() {
   const answeredCount = useMemo(() => (
     detail?.questions.filter((question) => (answers[question.id] ?? "").trim().length > 0).length ?? 0
   ), [answers, detail]);
+  const allQuestionsAnswered = Boolean(
+    detail?.questions.length && detail.questions.every((question) => (answers[question.id] ?? "").trim().length > 0),
+  );
 
   const progress = detail && detail.questions.length > 0
     ? Math.round((answeredCount / detail.questions.length) * 100)
@@ -321,6 +337,10 @@ export default function StudentWorksheet() {
 
   const handleSubmit = async () => {
     if (!id || !detail || isCompletedAssignment(detail.assignment.status)) return;
+    if (!allQuestionsAnswered) {
+      setError("Answer all questions before submitting.");
+      return;
+    }
 
     try {
       setSubmitting(true);
@@ -354,9 +374,50 @@ export default function StudentWorksheet() {
     }
   };
 
+  const handlePracticeAgain = async () => {
+    if (!id || !detail || detail.assignment.status !== "failed" || creatingNextPractice) return;
+    if (detail.assignment.source === "adaptive_repeat") return;
+    if (nextAssignment) {
+      navigate(`/student/practice/${nextAssignment.id}`);
+      return;
+    }
+
+    try {
+      setCreatingNextPractice(true);
+      setError(null);
+      const nextAssignment = await createNextPracticeAssignment(id);
+      setNextAssignment(nextAssignment);
+      if (nextAssignment.id !== id) {
+        navigate(`/student/practice/${nextAssignment.id}`);
+      }
+    } catch (nextError) {
+      setError(formatErrorMessage(nextError, "Unable to prepare the next worksheet."));
+    } finally {
+      setCreatingNextPractice(false);
+    }
+  };
+
+  const handlePrepareWorksheet = async () => {
+    if (!id || preparingWorksheet) return;
+
+    try {
+      setPreparingWorksheet(true);
+      setError(null);
+      await preparePracticeWorksheet(id);
+      const nextDetail = await getPracticeWorksheetDetail(id);
+      setDetail(nextDetail);
+      setAnswers(buildAnswerMap(nextDetail.questions));
+    } catch {
+      setError("Worksheet could not be prepared. Please try again later.");
+    } finally {
+      setPreparingWorksheet(false);
+    }
+  };
+
   const scoreLabel = assignment ? formatPracticeScore(assignment) : null;
   const isCompleted = assignment ? isCompletedAssignment(assignment.status) : false;
-  const canSubmit = Boolean(assignment && assignment.practice_test_id && !isCompleted && detail?.questions.length);
+  const canShowSubmit = Boolean(assignment && assignment.practice_test_id && !isCompleted && detail?.questions.length);
+  const canSubmit = canShowSubmit && allQuestionsAnswered;
   const isPreparingDetailedFeedback = Boolean(
     hasSubmittedForReview &&
     (evaluatingFeedback || assignment?.evaluation_status === "pending" || assignment?.evaluation_status === "evaluating"),
@@ -392,7 +453,28 @@ export default function StudentWorksheet() {
           <CardContent className="p-10 text-center">
             <ClipboardList className="h-10 w-10 text-primary mx-auto mb-4" />
             <h1 className="text-3xl font-serif mb-3">Practice unlocked</h1>
-            <p className="text-muted-foreground">Worksheet will be available soon.</p>
+            <p className="text-muted-foreground">
+              {assignment.source === "adaptive_repeat"
+                ? "Prepare the next worksheet when you are ready."
+                : "Worksheet will be available soon."}
+            </p>
+            <Button
+              type="button"
+              className="mt-6"
+              disabled={preparingWorksheet || assignment.generation_status === "generating"}
+              onClick={() => void handlePrepareWorksheet()}
+            >
+              {preparingWorksheet || assignment.generation_status === "generating" ? (
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+              ) : (
+                <ClipboardList className="h-4 w-4 mr-2" />
+              )}
+              {preparingWorksheet || assignment.generation_status === "generating"
+                ? "Preparing..."
+                : assignment.source === "adaptive_repeat"
+                  ? "Prepare next worksheet"
+                  : "Prepare worksheet"}
+            </Button>
           </CardContent>
         </Card>
       ) : (
@@ -451,6 +533,36 @@ export default function StudentWorksheet() {
                           {evaluatingFeedback && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                           Try again
                         </Button>
+                      </div>
+                    )}
+                    {assignment.status === "failed" && !isPreparingDetailedFeedback && (
+                      <div className="mt-4">
+                        {assignment.source === "adaptive_repeat" ? (
+                          <p className="text-sm font-medium text-foreground">Please review this with your teacher.</p>
+                        ) : nextAssignment ? (
+                          <div className="flex flex-wrap items-center gap-3">
+                            <p className="text-sm font-medium text-foreground">Next practice already created.</p>
+                            <Link href={`/student/practice/${nextAssignment.id}`}>
+                              <Button type="button" size="sm">
+                                <ClipboardList className="mr-2 h-4 w-4" />
+                                Go to next worksheet
+                              </Button>
+                            </Link>
+                          </div>
+                        ) : (
+                          <Button
+                            type="button"
+                            disabled={creatingNextPractice}
+                            onClick={() => void handlePracticeAgain()}
+                          >
+                            {creatingNextPractice ? (
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            ) : (
+                              <ClipboardList className="mr-2 h-4 w-4" />
+                            )}
+                            Practice again
+                          </Button>
+                          )}
                       </div>
                     )}
                   </div>
@@ -610,9 +722,14 @@ export default function StudentWorksheet() {
             ))}
           </div>
 
-          {canSubmit && (
-            <div className="sticky bottom-4 z-10 flex justify-end">
-              <Button onClick={handleSubmit} disabled={submitting} className="shadow-lg">
+          {canShowSubmit && (
+            <div className="sticky bottom-4 z-10 flex flex-col items-end gap-2">
+              {!allQuestionsAnswered && (
+                <p className="rounded-md bg-card/95 px-3 py-2 text-sm text-muted-foreground shadow-sm">
+                  Answer all questions before submitting.
+                </p>
+              )}
+              <Button onClick={handleSubmit} disabled={submitting || !canSubmit} className="shadow-lg">
                 {submitting ? (
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
                 ) : (
