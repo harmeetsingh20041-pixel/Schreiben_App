@@ -379,6 +379,28 @@ Testing requirement: typecheck, build, schema validation, cost/rate-limit checks
 
 Expected output: Reusable, level-appropriate AI-generated worksheets that are useful enough to help students improve.
 
+## Phase 7D: Open Worksheet Answer Evaluation
+
+Goal: Evaluate only flexible worksheet answers where exact local scoring is not fair.
+
+Phase 7D-2 implements:
+
+- local-first worksheet scoring remains unchanged
+- `evaluate-practice-attempt` Edge Function for open/flexible submitted answers
+- stored per-question reviews for open answers
+- one provider call per attempt, not one call per question
+- cost guard of 3 open/flexible questions per attempt for now
+- final score combines local points and stored open-answer points
+- student-facing UI says "detailed feedback" and does not mention AI, DeepSeek, model names, or automatic correction
+
+Phase 7D-2 does not implement:
+
+- default open-question generation
+- OCR/photo upload
+- timer or exam mode
+- admin panel
+- broad teacher editing UI
+
 ## Phase 10: OCR / Image Upload
 
 Goal: Allow image upload and text extraction.
