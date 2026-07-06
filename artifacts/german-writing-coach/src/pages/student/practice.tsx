@@ -275,26 +275,36 @@ export default function StudentPractice() {
                                             : "Practice unlocked. Prepare a worksheet when you are ready."}
                                     </p>
                                   </div>
-                                  <Button
-                                    type="button"
-                                    size="sm"
-                                    variant={didFail ? "default" : "outline"}
-                                    disabled={isPreparing}
-                                    onClick={() => void handlePrepareWorksheet(assignment)}
-                                  >
-                                    {isPreparing ? (
-                                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                                    ) : (
-                                      <ClipboardList className="h-4 w-4 mr-2" />
+                                  <div className="flex flex-wrap gap-2">
+                                    {isRepeat && assignment.previous_assignment_id && (
+                                      <Link href={`/student/practice/${assignment.previous_assignment_id}`}>
+                                        <Button type="button" size="sm" variant="outline">
+                                          <ArrowLeft className="h-4 w-4 mr-2" />
+                                          Review previous worksheet
+                                        </Button>
+                                      </Link>
                                     )}
-                                    {isPreparing
-                                      ? "Preparing..."
-                                      : didFail
-                                        ? "Try again"
-                                        : isRepeat
-                                          ? "Prepare next worksheet"
-                                          : "Prepare worksheet"}
-                                  </Button>
+                                    <Button
+                                      type="button"
+                                      size="sm"
+                                      variant={didFail ? "default" : "outline"}
+                                      disabled={isPreparing}
+                                      onClick={() => void handlePrepareWorksheet(assignment)}
+                                    >
+                                      {isPreparing ? (
+                                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                                      ) : (
+                                        <ClipboardList className="h-4 w-4 mr-2" />
+                                      )}
+                                      {isPreparing
+                                        ? "Preparing..."
+                                        : didFail
+                                          ? "Try again"
+                                          : isRepeat
+                                            ? "Prepare next worksheet"
+                                            : "Prepare worksheet"}
+                                    </Button>
+                                  </div>
                                 </div>
                               </div>
                             );
@@ -319,6 +329,14 @@ export default function StudentPractice() {
                                   </p>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
+                                  {assignment.source === "adaptive_repeat" && assignment.previous_assignment_id && (
+                                    <Link href={`/student/practice/${assignment.previous_assignment_id}`}>
+                                      <Button size="sm" variant="outline">
+                                        <ArrowLeft className="h-4 w-4 mr-2" />
+                                        Review previous worksheet
+                                      </Button>
+                                    </Link>
+                                  )}
                                   <Link href={`/student/practice/${assignment.id}`}>
                                     <Button size="sm" variant={assignment.status === "in_progress" ? "default" : "outline"}>
                                       <ClipboardList className="h-4 w-4 mr-2" />

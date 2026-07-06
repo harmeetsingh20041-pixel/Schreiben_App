@@ -265,6 +265,9 @@ export default function StudentWorksheet() {
   const answeredCount = useMemo(() => (
     detail?.questions.filter((question) => (answers[question.id] ?? "").trim().length > 0).length ?? 0
   ), [answers, detail]);
+  const allQuestionsAnswered = Boolean(
+    detail?.questions.length && detail.questions.every((question) => (answers[question.id] ?? "").trim().length > 0),
+  );
 
   const progress = detail && detail.questions.length > 0
     ? Math.round((answeredCount / detail.questions.length) * 100)
@@ -326,6 +329,10 @@ export default function StudentWorksheet() {
 
   const handleSubmit = async () => {
     if (!id || !detail || isCompletedAssignment(detail.assignment.status)) return;
+    if (!allQuestionsAnswered) {
+      setError("Answer all questions before submitting.");
+      return;
+    }
 
     try {
       setSubmitting(true);
@@ -393,7 +400,8 @@ export default function StudentWorksheet() {
 
   const scoreLabel = assignment ? formatPracticeScore(assignment) : null;
   const isCompleted = assignment ? isCompletedAssignment(assignment.status) : false;
-  const canSubmit = Boolean(assignment && assignment.practice_test_id && !isCompleted && detail?.questions.length);
+  const canShowSubmit = Boolean(assignment && assignment.practice_test_id && !isCompleted && detail?.questions.length);
+  const canSubmit = canShowSubmit && allQuestionsAnswered;
   const isPreparingDetailedFeedback = Boolean(
     hasSubmittedForReview &&
     (evaluatingFeedback || assignment?.evaluation_status === "pending" || assignment?.evaluation_status === "evaluating"),
@@ -469,6 +477,14 @@ export default function StudentWorksheet() {
               <p className="text-muted-foreground mt-2">
                 {assignment.grammar_topic_name} · {detail.questions.length} questions
               </p>
+              {assignment.source === "adaptive_repeat" && assignment.previous_assignment_id && (
+                <Link href={`/student/practice/${assignment.previous_assignment_id}`}>
+                  <Button type="button" variant="outline" size="sm" className="mt-4">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Review previous worksheet
+                  </Button>
+                </Link>
+              )}
             </div>
             {scoreLabel && (
               <div className="rounded-lg border bg-card px-4 py-3 text-right">
@@ -684,9 +700,14 @@ export default function StudentWorksheet() {
             ))}
           </div>
 
-          {canSubmit && (
-            <div className="sticky bottom-4 z-10 flex justify-end">
-              <Button onClick={handleSubmit} disabled={submitting} className="shadow-lg">
+          {canShowSubmit && (
+            <div className="sticky bottom-4 z-10 flex flex-col items-end gap-2">
+              {!allQuestionsAnswered && (
+                <p className="rounded-md bg-card/95 px-3 py-2 text-sm text-muted-foreground shadow-sm">
+                  Answer all questions before submitting.
+                </p>
+              )}
+              <Button onClick={handleSubmit} disabled={submitting || !canSubmit} className="shadow-lg">
                 {submitting ? (
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
                 ) : (

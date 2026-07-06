@@ -16,7 +16,9 @@ Phase 7E-1 adds the repeat loop after worksheet completion. It keeps worksheet h
 - Show a clear `Practice again` action.
 - Create a new active assignment instead of overwriting the failed assignment.
 - Link the repeat assignment to the previous assignment and latest attempt.
+- Show a `Review previous worksheet` link from an adaptive repeat so the old failed review remains discoverable.
 - If an active repeat already exists for the same student/topic, return it instead of creating a duplicate.
+- Do not accept blank or incomplete worksheet submissions; students must answer every question before submitting.
 
 ## One Active Assignment Rule
 
@@ -32,7 +34,7 @@ Repeat assignments store:
 - `adaptive_reason`
 - `adaptive_status`
 
-Phase 7E-1 uses this metadata for traceability and one reuse guard. Worksheet generation still starts from an empty assignment and keeps reuse-before-generate behavior, but adaptive repeats must not reattach the exact worksheet from the immediately previous failed assignment.
+Phase 7E-1 uses this metadata for traceability and reuse guards. Worksheet generation still starts from an empty assignment and keeps reuse-before-generate behavior, but adaptive repeats must not reattach any worksheet already attempted by the same student for the same grammar topic. If no unseen reviewed/approved reusable worksheet exists, the system should generate a new worksheet instead of cycling back to old failed practice.
 
 For normal `weakness_auto` assignments, worksheet preparation still depends on `student_grammar_stats.practice_unlocked` or an unlocked weakness level. For `adaptive_repeat` assignments, the repeat assignment itself is the unlock signal because it can only be created after `create_next_practice_assignment` validates a completed failed worksheet and caller permissions.
 

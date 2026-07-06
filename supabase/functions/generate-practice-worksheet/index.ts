@@ -586,19 +586,27 @@ async function determineLevel(admin: SupabaseAdminClient, assignment: Assignment
 }
 
 async function findReusableWorksheet(admin: SupabaseAdminClient, assignment: AssignmentRow, level: Level) {
-  let previousPracticeTestId: string | null = null;
-  if (assignment.source === "adaptive_repeat" && assignment.previous_assignment_id) {
-    const { data: previousAssignment, error: previousError } = await admin
+  const excludedPracticeTestIds = new Set<string>();
+  if (assignment.source === "adaptive_repeat") {
+    const { data: attemptedAssignments, error: attemptedError } = await admin
       .from("student_practice_assignments")
       .select("practice_test_id")
-      .eq("id", assignment.previous_assignment_id)
-      .maybeSingle();
+      .eq("workspace_id", assignment.workspace_id)
+      .eq("student_id", assignment.student_id)
+      .eq("grammar_topic_id", assignment.grammar_topic_id)
+      .in("status", ["completed", "passed", "failed"])
+      .not("practice_test_id", "is", null);
 
-    if (previousError) {
-      console.error("generate-practice-worksheet previous assignment lookup failed", previousError.message);
-      throw new WorksheetHttpError("Could not look up previous worksheet.", 500);
+    if (attemptedError) {
+      console.error("generate-practice-worksheet attempted worksheet lookup failed", attemptedError.message);
+      throw new WorksheetHttpError("Could not look up previous worksheets.", 500);
     }
-    previousPracticeTestId = previousAssignment?.practice_test_id ?? null;
+
+    for (const attemptedAssignment of attemptedAssignments ?? []) {
+      if (attemptedAssignment.practice_test_id) {
+        excludedPracticeTestIds.add(attemptedAssignment.practice_test_id);
+      }
+    }
   }
 
   const { data, error } = await admin
@@ -611,14 +619,14 @@ async function findReusableWorksheet(admin: SupabaseAdminClient, assignment: Ass
     .in("difficulty", ["easy", "medium"])
     .or("teacher_reviewed.eq.true,quality_status.eq.passed")
     .order("created_at", { ascending: false })
-    .limit(12);
+    .limit(50);
 
   if (error) {
     console.error("generate-practice-worksheet reusable lookup failed", error.message);
     throw new WorksheetHttpError("Could not look up reusable worksheets.", 500);
   }
 
-  const candidates = (data ?? []).filter((candidate) => candidate.id !== previousPracticeTestId);
+  const candidates = (data ?? []).filter((candidate) => !excludedPracticeTestIds.has(candidate.id));
   candidates.sort((left, right) => {
     const rankDelta = difficultyRank(level, left.difficulty) - difficultyRank(level, right.difficulty);
     if (rankDelta !== 0) return rankDelta;
