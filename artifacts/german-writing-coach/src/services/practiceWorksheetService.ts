@@ -7,6 +7,7 @@ type PracticeTestRow = Database["public"]["Tables"]["practice_tests"]["Row"];
 type GrammarTopicRow = Pick<Database["public"]["Tables"]["grammar_topics"]["Row"], "id" | "name" | "slug" | "description">;
 type ProfileRow = Pick<Database["public"]["Tables"]["profiles"]["Row"], "id" | "full_name" | "email">;
 type PracticeAssignmentRpcRow =
+  | Database["public"]["Functions"]["create_next_practice_assignment"]["Returns"][number]
   | Database["public"]["Functions"]["ensure_student_practice_assignment"]["Returns"][number]
   | Database["public"]["Functions"]["list_student_practice_assignments"]["Returns"][number]
   | Database["public"]["Functions"]["start_practice_assignment"]["Returns"][number]
@@ -71,6 +72,11 @@ export interface PracticeAssignmentSummary {
   generation_started_at: string | null;
   generation_completed_at: string | null;
   generation_error: string | null;
+  previous_assignment_id: string | null;
+  previous_attempt_id: string | null;
+  repeat_number: number;
+  adaptive_reason: string | null;
+  adaptive_status: string | null;
   student_name?: string | null;
   student_email?: string | null;
 }
@@ -206,6 +212,11 @@ type PracticeAssignmentWithGeneration = PracticeAssignmentRow & {
   generation_started_at?: string | null;
   generation_completed_at?: string | null;
   generation_error?: string | null;
+  previous_assignment_id?: string | null;
+  previous_attempt_id?: string | null;
+  repeat_number?: number | null;
+  adaptive_reason?: string | null;
+  adaptive_status?: string | null;
 };
 
 type PracticeTestWithMiniLesson = PracticeTestRow & {
@@ -249,6 +260,11 @@ function mapRpcAssignment(row: PracticeAssignmentRpcRow): PracticeAssignmentSumm
     generation_started_at: null,
     generation_completed_at: null,
     generation_error: null,
+    previous_assignment_id: null,
+    previous_attempt_id: null,
+    repeat_number: 0,
+    adaptive_reason: null,
+    adaptive_status: null,
   };
 }
 
@@ -289,6 +305,11 @@ function mapReviewAssignment(row: PracticeReviewRpcRow): PracticeAssignmentSumma
     generation_started_at: null,
     generation_completed_at: null,
     generation_error: null,
+    previous_assignment_id: null,
+    previous_attempt_id: null,
+    repeat_number: 0,
+    adaptive_reason: null,
+    adaptive_status: null,
   };
 }
 
@@ -348,6 +369,11 @@ function mapAssignmentFromTables(
     generation_started_at: assignment.generation_started_at ?? null,
     generation_completed_at: assignment.generation_completed_at ?? null,
     generation_error: assignment.generation_error ?? null,
+    previous_assignment_id: assignment.previous_assignment_id ?? null,
+    previous_attempt_id: assignment.previous_attempt_id ?? null,
+    repeat_number: assignment.repeat_number ?? 0,
+    adaptive_reason: assignment.adaptive_reason ?? null,
+    adaptive_status: assignment.adaptive_status ?? null,
     student_name: student?.full_name ?? student?.email ?? null,
     student_email: student?.email ?? null,
   };
@@ -467,6 +493,11 @@ function mapEdgeAssignment(row: EdgeAssignmentSummary): PracticeAssignmentSummar
     generation_started_at: asNullableString(row.generation_started_at),
     generation_completed_at: asNullableString(row.generation_completed_at),
     generation_error: asNullableString(row.generation_error),
+    previous_assignment_id: asNullableString(row.previous_assignment_id),
+    previous_attempt_id: asNullableString(row.previous_attempt_id),
+    repeat_number: asNullableNumber(row.repeat_number) ?? 0,
+    adaptive_reason: asNullableString(row.adaptive_reason),
+    adaptive_status: asNullableString(row.adaptive_status),
     student_name: asNullableString(row.student_name),
     student_email: asNullableString(row.student_email),
   };
@@ -619,6 +650,32 @@ export async function submitPracticeAttempt(
   const row = data?.[0];
   if (!row) throw new Error("Practice attempt result was not returned.");
   return mapRpcAssignment(row);
+}
+
+export async function createNextPracticeAssignment(assignmentId: string): Promise<PracticeAssignmentSummary> {
+  const client = requireClient();
+  const { data, error } = await client.rpc("create_next_practice_assignment", {
+    target_assignment_id: assignmentId,
+  });
+
+  if (error) throw error;
+  const row = data?.[0];
+  if (!row) throw new Error("Practice assignment was not returned.");
+  const summary = mapRpcAssignment(row);
+
+  const { data: assignmentRow, error: assignmentError } = await client
+    .from("student_practice_assignments")
+    .select("*")
+    .eq("id", summary.id)
+    .maybeSingle();
+  if (assignmentError) throw assignmentError;
+  if (!assignmentRow) return summary;
+
+  const hydrated = await hydrateAssignments([assignmentRow as PracticeAssignmentWithGeneration]);
+  return {
+    ...summary,
+    ...hydrated[0],
+  };
 }
 
 export async function evaluatePracticeAttempt(assignmentId: string): Promise<{

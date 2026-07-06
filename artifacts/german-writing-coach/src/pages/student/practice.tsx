@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -16,6 +16,7 @@ import {
   type StudentGrammarStat,
 } from "@/services/grammarStatsService";
 import {
+  createNextPracticeAssignment,
   ensureStudentPracticeAssignment,
   formatPracticeScore,
   getPracticeAssignmentBadgeClass,
@@ -27,6 +28,7 @@ import {
 
 export default function StudentPractice() {
   const { authMode, user, workspaceMemberships } = useAuth();
+  const [, navigate] = useLocation();
   const useRealData = authMode === "supabase" && Boolean(user);
   const workspaceId = getActiveWorkspaceId(workspaceMemberships);
   const student = MOCK_STUDENTS[0];
@@ -36,6 +38,7 @@ export default function StudentPractice() {
   const [loadingRealStats, setLoadingRealStats] = useState(useRealData);
   const [realStatsError, setRealStatsError] = useState<string | null>(null);
   const [preparingAssignments, setPreparingAssignments] = useState<Set<string>>(new Set());
+  const [advancingAssignments, setAdvancingAssignments] = useState<Set<string>>(new Set());
   
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [exercises, setExercises] = useState(PRACTICE_EXERCISES);
@@ -60,7 +63,12 @@ export default function StudentPractice() {
           return;
         }
         const stats = await listStudentGrammarStats(workspaceId, user!.id, 12);
-        const unlockedStats = stats.filter((stat) => stat.practice_unlocked || stat.weakness_level === "unlocked");
+        const existingAssignments = await listStudentPracticeAssignments(workspaceId, user!.id);
+        const existingAssignmentTopicIds = new Set(existingAssignments.map((assignment) => assignment.grammar_topic_id));
+        const unlockedStats = stats.filter((stat) => (
+          (stat.practice_unlocked || stat.weakness_level === "unlocked")
+          && !existingAssignmentTopicIds.has(stat.grammar_topic_id)
+        ));
         await Promise.all(
           unlockedStats.map((stat) =>
             ensureStudentPracticeAssignment(workspaceId, user!.id, stat.grammar_topic_id),
@@ -138,10 +146,45 @@ export default function StudentPractice() {
     }
   };
 
+  const handleCreateNextPractice = async (assignment: PracticeAssignmentSummary, navigateToAssignment = false) => {
+    try {
+      setRealStatsError(null);
+      setAdvancingAssignments((current) => new Set(current).add(assignment.id));
+      const nextAssignment = await createNextPracticeAssignment(assignment.id);
+      setRealAssignments((current) => [
+        nextAssignment,
+        ...current.filter((item) => item.id !== nextAssignment.id),
+      ]);
+      if (navigateToAssignment) {
+        navigate(`/student/practice/${nextAssignment.id}`);
+      }
+    } catch (error) {
+      setRealStatsError(formatErrorMessage(error, "Unable to prepare the next worksheet."));
+    } finally {
+      setAdvancingAssignments((current) => {
+        const next = new Set(current);
+        next.delete(assignment.id);
+        return next;
+      });
+    }
+  };
+
   const progress = exercises.length > 0 ? ((currentIdx + (isFinished ? 1 : 0)) / exercises.length) * 100 : 0;
 
   if (useRealData) {
-    const assignmentsByTopic = new Map(realAssignments.map((assignment) => [assignment.grammar_topic_id, assignment]));
+    const assignmentsByTopic = new Map<string, PracticeAssignmentSummary>();
+    for (const assignment of realAssignments) {
+      const existing = assignmentsByTopic.get(assignment.grammar_topic_id);
+      if (!existing) {
+        assignmentsByTopic.set(assignment.grammar_topic_id, assignment);
+        continue;
+      }
+      const assignmentIsActive = assignment.status === "unlocked" || assignment.status === "in_progress";
+      const existingIsActive = existing.status === "unlocked" || existing.status === "in_progress";
+      if (assignmentIsActive && !existingIsActive) {
+        assignmentsByTopic.set(assignment.grammar_topic_id, assignment);
+      }
+    }
     const groupedStats = {
       unlocked: realStats.filter((stat) => stat.practice_unlocked || stat.weakness_level === "unlocked"),
       weak: realStats.filter((stat) => !stat.practice_unlocked && stat.weakness_level === "weak"),
@@ -214,6 +257,7 @@ export default function StudentPractice() {
                           if (!assignment.practice_test_id) {
                             const isPreparing = preparingAssignments.has(assignment.id) || assignment.generation_status === "generating";
                             const didFail = assignment.generation_status === "failed";
+                            const isRepeat = assignment.source === "adaptive_repeat";
                             return (
                               <div className="mt-6 rounded-lg border border-dashed bg-muted/25 p-4">
                                 <div className="flex flex-wrap items-center justify-between gap-3">
@@ -226,7 +270,9 @@ export default function StudentPractice() {
                                         ? "Preparing worksheet..."
                                         : didFail
                                           ? assignment.generation_error ?? "Worksheet could not be prepared. Please try again later."
-                                          : "Practice unlocked. Prepare a worksheet when you are ready."}
+                                          : isRepeat
+                                            ? "Practice again is unlocked. Prepare the next worksheet when you are ready."
+                                            : "Practice unlocked. Prepare a worksheet when you are ready."}
                                     </p>
                                   </div>
                                   <Button
@@ -241,7 +287,13 @@ export default function StudentPractice() {
                                     ) : (
                                       <ClipboardList className="h-4 w-4 mr-2" />
                                     )}
-                                    {isPreparing ? "Preparing..." : didFail ? "Try again" : "Prepare worksheet"}
+                                    {isPreparing
+                                      ? "Preparing..."
+                                      : didFail
+                                        ? "Try again"
+                                        : isRepeat
+                                          ? "Prepare next worksheet"
+                                          : "Prepare worksheet"}
                                   </Button>
                                 </div>
                               </div>
@@ -266,16 +318,33 @@ export default function StudentPractice() {
                                     {assignment.worksheet_level ? ` · ${assignment.worksheet_level}` : ""}
                                   </p>
                                 </div>
-                                <Link href={`/student/practice/${assignment.id}`}>
-                                  <Button size="sm" variant={assignment.status === "in_progress" ? "default" : "outline"}>
-                                    <ClipboardList className="h-4 w-4 mr-2" />
-                                    {assignment.status === "in_progress"
-                                      ? "Continue worksheet"
-                                      : assignment.status === "unlocked"
-                                        ? "Start worksheet"
-                                        : "Review worksheet"}
-                                  </Button>
-                                </Link>
+                                <div className="flex flex-wrap gap-2">
+                                  <Link href={`/student/practice/${assignment.id}`}>
+                                    <Button size="sm" variant={assignment.status === "in_progress" ? "default" : "outline"}>
+                                      <ClipboardList className="h-4 w-4 mr-2" />
+                                      {assignment.status === "in_progress"
+                                        ? "Continue worksheet"
+                                        : assignment.status === "unlocked"
+                                          ? "Start worksheet"
+                                          : "Review worksheet"}
+                                    </Button>
+                                  </Link>
+                                  {assignment.status === "failed" && (
+                                    <Button
+                                      type="button"
+                                      size="sm"
+                                      disabled={advancingAssignments.has(assignment.id)}
+                                      onClick={() => void handleCreateNextPractice(assignment)}
+                                    >
+                                      {advancingAssignments.has(assignment.id) ? (
+                                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                                      ) : (
+                                        <RefreshCw className="h-4 w-4 mr-2" />
+                                      )}
+                                      Practice again
+                                    </Button>
+                                  )}
+                                </div>
                               </div>
                             </div>
                           );

@@ -912,6 +912,8 @@ export type Database = {
       }
       student_practice_assignments: {
         Row: {
+          adaptive_reason: string | null
+          adaptive_status: string | null
           assigned_at: string
           assigned_by: string | null
           completed_at: string | null
@@ -923,6 +925,9 @@ export type Database = {
           id: string
           latest_attempt_id: string | null
           practice_test_id: string | null
+          previous_assignment_id: string | null
+          previous_attempt_id: string | null
+          repeat_number: number
           source: string
           started_at: string | null
           status: string
@@ -931,6 +936,8 @@ export type Database = {
           workspace_id: string
         }
         Insert: {
+          adaptive_reason?: string | null
+          adaptive_status?: string | null
           assigned_at?: string
           assigned_by?: string | null
           completed_at?: string | null
@@ -942,6 +949,9 @@ export type Database = {
           id?: string
           latest_attempt_id?: string | null
           practice_test_id?: string | null
+          previous_assignment_id?: string | null
+          previous_attempt_id?: string | null
+          repeat_number?: number
           source?: string
           started_at?: string | null
           status?: string
@@ -950,6 +960,8 @@ export type Database = {
           workspace_id: string
         }
         Update: {
+          adaptive_reason?: string | null
+          adaptive_status?: string | null
           assigned_at?: string
           assigned_by?: string | null
           completed_at?: string | null
@@ -961,6 +973,9 @@ export type Database = {
           id?: string
           latest_attempt_id?: string | null
           practice_test_id?: string | null
+          previous_assignment_id?: string | null
+          previous_attempt_id?: string | null
+          repeat_number?: number
           source?: string
           started_at?: string | null
           status?: string
@@ -995,6 +1010,20 @@ export type Database = {
             columns: ["practice_test_id"]
             isOneToOne: false
             referencedRelation: "practice_tests"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_practice_assignments_previous_assignment_id_fkey"
+            columns: ["previous_assignment_id"]
+            isOneToOne: false
+            referencedRelation: "student_practice_assignments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_practice_assignments_previous_attempt_id_fkey"
+            columns: ["previous_attempt_id"]
+            isOneToOne: false
+            referencedRelation: "practice_test_attempts"
             referencedColumns: ["id"]
           },
           {
@@ -1408,6 +1437,33 @@ export type Database = {
           membership_id: string
           status: string
           student_id: string
+          workspace_id: string
+        }[]
+      }
+      create_next_practice_assignment: {
+        Args: { target_assignment_id: string }
+        Returns: {
+          assigned_at: string
+          assignment_id: string
+          completed_at: string
+          grammar_topic_id: string
+          grammar_topic_name: string
+          grammar_topic_slug: string
+          latest_attempt_id: string
+          latest_attempt_status: string
+          max_score: number
+          passed: boolean
+          practice_test_id: string
+          question_count: number
+          score: number
+          score_percent: number
+          source: string
+          started_at: string
+          status: string
+          student_id: string
+          worksheet_difficulty: string
+          worksheet_level: string
+          worksheet_title: string
           workspace_id: string
         }[]
       }

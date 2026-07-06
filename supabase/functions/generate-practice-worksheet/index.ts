@@ -20,6 +20,11 @@ type AssignmentRow = {
   generation_started_at: string | null;
   generation_completed_at: string | null;
   generation_error: string | null;
+  previous_assignment_id: string | null;
+  previous_attempt_id: string | null;
+  repeat_number: number | null;
+  adaptive_reason: string | null;
+  adaptive_status: string | null;
 };
 
 type GrammarTopicRow = {
@@ -560,6 +565,21 @@ async function determineLevel(admin: SupabaseAdminClient, assignment: Assignment
 }
 
 async function findReusableWorksheet(admin: SupabaseAdminClient, assignment: AssignmentRow, level: Level) {
+  let previousPracticeTestId: string | null = null;
+  if (assignment.source === "adaptive_repeat" && assignment.previous_assignment_id) {
+    const { data: previousAssignment, error: previousError } = await admin
+      .from("student_practice_assignments")
+      .select("practice_test_id")
+      .eq("id", assignment.previous_assignment_id)
+      .maybeSingle();
+
+    if (previousError) {
+      console.error("generate-practice-worksheet previous assignment lookup failed", previousError.message);
+      throw new WorksheetHttpError("Could not look up previous worksheet.", 500);
+    }
+    previousPracticeTestId = previousAssignment?.practice_test_id ?? null;
+  }
+
   const { data, error } = await admin
     .from("practice_tests")
     .select("id, difficulty, created_at, teacher_reviewed, quality_status")
@@ -577,7 +597,7 @@ async function findReusableWorksheet(admin: SupabaseAdminClient, assignment: Ass
     throw new WorksheetHttpError("Could not look up reusable worksheets.", 500);
   }
 
-  const candidates = data ?? [];
+  const candidates = (data ?? []).filter((candidate) => candidate.id !== previousPracticeTestId);
   candidates.sort((left, right) => {
     const rankDelta = difficultyRank(level, left.difficulty) - difficultyRank(level, right.difficulty);
     if (rankDelta !== 0) return rankDelta;
