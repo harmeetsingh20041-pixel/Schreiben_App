@@ -83,6 +83,13 @@ class WorksheetHttpError extends Error {
   }
 }
 
+class WorksheetQualityError extends WorksheetHttpError {
+  constructor(reason: string) {
+    super(`Worksheet quality check failed: ${compactText(reason, 220) || "Generated worksheet did not meet the quality standard."}`, 422);
+    this.name = "WorksheetQualityError";
+  }
+}
+
 function extractJsonObject(content: string) {
   const trimmed = content.trim();
   if (trimmed.startsWith("{") && trimmed.endsWith("}")) return trimmed;
@@ -97,6 +104,12 @@ function normalizeText(value: string) {
 
 function compactText(value: unknown, maxLength: number) {
   return cleanString(value).replace(/\s+/g, " ").slice(0, maxLength).trim();
+}
+
+function normalizeGeneratedQuestionType(value: unknown) {
+  const rawType = compactText(value, 40).toLowerCase().replace(/[\s-]+/g, "_");
+  if (rawType === "correction") return "sentence_correction";
+  return rawType;
 }
 
 function sanitizeOptions(value: unknown) {
@@ -158,7 +171,13 @@ function assertExactAnswerSafeQuestion(
   }
 
   if (questionType === "sentence_correction") {
-    if (!/\b(correct|corrected sentence|fix|korrigiere|berichtige)\b/i.test(prompt)) {
+    const asksForCorrectedSentence =
+      /\b(correct|corrected sentence|corrected version|correct version|fix|repair|revise|rewrite|improve)\b/i.test(prompt)
+      || /\b(korrigiere|berichtige|verbessere|schreibe.*richtig|richtige version|richtigen satz)\b/i.test(prompt)
+      || (/\b(error|mistake|incorrect|wrong|fehler|falsch)\b/i.test(prompt)
+        && /\b(sentence|satz|version)\b/i.test(prompt)
+        && /\b(write|rewrite|correct|fix|schreibe|korrigiere|berichtige|verbessere)\b/i.test(prompt));
+    if (!asksForCorrectedSentence) {
       throw new Error("Sentence-correction questions must ask for one corrected sentence.");
     }
     if (/\b(two|three|2|3|multiple|several|sentences)\b/i.test(normalizedPrompt)) {
@@ -199,7 +218,9 @@ function topicGuidance(topic: GrammarTopicRow) {
   const key = `${topic.slug} ${topic.name}`.toLowerCase();
   if (key.includes("dativ") || key.includes("akkusativ")) {
     return [
-      "Use article choice, fill-the-article, wrong-case correction, receiver/person identification, and sentence transformation.",
+      "Use article choice, fill-the-article, wrong-case sentence correction, and tightly controlled sentence transformation.",
+      "If you ask students to identify the receiver/person or direct object, make it multiple_choice. Do not use open short_answer tasks.",
+      "Use exact question_type values. For corrections, use sentence_correction, not correction.",
       "Keep the case contrast visible. Do not drift into advanced adjective endings.",
     ].join("\n");
   }
@@ -332,7 +353,7 @@ function validateWorksheetPayload(value: unknown, args: {
       throw new Error("Invalid question entry.");
     }
     const questionRecord = question as Record<string, unknown>;
-    const questionType = compactText(questionRecord.question_type ?? questionRecord.type, 40);
+    const questionType = normalizeGeneratedQuestionType(questionRecord.question_type ?? questionRecord.type);
     const prompt = compactText(questionRecord.prompt, 800);
     const options = sanitizeOptions(questionRecord.options);
     const correctAnswer = compactText(
@@ -792,7 +813,7 @@ Worksheet requirements:
 - Keep all answer keys exact, non-empty, and single-answer. Do not use "or", "/", semicolons, pipes, or answer alternatives.
 - multiple_choice is safe only when the correct answer appears exactly once in options.
 - fill_blank is safe only when exactly one blank and one exact answer are expected.
-- sentence_correction is safe only when the prompt asks for one corrected sentence.
+- sentence_correction is safe only when the prompt explicitly asks for the full corrected sentence. Use clear wording like "Correct this sentence:" or "Rewrite the sentence correctly:".
 - word_order is safe only when all required words/phrases are given and one exact target answer is expected. Use at least 6 chunks, avoid "starting with" hints, and do not make proper-noun capitalization the only real challenge.
 - For A2 verb-position or word-order worksheets, word_order tasks should practice fronted elements, weil/dass/ob subordinate clauses, or verb-second versus verb-final contrast.
 - transformation and rewrite_sentence are safe only when tightly controlled with one exact expected answer.
@@ -983,18 +1004,24 @@ Deno.serve(async (req) => {
       throw new Error("Worksheet provider returned an error.");
     }
 
-    const providerJson = await providerResponse.json();
-    const content = providerJson?.choices?.[0]?.message?.content;
-    if (typeof content !== "string" || !content.trim()) {
-      throw new Error("Worksheet provider returned empty content.");
-    }
+    let worksheet: GeneratedWorksheet;
+    try {
+      const providerJson = await providerResponse.json();
+      const content = providerJson?.choices?.[0]?.message?.content;
+      if (typeof content !== "string" || !content.trim()) {
+        throw new Error("Worksheet provider returned empty content.");
+      }
 
-    const worksheet = validateWorksheetPayload(JSON.parse(extractJsonObject(content)), {
-      level,
-      topic: grammarTopic,
-      difficulty,
-    });
-    assertNoSnippetLeak(worksheet, snippets);
+      worksheet = validateWorksheetPayload(JSON.parse(extractJsonObject(content)), {
+        level,
+        topic: grammarTopic,
+        difficulty,
+      });
+      assertNoSnippetLeak(worksheet, snippets);
+    } catch (qualityError) {
+      const qualityMessage = qualityError instanceof Error ? qualityError.message : "Generated worksheet did not meet the quality standard.";
+      throw new WorksheetQualityError(qualityMessage);
+    }
 
     const { data: savedWorksheet, error: worksheetError } = await admin
       .from("practice_tests")
@@ -1071,7 +1098,9 @@ Deno.serve(async (req) => {
     const responseMessage = status >= 500
       ? SAFE_GENERATION_ERROR
       : message;
-    if (!(error instanceof WorksheetHttpError) || status >= 500) {
+    if (error instanceof WorksheetQualityError) {
+      await markGenerationFailed(admin, assignmentId, message);
+    } else if (!(error instanceof WorksheetHttpError) || status >= 500) {
       console.error("generate-practice-worksheet failed", message);
       await markGenerationFailed(admin, assignmentId, SAFE_GENERATION_ERROR);
     }
