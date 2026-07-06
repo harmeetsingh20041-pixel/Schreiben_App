@@ -60,6 +60,14 @@ type GeneratedWorksheet = {
   questions: GeneratedQuestion[];
 };
 
+type WorksheetEnvelope = Omit<GeneratedWorksheet, "questions"> & {
+  rawQuestions: unknown[];
+};
+
+type GenerationStage = "reuse_lookup" | "provider_call" | "parse" | "validate" | "save" | "fallback";
+type GenerationSafeStatus = "started" | "failed" | "succeeded";
+type GenerationSource = "deepseek" | "system_fallback";
+
 const localScorableTypes = new Set([
   "multiple_choice",
   "fill_blank",
@@ -73,6 +81,7 @@ const SAFE_GENERATION_ERROR = "Worksheet could not be prepared. Please try again
 const STALE_GENERATION_LOCK_MS = 15 * 60 * 1000;
 const PROVIDER_TIMEOUT_MS = 80 * 1000;
 const MAX_GENERATION_ATTEMPTS = 3;
+const FALLBACK_SOURCE: GenerationSource = "system_fallback";
 
 class WorksheetHttpError extends Error {
   status: number;
@@ -110,6 +119,14 @@ function compactText(value: unknown, maxLength: number) {
   return cleanString(value).replace(/\s+/g, " ").slice(0, maxLength).trim();
 }
 
+function getTargetQuestionCount(level: Level) {
+  return level === "A2" ? 9 : 8;
+}
+
+function getCandidateQuestionCount(level: Level) {
+  return getTargetQuestionCount(level) + 3;
+}
+
 function normalizeGeneratedQuestionType(value: unknown) {
   const rawType = compactText(value, 40).toLowerCase().replace(/[\s-]+/g, "_");
   if (rawType === "correction") return "sentence_correction";
@@ -127,6 +144,10 @@ function sanitizeOptions(value: unknown) {
 
 function containsForbiddenStudentText(value: string) {
   return /\b(deepseek|ai model|language model|chatgpt|correct answer|answer key|scoring metadata)\b/i.test(value);
+}
+
+function normalizePromptKey(prompt: string) {
+  return normalizeText(prompt).replace(/[_\W]+/g, "");
 }
 
 function hasAlternativeAnswerMarker(value: string) {
@@ -367,11 +388,11 @@ function validateMiniLesson(value: unknown): MiniLesson {
   return miniLesson;
 }
 
-function validateWorksheetPayload(value: unknown, args: {
+function validateWorksheetEnvelope(value: unknown, args: {
   level: Level;
   topic: GrammarTopicRow;
   difficulty: Difficulty;
-}): GeneratedWorksheet {
+}): WorksheetEnvelope {
   if (!value || typeof value !== "object") {
     throw new Error("Worksheet response must be an object.");
   }
@@ -398,92 +419,8 @@ function validateWorksheetPayload(value: unknown, args: {
 
   const miniLesson = validateMiniLesson(record.mini_lesson);
   const questionsSource = Array.isArray(record.questions) ? record.questions : [];
-  const minQuestions = args.level === "A2" ? 8 : 6;
-  const maxQuestions = args.level === "A2" ? 10 : 10;
-  if (questionsSource.length < minQuestions || questionsSource.length > maxQuestions) {
-    throw new Error("Worksheet question count is outside the allowed range.");
-  }
-
-  const normalizedPrompts = new Set<string>();
-  let multipleChoiceCount = 0;
-  let fillBlankCount = 0;
-  let correctionCount = 0;
-  let productionCount = 0;
-
-  const questions = questionsSource.map((question, index) => {
-    if (!question || typeof question !== "object") {
-      throw new Error("Invalid question entry.");
-    }
-    const questionRecord = question as Record<string, unknown>;
-    const questionType = normalizeGeneratedQuestionType(questionRecord.question_type ?? questionRecord.type);
-    const prompt = compactText(questionRecord.prompt, 800);
-    const options = sanitizeOptions(questionRecord.options);
-    const correctAnswer = compactText(
-      questionRecord.correct_answer ?? questionRecord.answer_key ?? questionRecord.answer,
-      500,
-    );
-    const explanation = compactText(questionRecord.explanation, 600);
-    const questionNumber = Number(questionRecord.question_number ?? index + 1);
-
-    if (!Number.isInteger(questionNumber) || questionNumber !== index + 1) {
-      throw new Error("Question numbers must be sequential.");
-    }
-    if (!localScorableTypes.has(questionType)) {
-      throw new Error(`Unsupported question type: ${questionType}`);
-    }
-    if (!prompt || prompt.length < 12) {
-      throw new Error("Question prompt is too short.");
-    }
-    if (containsForbiddenStudentText(prompt) || options.some(containsForbiddenStudentText)) {
-      throw new Error("Question contains answer leakage or model-facing text.");
-    }
-    if (!explanation) {
-      throw new Error("Every question must include an explanation.");
-    }
-    if (localScorableTypes.has(questionType) && !correctAnswer) {
-      throw new Error("Locally scorable questions require a non-empty answer key.");
-    }
-    assertExactAnswerSafeQuestion(questionType, prompt, correctAnswer, { topic: args.topic, level: args.level });
-    if (questionType === "multiple_choice") {
-      multipleChoiceCount += 1;
-      if (options.length < 3 || options.length > 4) {
-        throw new Error("Multiple-choice questions need 3-4 display options.");
-      }
-      const normalizedOptions = options.map(normalizeText);
-      const matchingAnswers = normalizedOptions.filter((option) => option === normalizeText(correctAnswer)).length;
-      if (matchingAnswers !== 1) {
-        throw new Error("Multiple-choice answer must appear exactly once in options.");
-      }
-      if (new Set(normalizedOptions).size !== normalizedOptions.length) {
-        throw new Error("Multiple-choice options must not be duplicated.");
-      }
-    }
-    if (questionType === "fill_blank") fillBlankCount += 1;
-    if (questionType === "correction" || questionType === "sentence_correction") correctionCount += 1;
-    if (["word_order", "transformation", "rewrite_sentence", "short_answer"].includes(questionType)) {
-      productionCount += 1;
-    }
-
-    const normalizedPrompt = normalizeText(prompt).replace(/[_\W]+/g, "");
-    if (normalizedPrompts.has(normalizedPrompt)) {
-      throw new Error("Worksheet contains duplicate questions.");
-    }
-    normalizedPrompts.add(normalizedPrompt);
-
-    return {
-      question_number: questionNumber,
-      question_type: questionType,
-      prompt,
-      options,
-      correct_answer: localScorableTypes.has(questionType) ? correctAnswer : "manual_review",
-      explanation,
-    };
-  });
-
-  if (args.level === "A2") {
-    if (multipleChoiceCount < 2 || fillBlankCount < 2 || correctionCount < 2 || productionCount < 1) {
-      throw new Error("A2 worksheet mix does not meet the quality target.");
-    }
+  if (questionsSource.length === 0) {
+    throw new Error("Worksheet response did not include any question candidates.");
   }
 
   return {
@@ -491,7 +428,168 @@ function validateWorksheetPayload(value: unknown, args: {
     level: level as Level,
     difficulty: difficulty as Difficulty,
     mini_lesson: miniLesson,
-    questions,
+    rawQuestions: questionsSource,
+  };
+}
+
+function validateQuestionCandidate(question: unknown, index: number, args: {
+  level: Level;
+  topic: GrammarTopicRow;
+}): GeneratedQuestion {
+  if (!question || typeof question !== "object") {
+    throw new Error("Invalid question entry.");
+  }
+
+  const questionRecord = question as Record<string, unknown>;
+  const questionType = normalizeGeneratedQuestionType(questionRecord.question_type ?? questionRecord.type);
+  const prompt = compactText(questionRecord.prompt, 800);
+  const rawOptions = questionRecord.options;
+  const options = sanitizeOptions(rawOptions);
+  const correctAnswer = compactText(
+    questionRecord.correct_answer ?? questionRecord.answer_key ?? questionRecord.answer,
+    500,
+  );
+  const explanation = compactText(questionRecord.explanation, 600);
+  const providedQuestionNumber = Number(questionRecord.question_number ?? index + 1);
+
+  if (!localScorableTypes.has(questionType)) {
+    throw new Error(`Unsupported question type: ${questionType || "missing"}`);
+  }
+  if (!prompt || prompt.length < 12) {
+    throw new Error("Question prompt is too short.");
+  }
+  if (containsForbiddenStudentText(prompt) || options.some(containsForbiddenStudentText)) {
+    throw new Error("Question contains answer leakage or model-facing text.");
+  }
+  if (!explanation) {
+    throw new Error("Every question must include an explanation.");
+  }
+  if (localScorableTypes.has(questionType) && !correctAnswer) {
+    throw new Error("Locally scorable questions require a non-empty answer key.");
+  }
+  if (rawOptions !== undefined && rawOptions !== null) {
+    if (!Array.isArray(rawOptions)) {
+      throw new Error("Question options must be an array of plain strings.");
+    }
+    if (rawOptions.some((option) => typeof option !== "string")) {
+      throw new Error("Question options must not contain objects or hidden metadata.");
+    }
+  }
+
+  assertExactAnswerSafeQuestion(questionType, prompt, correctAnswer, { topic: args.topic, level: args.level });
+
+  if (questionType === "multiple_choice") {
+    if (options.length < 3 || options.length > 4) {
+      throw new Error("Multiple-choice questions need 3-4 display options.");
+    }
+    const normalizedOptions = options.map(normalizeText);
+    const matchingAnswers = normalizedOptions.filter((option) => option === normalizeText(correctAnswer)).length;
+    if (matchingAnswers !== 1) {
+      throw new Error("Multiple-choice answer must appear exactly once in options.");
+    }
+    if (new Set(normalizedOptions).size !== normalizedOptions.length) {
+      throw new Error("Multiple-choice options must not be duplicated.");
+    }
+  }
+
+  return {
+    question_number: Number.isInteger(providedQuestionNumber) ? providedQuestionNumber : index + 1,
+    question_type: questionType,
+    prompt,
+    options,
+    correct_answer: correctAnswer,
+    explanation,
+  };
+}
+
+function pickQuestionsByType(
+  questions: GeneratedQuestion[],
+  selected: GeneratedQuestion[],
+  selectedKeys: Set<string>,
+  predicate: (question: GeneratedQuestion) => boolean,
+  needed: number,
+) {
+  for (const question of questions) {
+    if (selected.length >= needed) break;
+    const key = normalizePromptKey(question.prompt);
+    if (selectedKeys.has(key) || !predicate(question)) continue;
+    selected.push(question);
+    selectedKeys.add(key);
+  }
+}
+
+function selectFinalQuestions(questions: GeneratedQuestion[], args: { level: Level }) {
+  const targetCount = getTargetQuestionCount(args.level);
+  if (questions.length < targetCount) {
+    throw new Error(`Only ${questions.length} valid question candidates remained; ${targetCount} are required.`);
+  }
+
+  let selected: GeneratedQuestion[] = [];
+  const selectedKeys = new Set<string>();
+
+  if (args.level === "A2") {
+    const isCorrection = (question: GeneratedQuestion) => question.question_type === "sentence_correction";
+    const isProduction = (question: GeneratedQuestion) =>
+      ["word_order", "transformation", "rewrite_sentence"].includes(question.question_type);
+
+    pickQuestionsByType(questions, selected, selectedKeys, (question) => question.question_type === "multiple_choice", 2);
+    pickQuestionsByType(questions, selected, selectedKeys, (question) => question.question_type === "fill_blank", 4);
+    pickQuestionsByType(questions, selected, selectedKeys, isCorrection, 6);
+    pickQuestionsByType(questions, selected, selectedKeys, isProduction, 7);
+
+    const counts = {
+      multipleChoice: selected.filter((question) => question.question_type === "multiple_choice").length,
+      fillBlank: selected.filter((question) => question.question_type === "fill_blank").length,
+      correction: selected.filter(isCorrection).length,
+      production: selected.filter(isProduction).length,
+    };
+    if (counts.multipleChoice < 2 || counts.fillBlank < 2 || counts.correction < 2 || counts.production < 1) {
+      throw new Error("Valid question candidates do not meet the A2 exercise mix target.");
+    }
+  }
+
+  for (const question of questions) {
+    if (selected.length >= targetCount) break;
+    const key = normalizePromptKey(question.prompt);
+    if (selectedKeys.has(key)) continue;
+    selected.push(question);
+    selectedKeys.add(key);
+  }
+
+  if (selected.length < targetCount) {
+    throw new Error(`Only ${selected.length} usable non-duplicate questions remained; ${targetCount} are required.`);
+  }
+
+  return selected.slice(0, targetCount).map((question, index) => ({
+    ...question,
+    question_number: index + 1,
+  }));
+}
+
+function validateWorksheetPayload(value: unknown, args: {
+  level: Level;
+  topic: GrammarTopicRow;
+  difficulty: Difficulty;
+}): GeneratedWorksheet {
+  const envelope = validateWorksheetEnvelope(value, args);
+  const normalizedPrompts = new Set<string>();
+  const questions: GeneratedQuestion[] = [];
+  for (let index = 0; index < envelope.rawQuestions.length; index += 1) {
+    const question = validateQuestionCandidate(envelope.rawQuestions[index], index, args);
+    const normalizedPrompt = normalizePromptKey(question.prompt);
+    if (normalizedPrompts.has(normalizedPrompt)) {
+      throw new Error("Worksheet contains duplicate questions.");
+    }
+    normalizedPrompts.add(normalizedPrompt);
+    questions.push(question);
+  }
+
+  return {
+    title: envelope.title,
+    level: envelope.level,
+    difficulty: envelope.difficulty,
+    mini_lesson: envelope.mini_lesson,
+    questions: selectFinalQuestions(questions, { level: args.level }),
   };
 }
 
@@ -567,6 +665,38 @@ async function loadAssignment(admin: SupabaseAdminClient, assignmentId: string) 
   }
   if (!data) throw new WorksheetHttpError("Practice assignment was not found.", 404);
   return data as AssignmentRow;
+}
+
+async function recordGenerationEvent(
+  admin: SupabaseAdminClient,
+  assignment: Pick<AssignmentRow, "id" | "workspace_id" | "student_id" | "grammar_topic_id">,
+  event: {
+    attempt_number?: number | null;
+    stage: GenerationStage;
+    safe_status: GenerationSafeStatus;
+    developer_reason?: string | null;
+    question_number?: number | null;
+    question_type?: string | null;
+  },
+) {
+  const { error } = await admin
+    .from("practice_generation_events")
+    .insert({
+      assignment_id: assignment.id,
+      workspace_id: assignment.workspace_id,
+      student_id: assignment.student_id,
+      grammar_topic_id: assignment.grammar_topic_id,
+      attempt_number: event.attempt_number ?? null,
+      stage: event.stage,
+      safe_status: event.safe_status,
+      developer_reason: event.developer_reason ? compactText(event.developer_reason, 1000) : null,
+      question_number: event.question_number ?? null,
+      question_type: event.question_type ? compactText(event.question_type, 60) : null,
+    });
+
+  if (error) {
+    console.warn("generate-practice-worksheet diagnostic write failed", error.message);
+  }
 }
 
 async function loadAssignmentSummary(admin: SupabaseAdminClient, assignmentId: string) {
@@ -857,10 +987,14 @@ function buildUserPrompt(args: {
   difficulty: Difficulty;
   snippets: Array<{ original: string; corrected: string; note: string }>;
   previousRejectionReasons?: string[];
+  acceptedPrompts?: string[];
+  missingQuestionCount?: number;
 }) {
-  const questionTarget = args.level === "A2"
-    ? "Create exactly 9 questions."
-    : "Create 8 questions.";
+  const targetCount = getTargetQuestionCount(args.level);
+  const candidateCount = getCandidateQuestionCount(args.level);
+  const questionTarget = args.missingQuestionCount && args.missingQuestionCount > 0
+    ? `Create ${Math.max(args.missingQuestionCount + 3, args.missingQuestionCount)} additional candidate questions. They must be new and must not duplicate accepted prompts.`
+    : `Create ${candidateCount} candidate questions. The system will keep the best ${targetCount} valid questions.`;
   const snippets = args.snippets.length > 0
     ? args.snippets.map((snippet, index) => (
       `${index + 1}. Original: ${snippet.original}\n   Better: ${snippet.corrected}\n   Note: ${snippet.note}`
@@ -868,6 +1002,9 @@ function buildUserPrompt(args: {
     : "No recent mistake snippets are available. Use realistic short learner examples for this exact topic.";
   const repairContext = args.previousRejectionReasons?.length
     ? `\nPrevious generated draft failed local validation for these reasons:\n${args.previousRejectionReasons.map((reason) => `- ${reason}`).join("\n")}\nRepair all of those issues. Do not repeat the failed pattern.\n`
+    : "";
+  const acceptedContext = args.acceptedPrompts?.length
+    ? `\nAlready accepted question prompts. Do not duplicate or paraphrase these:\n${args.acceptedPrompts.map((prompt) => `- ${prompt}`).join("\n")}\n`
     : "";
 
   return `Target level: ${args.level}
@@ -882,6 +1019,7 @@ ${topicGuidance(args.topic)}
 Recent same-student mistake snippets, anonymized and shortened:
 ${snippets}
 ${repairContext}
+${acceptedContext}
 
 Worksheet requirements:
 - ${questionTarget}
@@ -931,6 +1069,8 @@ Return exactly this JSON shape:
 }
 
 async function generateValidatedWorksheet(args: {
+  admin: SupabaseAdminClient;
+  assignment: AssignmentRow;
   apiKey: string;
   model: string;
   grammarTopic: GrammarTopicRow;
@@ -939,53 +1079,163 @@ async function generateValidatedWorksheet(args: {
   snippets: Array<{ original: string; corrected: string; note: string }>;
 }) {
   const rejectionReasons: string[] = [];
+  const acceptedQuestions: GeneratedQuestion[] = [];
+  const acceptedPromptKeys = new Set<string>();
+  let acceptedEnvelope: WorksheetEnvelope | null = null;
+  const targetQuestionCount = getTargetQuestionCount(args.level);
 
   for (let attempt = 1; attempt <= MAX_GENERATION_ATTEMPTS; attempt += 1) {
-    const providerResponse = await fetchDeepSeekWorksheet(args.apiKey, {
-      model: args.model,
-      messages: [
-        { role: "system", content: buildSystemPrompt() },
-        {
-          role: "user",
-          content: buildUserPrompt({
-            topic: args.grammarTopic,
-            level: args.level,
-            difficulty: args.difficulty,
-            snippets: args.snippets,
-            previousRejectionReasons: rejectionReasons.slice(-2),
-          }),
-        },
-      ],
-      response_format: { type: "json_object" },
-      temperature: attempt === 1 ? 0.35 : 0.2,
-      max_tokens: 7000,
-      stream: false,
+    const missingQuestionCount = Math.max(targetQuestionCount - acceptedQuestions.length, 0);
+    await recordGenerationEvent(args.admin, args.assignment, {
+      attempt_number: attempt,
+      stage: "provider_call",
+      safe_status: "started",
+      developer_reason: `Requesting worksheet candidates; accepted_so_far=${acceptedQuestions.length}; missing=${missingQuestionCount}.`,
     });
 
-    if (!providerResponse.ok) {
-      console.error("generate-practice-worksheet provider failed", providerResponse.status);
-      throw new Error("Worksheet provider returned an error.");
-    }
-
     try {
+      const providerResponse = await fetchDeepSeekWorksheet(args.apiKey, {
+        model: args.model,
+        messages: [
+          { role: "system", content: buildSystemPrompt() },
+          {
+            role: "user",
+            content: buildUserPrompt({
+              topic: args.grammarTopic,
+              level: args.level,
+              difficulty: args.difficulty,
+              snippets: args.snippets,
+              previousRejectionReasons: rejectionReasons.slice(-8),
+              acceptedPrompts: acceptedQuestions.map((question) => question.prompt).slice(-10),
+              missingQuestionCount: attempt > 1 ? missingQuestionCount : undefined,
+            }),
+          },
+        ],
+        response_format: { type: "json_object" },
+        temperature: attempt === 1 ? 0.35 : 0.2,
+        max_tokens: 7500,
+        stream: false,
+      });
+
+      if (!providerResponse.ok) {
+        const reason = `Worksheet provider returned HTTP ${providerResponse.status}.`;
+        rejectionReasons.push(reason);
+        console.error("generate-practice-worksheet provider failed", providerResponse.status);
+        await recordGenerationEvent(args.admin, args.assignment, {
+          attempt_number: attempt,
+          stage: "provider_call",
+          safe_status: "failed",
+          developer_reason: reason,
+        });
+        continue;
+      }
+
+      await recordGenerationEvent(args.admin, args.assignment, {
+        attempt_number: attempt,
+        stage: "provider_call",
+        safe_status: "succeeded",
+      });
+
       const providerJson = await providerResponse.json();
       const content = providerJson?.choices?.[0]?.message?.content;
       if (typeof content !== "string" || !content.trim()) {
         throw new Error("Worksheet provider returned empty content.");
       }
 
-      const worksheet = validateWorksheetPayload(JSON.parse(extractJsonObject(content)), {
+      const parsed = JSON.parse(extractJsonObject(content));
+      const envelope = validateWorksheetEnvelope(parsed, {
         level: args.level,
         topic: args.grammarTopic,
         difficulty: args.difficulty,
       });
-      assertNoSnippetLeak(worksheet, args.snippets);
-      return worksheet;
+      acceptedEnvelope ??= envelope;
+      await recordGenerationEvent(args.admin, args.assignment, {
+        attempt_number: attempt,
+        stage: "parse",
+        safe_status: "succeeded",
+        developer_reason: `Provider returned ${envelope.rawQuestions.length} candidate questions.`,
+      });
+
+      let validThisAttempt = 0;
+      for (let index = 0; index < envelope.rawQuestions.length; index += 1) {
+        const rawQuestion = envelope.rawQuestions[index];
+        const rawRecord = rawQuestion && typeof rawQuestion === "object" ? rawQuestion as Record<string, unknown> : {};
+        const rawQuestionNumber = Number(rawRecord.question_number ?? index + 1);
+        const rawQuestionType = normalizeGeneratedQuestionType(rawRecord.question_type ?? rawRecord.type);
+        try {
+          const question = validateQuestionCandidate(rawQuestion, index, {
+            level: args.level,
+            topic: args.grammarTopic,
+          });
+          const promptKey = normalizePromptKey(question.prompt);
+          if (acceptedPromptKeys.has(promptKey)) {
+            throw new Error("Duplicate or near-duplicate question prompt.");
+          }
+          acceptedPromptKeys.add(promptKey);
+          acceptedQuestions.push(question);
+          validThisAttempt += 1;
+        } catch (questionError) {
+          const reason = questionError instanceof Error
+            ? questionError.message
+            : "Question candidate failed validation.";
+          rejectionReasons.push(compactText(reason, 220));
+          await recordGenerationEvent(args.admin, args.assignment, {
+            attempt_number: attempt,
+            stage: "validate",
+            safe_status: "failed",
+            developer_reason: reason,
+            question_number: Number.isInteger(rawQuestionNumber) ? rawQuestionNumber : index + 1,
+            question_type: rawQuestionType || null,
+          });
+        }
+      }
+
+      await recordGenerationEvent(args.admin, args.assignment, {
+        attempt_number: attempt,
+        stage: "validate",
+        safe_status: validThisAttempt > 0 ? "succeeded" : "failed",
+        developer_reason: `Accepted ${validThisAttempt} candidate questions this attempt; accepted_total=${acceptedQuestions.length}.`,
+      });
+
+      if (acceptedEnvelope) {
+        try {
+          const selectedQuestions = selectFinalQuestions(acceptedQuestions, { level: args.level });
+          const worksheet = {
+            title: acceptedEnvelope.title,
+            level: acceptedEnvelope.level,
+            difficulty: acceptedEnvelope.difficulty,
+            mini_lesson: acceptedEnvelope.mini_lesson,
+            questions: selectedQuestions,
+          };
+          assertNoSnippetLeak(worksheet, args.snippets);
+          return worksheet;
+        } catch (selectionError) {
+          const selectionReason = selectionError instanceof Error
+            ? selectionError.message
+            : "Accepted question set did not meet final worksheet requirements.";
+          rejectionReasons.push(compactText(selectionReason, 220));
+          await recordGenerationEvent(args.admin, args.assignment, {
+            attempt_number: attempt,
+            stage: "validate",
+            safe_status: "failed",
+            developer_reason: selectionReason,
+          });
+        }
+      }
     } catch (qualityError) {
       const qualityMessage = qualityError instanceof Error
         ? qualityError.message
         : "Generated worksheet did not meet the quality standard.";
       rejectionReasons.push(compactText(qualityMessage, 220));
+      const failedStage: GenerationStage = /\b(provider|request|timed out|fetch|http)\b/i.test(qualityMessage)
+        ? "provider_call"
+        : "parse";
+      await recordGenerationEvent(args.admin, args.assignment, {
+        attempt_number: attempt,
+        stage: failedStage,
+        safe_status: "failed",
+        developer_reason: qualityMessage,
+      });
       console.warn(
         "generate-practice-worksheet validation rejected candidate",
         JSON.stringify({ attempt, reason: rejectionReasons[rejectionReasons.length - 1] }),
@@ -994,6 +1244,483 @@ async function generateValidatedWorksheet(args: {
   }
 
   throw new WorksheetQualityError(rejectionReasons.join(" | "));
+}
+
+function buildFallbackMiniLesson(topicName: string): MiniLesson {
+  const topic = topicName.toLowerCase();
+  if (topic.includes("präposition") || topic.includes("preposition")) {
+    return {
+      short_explanation: "Prepositions connect ideas and often belong to fixed phrases or case patterns.",
+      key_rule: "Learn the preposition together with the words that follow it, not as a single translated word.",
+      correct_examples: ["Ich warte auf den Bus.", "Wir fahren mit dem Zug."],
+      common_mistake_warning: "Do not choose a preposition only by translating from English.",
+      what_to_revise: "Review common A2 preposition phrases and the noun phrase that follows them.",
+    };
+  }
+  if (topic.includes("akkusativ")) {
+    return {
+      short_explanation: "The accusative marks the direct object: the person or thing directly affected by the action.",
+      key_rule: "Masculine articles visibly change in the accusative: der/ein becomes den/einen.",
+      correct_examples: ["Ich sehe den Hund.", "Sie kauft einen Apfel."],
+      common_mistake_warning: "Do not leave masculine direct objects in the nominative form.",
+      what_to_revise: "Find the direct object first, then choose the article.",
+    };
+  }
+  if (topic.includes("dativ")) {
+    return {
+      short_explanation: "The dative often marks the receiver, helper, or object after common dative verbs and prepositions.",
+      key_rule: "Masculine and neuter articles often become dem; feminine articles often become der.",
+      correct_examples: ["Ich helfe dem Mann.", "Das Buch gehört der Lehrerin."],
+      common_mistake_warning: "Do not use accusative articles after clear dative verbs or dative prepositions.",
+      what_to_revise: "Review common dative verbs and prepositions such as helfen, danken, mit, bei, and nach.",
+    };
+  }
+  if (topic.includes("verb") || topic.includes("word") || topic.includes("satz")) {
+    return {
+      short_explanation: "German main clauses usually place the conjugated verb in position two.",
+      key_rule: "If a time phrase starts the sentence, the verb still comes second. In weil/dass clauses, the verb moves to the end.",
+      correct_examples: ["Gestern habe ich Deutsch gelernt.", "Ich lerne, weil ich morgen eine Prüfung habe."],
+      common_mistake_warning: "Do not keep English word order after a fronted phrase or after weil.",
+      what_to_revise: "Practice verb-second in main clauses and verb-final order in simple subordinate clauses.",
+    };
+  }
+  return {
+    short_explanation: "Articles must match gender, number, and case in the sentence.",
+    key_rule: "Check the noun and its role in the sentence before choosing der, die, das, den, or ein/eine/einen.",
+    correct_examples: ["Der Tisch ist neu.", "Ich sehe den Stuhl."],
+    common_mistake_warning: "Do not choose the article from the noun alone when case changes the form.",
+    what_to_revise: "Review article forms with short noun phrases and simple sentences.",
+  };
+}
+
+function buildFallbackPayload(args: {
+  topic: GrammarTopicRow;
+  level: Level;
+  difficulty: Difficulty;
+}): unknown | null {
+  const key = `${args.topic.slug} ${args.topic.name}`.toLowerCase();
+  const base = {
+    level: args.level,
+    difficulty: args.difficulty,
+    mini_lesson: buildFallbackMiniLesson(args.topic.name),
+  };
+
+  if (key.includes("preposition") || key.includes("präposition")) {
+    return {
+      ...base,
+      title: `Prepositions Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the best option: Ich warte ___ den Bus.",
+          options: ["auf", "mit", "bei", "nach"],
+          correct_answer: "auf",
+          explanation: "With warten, German uses auf plus accusative for the thing you are waiting for.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the best option: Wir sprechen ___ dem Lehrer.",
+          options: ["mit", "für", "gegen", "ohne"],
+          correct_answer: "mit",
+          explanation: "Sprechen mit means to speak with someone.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete the sentence with one preposition: Sie interessiert sich ___ Musik.",
+          options: [],
+          correct_answer: "für",
+          explanation: "Sich interessieren für is the fixed phrase for being interested in something.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete the sentence with one preposition: Wir fahren ___ dem Zug zur Schule.",
+          options: [],
+          correct_answer: "mit",
+          explanation: "Mit is used for means of transport such as mit dem Zug.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Ich warte für den Bus.",
+          options: [],
+          correct_answer: "Ich warte auf den Bus.",
+          explanation: "The correct phrase is auf den Bus warten.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Sie spricht zu dem Lehrer über die Aufgabe.",
+          options: [],
+          correct_answer: "Sie spricht mit dem Lehrer über die Aufgabe.",
+          explanation: "For speaking with a person, use mit.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: mit dem Zug / am Samstag / nach Hamburg / fahren / wir / früh",
+          options: [],
+          correct_answer: "Am Samstag fahren wir früh mit dem Zug nach Hamburg.",
+          explanation: "The time phrase starts the main clause, so the verb fahren comes second.",
+        },
+        {
+          question_number: 8,
+          question_type: "transformation",
+          prompt: "Rewrite the sentence with the time phrase first: Wir fahren am Montag mit dem Bus zur Schule.",
+          options: [],
+          correct_answer: "Am Montag fahren wir mit dem Bus zur Schule.",
+          explanation: "After the fronted time phrase, the verb stays in position two.",
+        },
+        {
+          question_number: 9,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: Ich gehe mit meine Schwester ins Kino.",
+          options: [],
+          correct_answer: "Ich gehe mit meiner Schwester ins Kino.",
+          explanation: "Mit takes dative, so meine Schwester becomes meiner Schwester.",
+        },
+      ],
+    };
+  }
+
+  if (key.includes("akkusativ")) {
+    return {
+      ...base,
+      title: `Akkusativ Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the best option: Ich sehe ___ Hund.",
+          options: ["der", "den", "dem", "des"],
+          correct_answer: "den",
+          explanation: "Hund is masculine and direct object, so der becomes den.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the best option: Sie kauft ___ Apfel.",
+          options: ["ein", "einen", "einem", "einer"],
+          correct_answer: "einen",
+          explanation: "Apfel is masculine and is the direct object of kauft.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Er liest ___ Brief.",
+          options: [],
+          correct_answer: "den",
+          explanation: "Brief is masculine and direct object, so use den.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Wir brauchen ___ Tisch.",
+          options: [],
+          correct_answer: "einen",
+          explanation: "Tisch is masculine and direct object, so ein becomes einen.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Ich sehe der Hund.",
+          options: [],
+          correct_answer: "Ich sehe den Hund.",
+          explanation: "The direct object needs accusative: den Hund.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Sie kauft ein Apfel.",
+          options: [],
+          correct_answer: "Sie kauft einen Apfel.",
+          explanation: "A masculine direct object with ein becomes einen.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: den Film / heute Abend / sehen / wir / im Kino / zusammen",
+          options: [],
+          correct_answer: "Heute Abend sehen wir zusammen den Film im Kino.",
+          explanation: "The fronted time phrase comes first, then the verb in position two.",
+        },
+        {
+          question_number: 8,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: Ich kaufe der Stift.",
+          options: [],
+          correct_answer: "Ich kaufe den Stift.",
+          explanation: "Stift is masculine and direct object, so use den.",
+        },
+        {
+          question_number: 9,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: Wir besuchen ein Freund.",
+          options: [],
+          correct_answer: "Wir besuchen einen Freund.",
+          explanation: "Freund is masculine and direct object, so ein becomes einen.",
+        },
+      ],
+    };
+  }
+
+  if (key.includes("dativ")) {
+    return {
+      ...base,
+      title: `Dativ Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the best option: Ich helfe ___ Mann.",
+          options: ["der", "den", "dem", "das"],
+          correct_answer: "dem",
+          explanation: "Helfen takes dative, so der Mann becomes dem Mann.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the best option: Wir danken ___ Lehrerin.",
+          options: ["die", "der", "den", "dem"],
+          correct_answer: "der",
+          explanation: "Danken takes dative, and die Lehrerin becomes der Lehrerin.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Das Buch gehört ___ Kind.",
+          options: [],
+          correct_answer: "dem",
+          explanation: "Gehören takes dative, so das Kind becomes dem Kind.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Ich antworte ___ Schüler.",
+          options: [],
+          correct_answer: "dem",
+          explanation: "Antworten takes dative, so der Schüler becomes dem Schüler.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Ich helfe den Mann.",
+          options: [],
+          correct_answer: "Ich helfe dem Mann.",
+          explanation: "Helfen needs dative: dem Mann.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Das Buch gehört das Kind.",
+          options: [],
+          correct_answer: "Das Buch gehört dem Kind.",
+          explanation: "Gehören needs dative: dem Kind.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: dem Freund / morgen / helfe / ich / bei den Hausaufgaben / gern",
+          options: [],
+          correct_answer: "Morgen helfe ich dem Freund gern bei den Hausaufgaben.",
+          explanation: "The time phrase starts the sentence, then the verb comes second.",
+        },
+        {
+          question_number: 8,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: Wir fahren mit den Bus.",
+          options: [],
+          correct_answer: "Wir fahren mit dem Bus.",
+          explanation: "Mit takes dative, so der Bus becomes dem Bus.",
+        },
+        {
+          question_number: 9,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: Sie schreibt den Lehrer eine E-Mail.",
+          options: [],
+          correct_answer: "Sie schreibt dem Lehrer eine E-Mail.",
+          explanation: "The teacher receives the email, so use dative: dem Lehrer.",
+        },
+      ],
+    };
+  }
+
+  if (key.includes("verb") || key.includes("word") || key.includes("satz")) {
+    return {
+      ...base,
+      title: `Verb Position Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the sentence with correct verb position.",
+          options: ["Gestern habe ich Deutsch gelernt.", "Gestern ich habe Deutsch gelernt.", "Ich gestern habe Deutsch gelernt.", "Deutsch gelernt gestern habe ich."],
+          correct_answer: "Gestern habe ich Deutsch gelernt.",
+          explanation: "After Gestern, the conjugated verb habe is still in position two.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the sentence with correct word order after weil.",
+          options: ["Ich bleibe zu Hause, weil ich krank bin.", "Ich bleibe zu Hause, weil bin ich krank.", "Weil ich bin krank, bleibe ich zu Hause.", "Ich bleibe, weil krank ich bin."],
+          correct_answer: "Ich bleibe zu Hause, weil ich krank bin.",
+          explanation: "In a weil-clause, the conjugated verb moves to the end.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete with one verb form: Gestern ___ ich lange gearbeitet.",
+          options: [],
+          correct_answer: "habe",
+          explanation: "The time phrase is first, so the verb habe comes second.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete with one verb form: Ich bleibe zu Hause, weil ich morgen früh ___.",
+          options: [],
+          correct_answer: "arbeite",
+          explanation: "In the weil-clause, the conjugated verb comes at the end.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Gestern ich habe Deutsch gelernt.",
+          options: [],
+          correct_answer: "Gestern habe ich Deutsch gelernt.",
+          explanation: "The verb habe must be in position two.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Ich komme später, weil ich habe Unterricht.",
+          options: [],
+          correct_answer: "Ich komme später, weil ich Unterricht habe.",
+          explanation: "In a weil-clause, habe moves to the end.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: weil / ich / morgen / eine Prüfung / habe / lerne / ich / heute",
+          options: [],
+          correct_answer: "Ich lerne heute, weil ich morgen eine Prüfung habe.",
+          explanation: "The main clause has verb-second order, and the weil-clause has the verb at the end.",
+        },
+        {
+          question_number: 8,
+          question_type: "transformation",
+          prompt: "Rewrite the sentence with the time phrase first: Ich mache heute die Übung.",
+          options: [],
+          correct_answer: "Heute mache ich die Übung.",
+          explanation: "After the time phrase Heute, the verb mache stays in position two.",
+        },
+        {
+          question_number: 9,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: Dann ich gehe nach Hause.",
+          options: [],
+          correct_answer: "Dann gehe ich nach Hause.",
+          explanation: "After Dann, the conjugated verb gehe comes second.",
+        },
+      ],
+    };
+  }
+
+  if (key.includes("article") || key.includes("artikel")) {
+    return {
+      ...base,
+      title: `Articles Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the best option: ___ Tisch ist neu.",
+          options: ["Der", "Die", "Das", "Den"],
+          correct_answer: "Der",
+          explanation: "Tisch is masculine, so use der in nominative.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the best option: Ich kaufe ___ Lampe.",
+          options: ["ein", "eine", "einen", "einem"],
+          correct_answer: "eine",
+          explanation: "Lampe is feminine, and the accusative feminine article stays eine.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: ___ Buch liegt auf dem Tisch.",
+          options: [],
+          correct_answer: "Das",
+          explanation: "Buch is neuter, so use das in nominative.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Ich sehe ___ Stuhl.",
+          options: [],
+          correct_answer: "den",
+          explanation: "Stuhl is masculine direct object, so use den.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Das Tisch ist groß.",
+          options: [],
+          correct_answer: "Der Tisch ist groß.",
+          explanation: "Tisch is masculine, so the article is der.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Ich kaufe ein Lampe.",
+          options: [],
+          correct_answer: "Ich kaufe eine Lampe.",
+          explanation: "Lampe is feminine, so use eine.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: der Tisch / im Zimmer / steht / heute / neben dem Fenster / ruhig",
+          options: [],
+          correct_answer: "Heute steht der Tisch ruhig im Zimmer neben dem Fenster.",
+          explanation: "The time phrase comes first, then the verb steht comes second.",
+        },
+        {
+          question_number: 8,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: Der Mädchen liest ein Buch.",
+          options: [],
+          correct_answer: "Das Mädchen liest ein Buch.",
+          explanation: "Mädchen is neuter, so the article is das.",
+        },
+        {
+          question_number: 9,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: Ich sehe der Stuhl.",
+          options: [],
+          correct_answer: "Ich sehe den Stuhl.",
+          explanation: "Stuhl is masculine direct object, so der becomes den.",
+        },
+      ],
+    };
+  }
+
+  return null;
+}
+
+function buildFallbackWorksheet(args: {
+  topic: GrammarTopicRow;
+  level: Level;
+  difficulty: Difficulty;
+}) {
+  const payload = buildFallbackPayload(args);
+  if (!payload) return null;
+  return validateWorksheetPayload(payload, args);
 }
 
 Deno.serve(async (req) => {
@@ -1094,8 +1821,18 @@ Deno.serve(async (req) => {
     const grammarTopic = topic as GrammarTopicRow;
     const level = await determineLevel(admin, assignment, grammarTopic);
 
+    await recordGenerationEvent(admin, assignment, {
+      stage: "reuse_lookup",
+      safe_status: "started",
+      developer_reason: "Looking for an unseen reviewed or approved reusable worksheet before generation.",
+    });
     const reusableWorksheetId = await findReusableWorksheet(admin, assignment, level);
     if (reusableWorksheetId) {
+      await recordGenerationEvent(admin, assignment, {
+        stage: "reuse_lookup",
+        safe_status: "succeeded",
+        developer_reason: `Attached reusable worksheet ${reusableWorksheetId}.`,
+      });
       await attachWorksheet(admin, assignment.id, reusableWorksheetId);
       return jsonResponse({
         status: "ready",
@@ -1104,6 +1841,11 @@ Deno.serve(async (req) => {
         assignment: await loadAssignmentSummary(admin, assignment.id),
       });
     }
+    await recordGenerationEvent(admin, assignment, {
+      stage: "reuse_lookup",
+      safe_status: "failed",
+      developer_reason: "No suitable unseen reusable worksheet found.",
+    });
 
     const lockedAssignment = await acquireGenerationLock(admin, assignment.id);
     if (!lockedAssignment) {
@@ -1117,6 +1859,11 @@ Deno.serve(async (req) => {
 
     const reusableAfterLockId = await findReusableWorksheet(admin, lockedAssignment, level);
     if (reusableAfterLockId) {
+      await recordGenerationEvent(admin, lockedAssignment, {
+        stage: "reuse_lookup",
+        safe_status: "succeeded",
+        developer_reason: `Attached reusable worksheet ${reusableAfterLockId} after acquiring generation lock.`,
+      });
       await attachWorksheet(admin, lockedAssignment.id, reusableAfterLockId);
       return jsonResponse({
         status: "ready",
@@ -1136,13 +1883,67 @@ Deno.serve(async (req) => {
     const snippets = await loadRecentMistakeSnippets(admin, lockedAssignment);
     const difficulty = chooseDifficulty(level, null);
 
-    const worksheet = await generateValidatedWorksheet({
-      apiKey,
-      model,
-      grammarTopic,
-      level,
-      difficulty,
-      snippets,
+    let generationSource: GenerationSource = "deepseek";
+    let worksheet: GeneratedWorksheet;
+    try {
+      worksheet = await generateValidatedWorksheet({
+        admin,
+        assignment: lockedAssignment,
+        apiKey,
+        model,
+        grammarTopic,
+        level,
+        difficulty,
+        snippets,
+      });
+    } catch (generationError) {
+      const reason = generationError instanceof WorksheetQualityError
+        ? generationError.detail
+        : generationError instanceof Error
+          ? generationError.message
+          : "Provider generation failed.";
+      await recordGenerationEvent(admin, lockedAssignment, {
+        stage: "fallback",
+        safe_status: "started",
+        developer_reason: `Provider generation did not produce enough valid questions: ${reason}`,
+      });
+
+      let fallbackWorksheet: GeneratedWorksheet | null = null;
+      try {
+        fallbackWorksheet = buildFallbackWorksheet({
+          topic: grammarTopic,
+          level,
+          difficulty,
+        });
+      } catch (fallbackError) {
+        await recordGenerationEvent(admin, lockedAssignment, {
+          stage: "fallback",
+          safe_status: "failed",
+          developer_reason: fallbackError instanceof Error ? fallbackError.message : "Deterministic fallback failed validation.",
+        });
+        throw generationError;
+      }
+      if (!fallbackWorksheet) {
+        await recordGenerationEvent(admin, lockedAssignment, {
+          stage: "fallback",
+          safe_status: "failed",
+          developer_reason: `No deterministic fallback is available for topic ${grammarTopic.name}.`,
+        });
+        throw generationError;
+      }
+      worksheet = fallbackWorksheet;
+      generationSource = FALLBACK_SOURCE;
+      await recordGenerationEvent(admin, lockedAssignment, {
+        stage: "fallback",
+        safe_status: "succeeded",
+        developer_reason: `Using deterministic fallback worksheet for ${grammarTopic.name}.`,
+      });
+    }
+
+    await recordGenerationEvent(admin, lockedAssignment, {
+      stage: "save",
+      safe_status: "started",
+      developer_reason: `Saving ${generationSource} worksheet with ${worksheet.questions.length} validated questions.`,
     });
 
     const { data: savedWorksheet, error: worksheetError } = await admin
@@ -1159,9 +1960,9 @@ Deno.serve(async (req) => {
         visibility: "workspace",
         created_by: caller.id,
         mini_lesson: worksheet.mini_lesson,
-        generation_source: "deepseek",
+        generation_source: generationSource,
         quality_status: "passed",
-        quality_notes: `Validated ${worksheet.questions.length} questions locally before assignment.`,
+        quality_notes: `Validated ${worksheet.questions.length} questions locally before assignment via ${generationSource}.`,
         generated_from_assignment_id: lockedAssignment.id,
         generated_from_student_id: lockedAssignment.student_id,
       })
@@ -1169,6 +1970,11 @@ Deno.serve(async (req) => {
       .single();
     if (worksheetError || !savedWorksheet) {
       console.error("generate-practice-worksheet save worksheet failed", worksheetError?.message ?? "unknown");
+      await recordGenerationEvent(admin, lockedAssignment, {
+        stage: "save",
+        safe_status: "failed",
+        developer_reason: worksheetError?.message ?? "Worksheet insert returned no row.",
+      });
       throw new Error("Worksheet could not be saved.");
     }
 
@@ -1187,10 +1993,20 @@ Deno.serve(async (req) => {
     if (questionError) {
       console.error("generate-practice-worksheet save questions failed", questionError.message);
       await admin.from("practice_tests").delete().eq("id", savedWorksheet.id);
+      await recordGenerationEvent(admin, lockedAssignment, {
+        stage: "save",
+        safe_status: "failed",
+        developer_reason: questionError.message,
+      });
       throw new Error("Worksheet questions could not be saved.");
     }
 
     await attachWorksheet(admin, lockedAssignment.id, savedWorksheet.id);
+    await recordGenerationEvent(admin, lockedAssignment, {
+      stage: "save",
+      safe_status: "succeeded",
+      developer_reason: `Saved and attached worksheet ${savedWorksheet.id}.`,
+    });
 
     await admin.from("usage_events").insert({
       workspace_id: lockedAssignment.workspace_id,
@@ -1205,6 +2021,7 @@ Deno.serve(async (req) => {
         difficulty: worksheet.difficulty,
         question_count: worksheet.questions.length,
         model,
+        generation_source: generationSource,
       },
     });
 

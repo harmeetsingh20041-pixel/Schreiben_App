@@ -45,6 +45,27 @@ For normal `weakness_auto` assignments, worksheet preparation still depends on `
 
 Generated worksheets must fail validation before saving or attaching when they are spoon-fed or meaningless. Phase 7E-1 rejects fill-blank prompts that leak the correct answer in the prompt, including article hints such as `___ (den)` or `___ (ein)`, and rejects word-order tasks whose chunks are already in the final answer order. Provider/internal validation details stay in logs only; students see the safe retry message: `Worksheet could not be prepared. Please try again later.`
 
+Worksheet generation is resilient in v1:
+
+- The provider is asked for more candidate questions than the final worksheet needs.
+- Each candidate question is validated independently.
+- Valid questions are kept; invalid questions are rejected with developer-safe diagnostics.
+- Retries ask only for the missing valid questions and include the rejected patterns to avoid.
+- The final saved worksheet is renumbered after validation.
+- If provider generation still cannot produce enough valid questions, the function tries a deterministic system fallback for common v1 topics.
+
+Developer diagnostics are stored in `practice_generation_events`. This table is not exposed to students and must not store secrets or large raw provider payloads. It records assignment, workspace, student, topic, attempt number, pipeline stage, safe status, developer reason, and question-level context when relevant.
+
+Current deterministic fallback coverage:
+
+- Prepositions
+- Akkusativ
+- Dativ
+- Verb position / Word order
+- Articles
+
+Fallback worksheets use exact-answer-safe local question types only and must pass the same validation gates as provider-generated worksheets before they are saved. Saved fallback worksheets use `generation_source = 'system_fallback'`.
+
 ## Deferred To Phase 7E-2
 
 Future adaptive generation can use a safe, short summary of the previous attempt:

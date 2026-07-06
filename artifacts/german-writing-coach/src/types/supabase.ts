@@ -413,6 +413,80 @@ export type Database = {
           },
         ]
       }
+      practice_generation_events: {
+        Row: {
+          assignment_id: string
+          attempt_number: number | null
+          created_at: string
+          developer_reason: string | null
+          grammar_topic_id: string
+          id: string
+          question_number: number | null
+          question_type: string | null
+          safe_status: string
+          stage: string
+          student_id: string
+          workspace_id: string
+        }
+        Insert: {
+          assignment_id: string
+          attempt_number?: number | null
+          created_at?: string
+          developer_reason?: string | null
+          grammar_topic_id: string
+          id?: string
+          question_number?: number | null
+          question_type?: string | null
+          safe_status: string
+          stage: string
+          student_id: string
+          workspace_id: string
+        }
+        Update: {
+          assignment_id?: string
+          attempt_number?: number | null
+          created_at?: string
+          developer_reason?: string | null
+          grammar_topic_id?: string
+          id?: string
+          question_number?: number | null
+          question_type?: string | null
+          safe_status?: string
+          stage?: string
+          student_id?: string
+          workspace_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "practice_generation_events_assignment_id_fkey"
+            columns: ["assignment_id"]
+            isOneToOne: false
+            referencedRelation: "student_practice_assignments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "practice_generation_events_grammar_topic_id_fkey"
+            columns: ["grammar_topic_id"]
+            isOneToOne: false
+            referencedRelation: "grammar_topics"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "practice_generation_events_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "practice_generation_events_workspace_id_fkey"
+            columns: ["workspace_id"]
+            isOneToOne: false
+            referencedRelation: "workspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       practice_test_attempts: {
         Row: {
           answers: Json
