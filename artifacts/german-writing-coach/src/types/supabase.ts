@@ -320,12 +320,110 @@ export type Database = {
         }
         Relationships: []
       }
+      practice_attempt_question_reviews: {
+        Row: {
+          assignment_id: string
+          attempt_id: string
+          corrected_answer: string | null
+          created_at: string
+          evaluator_source: string
+          feedback_text: string | null
+          id: string
+          max_points: number
+          model_answer: string | null
+          points_awarded: number
+          question_id: string
+          review_status: string
+          short_reason: string | null
+          student_id: string
+          updated_at: string
+          workspace_id: string
+        }
+        Insert: {
+          assignment_id: string
+          attempt_id: string
+          corrected_answer?: string | null
+          created_at?: string
+          evaluator_source?: string
+          feedback_text?: string | null
+          id?: string
+          max_points?: number
+          model_answer?: string | null
+          points_awarded: number
+          question_id: string
+          review_status: string
+          short_reason?: string | null
+          student_id: string
+          updated_at?: string
+          workspace_id: string
+        }
+        Update: {
+          assignment_id?: string
+          attempt_id?: string
+          corrected_answer?: string | null
+          created_at?: string
+          evaluator_source?: string
+          feedback_text?: string | null
+          id?: string
+          max_points?: number
+          model_answer?: string | null
+          points_awarded?: number
+          question_id?: string
+          review_status?: string
+          short_reason?: string | null
+          student_id?: string
+          updated_at?: string
+          workspace_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "practice_attempt_question_reviews_assignment_id_fkey"
+            columns: ["assignment_id"]
+            isOneToOne: false
+            referencedRelation: "student_practice_assignments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "practice_attempt_question_reviews_attempt_id_fkey"
+            columns: ["attempt_id"]
+            isOneToOne: false
+            referencedRelation: "practice_test_attempts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "practice_attempt_question_reviews_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: false
+            referencedRelation: "practice_test_questions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "practice_attempt_question_reviews_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "practice_attempt_question_reviews_workspace_id_fkey"
+            columns: ["workspace_id"]
+            isOneToOne: false
+            referencedRelation: "workspaces"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       practice_test_attempts: {
         Row: {
           answers: Json
           assignment_id: string | null
           completed_at: string | null
           created_at: string
+          evaluation_completed_at: string | null
+          evaluation_error: string | null
+          evaluation_model: string | null
+          evaluation_started_at: string | null
+          evaluation_status: string
           feedback: Json | null
           id: string
           max_score: number
@@ -347,6 +445,11 @@ export type Database = {
           assignment_id?: string | null
           completed_at?: string | null
           created_at?: string
+          evaluation_completed_at?: string | null
+          evaluation_error?: string | null
+          evaluation_model?: string | null
+          evaluation_started_at?: string | null
+          evaluation_status?: string
           feedback?: Json | null
           id?: string
           max_score?: number
@@ -368,6 +471,11 @@ export type Database = {
           assignment_id?: string | null
           completed_at?: string | null
           created_at?: string
+          evaluation_completed_at?: string | null
+          evaluation_error?: string | null
+          evaluation_model?: string | null
+          evaluation_started_at?: string | null
+          evaluation_status?: string
           feedback?: Json | null
           id?: string
           max_score?: number
@@ -1355,6 +1463,20 @@ export type Database = {
           workspace_id: string
         }[]
       }
+      finalize_practice_attempt_evaluation: {
+        Args: { target_attempt_id: string }
+        Returns: {
+          assignment_id: string
+          assignment_status: string
+          attempt_id: string
+          attempt_status: string
+          evaluation_status: string
+          max_score_points: number
+          passed: boolean
+          score_percent: number
+          score_points: number
+        }[]
+      }
       get_practice_assignment_questions: {
         Args: { target_assignment_id: string }
         Returns: {
@@ -1372,7 +1494,12 @@ export type Database = {
           assignment_id: string
           completed_at: string
           correct_answer: string
+          corrected_answer: string
+          evaluation_error: string
+          evaluation_status: string
+          evaluator_source: string
           explanation: string
+          feedback_text: string
           grammar_topic_id: string
           grammar_topic_name: string
           grammar_topic_slug: string
@@ -1382,6 +1509,7 @@ export type Database = {
           max_points: number
           max_score: number
           max_score_points: number
+          model_answer: string
           options: Json
           passed: boolean
           points_awarded: number
@@ -1396,6 +1524,7 @@ export type Database = {
           score_percent: number
           score_points: number
           scoring_version: string
+          short_reason: string
           source: string
           started_at: string
           status: string

@@ -111,14 +111,14 @@ Exact-answer safety means:
 
 For A2 verb-position worksheets, generated word-order tasks should practice meaningful clause patterns such as main clauses with a fronted element, simple subordinate clauses with `weil`/`dass`/`ob`, or verb-second versus verb-final contrast. Proper-noun capitalization must not be the only real challenge.
 
-The broader system remains open to future types, but Phase 7C generation should not use them:
+The broader system remains open to future types, but Phase 7C generation should not use them by default:
 
 - `short_answer`
 - `mini_writing`
 - `matching`
 - `error_detection`
 
-DeepSeek answer evaluation for open-ended worksheet answers is deferred. Mixed/manual worksheets should be submitted/completed for review rather than marked passed or failed.
+Phase 7D-2 adds a separate post-submit evaluation path for open/flexible answers. Mixed/manual worksheets should still submit first, show `submitted_for_review`, and then use stored open-answer reviews before marking the full attempt passed or failed.
 
 ## A2 Default Structure
 
@@ -168,7 +168,7 @@ After submission, students can load review data only through `get_practice_assig
 
 ## Answer Evaluation
 
-Phase 7C does not add DeepSeek answer evaluation. Local scoring still applies only when the entire worksheet is safely locally scorable. If any question is manual/unscored, the attempt is submitted and the assignment is completed without passed/failed.
+Phase 7C does not add DeepSeek answer evaluation. Phase 7D-2 adds it only for open/flexible questions after submission. Local exact-answer scoring still applies first, and locally scorable questions are never sent for open-answer evaluation.
 
 Phase 7D-1 adds point-based local scoring for exact-answer worksheets. For non-capitalization/spelling topics, local scoring trims whitespace, collapses repeated spaces, and first checks for an exact normalized match. If only optional final punctuation such as `.`, `!`, or `?` differs, the answer receives full credit with `review_status = minor_punctuation`. If capitalization differs but words and order still match after removing final punctuation and lowercasing both answers, the answer receives partial credit with `review_status = capitalization_issue`. Word-order or word-choice differences remain `incorrect`.
 

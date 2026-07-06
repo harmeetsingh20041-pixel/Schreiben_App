@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { formatErrorMessage } from "@/lib/workspaceData";
 import {
+  evaluatePracticeAttempt,
   formatPracticeScore,
   getPracticeAssignmentBadgeClass,
   getPracticeAssignmentLabel,
@@ -63,6 +64,9 @@ function getReviewBadgeClass(reviewStatus: string | null | undefined) {
   if (reviewStatus === "correct") {
     return "bg-green-50 text-green-800 border-green-200 dark:bg-green-950/40 dark:text-green-100 dark:border-green-700";
   }
+  if (reviewStatus === "partially_correct") {
+    return "bg-amber-50 text-amber-800 border-amber-200 dark:bg-amber-950/40 dark:text-amber-100 dark:border-amber-700";
+  }
   if (reviewStatus === "minor_punctuation" || reviewStatus === "minor_formatting") {
     return "bg-emerald-50 text-emerald-800 border-emerald-200 dark:bg-emerald-950/40 dark:text-emerald-100 dark:border-emerald-700";
   }
@@ -77,6 +81,7 @@ function getReviewBadgeClass(reviewStatus: string | null | undefined) {
 
 function getReviewLabel(reviewStatus: string | null | undefined) {
   if (reviewStatus === "correct") return "Correct";
+  if (reviewStatus === "partially_correct") return "Partly correct";
   if (reviewStatus === "minor_punctuation") return "Accepted — check punctuation";
   if (reviewStatus === "capitalization_issue") return "Capitalization issue — partial credit";
   if (reviewStatus === "minor_formatting") return "Accepted — minor formatting";
@@ -214,6 +219,7 @@ export default function StudentWorksheet() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [evaluatingFeedback, setEvaluatingFeedback] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   async function loadWorksheet() {
@@ -259,6 +265,60 @@ export default function StudentWorksheet() {
     ? Math.round((answeredCount / detail.questions.length) * 100)
     : 0;
 
+  const hasSubmittedForReview = useMemo(() => (
+    detail?.questions.some((question) => question.review_status === "submitted_for_review") ?? false
+  ), [detail]);
+
+  const assignment = detail?.assignment ?? null;
+
+  async function handleEvaluateFeedback(showToast = false) {
+    if (!id || !detail || evaluatingFeedback) return;
+
+    try {
+      setEvaluatingFeedback(true);
+      setError(null);
+      await evaluatePracticeAttempt(id);
+      const reviewDetail = await getPracticeWorksheetReview(id);
+      setDetail({
+        ...reviewDetail,
+        assignment: {
+          ...reviewDetail.assignment,
+          worksheet_mini_lesson: detail.assignment.worksheet_mini_lesson,
+        },
+      });
+      setAnswers(buildAnswerMap(reviewDetail.questions));
+      if (showToast) {
+        toast({
+          title: "Feedback ready",
+          description: formatPracticeScore(reviewDetail.assignment) ?? getPracticeAssignmentLabel(reviewDetail.assignment),
+        });
+      }
+    } catch {
+      try {
+        const reviewDetail = await getPracticeWorksheetReview(id);
+        setDetail({
+          ...reviewDetail,
+          assignment: {
+            ...reviewDetail.assignment,
+            worksheet_mini_lesson: detail.assignment.worksheet_mini_lesson,
+          },
+        });
+        setAnswers(buildAnswerMap(reviewDetail.questions));
+      } catch {
+        setError("Feedback could not be prepared. Try again.");
+      }
+    } finally {
+      setEvaluatingFeedback(false);
+    }
+  }
+
+  useEffect(() => {
+    if (!assignment || !hasSubmittedForReview || evaluatingFeedback) return;
+    if (assignment.evaluation_status === "pending") {
+      void handleEvaluateFeedback(false);
+    }
+  }, [assignment?.evaluation_status, hasSubmittedForReview, evaluatingFeedback]);
+
   const handleSubmit = async () => {
     if (!id || !detail || isCompletedAssignment(detail.assignment.status)) return;
 
@@ -294,10 +354,14 @@ export default function StudentWorksheet() {
     }
   };
 
-  const assignment = detail?.assignment ?? null;
   const scoreLabel = assignment ? formatPracticeScore(assignment) : null;
   const isCompleted = assignment ? isCompletedAssignment(assignment.status) : false;
   const canSubmit = Boolean(assignment && assignment.practice_test_id && !isCompleted && detail?.questions.length);
+  const isPreparingDetailedFeedback = Boolean(
+    hasSubmittedForReview &&
+    (evaluatingFeedback || assignment?.evaluation_status === "pending" || assignment?.evaluation_status === "evaluating"),
+  );
+  const canRetryDetailedFeedback = Boolean(hasSubmittedForReview && assignment?.evaluation_status === "failed");
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl animate-in fade-in duration-500">
@@ -360,7 +424,9 @@ export default function StudentWorksheet() {
             <Card className={assignment.passed ? "border-green-200 bg-green-50/50 dark:bg-green-950/20" : "border-orange-200 bg-orange-50/50 dark:bg-orange-950/20"}>
               <CardContent className="p-5">
                 <div className="flex items-start gap-3">
-                  {assignment.passed ? (
+                  {isPreparingDetailedFeedback ? (
+                    <Loader2 className="h-5 w-5 text-blue-700 mt-0.5 animate-spin" />
+                  ) : assignment.passed ? (
                     <CheckCircle2 className="h-5 w-5 text-green-700 mt-0.5" />
                   ) : (
                     <AlertCircle className="h-5 w-5 text-orange-700 mt-0.5" />
@@ -368,8 +434,25 @@ export default function StudentWorksheet() {
                   <div>
                     <p className="font-medium text-foreground">{getPracticeAssignmentLabel(assignment)}</p>
                     <p className="text-sm text-muted-foreground mt-1">
-                      {scoreLabel ?? "Your answers were submitted for review."}
+                      {isPreparingDetailedFeedback
+                        ? "Preparing detailed feedback..."
+                        : scoreLabel ?? "Your answers were submitted for review."}
                     </p>
+                    {canRetryDetailedFeedback && (
+                      <div className="mt-3">
+                        <p className="mb-2 text-sm text-muted-foreground">Feedback could not be prepared. Try again.</p>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          size="sm"
+                          disabled={evaluatingFeedback}
+                          onClick={() => void handleEvaluateFeedback(true)}
+                        >
+                          {evaluatingFeedback && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                          Try again
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </CardContent>
@@ -491,6 +574,33 @@ export default function StudentWorksheet() {
                         <div>
                           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Explanation</p>
                           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{question.explanation}</p>
+                        </div>
+                      )}
+                      {question.review_status === "submitted_for_review" && (
+                        <div className="rounded-md border border-blue-200 bg-blue-50/60 px-3 py-2 text-sm text-blue-900 dark:border-blue-800 dark:bg-blue-950/20 dark:text-blue-100">
+                          Preparing detailed feedback...
+                        </div>
+                      )}
+                      {question.feedback_text && (
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Feedback</p>
+                          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{question.feedback_text}</p>
+                        </div>
+                      )}
+                      {question.corrected_answer && (
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Corrected answer</p>
+                          <p className="mt-1 rounded-md border bg-green-50/60 px-3 py-2 text-sm text-foreground dark:bg-green-950/20">
+                            {question.corrected_answer}
+                          </p>
+                        </div>
+                      )}
+                      {question.model_answer && (
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Sample answer</p>
+                          <p className="mt-1 rounded-md border bg-muted/20 px-3 py-2 text-sm text-foreground">
+                            {question.model_answer}
+                          </p>
                         </div>
                       )}
                     </div>
