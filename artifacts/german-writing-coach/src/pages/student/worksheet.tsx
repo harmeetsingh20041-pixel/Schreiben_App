@@ -493,14 +493,6 @@ export default function StudentWorksheet() {
               <p className="text-muted-foreground mt-2">
                 {assignment.grammar_topic_name} · {detail.questions.length} questions
               </p>
-              {assignment.source === "adaptive_repeat" && assignment.previous_assignment_id && (
-                <Link href={`/student/practice/${assignment.previous_assignment_id}`}>
-                  <Button type="button" variant="outline" size="sm" className="mt-4">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Review previous worksheet
-                  </Button>
-                </Link>
-              )}
             </div>
             {scoreLabel && (
               <div className="rounded-lg border bg-card px-4 py-3 text-right">
