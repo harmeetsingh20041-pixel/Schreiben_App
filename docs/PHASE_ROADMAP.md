@@ -336,7 +336,7 @@ Expected output: Students can practice weak grammar topics with reusable saved w
 
 Goal: Generate worksheets only when reuse is unavailable, without breaking the one-active-worksheet rule.
 
-Will implement:
+Phase 7C implementation focus:
 
 - server-side worksheet generation endpoint
 - strict generated worksheet JSON schema
@@ -345,19 +345,26 @@ Will implement:
 - reuse existing worksheets before generating new ones
 - do not generate another worksheet for the same student/topic until the previous one is completed
 - local objective scoring remains the first choice
-- DeepSeek answer evaluation only for open-ended answers where needed
+- defer DeepSeek answer evaluation for open-ended answers to Phase 7D
 - keep student question delivery free of answer keys, explanations, and scoring metadata before submission
 - sanitize displayed option payloads so raw worksheet options never leak hidden answer metadata to students
-- add secure post-submit explanation delivery later, only after completion/pass/fail
-- abuse limits for generation
+- secure post-submit review delivery only after completion/pass/fail or submitted/checked attempt status
+- basic generation abuse protection through reuse checks, active-assignment checks, and generation locking
+- stale generation lock recovery after a safe timeout window
+- provider timeout around DeepSeek worksheet generation
 - level-matched worksheets for A1, A2, B1, and B2 students
 - exact weak-topic targeting rather than generic grammar drills
+- A1/A2 generation should align with Netzwerk-style classroom grammar progression where possible without copying textbook exercises or wording
 - examples connected to the student's actual mistakes where appropriate
 - difficulty selection based on level, repeated weakness, previous worksheet result, and exact topic need
 - avoid automatically making every failed follow-up harder; target the remaining misunderstanding instead
-- exercise type variety, including `multiple_choice`, `fill_blank`, `sentence_correction`, `word_order`, `transformation`, `short_answer`, `mini_writing`, `matching`, `error_detection`, and `rewrite_sentence`
-- a default A2 worksheet target of 8-10 questions with at least 2 multiple-choice, 2 fill-the-blank, 2 sentence-correction, 1 word-order/transformation, and 1-2 short production questions
+- exact-answer-safe generated exercise types: `multiple_choice`, `fill_blank`, `sentence_correction`, `word_order`, `transformation`, and `rewrite_sentence`
+- word-order generation should avoid trivial chunk ordering, answer-revealing starting hints, and proper-noun capitalization as the only challenge
+- future exercise type variety, including `short_answer`, `mini_writing`, `matching`, and `error_detection`, after secure review/evaluation exists
+- a default A2 worksheet target of 8-10 questions with at least 2 multiple-choice, 2 fill-the-blank, 2 sentence-correction, and 1 word-order/transformation/rewrite question
 - answer keys and explanations for every generated question
+- topic-aware local scoring normalization: flexible case-insensitive comparison for normal grammar topics, stricter capitalization-sensitive comparison for spelling/capitalization topics
+- answer payload limits to prevent oversized worksheet submissions
 - keep passed/failed results limited to fully locally scorable worksheets until secure manual/open-ended evaluation exists
 - submit mixed local/manual worksheets for review instead of pretending the local subtotal is a full pass/fail result
 - duplicate and impossible-question checks before assigning generated worksheets
