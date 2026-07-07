@@ -1123,9 +1123,9 @@ async function loadRecentMistakeSnippets(admin: SupabaseAdminClient, assignment:
   })).filter((line) => line.original || line.corrected).slice(0, 4);
 }
 
-async function fetchDeepSeekWorksheet(apiKey: string, body: unknown) {
+async function fetchDeepSeekWorksheet(apiKey: string, body: unknown, timeoutMs = PROVIDER_TIMEOUT_MS) {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
   try {
     return await fetch("https://api.deepseek.com/chat/completions", {
       method: "POST",
@@ -1285,11 +1285,19 @@ async function generateValidatedWorksheet(args: {
         { acceptedQuestions, acceptedEnvelope },
       );
     }
+    const remainingRuntimeMs = generationDeadline - Date.now();
+    if (remainingRuntimeMs < 10_000) {
+      throw new WorksheetQualityError(
+        "Generation runtime budget is nearly exhausted; using accepted candidates and fallback.",
+        { acceptedQuestions, acceptedEnvelope },
+      );
+    }
+    const providerTimeoutMs = Math.min(PROVIDER_TIMEOUT_MS, remainingRuntimeMs);
     await recordGenerationEvent(args.admin, args.assignment, {
       attempt_number: attempt,
       stage: "provider_call",
       safe_status: "started",
-      developer_reason: `Requesting worksheet candidates; accepted_so_far=${acceptedQuestions.length}; missing=${missingQuestionCount}.`,
+      developer_reason: `Requesting worksheet candidates; accepted_so_far=${acceptedQuestions.length}; missing=${missingQuestionCount}; provider_timeout_ms=${providerTimeoutMs}.`,
     });
 
     try {
@@ -1314,7 +1322,7 @@ async function generateValidatedWorksheet(args: {
         temperature: attempt === 1 ? 0.35 : 0.2,
         max_tokens: 7500,
         stream: false,
-      });
+      }, providerTimeoutMs);
 
       if (!providerResponse.ok) {
         const reason = `Worksheet provider returned HTTP ${providerResponse.status}.`;
@@ -1912,10 +1920,10 @@ function buildFallbackPayload(args: {
         {
           question_number: 9,
           question_type: "fill_blank",
-          prompt: "Complete with the correct article: Ich sehe ___ Stuhl.",
+          prompt: "Complete with the correct article: Wir kaufen ___ Schrank.",
           options: [],
           correct_answer: "den",
-          explanation: "Stuhl is masculine direct object, so der becomes den.",
+          explanation: "Schrank is masculine direct object, so der becomes den.",
         },
       ],
     };

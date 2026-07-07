@@ -440,44 +440,53 @@ export default function StudentWorksheet() {
             Loading worksheet...
           </CardContent>
         </Card>
-      ) : error ? (
-        <Card className="border-destructive/30 bg-destructive/5">
-          <CardContent className="py-4 text-sm text-destructive">{error}</CardContent>
-        </Card>
       ) : !detail || !assignment ? (
-        <Card className="border-dashed">
-          <CardContent className="py-10 text-center text-muted-foreground">Worksheet was not found.</CardContent>
-        </Card>
-      ) : !assignment.practice_test_id ? (
-        <Card className="border-dashed bg-muted/20">
-          <CardContent className="p-10 text-center">
-            <ClipboardList className="h-10 w-10 text-primary mx-auto mb-4" />
-            <h1 className="text-3xl font-serif mb-3">Practice unlocked</h1>
-            <p className="text-muted-foreground">
-              {assignment.source === "adaptive_repeat"
-                ? "Prepare the next worksheet when you are ready."
-                : "Worksheet will be available soon."}
-            </p>
-            <Button
-              type="button"
-              className="mt-6"
-              disabled={preparingWorksheet || assignment.generation_status === "generating"}
-              onClick={() => void handlePrepareWorksheet()}
-            >
-              {preparingWorksheet || assignment.generation_status === "generating" ? (
-                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-              ) : (
-                <ClipboardList className="h-4 w-4 mr-2" />
-              )}
-              {preparingWorksheet || assignment.generation_status === "generating"
-                ? "Preparing..."
-                : assignment.source === "adaptive_repeat"
-                  ? "Prepare next worksheet"
-                  : "Prepare worksheet"}
-            </Button>
-          </CardContent>
-        </Card>
+        error ? (
+          <Card className="border-destructive/30 bg-destructive/5">
+            <CardContent className="py-4 text-sm text-destructive">{error}</CardContent>
+          </Card>
+        ) : (
+          <Card className="border-dashed">
+            <CardContent className="py-10 text-center text-muted-foreground">Worksheet was not found.</CardContent>
+          </Card>
+        )
       ) : (
+        <>
+          {error && (
+            <Card className="border-destructive/30 bg-destructive/5">
+              <CardContent className="py-4 text-sm text-destructive">{error}</CardContent>
+            </Card>
+          )}
+          {!assignment.practice_test_id ? (
+            <Card className="border-dashed bg-muted/20">
+              <CardContent className="p-10 text-center">
+                <ClipboardList className="h-10 w-10 text-primary mx-auto mb-4" />
+                <h1 className="text-3xl font-serif mb-3">Practice unlocked</h1>
+                <p className="text-muted-foreground">
+                  {assignment.source === "adaptive_repeat"
+                    ? "Prepare the next worksheet when you are ready."
+                    : "Worksheet will be available soon."}
+                </p>
+                <Button
+                  type="button"
+                  className="mt-6"
+                  disabled={preparingWorksheet || assignment.generation_status === "generating"}
+                  onClick={() => void handlePrepareWorksheet()}
+                >
+                  {preparingWorksheet || assignment.generation_status === "generating" ? (
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  ) : (
+                    <ClipboardList className="h-4 w-4 mr-2" />
+                  )}
+                  {preparingWorksheet || assignment.generation_status === "generating"
+                    ? "Preparing..."
+                    : assignment.source === "adaptive_repeat"
+                      ? "Prepare next worksheet"
+                      : "Prepare worksheet"}
+                </Button>
+              </CardContent>
+            </Card>
+          ) : (
         <div className="space-y-6">
           <div className="flex flex-col gap-4 border-b border-border pb-6 md:flex-row md:items-start md:justify-between">
             <div>
@@ -740,6 +749,8 @@ export default function StudentWorksheet() {
             </div>
           )}
         </div>
+          )}
+        </>
       )}
     </div>
   );
