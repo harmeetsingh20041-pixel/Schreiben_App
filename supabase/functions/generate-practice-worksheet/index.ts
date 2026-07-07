@@ -395,7 +395,7 @@ function topicGuidance(topic: GrammarTopicRow) {
       "Do not drift into advanced adjective endings.",
     ].join("\n");
   }
-  if (key.includes("word") || key.includes("verb-position") || key.includes("satz")) {
+  if (key.includes("word") || key.includes("verb-position") || key.includes("satz") || key.includes("sentence")) {
     return [
       "Use sentence-part ordering and verb-position correction.",
       "For A2, include meaningful verb-position patterns: main clauses with a fronted element, simple subordinate clauses with weil/dass/ob, and verb-second versus verb-final contrast.",
@@ -942,8 +942,6 @@ async function loadAssignmentSummary(admin: SupabaseAdminClient, assignmentId: s
 }
 
 async function determineLevel(admin: SupabaseAdminClient, assignment: AssignmentRow, topic: GrammarTopicRow): Promise<Level> {
-  if (["A1", "A2", "B1", "B2"].includes(topic.level)) return topic.level as Level;
-
   const { data: batchStudent } = await admin
     .from("batch_students")
     .select("created_at, batches!inner(level, is_active, workspace_id)")
@@ -956,7 +954,17 @@ async function determineLevel(admin: SupabaseAdminClient, assignment: Assignment
     .maybeSingle();
 
   const level = (batchStudent?.batches as { level?: string } | null)?.level;
-  return ["A1", "A2", "B1", "B2"].includes(level ?? "") ? level as Level : "A2";
+  const batchLevel = ["A1", "A2", "B1", "B2"].includes(level ?? "") ? level as Level : null;
+  if (["A1", "A2", "B1", "B2"].includes(topic.level)) return topic.level as Level;
+
+  const topicLevel = compactText(topic.level, 20).toUpperCase().replace(/[\s-]+/g, "_");
+  if (topicLevel.includes("A1") && topicLevel.includes("A2")) {
+    return batchLevel === "A1" ? "A1" : "A2";
+  }
+  if (topicLevel.includes("A2") && topicLevel.includes("B1")) {
+    return batchLevel === "B1" ? "B1" : "A2";
+  }
+  return batchLevel ?? "A2";
 }
 
 async function findReusableWorksheet(admin: SupabaseAdminClient, assignment: AssignmentRow, level: Level) {
@@ -1494,7 +1502,34 @@ function buildFallbackMiniLesson(topicName: string): MiniLesson {
       what_to_revise: "Review common dative verbs and prepositions such as helfen, danken, mit, bei, and nach.",
     };
   }
-  if (topic.includes("verb") || topic.includes("word") || topic.includes("satz")) {
+  if (topic.includes("perfekt")) {
+    return {
+      short_explanation: "The Perfekt talks about completed past actions in everyday German.",
+      key_rule: "Use haben or sein in position two, and place the Partizip II near the end.",
+      correct_examples: ["Ich habe Deutsch gelernt.", "Wir sind nach Berlin gefahren."],
+      common_mistake_warning: "Do not forget the helper verb, and do not put the participle in position two.",
+      what_to_revise: "Review haben/sein choice and common Partizip II forms.",
+    };
+  }
+  if (topic.includes("conjugation")) {
+    return {
+      short_explanation: "German verbs change their endings to match the subject.",
+      key_rule: "Check the subject first, then choose the verb ending: ich -e, du -st, er/sie/es -t, wir -en.",
+      correct_examples: ["Ich lerne Deutsch.", "Er arbeitet heute."],
+      common_mistake_warning: "Do not use the infinitive after a normal subject in a simple main clause.",
+      what_to_revise: "Practice common present-tense endings with short A1/A2 sentences.",
+    };
+  }
+  if (topic.includes("spelling") || topic.includes("rechtschreib")) {
+    return {
+      short_explanation: "Clear spelling and capitalization make German sentences easier to understand.",
+      key_rule: "Capitalize nouns and sentence beginnings, and check common spellings carefully.",
+      correct_examples: ["Ich lerne Deutsch.", "Das Wasser ist kalt."],
+      common_mistake_warning: "Do not write nouns or language names in lowercase when standard German needs capitalization.",
+      what_to_revise: "Review noun capitalization, sentence beginnings, and common A1/A2 words.",
+    };
+  }
+  if (topic.includes("verb") || topic.includes("word") || topic.includes("satz") || topic.includes("sentence")) {
     return {
       short_explanation: "German main clauses usually place the conjugated verb in position two.",
       key_rule: "If a time phrase starts the sentence, the verb still comes second. In weil/dass clauses, the verb moves to the end.",
@@ -1767,7 +1802,250 @@ function buildFallbackPayload(args: {
     };
   }
 
-  if (key.includes("verb") || key.includes("word") || key.includes("satz")) {
+  if (key.includes("perfekt")) {
+    return {
+      ...base,
+      title: `Perfekt Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the correct helper verb: Ich ___ gestern Deutsch gelernt.",
+          options: ["habe", "bin", "ist", "hat"],
+          correct_answer: "habe",
+          explanation: "Lernen normally uses haben in the Perfekt.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the correct Perfekt sentence.",
+          options: ["Wir sind nach Hause gegangen.", "Wir haben nach Hause gegangen.", "Wir sind nach Hause gehen.", "Wir nach Hause sind gegangen."],
+          correct_answer: "Wir sind nach Hause gegangen.",
+          explanation: "Gehen uses sein in the Perfekt, and the participle gegangen comes near the end.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete with one helper verb: Sie ___ einen Film gesehen.",
+          options: [],
+          correct_answer: "hat",
+          explanation: "Sehen uses haben, and with sie singular the helper is hat.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete with one participle: Ich habe meine Hausaufgaben ___.",
+          options: [],
+          correct_answer: "gemacht",
+          explanation: "Machen becomes gemacht in the Perfekt.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Gestern ich habe Deutsch gelernt.",
+          options: [],
+          correct_answer: "Gestern habe ich Deutsch gelernt.",
+          explanation: "After Gestern, the helper verb habe is in position two.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Wir haben nach Berlin gefahren.",
+          options: [],
+          correct_answer: "Wir sind nach Berlin gefahren.",
+          explanation: "Fahren with movement to a place usually uses sein.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: gestern / habe / ich / viel / Deutsch / gelernt",
+          options: [],
+          correct_answer: "Gestern habe ich viel Deutsch gelernt.",
+          explanation: "The time phrase is first, then the helper verb habe comes second.",
+        },
+        {
+          question_number: 8,
+          question_type: "transformation",
+          prompt: "Rewrite in the Perfekt: Ich mache die Übung.",
+          options: [],
+          correct_answer: "Ich habe die Übung gemacht.",
+          explanation: "Machen uses haben, and the participle is gemacht.",
+        },
+        {
+          question_number: 9,
+          question_type: "fill_blank",
+          prompt: "Complete with one helper verb: Er ___ spät gekommen.",
+          options: [],
+          correct_answer: "ist",
+          explanation: "Kommen uses sein in the Perfekt.",
+        },
+      ],
+    };
+  }
+
+  if (key.includes("conjugation")) {
+    return {
+      ...base,
+      title: `Conjugation Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the correct verb form: Ich ___ Deutsch.",
+          options: ["lerne", "lernst", "lernt", "lernen"],
+          correct_answer: "lerne",
+          explanation: "With ich, regular verbs usually end in -e.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the correct verb form: Er ___ heute.",
+          options: ["arbeitet", "arbeite", "arbeitest", "arbeiten"],
+          correct_answer: "arbeitet",
+          explanation: "With er, the regular present-tense ending is -t.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete with one verb form: Du ___ sehr gut Deutsch.",
+          options: [],
+          correct_answer: "sprichst",
+          explanation: "With du, sprechen becomes sprichst.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete with one verb form: Wir ___ in Berlin.",
+          options: [],
+          correct_answer: "wohnen",
+          explanation: "With wir, regular verbs use the infinitive form ending in -en.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Ich lernen Deutsch.",
+          options: [],
+          correct_answer: "Ich lerne Deutsch.",
+          explanation: "With ich, use lerne, not the infinitive lernen.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Er kommen heute.",
+          options: [],
+          correct_answer: "Er kommt heute.",
+          explanation: "With er, kommen becomes kommt.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: jeden Tag / lerne / ich / neue Wörter / zu Hause / gern",
+          options: [],
+          correct_answer: "Jeden Tag lerne ich gern neue Wörter zu Hause.",
+          explanation: "The time phrase is first, then the conjugated verb lerne comes second.",
+        },
+        {
+          question_number: 8,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: Du machen die Aufgabe.",
+          options: [],
+          correct_answer: "Du machst die Aufgabe.",
+          explanation: "With du, machen becomes machst.",
+        },
+        {
+          question_number: 9,
+          question_type: "fill_blank",
+          prompt: "Complete with one verb form: Ihr ___ morgen.",
+          options: [],
+          correct_answer: "kommt",
+          explanation: "With ihr, kommen becomes kommt.",
+        },
+      ],
+    };
+  }
+
+  if (key.includes("spelling") || key.includes("rechtschreib")) {
+    return {
+      ...base,
+      title: `Spelling Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the correctly written sentence.",
+          options: ["Ich lerne Deutsch.", "ich lerne deutsch.", "Ich Lerne deutsch.", "ich Lerne Deutsch."],
+          correct_answer: "Ich lerne Deutsch.",
+          explanation: "Sentence beginnings and the language name Deutsch are capitalized.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the correctly written noun phrase.",
+          options: ["das Wasser", "das wasser", "Das wasser", "der wasser"],
+          correct_answer: "das Wasser",
+          explanation: "German nouns such as Wasser are capitalized.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete with the correctly capitalized word: Ich trinke ___.",
+          options: [],
+          correct_answer: "Wasser",
+          explanation: "Wasser is a noun and is capitalized.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete with the correctly capitalized word: Wir lernen ___.",
+          options: [],
+          correct_answer: "Deutsch",
+          explanation: "The language name Deutsch is capitalized.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: ich trinke wasser.",
+          options: [],
+          correct_answer: "Ich trinke Wasser.",
+          explanation: "Capitalize the sentence beginning and the noun Wasser.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: wir lernen deutsch.",
+          options: [],
+          correct_answer: "Wir lernen Deutsch.",
+          explanation: "Capitalize the sentence beginning and Deutsch.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: Heute / schreibe / ich / einen Satz / im Unterricht / richtig",
+          options: [],
+          correct_answer: "Heute schreibe ich im Unterricht einen Satz richtig.",
+          explanation: "The sentence begins with Heute, then the verb schreibe comes second.",
+        },
+        {
+          question_number: 8,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: das buch ist neu.",
+          options: [],
+          correct_answer: "Das Buch ist neu.",
+          explanation: "Capitalize the sentence beginning and the noun Buch.",
+        },
+        {
+          question_number: 9,
+          question_type: "fill_blank",
+          prompt: "Complete with the correctly capitalized word: Das ___ ist neu.",
+          options: [],
+          correct_answer: "Buch",
+          explanation: "Buch is a noun and is capitalized.",
+        },
+      ],
+    };
+  }
+
+  if (key.includes("verb") || key.includes("word") || key.includes("satz") || key.includes("sentence")) {
     return {
       ...base,
       title: `Verb Position Practice (${args.level})`,

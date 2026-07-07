@@ -375,12 +375,19 @@ export default function TeacherStudents() {
                                     </span>
                                   </div>
                                   {assignment && (
-                                    <div className="flex flex-wrap items-center gap-1.5">
-                                      <Badge variant="outline" className={getPracticeAssignmentBadgeClass(assignment)}>
-                                        {getPracticeAssignmentLabel(assignment)}
-                                      </Badge>
-                                      {assignment.worksheet_title && (
-                                        <span className="text-[11px] text-muted-foreground truncate">{assignment.worksheet_title}</span>
+                                    <div className="space-y-1">
+                                      <div className="flex flex-wrap items-center gap-1.5">
+                                        <Badge variant="outline" className={getPracticeAssignmentBadgeClass(assignment)}>
+                                          {getPracticeAssignmentLabel(assignment)}
+                                        </Badge>
+                                        {assignment.worksheet_title && (
+                                          <span className="text-[11px] text-muted-foreground truncate">{assignment.worksheet_title}</span>
+                                        )}
+                                      </div>
+                                      {assignment.source === "adaptive_repeat" && assignment.status === "failed" && (
+                                        <p className="text-[11px] font-medium text-orange-700 dark:text-orange-300">
+                                          Teacher support recommended
+                                        </p>
                                       )}
                                     </div>
                                   )}
