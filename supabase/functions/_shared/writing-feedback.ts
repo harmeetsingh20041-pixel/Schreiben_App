@@ -54,6 +54,7 @@ interface PrepareSubmissionFeedbackArgs {
   callerId?: string | null;
   requireTeacherAccess?: boolean;
   source: "manual" | "due_processor";
+  requestId?: string | null;
 }
 
 export interface PrepareSubmissionFeedbackResult {
@@ -81,6 +82,21 @@ const statusValues = new Set([
 const severityValues = new Set(["minor", "major", "mixed"]);
 const PROVIDER_TIMEOUT_MS = 80 * 1000;
 const MAX_FEEDBACK_ATTEMPTS = 3;
+const SAFE_FEEDBACK_ERROR = "Feedback could not be prepared. Please try again later.";
+
+type FunctionLogEvent = {
+  request_id: string;
+  function: string;
+  stage: string;
+  status: "started" | "succeeded" | "failed" | "skipped";
+  workspace_id?: string | null;
+  submission_id?: string | null;
+  assignment_id?: string | null;
+  attempt_id?: string | null;
+  safe_error_code?: string | null;
+  duration_ms?: number | null;
+  detail?: string | null;
+};
 
 export class FeedbackHttpError extends Error {
   status: number;
@@ -97,6 +113,21 @@ export function jsonResponse(body: Record<string, unknown>, status = 200) {
     status,
     headers: corsHeaders,
   });
+}
+
+export function createRequestId() {
+  return crypto.randomUUID();
+}
+
+export function durationMs(startedAt: number) {
+  return Math.max(0, Date.now() - startedAt);
+}
+
+export function logFunctionEvent(event: FunctionLogEvent) {
+  const safeEvent = Object.fromEntries(
+    Object.entries(event).filter(([, value]) => value !== undefined && value !== null && value !== ""),
+  );
+  console.log(JSON.stringify(safeEvent));
 }
 
 function getSecretKey() {
@@ -430,6 +461,9 @@ async function fetchDeepSeekFeedback(apiKey: string, body: unknown, timeoutMs = 
 async function generateValidatedFeedback(args: {
   apiKey: string;
   model: string;
+  requestId?: string | null;
+  workspaceId?: string | null;
+  submissionId?: string | null;
   targetLevel: string;
   questionTitle: string;
   questionPrompt: string;
@@ -467,7 +501,15 @@ async function generateValidatedFeedback(args: {
       if (!deepseekResponse.ok) {
         const reason = `Feedback provider returned HTTP ${deepseekResponse.status}.`;
         failures.push(reason);
-        console.error("prepare-writing-feedback provider failed", deepseekResponse.status);
+        logFunctionEvent({
+          request_id: args.requestId ?? "unknown",
+          function: "prepare-writing-feedback",
+          stage: "provider_call",
+          status: "failed",
+          workspace_id: args.workspaceId,
+          submission_id: args.submissionId,
+          safe_error_code: `provider_http_${deepseekResponse.status}`,
+        });
         continue;
       }
 
@@ -481,7 +523,16 @@ async function generateValidatedFeedback(args: {
     } catch (error) {
       const reason = error instanceof Error ? error.message : "Feedback response could not be validated.";
       failures.push(reason);
-      console.warn("prepare-writing-feedback attempt failed", JSON.stringify({ attempt, reason }));
+      logFunctionEvent({
+        request_id: args.requestId ?? "unknown",
+        function: "prepare-writing-feedback",
+        stage: "validate",
+        status: "failed",
+        workspace_id: args.workspaceId,
+        submission_id: args.submissionId,
+        safe_error_code: "provider_validation_failed",
+        detail: `attempt=${attempt}; ${reason.slice(0, 180)}`,
+      });
     }
   }
 
@@ -527,7 +578,9 @@ export async function prepareSubmissionFeedback({
   callerId,
   requireTeacherAccess = false,
   source,
+  requestId,
 }: PrepareSubmissionFeedbackArgs): Promise<PrepareSubmissionFeedbackResult> {
+  const startedAt = Date.now();
   const { data: submission, error: submissionError } = await admin
     .from("submissions")
     .select("*")
@@ -535,7 +588,14 @@ export async function prepareSubmissionFeedback({
     .maybeSingle();
 
   if (submissionError) {
-    console.error("prepare-writing-feedback submission load failed", submissionError.message);
+    logFunctionEvent({
+      request_id: requestId ?? "unknown",
+      function: "prepare-writing-feedback",
+      stage: "load_submission",
+      status: "failed",
+      submission_id: submissionId,
+      safe_error_code: "submission_load_failed",
+    });
     throw new FeedbackHttpError("Could not load submission.", 500);
   }
   if (!submission) {
@@ -546,6 +606,15 @@ export async function prepareSubmissionFeedback({
     if (!callerId) throw new FeedbackHttpError("Authentication required.", 401);
     await assertTeacherAccess(admin, callerId, submission.workspace_id);
   }
+
+  logFunctionEvent({
+    request_id: requestId ?? "unknown",
+    function: "prepare-writing-feedback",
+    stage: "load_submission",
+    status: "succeeded",
+    workspace_id: submission.workspace_id,
+    submission_id: submissionId,
+  });
 
   const originalText = cleanString(submission.original_text);
   if (!originalText) {
@@ -578,12 +647,12 @@ export async function prepareSubmissionFeedback({
     };
   }
 
-  const startedAt = new Date().toISOString();
+  const feedbackStartedAt = new Date().toISOString();
   const { data: lockedSubmission, error: lockError } = await admin
     .from("submissions")
     .update({
       status: "checking",
-      feedback_started_at: startedAt,
+      feedback_started_at: feedbackStartedAt,
       feedback_completed_at: null,
       feedback_error: null,
     })
@@ -593,7 +662,15 @@ export async function prepareSubmissionFeedback({
     .maybeSingle();
 
   if (lockError) {
-    console.error("prepare-writing-feedback lock failed", lockError.message);
+    logFunctionEvent({
+      request_id: requestId ?? "unknown",
+      function: "prepare-writing-feedback",
+      stage: "acquire_lock",
+      status: "failed",
+      workspace_id: submission.workspace_id,
+      submission_id: submissionId,
+      safe_error_code: "lock_failed",
+    });
     throw new FeedbackHttpError("Could not start feedback preparation.", 500);
   }
   if (!lockedSubmission) {
@@ -610,6 +687,14 @@ export async function prepareSubmissionFeedback({
       already_processing: latest?.status === "checking",
     };
   }
+  logFunctionEvent({
+    request_id: requestId ?? "unknown",
+    function: "prepare-writing-feedback",
+    stage: "acquire_lock",
+    status: "succeeded",
+    workspace_id: lockedSubmission.workspace_id,
+    submission_id: submissionId,
+  });
 
   let batch = null;
   if (lockedSubmission.batch_id) {
@@ -643,14 +728,27 @@ export async function prepareSubmissionFeedback({
   const apiKey = Deno.env.get("DEEPSEEK_API_KEY");
 
   if (!apiKey) {
-    await markFeedbackFailed(admin, submissionId, "Feedback service secret is not configured.");
-    throw new FeedbackHttpError("Feedback service secret is not configured.", 503);
+    await markFeedbackFailed(admin, submissionId, SAFE_FEEDBACK_ERROR);
+    logFunctionEvent({
+      request_id: requestId ?? "unknown",
+      function: "prepare-writing-feedback",
+      stage: "config",
+      status: "failed",
+      workspace_id: lockedSubmission.workspace_id,
+      submission_id: submissionId,
+      safe_error_code: "missing_provider_key",
+      duration_ms: durationMs(startedAt),
+    });
+    throw new FeedbackHttpError(SAFE_FEEDBACK_ERROR, 503);
   }
 
   try {
     const feedback = await generateValidatedFeedback({
       apiKey,
       model,
+      requestId,
+      workspaceId: lockedSubmission.workspace_id,
+      submissionId,
       targetLevel,
       questionTitle: question?.title ?? "",
       questionPrompt: question?.prompt ?? "",
@@ -720,6 +818,16 @@ export async function prepareSubmissionFeedback({
       .eq("id", submissionId);
 
     if (updateError) throw updateError;
+    logFunctionEvent({
+      request_id: requestId ?? "unknown",
+      function: "prepare-writing-feedback",
+      stage: "save_feedback",
+      status: "succeeded",
+      workspace_id: lockedSubmission.workspace_id,
+      submission_id: submissionId,
+      duration_ms: durationMs(startedAt),
+      detail: `line_count=${feedback.lines.length}; status=${nextStatus}; source=${source}`,
+    });
 
     await admin.from("usage_events").insert({
       workspace_id: lockedSubmission.workspace_id,
@@ -740,13 +848,26 @@ export async function prepareSubmissionFeedback({
         target_student_id: lockedSubmission.student_id,
       });
       if (statsError) {
-        console.error("prepare-writing-feedback stats refresh failed", statsError.message);
+        logFunctionEvent({
+          request_id: requestId ?? "unknown",
+          function: "prepare-writing-feedback",
+          stage: "refresh_stats",
+          status: "failed",
+          workspace_id: lockedSubmission.workspace_id,
+          submission_id: submissionId,
+          safe_error_code: "stats_refresh_failed",
+        });
       }
     } catch (statsRefreshError) {
-      console.error(
-        "prepare-writing-feedback stats refresh failed",
-        statsRefreshError instanceof Error ? statsRefreshError.message : "unknown",
-      );
+      logFunctionEvent({
+        request_id: requestId ?? "unknown",
+        function: "prepare-writing-feedback",
+        stage: "refresh_stats",
+        status: "failed",
+        workspace_id: lockedSubmission.workspace_id,
+        submission_id: submissionId,
+        safe_error_code: "stats_refresh_exception",
+      });
     }
 
     return {
@@ -755,8 +876,16 @@ export async function prepareSubmissionFeedback({
       line_count: feedback.lines.length,
     };
   } catch (error) {
-    console.error("prepare-writing-feedback failed", error instanceof Error ? error.message : "unknown");
-    await markFeedbackFailed(admin, submissionId, "Feedback could not be prepared.");
-    throw new FeedbackHttpError("Feedback could not be prepared. Please try again later.", 500);
+    logFunctionEvent({
+      request_id: requestId ?? "unknown",
+      function: "prepare-writing-feedback",
+      stage: "prepare_feedback",
+      status: "failed",
+      submission_id: submissionId,
+      safe_error_code: error instanceof FeedbackHttpError ? `feedback_http_${error.status}` : "feedback_failed",
+      duration_ms: durationMs(startedAt),
+    });
+    await markFeedbackFailed(admin, submissionId, SAFE_FEEDBACK_ERROR);
+    throw new FeedbackHttpError(SAFE_FEEDBACK_ERROR, 500);
   }
 }

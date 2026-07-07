@@ -1,4 +1,5 @@
 import { getSupabaseClient, isSupabaseConfigured } from "@/lib/supabaseClient";
+import { isSignupEnabled } from "@/lib/launchConfig";
 import type { WorkspaceRole } from "@/types/database";
 import type { Session, User } from "@supabase/supabase-js";
 
@@ -70,6 +71,14 @@ export async function signUpWithEmailPassword(params: {
   fullName?: string;
   accountType: "student" | "teacher";
 }) {
+  if (!isSignupEnabled(params.accountType)) {
+    throw new Error(
+      params.accountType === "teacher"
+        ? "Teacher signup is not open. Ask an administrator for access."
+        : "Student signup is not open. Ask your teacher for access.",
+    );
+  }
+
   const client = requireClient();
   const { error } = await client.auth.signUp({
     email: params.email,

@@ -3,6 +3,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/lib/auth";
+import { isSignupEnabled, launchConfig } from "@/lib/launchConfig";
+import { formatErrorMessage } from "@/lib/workspaceData";
 import { PenTool, GraduationCap, ArrowRight, BookOpen, Sparkles, Users } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
@@ -18,12 +20,26 @@ export default function Login() {
   const [accountType, setAccountType] = useState<"student" | "teacher">("teacher");
   const [formMode, setFormMode] = useState<"sign-in" | "sign-up">("sign-in");
   const [error, setError] = useState<string | null>(null);
+  const demoModeEnabled = launchConfig.enableDemoMode;
+  const teacherSignupEnabled = isSignupEnabled("teacher");
+  const studentSignupEnabled = isSignupEnabled("student");
+  const signupEnabled = teacherSignupEnabled || studentSignupEnabled;
   
   useEffect(() => {
     if (needsWorkspace) setLocation("/teacher/onboarding");
     if (role === "student") setLocation("/student/dashboard");
     if (role === "teacher" && !needsWorkspace) setLocation("/teacher/dashboard");
   }, [needsWorkspace, role, setLocation]);
+
+  useEffect(() => {
+    if (!signupEnabled && formMode === "sign-up") {
+      setFormMode("sign-in");
+      return;
+    }
+    if (formMode === "sign-up" && !isSignupEnabled(accountType)) {
+      setAccountType(studentSignupEnabled ? "student" : "teacher");
+    }
+  }, [accountType, formMode, signupEnabled, studentSignupEnabled]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -51,7 +67,7 @@ export default function Login() {
         await signUp({ email, password, fullName, accountType });
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Authentication failed.");
+      setError(formatErrorMessage(err, "Authentication failed. Please try again."));
     }
   };
 
@@ -69,7 +85,7 @@ export default function Login() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Interactive Demo Mode
+            {demoModeEnabled ? "Interactive Demo Mode" : "German Writing Coach"}
           </div>
           <h1 className="text-4xl lg:text-5xl xl:text-6xl font-serif text-foreground tracking-tight mb-3 leading-[1.1]">
             Master German Writing, <span className="text-primary italic">Line by Line.</span>
@@ -175,22 +191,26 @@ export default function Login() {
               </div>
               {formMode === "sign-up" && (
                 <div className="grid grid-cols-2 gap-2">
-                  <Button
-                    type="button"
-                    variant={accountType === "teacher" ? "default" : "outline"}
-                    onClick={() => setAccountType("teacher")}
-                    disabled={authMode !== "supabase" || loading}
-                  >
-                    Teacher
-                  </Button>
-                  <Button
-                    type="button"
-                    variant={accountType === "student" ? "default" : "outline"}
-                    onClick={() => setAccountType("student")}
-                    disabled={authMode !== "supabase" || loading}
-                  >
-                    Student
-                  </Button>
+                  {teacherSignupEnabled && (
+                    <Button
+                      type="button"
+                      variant={accountType === "teacher" ? "default" : "outline"}
+                      onClick={() => setAccountType("teacher")}
+                      disabled={authMode !== "supabase" || loading}
+                    >
+                      Teacher
+                    </Button>
+                  )}
+                  {studentSignupEnabled && (
+                    <Button
+                      type="button"
+                      variant={accountType === "student" ? "default" : "outline"}
+                      onClick={() => setAccountType("student")}
+                      disabled={authMode !== "supabase" || loading}
+                    >
+                      Student
+                    </Button>
+                  )}
                 </div>
               )}
               {error && (
@@ -206,52 +226,60 @@ export default function Login() {
               >
                 {loading ? "Please wait..." : formMode === "sign-in" ? "Sign in with Email" : "Create Account"}
               </Button>
-              <Button
-                type="button"
-                variant="ghost"
-                className="w-full text-muted-foreground"
-                onClick={() => {
-                  setError(null);
-                  setFormMode(formMode === "sign-in" ? "sign-up" : "sign-in");
-                }}
-                disabled={authMode !== "supabase" || loading}
-              >
-                {formMode === "sign-in" ? "Create a teacher or student account" : "Use an existing account"}
-              </Button>
+              {signupEnabled && (
+                <Button
+                  type="button"
+                  variant="ghost"
+                  className="w-full text-muted-foreground"
+                  onClick={() => {
+                    setError(null);
+                    setFormMode(formMode === "sign-in" ? "sign-up" : "sign-in");
+                  }}
+                  disabled={authMode !== "supabase" || loading}
+                >
+                  {formMode === "sign-in"
+                    ? "Create an account"
+                    : "Use an existing account"}
+                </Button>
+              )}
               {authMode !== "supabase" && (
                 <p className="text-xs text-muted-foreground text-center">
-                  Email auth turns on after Supabase env vars are added locally.
+                  Sign-in requires the Supabase environment variables.
                 </p>
               )}
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t border-border" />
+            {demoModeEnabled && (
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <span className="w-full border-t border-border" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase tracking-widest">
+                  <span className="bg-card/40 lg:bg-background px-3 text-muted-foreground font-medium">Or continue as (Demo)</span>
+                </div>
               </div>
-              <div className="relative flex justify-center text-xs uppercase tracking-widest">
-                <span className="bg-card/40 lg:bg-background px-3 text-muted-foreground font-medium">Or continue as (Demo)</span>
-              </div>
-            </div>
+            )}
 
-            <div className="grid grid-cols-2 gap-4">
-              <Button 
-                variant="outline" 
-                className="h-auto py-4 flex flex-col gap-2.5 hover:border-primary hover:bg-primary/5 transition-all bg-card shadow-sm"
-                onClick={() => login("student")}
-              >
-                <GraduationCap className="w-5 h-5 text-primary" />
-                <span className="font-medium">Student</span>
-              </Button>
-              <Button 
-                variant="outline" 
-                className="h-auto py-4 flex flex-col gap-2.5 hover:border-primary hover:bg-primary/5 transition-all bg-card shadow-sm"
-                onClick={() => login("teacher")}
-              >
-                <PenTool className="w-5 h-5 text-primary" />
-                <span className="font-medium">Teacher</span>
-              </Button>
-            </div>
+            {demoModeEnabled && (
+              <div className="grid grid-cols-2 gap-4">
+                <Button
+                  variant="outline"
+                  className="h-auto py-4 flex flex-col gap-2.5 hover:border-primary hover:bg-primary/5 transition-all bg-card shadow-sm"
+                  onClick={() => login("student")}
+                >
+                  <GraduationCap className="w-5 h-5 text-primary" />
+                  <span className="font-medium">Student</span>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="h-auto py-4 flex flex-col gap-2.5 hover:border-primary hover:bg-primary/5 transition-all bg-card shadow-sm"
+                  onClick={() => login("teacher")}
+                >
+                  <PenTool className="w-5 h-5 text-primary" />
+                  <span className="font-medium">Teacher</span>
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,4 +1,12 @@
-import { cleanString, corsHeaders, createAdminClient, jsonResponse } from "../_shared/writing-feedback.ts";
+import {
+  cleanString,
+  corsHeaders,
+  createAdminClient,
+  createRequestId,
+  durationMs,
+  jsonResponse,
+  logFunctionEvent,
+} from "../_shared/writing-feedback.ts";
 
 type SupabaseAdminClient = ReturnType<typeof createAdminClient>;
 type Level = "A1" | "A2" | "B1" | "B2";
@@ -2221,6 +2229,9 @@ function buildFallbackWorksheet(args: {
 }
 
 Deno.serve(async (req) => {
+  const requestId = createRequestId();
+  const startedAt = Date.now();
+
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
@@ -2234,6 +2245,14 @@ Deno.serve(async (req) => {
     const body = await req.json();
     assignmentId = cleanString(body.assignment_id || body.assignmentId);
   } catch {
+    logFunctionEvent({
+      request_id: requestId,
+      function: "generate-practice-worksheet",
+      stage: "parse_request",
+      status: "failed",
+      safe_error_code: "invalid_body",
+      duration_ms: durationMs(startedAt),
+    });
     return jsonResponse({ error: "Invalid request body." }, 400);
   }
   if (!assignmentId) {
@@ -2243,6 +2262,15 @@ Deno.serve(async (req) => {
   const authHeader = req.headers.get("Authorization") ?? "";
   const jwt = authHeader.replace(/^Bearer\s+/i, "").trim();
   if (!jwt) {
+    logFunctionEvent({
+      request_id: requestId,
+      function: "generate-practice-worksheet",
+      stage: "auth",
+      status: "failed",
+      assignment_id: assignmentId,
+      safe_error_code: "missing_jwt",
+      duration_ms: durationMs(startedAt),
+    });
     return jsonResponse({ error: "Authentication required." }, 401);
   }
 
@@ -2250,11 +2278,26 @@ Deno.serve(async (req) => {
   try {
     admin = createAdminClient();
   } catch (error) {
-    console.error("generate-practice-worksheet config error", error instanceof Error ? error.message : "unknown");
-    return jsonResponse({ error: "Worksheet preparation is not configured." }, 500);
+    logFunctionEvent({
+      request_id: requestId,
+      function: "generate-practice-worksheet",
+      stage: "config",
+      status: "failed",
+      assignment_id: assignmentId,
+      safe_error_code: "admin_client_config_failed",
+      duration_ms: durationMs(startedAt),
+    });
+    return jsonResponse({ error: SAFE_GENERATION_ERROR }, 500);
   }
 
   try {
+    logFunctionEvent({
+      request_id: requestId,
+      function: "generate-practice-worksheet",
+      stage: "request",
+      status: "started",
+      assignment_id: assignmentId,
+    });
     const caller = await getCaller(admin, jwt);
     let assignment = await loadAssignment(admin, assignmentId);
     await assertAssignmentAccess(admin, assignment, caller.id);
@@ -2277,6 +2320,15 @@ Deno.serve(async (req) => {
     }
 
     if (assignment.practice_test_id) {
+      logFunctionEvent({
+        request_id: requestId,
+        function: "generate-practice-worksheet",
+        stage: "already_attached",
+        status: "succeeded",
+        workspace_id: assignment.workspace_id,
+        assignment_id: assignment.id,
+        duration_ms: durationMs(startedAt),
+      });
       return jsonResponse({
         status: "ready",
         reused: true,
@@ -2286,6 +2338,16 @@ Deno.serve(async (req) => {
     }
 
     if (assignment.generation_status === "generating" && isGenerationLockRecent(assignment)) {
+      logFunctionEvent({
+        request_id: requestId,
+        function: "generate-practice-worksheet",
+        stage: "generation_lock",
+        status: "skipped",
+        workspace_id: assignment.workspace_id,
+        assignment_id: assignment.id,
+        safe_error_code: "generation_already_running",
+        duration_ms: durationMs(startedAt),
+      });
       return jsonResponse({
         status: "generating",
         reused: false,
@@ -2331,6 +2393,16 @@ Deno.serve(async (req) => {
         developer_reason: `Attached reusable worksheet ${reusableWorksheetId}.`,
       });
       await attachWorksheet(admin, assignment.id, reusableWorksheetId);
+      logFunctionEvent({
+        request_id: requestId,
+        function: "generate-practice-worksheet",
+        stage: "reuse_lookup",
+        status: "succeeded",
+        workspace_id: assignment.workspace_id,
+        assignment_id: assignment.id,
+        duration_ms: durationMs(startedAt),
+        detail: "attached_reusable=true",
+      });
       return jsonResponse({
         status: "ready",
         reused: true,
@@ -2362,6 +2434,16 @@ Deno.serve(async (req) => {
         developer_reason: `Attached reusable worksheet ${reusableAfterLockId} after acquiring generation lock.`,
       });
       await attachWorksheet(admin, lockedAssignment.id, reusableAfterLockId);
+      logFunctionEvent({
+        request_id: requestId,
+        function: "generate-practice-worksheet",
+        stage: "reuse_lookup",
+        status: "succeeded",
+        workspace_id: lockedAssignment.workspace_id,
+        assignment_id: lockedAssignment.id,
+        duration_ms: durationMs(startedAt),
+        detail: "attached_reusable_after_lock=true",
+      });
       return jsonResponse({
         status: "ready",
         reused: true,
@@ -2579,6 +2661,17 @@ Deno.serve(async (req) => {
       },
     });
 
+    logFunctionEvent({
+      request_id: requestId,
+      function: "generate-practice-worksheet",
+      stage: "save",
+      status: "succeeded",
+      workspace_id: lockedAssignment.workspace_id,
+      assignment_id: lockedAssignment.id,
+      duration_ms: durationMs(startedAt),
+      detail: `practice_test_id=${savedWorksheet.id}; source_mix=${sourceMix.mode}; questions=${worksheet.questions.length}`,
+    });
+
     return jsonResponse({
       status: "ready",
       reused: false,
@@ -2589,10 +2682,26 @@ Deno.serve(async (req) => {
     const status = error instanceof WorksheetHttpError ? error.status : 500;
     const message = error instanceof Error ? error.message : "Worksheet could not be prepared. Please try again later.";
     if (error instanceof WorksheetQualityError) {
-      console.error("generate-practice-worksheet validation failed", error.detail);
+      logFunctionEvent({
+        request_id: requestId,
+        function: "generate-practice-worksheet",
+        stage: "validate",
+        status: "failed",
+        assignment_id: assignmentId,
+        safe_error_code: "worksheet_quality_failed",
+        duration_ms: durationMs(startedAt),
+      });
       await markGenerationFailed(admin, assignmentId, SAFE_GENERATION_ERROR);
     } else if (!(error instanceof WorksheetHttpError) || status >= 500) {
-      console.error("generate-practice-worksheet failed", message);
+      logFunctionEvent({
+        request_id: requestId,
+        function: "generate-practice-worksheet",
+        stage: "response",
+        status: "failed",
+        assignment_id: assignmentId,
+        safe_error_code: status >= 500 ? "worksheet_generation_failed" : `worksheet_http_${status}`,
+        duration_ms: durationMs(startedAt),
+      });
       await markGenerationFailed(admin, assignmentId, SAFE_GENERATION_ERROR);
     }
     const responseMessage = error instanceof WorksheetQualityError || status >= 500

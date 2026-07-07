@@ -2,8 +2,11 @@ import {
   cleanString,
   corsHeaders,
   createAdminClient,
+  createRequestId,
+  durationMs,
   FeedbackHttpError,
   jsonResponse,
+  logFunctionEvent,
   prepareSubmissionFeedback,
 } from "../_shared/writing-feedback.ts";
 
@@ -17,6 +20,9 @@ function parseLimit(value: string | null) {
 }
 
 Deno.serve(async (req) => {
+  const requestId = createRequestId();
+  const startedAt = Date.now();
+
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
@@ -27,6 +33,14 @@ Deno.serve(async (req) => {
 
   const expectedSecret = Deno.env.get("PROCESS_FEEDBACK_SECRET");
   if (!expectedSecret) {
+    logFunctionEvent({
+      request_id: requestId,
+      function: "process-due-feedback",
+      stage: "config",
+      status: "failed",
+      safe_error_code: "missing_process_secret",
+      duration_ms: durationMs(startedAt),
+    });
     return jsonResponse({ error: "Feedback processor secret is not configured." }, 503);
   }
 
@@ -34,6 +48,14 @@ Deno.serve(async (req) => {
   const bearerSecret = authHeader.replace(/^Bearer\s+/i, "").trim();
   const headerSecret = cleanString(req.headers.get("x-process-feedback-secret"));
   if (headerSecret !== expectedSecret && bearerSecret !== expectedSecret) {
+    logFunctionEvent({
+      request_id: requestId,
+      function: "process-due-feedback",
+      stage: "auth",
+      status: "failed",
+      safe_error_code: "invalid_process_secret",
+      duration_ms: durationMs(startedAt),
+    });
     return jsonResponse({ error: "Unauthorized." }, 401);
   }
 
@@ -41,7 +63,14 @@ Deno.serve(async (req) => {
   try {
     admin = createAdminClient();
   } catch (error) {
-    console.error("process-due-feedback config error", error instanceof Error ? error.message : "unknown");
+    logFunctionEvent({
+      request_id: requestId,
+      function: "process-due-feedback",
+      stage: "config",
+      status: "failed",
+      safe_error_code: "admin_client_config_failed",
+      duration_ms: durationMs(startedAt),
+    });
     return jsonResponse({ error: "Feedback processor is not configured." }, 500);
   }
 
@@ -59,9 +88,24 @@ Deno.serve(async (req) => {
     .limit(limit);
 
   if (dueError) {
-    console.error("process-due-feedback query failed", dueError.message);
+    logFunctionEvent({
+      request_id: requestId,
+      function: "process-due-feedback",
+      stage: "load_due_submissions",
+      status: "failed",
+      safe_error_code: "due_submission_query_failed",
+      duration_ms: durationMs(startedAt),
+    });
     return jsonResponse({ error: "Could not load due submissions." }, 500);
   }
+
+  logFunctionEvent({
+    request_id: requestId,
+    function: "process-due-feedback",
+    stage: "load_due_submissions",
+    status: "succeeded",
+    detail: `due_count=${dueSubmissions?.length ?? 0}; limit=${limit}`,
+  });
 
   const results = [];
   for (const submission of dueSubmissions ?? []) {
@@ -71,6 +115,7 @@ Deno.serve(async (req) => {
         submissionId: submission.id,
         requireTeacherAccess: false,
         source: "due_processor",
+        requestId,
       });
       results.push({
         submission_id: submission.id,
@@ -81,6 +126,14 @@ Deno.serve(async (req) => {
       });
     } catch (error) {
       const status = error instanceof FeedbackHttpError ? error.status : 500;
+      logFunctionEvent({
+        request_id: requestId,
+        function: "process-due-feedback",
+        stage: "prepare_submission",
+        status: "failed",
+        submission_id: submission.id,
+        safe_error_code: `feedback_http_${status}`,
+      });
       results.push({
         submission_id: submission.id,
         status: "failed",
@@ -89,6 +142,15 @@ Deno.serve(async (req) => {
       });
     }
   }
+
+  logFunctionEvent({
+    request_id: requestId,
+    function: "process-due-feedback",
+    stage: "response",
+    status: "succeeded",
+    duration_ms: durationMs(startedAt),
+    detail: `due_count=${dueSubmissions?.length ?? 0}; processed_count=${results.filter((result) => result.status === "checked" || result.status === "needs_review").length}`,
+  });
 
   return jsonResponse({
     checked_at: nowIso,

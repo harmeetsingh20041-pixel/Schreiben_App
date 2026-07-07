@@ -1,4 +1,12 @@
-import { cleanString, corsHeaders, createAdminClient, jsonResponse } from "../_shared/writing-feedback.ts";
+import {
+  cleanString,
+  corsHeaders,
+  createAdminClient,
+  createRequestId,
+  durationMs,
+  jsonResponse,
+  logFunctionEvent,
+} from "../_shared/writing-feedback.ts";
 
 type SupabaseAdminClient = ReturnType<typeof createAdminClient>;
 
@@ -541,6 +549,9 @@ function validateProviderReviews(value: unknown, requestedQuestions: OpenQuestio
 }
 
 Deno.serve(async (req) => {
+  const requestId = createRequestId();
+  const startedAt = Date.now();
+
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
@@ -556,12 +567,30 @@ Deno.serve(async (req) => {
     assignmentId = cleanString(body.assignment_id || body.assignmentId);
     attemptId = cleanString(body.attempt_id || body.attemptId);
   } catch {
+    logFunctionEvent({
+      request_id: requestId,
+      function: "evaluate-practice-attempt",
+      stage: "parse_request",
+      status: "failed",
+      safe_error_code: "invalid_body",
+      duration_ms: durationMs(startedAt),
+    });
     return jsonResponse({ error: "Invalid request body." }, 400);
   }
 
   const authHeader = req.headers.get("Authorization") ?? "";
   const jwt = authHeader.replace(/^Bearer\s+/i, "").trim();
   if (!jwt) {
+    logFunctionEvent({
+      request_id: requestId,
+      function: "evaluate-practice-attempt",
+      stage: "auth",
+      status: "failed",
+      assignment_id: assignmentId,
+      attempt_id: attemptId,
+      safe_error_code: "missing_jwt",
+      duration_ms: durationMs(startedAt),
+    });
     return jsonResponse({ error: "Authentication required." }, 401);
   }
 
@@ -569,18 +598,45 @@ Deno.serve(async (req) => {
   try {
     admin = createAdminClient();
   } catch (error) {
-    console.error("evaluate-practice-attempt config error", error instanceof Error ? error.message : "unknown");
-    return jsonResponse({ error: "Detailed feedback is not configured." }, 500);
+    logFunctionEvent({
+      request_id: requestId,
+      function: "evaluate-practice-attempt",
+      stage: "config",
+      status: "failed",
+      assignment_id: assignmentId,
+      attempt_id: attemptId,
+      safe_error_code: "admin_client_config_failed",
+      duration_ms: durationMs(startedAt),
+    });
+    return jsonResponse({ error: SAFE_EVALUATION_ERROR }, 500);
   }
 
   let lockedAttemptId = "";
   try {
+    logFunctionEvent({
+      request_id: requestId,
+      function: "evaluate-practice-attempt",
+      stage: "request",
+      status: "started",
+      assignment_id: assignmentId,
+      attempt_id: attemptId,
+    });
     const caller = await getCaller(admin, jwt);
     const initialAttempt = await loadAttempt(admin, { assignmentId, attemptId });
     const { assignment, topic, worksheet } = await loadAttemptContext(admin, initialAttempt);
     await assertAssignmentAccess(admin, assignment, caller.id);
 
     if (initialAttempt.evaluation_status === "completed") {
+      logFunctionEvent({
+        request_id: requestId,
+        function: "evaluate-practice-attempt",
+        stage: "already_evaluated",
+        status: "succeeded",
+        workspace_id: assignment.workspace_id,
+        assignment_id: assignment.id,
+        attempt_id: initialAttempt.id,
+        duration_ms: durationMs(startedAt),
+      });
       return jsonResponse({
         status: "completed",
         evaluated: false,
@@ -597,9 +653,30 @@ Deno.serve(async (req) => {
         target_attempt_id: initialAttempt.id,
       });
       if (finalizeError) {
-        console.error("evaluate-practice-attempt no-op finalize failed", finalizeError.message);
+        logFunctionEvent({
+          request_id: requestId,
+          function: "evaluate-practice-attempt",
+          stage: "finalize",
+          status: "failed",
+          workspace_id: assignment.workspace_id,
+          assignment_id: assignment.id,
+          attempt_id: initialAttempt.id,
+          safe_error_code: "no_open_finalize_failed",
+          duration_ms: durationMs(startedAt),
+        });
         throw new PracticeEvaluationHttpError("Could not finalize worksheet feedback.", 500);
       }
+      logFunctionEvent({
+        request_id: requestId,
+        function: "evaluate-practice-attempt",
+        stage: "finalize",
+        status: "succeeded",
+        workspace_id: assignment.workspace_id,
+        assignment_id: assignment.id,
+        attempt_id: initialAttempt.id,
+        duration_ms: durationMs(startedAt),
+        detail: "open_questions=0",
+      });
       return jsonResponse({
         status: "not_needed",
         evaluated: false,
@@ -651,10 +728,31 @@ Deno.serve(async (req) => {
         target_attempt_id: lockedAttempt.id,
       });
       if (finalizeError) {
-        console.error("evaluate-practice-attempt blank-only finalize failed", finalizeError.message);
+        logFunctionEvent({
+          request_id: requestId,
+          function: "evaluate-practice-attempt",
+          stage: "finalize",
+          status: "failed",
+          workspace_id: assignment.workspace_id,
+          assignment_id: assignment.id,
+          attempt_id: lockedAttempt.id,
+          safe_error_code: "blank_only_finalize_failed",
+          duration_ms: durationMs(startedAt),
+        });
         throw new Error("Practice answer score could not be finalized.");
       }
 
+      logFunctionEvent({
+        request_id: requestId,
+        function: "evaluate-practice-attempt",
+        stage: "finalize",
+        status: "succeeded",
+        workspace_id: assignment.workspace_id,
+        assignment_id: assignment.id,
+        attempt_id: lockedAttempt.id,
+        duration_ms: durationMs(startedAt),
+        detail: `blank_open_question_count=${blankOpenQuestions.length}`,
+      });
       return jsonResponse({
         status: "completed",
         evaluated: false,
@@ -692,7 +790,17 @@ Deno.serve(async (req) => {
     });
 
     if (!providerResponse.ok) {
-      console.error("evaluate-practice-attempt provider failed", providerResponse.status);
+      logFunctionEvent({
+        request_id: requestId,
+        function: "evaluate-practice-attempt",
+        stage: "provider_call",
+        status: "failed",
+        workspace_id: assignment.workspace_id,
+        assignment_id: assignment.id,
+        attempt_id: lockedAttempt.id,
+        safe_error_code: `provider_http_${providerResponse.status}`,
+        duration_ms: durationMs(startedAt),
+      });
       throw new Error("Practice answer provider returned an error.");
     }
 
@@ -725,7 +833,17 @@ Deno.serve(async (req) => {
       target_attempt_id: lockedAttempt.id,
     });
     if (finalizeError) {
-      console.error("evaluate-practice-attempt finalize failed", finalizeError.message);
+      logFunctionEvent({
+        request_id: requestId,
+        function: "evaluate-practice-attempt",
+        stage: "finalize",
+        status: "failed",
+        workspace_id: assignment.workspace_id,
+        assignment_id: assignment.id,
+        attempt_id: lockedAttempt.id,
+        safe_error_code: "finalize_failed",
+        duration_ms: durationMs(startedAt),
+      });
       throw new Error("Practice answer score could not be finalized.");
     }
 
@@ -744,6 +862,18 @@ Deno.serve(async (req) => {
       },
     });
 
+    logFunctionEvent({
+      request_id: requestId,
+      function: "evaluate-practice-attempt",
+      stage: "response",
+      status: "succeeded",
+      workspace_id: assignment.workspace_id,
+      assignment_id: assignment.id,
+      attempt_id: lockedAttempt.id,
+      duration_ms: durationMs(startedAt),
+      detail: `evaluated_question_count=${reviews.length}; blank_open_question_count=${blankOpenQuestions.length}`,
+    });
+
     return jsonResponse({
       status: "completed",
       evaluated: true,
@@ -760,7 +890,16 @@ Deno.serve(async (req) => {
       await markEvaluationFailed(admin, lockedAttemptId, SAFE_EVALUATION_ERROR);
     }
     if (!(error instanceof PracticeEvaluationHttpError) || status >= 500) {
-      console.error("evaluate-practice-attempt failed", message);
+      logFunctionEvent({
+        request_id: requestId,
+        function: "evaluate-practice-attempt",
+        stage: "response",
+        status: "failed",
+        assignment_id: assignmentId,
+        attempt_id: lockedAttemptId || attemptId,
+        safe_error_code: status >= 500 ? "evaluation_failed" : `evaluation_http_${status}`,
+        duration_ms: durationMs(startedAt),
+      });
     }
     return jsonResponse({ error: status >= 500 ? SAFE_EVALUATION_ERROR : message }, status);
   }

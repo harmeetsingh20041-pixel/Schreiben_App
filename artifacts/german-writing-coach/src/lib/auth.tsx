@@ -13,6 +13,7 @@ import {
   type AuthRole,
   type AuthWorkspaceMembership,
 } from "@/services/authService";
+import { launchConfig } from "@/lib/launchConfig";
 
 type Role = AuthRole;
 
@@ -72,7 +73,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const savedRole = localStorage.getItem("gwc_role") as Role;
-    if (savedRole && !canUseSupabaseAuth()) {
+    if (savedRole && launchConfig.enableDemoMode && !canUseSupabaseAuth()) {
       setRole(savedRole);
     }
     void refreshAuthState();
@@ -82,6 +83,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [refreshAuthState]);
 
   const login = (newRole: Role) => {
+    if (!launchConfig.enableDemoMode) return;
     setRole(newRole);
     localStorage.setItem("gwc_role", newRole || "");
     if (newRole === "student") {

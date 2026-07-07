@@ -1,4 +1,5 @@
 import type { AuthWorkspaceMembership } from "@/services/authService";
+import { captureSafeException, isTechnicalErrorMessage } from "@/lib/monitoring";
 
 export const LEVEL_OPTIONS = ["A1", "A2", "B1", "B2"] as const;
 export type WorkspaceLevel = (typeof LEVEL_OPTIONS)[number];
@@ -27,11 +28,26 @@ export function getActiveWorkspaceId(memberships: AuthWorkspaceMembership[]) {
   return memberships[0]?.workspace_id ?? null;
 }
 
-export function formatErrorMessage(error: unknown, fallback: string) {
+function getErrorMessage(error: unknown) {
   if (error instanceof Error && error.message) return error.message;
   if (error && typeof error === "object" && "message" in error) {
     const message = (error as { message?: unknown }).message;
     if (typeof message === "string" && message) return message;
+  }
+  return "";
+}
+
+function isLikelySafeUserMessage(message: string) {
+  if (!message || message.length > 220) return false;
+  if (isTechnicalErrorMessage(message)) return false;
+  return !/(at\s+\w+\s+\(|https?:\/\/|supabase\.co|postgres|sqlstate|constraint|stack|trace)/i.test(message);
+}
+
+export function formatErrorMessage(error: unknown, fallback: string) {
+  const message = getErrorMessage(error);
+  if (message) {
+    captureSafeException(error, { fallback, displayed_message: isLikelySafeUserMessage(message) ? message : fallback });
+    if (isLikelySafeUserMessage(message)) return message;
   }
   return fallback;
 }

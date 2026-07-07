@@ -1,10 +1,13 @@
-import { lazy, Suspense, type ComponentType } from "react";
-import { Switch, Route, Router as WouterRouter, Redirect } from "wouter";
+import { lazy, Suspense, type ComponentType, useEffect } from "react";
+import { Switch, Route, Router as WouterRouter, Redirect, useLocation } from "wouter";
+import * as Sentry from "@sentry/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 import { AuthProvider, useAuth } from "@/lib/auth";
 import { Layout } from "@/components/layout";
+import { setMonitoringContext } from "@/lib/monitoring";
 
 import Login from "@/pages/login";
 
@@ -39,6 +42,38 @@ function RouteLoading() {
       </div>
     </div>
   );
+}
+
+function AppErrorFallback() {
+  return (
+    <div className="min-h-[100dvh] bg-background px-4 py-16 text-foreground">
+      <div className="mx-auto max-w-md rounded-lg border bg-card p-6 text-center shadow-sm">
+        <h1 className="mb-2 text-2xl font-serif">Something went wrong.</h1>
+        <p className="mb-5 text-sm text-muted-foreground">
+          Please refresh the page. If the problem continues, contact your teacher or support.
+        </p>
+        <Button type="button" onClick={() => window.location.reload()}>
+          Refresh page
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+function MonitoringContextBridge() {
+  const [route] = useLocation();
+  const { role, user, workspaceMemberships } = useAuth();
+
+  useEffect(() => {
+    setMonitoringContext({
+      role,
+      route,
+      userId: user?.id ?? null,
+      workspaceId: workspaceMemberships[0]?.workspace_id ?? null,
+    });
+  }, [role, route, user?.id, workspaceMemberships]);
+
+  return null;
 }
 
 function ProtectedRoute({
@@ -109,16 +144,19 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <AuthProvider>
-            <Router />
-          </AuthProvider>
-        </WouterRouter>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <Sentry.ErrorBoundary fallback={<AppErrorFallback />}>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <AuthProvider>
+              <MonitoringContextBridge />
+              <Router />
+            </AuthProvider>
+          </WouterRouter>
+          <Toaster />
+        </TooltipProvider>
+      </QueryClientProvider>
+    </Sentry.ErrorBoundary>
   );
 }
 
