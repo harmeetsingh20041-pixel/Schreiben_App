@@ -217,6 +217,33 @@ function normalizeForSequence(value: string) {
     .trim();
 }
 
+function countNormalizedPhraseOccurrences(text: string, phrase: string) {
+  const textParts = normalizeForSequence(text).split(" ").filter(Boolean);
+  const phraseParts = normalizeForSequence(phrase).split(" ").filter(Boolean);
+  if (phraseParts.length === 0 || textParts.length < phraseParts.length) return 0;
+
+  let count = 0;
+  for (let index = 0; index <= textParts.length - phraseParts.length; index += 1) {
+    const matches = phraseParts.every((part, offset) => textParts[index + offset] === part);
+    if (matches) count += 1;
+  }
+  return count;
+}
+
+function duplicatedChunksAreRequiredByAnswer(chunks: string[], correctAnswer: string) {
+  const chunkCounts = new Map<string, number>();
+  for (const chunk of chunks) {
+    const normalizedChunk = normalizeForSequence(chunk);
+    chunkCounts.set(normalizedChunk, (chunkCounts.get(normalizedChunk) ?? 0) + 1);
+  }
+
+  for (const [normalizedChunk, count] of chunkCounts) {
+    if (count <= 1) continue;
+    if (countNormalizedPhraseOccurrences(correctAnswer, normalizedChunk) < count) return false;
+  }
+  return true;
+}
+
 function maskFillBlankPrompt(prompt: string) {
   return prompt
     .replace(/_{2,}|\[blank\]|\(\s*blank\s*\)/gi, " ")
@@ -334,8 +361,8 @@ function assertExactAnswerSafeQuestion(
     if (joinedChunks && joinedChunks === normalizeForSequence(correctAnswer)) {
       throw new Error("Word-order chunks are already in the correct final order.");
     }
-    if (new Set(chunks.map(normalizeForSequence)).size !== chunks.length) {
-      throw new Error("Word-order chunks must not be duplicated.");
+    if (!duplicatedChunksAreRequiredByAnswer(chunks, correctAnswer)) {
+      throw new Error("Word-order chunks must not include unnecessary duplicates.");
     }
     const topicKey = `${args.topic.slug} ${args.topic.name}`.toLowerCase();
     if (args.level === "A2" && (topicKey.includes("word") || topicKey.includes("verb-position") || topicKey.includes("satz"))) {
