@@ -109,6 +109,7 @@ const SAFE_GENERATION_ERROR = "Worksheet could not be prepared. Please try again
 const STALE_GENERATION_LOCK_MS = 15 * 60 * 1000;
 const PROVIDER_TIMEOUT_MS = 80 * 1000;
 const MAX_GENERATION_ATTEMPTS = 3;
+const MAX_GENERATION_RUNTIME_MS = 105 * 1000;
 const FALLBACK_SOURCE: GenerationSource = "system_fallback";
 
 class WorksheetHttpError extends Error {
@@ -1241,9 +1242,22 @@ async function generateValidatedWorksheet(args: {
   const acceptedPromptKeys = new Set<string>();
   let acceptedEnvelope: WorksheetEnvelope | null = null;
   const targetQuestionCount = getTargetQuestionCount(args.level);
+  const generationDeadline = Date.now() + MAX_GENERATION_RUNTIME_MS;
 
   for (let attempt = 1; attempt <= MAX_GENERATION_ATTEMPTS; attempt += 1) {
     const missingQuestionCount = Math.max(targetQuestionCount - acceptedQuestions.length, 0);
+    if (missingQuestionCount === 0 && acceptedEnvelope) {
+      throw new WorksheetQualityError(
+        "Accepted candidates need fallback balancing; skipping additional provider calls.",
+        { acceptedQuestions, acceptedEnvelope },
+      );
+    }
+    if (Date.now() > generationDeadline) {
+      throw new WorksheetQualityError(
+        "Generation deadline reached before another provider call; using accepted candidates and fallback.",
+        { acceptedQuestions, acceptedEnvelope },
+      );
+    }
     await recordGenerationEvent(args.admin, args.assignment, {
       attempt_number: attempt,
       stage: "provider_call",
@@ -1378,9 +1392,18 @@ async function generateValidatedWorksheet(args: {
             safe_status: "failed",
             developer_reason: selectionReason,
           });
+          if (acceptedQuestions.length >= targetQuestionCount) {
+            throw new WorksheetQualityError(selectionReason, {
+              acceptedQuestions,
+              acceptedEnvelope,
+            });
+          }
         }
       }
     } catch (qualityError) {
+      if (qualityError instanceof WorksheetQualityError) {
+        throw qualityError;
+      }
       const qualityMessage = qualityError instanceof Error
         ? qualityError.message
         : "Generated worksheet did not meet the quality standard.";
