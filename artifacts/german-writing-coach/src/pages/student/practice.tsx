@@ -111,6 +111,21 @@ export default function StudentPractice() {
     void loadRealPracticeTopics();
   }, [useRealData, user, workspaceId]);
 
+  useEffect(() => {
+    if (!useRealData || !user || !workspaceId) return;
+    if (!realAssignments.some((assignment) => assignment.generation_status === "generating")) return;
+
+    const intervalId = window.setInterval(() => {
+      void listStudentPracticeAssignments(workspaceId, user.id)
+        .then(setRealAssignments)
+        .catch(() => {
+          // Keep the current view; the next user action or page load can retry.
+        });
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, [useRealData, user, workspaceId, realAssignments]);
+
   const handleSelectTopic = (topic: string) => {
     setSelectedTopic(topic);
     setExercises(PRACTICE_EXERCISES.filter(e => e.topic === topic));

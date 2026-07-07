@@ -287,6 +287,23 @@ export default function StudentWorksheet() {
 
   const assignment = detail?.assignment ?? null;
 
+  useEffect(() => {
+    if (!id || !assignment || assignment.practice_test_id || assignment.generation_status !== "generating") return;
+
+    const intervalId = window.setInterval(() => {
+      void getPracticeWorksheetDetail(id)
+        .then((nextDetail) => {
+          setDetail(nextDetail);
+          setAnswers(buildAnswerMap(nextDetail.questions));
+        })
+        .catch(() => {
+          // Leave the current state on screen; the next poll or refresh can recover.
+        });
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, [id, assignment?.generation_status, assignment?.practice_test_id]);
+
   async function handleEvaluateFeedback(showToast = false) {
     if (!id || !detail || evaluatingFeedback) return;
 
