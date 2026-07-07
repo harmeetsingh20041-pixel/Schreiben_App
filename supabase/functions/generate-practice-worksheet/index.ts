@@ -119,6 +119,7 @@ const PROVIDER_TIMEOUT_MS = 80 * 1000;
 const MAX_GENERATION_ATTEMPTS = 3;
 const MAX_GENERATION_RUNTIME_MS = 105 * 1000;
 const FALLBACK_SOURCE: GenerationSource = "system_fallback";
+const activeAssignmentUnlockSources = new Set(["weakness_auto", "teacher_assigned", "manual", "manual_import"]);
 
 class WorksheetHttpError extends Error {
   status: number;
@@ -326,6 +327,11 @@ function isGenerationLockRecent(assignment: AssignmentRow) {
   const startedAt = new Date(assignment.generation_started_at).getTime();
   if (!Number.isFinite(startedAt)) return false;
   return Date.now() - startedAt < STALE_GENERATION_LOCK_MS;
+}
+
+function isActiveAssignmentUnlockSignal(assignment: AssignmentRow) {
+  return ["unlocked", "in_progress"].includes(assignment.status)
+    && activeAssignmentUnlockSources.has(assignment.source);
 }
 
 function assertExactAnswerSafeQuestion(
@@ -2324,8 +2330,21 @@ Deno.serve(async (req) => {
         .eq("student_id", assignment.student_id)
         .eq("grammar_topic_id", assignment.grammar_topic_id)
         .maybeSingle();
-      if (!stats || (!stats.practice_unlocked && stats.weakness_level !== "unlocked")) {
+      const statsUnlocksPractice = Boolean(stats?.practice_unlocked || stats?.weakness_level === "unlocked");
+      if (!statsUnlocksPractice && !isActiveAssignmentUnlockSignal(assignment)) {
+        await recordGenerationEvent(admin, assignment, {
+          stage: "reuse_lookup",
+          safe_status: "failed",
+          developer_reason: "Practice assignment is active, but no current stats unlock or trusted assignment source was found.",
+        });
         throw new WorksheetHttpError("Practice is not currently unlocked for this topic.", 409);
+      }
+      if (!statsUnlocksPractice) {
+        await recordGenerationEvent(admin, assignment, {
+          stage: "reuse_lookup",
+          safe_status: "succeeded",
+          developer_reason: "Using the active practice assignment as the unlock signal because stats are missing or no longer unlocked.",
+        });
       }
     }
 

@@ -165,7 +165,15 @@ export default function StudentPractice() {
       );
     } catch {
       const refreshedAssignment = await getPracticeAssignmentSummary(assignment.id).catch(() => null);
-      if (refreshedAssignment) {
+      if (
+        refreshedAssignment
+        && (
+          refreshedAssignment.practice_test_id
+          || refreshedAssignment.generation_status === "generating"
+          || refreshedAssignment.generation_status === "failed"
+          || refreshedAssignment.generation_status !== assignment.generation_status
+        )
+      ) {
         setRealAssignments((current) =>
           current.map((item) => (item.id === refreshedAssignment.id ? refreshedAssignment : item)),
         );
