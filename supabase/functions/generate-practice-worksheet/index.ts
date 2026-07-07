@@ -159,6 +159,10 @@ function normalizeText(value: string) {
   return value.trim().toLowerCase().replace(/\s+/g, " ");
 }
 
+function normalizeDisplayText(value: string) {
+  return value.normalize("NFC").trim().replace(/\s+/g, " ");
+}
+
 function compactText(value: unknown, maxLength: number) {
   return cleanString(value).replace(/\s+/g, " ").slice(0, maxLength).trim();
 }
@@ -268,6 +272,11 @@ function promptContainsExactAnswer(prompt: string, correctAnswer: string) {
 function isCaseArticleTopic(topic: GrammarTopicRow) {
   const key = `${topic.slug} ${topic.name}`.toLowerCase();
   return key.includes("akkusativ") || key.includes("dativ") || key.includes("case") || key.includes("fälle");
+}
+
+function isStrictSpellingTopic(topic: GrammarTopicRow) {
+  const key = `${topic.slug} ${topic.name}`.toLowerCase();
+  return /\b(capital|spelling|rechtschreib|orthograph)\b/i.test(key);
 }
 
 function isArticleAnswer(value: string) {
@@ -598,8 +607,9 @@ function validateQuestionCandidate(question: unknown, index: number, args: {
     if (options.length < 3 || options.length > 4) {
       throw new Error("Multiple-choice questions need 3-4 display options.");
     }
-    const normalizedOptions = options.map(normalizeText);
-    const matchingAnswers = normalizedOptions.filter((option) => option === normalizeText(correctAnswer)).length;
+    const optionNormalizer = isStrictSpellingTopic(args.topic) ? normalizeDisplayText : normalizeText;
+    const normalizedOptions = options.map(optionNormalizer);
+    const matchingAnswers = normalizedOptions.filter((option) => option === optionNormalizer(correctAnswer)).length;
     if (matchingAnswers !== 1) {
       throw new Error("Multiple-choice answer must appear exactly once in options.");
     }

@@ -408,7 +408,16 @@ export default function StudentWorksheet() {
       setDetail(nextDetail);
       setAnswers(buildAnswerMap(nextDetail.questions));
     } catch {
-      setError("Worksheet could not be prepared. Please try again later.");
+      const refreshedDetail = await getPracticeWorksheetDetail(id).catch(() => null);
+      if (refreshedDetail) {
+        setDetail(refreshedDetail);
+        setAnswers(buildAnswerMap(refreshedDetail.questions));
+        if (!refreshedDetail.assignment.practice_test_id) {
+          setError("Worksheet could not be prepared. Please try again later.");
+        }
+      } else {
+        setError("Worksheet could not be prepared. Please try again later.");
+      }
     } finally {
       setPreparingWorksheet(false);
     }

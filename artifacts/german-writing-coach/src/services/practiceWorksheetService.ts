@@ -599,6 +599,23 @@ export async function listStudentPracticeAssignments(
   });
 }
 
+export async function getPracticeAssignmentSummary(assignmentId: string): Promise<PracticeAssignmentSummary> {
+  const client = requireClient();
+  const { data, error } = await client
+    .from("student_practice_assignments")
+    .select("*")
+    .eq("id", assignmentId)
+    .maybeSingle();
+
+  if (error) throw error;
+  if (!data) throw new Error("Practice assignment was not found.");
+
+  const hydrated = await hydrateAssignments([data as PracticeAssignmentWithGeneration]);
+  const assignment = hydrated[0];
+  if (!assignment) throw new Error("Practice assignment was not returned.");
+  return assignment;
+}
+
 export async function preparePracticeWorksheet(assignmentId: string): Promise<PracticeAssignmentSummary> {
   const client = requireClient();
   const { data, error } = await client.functions.invoke<{
@@ -608,8 +625,21 @@ export async function preparePracticeWorksheet(assignmentId: string): Promise<Pr
     body: { assignment_id: assignmentId },
   });
 
-  if (error) throw error;
-  if (data?.error) throw new Error(data.error);
+  if (error || data?.error) {
+    const currentAssignment = await getPracticeAssignmentSummary(assignmentId).catch(() => null);
+    if (
+      currentAssignment
+      && (
+        currentAssignment.practice_test_id
+        || currentAssignment.generation_status === "generating"
+        || currentAssignment.generation_status === "failed"
+      )
+    ) {
+      return currentAssignment;
+    }
+    if (error) throw error;
+    throw new Error(data?.error);
+  }
   if (!data?.assignment) throw new Error("Worksheet preparation did not return an assignment.");
   return mapEdgeAssignment(data.assignment);
 }

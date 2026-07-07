@@ -21,6 +21,7 @@ import {
   formatPracticeScore,
   getPracticeAssignmentBadgeClass,
   getPracticeAssignmentLabel,
+  getPracticeAssignmentSummary,
   listStudentPracticeAssignments,
   preparePracticeWorksheet,
   type PracticeAssignmentSummary,
@@ -148,17 +149,14 @@ export default function StudentPractice() {
         current.map((item) => (item.id === preparedAssignment.id ? preparedAssignment : item)),
       );
     } catch {
-      setRealAssignments((current) =>
-        current.map((item) => (
-          item.id === assignment.id
-            ? {
-              ...item,
-              generation_status: "failed",
-              generation_error: SAFE_PREPARATION_ERROR,
-            }
-            : item
-        )),
-      );
+      const refreshedAssignment = await getPracticeAssignmentSummary(assignment.id).catch(() => null);
+      if (refreshedAssignment) {
+        setRealAssignments((current) =>
+          current.map((item) => (item.id === refreshedAssignment.id ? refreshedAssignment : item)),
+        );
+      } else {
+        setRealStatsError(SAFE_PREPARATION_ERROR);
+      }
     } finally {
       setPreparingAssignments((current) => {
         const next = new Set(current);
