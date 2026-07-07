@@ -394,7 +394,7 @@ export async function prepareWritingFeedback(submissionId: string): Promise<{ st
   });
 
   if (error) {
-    throw new Error(error.message || "Feedback could not be prepared.");
+    throw new Error("Feedback could not be prepared. Please try again later.");
   }
   if (data?.error) {
     throw new Error(data.error);

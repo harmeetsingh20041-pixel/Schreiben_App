@@ -203,6 +203,42 @@ export default function StudentPractice() {
     for (const assignments of assignmentsByTopic.values()) {
       assignments.sort(sortNewestPracticeAssignment);
     }
+    const statsForDisplay = [...realStats];
+    const statTopicIds = new Set(realStats.map((stat) => stat.grammar_topic_id));
+    for (const [topicId, assignments] of assignmentsByTopic.entries()) {
+      if (statTopicIds.has(topicId)) continue;
+      const visibleAssignment = assignments.find((assignment) =>
+        isActivePracticeAssignment(assignment) || isCompletedPracticeAssignment(assignment)
+      );
+      if (!visibleAssignment) continue;
+
+      const activeAssignment = assignments.find(isActivePracticeAssignment);
+      const completedAssignment = assignments.find(isCompletedPracticeAssignment);
+      const weaknessLevel: StudentGrammarStat["weakness_level"] = activeAssignment
+        ? "unlocked"
+        : completedAssignment?.status === "passed"
+          ? "improving"
+          : completedAssignment?.status === "failed"
+            ? "weak"
+            : "tracking";
+
+      statsForDisplay.push({
+        id: `assignment-${visibleAssignment.id}`,
+        workspace_id: visibleAssignment.workspace_id,
+        student_id: visibleAssignment.student_id,
+        grammar_topic_id: topicId,
+        topic_name: visibleAssignment.grammar_topic_name,
+        topic_slug: visibleAssignment.grammar_topic_slug,
+        topic_description: visibleAssignment.grammar_topic_description,
+        total_minor_issues: 0,
+        total_major_issues: 0,
+        total_correct_after_practice: 0,
+        weakness_level: weaknessLevel,
+        practice_unlocked: Boolean(activeAssignment),
+        last_seen_at: null,
+        updated_at: visibleAssignment.assigned_at,
+      });
+    }
     const childAssignmentsByPrevious = new Map<string, PracticeAssignmentSummary>();
     for (const assignment of realAssignments) {
       if (assignment.previous_assignment_id && assignment.source === "adaptive_repeat" && assignment.status !== "cancelled") {
@@ -213,11 +249,11 @@ export default function StudentPractice() {
       }
     }
     const groupedStats = {
-      unlocked: realStats.filter((stat) => stat.practice_unlocked || stat.weakness_level === "unlocked"),
-      weak: realStats.filter((stat) => !stat.practice_unlocked && stat.weakness_level === "weak"),
-      tracking: realStats.filter((stat) => !stat.practice_unlocked && stat.weakness_level === "tracking"),
-      improving: realStats.filter((stat) => stat.weakness_level === "improving"),
-      mastered: realStats.filter((stat) => stat.weakness_level === "mastered"),
+      unlocked: statsForDisplay.filter((stat) => stat.practice_unlocked || stat.weakness_level === "unlocked"),
+      weak: statsForDisplay.filter((stat) => !stat.practice_unlocked && stat.weakness_level === "weak"),
+      tracking: statsForDisplay.filter((stat) => !stat.practice_unlocked && stat.weakness_level === "tracking"),
+      improving: statsForDisplay.filter((stat) => stat.weakness_level === "improving"),
+      mastered: statsForDisplay.filter((stat) => stat.weakness_level === "mastered"),
     };
 
     const sections = [
@@ -241,7 +277,7 @@ export default function StudentPractice() {
           <Card className="border-destructive/30 bg-destructive/5">
             <CardContent className="p-6 text-sm text-destructive">{realStatsError}</CardContent>
           </Card>
-        ) : realStats.length === 0 ? (
+        ) : statsForDisplay.length === 0 ? (
           <Card className="border-dashed bg-muted/20">
             <CardContent className="p-10 text-center">
               <h2 className="text-2xl font-serif mb-3">No focus areas yet.</h2>

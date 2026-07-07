@@ -308,12 +308,19 @@ export default function TeacherDashboard() {
                         </div>
                         <p className="text-xs text-muted-foreground">{formatIssueCount(stat)}</p>
                         {assignment && (
-                          <div className="flex flex-wrap items-center gap-2">
-                            <Badge variant="outline" className={getPracticeAssignmentBadgeClass(assignment)}>
-                              {getPracticeAssignmentLabel(assignment)}
-                            </Badge>
-                            {assignment.worksheet_title && (
-                              <span className="text-xs text-muted-foreground truncate">{assignment.worksheet_title}</span>
+                          <div className="space-y-1">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <Badge variant="outline" className={getPracticeAssignmentBadgeClass(assignment)}>
+                                {getPracticeAssignmentLabel(assignment)}
+                              </Badge>
+                              {assignment.worksheet_title && (
+                                <span className="text-xs text-muted-foreground truncate">{assignment.worksheet_title}</span>
+                              )}
+                            </div>
+                            {assignment.source === "adaptive_repeat" && assignment.status === "failed" && (
+                              <p className="text-xs font-medium text-orange-700 dark:text-orange-300">
+                                Teacher support recommended
+                              </p>
                             )}
                           </div>
                         )}

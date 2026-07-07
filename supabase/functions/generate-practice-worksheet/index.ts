@@ -46,6 +46,7 @@ type MiniLesson = {
 type GeneratedQuestion = {
   question_number: number;
   question_type: string;
+  evaluation_mode: "local_exact" | "open_evaluation";
   prompt: string;
   options: string[];
   correct_answer: string;
@@ -60,6 +61,12 @@ type GeneratedWorksheet = {
   questions: GeneratedQuestion[];
 };
 
+type WorksheetSourceMix = {
+  mode: "deepseek" | "mixed" | "system_fallback";
+  deepseek_count: number;
+  fallback_count: number;
+};
+
 type WorksheetEnvelope = Omit<GeneratedWorksheet, "questions"> & {
   rawQuestions: unknown[];
 };
@@ -67,8 +74,16 @@ type WorksheetEnvelope = Omit<GeneratedWorksheet, "questions"> & {
 type GenerationStage = "reuse_lookup" | "provider_call" | "parse" | "validate" | "save" | "fallback";
 type GenerationSafeStatus = "started" | "failed" | "succeeded";
 type GenerationSource = "deepseek" | "system_fallback";
+type ReusableWorksheetRow = {
+  id: string;
+  difficulty: string;
+  created_at: string;
+  teacher_reviewed: boolean;
+  quality_status: string;
+  generation_source: string;
+};
 
-const localScorableTypes = new Set([
+const generatedQuestionTypes = new Set([
   "multiple_choice",
   "fill_blank",
   "sentence_correction",
@@ -77,10 +92,24 @@ const localScorableTypes = new Set([
   "rewrite_sentence",
 ]);
 
+const localGeneratedQuestionTypes = new Set([
+  "multiple_choice",
+  "fill_blank",
+  "word_order",
+]);
+
+const openEvaluationQuestionTypes = new Set([
+  "sentence_correction",
+  "transformation",
+  "rewrite_sentence",
+  "mini_writing",
+]);
+
 const SAFE_GENERATION_ERROR = "Worksheet could not be prepared. Please try again later.";
 const STALE_GENERATION_LOCK_MS = 15 * 60 * 1000;
 const PROVIDER_TIMEOUT_MS = 80 * 1000;
 const MAX_GENERATION_ATTEMPTS = 3;
+const MAX_GENERATION_RUNTIME_MS = 105 * 1000;
 const FALLBACK_SOURCE: GenerationSource = "system_fallback";
 
 class WorksheetHttpError extends Error {
@@ -95,11 +124,18 @@ class WorksheetHttpError extends Error {
 
 class WorksheetQualityError extends WorksheetHttpError {
   detail: string;
+  acceptedQuestions: GeneratedQuestion[];
+  acceptedEnvelope: WorksheetEnvelope | null;
 
-  constructor(reason: string) {
+  constructor(reason: string, partial?: {
+    acceptedQuestions?: GeneratedQuestion[];
+    acceptedEnvelope?: WorksheetEnvelope | null;
+  }) {
     super(SAFE_GENERATION_ERROR, 422);
     this.name = "WorksheetQualityError";
     this.detail = compactText(reason, 500) || "Generated worksheet did not meet the quality standard.";
+    this.acceptedQuestions = partial?.acceptedQuestions ?? [];
+    this.acceptedEnvelope = partial?.acceptedEnvelope ?? null;
   }
 }
 
@@ -124,7 +160,7 @@ function getTargetQuestionCount(level: Level) {
 }
 
 function getCandidateQuestionCount(level: Level) {
-  return getTargetQuestionCount(level) + 3;
+  return getTargetQuestionCount(level) + (level === "A2" ? 6 : 4);
 }
 
 function normalizeGeneratedQuestionType(value: unknown) {
@@ -181,6 +217,33 @@ function normalizeForSequence(value: string) {
     .trim();
 }
 
+function countNormalizedPhraseOccurrences(text: string, phrase: string) {
+  const textParts = normalizeForSequence(text).split(" ").filter(Boolean);
+  const phraseParts = normalizeForSequence(phrase).split(" ").filter(Boolean);
+  if (phraseParts.length === 0 || textParts.length < phraseParts.length) return 0;
+
+  let count = 0;
+  for (let index = 0; index <= textParts.length - phraseParts.length; index += 1) {
+    const matches = phraseParts.every((part, offset) => textParts[index + offset] === part);
+    if (matches) count += 1;
+  }
+  return count;
+}
+
+function duplicatedChunksAreRequiredByAnswer(chunks: string[], correctAnswer: string) {
+  const chunkCounts = new Map<string, number>();
+  for (const chunk of chunks) {
+    const normalizedChunk = normalizeForSequence(chunk);
+    chunkCounts.set(normalizedChunk, (chunkCounts.get(normalizedChunk) ?? 0) + 1);
+  }
+
+  for (const [normalizedChunk, count] of chunkCounts) {
+    if (count <= 1) continue;
+    if (countNormalizedPhraseOccurrences(correctAnswer, normalizedChunk) < count) return false;
+  }
+  return true;
+}
+
 function maskFillBlankPrompt(prompt: string) {
   return prompt
     .replace(/_{2,}|\[blank\]|\(\s*blank\s*\)/gi, " ")
@@ -213,6 +276,31 @@ function assertFillBlankDoesNotLeakAnswer(prompt: string, correctAnswer: string,
   if (isCaseArticleTopic(topic) && isArticleAnswer(correctAnswer) && /\([\wäöüßÄÖÜ]+\)|\[[\wäöüßÄÖÜ]+\]/.test(prompt)) {
     throw new Error("Case/article fill-blank prompt contains a parenthetical hint.");
   }
+}
+
+function isConstrainedFillBlankPrompt(prompt: string) {
+  return /\b(use|using|complete with|fill in|choose|write|setze|verwende|ergänze)\b/i.test(prompt)
+    && /\b(one|correct|best|article|preposition|verb form|verb|form|word|einen|eine|einem|einer|artikel|präposition|verbform|wort)\b/i.test(prompt);
+}
+
+function normalizeEvaluationMode(value: unknown) {
+  const mode = compactText(value, 40).toLowerCase();
+  if (mode === "open_evaluation" || mode === "open" || mode === "flexible") return "open_evaluation";
+  return "local_exact";
+}
+
+function classifyEvaluationMode(
+  questionType: string,
+  prompt: string,
+  providedMode: unknown,
+) {
+  const requestedMode = normalizeEvaluationMode(providedMode);
+  if (openEvaluationQuestionTypes.has(questionType)) return "open_evaluation";
+  if (questionType === "fill_blank" && !isConstrainedFillBlankPrompt(prompt)) return "open_evaluation";
+  if (requestedMode === "open_evaluation" && questionType !== "multiple_choice" && questionType !== "word_order") {
+    return "open_evaluation";
+  }
+  return "local_exact";
 }
 
 function isGenerationLockRecent(assignment: AssignmentRow) {
@@ -273,8 +361,8 @@ function assertExactAnswerSafeQuestion(
     if (joinedChunks && joinedChunks === normalizeForSequence(correctAnswer)) {
       throw new Error("Word-order chunks are already in the correct final order.");
     }
-    if (new Set(chunks.map(normalizeForSequence)).size !== chunks.length) {
-      throw new Error("Word-order chunks must not be duplicated.");
+    if (!duplicatedChunksAreRequiredByAnswer(chunks, correctAnswer)) {
+      throw new Error("Word-order chunks must not include unnecessary duplicates.");
     }
     const topicKey = `${args.topic.slug} ${args.topic.name}`.toLowerCase();
     if (args.level === "A2" && (topicKey.includes("word") || topicKey.includes("verb-position") || topicKey.includes("satz"))) {
@@ -307,7 +395,7 @@ function topicGuidance(topic: GrammarTopicRow) {
       "Do not drift into advanced adjective endings.",
     ].join("\n");
   }
-  if (key.includes("word") || key.includes("verb-position") || key.includes("satz")) {
+  if (key.includes("word") || key.includes("verb-position") || key.includes("satz") || key.includes("sentence")) {
     return [
       "Use sentence-part ordering and verb-position correction.",
       "For A2, include meaningful verb-position patterns: main clauses with a fronted element, simple subordinate clauses with weil/dass/ob, and verb-second versus verb-final contrast.",
@@ -353,6 +441,22 @@ function difficultyRank(level: Level, difficulty: string) {
   if (difficulty === "medium") return 1;
   if (difficulty === "easy") return 2;
   return 3;
+}
+
+function isReviewedOrApprovedWorksheet(worksheet: Pick<ReusableWorksheetRow, "teacher_reviewed" | "quality_status">) {
+  return worksheet.teacher_reviewed || worksheet.quality_status === "approved" || worksheet.quality_status === "passed";
+}
+
+function reusableSourceRank(worksheet: Pick<ReusableWorksheetRow, "generation_source" | "teacher_reviewed" | "quality_status">) {
+  if (!isReviewedOrApprovedWorksheet(worksheet)) return 99;
+
+  if (["manual_import", "teacher_created", "manual", "fixture"].includes(worksheet.generation_source)) {
+    return 1;
+  }
+  if (worksheet.generation_source === "deepseek") {
+    return 2;
+  }
+  return 4;
 }
 
 function validateMiniLesson(value: unknown): MiniLesson {
@@ -443,6 +547,7 @@ function validateQuestionCandidate(question: unknown, index: number, args: {
   const questionRecord = question as Record<string, unknown>;
   const questionType = normalizeGeneratedQuestionType(questionRecord.question_type ?? questionRecord.type);
   const prompt = compactText(questionRecord.prompt, 800);
+  const evaluationMode = classifyEvaluationMode(questionType, prompt, questionRecord.evaluation_mode);
   const rawOptions = questionRecord.options;
   const options = sanitizeOptions(rawOptions);
   const correctAnswer = compactText(
@@ -452,7 +557,7 @@ function validateQuestionCandidate(question: unknown, index: number, args: {
   const explanation = compactText(questionRecord.explanation, 600);
   const providedQuestionNumber = Number(questionRecord.question_number ?? index + 1);
 
-  if (!localScorableTypes.has(questionType)) {
+  if (!generatedQuestionTypes.has(questionType)) {
     throw new Error(`Unsupported question type: ${questionType || "missing"}`);
   }
   if (!prompt || prompt.length < 12) {
@@ -464,8 +569,11 @@ function validateQuestionCandidate(question: unknown, index: number, args: {
   if (!explanation) {
     throw new Error("Every question must include an explanation.");
   }
-  if (localScorableTypes.has(questionType) && !correctAnswer) {
-    throw new Error("Locally scorable questions require a non-empty answer key.");
+  if (evaluationMode === "local_exact" && !localGeneratedQuestionTypes.has(questionType)) {
+    throw new Error("Only multiple_choice, constrained fill_blank, and fixed word_order can use local_exact.");
+  }
+  if (!correctAnswer) {
+    throw new Error("Questions require a non-empty answer key or sample answer.");
   }
   if (rawOptions !== undefined && rawOptions !== null) {
     if (!Array.isArray(rawOptions)) {
@@ -495,6 +603,7 @@ function validateQuestionCandidate(question: unknown, index: number, args: {
   return {
     question_number: Number.isInteger(providedQuestionNumber) ? providedQuestionNumber : index + 1,
     question_type: questionType,
+    evaluation_mode: evaluationMode,
     prompt,
     options,
     correct_answer: correctAnswer,
@@ -508,11 +617,18 @@ function pickQuestionsByType(
   selectedKeys: Set<string>,
   predicate: (question: GeneratedQuestion) => boolean,
   needed: number,
+  maxOpenEvaluation = 3,
 ) {
   for (const question of questions) {
     if (selected.length >= needed) break;
     const key = normalizePromptKey(question.prompt);
     if (selectedKeys.has(key) || !predicate(question)) continue;
+    if (
+      question.evaluation_mode === "open_evaluation"
+      && selected.filter((selectedQuestion) => selectedQuestion.evaluation_mode === "open_evaluation").length >= maxOpenEvaluation
+    ) {
+      continue;
+    }
     selected.push(question);
     selectedKeys.add(key);
   }
@@ -528,22 +644,38 @@ function selectFinalQuestions(questions: GeneratedQuestion[], args: { level: Lev
   const selectedKeys = new Set<string>();
 
   if (args.level === "A2") {
-    const isCorrection = (question: GeneratedQuestion) => question.question_type === "sentence_correction";
+    const isCorrection = (question: GeneratedQuestion) =>
+      question.question_type === "sentence_correction" && question.evaluation_mode === "open_evaluation";
+    const isLocalFillBlank = (question: GeneratedQuestion) =>
+      question.question_type === "fill_blank" && question.evaluation_mode === "local_exact";
+    const isLocalWordOrder = (question: GeneratedQuestion) =>
+      question.question_type === "word_order" && question.evaluation_mode === "local_exact";
     const isProduction = (question: GeneratedQuestion) =>
-      ["word_order", "transformation", "rewrite_sentence"].includes(question.question_type);
+      ["transformation", "rewrite_sentence"].includes(question.question_type)
+      && question.evaluation_mode === "open_evaluation";
+    const isLocalQuestion = (question: GeneratedQuestion) => question.evaluation_mode === "local_exact";
 
     pickQuestionsByType(questions, selected, selectedKeys, (question) => question.question_type === "multiple_choice", 2);
-    pickQuestionsByType(questions, selected, selectedKeys, (question) => question.question_type === "fill_blank", 4);
+    pickQuestionsByType(questions, selected, selectedKeys, isLocalFillBlank, 4);
     pickQuestionsByType(questions, selected, selectedKeys, isCorrection, 6);
-    pickQuestionsByType(questions, selected, selectedKeys, isProduction, 7);
+    pickQuestionsByType(questions, selected, selectedKeys, isLocalWordOrder, 7);
+    pickQuestionsByType(questions, selected, selectedKeys, isProduction, 8);
+    pickQuestionsByType(questions, selected, selectedKeys, isLocalQuestion, targetCount);
 
     const counts = {
       multipleChoice: selected.filter((question) => question.question_type === "multiple_choice").length,
-      fillBlank: selected.filter((question) => question.question_type === "fill_blank").length,
+      fillBlank: selected.filter(isLocalFillBlank).length,
       correction: selected.filter(isCorrection).length,
-      production: selected.filter(isProduction).length,
+      production: selected.filter((question) => isProduction(question) || isLocalWordOrder(question)).length,
+      openEvaluation: selected.filter((question) => question.evaluation_mode === "open_evaluation").length,
     };
-    if (counts.multipleChoice < 2 || counts.fillBlank < 2 || counts.correction < 2 || counts.production < 1) {
+    if (
+      counts.multipleChoice < 2
+      || counts.fillBlank < 2
+      || counts.correction < 2
+      || counts.production < 1
+      || counts.openEvaluation > 3
+    ) {
       throw new Error("Valid question candidates do not meet the A2 exercise mix target.");
     }
   }
@@ -552,6 +684,12 @@ function selectFinalQuestions(questions: GeneratedQuestion[], args: { level: Lev
     if (selected.length >= targetCount) break;
     const key = normalizePromptKey(question.prompt);
     if (selectedKeys.has(key)) continue;
+    if (
+      question.evaluation_mode === "open_evaluation"
+      && selected.filter((selectedQuestion) => selectedQuestion.evaluation_mode === "open_evaluation").length >= 3
+    ) {
+      continue;
+    }
     selected.push(question);
     selectedKeys.add(key);
   }
@@ -590,6 +728,45 @@ function validateWorksheetPayload(value: unknown, args: {
     difficulty: envelope.difficulty,
     mini_lesson: envelope.mini_lesson,
     questions: selectFinalQuestions(questions, { level: args.level }),
+  };
+}
+
+function buildMixedWorksheetWithFallback(args: {
+  acceptedEnvelope: WorksheetEnvelope;
+  acceptedQuestions: GeneratedQuestion[];
+  fallbackWorksheet: GeneratedWorksheet;
+  level: Level;
+}): { worksheet: GeneratedWorksheet; sourceMix: WorksheetSourceMix } {
+  const deepseekPromptKeys = new Set(args.acceptedQuestions.map((question) => normalizePromptKey(question.prompt)));
+  const fallbackCandidates = args.fallbackWorksheet.questions.filter((question) =>
+    !deepseekPromptKeys.has(normalizePromptKey(question.prompt))
+  );
+  const selectedQuestions = selectFinalQuestions([
+    ...args.acceptedQuestions,
+    ...fallbackCandidates,
+  ], { level: args.level });
+  const selectedDeepseekCount = selectedQuestions.filter((question) =>
+    deepseekPromptKeys.has(normalizePromptKey(question.prompt))
+  ).length;
+  const selectedFallbackCount = selectedQuestions.length - selectedDeepseekCount;
+
+  if (selectedDeepseekCount === 0 || selectedFallbackCount === 0) {
+    throw new Error("Mixed worksheet did not preserve both DeepSeek and fallback questions.");
+  }
+
+  return {
+    worksheet: {
+      title: args.acceptedEnvelope.title,
+      level: args.acceptedEnvelope.level,
+      difficulty: args.acceptedEnvelope.difficulty,
+      mini_lesson: args.acceptedEnvelope.mini_lesson,
+      questions: selectedQuestions,
+    },
+    sourceMix: {
+      mode: "mixed",
+      deepseek_count: selectedDeepseekCount,
+      fallback_count: selectedFallbackCount,
+    },
   };
 }
 
@@ -765,8 +942,6 @@ async function loadAssignmentSummary(admin: SupabaseAdminClient, assignmentId: s
 }
 
 async function determineLevel(admin: SupabaseAdminClient, assignment: AssignmentRow, topic: GrammarTopicRow): Promise<Level> {
-  if (["A1", "A2", "B1", "B2"].includes(topic.level)) return topic.level as Level;
-
   const { data: batchStudent } = await admin
     .from("batch_students")
     .select("created_at, batches!inner(level, is_active, workspace_id)")
@@ -779,52 +954,66 @@ async function determineLevel(admin: SupabaseAdminClient, assignment: Assignment
     .maybeSingle();
 
   const level = (batchStudent?.batches as { level?: string } | null)?.level;
-  return ["A1", "A2", "B1", "B2"].includes(level ?? "") ? level as Level : "A2";
+  const batchLevel = ["A1", "A2", "B1", "B2"].includes(level ?? "") ? level as Level : null;
+  if (["A1", "A2", "B1", "B2"].includes(topic.level)) return topic.level as Level;
+
+  const topicLevel = compactText(topic.level, 20).toUpperCase().replace(/[\s-]+/g, "_");
+  if (topicLevel.includes("A1") && topicLevel.includes("A2")) {
+    return batchLevel === "A1" ? "A1" : "A2";
+  }
+  if (topicLevel.includes("A2") && topicLevel.includes("B1")) {
+    return batchLevel === "B1" ? "B1" : "A2";
+  }
+  return batchLevel ?? "A2";
 }
 
 async function findReusableWorksheet(admin: SupabaseAdminClient, assignment: AssignmentRow, level: Level) {
   const excludedPracticeTestIds = new Set<string>();
-  if (assignment.source === "adaptive_repeat") {
-    const { data: attemptedAssignments, error: attemptedError } = await admin
-      .from("student_practice_assignments")
-      .select("practice_test_id")
-      .eq("workspace_id", assignment.workspace_id)
-      .eq("student_id", assignment.student_id)
-      .eq("grammar_topic_id", assignment.grammar_topic_id)
-      .in("status", ["completed", "passed", "failed"])
-      .not("practice_test_id", "is", null);
 
-    if (attemptedError) {
-      console.error("generate-practice-worksheet attempted worksheet lookup failed", attemptedError.message);
-      throw new WorksheetHttpError("Could not look up previous worksheets.", 500);
-    }
+  const { data: attemptedAssignments, error: attemptedError } = await admin
+    .from("student_practice_assignments")
+    .select("practice_test_id")
+    .eq("workspace_id", assignment.workspace_id)
+    .eq("student_id", assignment.student_id)
+    .eq("grammar_topic_id", assignment.grammar_topic_id)
+    .in("status", ["completed", "passed", "failed"])
+    .not("practice_test_id", "is", null);
 
-    for (const attemptedAssignment of attemptedAssignments ?? []) {
-      if (attemptedAssignment.practice_test_id) {
-        excludedPracticeTestIds.add(attemptedAssignment.practice_test_id);
-      }
+  if (attemptedError) {
+    console.error("generate-practice-worksheet attempted worksheet lookup failed", attemptedError.message);
+    throw new WorksheetHttpError("Could not look up previous worksheets.", 500);
+  }
+
+  for (const attemptedAssignment of attemptedAssignments ?? []) {
+    if (attemptedAssignment.practice_test_id) {
+      excludedPracticeTestIds.add(attemptedAssignment.practice_test_id);
     }
   }
 
   const { data, error } = await admin
     .from("practice_tests")
-    .select("id, difficulty, created_at, teacher_reviewed, quality_status")
+    .select("id, difficulty, created_at, teacher_reviewed, quality_status, generation_source")
     .eq("workspace_id", assignment.workspace_id)
     .eq("grammar_topic_id", assignment.grammar_topic_id)
     .eq("level", level)
     .eq("visibility", "workspace")
     .in("difficulty", ["easy", "medium"])
-    .or("teacher_reviewed.eq.true,quality_status.eq.passed")
     .order("created_at", { ascending: false })
-    .limit(50);
+    .limit(100);
 
   if (error) {
     console.error("generate-practice-worksheet reusable lookup failed", error.message);
     throw new WorksheetHttpError("Could not look up reusable worksheets.", 500);
   }
 
-  const candidates = (data ?? []).filter((candidate) => !excludedPracticeTestIds.has(candidate.id));
+  const candidates = ((data ?? []) as ReusableWorksheetRow[]).filter((candidate) =>
+    isReviewedOrApprovedWorksheet(candidate)
+    && candidate.generation_source !== "system_fallback"
+    && !excludedPracticeTestIds.has(candidate.id)
+  );
   candidates.sort((left, right) => {
+    const sourceDelta = reusableSourceRank(left) - reusableSourceRank(right);
+    if (sourceDelta !== 0) return sourceDelta;
     const rankDelta = difficultyRank(level, left.difficulty) - difficultyRank(level, right.difficulty);
     if (rankDelta !== 0) return rankDelta;
     return new Date(right.created_at).getTime() - new Date(left.created_at).getTime();
@@ -942,9 +1131,9 @@ async function loadRecentMistakeSnippets(admin: SupabaseAdminClient, assignment:
   })).filter((line) => line.original || line.corrected).slice(0, 4);
 }
 
-async function fetchDeepSeekWorksheet(apiKey: string, body: unknown) {
+async function fetchDeepSeekWorksheet(apiKey: string, body: unknown, timeoutMs = PROVIDER_TIMEOUT_MS) {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
   try {
     return await fetch("https://api.deepseek.com/chat/completions", {
       method: "POST",
@@ -1024,20 +1213,24 @@ ${acceptedContext}
 Worksheet requirements:
 - ${questionTarget}
 - Use a mix of recognition and production.
-- For A2 include at least 2 multiple_choice, 2 fill_blank, 2 sentence_correction, and at least 1 word_order/transformation/rewrite_sentence.
-- Use only these exact-answer-safe types: multiple_choice, fill_blank, sentence_correction, word_order, transformation, rewrite_sentence.
-- Do not use mini_writing, short_answer, matching, error_detection, free writing, or flexible-answer tasks.
+- For A2 include at least 2 multiple_choice, 2 constrained fill_blank, 2 sentence_correction, and at least 1 word_order/transformation/rewrite_sentence.
+- Use only these types: multiple_choice, fill_blank, sentence_correction, word_order, transformation, rewrite_sentence.
+- Use evaluation_mode = "local_exact" only for multiple_choice, constrained fill_blank, and fixed word_order questions.
+- Use evaluation_mode = "open_evaluation" for sentence_correction, transformation, rewrite_sentence, and any fill_blank where more than one answer could be valid.
+- Include no more than 3 open_evaluation questions total.
+- Do not use mini_writing, short_answer, matching, error_detection, free writing, or broad flexible-answer tasks.
 - Align A1/A2 style and topic progression with Netzwerk-style classroom grammar progression where possible, but do not copy textbook exercises or wording.
-- Keep all answer keys exact, non-empty, and single-answer. Do not use "or", "/", semicolons, pipes, or answer alternatives.
+- Keep local_exact answer keys exact, non-empty, and single-answer. Do not use "or", "/", semicolons, pipes, or answer alternatives.
+- For open_evaluation questions, provide a canonical sample answer in correct_answer and a clear explanation/rubric for the grammar target.
 - multiple_choice is safe only when the correct answer appears exactly once in options.
-- fill_blank is safe only when exactly one blank and one exact answer are expected.
+- fill_blank is local_exact only when exactly one blank and one exact answer are expected. If a blank could accept many verbs or phrases, either constrain it ("Use the verb besuchen") or mark it open_evaluation.
 - For fill_blank questions, never include the correct answer in parentheses, brackets, hints, or surrounding prompt text.
 - For Dativ/Akkusativ article questions, do not write hints such as "___ (den)" or "___ (ein)". The blank itself must carry the challenge.
-- sentence_correction is safe only when the prompt explicitly asks for the full corrected sentence. Use clear wording like "Correct this sentence:" or "Rewrite the sentence correctly:".
+- sentence_correction must explicitly ask for the full corrected sentence. Use clear wording like "Correct this sentence:" or "Rewrite the sentence correctly:" and set evaluation_mode to open_evaluation.
 - word_order is safe only when all required words/phrases are given and one exact target answer is expected. Use at least 6 chunks, avoid "starting with" hints, and do not make proper-noun capitalization the only real challenge.
 - For word_order, the chunks must be shuffled; do not list chunks in the same order as the correct answer.
 - For A2 verb-position or word-order worksheets, word_order tasks should practice fronted elements, weil/dass/ob subordinate clauses, or verb-second versus verb-final contrast.
-- transformation and rewrite_sentence are safe only when tightly controlled with one exact expected answer.
+- transformation and rewrite_sentence must be tightly controlled and set evaluation_mode to open_evaluation so valid alternatives can receive credit.
 - Each question must include a student-safe explanation.
 - Multiple-choice options must be an array of plain strings only and include the correct answer exactly once.
 - Do not put correct_answer, answer_key, explanation, is_correct, scoring, or any object metadata inside options.
@@ -1059,6 +1252,7 @@ Return exactly this JSON shape:
     {
       "question_number": 1,
       "question_type": "multiple_choice | fill_blank | sentence_correction | word_order | transformation | rewrite_sentence",
+      "evaluation_mode": "local_exact | open_evaluation",
       "prompt": "string",
       "options": ["string"],
       "correct_answer": "string",
@@ -1083,14 +1277,35 @@ async function generateValidatedWorksheet(args: {
   const acceptedPromptKeys = new Set<string>();
   let acceptedEnvelope: WorksheetEnvelope | null = null;
   const targetQuestionCount = getTargetQuestionCount(args.level);
+  const generationDeadline = Date.now() + MAX_GENERATION_RUNTIME_MS;
 
   for (let attempt = 1; attempt <= MAX_GENERATION_ATTEMPTS; attempt += 1) {
     const missingQuestionCount = Math.max(targetQuestionCount - acceptedQuestions.length, 0);
+    if (missingQuestionCount === 0 && acceptedEnvelope) {
+      throw new WorksheetQualityError(
+        "Accepted candidates need fallback balancing; skipping additional provider calls.",
+        { acceptedQuestions, acceptedEnvelope },
+      );
+    }
+    if (Date.now() > generationDeadline) {
+      throw new WorksheetQualityError(
+        "Generation deadline reached before another provider call; using accepted candidates and fallback.",
+        { acceptedQuestions, acceptedEnvelope },
+      );
+    }
+    const remainingRuntimeMs = generationDeadline - Date.now();
+    if (remainingRuntimeMs < 10_000) {
+      throw new WorksheetQualityError(
+        "Generation runtime budget is nearly exhausted; using accepted candidates and fallback.",
+        { acceptedQuestions, acceptedEnvelope },
+      );
+    }
+    const providerTimeoutMs = Math.min(PROVIDER_TIMEOUT_MS, remainingRuntimeMs);
     await recordGenerationEvent(args.admin, args.assignment, {
       attempt_number: attempt,
       stage: "provider_call",
       safe_status: "started",
-      developer_reason: `Requesting worksheet candidates; accepted_so_far=${acceptedQuestions.length}; missing=${missingQuestionCount}.`,
+      developer_reason: `Requesting worksheet candidates; accepted_so_far=${acceptedQuestions.length}; missing=${missingQuestionCount}; provider_timeout_ms=${providerTimeoutMs}.`,
     });
 
     try {
@@ -1115,7 +1330,7 @@ async function generateValidatedWorksheet(args: {
         temperature: attempt === 1 ? 0.35 : 0.2,
         max_tokens: 7500,
         stream: false,
-      });
+      }, providerTimeoutMs);
 
       if (!providerResponse.ok) {
         const reason = `Worksheet provider returned HTTP ${providerResponse.status}.`;
@@ -1220,9 +1435,18 @@ async function generateValidatedWorksheet(args: {
             safe_status: "failed",
             developer_reason: selectionReason,
           });
+          if (acceptedQuestions.length >= targetQuestionCount) {
+            throw new WorksheetQualityError(selectionReason, {
+              acceptedQuestions,
+              acceptedEnvelope,
+            });
+          }
         }
       }
     } catch (qualityError) {
+      if (qualityError instanceof WorksheetQualityError) {
+        throw qualityError;
+      }
       const qualityMessage = qualityError instanceof Error
         ? qualityError.message
         : "Generated worksheet did not meet the quality standard.";
@@ -1243,7 +1467,10 @@ async function generateValidatedWorksheet(args: {
     }
   }
 
-  throw new WorksheetQualityError(rejectionReasons.join(" | "));
+  throw new WorksheetQualityError(rejectionReasons.join(" | "), {
+    acceptedQuestions,
+    acceptedEnvelope,
+  });
 }
 
 function buildFallbackMiniLesson(topicName: string): MiniLesson {
@@ -1275,7 +1502,34 @@ function buildFallbackMiniLesson(topicName: string): MiniLesson {
       what_to_revise: "Review common dative verbs and prepositions such as helfen, danken, mit, bei, and nach.",
     };
   }
-  if (topic.includes("verb") || topic.includes("word") || topic.includes("satz")) {
+  if (topic.includes("perfekt")) {
+    return {
+      short_explanation: "The Perfekt talks about completed past actions in everyday German.",
+      key_rule: "Use haben or sein in position two, and place the Partizip II near the end.",
+      correct_examples: ["Ich habe Deutsch gelernt.", "Wir sind nach Berlin gefahren."],
+      common_mistake_warning: "Do not forget the helper verb, and do not put the participle in position two.",
+      what_to_revise: "Review haben/sein choice and common Partizip II forms.",
+    };
+  }
+  if (topic.includes("conjugation")) {
+    return {
+      short_explanation: "German verbs change their endings to match the subject.",
+      key_rule: "Check the subject first, then choose the verb ending: ich -e, du -st, er/sie/es -t, wir -en.",
+      correct_examples: ["Ich lerne Deutsch.", "Er arbeitet heute."],
+      common_mistake_warning: "Do not use the infinitive after a normal subject in a simple main clause.",
+      what_to_revise: "Practice common present-tense endings with short A1/A2 sentences.",
+    };
+  }
+  if (topic.includes("spelling") || topic.includes("rechtschreib")) {
+    return {
+      short_explanation: "Clear spelling and capitalization make German sentences easier to understand.",
+      key_rule: "Capitalize nouns and sentence beginnings, and check common spellings carefully.",
+      correct_examples: ["Ich lerne Deutsch.", "Das Wasser ist kalt."],
+      common_mistake_warning: "Do not write nouns or language names in lowercase when standard German needs capitalization.",
+      what_to_revise: "Review noun capitalization, sentence beginnings, and common A1/A2 words.",
+    };
+  }
+  if (topic.includes("verb") || topic.includes("word") || topic.includes("satz") || topic.includes("sentence")) {
     return {
       short_explanation: "German main clauses usually place the conjugated verb in position two.",
       key_rule: "If a time phrase starts the sentence, the verb still comes second. In weil/dass clauses, the verb moves to the end.",
@@ -1376,11 +1630,11 @@ function buildFallbackPayload(args: {
         },
         {
           question_number: 9,
-          question_type: "rewrite_sentence",
-          prompt: "Rewrite the sentence correctly: Ich gehe mit meine Schwester ins Kino.",
+          question_type: "fill_blank",
+          prompt: "Complete with one preposition: Ich gehe ___ meiner Schwester ins Kino.",
           options: [],
-          correct_answer: "Ich gehe mit meiner Schwester ins Kino.",
-          explanation: "Mit takes dative, so meine Schwester becomes meiner Schwester.",
+          correct_answer: "mit",
+          explanation: "Mit is the preposition used for doing something with another person.",
         },
       ],
     };
@@ -1457,10 +1711,10 @@ function buildFallbackPayload(args: {
         },
         {
           question_number: 9,
-          question_type: "rewrite_sentence",
-          prompt: "Rewrite the sentence correctly: Wir besuchen ein Freund.",
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Wir besuchen ___ Freund.",
           options: [],
-          correct_answer: "Wir besuchen einen Freund.",
+          correct_answer: "einen",
           explanation: "Freund is masculine and direct object, so ein becomes einen.",
         },
       ],
@@ -1538,17 +1792,260 @@ function buildFallbackPayload(args: {
         },
         {
           question_number: 9,
-          question_type: "rewrite_sentence",
-          prompt: "Rewrite the sentence correctly: Sie schreibt den Lehrer eine E-Mail.",
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Sie schreibt ___ Lehrer eine E-Mail.",
           options: [],
-          correct_answer: "Sie schreibt dem Lehrer eine E-Mail.",
+          correct_answer: "dem",
           explanation: "The teacher receives the email, so use dative: dem Lehrer.",
         },
       ],
     };
   }
 
-  if (key.includes("verb") || key.includes("word") || key.includes("satz")) {
+  if (key.includes("perfekt")) {
+    return {
+      ...base,
+      title: `Perfekt Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the correct helper verb: Ich ___ gestern Deutsch gelernt.",
+          options: ["habe", "bin", "ist", "hat"],
+          correct_answer: "habe",
+          explanation: "Lernen normally uses haben in the Perfekt.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the correct Perfekt sentence.",
+          options: ["Wir sind nach Hause gegangen.", "Wir haben nach Hause gegangen.", "Wir sind nach Hause gehen.", "Wir nach Hause sind gegangen."],
+          correct_answer: "Wir sind nach Hause gegangen.",
+          explanation: "Gehen uses sein in the Perfekt, and the participle gegangen comes near the end.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete with one helper verb: Sie ___ einen Film gesehen.",
+          options: [],
+          correct_answer: "hat",
+          explanation: "Sehen uses haben, and with sie singular the helper is hat.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete with one participle: Ich habe meine Hausaufgaben ___.",
+          options: [],
+          correct_answer: "gemacht",
+          explanation: "Machen becomes gemacht in the Perfekt.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Gestern ich habe Deutsch gelernt.",
+          options: [],
+          correct_answer: "Gestern habe ich Deutsch gelernt.",
+          explanation: "After Gestern, the helper verb habe is in position two.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Wir haben nach Berlin gefahren.",
+          options: [],
+          correct_answer: "Wir sind nach Berlin gefahren.",
+          explanation: "Fahren with movement to a place usually uses sein.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: gestern / habe / ich / viel / Deutsch / gelernt",
+          options: [],
+          correct_answer: "Gestern habe ich viel Deutsch gelernt.",
+          explanation: "The time phrase is first, then the helper verb habe comes second.",
+        },
+        {
+          question_number: 8,
+          question_type: "transformation",
+          prompt: "Rewrite in the Perfekt: Ich mache die Übung.",
+          options: [],
+          correct_answer: "Ich habe die Übung gemacht.",
+          explanation: "Machen uses haben, and the participle is gemacht.",
+        },
+        {
+          question_number: 9,
+          question_type: "fill_blank",
+          prompt: "Complete with one helper verb: Er ___ spät gekommen.",
+          options: [],
+          correct_answer: "ist",
+          explanation: "Kommen uses sein in the Perfekt.",
+        },
+      ],
+    };
+  }
+
+  if (key.includes("conjugation")) {
+    return {
+      ...base,
+      title: `Conjugation Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the correct verb form: Ich ___ Deutsch.",
+          options: ["lerne", "lernst", "lernt", "lernen"],
+          correct_answer: "lerne",
+          explanation: "With ich, regular verbs usually end in -e.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the correct verb form: Er ___ heute.",
+          options: ["arbeitet", "arbeite", "arbeitest", "arbeiten"],
+          correct_answer: "arbeitet",
+          explanation: "With er, the regular present-tense ending is -t.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete with one verb form: Du ___ sehr gut Deutsch.",
+          options: [],
+          correct_answer: "sprichst",
+          explanation: "With du, sprechen becomes sprichst.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete with one verb form: Wir ___ in Berlin.",
+          options: [],
+          correct_answer: "wohnen",
+          explanation: "With wir, regular verbs use the infinitive form ending in -en.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Ich lernen Deutsch.",
+          options: [],
+          correct_answer: "Ich lerne Deutsch.",
+          explanation: "With ich, use lerne, not the infinitive lernen.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: Er kommen heute.",
+          options: [],
+          correct_answer: "Er kommt heute.",
+          explanation: "With er, kommen becomes kommt.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: jeden Tag / lerne / ich / neue Wörter / zu Hause / gern",
+          options: [],
+          correct_answer: "Jeden Tag lerne ich gern neue Wörter zu Hause.",
+          explanation: "The time phrase is first, then the conjugated verb lerne comes second.",
+        },
+        {
+          question_number: 8,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: Du machen die Aufgabe.",
+          options: [],
+          correct_answer: "Du machst die Aufgabe.",
+          explanation: "With du, machen becomes machst.",
+        },
+        {
+          question_number: 9,
+          question_type: "fill_blank",
+          prompt: "Complete with one verb form: Ihr ___ morgen.",
+          options: [],
+          correct_answer: "kommt",
+          explanation: "With ihr, kommen becomes kommt.",
+        },
+      ],
+    };
+  }
+
+  if (key.includes("spelling") || key.includes("rechtschreib")) {
+    return {
+      ...base,
+      title: `Spelling Practice (${args.level})`,
+      questions: [
+        {
+          question_number: 1,
+          question_type: "multiple_choice",
+          prompt: "Choose the correctly written sentence.",
+          options: ["Ich lerne Deutsch.", "ich lerne deutsch.", "Ich Lerne deutsch.", "ich Lerne Deutsch."],
+          correct_answer: "Ich lerne Deutsch.",
+          explanation: "Sentence beginnings and the language name Deutsch are capitalized.",
+        },
+        {
+          question_number: 2,
+          question_type: "multiple_choice",
+          prompt: "Choose the correctly written noun phrase.",
+          options: ["das Wasser", "das wasser", "Das wasser", "der wasser"],
+          correct_answer: "das Wasser",
+          explanation: "German nouns such as Wasser are capitalized.",
+        },
+        {
+          question_number: 3,
+          question_type: "fill_blank",
+          prompt: "Complete with the correctly capitalized word: Ich trinke ___.",
+          options: [],
+          correct_answer: "Wasser",
+          explanation: "Wasser is a noun and is capitalized.",
+        },
+        {
+          question_number: 4,
+          question_type: "fill_blank",
+          prompt: "Complete with the correctly capitalized word: Wir lernen ___.",
+          options: [],
+          correct_answer: "Deutsch",
+          explanation: "The language name Deutsch is capitalized.",
+        },
+        {
+          question_number: 5,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: ich trinke wasser.",
+          options: [],
+          correct_answer: "Ich trinke Wasser.",
+          explanation: "Capitalize the sentence beginning and the noun Wasser.",
+        },
+        {
+          question_number: 6,
+          question_type: "sentence_correction",
+          prompt: "Correct this sentence: wir lernen deutsch.",
+          options: [],
+          correct_answer: "Wir lernen Deutsch.",
+          explanation: "Capitalize the sentence beginning and Deutsch.",
+        },
+        {
+          question_number: 7,
+          question_type: "word_order",
+          prompt: "Put the parts in order: Heute / schreibe / ich / einen Satz / im Unterricht / richtig",
+          options: [],
+          correct_answer: "Heute schreibe ich im Unterricht einen Satz richtig.",
+          explanation: "The sentence begins with Heute, then the verb schreibe comes second.",
+        },
+        {
+          question_number: 8,
+          question_type: "rewrite_sentence",
+          prompt: "Rewrite the sentence correctly: das buch ist neu.",
+          options: [],
+          correct_answer: "Das Buch ist neu.",
+          explanation: "Capitalize the sentence beginning and the noun Buch.",
+        },
+        {
+          question_number: 9,
+          question_type: "fill_blank",
+          prompt: "Complete with the correctly capitalized word: Das ___ ist neu.",
+          options: [],
+          correct_answer: "Buch",
+          explanation: "Buch is a noun and is capitalized.",
+        },
+      ],
+    };
+  }
+
+  if (key.includes("verb") || key.includes("word") || key.includes("satz") || key.includes("sentence")) {
     return {
       ...base,
       title: `Verb Position Practice (${args.level})`,
@@ -1619,11 +2116,11 @@ function buildFallbackPayload(args: {
         },
         {
           question_number: 9,
-          question_type: "rewrite_sentence",
-          prompt: "Rewrite the sentence correctly: Dann ich gehe nach Hause.",
+          question_type: "word_order",
+          prompt: "Put the parts in order: dann / gehe / ich / nach Hause / nach dem Unterricht / sofort",
           options: [],
-          correct_answer: "Dann gehe ich nach Hause.",
-          explanation: "After Dann, the conjugated verb gehe comes second.",
+          correct_answer: "Dann gehe ich sofort nach dem Unterricht nach Hause.",
+          explanation: "After Dann, the conjugated verb gehe comes second in the main clause.",
         },
       ],
     };
@@ -1700,11 +2197,11 @@ function buildFallbackPayload(args: {
         },
         {
           question_number: 9,
-          question_type: "rewrite_sentence",
-          prompt: "Rewrite the sentence correctly: Ich sehe der Stuhl.",
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Wir kaufen ___ Schrank.",
           options: [],
-          correct_answer: "Ich sehe den Stuhl.",
-          explanation: "Stuhl is masculine direct object, so der becomes den.",
+          correct_answer: "den",
+          explanation: "Schrank is masculine direct object, so der becomes den.",
         },
       ],
     };
@@ -1885,6 +2382,7 @@ Deno.serve(async (req) => {
 
     let generationSource: GenerationSource = "deepseek";
     let worksheet: GeneratedWorksheet;
+    let sourceMix: WorksheetSourceMix;
     try {
       worksheet = await generateValidatedWorksheet({
         admin,
@@ -1896,6 +2394,11 @@ Deno.serve(async (req) => {
         difficulty,
         snippets,
       });
+      sourceMix = {
+        mode: "deepseek",
+        deepseek_count: worksheet.questions.length,
+        fallback_count: 0,
+      };
     } catch (generationError) {
       const reason = generationError instanceof WorksheetQualityError
         ? generationError.detail
@@ -1931,19 +2434,68 @@ Deno.serve(async (req) => {
         });
         throw generationError;
       }
-      worksheet = fallbackWorksheet;
-      generationSource = FALLBACK_SOURCE;
-      await recordGenerationEvent(admin, lockedAssignment, {
-        stage: "fallback",
-        safe_status: "succeeded",
-        developer_reason: `Using deterministic fallback worksheet for ${grammarTopic.name}.`,
-      });
+      const partialDeepseekQuestions = generationError instanceof WorksheetQualityError
+        ? generationError.acceptedQuestions
+        : [];
+      const partialEnvelope = generationError instanceof WorksheetQualityError
+        ? generationError.acceptedEnvelope
+        : null;
+
+      if (partialDeepseekQuestions.length > 0 && partialEnvelope) {
+        try {
+          const mixed = buildMixedWorksheetWithFallback({
+            acceptedEnvelope: partialEnvelope,
+            acceptedQuestions: partialDeepseekQuestions,
+            fallbackWorksheet,
+            level,
+          });
+          assertNoSnippetLeak(mixed.worksheet, snippets);
+          worksheet = mixed.worksheet;
+          sourceMix = mixed.sourceMix;
+          await recordGenerationEvent(admin, lockedAssignment, {
+            stage: "fallback",
+            safe_status: "succeeded",
+            developer_reason: `Filled missing slots with fallback questions; deepseek_count=${mixed.sourceMix.deepseek_count}; fallback_count=${mixed.sourceMix.fallback_count}.`,
+          });
+        } catch (mixError) {
+          await recordGenerationEvent(admin, lockedAssignment, {
+            stage: "fallback",
+            safe_status: "failed",
+            developer_reason: mixError instanceof Error ? mixError.message : "Mixed DeepSeek/fallback worksheet could not be assembled.",
+          });
+          worksheet = fallbackWorksheet;
+          generationSource = FALLBACK_SOURCE;
+          sourceMix = {
+            mode: "system_fallback",
+            deepseek_count: 0,
+            fallback_count: fallbackWorksheet.questions.length,
+          };
+          await recordGenerationEvent(admin, lockedAssignment, {
+            stage: "fallback",
+            safe_status: "succeeded",
+            developer_reason: `Using full deterministic fallback worksheet for ${grammarTopic.name} after mixed assembly failed.`,
+          });
+        }
+      } else {
+        worksheet = fallbackWorksheet;
+        generationSource = FALLBACK_SOURCE;
+        sourceMix = {
+          mode: "system_fallback",
+          deepseek_count: 0,
+          fallback_count: fallbackWorksheet.questions.length,
+        };
+        await recordGenerationEvent(admin, lockedAssignment, {
+          stage: "fallback",
+          safe_status: "succeeded",
+          developer_reason: `Using deterministic fallback worksheet for ${grammarTopic.name}; no valid DeepSeek questions were available.`,
+        });
+      }
     }
 
     await recordGenerationEvent(admin, lockedAssignment, {
       stage: "save",
       safe_status: "started",
-      developer_reason: `Saving ${generationSource} worksheet with ${worksheet.questions.length} validated questions.`,
+      developer_reason: `Saving ${generationSource} worksheet with ${worksheet.questions.length} validated questions; source_mix=${sourceMix.mode}; deepseek_count=${sourceMix.deepseek_count}; fallback_count=${sourceMix.fallback_count}.`,
     });
 
     const { data: savedWorksheet, error: worksheetError } = await admin
@@ -1962,7 +2514,7 @@ Deno.serve(async (req) => {
         mini_lesson: worksheet.mini_lesson,
         generation_source: generationSource,
         quality_status: "passed",
-        quality_notes: `Validated ${worksheet.questions.length} questions locally before assignment via ${generationSource}.`,
+        quality_notes: `Validated ${worksheet.questions.length} questions locally before assignment via ${generationSource}. source_mix=${sourceMix.mode}; deepseek_count=${sourceMix.deepseek_count}; fallback_count=${sourceMix.fallback_count}.`,
         generated_from_assignment_id: lockedAssignment.id,
         generated_from_student_id: lockedAssignment.student_id,
       })
@@ -1982,6 +2534,7 @@ Deno.serve(async (req) => {
       practice_test_id: savedWorksheet.id,
       question_number: question.question_number,
       question_type: question.question_type,
+      evaluation_mode: question.evaluation_mode,
       prompt: question.prompt,
       options: question.options.length > 0 ? question.options : null,
       correct_answer: question.correct_answer,
@@ -2022,6 +2575,7 @@ Deno.serve(async (req) => {
         question_count: worksheet.questions.length,
         model,
         generation_source: generationSource,
+        source_mix: sourceMix,
       },
     });
 

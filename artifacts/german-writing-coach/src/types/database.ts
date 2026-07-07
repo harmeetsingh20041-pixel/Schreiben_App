@@ -207,6 +207,7 @@ export interface PracticeTestQuestion {
   practice_test_id: string;
   question_number: number;
   question_type: string;
+  evaluation_mode: string;
   prompt: string;
   options: Json | null;
   correct_answer: string;

@@ -29,6 +29,7 @@ type QuestionRow = {
   id: string;
   question_number: number;
   question_type: string;
+  evaluation_mode: string | null;
   prompt: string;
   correct_answer: string | null;
   explanation: string | null;
@@ -54,6 +55,8 @@ type OpenQuestionForEvaluation = {
   question_number: number;
   question_type: string;
   prompt: string;
+  canonical_answer: string | null;
+  explanation: string | null;
   student_answer: string;
   max_points: number;
 };
@@ -148,7 +151,8 @@ function isManualReviewAnswerKey(value: string) {
 
 function isLocallyScorable(question: QuestionRow) {
   const answerKey = question.correct_answer ?? "";
-  return locallyScorableTypes.has(question.question_type)
+  return (question.evaluation_mode ?? "local_exact") !== "open_evaluation"
+    && locallyScorableTypes.has(question.question_type)
     && answerKey.trim().length > 0
     && !isManualReviewAnswerKey(answerKey);
 }
@@ -332,7 +336,7 @@ async function markEvaluationFailed(admin: SupabaseAdminClient, attemptId: strin
 async function loadQuestions(admin: SupabaseAdminClient, practiceTestId: string) {
   const { data, error } = await admin
     .from("practice_test_questions")
-    .select("id, question_number, question_type, prompt, correct_answer, explanation")
+    .select("id, question_number, question_type, evaluation_mode, prompt, correct_answer, explanation")
     .eq("practice_test_id", practiceTestId)
     .order("question_number", { ascending: true });
   if (error) {
@@ -351,6 +355,8 @@ function getOpenQuestions(attempt: AttemptRow, questions: QuestionRow[]) {
       question_number: question.question_number,
       question_type: question.question_type,
       prompt: compactText(question.prompt, 800),
+      canonical_answer: compactText(question.correct_answer, 500) || null,
+      explanation: compactText(question.explanation, 500) || null,
       student_answer: answerMap.get(question.id) ?? "",
       max_points: 1,
     }));
@@ -440,6 +446,9 @@ Strict spelling/capitalization scoring: ${args.strictScoring ? "yes" : "no"}
 Scoring rules:
 - Give 1 point for a correct answer.
 - Give 0.5 points for partially correct answers that show the target grammar but include smaller non-target mistakes.
+- For open sentence-correction, rewrite, transformation, or flexible fill-blank questions, treat canonical_answer as a sample target answer, not the only possible answer.
+- For word-order or verb-position topics, judge the target word order primarily and accept grammatically valid alternatives when the prompt allows them.
+- Do not punish harmless word choice if the requested grammar structure is correct and level-appropriate.
 - For normal grammar topics, capitalization alone should usually be a capitalization_issue with partial credit, not zero.
 - For spelling/capitalization/Rechtschreibung topics, capitalization matters and should be strict.
 - minor_punctuation can receive full credit when only final punctuation differs.
