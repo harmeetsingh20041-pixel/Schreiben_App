@@ -601,6 +601,7 @@ export type Database = {
         Row: {
           correct_answer: string
           created_at: string
+          evaluation_mode: string
           explanation: string | null
           id: string
           options: Json | null
@@ -612,6 +613,7 @@ export type Database = {
         Insert: {
           correct_answer: string
           created_at?: string
+          evaluation_mode?: string
           explanation?: string | null
           id?: string
           options?: Json | null
@@ -623,6 +625,7 @@ export type Database = {
         Update: {
           correct_answer?: string
           created_at?: string
+          evaluation_mode?: string
           explanation?: string | null
           id?: string
           options?: Json | null

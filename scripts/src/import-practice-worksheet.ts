@@ -318,11 +318,14 @@ function validateQuestion(value: unknown, index: number): ImportQuestion {
   if (question.evaluation_mode === "local_exact") {
     validateLocalExactQuestion(question);
   } else if (question.evaluation_mode === "open_evaluation") {
-    if (question.question_type !== "mini_writing") {
-      throw new Error(`Question ${question.question_number}: only mini_writing can use open_evaluation in Phase 7F-A.`);
+    if (!["fill_blank", "sentence_correction", "transformation", "rewrite_sentence", "mini_writing"].includes(question.question_type)) {
+      throw new Error(`Question ${question.question_number}: ${question.question_type} cannot use open_evaluation.`);
     }
-    if (question.correct_answer !== "manual_review") {
+    if (question.question_type === "mini_writing" && question.correct_answer !== "manual_review") {
       throw new Error(`Question ${question.question_number}: mini_writing imports should use correct_answer = "manual_review".`);
+    }
+    if (question.question_type !== "mini_writing" && question.correct_answer === "manual_review") {
+      throw new Error(`Question ${question.question_number}: open text imports need a canonical/sample answer unless they are mini_writing.`);
     }
   } else {
     throw new Error(`Question ${question.question_number}: evaluation_mode must be local_exact or open_evaluation.`);
@@ -508,6 +511,7 @@ begin
     practice_test_id,
     question_number,
     question_type,
+    evaluation_mode,
     prompt,
     options,
     correct_answer,
@@ -517,6 +521,7 @@ begin
     saved_test_id,
     (question->>'question_number')::integer,
     question->>'question_type',
+    coalesce(question->>'evaluation_mode', 'local_exact'),
     question->>'prompt',
     case
       when jsonb_array_length(coalesce(question->'options', '[]'::jsonb)) > 0 then question->'options'
@@ -734,6 +739,7 @@ async function upsertWorksheet(args: {
         practice_test_id: practiceTestId,
         question_number: question.question_number,
         question_type: question.question_type,
+        evaluation_mode: question.evaluation_mode,
         prompt: question.prompt,
         options: question.options.length > 0 ? question.options : null,
         correct_answer: question.correct_answer,

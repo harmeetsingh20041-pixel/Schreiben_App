@@ -114,8 +114,14 @@ Local exact questions:
 
 Open evaluation questions:
 
-- Only `mini_writing` may use `evaluation_mode = open_evaluation` in Phase 7F-A.
-- Use `correct_answer = "manual_review"` for `mini_writing` import rows.
+- Use `evaluation_mode = open_evaluation` for flexible `fill_blank`,
+  `sentence_correction`, `transformation`, `rewrite_sentence`, and
+  `mini_writing` questions when exact local matching would be unfair.
+- For open `sentence_correction`, `transformation`, and `rewrite_sentence`
+  rows, store a canonical/sample answer in `correct_answer`; it is used as a
+  reference, not the only valid answer.
+- Use `correct_answer = "manual_review"` only for `mini_writing` import rows
+  that do not have a canonical sample answer.
 - DeepSeek answer evaluation remains the Phase 7D-2 path and is only used after
   the student submits.
 

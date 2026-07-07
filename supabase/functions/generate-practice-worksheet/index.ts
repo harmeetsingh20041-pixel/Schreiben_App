@@ -46,6 +46,7 @@ type MiniLesson = {
 type GeneratedQuestion = {
   question_number: number;
   question_type: string;
+  evaluation_mode: "local_exact" | "open_evaluation";
   prompt: string;
   options: string[];
   correct_answer: string;
@@ -82,13 +83,26 @@ type ReusableWorksheetRow = {
   generation_source: string;
 };
 
-const localScorableTypes = new Set([
+const generatedQuestionTypes = new Set([
   "multiple_choice",
   "fill_blank",
   "sentence_correction",
   "word_order",
   "transformation",
   "rewrite_sentence",
+]);
+
+const localGeneratedQuestionTypes = new Set([
+  "multiple_choice",
+  "fill_blank",
+  "word_order",
+]);
+
+const openEvaluationQuestionTypes = new Set([
+  "sentence_correction",
+  "transformation",
+  "rewrite_sentence",
+  "mini_writing",
 ]);
 
 const SAFE_GENERATION_ERROR = "Worksheet could not be prepared. Please try again later.";
@@ -234,6 +248,31 @@ function assertFillBlankDoesNotLeakAnswer(prompt: string, correctAnswer: string,
   if (isCaseArticleTopic(topic) && isArticleAnswer(correctAnswer) && /\([\wäöüßÄÖÜ]+\)|\[[\wäöüßÄÖÜ]+\]/.test(prompt)) {
     throw new Error("Case/article fill-blank prompt contains a parenthetical hint.");
   }
+}
+
+function isConstrainedFillBlankPrompt(prompt: string) {
+  return /\b(use|using|complete with|fill in|choose|write|setze|verwende|ergänze)\b/i.test(prompt)
+    && /\b(one|correct|best|article|preposition|verb form|verb|form|word|einen|eine|einem|einer|artikel|präposition|verbform|wort)\b/i.test(prompt);
+}
+
+function normalizeEvaluationMode(value: unknown) {
+  const mode = compactText(value, 40).toLowerCase();
+  if (mode === "open_evaluation" || mode === "open" || mode === "flexible") return "open_evaluation";
+  return "local_exact";
+}
+
+function classifyEvaluationMode(
+  questionType: string,
+  prompt: string,
+  providedMode: unknown,
+) {
+  const requestedMode = normalizeEvaluationMode(providedMode);
+  if (openEvaluationQuestionTypes.has(questionType)) return "open_evaluation";
+  if (questionType === "fill_blank" && !isConstrainedFillBlankPrompt(prompt)) return "open_evaluation";
+  if (requestedMode === "open_evaluation" && questionType !== "multiple_choice" && questionType !== "word_order") {
+    return "open_evaluation";
+  }
+  return "local_exact";
 }
 
 function isGenerationLockRecent(assignment: AssignmentRow) {
@@ -480,6 +519,7 @@ function validateQuestionCandidate(question: unknown, index: number, args: {
   const questionRecord = question as Record<string, unknown>;
   const questionType = normalizeGeneratedQuestionType(questionRecord.question_type ?? questionRecord.type);
   const prompt = compactText(questionRecord.prompt, 800);
+  const evaluationMode = classifyEvaluationMode(questionType, prompt, questionRecord.evaluation_mode);
   const rawOptions = questionRecord.options;
   const options = sanitizeOptions(rawOptions);
   const correctAnswer = compactText(
@@ -489,7 +529,7 @@ function validateQuestionCandidate(question: unknown, index: number, args: {
   const explanation = compactText(questionRecord.explanation, 600);
   const providedQuestionNumber = Number(questionRecord.question_number ?? index + 1);
 
-  if (!localScorableTypes.has(questionType)) {
+  if (!generatedQuestionTypes.has(questionType)) {
     throw new Error(`Unsupported question type: ${questionType || "missing"}`);
   }
   if (!prompt || prompt.length < 12) {
@@ -501,8 +541,11 @@ function validateQuestionCandidate(question: unknown, index: number, args: {
   if (!explanation) {
     throw new Error("Every question must include an explanation.");
   }
-  if (localScorableTypes.has(questionType) && !correctAnswer) {
-    throw new Error("Locally scorable questions require a non-empty answer key.");
+  if (evaluationMode === "local_exact" && !localGeneratedQuestionTypes.has(questionType)) {
+    throw new Error("Only multiple_choice, constrained fill_blank, and fixed word_order can use local_exact.");
+  }
+  if (!correctAnswer) {
+    throw new Error("Questions require a non-empty answer key or sample answer.");
   }
   if (rawOptions !== undefined && rawOptions !== null) {
     if (!Array.isArray(rawOptions)) {
@@ -532,6 +575,7 @@ function validateQuestionCandidate(question: unknown, index: number, args: {
   return {
     question_number: Number.isInteger(providedQuestionNumber) ? providedQuestionNumber : index + 1,
     question_type: questionType,
+    evaluation_mode: evaluationMode,
     prompt,
     options,
     correct_answer: correctAnswer,
@@ -545,11 +589,18 @@ function pickQuestionsByType(
   selectedKeys: Set<string>,
   predicate: (question: GeneratedQuestion) => boolean,
   needed: number,
+  maxOpenEvaluation = 3,
 ) {
   for (const question of questions) {
     if (selected.length >= needed) break;
     const key = normalizePromptKey(question.prompt);
     if (selectedKeys.has(key) || !predicate(question)) continue;
+    if (
+      question.evaluation_mode === "open_evaluation"
+      && selected.filter((selectedQuestion) => selectedQuestion.evaluation_mode === "open_evaluation").length >= maxOpenEvaluation
+    ) {
+      continue;
+    }
     selected.push(question);
     selectedKeys.add(key);
   }
@@ -565,22 +616,38 @@ function selectFinalQuestions(questions: GeneratedQuestion[], args: { level: Lev
   const selectedKeys = new Set<string>();
 
   if (args.level === "A2") {
-    const isCorrection = (question: GeneratedQuestion) => question.question_type === "sentence_correction";
+    const isCorrection = (question: GeneratedQuestion) =>
+      question.question_type === "sentence_correction" && question.evaluation_mode === "open_evaluation";
+    const isLocalFillBlank = (question: GeneratedQuestion) =>
+      question.question_type === "fill_blank" && question.evaluation_mode === "local_exact";
+    const isLocalWordOrder = (question: GeneratedQuestion) =>
+      question.question_type === "word_order" && question.evaluation_mode === "local_exact";
     const isProduction = (question: GeneratedQuestion) =>
-      ["word_order", "transformation", "rewrite_sentence"].includes(question.question_type);
+      ["transformation", "rewrite_sentence"].includes(question.question_type)
+      && question.evaluation_mode === "open_evaluation";
+    const isLocalQuestion = (question: GeneratedQuestion) => question.evaluation_mode === "local_exact";
 
     pickQuestionsByType(questions, selected, selectedKeys, (question) => question.question_type === "multiple_choice", 2);
-    pickQuestionsByType(questions, selected, selectedKeys, (question) => question.question_type === "fill_blank", 4);
+    pickQuestionsByType(questions, selected, selectedKeys, isLocalFillBlank, 4);
     pickQuestionsByType(questions, selected, selectedKeys, isCorrection, 6);
-    pickQuestionsByType(questions, selected, selectedKeys, isProduction, 7);
+    pickQuestionsByType(questions, selected, selectedKeys, isLocalWordOrder, 7);
+    pickQuestionsByType(questions, selected, selectedKeys, isProduction, 8);
+    pickQuestionsByType(questions, selected, selectedKeys, isLocalQuestion, targetCount);
 
     const counts = {
       multipleChoice: selected.filter((question) => question.question_type === "multiple_choice").length,
-      fillBlank: selected.filter((question) => question.question_type === "fill_blank").length,
+      fillBlank: selected.filter(isLocalFillBlank).length,
       correction: selected.filter(isCorrection).length,
-      production: selected.filter(isProduction).length,
+      production: selected.filter((question) => isProduction(question) || isLocalWordOrder(question)).length,
+      openEvaluation: selected.filter((question) => question.evaluation_mode === "open_evaluation").length,
     };
-    if (counts.multipleChoice < 2 || counts.fillBlank < 2 || counts.correction < 2 || counts.production < 1) {
+    if (
+      counts.multipleChoice < 2
+      || counts.fillBlank < 2
+      || counts.correction < 2
+      || counts.production < 1
+      || counts.openEvaluation > 3
+    ) {
       throw new Error("Valid question candidates do not meet the A2 exercise mix target.");
     }
   }
@@ -589,6 +656,12 @@ function selectFinalQuestions(questions: GeneratedQuestion[], args: { level: Lev
     if (selected.length >= targetCount) break;
     const key = normalizePromptKey(question.prompt);
     if (selectedKeys.has(key)) continue;
+    if (
+      question.evaluation_mode === "open_evaluation"
+      && selected.filter((selectedQuestion) => selectedQuestion.evaluation_mode === "open_evaluation").length >= 3
+    ) {
+      continue;
+    }
     selected.push(question);
     selectedKeys.add(key);
   }
@@ -1104,20 +1177,24 @@ ${acceptedContext}
 Worksheet requirements:
 - ${questionTarget}
 - Use a mix of recognition and production.
-- For A2 include at least 2 multiple_choice, 2 fill_blank, 2 sentence_correction, and at least 1 word_order/transformation/rewrite_sentence.
-- Use only these exact-answer-safe types: multiple_choice, fill_blank, sentence_correction, word_order, transformation, rewrite_sentence.
-- Do not use mini_writing, short_answer, matching, error_detection, free writing, or flexible-answer tasks.
+- For A2 include at least 2 multiple_choice, 2 constrained fill_blank, 2 sentence_correction, and at least 1 word_order/transformation/rewrite_sentence.
+- Use only these types: multiple_choice, fill_blank, sentence_correction, word_order, transformation, rewrite_sentence.
+- Use evaluation_mode = "local_exact" only for multiple_choice, constrained fill_blank, and fixed word_order questions.
+- Use evaluation_mode = "open_evaluation" for sentence_correction, transformation, rewrite_sentence, and any fill_blank where more than one answer could be valid.
+- Include no more than 3 open_evaluation questions total.
+- Do not use mini_writing, short_answer, matching, error_detection, free writing, or broad flexible-answer tasks.
 - Align A1/A2 style and topic progression with Netzwerk-style classroom grammar progression where possible, but do not copy textbook exercises or wording.
-- Keep all answer keys exact, non-empty, and single-answer. Do not use "or", "/", semicolons, pipes, or answer alternatives.
+- Keep local_exact answer keys exact, non-empty, and single-answer. Do not use "or", "/", semicolons, pipes, or answer alternatives.
+- For open_evaluation questions, provide a canonical sample answer in correct_answer and a clear explanation/rubric for the grammar target.
 - multiple_choice is safe only when the correct answer appears exactly once in options.
-- fill_blank is safe only when exactly one blank and one exact answer are expected.
+- fill_blank is local_exact only when exactly one blank and one exact answer are expected. If a blank could accept many verbs or phrases, either constrain it ("Use the verb besuchen") or mark it open_evaluation.
 - For fill_blank questions, never include the correct answer in parentheses, brackets, hints, or surrounding prompt text.
 - For Dativ/Akkusativ article questions, do not write hints such as "___ (den)" or "___ (ein)". The blank itself must carry the challenge.
-- sentence_correction is safe only when the prompt explicitly asks for the full corrected sentence. Use clear wording like "Correct this sentence:" or "Rewrite the sentence correctly:".
+- sentence_correction must explicitly ask for the full corrected sentence. Use clear wording like "Correct this sentence:" or "Rewrite the sentence correctly:" and set evaluation_mode to open_evaluation.
 - word_order is safe only when all required words/phrases are given and one exact target answer is expected. Use at least 6 chunks, avoid "starting with" hints, and do not make proper-noun capitalization the only real challenge.
 - For word_order, the chunks must be shuffled; do not list chunks in the same order as the correct answer.
 - For A2 verb-position or word-order worksheets, word_order tasks should practice fronted elements, weil/dass/ob subordinate clauses, or verb-second versus verb-final contrast.
-- transformation and rewrite_sentence are safe only when tightly controlled with one exact expected answer.
+- transformation and rewrite_sentence must be tightly controlled and set evaluation_mode to open_evaluation so valid alternatives can receive credit.
 - Each question must include a student-safe explanation.
 - Multiple-choice options must be an array of plain strings only and include the correct answer exactly once.
 - Do not put correct_answer, answer_key, explanation, is_correct, scoring, or any object metadata inside options.
@@ -1139,6 +1216,7 @@ Return exactly this JSON shape:
     {
       "question_number": 1,
       "question_type": "multiple_choice | fill_blank | sentence_correction | word_order | transformation | rewrite_sentence",
+      "evaluation_mode": "local_exact | open_evaluation",
       "prompt": "string",
       "options": ["string"],
       "correct_answer": "string",
@@ -1459,11 +1537,11 @@ function buildFallbackPayload(args: {
         },
         {
           question_number: 9,
-          question_type: "rewrite_sentence",
-          prompt: "Rewrite the sentence correctly: Ich gehe mit meine Schwester ins Kino.",
+          question_type: "fill_blank",
+          prompt: "Complete with one preposition: Ich gehe ___ meiner Schwester ins Kino.",
           options: [],
-          correct_answer: "Ich gehe mit meiner Schwester ins Kino.",
-          explanation: "Mit takes dative, so meine Schwester becomes meiner Schwester.",
+          correct_answer: "mit",
+          explanation: "Mit is the preposition used for doing something with another person.",
         },
       ],
     };
@@ -1540,10 +1618,10 @@ function buildFallbackPayload(args: {
         },
         {
           question_number: 9,
-          question_type: "rewrite_sentence",
-          prompt: "Rewrite the sentence correctly: Wir besuchen ein Freund.",
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Wir besuchen ___ Freund.",
           options: [],
-          correct_answer: "Wir besuchen einen Freund.",
+          correct_answer: "einen",
           explanation: "Freund is masculine and direct object, so ein becomes einen.",
         },
       ],
@@ -1621,10 +1699,10 @@ function buildFallbackPayload(args: {
         },
         {
           question_number: 9,
-          question_type: "rewrite_sentence",
-          prompt: "Rewrite the sentence correctly: Sie schreibt den Lehrer eine E-Mail.",
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Sie schreibt ___ Lehrer eine E-Mail.",
           options: [],
-          correct_answer: "Sie schreibt dem Lehrer eine E-Mail.",
+          correct_answer: "dem",
           explanation: "The teacher receives the email, so use dative: dem Lehrer.",
         },
       ],
@@ -1702,11 +1780,11 @@ function buildFallbackPayload(args: {
         },
         {
           question_number: 9,
-          question_type: "rewrite_sentence",
-          prompt: "Rewrite the sentence correctly: Dann ich gehe nach Hause.",
+          question_type: "word_order",
+          prompt: "Put the parts in order: dann / gehe / ich / nach Hause / nach dem Unterricht / sofort",
           options: [],
-          correct_answer: "Dann gehe ich nach Hause.",
-          explanation: "After Dann, the conjugated verb gehe comes second.",
+          correct_answer: "Dann gehe ich sofort nach dem Unterricht nach Hause.",
+          explanation: "After Dann, the conjugated verb gehe comes second in the main clause.",
         },
       ],
     };
@@ -1783,10 +1861,10 @@ function buildFallbackPayload(args: {
         },
         {
           question_number: 9,
-          question_type: "rewrite_sentence",
-          prompt: "Rewrite the sentence correctly: Ich sehe der Stuhl.",
+          question_type: "fill_blank",
+          prompt: "Complete with the correct article: Ich sehe ___ Stuhl.",
           options: [],
-          correct_answer: "Ich sehe den Stuhl.",
+          correct_answer: "den",
           explanation: "Stuhl is masculine direct object, so der becomes den.",
         },
       ],
@@ -2120,6 +2198,7 @@ Deno.serve(async (req) => {
       practice_test_id: savedWorksheet.id,
       question_number: question.question_number,
       question_type: question.question_type,
+      evaluation_mode: question.evaluation_mode,
       prompt: question.prompt,
       options: question.options.length > 0 ? question.options : null,
       correct_answer: question.correct_answer,
