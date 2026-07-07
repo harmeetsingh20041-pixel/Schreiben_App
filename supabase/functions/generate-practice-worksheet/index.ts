@@ -60,6 +60,12 @@ type GeneratedWorksheet = {
   questions: GeneratedQuestion[];
 };
 
+type WorksheetSourceMix = {
+  mode: "deepseek" | "mixed" | "system_fallback";
+  deepseek_count: number;
+  fallback_count: number;
+};
+
 type WorksheetEnvelope = Omit<GeneratedWorksheet, "questions"> & {
   rawQuestions: unknown[];
 };
@@ -103,11 +109,18 @@ class WorksheetHttpError extends Error {
 
 class WorksheetQualityError extends WorksheetHttpError {
   detail: string;
+  acceptedQuestions: GeneratedQuestion[];
+  acceptedEnvelope: WorksheetEnvelope | null;
 
-  constructor(reason: string) {
+  constructor(reason: string, partial?: {
+    acceptedQuestions?: GeneratedQuestion[];
+    acceptedEnvelope?: WorksheetEnvelope | null;
+  }) {
     super(SAFE_GENERATION_ERROR, 422);
     this.name = "WorksheetQualityError";
     this.detail = compactText(reason, 500) || "Generated worksheet did not meet the quality standard.";
+    this.acceptedQuestions = partial?.acceptedQuestions ?? [];
+    this.acceptedEnvelope = partial?.acceptedEnvelope ?? null;
   }
 }
 
@@ -132,7 +145,7 @@ function getTargetQuestionCount(level: Level) {
 }
 
 function getCandidateQuestionCount(level: Level) {
-  return getTargetQuestionCount(level) + 3;
+  return getTargetQuestionCount(level) + (level === "A2" ? 6 : 4);
 }
 
 function normalizeGeneratedQuestionType(value: unknown) {
@@ -376,9 +389,6 @@ function reusableSourceRank(worksheet: Pick<ReusableWorksheetRow, "generation_so
   if (worksheet.generation_source === "deepseek") {
     return 2;
   }
-  if (worksheet.generation_source === "system_fallback") {
-    return 3;
-  }
   return 4;
 }
 
@@ -620,6 +630,45 @@ function validateWorksheetPayload(value: unknown, args: {
   };
 }
 
+function buildMixedWorksheetWithFallback(args: {
+  acceptedEnvelope: WorksheetEnvelope;
+  acceptedQuestions: GeneratedQuestion[];
+  fallbackWorksheet: GeneratedWorksheet;
+  level: Level;
+}): { worksheet: GeneratedWorksheet; sourceMix: WorksheetSourceMix } {
+  const deepseekPromptKeys = new Set(args.acceptedQuestions.map((question) => normalizePromptKey(question.prompt)));
+  const fallbackCandidates = args.fallbackWorksheet.questions.filter((question) =>
+    !deepseekPromptKeys.has(normalizePromptKey(question.prompt))
+  );
+  const selectedQuestions = selectFinalQuestions([
+    ...args.acceptedQuestions,
+    ...fallbackCandidates,
+  ], { level: args.level });
+  const selectedDeepseekCount = selectedQuestions.filter((question) =>
+    deepseekPromptKeys.has(normalizePromptKey(question.prompt))
+  ).length;
+  const selectedFallbackCount = selectedQuestions.length - selectedDeepseekCount;
+
+  if (selectedDeepseekCount === 0 || selectedFallbackCount === 0) {
+    throw new Error("Mixed worksheet did not preserve both DeepSeek and fallback questions.");
+  }
+
+  return {
+    worksheet: {
+      title: args.acceptedEnvelope.title,
+      level: args.acceptedEnvelope.level,
+      difficulty: args.acceptedEnvelope.difficulty,
+      mini_lesson: args.acceptedEnvelope.mini_lesson,
+      questions: selectedQuestions,
+    },
+    sourceMix: {
+      mode: "mixed",
+      deepseek_count: selectedDeepseekCount,
+      fallback_count: selectedFallbackCount,
+    },
+  };
+}
+
 function assertNoSnippetLeak(
   worksheet: GeneratedWorksheet,
   snippets: Array<{ original: string; corrected: string; note: string }>,
@@ -849,7 +898,9 @@ async function findReusableWorksheet(admin: SupabaseAdminClient, assignment: Ass
   }
 
   const candidates = ((data ?? []) as ReusableWorksheetRow[]).filter((candidate) =>
-    isReviewedOrApprovedWorksheet(candidate) && !excludedPracticeTestIds.has(candidate.id)
+    isReviewedOrApprovedWorksheet(candidate)
+    && candidate.generation_source !== "system_fallback"
+    && !excludedPracticeTestIds.has(candidate.id)
   );
   candidates.sort((left, right) => {
     const sourceDelta = reusableSourceRank(left) - reusableSourceRank(right);
@@ -1272,7 +1323,10 @@ async function generateValidatedWorksheet(args: {
     }
   }
 
-  throw new WorksheetQualityError(rejectionReasons.join(" | "));
+  throw new WorksheetQualityError(rejectionReasons.join(" | "), {
+    acceptedQuestions,
+    acceptedEnvelope,
+  });
 }
 
 function buildFallbackMiniLesson(topicName: string): MiniLesson {
@@ -1914,6 +1968,7 @@ Deno.serve(async (req) => {
 
     let generationSource: GenerationSource = "deepseek";
     let worksheet: GeneratedWorksheet;
+    let sourceMix: WorksheetSourceMix;
     try {
       worksheet = await generateValidatedWorksheet({
         admin,
@@ -1925,6 +1980,11 @@ Deno.serve(async (req) => {
         difficulty,
         snippets,
       });
+      sourceMix = {
+        mode: "deepseek",
+        deepseek_count: worksheet.questions.length,
+        fallback_count: 0,
+      };
     } catch (generationError) {
       const reason = generationError instanceof WorksheetQualityError
         ? generationError.detail
@@ -1960,19 +2020,68 @@ Deno.serve(async (req) => {
         });
         throw generationError;
       }
-      worksheet = fallbackWorksheet;
-      generationSource = FALLBACK_SOURCE;
-      await recordGenerationEvent(admin, lockedAssignment, {
-        stage: "fallback",
-        safe_status: "succeeded",
-        developer_reason: `Using deterministic fallback worksheet for ${grammarTopic.name}.`,
-      });
+      const partialDeepseekQuestions = generationError instanceof WorksheetQualityError
+        ? generationError.acceptedQuestions
+        : [];
+      const partialEnvelope = generationError instanceof WorksheetQualityError
+        ? generationError.acceptedEnvelope
+        : null;
+
+      if (partialDeepseekQuestions.length > 0 && partialEnvelope) {
+        try {
+          const mixed = buildMixedWorksheetWithFallback({
+            acceptedEnvelope: partialEnvelope,
+            acceptedQuestions: partialDeepseekQuestions,
+            fallbackWorksheet,
+            level,
+          });
+          assertNoSnippetLeak(mixed.worksheet, snippets);
+          worksheet = mixed.worksheet;
+          sourceMix = mixed.sourceMix;
+          await recordGenerationEvent(admin, lockedAssignment, {
+            stage: "fallback",
+            safe_status: "succeeded",
+            developer_reason: `Filled missing slots with fallback questions; deepseek_count=${mixed.sourceMix.deepseek_count}; fallback_count=${mixed.sourceMix.fallback_count}.`,
+          });
+        } catch (mixError) {
+          await recordGenerationEvent(admin, lockedAssignment, {
+            stage: "fallback",
+            safe_status: "failed",
+            developer_reason: mixError instanceof Error ? mixError.message : "Mixed DeepSeek/fallback worksheet could not be assembled.",
+          });
+          worksheet = fallbackWorksheet;
+          generationSource = FALLBACK_SOURCE;
+          sourceMix = {
+            mode: "system_fallback",
+            deepseek_count: 0,
+            fallback_count: fallbackWorksheet.questions.length,
+          };
+          await recordGenerationEvent(admin, lockedAssignment, {
+            stage: "fallback",
+            safe_status: "succeeded",
+            developer_reason: `Using full deterministic fallback worksheet for ${grammarTopic.name} after mixed assembly failed.`,
+          });
+        }
+      } else {
+        worksheet = fallbackWorksheet;
+        generationSource = FALLBACK_SOURCE;
+        sourceMix = {
+          mode: "system_fallback",
+          deepseek_count: 0,
+          fallback_count: fallbackWorksheet.questions.length,
+        };
+        await recordGenerationEvent(admin, lockedAssignment, {
+          stage: "fallback",
+          safe_status: "succeeded",
+          developer_reason: `Using deterministic fallback worksheet for ${grammarTopic.name}; no valid DeepSeek questions were available.`,
+        });
+      }
     }
 
     await recordGenerationEvent(admin, lockedAssignment, {
       stage: "save",
       safe_status: "started",
-      developer_reason: `Saving ${generationSource} worksheet with ${worksheet.questions.length} validated questions.`,
+      developer_reason: `Saving ${generationSource} worksheet with ${worksheet.questions.length} validated questions; source_mix=${sourceMix.mode}; deepseek_count=${sourceMix.deepseek_count}; fallback_count=${sourceMix.fallback_count}.`,
     });
 
     const { data: savedWorksheet, error: worksheetError } = await admin
@@ -1991,7 +2100,7 @@ Deno.serve(async (req) => {
         mini_lesson: worksheet.mini_lesson,
         generation_source: generationSource,
         quality_status: "passed",
-        quality_notes: `Validated ${worksheet.questions.length} questions locally before assignment via ${generationSource}.`,
+        quality_notes: `Validated ${worksheet.questions.length} questions locally before assignment via ${generationSource}. source_mix=${sourceMix.mode}; deepseek_count=${sourceMix.deepseek_count}; fallback_count=${sourceMix.fallback_count}.`,
         generated_from_assignment_id: lockedAssignment.id,
         generated_from_student_id: lockedAssignment.student_id,
       })
@@ -2051,6 +2160,7 @@ Deno.serve(async (req) => {
         question_count: worksheet.questions.length,
         model,
         generation_source: generationSource,
+        source_mix: sourceMix,
       },
     });
 
