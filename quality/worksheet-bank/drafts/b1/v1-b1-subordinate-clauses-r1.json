@@ -1,0 +1,176 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-subordinate-clauses-r1",
+    "template_key": "v1-b1-subordinate-clauses-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Subordinate clauses pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Nebensätze: Gründe, Ziele und Gegensätze",
+  "level": "B1",
+  "grammar_topic": { "slug": "subordinate-clauses", "name": "Nebensätze" },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "subordinate-clauses",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Nebensätze ergänzen einen Hauptsatz und drücken zum Beispiel einen Grund, ein Ziel, eine Bedingung oder einen Gegensatz aus.",
+    "key_rule": "Im eingeleiteten Nebensatz steht das konjugierte Verb am Ende. Haupt- und Nebensatz werden durch ein Komma getrennt.",
+    "correct_examples": [
+      "Ich bleibe zu Hause, weil ich krank bin.",
+      "Obwohl es regnet, gehen wir spazieren."
+    ],
+    "common_mistake_warning": "Nach einer unterordnenden Konjunktion bleibt das finite Verb nicht an zweiter Stelle.",
+    "what_to_revise": "Wiederhole weil, dass, obwohl, damit, wenn und bevor sowie die Verbendstellung."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz hat die richtige Wortstellung?",
+      "options": [
+        "Ich bleibe zu Hause, weil ich mich nicht gut fühle.",
+        "Ich bleibe zu Hause, weil ich fühle mich nicht gut.",
+        "Ich bleibe zu Hause, weil fühle ich mich nicht gut."
+      ],
+      "correct_answer": "Ich bleibe zu Hause, weil ich mich nicht gut fühle.",
+      "accepted_answers": [
+        "Ich bleibe zu Hause, weil ich mich nicht gut fühle."
+      ],
+      "explanation": "Im Nebensatz mit „weil“ steht das finite Verb „fühle“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ergänzung ist korrekt? Die Stationsleitung bestätigt, ___.",
+      "options": [
+        "dass die Übergabeschulung findet morgen statt",
+        "dass die Übergabeschulung morgen stattfindet",
+        "dass findet die Übergabeschulung morgen statt"
+      ],
+      "correct_answer": "dass die Übergabeschulung morgen stattfindet",
+      "accepted_answers": ["dass die Übergabeschulung morgen stattfindet"],
+      "explanation": "Im dass-Satz steht das trennbare Verb als Ganzes am Ende: „stattfindet“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt einen Gegensatz korrekt aus?",
+      "options": [
+        "Obwohl es regnete stark, gingen wir spazieren.",
+        "Obwohl regnete es stark, gingen wir spazieren.",
+        "Obwohl es stark regnete, gingen wir spazieren."
+      ],
+      "correct_answer": "Obwohl es stark regnete, gingen wir spazieren.",
+      "accepted_answers": ["Obwohl es stark regnete, gingen wir spazieren."],
+      "explanation": "„Obwohl“ leitet einen Nebensatz ein; „regnete“ steht deshalb am Ende des Nebensatzes.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [weil, deshalb, denn]. Ergänze: Wir warten noch, ___ der Zug verspätet ist.",
+      "options": [],
+      "correct_answer": "weil",
+      "accepted_answers": ["weil"],
+      "explanation": "„Weil“ leitet einen kausalen Nebensatz mit Verbendstellung ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wenn, obwohl, damit]. Drücke den unerwarteten Gegensatz aus: ___ sie wenig Zeit hatte, half sie uns.",
+      "options": [],
+      "correct_answer": "obwohl",
+      "accepted_answers": ["obwohl"],
+      "explanation": "„Obwohl“ drückt den Gegensatz zwischen wenig Zeit und der geleisteten Hilfe aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Nachdem, Während, Bevor]. Drücke aus, dass das Prüfen zuerst geschieht: ___ ich das Haus verlasse, prüfe ich die Fenster.",
+      "options": [],
+      "correct_answer": "Bevor",
+      "accepted_answers": ["Bevor"],
+      "explanation": "Das Prüfen geschieht vor dem Verlassen; deshalb passt „Bevor“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dass, ob, damit]. Drücke das Ziel aus: Ich schreibe dir die Adresse auf, ___ du sie nicht vergisst.",
+      "options": [],
+      "correct_answer": "damit",
+      "accepted_answers": ["damit"],
+      "explanation": "Der Nebensatz nennt das Ziel der Handlung; dafür verwendet man „damit“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ordnet die Verbgruppe im weil-Satz korrekt?",
+      "options": [
+        "Die Pflegekraft kommt später, weil sie muss länger an einer Schulung teilnehmen.",
+        "Die Pflegekraft kommt später, weil muss sie länger an einer Schulung teilnehmen.",
+        "Die Pflegekraft kommt später, weil sie länger an einer Schulung teilnehmen muss.",
+        "Die Pflegekraft kommt später, weil sie länger muss an einer Schulung teilnehmen."
+      ],
+      "correct_answer": "Die Pflegekraft kommt später, weil sie länger an einer Schulung teilnehmen muss.",
+      "accepted_answers": ["Die Pflegekraft kommt später, weil sie länger an einer Schulung teilnehmen muss."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei einer Verbgruppe im Nebensatz steht das finite Modalverb „muss“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung nennt mit „damit“ korrekt das Ziel des frühen Losfahrens?",
+      "options": [
+        "Wir fahren früh los, damit wir ankommen pünktlich.",
+        "Wir fahren früh los, damit wir pünktlich ankommen.",
+        "Wir fahren früh los, damit kommen wir pünktlich an.",
+        "Wir fahren früh los damit, wir pünktlich ankommen."
+      ],
+      "correct_answer": "Wir fahren früh los, damit wir pünktlich ankommen.",
+      "accepted_answers": ["Wir fahren früh los, damit wir pünktlich ankommen."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der damit-Satz nennt das Ziel des frühen Losfahrens.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schilderung verwendet „weil“, „obwohl“ und „damit“ mit korrekter Verbendstellung?",
+      "options": [
+        "Ich übe, weil ich Übergaben klar formulieren möchte. Obwohl ich müde bin, halte ich mich an den Plan. Ich wiederhole Redemittel, damit ich sicherer werde.",
+        "Ich übe, weil möchte ich Übergaben klar formulieren. Obwohl bin ich müde, halte ich mich an den Plan. Ich wiederhole Redemittel, damit werde ich sicherer.",
+        "Ich übe, weil ich möchte Übergaben klar formulieren. Obwohl ich bin müde, halte ich mich an den Plan. Ich wiederhole Redemittel, damit ich werde sicherer.",
+        "Ich übe weil, ich Übergaben klar formulieren möchte. Obwohl ich müde bin halte ich mich an den Plan. Ich wiederhole Redemittel damit, ich sicherer werde."
+      ],
+      "correct_answer": "Ich übe, weil ich Übergaben klar formulieren möchte. Obwohl ich müde bin, halte ich mich an den Plan. Ich wiederhole Redemittel, damit ich sicherer werde.",
+      "accepted_answers": ["Ich übe, weil ich Übergaben klar formulieren möchte. Obwohl ich müde bin, halte ich mich an den Plan. Ich wiederhole Redemittel, damit ich sicherer werde."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Verschiedene Nebensätze machen Gründe, Hindernisse und Ziele eines Plans deutlich.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

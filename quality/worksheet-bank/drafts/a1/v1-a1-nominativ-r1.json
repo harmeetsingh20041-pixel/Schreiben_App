@@ -1,0 +1,128 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-nominativ-r1",
+    "template_key": "v1-a1-nominativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Nominativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Nominativ: Subjekte und Formen 1",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "nominativ",
+    "name": "Nominativ"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "nominativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Nominativ markiert das Subjekt. Das Subjekt zeigt, wer oder was etwas tut oder wie jemand oder etwas ist.",
+    "key_rule": "Frage Wer? oder Was?, um das Subjekt zu finden. Verwende Nominativformen wie der, die, das, ich, er, sie und wir.",
+    "correct_examples": ["Der Schüler lernt Deutsch.", "Sie wohnt in Berlin."],
+    "common_mistake_warning": "Verwende Objektformen wie mich, ihn oder den Mann nicht als Subjekt.",
+    "what_to_revise": "Wiederhole Subjektformen wie ich, du, er, sie, wir und der Mann."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortgruppe ist das Subjekt im Nominativ? Die Lehrerin erklärt die Aufgabe.",
+      "options": ["keine Wortgruppe","Die Lehrerin","die Aufgabe","erklärt"],
+      "correct_answer": "Die Lehrerin",
+      "accepted_answers": ["Die Lehrerin"],
+      "explanation": "Die Lehrerin erklärt etwas. Deshalb ist die Wortgruppe „Die Lehrerin“ das Subjekt im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den bestimmten Artikel im Nominativ für das maskuline Subjekt Hund: ___ Hund schläft.",
+      "options": ["Dem","Des","Der","Den"],
+      "correct_answer": "Der",
+      "accepted_answers": ["Der"],
+      "explanation": "Hund ist ein maskulines Subjekt. Deshalb lautet der bestimmte Artikel im Nominativ der.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das Pronomen im Nominativ für Anna und Tom: ___ wohnen in Köln.",
+      "options": ["Ihr","Ihnen","Euch","Sie"],
+      "correct_answer": "Sie",
+      "accepted_answers": ["Sie"],
+      "explanation": "Das Subjekt Anna und Tom steht im Plural. Das passende Pronomen im Nominativ ist sie.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Nutze die Wortbank [Ihn, Ihm, Er]. Ergänze: ___ kommt heute um acht Uhr.",
+      "options": [],
+      "correct_answer": "Er",
+      "accepted_answers": ["Er"],
+      "explanation": "Die Lücke ist das Subjekt von kommt. Deshalb braucht man das Pronomen er im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Nutze die Wortbank [Ich, Mich, Mir]. Ergänze: ___ lerne jeden Abend Deutsch.",
+      "options": [],
+      "correct_answer": "Ich",
+      "accepted_answers": ["Ich"],
+      "explanation": "Die sprechende Person ist das Subjekt von lerne. Deshalb braucht man die Nominativform ich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Nutze die Wortbank [Dem Mann, Der Mann, Den Mann]. Ergänze: ___ arbeitet heute im Café.",
+      "options": [],
+      "correct_answer": "Der Mann",
+      "accepted_answers": ["Der Mann"],
+      "explanation": "Der Mann arbeitet. Deshalb ist die Wortgruppe „Der Mann“ das Subjekt im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha spricht über ihren Dienst. Welcher Satz verwendet das Subjektpronomen im Nominativ?",
+      "options": [
+        "Ich bin heute im Dienst.",
+        "Mein bin heute im Dienst.",
+        "Mich bin heute im Dienst.",
+        "Mir bin heute im Dienst."
+      ],
+      "correct_answer": "Ich bin heute im Dienst.",
+      "accepted_answers": ["Ich bin heute im Dienst."],
+      "rubric": null,
+      "explanation": "Das Subjekt von bin braucht das Pronomen ich im Nominativ, nicht die Akkusativform mich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortgruppe ist im Satz ‚Meine Kollegin arbeitet heute in der Klinik‘ das Subjekt im Nominativ?",
+      "options": ["Meine Kollegin","heute","in der Klinik","arbeitet"],
+      "correct_answer": "Meine Kollegin",
+      "accepted_answers": ["Meine Kollegin"],
+      "rubric": null,
+      "explanation": "‚Meine Kollegin‘ führt die Handlung aus und ist deshalb das Subjekt im Nominativ.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "playwright.practice-state-matrix.config.ts",
+    "vite.practice-state-matrix.config.ts",
+    "tests/e2e/practice-state-matrix.spec.ts",
+    "tests/e2e/responsive-navigation.spec.ts",
+    "tests/e2e/fixtures/objective-worksheet.tsx",
+    "tests/e2e/fixtures/practice-state-matrix.tsx",
+    "tests/e2e/fixtures/practice-state-matrix-auth.ts",
+    "tests/e2e/fixtures/responsive-navigation-class-context.ts",
+    "tests/e2e/fixtures/responsive-navigation-harness.tsx"
+  ],
+  "exclude": ["node_modules", "dist", "tests/unit"],
+  "compilerOptions": {
+    "incremental": false,
+    "types": ["node", "@playwright/test", "vite/client"]
+  }
+}

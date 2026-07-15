@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-coherence-r1",
+    "template_key": "v1-a2-coherence-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Coherence pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Textzusammenhang: Sätze klar verbinden",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "coherence",
+    "name": "Textzusammenhang"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "coherence",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein zusammenhängender Text ordnet Informationen sinnvoll und verbindet Sätze mit passenden Pronomen, Zeitwörtern oder Konnektoren.",
+    "key_rule": "Verwende klare Bezüge und eine nachvollziehbare Reihenfolge wie zuerst, dann und zum Schluss.",
+    "correct_examples": [
+      "Zuerst lese ich die Aufgabe. Dann schreibe ich meine Antwort.",
+      "Mira hat einen Kurs. Er beginnt am Montag."
+    ],
+    "common_mistake_warning": "Ein Pronomen muss eindeutig zu einer zuvor genannten Person oder Sache passen.",
+    "what_to_revise": "Übe Reihenfolgewörter, Wiederaufnahme durch Pronomen und passende Ursache-Folge-Verbindungen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fortsetzung hat einen eindeutigen Bezug?",
+      "options": [
+        "Lena kauft ein Wörterbuch. Sie braucht es für den Kurs.",
+        "Lena kauft ein Wörterbuch. Er braucht sie für den Kurs.",
+        "Lena kauft ein Wörterbuch. Sie brauchen ihn für den Kurs.",
+        "Lena kauft ein Wörterbuch. Deshalb Wörterbuch Kurs."
+      ],
+      "correct_answer": "Lena kauft ein Wörterbuch. Sie braucht es für den Kurs.",
+      "accepted_answers": [
+        "Lena kauft ein Wörterbuch. Sie braucht es für den Kurs."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Sie“ bezieht sich eindeutig auf Lena und „es“ auf das neutrale Wörterbuch.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Reihenfolge ist logisch?",
+      "options": [
+        "Zuerst unterschreibe ich es, bevor ich das leere Formular sehe.",
+        "Das Formular danach zuerst ich unterschreibe.",
+        "Zuerst fülle ich das Formular aus. Danach unterschreibe ich es.",
+        "Danach fülle ich das Formular aus. Zuerst unterschreibe ich es."
+      ],
+      "correct_answer": "Zuerst fülle ich das Formular aus. Danach unterschreibe ich es.",
+      "accepted_answers": [
+        "Zuerst fülle ich das Formular aus. Danach unterschreibe ich es."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Ein Formular wird sinnvollerweise zuerst ausgefüllt und danach unterschrieben; „es“ stellt den Bezug her.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Dann, Trotzdem, Oder]. Ergänze die zeitliche Folge: Zuerst lese ich die Nachricht. ___ antworte ich.",
+      "options": [],
+      "correct_answer": "Dann",
+      "accepted_answers": [
+        "Dann"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Dann“ führt den nächsten Schritt in der zeitlichen Reihenfolge ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Die Lehrerin selbst gibt anschließend ein Beispiel. Wortbank: [Es, Sie, Er]. Ergänze den eindeutigen Personenbezug: Die Lehrerin erklärt die Aufgabe. ___ gibt auch ein Beispiel.",
+      "options": [],
+      "correct_answer": "Sie",
+      "accepted_answers": [
+        "Sie"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Bedeutung nennt die Lehrerin als handelnde Person; das feminine Pronomen „Sie“ greift sie eindeutig wieder auf.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [aber, zuerst, deshalb]. Ergänze die Folge: Der Bus fiel aus. Ich kam ___ zu spät.",
+      "options": [],
+      "correct_answer": "deshalb",
+      "accepted_answers": [
+        "deshalb"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Deshalb“ verbindet den Ausfall logisch mit seiner Folge, dem Zuspätkommen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fortsetzung hat einen eindeutigen Pronomenbezug? Der Kurs beginnt morgen. ...",
+      "options": [
+        "Sie findet in Raum drei statt.",
+        "Es finden in Raum drei statt.",
+        "Ihn findet in Raum drei statt.",
+        "Er findet in Raum drei statt."
+      ],
+      "correct_answer": "Er findet in Raum drei statt.",
+      "accepted_answers": [
+        "Er findet in Raum drei statt."
+      ],
+      "rubric": null,
+      "explanation": "Das Pronomen er bezieht sich eindeutig auf den maskulinen Kurs und hält beide Sätze zusammen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Vielleicht, Zuerst, Trotzdem, Deshalb]. ___ desinfiziert die Pflegekraft die Hände, dann zieht sie Handschuhe an.",
+      "options": [],
+      "correct_answer": "Zuerst",
+      "accepted_answers": [
+        "Zuerst"
+      ],
+      "rubric": null,
+      "explanation": "Zuerst kündigt den ersten Schritt an und passt zur folgenden Reihenfolge mit dann.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Reihenfolge ist logisch und klar?",
+      "options": [
+        "Zuerst prüfe ich sie. Zum Schluss lese ich die Aufgabe. Dann schreibe ich die Antwort.",
+        "Zuerst lese ich die Aufgabe. Dann schreibe ich die Antwort. Zum Schluss prüfe ich sie.",
+        "Zum Schluss lese ich die Aufgabe. Zuerst prüfe ich sie. Dann schreibe ich die Antwort.",
+        "Dann prüfe ich sie. Zum Schluss schreibe ich die Antwort. Zuerst lese ich die Aufgabe."
+      ],
+      "correct_answer": "Zuerst lese ich die Aufgabe. Dann schreibe ich die Antwort. Zum Schluss prüfe ich sie.",
+      "accepted_answers": [
+        "Zuerst lese ich die Aufgabe. Dann schreibe ich die Antwort. Zum Schluss prüfe ich sie."
+      ],
+      "rubric": null,
+      "explanation": "Die drei Reihenfolgewörter führen vom Lesen über das Schreiben bis zur abschließenden Kontrolle.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

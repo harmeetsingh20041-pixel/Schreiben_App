@@ -1,0 +1,175 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-genitiv-r2",
+    "template_key": "v1-b1-genitiv-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Genitiv accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Genitiv im Kontext: Gründe und Zugehörigkeit",
+  "level": "B1",
+  "grammar_topic": { "slug": "genitiv", "name": "Genitiv" },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "genitiv",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Genitivgruppen verdichten Informationen und sind besonders in formelleren Texten üblich. Sie können Besitz, Teil-Ganzes-Beziehungen, Zeiträume oder Gründe ausdrücken.",
+    "key_rule": "Achte gleichzeitig auf Genitivartikel, Adjektivendung und die Endung des maskulinen oder neutralen Nomens.",
+    "correct_examples": [
+      "Angesichts der aktuellen Lage wird neu geplant.",
+      "Die Umsetzung des neuen Konzepts dauert einen Monat."
+    ],
+    "common_mistake_warning": "Eine richtige Präposition reicht nicht: Auch Artikel, Adjektiv und Nomen müssen als vollständige Genitivgruppe markiert sein.",
+    "what_to_revise": "Vergleiche eines langen Tages, der aktuellen Lage und technischer Probleme."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist standardsprachlich korrekt?",
+      "options": [
+        "Angesichts die aktuelle Lage wird der Plan geändert.",
+        "Angesichts der aktuelle Lage wird der Plan geändert.",
+        "Angesichts der aktuellen Lage wird der Plan geändert."
+      ],
+      "correct_answer": "Angesichts der aktuellen Lage wird der Plan geändert.",
+      "accepted_answers": [
+        "Angesichts der aktuellen Lage wird der Plan geändert."
+      ],
+      "explanation": "„Angesichts“ verlangt den Genitiv; feminin Singular lautet die Gruppe „der aktuellen Lage“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Zeitangabe enthält eine vollständige Genitivgruppe?",
+      "options": [
+        "innerhalb einen Monats",
+        "innerhalb eines Monats",
+        "innerhalb einem Monat"
+      ],
+      "correct_answer": "innerhalb eines Monats",
+      "accepted_answers": ["innerhalb eines Monats"],
+      "explanation": "Nach „innerhalb“ steht der Genitiv; „Monat“ ist maskulin und erhält hier -s.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form steht im Genitiv Plural nach „während“?",
+      "options": [
+        "während mehrerer Gespräche",
+        "während mehrere Gespräche",
+        "während mehreren Gesprächen"
+      ],
+      "correct_answer": "während mehrerer Gespräche",
+      "accepted_answers": ["während mehrerer Gespräche"],
+      "explanation": "Im Genitiv Plural ohne Artikel erhält „mehrere“ die Endung -er: „mehrerer Gespräche“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [des, dem, den]. Ergänze: Die Einführung ___ neuen Übergabeplans beginnt im Herbst.",
+      "options": [],
+      "correct_answer": "des",
+      "accepted_answers": ["des"],
+      "explanation": "„Übergabeplan“ ist maskulin; der Genitiv Singular beginnt mit „des“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einem, einen, eines]. Ergänze: Am Ende ___ langen Arbeitstages war das Team zufrieden.",
+      "options": [],
+      "correct_answer": "eines",
+      "accepted_answers": ["eines"],
+      "explanation": "„Arbeitstag“ ist maskulin; im Genitiv Singular heißt es „eines langen Arbeitstages“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, der, den]. Ergänze: Aufgrund ___ technischen Probleme startet das System später.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": ["der"],
+      "explanation": "„Aufgrund“ verlangt den Genitiv; im Plural lautet der bestimmte Artikel „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, den, der]. Ergänze: Außerhalb ___ regulären Öffnungszeiten ist das Gebäude geschlossen.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": ["der"],
+      "explanation": "Nach „außerhalb“ steht der Genitiv; im Plural heißt es „der Öffnungszeiten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit „Wegen“: [Wegen / des kurzfristigen Ausfalls / musste / die Übergabeschulung / verschoben werden].",
+      "options": [],
+      "correct_answer": "Wegen des kurzfristigen Ausfalls musste die Übergabeschulung verschoben werden.",
+      "rubric": {
+        "criteria": [
+          "Alle Satzteile werden genau einmal verwendet.",
+          "Die Genitivgruppe „des kurzfristigen Ausfalls“ folgt direkt auf „Wegen“.",
+          "Das finite Verb „musste“ steht an Position zwei und „verschoben werden“ am Satzende."
+        ],
+        "sample_answer": "Wegen des kurzfristigen Ausfalls musste die Übergabeschulung verschoben werden."
+      },
+      "explanation": "Die vorangestellte Genitivgruppe besetzt das Vorfeld; deshalb folgt das finite Verb direkt danach.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Ersetze die Konstruktion mit „von“ durch eine Genitivgruppe: Der Bericht von der Projektleiterin enthält neue Zahlen.",
+      "options": [],
+      "correct_answer": "Der Bericht der Projektleiterin enthält neue Zahlen.",
+      "rubric": {
+        "criteria": [
+          "„von der Projektleiterin“ wird durch „der Projektleiterin“ ersetzt.",
+          "Aussage, Verb und übrige Satzteile bleiben unverändert."
+        ],
+        "sample_answer": "Der Bericht der Projektleiterin enthält neue Zahlen."
+      },
+      "explanation": "Die Genitivgruppe „der Projektleiterin“ drückt dieselbe Zugehörigkeit knapper aus.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe drei Sätze über eine verzögerte Fortbildung auf einer Pflegestation. Verwende zwei verschiedene Genitivpräpositionen und mindestens eine Genitivgruppe mit einem maskulinen oder neutralen Nomen.",
+      "options": [],
+      "correct_answer": "Wegen des Ausfalls eines Schulungsraums verzögerte sich die Fortbildung. Während der Reparatur bereitete das Pflegeteam andere Materialien vor. Innerhalb eines Tages stand ein Ersatzraum zur Verfügung.",
+      "rubric": {
+        "criteria": [
+          "Der Text besteht aus drei inhaltlich verbundenen Sätzen über eine verzögerte Fortbildung auf einer Pflegestation.",
+          "Mindestens zwei verschiedene Genitivpräpositionen werden korrekt verwendet.",
+          "Mindestens ein maskulines oder neutrales Nomen trägt eine passende Genitivendung."
+        ],
+        "sample_answer": "Wegen des Ausfalls eines Schulungsraums verzögerte sich die Fortbildung. Während der Reparatur bereitete das Pflegeteam andere Materialien vor. Innerhalb eines Tages stand ein Ersatzraum zur Verfügung."
+      },
+      "explanation": "Mehrere Genitivkonstruktionen können Ursache, Zeitraum und zeitliche Grenze präzise miteinander verbinden.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

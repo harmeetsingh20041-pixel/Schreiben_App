@@ -1,0 +1,143 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-punctuation-r1",
+    "template_key": "v1-a1-punctuation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Punctuation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Satzzeichen für Aussagen und Fragen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "punctuation",
+    "name": "Zeichensetzung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "punctuation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Satzzeichen zeigen, ob ein Satz eine Aussage, Frage oder einen Ausruf enthält. Kommas trennen außerdem Anreden und Teile einer Aufzählung.",
+    "key_rule": "Setze am Ende einer Aussage einen Punkt, bei einer direkten Frage ein Fragezeichen und bei einem starken Ausruf ein Ausrufezeichen.",
+    "correct_examples": ["Wann beginnt der Kurs?", "Guten Abend, Frau Meier!"],
+    "common_mistake_warning": "Setze nicht nach jeder Aussage ein Fragezeichen und vergiss bei einer direkten Frage das Fragezeichen nicht.",
+    "what_to_revise": "Lies kurze Sätze laut und entscheide: Aussage, Frage, Ausruf oder Anrede."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Satzzeichen passt zu dieser direkten Frage: ‚Wie heißt du___‘?",
+      "options": ["!","?","."],
+      "correct_answer": "?",
+      "accepted_answers": ["?"],
+      "answer_contract_version": 1,
+      "explanation": "Eine direkte Frage endet mit einem Fragezeichen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist korrekt gesetzt?",
+      "options": [
+        "Ich kaufe, Brot Milch und Reis.",
+        "Ich kaufe Brot Milch, und Reis.",
+        "Ich kaufe Brot, Milch und Reis."
+      ],
+      "correct_answer": "Ich kaufe Brot, Milch und Reis.",
+      "accepted_answers": ["Ich kaufe Brot, Milch und Reis."],
+      "answer_contract_version": 1,
+      "explanation": "In der Aufzählung trennt das Komma die ersten beiden Elemente; vor dem letzten ‚und‘ steht hier kein Komma.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Anrede trennt den Namen mit einem passenden Komma ab und endet mit einem Ausrufezeichen?",
+      "options": ["Hallo, Ravi!", "Hallo Ravi.", "Hallo! Ravi,"],
+      "correct_answer": "Hallo, Ravi!",
+      "accepted_answers": ["Hallo, Ravi!"],
+      "answer_contract_version": 1,
+      "explanation": "Die Anrede ‚Ravi‘ wird durch ein Komma abgetrennt; der Gruß endet mit einem Ausrufezeichen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [? | . | !]. Ergänze das Satzzeichen: Wo wohnst du___",
+      "options": [],
+      "correct_answer": "?",
+      "accepted_answers": ["?"],
+      "answer_contract_version": 1,
+      "explanation": "Die direkte Frage nach dem Wohnort braucht ein Fragezeichen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [! | . | ?]. Ergänze das Satzzeichen: Ich wohne in Pune___",
+      "options": [],
+      "correct_answer": ".",
+      "accepted_answers": ["."],
+      "answer_contract_version": 1,
+      "explanation": "Die neutrale Aussage über den Wohnort endet mit einem Punkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [. | ? | !]. Ergänze den Ausruf: Vorsicht___",
+      "options": [],
+      "correct_answer": "!",
+      "accepted_answers": ["!"],
+      "answer_contract_version": 1,
+      "explanation": "Der deutliche Warnruf ‚Vorsicht‘ endet mit einem Ausrufezeichen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha spricht Frau Meier direkt an. Welche Variante setzt Anredekomma und Fragezeichen richtig?",
+      "options": [
+        "Frau Meier. wie geht es Ihnen!",
+        "Frau Meier wie geht es Ihnen.",
+        "Frau Meier wie geht es Ihnen?",
+        "Frau Meier, wie geht es Ihnen?"
+      ],
+      "correct_answer": "Frau Meier, wie geht es Ihnen?",
+      "accepted_answers": ["Frau Meier, wie geht es Ihnen?"],
+      "rubric": null,
+      "explanation": "Die Anrede wird vor der direkten Frage mit einem Komma abgeschlossen; die Frage endet mit einem Fragezeichen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi fragt nach dem Beginn des Dienstes. Welche direkte Frage ist richtig gesetzt?",
+      "options": [
+        "Wann beginnt der Dienst!",
+        "Wann beginnt der Dienst?",
+        "Wann beginnt der Dienst.",
+        "Wann, beginnt der Dienst?"
+      ],
+      "correct_answer": "Wann beginnt der Dienst?",
+      "accepted_answers": ["Wann beginnt der Dienst?"],
+      "rubric": null,
+      "explanation": "Eine direkte W-Frage endet mit einem Fragezeichen und braucht hier kein Komma.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

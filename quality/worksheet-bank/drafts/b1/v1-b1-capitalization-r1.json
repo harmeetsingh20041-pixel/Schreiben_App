@@ -1,0 +1,197 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-capitalization-r1",
+    "template_key": "v1-b1-capitalization-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Capitalization pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Großschreibung: Nomen und Anrede erkennen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "capitalization",
+    "name": "Groß- und Kleinschreibung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "capitalization",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Groß- und Kleinschreibung unterscheidet Wortarten und macht besonders formelle Texte leichter lesbar.",
+    "key_rule": "Nomen, nominalisierte Verben und Adjektive sowie die höflichen Anredepronomen „Sie“ und „Ihnen“ werden großgeschrieben.",
+    "correct_examples": [
+      "Beim Arbeiten notiere ich offene Fragen.",
+      "Könnten Sie mir bitte antworten?"
+    ],
+    "common_mistake_warning": "Nach einem Artikel oder einer Präposition mit Artikel kann ein Verb oder Adjektiv nominalisiert sein.",
+    "what_to_revise": "Wiederhole Nomen, Nominalisierungen, Satzanfänge und die höfliche Sie-Anrede."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schreibweise passt in eine Mitteilung an das Pflegeteam?",
+      "options": [
+        "Bitte beachten Sie Folgendes im neuen Dienstplan.",
+        "Bitte beachten sie alle folgenden Hinweise im neuen Dienstplan.",
+        "Bitte Lesen Sie die Änderung im neuen dienstplan."
+      ],
+      "correct_answer": "Bitte beachten Sie Folgendes im neuen Dienstplan.",
+      "accepted_answers": ["Bitte beachten Sie Folgendes im neuen Dienstplan."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das höfliche „Sie“, das nominalisierte „Folgendes“ und das Nomen „Dienstplan“ werden großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz schreibt die Nominalisierung korrekt?",
+      "options": [
+        "Regelmäßiges üben sorgt für mehr Sicherheit.",
+        "regelmäßiges Üben Verbessert unsere sicherheit.",
+        "Regelmäßiges Üben verbessert die Sicherheit."
+      ],
+      "correct_answer": "Regelmäßiges Üben verbessert die Sicherheit.",
+      "accepted_answers": ["Regelmäßiges Üben verbessert die Sicherheit."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der substantivierte Infinitiv „Üben“ wird großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche formelle Anrede ist korrekt?",
+      "options": [
+        "Wir Danken Ihnen für die schnelle nachricht.",
+        "Wir danken Ihnen für Ihre Nachricht.",
+        "Wir danken ihnen herzlich für ihre Nachricht."
+      ],
+      "correct_answer": "Wir danken Ihnen für Ihre Nachricht.",
+      "accepted_answers": ["Wir danken Ihnen für Ihre Nachricht."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der höflichen Anrede werden „Ihnen“ und „Ihre“ großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [das lesen, Lesung, Lesen]. Ergänze die Nominalisierung: Beim ___ schwieriger Texte mache ich Notizen.",
+      "options": [],
+      "correct_answer": "Lesen",
+      "accepted_answers": ["Lesen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „beim“ steht ein nominalisierter Infinitiv und wird großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Patientin, Patienten, dem patienten]. Ergänze das Nomen: Die Wünsche des ___ wurden berücksichtigt.",
+      "options": [],
+      "correct_answer": "Patienten",
+      "accepted_answers": ["Patienten"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Als Nomen wird „Patienten“ unabhängig vom Kasus großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Wichtigste, wichtigen, Wichtigkeit]. Ergänze: Das ___ steht am Anfang des Berichts.",
+      "options": [],
+      "correct_answer": "Wichtigste",
+      "accepted_answers": ["Wichtigste"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Artikel „das“ nominalisiert das Adjektiv; deshalb beginnt „Wichtigste“ groß.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [euch, Ihnen, Sie]. Ergänze die höfliche Anrede: Haben ___ noch Fragen?",
+      "options": [],
+      "correct_answer": "Sie",
+      "accepted_answers": ["Sie"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Anredepronomen „Sie“ wird in formellen Texten großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ist vollständig richtig groß- und kleingeschrieben?",
+      "options": [
+        "Variante D: Für die dokumentation ist sorgfältiges Lesen auf der Station besonders Wichtig.",
+        "Variante A: Für die dokumentation ist sorgfältiges lesen auf der station besonders wichtig.",
+        "Variante B: Für die Dokumentation ist sorgfältiges Lesen auf der Station besonders wichtig.",
+        "Variante C: Für die Dokumentation ist Sorgfältiges lesen auf der station besonders wichtig."
+      ],
+      "correct_answer": "Variante B: Für die Dokumentation ist sorgfältiges Lesen auf der Station besonders wichtig.",
+      "accepted_answers": [
+        "Variante B: Für die Dokumentation ist sorgfältiges Lesen auf der Station besonders wichtig."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Dokumentation“ und „Station“ sind Nomen. „Lesen“ ist hier nominalisiert; das Adjektiv und „wichtig“ bleiben kleingeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nominalisierung von „Es ist wichtig, pünktlich zu erscheinen“ ist korrekt?",
+      "options": [
+        "Variante C: pünktliches Erscheinen ist Wichtig.",
+        "Variante D: Pünktliches Erscheinen ist Wichtig.",
+        "Variante A: Pünktliches erscheinen ist wichtig.",
+        "Variante B: Pünktliches Erscheinen ist wichtig."
+      ],
+      "correct_answer": "Variante B: Pünktliches Erscheinen ist wichtig.",
+      "accepted_answers": [
+        "Variante B: Pünktliches Erscheinen ist wichtig."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der nominalisierte Infinitiv „Erscheinen“ wird großgeschrieben; „wichtig“ bleibt als Adjektiv klein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche formelle Nachricht enthält korrekte Anredeformen und eine korrekte Nominalisierung?",
+      "options": [
+        "Variante B: Könnten Sie mir den Termin nennen? Beim planen brauche ich Ihre Rückmeldung. Ich danke Ihnen.",
+        "Variante C: Könnten Sie mir den Termin nennen? Beim Planen brauche ich Ihre Rückmeldung. Ich danke Ihnen.",
+        "Variante D: Könnten Sie mir den Termin nennen? Beim Planen brauche ich ihre Rückmeldung. Ich danke ihnen.",
+        "Variante A: Könnten sie mir den Termin nennen? Beim Planen brauche ich ihre Rückmeldung. Ich danke ihnen."
+      ],
+      "correct_answer": "Variante C: Könnten Sie mir den Termin nennen? Beim Planen brauche ich Ihre Rückmeldung. Ich danke Ihnen.",
+      "accepted_answers": [
+        "Variante C: Könnten Sie mir den Termin nennen? Beim Planen brauche ich Ihre Rückmeldung. Ich danke Ihnen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die höflichen Anredeformen „Sie“, „Ihre“ und „Ihnen“ sowie das nominalisierte „Planen“ beginnen mit Großbuchstaben.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,35 +1,53 @@
 # Phase 6B Feedback Timing Modes
 
-Phase 6B adds batch-level feedback timing without changing the DeepSeek feedback prompt or exposing secrets to the browser.
+> [!WARNING]
+> Historical design note — superseded for V1. This document records why the
+> feedback modes were introduced; it is not scheduler setup guidance. Follow
+> [`PHASE_6C_SCHEDULED_FEEDBACK.md`](./PHASE_6C_SCHEDULED_FEEDBACK.md) and the
+> production runbook for the current design.
 
-## Batch Modes
+## Historical contribution
 
-- `teacher_review_only`: safest default. Submissions are saved and teachers manually prepare feedback.
-- `immediate`: submissions are due for feedback immediately and are processed by the due-feedback processor.
-- `automatic_delayed`: submissions get a randomized server-side `feedback_scheduled_at` between the batch minimum and maximum delay.
+Phase 6B introduced batch-level timing and server-side `timestamptz` release
+times so feedback did not depend on a teacher or student keeping a browser open.
+The original identifiers were:
 
-Delay scheduling uses Postgres/server time and stores `feedback_scheduled_at` as `timestamptz`, so it does not rely on the student or teacher browser timezone.
+- `teacher_review_only`: hold prepared feedback until a teacher approves and
+  releases it;
+- `immediate`: prepare and release validated feedback without a scheduled wait;
+- `automatic_delayed`: prepare feedback privately and release it at the stored
+  server-side time.
 
-## Edge Functions
+These identifiers and the timezone invariant remain useful historical context.
+The original direct due-processor scheduling proposal does not.
 
-- `prepare-writing-feedback`: teacher-triggered feedback preparation.
-- `process-due-feedback`: secret-protected processor for due `immediate` and `automatic_delayed` submissions.
+## Current V1 behavior
 
-`process-due-feedback` requires one Edge Function secret:
+- Immediate feedback is created through the durable writing-evaluation queue
+  and released only after validation.
+- Scheduled feedback is evaluated privately as soon as possible and released
+  by `release-due-feedback-every-30-seconds` when it is due.
+- Teacher-review feedback is evaluated privately, remains held, and is released
+  only through the teacher approval flow.
+- Invalid or uncertain feedback retries once with the configured Pro model and
+  otherwise remains held for teacher review.
 
-```bash
-pnpm dlx supabase secrets set PROCESS_FEEDBACK_SECRET="..."
-```
+Submission creation and the queue message are transactional. Immediate Edge
+kicks start work promptly; queue leases, bounded retries, and reconciliation
+provide recovery. No browser request or database schedule contains provider
+credentials or student writing.
 
-Do not commit or print the secret.
+## Current scheduling and recovery
 
-## Scheduling
+Migration `20260710191319_install_queue_recovery_cron.sql` installs fixed,
+secret-free private SQL reconciliation jobs and the scheduled-release job.
+An external scheduler POSTs an empty body to `/functions/v1/recover-async-jobs`
+every 30 seconds with the recovery secret; production preflight requires its
+heartbeat to be fresh. That external cycle also runs the bounded scheduled-
+release sweep, so database Cron is not the only way due validated feedback can
+reach a terminal released state.
 
-Automatic delayed feedback requires a trusted scheduled invocation of `process-due-feedback`. Until a scheduler is configured, the function can be invoked manually with the secret header for testing.
-
-Supabase-hosted scheduling can be configured with `pg_cron` plus `pg_net`, ideally storing the function URL and secret in Supabase Vault. The scheduled request should call the function every minute or every few minutes, with a small batch size, and include either:
-
-- `Authorization: Bearer <PROCESS_FEEDBACK_SECRET>`
-- or `x-process-feedback-secret: <PROCESS_FEEDBACK_SECRET>`
-
-The processor only handles a small batch per run and the feedback function atomically marks a submission as `checking` before calling DeepSeek, preventing duplicate processing.
+Do not manually invoke a feedback processor with a copied secret, create a
+Vault scheduler secret, install a database HTTP extension, or run the retired
+Phase 6C setup file. The read-only production preflight must prove the exact
+Cron commands and the absence of the retired network extension before launch.

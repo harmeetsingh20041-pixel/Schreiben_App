@@ -1,0 +1,149 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-akkusativ-r2",
+    "template_key": "v1-a1-akkusativ-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Akkusativ accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Akkusativ im Alltag: Artikel und Pronomen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "akkusativ",
+    "name": "Akkusativ"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "akkusativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein Akkusativobjekt kann ein Nomen mit Artikel oder ein Pronomen sein. Maskuline Formen zeigen oft den Wechsel: der Mann wird den Mann, er wird ihn.",
+    "key_rule": "Frage nach ‚wen oder was?‘ und prüfe danach Artikel oder Pronomen: den/einen Mann oder ihn.",
+    "correct_examples": [
+      "Die Frau kauft einen Mantel.",
+      "Mira sieht den Mann. Sie sieht ihn."
+    ],
+    "common_mistake_warning": "Verwende ‚ihn‘ für ein maskulines direktes Objekt, nicht die Subjektform ‚er‘.",
+    "what_to_revise": "Übe Artikel und die Pronomen mich, dich, ihn, sie und es nach häufigen Verben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält den richtigen Akkusativartikel vor ‚Regenschirm‘?",
+      "options": [
+        "Lea braucht einen Regenschirm.",
+        "Lea braucht ein Regenschirm.",
+        "Lea braucht einer Regenschirm."
+      ],
+      "correct_answer": "Lea braucht einen Regenschirm.",
+      "accepted_answers": ["Lea braucht einen Regenschirm."],
+      "explanation": "‚Regenschirm‘ ist maskulin und direktes Objekt; die passende Form ist ‚einen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Ersetze ‚den Lehrer‘ durch das passende Akkusativpronomen: Ich kenne den Lehrer.",
+      "options": ["Ich kenne ihm.","Ich kenne ihn.","Ich kenne er."],
+      "correct_answer": "Ich kenne ihn.",
+      "accepted_answers": ["Ich kenne ihn."],
+      "explanation": "Das maskuline Akkusativpronomen zu ‚der Lehrer‘ lautet ‚ihn‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einen, ein, eine]. Setze den Artikel ein: Wir haben morgen ___ Termin.",
+      "options": [],
+      "correct_answer": "einen",
+      "accepted_answers": ["einen"],
+      "explanation": "‚Termin‘ ist maskulin und steht als Objekt nach ‚haben‘; deshalb lautet die Form ‚einen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ihr, ihn, sie]. Ersetze ‚die Suppe‘: Die Suppe ist lecker. Ich esse ___.",
+      "options": [],
+      "correct_answer": "sie",
+      "accepted_answers": ["sie"],
+      "explanation": "Das feminine Akkusativpronomen für ‚die Suppe‘ ist ‚sie‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [er, es, ihn]. Ersetze ‚das Ticket‘: Das Ticket liegt hier. Ich brauche ___.",
+      "options": [],
+      "correct_answer": "es",
+      "accepted_answers": ["es"],
+      "explanation": "Das neutrale Akkusativpronomen für ‚das Ticket‘ lautet ‚es‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Repariere den Kasus des Objekts: Anna besucht der Arzt.",
+      "options": [],
+      "correct_answer": "Anna besucht den Arzt.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Der Nominativartikel ‚der‘ wird beim direkten Objekt zu ‚den‘ geändert.",
+          "Das Subjekt ‚Anna‘, das Verb, das Nomen und das Satzzeichen bleiben korrekt."
+        ],
+        "sample_answer": "Anna besucht den Arzt."
+      },
+      "explanation": "‚Arzt‘ ist das maskuline Akkusativobjekt von ‚besucht‘ und braucht ‚den‘.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz, der mit ‚Ich‘ beginnt: einen Kaffee / ich / bestelle",
+      "options": [],
+      "correct_answer": "Ich bestelle einen Kaffee.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Der Satz beginnt mit ‚Ich‘ und das Verb ‚bestelle‘ steht danach.",
+          "‚Einen Kaffee‘ wird als korrektes maskulines Akkusativobjekt verwendet."
+        ],
+        "sample_answer": "Ich bestelle einen Kaffee."
+      },
+      "explanation": "Das Verb ‚bestellen‘ verlangt hier das direkte Objekt ‚einen Kaffee‘.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz, der mit ‚Die Schüler‘ beginnt: die Aufgabe / die Schüler / machen / zusammen",
+      "options": [],
+      "correct_answer": "Die Schüler machen die Aufgabe zusammen.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "‚Die Schüler‘ ist das Subjekt und ‚die Aufgabe‘ das feminine Akkusativobjekt.",
+          "Alle Satzteile werden genau einmal in einer grammatischen Reihenfolge verwendet."
+        ],
+        "sample_answer": "Die Schüler machen die Aufgabe zusammen."
+      },
+      "explanation": "Das feminine Objekt behält im Akkusativ den Artikel ‚die‘.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

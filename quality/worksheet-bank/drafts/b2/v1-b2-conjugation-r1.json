@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-conjugation-r1",
+    "template_key": "v1-b2-conjugation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Conjugation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Konjugation: Unregelmäßige Verbformen sicher anwenden",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "conjugation",
+    "name": "Konjugation"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "conjugation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Finite Verben markieren Person, Numerus, Tempus und Modus. Bei starken und gemischten Verben verändern sich Stammvokal oder Stamm, während trennbare und untrennbare Vorsilben die Formen zusätzlich beeinflussen.",
+    "key_rule": "Bestimme Subjekt und beabsichtigte Zeit oder Aussageweise, bevor du Stamm, Personalendung und gegebenenfalls Hilfsverb bildest.",
+    "correct_examples": [
+      "Der Ausschuss berät heute über den Antrag.",
+      "Du trägst während der Schicht besondere Verantwortung."
+    ],
+    "common_mistake_warning": "Eine regelmäßige Endung macht einen falschen Stamm nicht korrekt; besonders in der zweiten und dritten Person Singular muss der Vokalwechsel beachtet werden.",
+    "what_to_revise": "Übe Präsensformen starker Verben, gemischte Präteritalformen, Hilfsverben und Partizipbildung mit Vorsilben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präsensform von „empfehlen“ passt zum Subjekt „die Fachärztin“?",
+      "options": [
+        "Die Fachärztin empfehlen eine weitere Untersuchung.",
+        "Die Fachärztin empfiehlt eine weitere Untersuchung.",
+        "Die Fachärztin empfehlt eine weitere Untersuchung."
+      ],
+      "correct_answer": "Die Fachärztin empfiehlt eine weitere Untersuchung.",
+      "accepted_answers": [
+        "Die Fachärztin empfiehlt eine weitere Untersuchung."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der dritten Person Singular wechselt der Stammvokal von e zu ie; die Form lautet „empfiehlt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält die korrekte zweite Person Plural von „wissen“?",
+      "options": [
+        "Ihr wisst bereits, welche Nachweise erforderlich sind.",
+        "Ihr weißt bereits, welche Nachweise erforderlich sind.",
+        "Ihr wissen bereits, welche Nachweise erforderlich sind."
+      ],
+      "correct_answer": "Ihr wisst bereits, welche Nachweise erforderlich sind.",
+      "accepted_answers": [
+        "Ihr wisst bereits, welche Nachweise erforderlich sind."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zur Anrede „ihr“ gehört die unregelmäßige Präsensform „wisst“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form des gemischten Verbs „denken“ ist im Präteritum korrekt?",
+      "options": [
+        "Die Arbeitsgruppe denkte frühzeitig an mögliche Risiken.",
+        "Die Arbeitsgruppe dacht frühzeitig an mögliche Risiken.",
+        "Die Arbeitsgruppe dachte frühzeitig an mögliche Risiken."
+      ],
+      "correct_answer": "Die Arbeitsgruppe dachte frühzeitig an mögliche Risiken.",
+      "accepted_answers": [
+        "Die Arbeitsgruppe dachte frühzeitig an mögliche Risiken."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Denken“ bildet das Präteritum gemischt mit Stammwechsel und schwacher Endung: „dachte“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [nehmt, nehmen, nimmt]. Ergänze die passende Form von „nehmen“: Die zuständige Stelle ___ den Antrag erst nach der Vollständigkeitsprüfung an.",
+      "options": [],
+      "correct_answer": "nimmt",
+      "accepted_answers": [
+        "nimmt"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Subjekt steht in der dritten Person Singular; „nehmen“ erhält den Stammvokalwechsel zu „nimmt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hält, hielt, haltete]. Ergänze das Präteritum von „halten“: Die Referentin ___ den Vortrag trotz der technischen Störung vollständig.",
+      "options": [],
+      "correct_answer": "hielt",
+      "accepted_answers": [
+        "hielt"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das starke Verb „halten“ bildet das Präteritum Singular mit dem Stamm „hielt“ und ohne zusätzliche Endung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ist gelungen, hat gelungen, wurde gelingen]. Ergänze die vollständige Perfektform: Die Umstellung ___ trotz des engen Zeitplans.",
+      "options": [],
+      "correct_answer": "ist gelungen",
+      "accepted_answers": [
+        "ist gelungen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Gelingen“ bildet das Perfekt mit „sein“ und dem Partizip „gelungen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [geüberprüft, überprüfen, überprüft]. Ergänze das Partizip II des untrennbaren Verbs: Alle Angaben wurden sorgfältig ___.",
+      "options": [],
+      "correct_answer": "überprüft",
+      "accepted_answers": [
+        "überprüft"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Untrennbare Verben mit der Vorsilbe „über-“ bilden das Partizip in dieser Bedeutung ohne „ge-“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält die zum singularischen Subjekt passende starke Präsensform?",
+      "options": [
+        "Die aktualisierte Richtlinie galtet seit Beginn des Monats für alle Bereiche.",
+        "Die aktualisierte Richtlinie gelten seit Beginn des Monats für alle Bereiche.",
+        "Die aktualisierte Richtlinie gilt seit Beginn des Monats für alle Bereiche.",
+        "Die aktualisierte Richtlinie gelte seit Beginn des Monats für alle Bereiche."
+      ],
+      "correct_answer": "Die aktualisierte Richtlinie gilt seit Beginn des Monats für alle Bereiche.",
+      "accepted_answers": [
+        "Die aktualisierte Richtlinie gilt seit Beginn des Monats für alle Bereiche."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der dritten Person Singular lautet die starke Präsensform „gilt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung setzt beide Verben korrekt ins Präteritum?",
+      "options": [
+        "Die Projektleitung kannte das Problem und brachte einen Lösungsvorschlag ein.",
+        "Die Projektleitung kannte das Problem und eingebracht einen Lösungsvorschlag.",
+        "Die Projektleitung kannte das Problem und bringte einen Lösungsvorschlag ein.",
+        "Die Projektleitung kennte das Problem und brachte einen Lösungsvorschlag ein."
+      ],
+      "correct_answer": "Die Projektleitung kannte das Problem und brachte einen Lösungsvorschlag ein.",
+      "accepted_answers": [
+        "Die Projektleitung kannte das Problem und brachte einen Lösungsvorschlag ein."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beide gemischten Verbformen verbinden einen Stammwechsel mit den Präteritalendungen; „ein“ bleibt abgetrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung weist trotz der eingeschobenen Genitivgruppe die korrekte Kongruenz im Indikativ Präsens auf?",
+      "options": [
+        "Eine Reihe detaillierter Rückmeldungen weisen darauf hin, dass die Übergabe angepasst werden muss.",
+        "Eine Reihe detaillierter Rückmeldungen weise darauf hin, dass die Übergabe angepasst werden muss.",
+        "Eine Reihe detaillierter Rückmeldungen wiesen darauf hin, dass die Übergabe angepasst werden muss.",
+        "Eine Reihe detaillierter Rückmeldungen weist darauf hin, dass die Übergabe angepasst werden muss."
+      ],
+      "correct_answer": "Eine Reihe detaillierter Rückmeldungen weist darauf hin, dass die Übergabe angepasst werden muss.",
+      "accepted_answers": [
+        "Eine Reihe detaillierter Rückmeldungen weist darauf hin, dass die Übergabe angepasst werden muss."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Kopf des Subjekts ist das singularische Nomen „Reihe“. Die Genitivgruppe „detaillierter Rückmeldungen“ ändert die Kongruenz nicht; deshalb lautet die Präsensform „weist“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

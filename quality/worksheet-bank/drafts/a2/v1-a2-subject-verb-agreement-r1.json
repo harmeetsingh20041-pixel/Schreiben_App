@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-subject-verb-agreement-r1",
+    "template_key": "v1-a2-subject-verb-agreement-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Subject verb agreement pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Subjekt und Verb: Singular oder Plural",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "subject-verb-agreement",
+    "name": "Subjekt-Verb-Kongruenz"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "subject-verb-agreement",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Subjekt und finites Verb müssen in Person und Zahl zusammenpassen, auch wenn weitere Wörter zwischen ihnen stehen.",
+    "key_rule": "Ein Singularsubjekt verlangt eine Singularform, ein Pluralsubjekt eine Pluralform; bei „du“ und „ihr“ gelten eigene Endungen.",
+    "correct_examples": [
+      "Der neue Plan gilt ab Montag.",
+      "Die neuen Regeln gelten ab Montag."
+    ],
+    "common_mistake_warning": "Richte das Verb nicht nach dem nächstgelegenen Nomen, sondern nach dem wirklichen Subjekt.",
+    "what_to_revise": "Markiere zuerst den Kern des Subjekts und wähle danach die Verbform."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz zeigt korrekte Kongruenz trotz einer Ergänzung?",
+      "options": [
+        "Die Liste mit den Namen liegst hier.",
+        "Die Liste mit den Namen liegen hierhin.",
+        "Die Liste mit den Namen liegt hier.",
+        "Die Liste mit den Namen liegen hier."
+      ],
+      "correct_answer": "Die Liste mit den Namen liegt hier.",
+      "accepted_answers": [
+        "Die Liste mit den Namen liegt hier."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Kern des Subjekts ist das Singularwort „Liste“; deshalb lautet das Verb „liegt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zu zwei verbundenen Personen?",
+      "options": [
+        "Mira und Rohan arbeitet zusammen.",
+        "Mira und Rohan arbeitest zusammen.",
+        "Mira und Rohan arbeite zusammen.",
+        "Mira und Rohan arbeiten zusammen."
+      ],
+      "correct_answer": "Mira und Rohan arbeiten zusammen.",
+      "accepted_answers": [
+        "Mira und Rohan arbeiten zusammen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zwei mit „und“ verbundene Personen bilden ein Pluralsubjekt und verlangen „arbeiten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [steht, stehen, stehst]. Ergänze: Die Flasche neben den Gläsern ___ auf dem Tisch.",
+      "options": [],
+      "correct_answer": "steht",
+      "accepted_answers": [
+        "steht"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Kern „Flasche“ ist Singular; die Ortsangabe ändert die Verbform nicht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [beginnt, beginnen, beginnst]. Ergänze: Die beiden Kurse ___ morgen.",
+      "options": [],
+      "correct_answer": "beginnen",
+      "accepted_answers": [
+        "beginnen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Die beiden Kurse“ ist Plural und verlangt „beginnen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hat, haben, habt]. Ergänze: Ihr ___ heute Unterricht.",
+      "options": [],
+      "correct_answer": "habt",
+      "accepted_answers": [
+        "habt"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zum Subjektpronomen „ihr“ gehört die Verbform „habt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Verbform: Eine Gruppe von Pflegekräften ___ vor dem Raum.",
+      "options": [
+        "wartet",
+        "warten",
+        "wartest",
+        "warte"
+      ],
+      "correct_answer": "wartet",
+      "accepted_answers": [
+        "wartet"
+      ],
+      "rubric": null,
+      "explanation": "Der Kern des Subjekts ist die singularische Gruppe; deshalb lautet die Verbform wartet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [liegen, liegt, liegst, liege]. Die Schlüssel ___ im Büro.",
+      "options": [],
+      "correct_answer": "liegen",
+      "accepted_answers": [
+        "liegen"
+      ],
+      "rubric": null,
+      "explanation": "Das Pluralsubjekt die Schlüssel verlangt die Verbform liegen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz hat richtige Subjekt-Verb-Kongruenz?",
+      "options": [
+        "Die Aufgabe bin leicht.",
+        "Die Aufgabe ist leicht.",
+        "Die Aufgabe sind leicht.",
+        "Die Aufgaben ist leicht."
+      ],
+      "correct_answer": "Die Aufgabe ist leicht.",
+      "accepted_answers": [
+        "Die Aufgabe ist leicht."
+      ],
+      "rubric": null,
+      "explanation": "Zum singularischen Subjekt die Aufgabe gehört die Verbform ist.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

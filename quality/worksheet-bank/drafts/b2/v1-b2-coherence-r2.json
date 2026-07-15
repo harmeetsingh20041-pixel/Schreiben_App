@@ -1,0 +1,178 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-coherence-r2",
+    "template_key": "v1-b2-coherence-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Coherence accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Kohärenz: Argumente präzise führen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "coherence",
+    "name": "Kohärenz"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "coherence",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "In anspruchsvollen Texten müssen Behauptung, Begründung, Beispiel und Einschränkung erkennbar aufeinander aufbauen. Präzise Verweise verhindern Gedankensprünge.",
+    "key_rule": "Ordne jeden Satz einer Funktion zu und wähle sprachliche Verknüpfungen, die genau diese Funktion ausdrücken.",
+    "correct_examples": [
+      "Der neue Ablauf spart Zeit. Dennoch braucht seine Einführung zunächst zusätzliche Schulungen.",
+      "Zwei Lösungen wurden verglichen. Eine davon verkürzt die Bearbeitungszeit."
+    ],
+    "common_mistake_warning": "Eine bloße Reihe von außerdem-Sätzen ersetzt keine logische Argumentationsstruktur.",
+    "what_to_revise": "Markiere in einem Absatz These, Begründung, Beleg, Gegenargument und Schlussfolgerung."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fortsetzung schränkt die Aussage logisch ein? ‚Hybride Sitzungen erleichtern vielen Personen die Teilnahme.‘",
+      "options": [
+        "Ebenso wurde das Gebäude renoviert.",
+        "Allerdings können technische Störungen den Austausch erschweren.",
+        "Folglich nehmen grundsätzlich alle Personen teil.",
+        "Beispielsweise ist Teilnahme ein abstraktes Nomen."
+      ],
+      "correct_answer": "Allerdings können technische Störungen den Austausch erschweren.",
+      "accepted_answers": [
+        "Allerdings können technische Störungen den Austausch erschweren."
+      ],
+      "explanation": "Allerdings leitet eine sachlich passende Einschränkung des zuvor genannten Vorteils ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz eignet sich als Beleg für die Behauptung: ‚Kurze Wege fördern nachhaltige Mobilität.‘?",
+      "options": [
+        "So fahren Beschäftigte bei einem nahe gelegenen Büro häufiger mit dem Rad.",
+        "Dennoch sind Wege ein wichtiges Thema.",
+        "Daher liegen Büros immer im Zentrum.",
+        "Außerdem ist Mobilität unterschiedlich."
+      ],
+      "correct_answer": "So fahren Beschäftigte bei einem nahe gelegenen Büro häufiger mit dem Rad.",
+      "accepted_answers": [
+        "So fahren Beschäftigte bei einem nahe gelegenen Büro häufiger mit dem Rad."
+      ],
+      "explanation": "Der konkrete Fall des Radfahrens veranschaulicht direkt, wie kurze Wege nachhaltige Mobilität fördern können.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Satzfolge bildet These, Begründung und Schlussfolgerung in dieser Reihenfolge? (A) Deshalb sollte der Service dauerhaft angeboten werden. (B) Eine digitale Beratung ergänzt das persönliche Angebot sinnvoll. (C) Sie erreicht auch Menschen mit langen Anfahrtswegen.",
+      "options": ["A – B – C","C – A – B","B – A – C","B – C – A"],
+      "correct_answer": "B – C – A",
+      "accepted_answers": ["B – C – A"],
+      "explanation": "B formuliert die These, C begründet sie, und A zieht daraus mit deshalb eine Schlussfolgerung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Setze die passende Einschränkung ein: Das Konzept ist grundsätzlich überzeugend. ___ setzt es eine verlässliche Finanzierung voraus. Wortbank: [Folglich | Allerdings].",
+      "options": [],
+      "correct_answer": "Allerdings",
+      "accepted_answers": ["Allerdings"],
+      "explanation": "Allerdings begrenzt die positive Bewertung durch eine notwendige Voraussetzung, ohne ihr vollständig zu widersprechen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Ergänze den eindeutigen Verweis: Zwei Teams testeten unterschiedliche Verfahren. ___ mit kürzeren Abstimmungswegen erwies sich als effizienter. Wortbank: [Das Verfahren | Die Abstimmung].",
+      "options": [],
+      "correct_answer": "Das Verfahren",
+      "accepted_answers": ["Das Verfahren"],
+      "explanation": "Das Verfahren mit der nachfolgenden Bestimmung identifiziert eindeutig eine der beiden getesteten Vorgehensweisen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Setze den passenden Beispielmarker ein: Lokale Projekte können den Zusammenhalt stärken. ___ organisierte ein Viertel einen wöchentlichen Tauschmarkt. Wortbank: [So | Trotzdem].",
+      "options": [],
+      "correct_answer": "So",
+      "accepted_answers": ["So"],
+      "explanation": "So kündigt hier ein konkretes Beispiel an, das die allgemeine Behauptung nachvollziehbar stützt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Setze den passenden Schlussmarker ein: Die Testphase auf der Pflegestation senkte Dokumentationsaufwand und Wartezeiten. ___ spricht vieles für eine Fortsetzung. Wortbank: [Beispielsweise | Insgesamt].",
+      "options": [],
+      "correct_answer": "Insgesamt",
+      "accepted_answers": ["Insgesamt"],
+      "explanation": "Insgesamt signalisiert eine zusammenfassende Bewertung auf Grundlage der zuvor genannten Ergebnisse.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Bausteine zu einem kohärenten Satz und beginne mit Dennoch: [Dennoch / lässt sich / aus den Ergebnissen / keine allgemeine Empfehlung / ableiten].",
+      "options": [],
+      "correct_answer": "Dennoch lässt sich aus den Ergebnissen keine allgemeine Empfehlung ableiten.",
+      "rubric": {
+        "criteria": [
+          "Beginne mit Dennoch und verwende jeden Baustein genau einmal.",
+          "Setze lässt auf Position zwei und bilde eine grammatisch korrekte passivische lassen-sich-Konstruktion."
+        ],
+        "sample_answer": "Dennoch lässt sich aus den Ergebnissen keine allgemeine Empfehlung ableiten."
+      },
+      "explanation": "Dennoch bindet die Einschränkung an den vorherigen Kontext; im Hauptsatz steht lässt an zweiter Stelle.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Überarbeite den Absatz so, dass Wiederholung und logische Beziehung klar werden: Das Pilotprojekt war erfolgreich. Das Pilotprojekt hatte geringe Kosten. Das Pilotprojekt wird fortgesetzt.",
+      "options": [],
+      "correct_answer": "Das Pilotprojekt war erfolgreich und verursachte nur geringe Kosten. Deshalb wird es fortgesetzt.",
+      "rubric": {
+        "criteria": [
+          "Vermeide die dreifache Wiederholung durch einen eindeutigen Rückverweis.",
+          "Kennzeichne die Fortsetzung als logische Folge von Erfolg und geringen Kosten.",
+          "Bewahre alle drei Informationen in grammatisch korrekter Form."
+        ],
+        "sample_answer": "Das Pilotprojekt war erfolgreich und verursachte nur geringe Kosten. Deshalb wird es fortgesetzt."
+      },
+      "explanation": "Das Pronomen es schafft einen eindeutigen Bezug, während deshalb den Schluss aus den beiden Gründen explizit markiert.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Verfasse einen vierteiligen Mini-Absatz zur Begrenzung des Autoverkehrs in Innenstädten: Formuliere eine These, eine Begründung, eine Einschränkung mit allerdings und eine Schlussfolgerung mit daher.",
+      "options": [],
+      "correct_answer": "Innenstädte sollten den Autoverkehr stärker begrenzen. Weniger Fahrzeuge verbessern die Luftqualität und schaffen Platz. Allerdings benötigen Menschen mit eingeschränkter Mobilität geeignete Ausnahmen. Daher sollte die Regel mit barrierefreien Alternativen verbunden werden.",
+      "rubric": {
+        "criteria": [
+          "Formuliere vier logisch aufeinander bezogene, grammatisch korrekte Sätze.",
+          "Enthalte erkennbar These, Begründung, Einschränkung mit allerdings und Schlussfolgerung mit daher.",
+          "Vermeide Widersprüche und stelle eindeutige Bezüge zwischen den Aussagen her."
+        ],
+        "sample_answer": "Innenstädte sollten den Autoverkehr stärker begrenzen. Weniger Fahrzeuge verbessern die Luftqualität und schaffen Platz. Allerdings benötigen Menschen mit eingeschränkter Mobilität geeignete Ausnahmen. Daher sollte die Regel mit barrierefreien Alternativen verbunden werden."
+      },
+      "explanation": "Die geforderte Funktionsfolge erzeugt einen vollständigen Argumentationsgang, der auch eine relevante Einschränkung berücksichtigt.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

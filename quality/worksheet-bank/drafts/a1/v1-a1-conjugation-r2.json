@@ -1,0 +1,145 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-conjugation-r2",
+    "template_key": "v1-a1-conjugation-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Conjugation accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Verbformen im Alltag: Häufige Verben",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "conjugation",
+    "name": "Konjugation"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "conjugation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Einige häufige Verben ändern ihren Stamm: du fährst, er liest, sie spricht. Trennbare Verben haben zusätzlich einen zweiten Teil am Satzende.",
+    "key_rule": "Prüfe Person, Verbstamm und Endung. Bei trennbaren Verben steht der zweite Teil im Hauptsatz am Ende.",
+    "correct_examples": [
+      "Lena fährt jeden Morgen zur Arbeit.",
+      "Du stehst um sieben Uhr auf."
+    ],
+    "common_mistake_warning": "Nicht jede Verbform entsteht nur durch eine neue Endung; bei du und er/sie/es kann sich auch der Stamm ändern.",
+    "what_to_revise": "Übe die Präsensformen von fahren, lesen, sprechen, nehmen, essen, aufstehen und fernsehen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zu ‚Priya‘? Priya ___ jeden Morgen mit dem Bus.",
+      "options": ["fahren","fährst","fährt"],
+      "correct_answer": "fährt",
+      "accepted_answers": ["fährt"],
+      "explanation": "Für ‚Priya‘ lautet die Präsensform von ‚fahren‘: ‚fährt‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zu ‚du‘? Du ___ gern Bücher.",
+      "options": ["lese","liest","lesen"],
+      "correct_answer": "liest",
+      "accepted_answers": ["liest"],
+      "explanation": "Die Form von ‚lesen‘ für ‚du‘ lautet ‚liest‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [spricht, sprecht, sprechen]. Setze die passende Verbform ein: Omar ___ Deutsch und Arabisch.",
+      "options": [],
+      "correct_answer": "spricht",
+      "accepted_answers": ["spricht"],
+      "explanation": "‚Omar‘ ist eine Person; die passende Form von ‚sprechen‘ ist ‚spricht‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [nimmt, nimmst, nehme]. Setze die passende Verbform ein: Ich ___ den Bus.",
+      "options": [],
+      "correct_answer": "nehme",
+      "accepted_answers": ["nehme"],
+      "explanation": "Für ‚ich‘ bleibt der Stamm von ‚nehmen‘ hier unverändert: ‚ich nehme‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [essen, esst, isst]. Setze die passende Verbform ein: Ihr ___ heute Pizza.",
+      "options": [],
+      "correct_answer": "esst",
+      "accepted_answers": ["esst"],
+      "explanation": "Die Form von ‚essen‘ für ‚ihr‘ lautet ‚esst‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere die Verbform: Meine Schwester fahrst mit dem Bus.",
+      "options": [],
+      "correct_answer": "Meine Schwester fährt mit dem Bus.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Die falsche Form ‚fahrst‘ wird passend zu ‚meine Schwester‘ in ‚fährt‘ geändert.",
+          "Die übrigen Wörter und die Bedeutung des Satzes bleiben vollständig erhalten."
+        ],
+        "sample_answer": "Meine Schwester fährt mit dem Bus."
+      },
+      "explanation": "Für eine dritte Person Singular lautet die Form von ‚fahren‘: ‚fährt‘.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz, der mit ‚Du‘ beginnt: du / am Sonntag / stehst / früh / auf",
+      "options": [],
+      "correct_answer": "Du stehst am Sonntag früh auf.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Der Satz beginnt mit ‚Du‘ und verwendet die passende Verbform ‚stehst‘ an zweiter Stelle.",
+          "Der trennbare Teil ‚auf‘ steht am Satzende und alle fünf Satzteile werden genau einmal verwendet."
+        ],
+        "sample_answer": "Du stehst am Sonntag früh auf."
+      },
+      "explanation": "Bei ‚du‘ heißt das Verb ‚stehst‘; der trennbare Teil ‚auf‘ steht am Ende.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz, der mit ‚Am Abend‘ beginnt: am Abend / die Kinder / sehen / fern",
+      "options": [],
+      "correct_answer": "Am Abend sehen die Kinder fern.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Der Satz beginnt mit ‚Am Abend‘; danach stehen die Verbform ‚sehen‘ und das Subjekt ‚die Kinder‘.",
+          "Der trennbare Teil ‚fern‘ steht am Satzende und alle Satzteile werden genau einmal verwendet."
+        ],
+        "sample_answer": "Am Abend sehen die Kinder fern."
+      },
+      "explanation": "Für das Pluralsubjekt ‚die Kinder‘ lautet die Verbform ‚sehen‘; ‚fern‘ steht am Ende.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

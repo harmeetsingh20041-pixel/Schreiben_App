@@ -12,10 +12,15 @@ DeepSeek secrets must be set in Supabase Edge Function secrets, not in source co
 
 ```bash
 pnpm dlx supabase secrets set DEEPSEEK_API_KEY="..."
-pnpm dlx supabase secrets set DEEPSEEK_MODEL="deepseek-v4-flash"
 ```
 
 Do not commit API keys, `.env.local`, or local function env files.
+
+This document describes the historical Phase 6A flow. In the V1 runtime,
+`deepseek-v4-flash` and `deepseek-v4-pro` are reviewed code constants rather
+than environment-configurable model names. Changing either role requires a new
+code release and rerunning the evaluator and worksheet quality gates; do not
+add a `DEEPSEEK_MODEL` secret.
 
 ## Edge Function
 

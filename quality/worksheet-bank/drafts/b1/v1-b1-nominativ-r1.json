@@ -1,0 +1,197 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-nominativ-r1",
+    "template_key": "v1-b1-nominativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Nominativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Nominativ: Subjekte und Gleichsetzungen sicher bilden",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "nominativ",
+    "name": "Nominativ"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "nominativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Nominativ kennzeichnet meist das Subjekt: die Person oder Sache, die handelt oder über die etwas ausgesagt wird. Nach Verben wie „sein“ kann auch die Gleichsetzung im Nominativ stehen.",
+    "key_rule": "Frage beim Subjekt mit „Wer oder was?“. Artikel, Adjektiv und Nomen innerhalb der Nominativgruppe müssen in Genus und Numerus zusammenpassen.",
+    "correct_examples": [
+      "Der aktualisierte Dienstplan hängt im Büro.",
+      "Frau Rao ist eine erfahrene Praxisanleiterin."
+    ],
+    "common_mistake_warning": "Verwechsle das Subjekt nicht mit einem Objekt, nur weil das Objekt direkt hinter dem Verb steht.",
+    "what_to_revise": "Wiederhole die Nominativartikel und Adjektivendungen sowie die Frage „Wer oder was?“."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortgruppe ist im Satz „Der neue Therapieplan hilft dem Patienten“ das Subjekt im Nominativ?",
+      "options": [
+        "die Verbgruppe („hilft …“)",
+        "die hilfreiche Sache („Therapieplan“)",
+        "die betroffene Person („Patient“)"
+      ],
+      "correct_answer": "die hilfreiche Sache („Therapieplan“)",
+      "accepted_answers": ["die hilfreiche Sache („Therapieplan“)"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Therapieplan beantwortet die Frage „Was hilft dem Patienten?“ und ist deshalb das Subjekt im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nominativgruppe ergänzt den Satz grammatisch korrekt? ___ übernimmt heute die Kundengespräche.",
+      "options": [
+        "Die erfahrene Projektleiterin",
+        "Der erfahrenen Projektleiterin",
+        "Die erfahrenen Projektleiterin"
+      ],
+      "correct_answer": "Die erfahrene Projektleiterin",
+      "accepted_answers": ["Die erfahrene Projektleiterin"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Subjekt steht im Nominativ Singular: „die erfahrene Projektleiterin“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ergänzung nach „sein“ ist als Nominativgruppe korrekt? Herr Weber ist ___.",
+      "options": [
+        "einen engagierten Praxisanleiter",
+        "einem engagierten Praxisanleiter",
+        "ein engagierter Praxisanleiter"
+      ],
+      "correct_answer": "ein engagierter Praxisanleiter",
+      "accepted_answers": ["ein engagierter Praxisanleiter"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „sein“ bezeichnet die Ergänzung dieselbe Person wie das Subjekt und steht deshalb im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Gefragt wird nach der handelnden Person. Wortbank: [Wer, Wen, Wem]. Ergänze: ___ leitet heute die Besprechung?",
+      "options": [],
+      "correct_answer": "Wer",
+      "accepted_answers": ["Wer"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach einer Person als Subjekt im Nominativ fragt man mit „Wer?“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Eine bisher nicht genannte Kollegin ist das Subjekt. Wortbank: [Einen, Einer, Eine]. Ergänze: ___ neue Kollegin arbeitet ab Montag in der Abteilung.",
+      "options": [],
+      "correct_answer": "Eine",
+      "accepted_answers": ["Eine"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Subjekt steht im Nominativ Singular mit dem unbestimmten Artikel „eine“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Die genannten Personen führen gemeinsam die Schulung durch. Wortbank: [Den Arzt und die Pflegeexpertin, Der Arzt und die Pflegeexpertin, Dem Arzt und der Pflegeexpertin]. Ergänze: ___ gestalten die Fortbildung.",
+      "options": [],
+      "correct_answer": "Der Arzt und die Pflegeexpertin",
+      "accepted_answers": ["Der Arzt und die Pflegeexpertin"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beide koordinierten Subjekte stehen im Nominativ: „der Arzt“ und „die Pflegeexpertin“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Eine bekannte neutrale Unterlage ist das Subjekt des Passivsatzes. Wortbank: [Dem Formular, Den Formular, Das Formular]. Ergänze: ___ wird morgen verschickt.",
+      "options": [],
+      "correct_answer": "Das Formular",
+      "accepted_answers": ["Das Formular"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Auch im Passiv steht die betroffene Sache als Subjekt im Nominativ; neutral Singular heißt es „das Formular“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält eine korrekte Nominativgruppe als Subjekt?",
+      "options": [
+        "Der neue Kollege organisiert heute die Materialausgabe.",
+        "Des neuen Kollegen organisiert heute die Materialausgabe.",
+        "Dem neue Kollege organisiert heute die Materialausgabe.",
+        "Den neuen Kollegen organisiert heute die Materialausgabe."
+      ],
+      "correct_answer": "Der neue Kollege organisiert heute die Materialausgabe.",
+      "accepted_answers": [
+        "Der neue Kollege organisiert heute die Materialausgabe."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die handelnde Person ist das Subjekt. Maskulin Singular steht deshalb im Nominativ: „der neue Kollege“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche vollständige Antwort auf „Wer koordiniert die Anmeldung?“ ist korrekt?",
+      "options": [
+        "Der zuständigen Kursleiterin koordiniert die Anmeldung.",
+        "Den zuständige Kursleiterin koordiniert die Anmeldung.",
+        "Die zuständigen Kursleiterin koordinieren die Anmeldung.",
+        "Die zuständige Kursleiterin koordiniert die Anmeldung."
+      ],
+      "correct_answer": "Die zuständige Kursleiterin koordiniert die Anmeldung.",
+      "accepted_answers": [
+        "Die zuständige Kursleiterin koordiniert die Anmeldung."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Antwort auf „Wer?“ steht als Subjekt im Nominativ; dazu passt die Singularform „koordiniert“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält nach „sein“ eine korrekte Gleichsetzung im Nominativ?",
+      "options": [
+        "Der neue Kollege ist den Praxisanleiter des Teams.",
+        "Der neue Kollege ist dem Praxisanleiter des Teams.",
+        "Der neue Kollege ist der Praxisanleiter des Teams.",
+        "Der neue Kollege ist des Praxisanleiters des Teams."
+      ],
+      "correct_answer": "Der neue Kollege ist der Praxisanleiter des Teams.",
+      "accepted_answers": [
+        "Der neue Kollege ist der Praxisanleiter des Teams."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „sein“ steht die Gleichsetzung wie das Subjekt im Nominativ: „der Praxisanleiter“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

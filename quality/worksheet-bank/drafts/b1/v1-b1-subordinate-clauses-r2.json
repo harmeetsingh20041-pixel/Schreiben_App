@@ -1,0 +1,180 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-subordinate-clauses-r2",
+    "template_key": "v1-b1-subordinate-clauses-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Subordinate clauses accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Nebensätze sicher verbinden und umformen",
+  "level": "B1",
+  "grammar_topic": { "slug": "subordinate-clauses", "name": "Nebensätze" },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "subordinate-clauses",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Nebensätze können vor oder nach dem Hauptsatz stehen. Ein vorangestellter Nebensatz besetzt das Vorfeld, sodass im folgenden Hauptsatz sofort das finite Verb steht.",
+    "key_rule": "Halte Verbendstellung und Komma im Nebensatz ein; nach einem vorangestellten Nebensatz folgt im Hauptsatz die Reihenfolge finites Verb plus Subjekt.",
+    "correct_examples": [
+      "Bevor der Kurs begann, öffnete die Lehrkraft den Raum.",
+      "Sie fragt, ob die Unterlagen vollständig sind."
+    ],
+    "common_mistake_warning": "Setze nach einem vorangestellten Nebensatz nicht noch ein zusätzliches Vorfeldelement vor das finite Verb.",
+    "what_to_revise": "Übe nachdem, sobald, falls, während, obwohl, ob und dass in vor- und nachgestellten Nebensätzen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist vollständig korrekt?",
+      "options": [
+        "Nachdem die Sitzung war beendet, alle gingen nach Hause.",
+        "Nachdem war die Sitzung beendet, gingen alle nach Hause.",
+        "Nachdem die Sitzung beendet war, gingen alle nach Hause."
+      ],
+      "correct_answer": "Nachdem die Sitzung beendet war, gingen alle nach Hause.",
+      "accepted_answers": [
+        "Nachdem die Sitzung beendet war, gingen alle nach Hause."
+      ],
+      "explanation": "Im nachdem-Satz steht „war“ am Ende; im folgenden Hauptsatz steht „gingen“ direkt vor dem Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche indirekte Ja-Nein-Frage ist korrekt?",
+      "options": [
+        "Ich weiß nicht, ob der Antrag bereits genehmigt wurde.",
+        "Ich weiß nicht, ob wurde der Antrag bereits genehmigt.",
+        "Ich weiß nicht, wurde ob der Antrag bereits genehmigt."
+      ],
+      "correct_answer": "Ich weiß nicht, ob der Antrag bereits genehmigt wurde.",
+      "accepted_answers": [
+        "Ich weiß nicht, ob der Antrag bereits genehmigt wurde."
+      ],
+      "explanation": "Eine indirekte Ja-Nein-Frage wird mit „ob“ eingeleitet; das finite Hilfsverb steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Bedingungssatz hat die richtige Wortstellung?",
+      "options": [
+        "Falls morgen du Zeit hast, können den Bericht wir besprechen.",
+        "Falls du morgen Zeit hast, können wir den Bericht besprechen.",
+        "Falls du hast morgen Zeit, wir können den Bericht besprechen."
+      ],
+      "correct_answer": "Falls du morgen Zeit hast, können wir den Bericht besprechen.",
+      "accepted_answers": [
+        "Falls du morgen Zeit hast, können wir den Bericht besprechen."
+      ],
+      "explanation": "Im falls-Satz steht „hast“ am Ende; im Hauptsatz folgt „können“ direkt nach dem Komma.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Damit, Sobald, Obwohl]. Drücke „unmittelbar danach“ aus: ___ du den neuen Dienstplan erhältst, informiere bitte das Pflegeteam.",
+      "options": [],
+      "correct_answer": "Sobald",
+      "accepted_answers": ["Sobald"],
+      "explanation": "„Sobald“ bezeichnet den Zeitpunkt, ab dem die nächste Handlung erfolgen soll.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Während, Weil, Falls]. Drücke Gleichzeitigkeit aus: ___ die einen das Material vorbereiten, prüfen die anderen die Technik.",
+      "options": [],
+      "correct_answer": "Während",
+      "accepted_answers": ["Während"],
+      "explanation": "„Während“ drückt hier zwei gleichzeitig ablaufende Handlungen aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Nachdem, Damit, Obwohl]. Ergänze: ___ der Termin lange geplant war, musste er verschoben werden.",
+      "options": [],
+      "correct_answer": "Obwohl",
+      "accepted_answers": ["Obwohl"],
+      "explanation": "„Obwohl“ markiert den Gegensatz zwischen langer Planung und späterer Verschiebung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dass, ob, weil]. Gib den Inhalt der Mitteilung als dass-Satz wieder: Der Anbieter teilt mit, ___ sich die Lieferzeit verlängert hat.",
+      "options": [],
+      "correct_answer": "dass",
+      "accepted_answers": ["dass"],
+      "explanation": "Der Nebensatz gibt den Inhalt der Mitteilung wieder und wird mit „dass“ eingeleitet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile: [Obwohl / die Schulung / kurzfristig geplant war / nahmen / alle Pflegekräfte / teil].",
+      "options": [],
+      "correct_answer": "Obwohl die Schulung kurzfristig geplant war, nahmen alle Pflegekräfte teil.",
+      "rubric": {
+        "criteria": [
+          "Alle Satzteile werden genau einmal verwendet.",
+          "„war“ steht am Ende des obwohl-Satzes.",
+          "Nach dem Komma folgen im Hauptsatz „nahmen alle Pflegekräfte“; das Komma ist gesetzt."
+        ],
+        "sample_answer": "Obwohl die Schulung kurzfristig geplant war, nahmen alle Pflegekräfte teil."
+      },
+      "explanation": "Der vorangestellte Nebensatz besetzt das Vorfeld, daher beginnt der Hauptsatz mit dem finiten Verb.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Ersetze „trotzdem“ durch einen Nebensatz mit „obwohl“: Es regnete stark. Trotzdem fand das Konzert draußen statt.",
+      "options": [],
+      "correct_answer": "Obwohl es stark regnete, fand das Konzert draußen statt.",
+      "rubric": {
+        "criteria": [
+          "Der Gegensatz wird mit einem obwohl-Satz ausgedrückt.",
+          "„regnete“ steht am Ende des Nebensatzes.",
+          "Der Hauptsatz behält seine vollständige Aussage und folgt mit korrekter Verbposition."
+        ],
+        "sample_answer": "Obwohl es stark regnete, fand das Konzert draußen statt."
+      },
+      "explanation": "„Obwohl“ integriert den Gegensatz als Nebensatz und ersetzt den zweiten Konnektor „trotzdem“.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe vier Sätze einer kurzen E-Mail über eine Änderung im Dienstplan. Verwende passende Nebensätze mit „nachdem“, „falls“ und „obwohl“.",
+      "options": [],
+      "correct_answer": "Nachdem wir den neuen Dienstplan geprüft haben, müssen wir die Schulung verschieben. Obwohl die Änderung kurzfristig ist, hoffen wir auf Ihr Verständnis. Falls Sie am Dienstag keine Zeit haben, nennen Sie uns bitte einen anderen Termin. Wir bestätigen die endgültige Uhrzeit, sobald alle geantwortet haben.",
+      "rubric": {
+        "criteria": [
+          "Die E-Mail besteht aus vier sachlich zusammenhängenden Sätzen über eine Änderung im Dienstplan.",
+          "„Nachdem“, „falls“ und „obwohl“ werden semantisch passend verwendet.",
+          "Alle Nebensätze haben Verbendstellung, korrekte Kommas und eine passende Hauptsatzstellung."
+        ],
+        "sample_answer": "Nachdem wir den neuen Dienstplan geprüft haben, müssen wir die Schulung verschieben. Obwohl die Änderung kurzfristig ist, hoffen wir auf Ihr Verständnis. Falls Sie am Dienstag keine Zeit haben, nennen Sie uns bitte einen anderen Termin. Wir bestätigen die endgültige Uhrzeit, sobald alle geantwortet haben."
+      },
+      "explanation": "Unterschiedliche Nebensatztypen strukturieren zeitliche Reihenfolge, Gegensatz und Bedingung in einer formellen Nachricht.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

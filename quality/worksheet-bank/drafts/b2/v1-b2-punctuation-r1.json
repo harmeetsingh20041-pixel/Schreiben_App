@@ -1,0 +1,198 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-punctuation-r1",
+    "template_key": "v1-b2-punctuation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Punctuation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Zeichensetzung: Kommas sicher setzen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "punctuation",
+    "name": "Zeichensetzung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "punctuation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Kommas machen die Struktur komplexer Sätze sichtbar. Sie trennen vor allem Haupt- und Nebensätze, Relativsätze, eingeschobene Zusätze und bestimmte Infinitivgruppen.",
+    "key_rule": "Grenze jeden Nebensatz vollständig mit Kommas ab; das gilt auch für eingeschobene Relativsätze.",
+    "correct_examples": [
+      "Wir hoffen, dass die Lieferung morgen eintrifft.",
+      "Der Bericht, den du geschickt hast, ist vollständig."
+    ],
+    "common_mistake_warning": "Bei einem eingeschobenen Relativsatz wird nicht nur vor, sondern auch nach dem Nebensatz ein Komma gesetzt.",
+    "what_to_revise": "Markiere finite Verben und bestimme, welche Satzteile als Nebensatz oder Zusatz abgegrenzt werden müssen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Version ist korrekt gezeichnet?",
+      "options": [
+        "Obwohl es regnete; fand die Veranstaltung draußen statt.",
+        "Obwohl es regnete, fand die Veranstaltung draußen statt.",
+        "Obwohl es regnete fand die Veranstaltung draußen statt.",
+        "Obwohl, es regnete fand die Veranstaltung draußen statt."
+      ],
+      "correct_answer": "Obwohl es regnete, fand die Veranstaltung draußen statt.",
+      "accepted_answers": [
+        "Obwohl es regnete, fand die Veranstaltung draußen statt."
+      ],
+      "explanation": "Der vorangestellte obwohl-Nebensatz endet vor dem folgenden Hauptsatz und wird dort durch ein Komma abgetrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Version grenzt den eingeschobenen Relativsatz vollständig ab?",
+      "options": [
+        "Die Studie die gestern erschien, bestätigt den Trend.",
+        "Die Studie, die gestern erschien bestätigt den Trend.",
+        "Die Studie die gestern erschien bestätigt, den Trend.",
+        "Die Studie, die gestern erschien, bestätigt den Trend."
+      ],
+      "correct_answer": "Die Studie, die gestern erschien, bestätigt den Trend.",
+      "accepted_answers": [
+        "Die Studie, die gestern erschien, bestätigt den Trend."
+      ],
+      "explanation": "Der Relativsatz die gestern erschien ist eingeschoben und braucht deshalb sowohl am Anfang als auch am Ende ein Komma.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "In welchem Satz muss vor um ein Komma stehen?",
+      "options": [
+        "Die Sitzung beginnt um neun Uhr.",
+        "Es handelt sich um einen Entwurf.",
+        "Sie nahm früher den Zug, um pünktlich anzukommen.",
+        "Sie ging um den Bahnhof herum."
+      ],
+      "correct_answer": "Sie nahm früher den Zug, um pünktlich anzukommen.",
+      "accepted_answers": [
+        "Sie nahm früher den Zug, um pünktlich anzukommen."
+      ],
+      "explanation": "Eine mit um eingeleitete Infinitivgruppe wird durch Komma abgetrennt; in den anderen Sätzen ist um eine Präposition.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Welches Satzzeichen fehlt vor dass in ‚Wir wissen dass die Frist morgen endet‘? Antwort: ___ . Wortbank: [Komma | Doppelpunkt].",
+      "options": [],
+      "correct_answer": "Komma",
+      "accepted_answers": [
+        "Komma"
+      ],
+      "explanation": "Vor dem mit dass eingeleiteten Nebensatz steht ein Komma, das ihn vom Hauptsatz abtrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Welches Satzzeichen fehlt nach waren in ‚Nachdem alle Pflegekräfte zur Übergabe eingetroffen waren begann die Besprechung‘? Antwort: ___ . Wortbank: [Doppelpunkt | Komma].",
+      "options": [],
+      "correct_answer": "Komma",
+      "accepted_answers": [
+        "Komma"
+      ],
+      "explanation": "Der vorangestellte nachdem-Nebensatz endet nach waren; dort trennt ein Komma ihn vom Hauptsatz.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Welches Satzzeichen fehlt vor dem zweiten das in ‚Das Gerät das wir bestellt haben, ist bereits da‘? Antwort: ___ . Wortbank: [Komma | Gedankenstrich].",
+      "options": [],
+      "correct_answer": "Komma",
+      "accepted_answers": [
+        "Komma"
+      ],
+      "explanation": "Vor dem Relativpronomen das beginnt ein eingeschobener Relativsatz, der mit einem Komma geöffnet wird.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Welches Satzzeichen fehlt vor um in ‚Er speicherte die Datei mehrfach um keinen Datenverlust zu riskieren‘? Antwort: ___ . Wortbank: [Doppelpunkt | Komma].",
+      "options": [],
+      "correct_answer": "Komma",
+      "accepted_answers": [
+        "Komma"
+      ],
+      "explanation": "Die mit um eingeleitete Infinitivgruppe drückt einen Zweck aus und wird obligatorisch durch Komma abgetrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung grenzt den eingeschobenen Relativsatz mit beiden notwendigen Kommas ab?",
+      "options": [
+        "Der Vorschlag, den die Arbeitsgruppe entwickelt hat, wird nächste Woche vorgestellt.",
+        "Der Vorschlag den die Arbeitsgruppe entwickelt hat wird nächste Woche vorgestellt.",
+        "Der Vorschlag den die Arbeitsgruppe entwickelt hat, wird nächste Woche vorgestellt.",
+        "Der Vorschlag, den die Arbeitsgruppe entwickelt hat wird nächste Woche vorgestellt."
+      ],
+      "correct_answer": "Der Vorschlag, den die Arbeitsgruppe entwickelt hat, wird nächste Woche vorgestellt.",
+      "rubric": null,
+      "explanation": "Der eingeschobene Relativsatz „den die Arbeitsgruppe entwickelt hat“ muss auf beiden Seiten mit Kommas abgegrenzt werden.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Der Vorschlag, den die Arbeitsgruppe entwickelt hat, wird nächste Woche vorgestellt."
+      ]
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verbindet die Aussagen mit „obwohl“ und setzt das Komma an der Nebensatzgrenze korrekt?",
+      "options": [
+        "Obwohl, die Datenlage begrenzt ist, ziehen die Forschenden eine vorläufige Schlussfolgerung.",
+        "Obwohl die Datenlage begrenzt ist ziehen die Forschenden eine vorläufige Schlussfolgerung.",
+        "Obwohl die Datenlage begrenzt ist, ziehen die Forschenden eine vorläufige Schlussfolgerung.",
+        "Obwohl die Datenlage begrenzt ist ziehen die Forschenden, eine vorläufige Schlussfolgerung."
+      ],
+      "correct_answer": "Obwohl die Datenlage begrenzt ist, ziehen die Forschenden eine vorläufige Schlussfolgerung.",
+      "rubric": null,
+      "explanation": "Obwohl leitet den Nebensatz ein; nach dem finiten Verb „ist“ endet er und wird mit einem Komma vom Hauptsatz getrennt.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Obwohl die Datenlage begrenzt ist, ziehen die Forschenden eine vorläufige Schlussfolgerung."
+      ]
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung setzt bei dem eingeschobenen Relativsatz und der um-zu-Gruppe alle obligatorischen Kommas, aber kein zusätzliches Komma?",
+      "options": [
+        "Die Arbeitsgruppe, die das Verfahren, entwickelt hat, tagt erneut, um die Daten vor der Freigabe zu prüfen.",
+        "Die Arbeitsgruppe, die das Verfahren entwickelt hat, tagt erneut, um die Daten vor der Freigabe zu prüfen.",
+        "Die Arbeitsgruppe, die das Verfahren entwickelt hat tagt erneut, um die Daten vor der Freigabe zu prüfen.",
+        "Die Arbeitsgruppe die das Verfahren entwickelt hat, tagt erneut um die Daten vor der Freigabe zu prüfen."
+      ],
+      "correct_answer": "Die Arbeitsgruppe, die das Verfahren entwickelt hat, tagt erneut, um die Daten vor der Freigabe zu prüfen.",
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der eingeschobene Relativsatz „die das Verfahren entwickelt hat“ wird von zwei Kommas eingeschlossen. Die mit „um“ eingeleitete Infinitivgruppe wird ebenfalls durch ein Komma abgetrennt.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Die Arbeitsgruppe, die das Verfahren entwickelt hat, tagt erneut, um die Daten vor der Freigabe zu prüfen."
+      ]
+    }
+  ]
+}

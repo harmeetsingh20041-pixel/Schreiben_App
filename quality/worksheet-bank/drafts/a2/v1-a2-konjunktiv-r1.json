@@ -1,0 +1,154 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-konjunktiv-r1",
+    "template_key": "v1-a2-konjunktiv-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Konjunktiv pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Konjunktiv II: Höfliche Bitten und Wünsche",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "konjunktiv",
+    "name": "Konjunktiv II"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "konjunktiv",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Konjunktiv II macht Bitten höflicher und drückt Wünsche oder nicht reale Vorstellungen aus.",
+    "key_rule": "Für A2 sind besonders könnte, wäre, hätte und würde plus Infinitiv nützlich.",
+    "correct_examples": [
+      "Würden Sie das bitte erklären?",
+      "Ich wäre gern pünktlich."
+    ],
+    "common_mistake_warning": "Nach „würde“ steht das andere Verb als Infinitiv am Satzende.",
+    "what_to_revise": "Übe höfliche Fragen mit könnten und Wünsche mit hätte, wäre oder würde."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Bitte ist höflich und grammatisch korrekt?",
+      "options": [
+        "Könnten Sie das bitte wiederholt?",
+        "Könnte Sie das bitte wiederholen?",
+        "Könnten Sie bitte das wiederholen zu?",
+        "Könnten Sie das bitte wiederholen?"
+      ],
+      "correct_answer": "Könnten Sie das bitte wiederholen?",
+      "accepted_answers": ["Könnten Sie das bitte wiederholen?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Frageform mit „Könnten Sie“ ist eine übliche höfliche Bitte; der Infinitiv steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt einen Wunsch korrekt aus?",
+      "options": [
+        "Ich hätte gern einen ruhiges Zimmer.",
+        "Ich hätte gern ein ruhiges Zimmer.",
+        "Ich hatte gern ein ruhiges Zimmer morgen.",
+        "Ich würde gern ein ruhiges Zimmer hätte."
+      ],
+      "correct_answer": "Ich hätte gern ein ruhiges Zimmer.",
+      "accepted_answers": ["Ich hätte gern ein ruhiges Zimmer."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Hätte gern“ drückt einen höflichen Wunsch aus; das neutrale Objekt steht korrekt im Akkusativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Könnten, Konnten, Können]. Ergänze die besonders höfliche Konjunktiv-II-Frage: ___ Sie mir bitte helfen?",
+      "options": [],
+      "correct_answer": "Könnten",
+      "accepted_answers": ["Könnten"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Könnten Sie“ ist die passende höfliche Frageform.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [habe, hätte, hatte]. Ergänze den Wunsch: Ich ___ gern einen späteren Termin.",
+      "options": [],
+      "correct_answer": "hätte",
+      "accepted_answers": ["hätte"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Hätte gern“ formuliert einen Wunsch höflich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [käme, gekommen, kommen]. Ergänze nach „würde“: Ich würde morgen früher ___.",
+      "options": [],
+      "correct_answer": "kommen",
+      "accepted_answers": ["kommen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „würde“ steht der Vollverbinfinitiv „kommen“ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die besonders höfliche Konjunktiv-II-Form: ___ Sie morgen Zeit für die Übergabe?",
+      "options": ["Hatten", "Habt", "Hätten", "Haben"],
+      "correct_answer": "Hätten",
+      "accepted_answers": ["Hätten"],
+      "rubric": null,
+      "explanation": "Hätten Sie ...? ist eine höfliche Frage im Konjunktiv II von haben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wäre, würde, wird, war]. Ich ___ gern einen Termin vereinbaren.",
+      "options": [],
+      "correct_answer": "würde",
+      "accepted_answers": ["würde"],
+      "rubric": null,
+      "explanation": "Würde gern drückt einen höflichen Wunsch im Konjunktiv II aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Bitte ist höflich im Konjunktiv II formuliert?",
+      "options": [
+        "Würden Sie bitte das Fenster im Stationszimmer öffnen?",
+        "Sie öffnen das Fenster im Stationszimmer.",
+        "Öffnen du sofort das Fenster im Stationszimmer!",
+        "Du wirst das Fenster im Stationszimmer öffnen."
+      ],
+      "correct_answer": "Würden Sie bitte das Fenster im Stationszimmer öffnen?",
+      "accepted_answers": [
+        "Würden Sie bitte das Fenster im Stationszimmer öffnen?"
+      ],
+      "rubric": null,
+      "explanation": "Würden Sie bitte ...? verwendet den Konjunktiv II für eine höfliche Bitte.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-adjective-endings-r2",
+    "template_key": "v1-a2-adjective-endings-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Adjective endings accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Adjektivendungen im Kontext: Sicher übertragen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "adjective-endings",
+    "name": "Adjektivendungen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "adjective-endings",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Adjektive vor einem Nomen bekommen eine Endung. Die Endung hängt von Artikel, Genus, Numerus und Kasus ab.",
+    "key_rule": "Nach einem bestimmten Artikel steht oft -e oder -en; nach ein-Wörtern zeigt das Adjektiv manchmal die fehlende Kasusinformation.",
+    "correct_examples": ["der neue Mantel", "mit einer netten Kollegin"],
+    "common_mistake_warning": "Ein Adjektiv vor einem Nomen bleibt nicht in der Grundform.",
+    "what_to_revise": "Vergleiche der neue Mantel, einen neuen Mantel und mit einem neuen Mantel."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Sie trägt heute ihren ___ Mantel.",
+      "options": ["neue","neuer","neues","neuen"],
+      "correct_answer": "neuen",
+      "accepted_answers": ["neuen"],
+      "explanation": "Nach ihren steht das Adjektiv im Akkusativ Maskulin mit der Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Form: Zum Mittagessen kochen wir eine ___ Suppe.",
+      "options": ["warme", "warmen", "warmer", "warmes"],
+      "correct_answer": "warme",
+      "accepted_answers": ["warme"],
+      "explanation": "Nach eine steht das Adjektiv im Akkusativ Feminin mit der Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Er fährt mit seinem ___ Fahrrad.",
+      "options": ["alter","altes","alten","alte"],
+      "correct_answer": "alten",
+      "accepted_answers": ["alten"],
+      "explanation": "Nach seinem steht das Adjektiv im Dativ Neutral mit der Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kaltes, kalte, kalter]. Setze die passende Form von kalt ein: Morgens trinkt sie ___ Milch.",
+      "options": [],
+      "correct_answer": "kalte",
+      "accepted_answers": ["kalte"],
+      "explanation": "Ohne Artikel bekommt das Adjektiv vor dem femininen Akkusativnomen Milch die Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [jungen, junger, junge]. Setze die passende Form von jung ein: Ich sehe die ___ Frau an der Haltestelle.",
+      "options": [],
+      "correct_answer": "junge",
+      "accepted_answers": ["junge"],
+      "explanation": "Nach die steht das Adjektiv im Akkusativ Feminin mit der Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere die Adjektivendung: Wir wohnen in einer ruhig Straße.",
+      "options": [],
+      "correct_answer": "Wir wohnen in einer ruhigen Straße.",
+      "rubric": {
+        "criteria": [
+          "Bilde ruhig nach einer im Dativ Feminin mit -en.",
+          "Verändere keinen anderen Teil des Satzes."
+        ],
+        "sample_answer": "Wir wohnen in einer ruhigen Straße."
+      },
+      "explanation": "Nach in mit Ortsangabe steht hier der Dativ; nach einer erhält das Adjektiv die Endung -en.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile, beginne mit Am Morgen und passe freundlich an: [Am Morgen / begrüßen / wir / eine / freundlich / Patientin].",
+      "options": [],
+      "correct_answer": "Am Morgen begrüßen wir eine freundliche Patientin.",
+      "rubric": {
+        "criteria": [
+          "Verwende alle vorgegebenen Satzteile genau einmal und passe freundlich an.",
+          "Setze begrüßen an Position zwei und bilde eine freundliche Patientin im Akkusativ Feminin."
+        ],
+        "sample_answer": "Am Morgen begrüßen wir eine freundliche Patientin."
+      },
+      "explanation": "Nach eine steht das Adjektiv im Akkusativ Feminin mit der Endung -e: eine freundliche Patientin.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Bilde mit allen Wörtern einen vollständigen Satz. Beginne mit ‚Wir sehen‘: [ein / freundlich / Arzt]. Achte auf die Formen von ‚ein‘ und ‚freundlich‘.",
+      "options": [],
+      "correct_answer": "Wir sehen einen freundlichen Arzt.",
+      "rubric": {
+        "criteria": [
+          "Beginne mit Wir sehen und verwende alle drei vorgegebenen Wörter.",
+          "Verwende die Formen ‚einen freundlichen Arzt‘."
+        ],
+        "sample_answer": "Wir sehen einen freundlichen Arzt."
+      },
+      "explanation": "Nach ‚Wir sehen‘ heißt die Wortgruppe hier ‚einen freundlichen Arzt‘.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

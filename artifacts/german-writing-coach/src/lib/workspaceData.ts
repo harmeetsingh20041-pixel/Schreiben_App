@@ -1,5 +1,5 @@
-import type { AuthWorkspaceMembership } from "@/services/authService";
 import { captureSafeException, isTechnicalErrorMessage } from "@/lib/monitoring";
+import { isPublicAppError } from "@/lib/appError";
 
 export const LEVEL_OPTIONS = ["A1", "A2", "B1", "B2"] as const;
 export type WorkspaceLevel = (typeof LEVEL_OPTIONS)[number];
@@ -24,11 +24,8 @@ export function formatTaskType(taskType: string) {
     .join(" ");
 }
 
-export function getActiveWorkspaceId(memberships: AuthWorkspaceMembership[]) {
-  return memberships[0]?.workspace_id ?? null;
-}
-
 function getErrorMessage(error: unknown) {
+  if (typeof error === "string") return error;
   if (error instanceof Error && error.message) return error.message;
   if (error && typeof error === "object" && "message" in error) {
     const message = (error as { message?: unknown }).message;
@@ -44,10 +41,23 @@ function isLikelySafeUserMessage(message: string) {
 }
 
 export function formatErrorMessage(error: unknown, fallback: string) {
+  if (isPublicAppError(error)) {
+    captureSafeException(error, { code: error.code, displayed_message: error.publicMessage });
+    return error.publicMessage;
+  }
+
   const message = getErrorMessage(error);
   if (message) {
-    captureSafeException(error, { fallback, displayed_message: isLikelySafeUserMessage(message) ? message : fallback });
-    if (isLikelySafeUserMessage(message)) return message;
+    const displayedMessage = isLikelySafeUserMessage(message) ? message : fallback;
+    // Never send an arbitrary thrown string to monitoring. It can contain
+    // provider output, SQL details, or student content.
+    const reportableError = new Error("A client operation failed.");
+    captureSafeException(reportableError, {
+      fallback,
+      displayed_message: displayedMessage,
+      source_error_type: error instanceof Error ? error.name : typeof error,
+    });
+    return displayedMessage;
   }
   return fallback;
 }

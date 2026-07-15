@@ -1,0 +1,201 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-perfekt-r1",
+    "template_key": "v1-b1-perfekt-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Perfekt pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Perfekt: Vergangene Abläufe berichten",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "perfekt",
+    "name": "Perfekt"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "perfekt",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Perfekt berichtet über abgeschlossene Handlungen und Ergebnisse, besonders in Gesprächen und kurzen Mitteilungen.",
+    "key_rule": "Das finite Hilfsverb „haben“ oder „sein“ steht im Hauptsatz an Position zwei, das Partizip II am Satzende.",
+    "correct_examples": [
+      "Wir haben die Ursache schnell gefunden.",
+      "Der Zug ist mit Verspätung angekommen."
+    ],
+    "common_mistake_warning": "Bewegungs- und Zustandswechselverben bilden das Perfekt oft mit „sein“, die meisten anderen Verben mit „haben“.",
+    "what_to_revise": "Wiederhole Hilfsverbwahl und Partizipien von trennbaren, untrennbaren und regelmäßigen Verben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Bericht aus der Pflege ist im Perfekt korrekt?",
+      "options": [
+        "Die Pflegekraft ist alle Werte sorgfältig dokumentiert.",
+        "Die Pflegekraft hat alle Werte sorgfältig gedokumentiert.",
+        "Die Pflegekraft hat alle Werte sorgfältig dokumentiert."
+      ],
+      "correct_answer": "Die Pflegekraft hat alle Werte sorgfältig dokumentiert.",
+      "accepted_answers": [
+        "Die Pflegekraft hat alle Werte sorgfältig dokumentiert."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Dokumentieren“ bildet das Perfekt mit „haben“ und ohne zusätzliches „ge“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet das richtige Hilfsverb?",
+      "options": [
+        "Die Kollegin ist gestern früh nach Hause gegeht.",
+        "Die Kollegin ist gestern früh nach Hause gegangen.",
+        "Die Kollegin hat gestern früh nach Hause gegangen."
+      ],
+      "correct_answer": "Die Kollegin ist gestern früh nach Hause gegangen.",
+      "accepted_answers": [
+        "Die Kollegin ist gestern früh nach Hause gegangen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Bewegungsverb „gehen“ bildet das Perfekt mit „sein“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Partizip eines untrennbaren Verbs ist korrekt?",
+      "options": [
+        "Wir haben das Problem ausführlich besprochen.",
+        "Wir haben das Problem ausführlich gebesprochen.",
+        "Wir haben das Problem ausführlich besprecht."
+      ],
+      "correct_answer": "Wir haben das Problem ausführlich besprochen.",
+      "accepted_answers": ["Wir haben das Problem ausführlich besprochen."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Verben mit dem untrennbaren Präfix „be-“ erhalten im Partizip kein „ge-“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ist, wird, hat]. Ergänze das Hilfsverb: Das Seminar ___ pünktlich begonnen.",
+      "options": [],
+      "correct_answer": "hat",
+      "accepted_answers": ["hat"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Beginnen“ bezeichnet hier keinen Ortswechsel und bildet das Perfekt mit „haben“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ist eingeschlafen, hat eingeschlafen, ist einschlaft]. Ergänze: Der Patient ___ .",
+      "options": [],
+      "correct_answer": "ist eingeschlafen",
+      "accepted_answers": ["ist eingeschlafen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Zustandswechsel „einschlafen“ bildet das Perfekt mit „sein“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [teilgenehmt, teilgenommen, geteiltgenommen]. Ergänze: Viele Beschäftigte haben an der Schulung ___ .",
+      "options": [],
+      "correct_answer": "teilgenommen",
+      "accepted_answers": ["teilgenommen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das trennbare Verb „teilnehmen“ bildet das Partizip „teilgenommen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [noch nicht abgeschlossen, nicht noch abschließen, noch nicht abschließt]. Ergänze: Wir haben die Prüfung ___ .",
+      "options": [],
+      "correct_answer": "noch nicht abgeschlossen",
+      "accepted_answers": ["noch nicht abgeschlossen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Perfekt steht das Partizip „abgeschlossen“ am Ende der Satzklammer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet beim Bewegungsverb „gehen“ das richtige Perfekthilfsverb?",
+      "options": [
+        "Nach der Übergabe ist die Pflegekraft ins Zimmer gegangen.",
+        "Nach der Übergabe wird die Pflegekraft ins Zimmer gegangen.",
+        "Nach der Übergabe ist die Pflegekraft ins Zimmer gegeht.",
+        "Nach der Übergabe hat die Pflegekraft ins Zimmer gegangen."
+      ],
+      "correct_answer": "Nach der Übergabe ist die Pflegekraft ins Zimmer gegangen.",
+      "accepted_answers": [
+        "Nach der Übergabe ist die Pflegekraft ins Zimmer gegangen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Eine zielgerichtete Bewegung mit „gehen“ bildet das Perfekt mit „sein“ und dem Partizip „gegangen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Perfektform entspricht „Das Team bereitet die Unterlagen rechtzeitig vor“?",
+      "options": [
+        "Das Team hat die Unterlagen rechtzeitig vorgebereitet.",
+        "Das Team hat die Unterlagen rechtzeitig vorbereitet.",
+        "Das Team hat vorbereitet die Unterlagen rechtzeitig.",
+        "Das Team ist die Unterlagen rechtzeitig vorbereitet."
+      ],
+      "correct_answer": "Das Team hat die Unterlagen rechtzeitig vorbereitet.",
+      "accepted_answers": [
+        "Das Team hat die Unterlagen rechtzeitig vorbereitet."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Vorbereiten“ bildet das Perfekt mit „haben“; das Partizip „vorbereitet“ steht am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Bericht verwendet das Perfekt in allen drei Sätzen korrekt?",
+      "options": [
+        "Am Morgen hat das Netzwerk ausgefallen. Die Technikerin ist die Ursache gefunden. Nach einer Stunde hat das System wieder gestartet.",
+        "Am Morgen ist das Netzwerk ausgefallen. Die Technikerin hat die Ursache gefindet. Nach einer Stunde ist das System wieder starten.",
+        "Am Morgen das Netzwerk ist ausgefallen. Die Technikerin hat gefunden die Ursache. Nach einer Stunde das System ist wieder gestartet.",
+        "Am Morgen ist das Netzwerk ausgefallen. Die Technikerin hat die Ursache gefunden. Nach einer Stunde ist das System wieder gestartet."
+      ],
+      "correct_answer": "Am Morgen ist das Netzwerk ausgefallen. Die Technikerin hat die Ursache gefunden. Nach einer Stunde ist das System wieder gestartet.",
+      "accepted_answers": [
+        "Am Morgen ist das Netzwerk ausgefallen. Die Technikerin hat die Ursache gefunden. Nach einer Stunde ist das System wieder gestartet."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Ausfallen“ und „starten“ stehen hier mit „sein“; „finden“ bildet das Perfekt mit „haben“ und „gefunden“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

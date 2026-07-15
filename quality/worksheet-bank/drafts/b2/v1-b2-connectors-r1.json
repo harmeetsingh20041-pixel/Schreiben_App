@@ -1,0 +1,195 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-connectors-r1",
+    "template_key": "v1-b2-connectors-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Connectors pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Konnektoren: Folgen, Gegensätze und Ergänzungen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "connectors",
+    "name": "Konnektoren"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "connectors",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Konnektoren machen die Beziehung zwischen Aussagen sichtbar. „Deshalb“ und „daher“ markieren eine Folge, „trotzdem“ und „dennoch“ einen unerwarteten Gegensatz und „außerdem“ eine Ergänzung.",
+    "key_rule": "Steht ein verbindendes Adverb am Satzanfang, folgt direkt das konjugierte Verb: Deshalb verschieben wir den Termin.",
+    "correct_examples": [
+      "Der Zug fällt aus; deshalb nehmen wir den Bus.",
+      "Das Budget war knapp. Trotzdem wurde das Vorhaben abgeschlossen."
+    ],
+    "common_mistake_warning": "Behandle deshalb, trotzdem und außerdem nicht wie Nebensatzkonjunktionen: Das Verb bleibt im Hauptsatz auf Position zwei.",
+    "what_to_revise": "Ordne Konnektoren den Beziehungen Folge, Gegensatz und Ergänzung zu und übe die Inversion nach Satzanfang."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung drückt die Folge mit korrekter Wortstellung aus?",
+      "options": [
+        "Die Nachfrage ist gesunken; deshalb passen wir den Plan an.",
+        "Die Nachfrage ist gesunken; deshalb wir passen den Plan an.",
+        "Die Nachfrage ist gesunken; obwohl passen wir den Plan an."
+      ],
+      "correct_answer": "Die Nachfrage ist gesunken; deshalb passen wir den Plan an.",
+      "accepted_answers": [
+        "Die Nachfrage ist gesunken; deshalb passen wir den Plan an."
+      ],
+      "explanation": "„Deshalb“ markiert die Folge; danach steht das konjugierte Verb „passen“ direkt auf Position zwei.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt einen unerwarteten Gegensatz korrekt aus?",
+      "options": [
+        "Die Aufgabe war schwierig. Trotzdem das Team löste sie pünktlich.",
+        "Die Aufgabe war schwierig. Deshalb löste das Team sie pünktlich.",
+        "Die Aufgabe war schwierig. Trotzdem löste das Team sie pünktlich."
+      ],
+      "correct_answer": "Die Aufgabe war schwierig. Trotzdem löste das Team sie pünktlich.",
+      "accepted_answers": [
+        "Die Aufgabe war schwierig. Trotzdem löste das Team sie pünktlich."
+      ],
+      "explanation": "„Trotzdem“ zeigt, dass die pünktliche Lösung entgegen der Erwartung gelang; danach folgt „löste“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form fügt ein weiteres Argument mit korrekter Satzstellung hinzu?",
+      "options": [
+        "Das Verfahren spart Zeit. Dennoch senkt es deshalb die Fehlerquote.",
+        "Das Verfahren spart Zeit. Außerdem senkt es die Fehlerquote.",
+        "Das Verfahren spart Zeit. Außerdem es senkt die Fehlerquote."
+      ],
+      "correct_answer": "Das Verfahren spart Zeit. Außerdem senkt es die Fehlerquote.",
+      "accepted_answers": [
+        "Das Verfahren spart Zeit. Außerdem senkt es die Fehlerquote."
+      ],
+      "explanation": "„Außerdem“ ergänzt ein gleichgerichtetes Argument und löst die Stellung „senkt es“ aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dennoch, außerdem, daher]. Ergänze die Folge der fehlenden Daten: In mehreren Pflegeberichten fehlen Pflichtangaben; ___ kann die Auswertung noch nicht abgeschlossen werden.",
+      "options": [],
+      "correct_answer": "daher",
+      "accepted_answers": [
+        "daher"
+      ],
+      "explanation": "Die fehlenden Daten verursachen die Verzögerung; „daher“ kennzeichnet diese Folge.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zusätzlich, dennoch, folglich]. Ergänze den unerwarteten Gegensatz: Die Vorbereitungszeit war sehr kurz; ___ traten keine kritischen Fehler auf.",
+      "options": [],
+      "correct_answer": "dennoch",
+      "accepted_answers": [
+        "dennoch"
+      ],
+      "explanation": "Dass trotz der sehr kurzen Vorbereitung keine kritischen Fehler auftraten, ist unerwartet; deshalb passt „dennoch“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [außerdem, deshalb, hingegen]. Ergänze eine zusätzliche positive Eigenschaft ohne Ursache-Folge-Beziehung: Das Gerät ist energieeffizient; ___ lässt es sich leicht warten.",
+      "options": [],
+      "correct_answer": "außerdem",
+      "accepted_answers": [
+        "außerdem"
+      ],
+      "explanation": "Die leichte Wartung ergänzt die Energieeffizienz als weiteres positives Merkmal.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hingegen, folglich, darüber hinaus]. Ergänze den direkten Gegensatz zwischen beiden Lösungen: Die erste Lösung ist günstig; die zweite ist ___ deutlich zuverlässiger.",
+      "options": [],
+      "correct_answer": "hingegen",
+      "accepted_answers": [
+        "hingegen"
+      ],
+      "explanation": "„Hingegen“ stellt die höhere Zuverlässigkeit der zweiten Lösung der günstigen ersten Lösung gegenüber.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet „deshalb“ mit korrekter Verbzweitstellung?",
+      "options": [
+        "Die Frist endet morgen; deshalb müssen wir heute entscheiden.",
+        "Die Frist endet morgen; deshalb heute wir müssen entscheiden.",
+        "Die Frist endet morgen; deshalb wir müssen heute entscheiden.",
+        "Die Frist endet morgen; deshalb wir heute entscheiden müssen."
+      ],
+      "correct_answer": "Die Frist endet morgen; deshalb müssen wir heute entscheiden.",
+      "rubric": null,
+      "explanation": "Ein Konnektor im Vorfeld besetzt Position eins, sodass das Verb vor dem Subjekt steht.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Die Frist endet morgen; deshalb müssen wir heute entscheiden."
+      ]
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung markiert das unerwartete Ergebnis mit „trotzdem“ und korrekter Inversion?",
+      "options": [
+        "Die technischen Anforderungen waren hoch. Trotzdem das kleine Team das Projekt pünktlich abschloss.",
+        "Die technischen Anforderungen waren hoch. Deshalb schloss das kleine Team das Projekt pünktlich ab.",
+        "Die technischen Anforderungen waren hoch. Trotzdem schloss das kleine Team das Projekt pünktlich ab.",
+        "Die technischen Anforderungen waren hoch. Trotzdem das kleine Team schloss das Projekt pünktlich ab."
+      ],
+      "correct_answer": "Die technischen Anforderungen waren hoch. Trotzdem schloss das kleine Team das Projekt pünktlich ab.",
+      "rubric": null,
+      "explanation": "„Trotzdem“ markiert das unerwartet positive Ergebnis trotz hoher Anforderungen.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Die technischen Anforderungen waren hoch. Trotzdem schloss das kleine Team das Projekt pünktlich ab."
+      ]
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fortsetzung markiert ausdrücklich, dass die Pilotphase entgegen der erwartbaren Folge nicht abgebrochen wird? Die Rückmeldungen enthalten noch offene Kritikpunkte. ___",
+      "options": [
+        "Folglich wird die Pilotphase nach sorgfältiger Abwägung wie geplant fortgesetzt.",
+        "Außerdem wird die Pilotphase nach sorgfältiger Abwägung wie geplant fortgesetzt.",
+        "Andernfalls wird die Pilotphase nach sorgfältiger Abwägung wie geplant fortgesetzt.",
+        "Dennoch wird die Pilotphase nach sorgfältiger Abwägung wie geplant fortgesetzt."
+      ],
+      "correct_answer": "Dennoch wird die Pilotphase nach sorgfältiger Abwägung wie geplant fortgesetzt.",
+      "rubric": null,
+      "explanation": "„Dennoch“ signalisiert eine Folge, die der aufgrund der Kritikpunkte erwartbaren Reaktion widerspricht. Die anderen Konnektoren drücken Folge, Ergänzung oder Alternative aus.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Dennoch wird die Pilotphase nach sorgfältiger Abwägung wie geplant fortgesetzt."
+      ],
+      "answer_contract_version": 1
+    }
+  ]
+}

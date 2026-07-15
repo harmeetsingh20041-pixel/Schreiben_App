@@ -1,0 +1,175 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-praeteritum-r1",
+    "template_key": "v1-b1-praeteritum-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Präteritum pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Präteritum: Vergangenes erzählen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "praeteritum",
+    "name": "Präteritum"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "praeteritum",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Präteritum beschreibt abgeschlossene Ereignisse in der Vergangenheit. Es ist besonders in Erzählungen und Berichten üblich; sein, haben und Modalverben stehen auch im Gespräch oft im Präteritum.",
+    "key_rule": "Schwache Verben bilden das Präteritum meist mit -te, starke Verben ändern häufig ihren Stammvokal. Trennbare Vorsilben stehen im Hauptsatz am Ende.",
+    "correct_examples": [
+      "Gestern war das Büro geschlossen.",
+      "Der Zug fuhr pünktlich ab."
+    ],
+    "common_mistake_warning": "Setze bei starken Verben nicht einfach -te an den Infinitiv; lerne Formen wie ging, kam, fuhr und fand mit.",
+    "what_to_revise": "Wiederhole die Präteritumformen von sein, haben, Modalverben und häufigen starken Verben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht korrekt im Präteritum?",
+      "options": [
+        "Gestern war die Bibliothek geschlossen.",
+        "Gestern ist die Bibliothek geschlossen gewesen hat.",
+        "Gestern wäre die Bibliothek geschlossen.",
+        "Gestern warte die Bibliothek geschlossen."
+      ],
+      "correct_answer": "Gestern war die Bibliothek geschlossen.",
+      "accepted_answers": ["Gestern war die Bibliothek geschlossen."],
+      "explanation": "Die Präteritumform von „sein“ in der dritten Person Singular lautet „war“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Ergänze den rückblickenden Satz ausdrücklich im Präteritum: Wegen des Sturms ___ wir zu Hause bleiben.",
+      "options": ["gemusst","mussten","mussten geblieben","müssten"],
+      "correct_answer": "mussten",
+      "accepted_answers": ["mussten"],
+      "explanation": "Das Modalverb „müssen“ bildet in der ersten Person Plural das Präteritum „mussten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den korrekten Erzählsatz mit einem trennbaren Verb.",
+      "options": [
+        "Der Zug fahrte um sieben Uhr ab.",
+        "Der Zug fuhr ab um sieben Uhr gewesen.",
+        "Der Zug fuhr um sieben Uhr ab.",
+        "Der Zug abfuhr um sieben Uhr."
+      ],
+      "correct_answer": "Der Zug fuhr um sieben Uhr ab.",
+      "accepted_answers": ["Der Zug fuhr um sieben Uhr ab."],
+      "explanation": "„Abfahren“ hat die starke Präteritumform „fuhr ... ab“; die Vorsilbe steht am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hatte, habe, hätte]. Ergänze ausdrücklich im Präteritum: Vor der Frühschicht ___ ich noch einige organisatorische Fragen.",
+      "options": [],
+      "correct_answer": "hatte",
+      "accepted_answers": ["hatte"],
+      "explanation": "Die Präteritumform von „haben“ in der ersten Person Singular lautet „hatte“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [könnten, können, konnten]. Ergänze den rückblickenden Bericht im Präteritum: Wegen der Reparatur ___ wir den Raum nicht benutzen.",
+      "options": [],
+      "correct_answer": "konnten",
+      "accepted_answers": ["konnten"],
+      "explanation": "„Konnten“ ist die Präteritumform von „können“ für die erste Person Plural.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gegangen, ging, gehte]. Ergänze: Nach dem Kurs ___ sie direkt nach Hause.",
+      "options": [],
+      "correct_answer": "ging",
+      "accepted_answers": ["ging"],
+      "explanation": "Das starke Verb „gehen“ hat im Präteritum der dritten Person Singular die Form „ging“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wäret, wart, seid]. Ergänze ausdrücklich im Präteritum: Gestern ___ ihr besonders früh im Büro.",
+      "options": [],
+      "correct_answer": "wart",
+      "accepted_answers": ["wart"],
+      "explanation": "Für „ihr“ lautet die Präteritumform von „sein“ „wart“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält die passende Präteritumform zu „wir“?",
+      "options": [
+        "Wir musste die Übergabeschulung kurzfristig verschieben.",
+        "Wir müssten die Übergabeschulung kurzfristig verschieben.",
+        "Wir muss die Übergabeschulung kurzfristig verschieben.",
+        "Wir mussten die Übergabeschulung kurzfristig verschieben."
+      ],
+      "correct_answer": "Wir mussten die Übergabeschulung kurzfristig verschieben.",
+      "accepted_answers": ["Wir mussten die Übergabeschulung kurzfristig verschieben."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Subjekt „wir“ verlangt bei „müssen“ im Präteritum die Form „mussten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präteritumfassung entspricht dem Satz „Die Gäste sind früh angekommen“?",
+      "options": [
+        "Die Gäste kommen früh an.",
+        "Die Gäste kamen früh an.",
+        "Die Gäste ankamen früh.",
+        "Die Gäste waren früh angekommen."
+      ],
+      "correct_answer": "Die Gäste kamen früh an.",
+      "accepted_answers": ["Die Gäste kamen früh an."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Präteritum lautet „ankommen“ in der dritten Person Plural „kamen ... an“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schilderung verwendet „sein“, ein Modalverb und ein weiteres Verb durchgehend korrekt im Präteritum?",
+      "options": [
+        "Am Montag war ich früh auf der Station. Ich muss die Übergabe vorbereiten. Danach besprach ich den Dienstplan.",
+        "Am Montag hatte ich früh auf der Station. Ich musste die Übergabe vorbereitet. Danach besprach ich den Dienstplan.",
+        "Am Montag war ich früh auf der Station. Ich musste die Übergabe vorbereiten. Danach besprach ich den Dienstplan.",
+        "Am Montag bin ich früh auf der Station. Ich musste die Übergabe vorbereiten. Danach bespreche ich den Dienstplan."
+      ],
+      "correct_answer": "Am Montag war ich früh auf der Station. Ich musste die Übergabe vorbereiten. Danach besprach ich den Dienstplan.",
+      "accepted_answers": ["Am Montag war ich früh auf der Station. Ich musste die Übergabe vorbereiten. Danach besprach ich den Dienstplan."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Aufgabe verbindet häufige Präteritumformen mit einer kurzen, zeitlich geordneten Erzählung.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-separable-verbs-r1",
+    "template_key": "v1-b1-separable-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Separable verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Trennbare Verben: Abläufe präzise beschreiben",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "separable-verbs",
+    "name": "Trennbare Verben"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "separable-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Trennbare Verben bestehen aus einem betonten Präfix und einem Verbstamm und kommen in vielen beruflichen Abläufen vor.",
+    "key_rule": "Im Hauptsatz steht das Präfix am Satzende; im Nebensatz und im Partizip werden Präfix und Stamm zusammengeschrieben.",
+    "correct_examples": [
+      "Die Veranstaltung findet nächste Woche statt.",
+      "Weil der Bus ausfällt, nehmen wir ein Taxi."
+    ],
+    "common_mistake_warning": "Im Nebensatz darf das Präfix nicht vom Verb getrennt ans Satzende gestellt werden.",
+    "what_to_revise": "Wiederhole Präsens, Nebensatz und Perfekt bei anrufen, ausfüllen, vorbereiten und teilnehmen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt die Patientenaufnahme korrekt?",
+      "options": [
+        "Die Pflegekraft aufnimmt die neue Patientin freundlich.",
+        "Die Pflegekraft nimmt auf die neue Patientin freundlich.",
+        "Die Pflegekraft nimmt die neue Patientin freundlich auf."
+      ],
+      "correct_answer": "Die Pflegekraft nimmt die neue Patientin freundlich auf.",
+      "accepted_answers": [
+        "Die Pflegekraft nimmt die neue Patientin freundlich auf."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Hauptsatz wird „aufnehmen“ getrennt; das Präfix „auf“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Nebensatz mit dem trennbaren Verb „anmelden“ ist richtig gebildet?",
+      "options": [
+        "Ich komme früh, weil ich mich noch vor dem Workshop anmelde.",
+        "Ich komme früh, weil ich melde mich noch vor dem Workshop an.",
+        "Ich komme früh, weil ich mich noch vor dem Workshop melde an."
+      ],
+      "correct_answer": "Ich komme früh, weil ich mich noch vor dem Workshop anmelde.",
+      "accepted_answers": [
+        "Ich komme früh, weil ich mich noch vor dem Workshop anmelde."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im weil-Satz bleibt das trennbare Verb zusammengeschrieben und steht als „anmelde“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Perfektsatz mit einem trennbaren Verb ist korrekt?",
+      "options": [
+        "Wir haben die Präsentation gestern bereitet vor.",
+        "Wir haben die Präsentation gestern vorbereitet.",
+        "Wir haben die Präsentation gestern vorgebereitet."
+      ],
+      "correct_answer": "Wir haben die Präsentation gestern vorbereitet.",
+      "accepted_answers": ["Wir haben die Präsentation gestern vorbereitet."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beim trennbaren Verb „vorbereiten“ steht „vor“ vor dem Partizip des Grundverbs: vor + bereitet = vorbereitet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [anruft den Kunden später, den Kunden an später ruft, ruft den Kunden später an]. Ergänze: Die Sachbearbeiterin ___ .",
+      "options": [],
+      "correct_answer": "ruft den Kunden später an",
+      "accepted_answers": ["ruft den Kunden später an"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das finite Verb steht an Position zwei und das Präfix „an“ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [fängt die Sitzung pünktlich an, die Sitzung pünktlich anfängt, die Sitzung pünktlich fängt an]. Ergänze: Ich hoffe, dass ___ .",
+      "options": [],
+      "correct_answer": "die Sitzung pünktlich anfängt",
+      "accepted_answers": ["die Sitzung pünktlich anfängt"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im dass-Satz bleibt „anfängt“ zusammengeschrieben und steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [füllt das Aufnahmeformular vollständig aus, ausfüllt das Aufnahmeformular vollständig, das Aufnahmeformular vollständig ausfüllt]. Ergänze: Der Patient ___ .",
+      "options": [],
+      "correct_answer": "füllt das Aufnahmeformular vollständig aus",
+      "accepted_answers": ["füllt das Aufnahmeformular vollständig aus"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Hauptsatz wird „ausfüllen“ getrennt und „aus“ schließt den Satz ab.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hat am Workshop teilgenommen, ist am Workshop teilgenommen, hat am Workshop genommen teil]. Ergänze im Perfekt: Sie ___ .",
+      "options": [],
+      "correct_answer": "hat am Workshop teilgenommen",
+      "accepted_answers": ["hat am Workshop teilgenommen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Teilnehmen“ bildet das Perfekt mit „haben“ und dem Partizip „teilgenommen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung trennt „vorbereiten“ im Hauptsatz korrekt?",
+      "options": [
+        "Vor der Übergabe vorbereitet die Pflegekraft alle Unterlagen.",
+        "Vor der Übergabe bereitet die Pflegekraft alle Unterlagen vor.",
+        "Vor der Übergabe bereitet vor die Pflegekraft alle Unterlagen.",
+        "Vor der Übergabe die Pflegekraft bereitet alle Unterlagen vor."
+      ],
+      "correct_answer": "Vor der Übergabe bereitet die Pflegekraft alle Unterlagen vor.",
+      "accepted_answers": ["Vor der Übergabe bereitet die Pflegekraft alle Unterlagen vor."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Hauptsatz wird „vorbereiten“ getrennt; nach dem Vorfeld gilt zusätzlich die Verbzweitstellung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Ausgangssätze: Wir fahren mit dem Bus. Der Zug fällt heute aus. Welche Verbindung zeigt die richtige Form von „ausfallen“ im weil-Satz?",
+      "options": [
+        "Wir fahren mit dem Bus, weil heute aus der Zug fällt.",
+        "Wir fahren mit dem Bus, weil der Zug heute fällt aus.",
+        "Wir fahren mit dem Bus, weil der Zug fällt heute aus.",
+        "Wir fahren mit dem Bus, weil der Zug heute ausfällt."
+      ],
+      "correct_answer": "Wir fahren mit dem Bus, weil der Zug heute ausfällt.",
+      "accepted_answers": ["Wir fahren mit dem Bus, weil der Zug heute ausfällt."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im eingeleiteten Nebensatz werden Präfix und Verbstamm nicht getrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schilderung verwendet „einladen“, „vorbereiten“ und „stattfinden“ in Hauptsätzen korrekt?",
+      "options": [
+        "Am Montag lade ich das Team ein. Danach bereite ich die Unterlagen vor. Das Treffen findet am Donnerstag statt.",
+        "Am Montag einlade ich das Team. Danach vorbereite ich die Unterlagen. Das Treffen stattfindet am Donnerstag.",
+        "Am Montag lade ein ich das Team. Danach bereite vor ich die Unterlagen. Das Treffen findet statt am Donnerstag.",
+        "Am Montag ich lade das Team ein. Danach ich bereite die Unterlagen vor. Am Donnerstag das Treffen findet statt."
+      ],
+      "correct_answer": "Am Montag lade ich das Team ein. Danach bereite ich die Unterlagen vor. Das Treffen findet am Donnerstag statt.",
+      "accepted_answers": ["Am Montag lade ich das Team ein. Danach bereite ich die Unterlagen vor. Das Treffen findet am Donnerstag statt."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Mehrere trennbare Verben beschreiben die Schritte eines Arbeitsablaufs präzise.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

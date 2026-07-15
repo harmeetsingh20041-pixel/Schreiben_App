@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-akkusativ-r1",
+    "template_key": "v1-a2-akkusativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Akkusativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Akkusativ: Direkte Objekte verwenden",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "akkusativ",
+    "name": "Akkusativ"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "akkusativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Akkusativ bezeichnet häufig das direkte Objekt, also die Person oder Sache, die unmittelbar von einer Handlung betroffen ist.",
+    "key_rule": "Beim maskulinen bestimmten Artikel wird „der“ zu „den“ und beim unbestimmten Artikel „ein“ zu „einen“.",
+    "correct_examples": [
+      "Ich brauche einen Termin.",
+      "Wir lesen die Nachricht."
+    ],
+    "common_mistake_warning": "Achte besonders auf maskuline Nomen, weil dort der Akkusativ sichtbar wird.",
+    "what_to_revise": "Übe wen oder was nach brauchen, sehen, kaufen und besuchen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Akkusativergänzung ist korrekt?",
+      "options": [
+        "Wir besuchen dem neuen Kollegen.",
+        "Wir besuchen den neuer Kollege.",
+        "Wir besuchen den neuen Kollegen.",
+        "Wir besuchen der neue Kollege."
+      ],
+      "correct_answer": "Wir besuchen den neuen Kollegen.",
+      "accepted_answers": [
+        "Wir besuchen den neuen Kollegen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Besuchen“ hat ein direktes maskulines Objekt; korrekt ist „den neuen Kollegen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet „durch“ korrekt?",
+      "options": [
+        "Wir gehen durch den Park.",
+        "Wir gehen durch dem Park.",
+        "Wir gehen durch der Park.",
+        "Wir gehen durch des Park."
+      ],
+      "correct_answer": "Wir gehen durch den Park.",
+      "accepted_answers": [
+        "Wir gehen durch den Park."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Präposition „durch“ verlangt immer den Akkusativ; maskulin lautet der Artikel „den“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einem, einer, einen]. Ergänze: Ich brauche ___ neuen Ausweis.",
+      "options": [],
+      "correct_answer": "einen",
+      "accepted_answers": [
+        "einen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Ausweis“ ist ein maskulines direktes Objekt; im Akkusativ heißt es „einen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, der, den]. Ergänze: Sie liest ___ E-Mail aufmerksam.",
+      "options": [],
+      "correct_answer": "die",
+      "accepted_answers": [
+        "die"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine direkte Objekt „E-Mail“ hat im Akkusativ den Artikel „die“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [des, das, dem]. Ergänze: Bitte öffne ___ Fenster.",
+      "options": [],
+      "correct_answer": "das",
+      "accepted_answers": [
+        "das"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale direkte Objekt behält im Akkusativ den Artikel „das“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den richtigen Artikel: Die Pflegekraft begleitet ___ neuen Patienten zum Zimmer.",
+      "options": [
+        "dem",
+        "des",
+        "der",
+        "den"
+      ],
+      "correct_answer": "den",
+      "accepted_answers": [
+        "den"
+      ],
+      "rubric": null,
+      "explanation": "Begleiten verlangt hier ein direktes Objekt; der neue Patient steht deshalb im Akkusativ: den.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [eines, einen, einem, einer]. Wir brauchen ___ ruhigen Raum für das Gespräch.",
+      "options": [],
+      "correct_answer": "einen",
+      "accepted_answers": [
+        "einen"
+      ],
+      "rubric": null,
+      "explanation": "Raum ist maskulin und steht als direktes Objekt im Akkusativ; deshalb heißt es einen ruhigen Raum.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Mina öffnet ___ Fenster.",
+      "options": [
+        "die",
+        "das",
+        "dem",
+        "der"
+      ],
+      "correct_answer": "das",
+      "accepted_answers": [
+        "das"
+      ],
+      "rubric": null,
+      "explanation": "Fenster ist neutral; im Akkusativ Singular bleibt der bestimmte Artikel das.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

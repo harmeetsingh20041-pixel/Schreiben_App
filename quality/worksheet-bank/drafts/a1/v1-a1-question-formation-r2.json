@@ -1,0 +1,150 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-question-formation-r2",
+    "template_key": "v1-a1-question-formation-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Question formation accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Fragen im Alltag: Person, Zeit und Weg",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "question-formation",
+    "name": "Fragebildung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "question-formation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Fragewort muss zur gesuchten Information passen. Danach entscheidet die Frageart über die Reihenfolge von Verb und Subjekt.",
+    "key_rule": "W-Frage: Fragewort – Verb – Subjekt. Ja-Nein-Frage: Verb – Subjekt – Rest.",
+    "correct_examples": ["Wie kommst du zur Schule?", "Hast du morgen Zeit?"],
+    "common_mistake_warning": "Verwende ‚wer‘ für Personen, ‚wann‘ für Zeiten und ‚wie‘ für die Art oder den Weg.",
+    "what_to_revise": "Übe Fragen zu Alltag, Verkehr, Personen und Terminen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Frage passt zur Antwort ‚Mit dem Bus‘?",
+      "options": [
+        "Wie fährst du zur Arbeit?",
+        "Wann fährst du zur Arbeit?",
+        "Wer fährt zur Arbeit?"
+      ],
+      "correct_answer": "Wie fährst du zur Arbeit?",
+      "accepted_answers": ["Wie fährst du zur Arbeit?"],
+      "explanation": "‚Wie‘ fragt hier nach dem Verkehrsmittel oder der Art des Weges.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Frage fragt nach einer Person?",
+      "options": [
+        "Wann hilft dir deine Kollegin?",
+        "Wer hilft dir heute?",
+        "Was hilft dir heute?"
+      ],
+      "correct_answer": "Wer hilft dir heute?",
+      "accepted_answers": ["Wer hilft dir heute?"],
+      "explanation": "Das Fragewort ‚Wer‘ fragt nach einer Person und ist hier selbst das Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Wo, Wann, Wie]. Setze das passende Fragewort ein: ___ heißt deine Nachbarin? Priya.",
+      "options": [],
+      "correct_answer": "Wie",
+      "accepted_answers": ["Wie"],
+      "explanation": "Mit ‚Wie heißt ...?‘ fragt man nach dem Namen einer Person.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Wo, Wer, Was]. Setze das passende Fragewort ein: ___ kocht heute? Mein Bruder.",
+      "options": [],
+      "correct_answer": "Wer",
+      "accepted_answers": ["Wer"],
+      "explanation": "Die Antwort nennt eine Person; mit ‚Wer‘ fragt man nach dieser Person.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Wann, Wo, Wie]. Setze das passende Fragewort ein: ___ ist dein Deutschkurs? Am Dienstag.",
+      "options": [],
+      "correct_answer": "Wann",
+      "accepted_answers": ["Wann"],
+      "explanation": "‚Am Dienstag‘ ist eine Zeitangabe; die passende Frage beginnt mit ‚Wann‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Repariere die Alltagsfrage: Wann der Supermarkt öffnet?",
+      "options": [],
+      "correct_answer": "Wann öffnet der Supermarkt?",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Das Verb ‚öffnet‘ steht direkt nach dem Fragewort ‚Wann‘.",
+          "Das Subjekt ‚der Supermarkt‘ folgt dem Verb und die Interpunktion ist korrekt."
+        ],
+        "sample_answer": "Wann öffnet der Supermarkt?"
+      },
+      "explanation": "Die W-Frage braucht die Reihenfolge Fragewort – Verb – Subjekt.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Forme eine W-Frage: ihr / wo / am Wochenende / arbeitet / ?",
+      "options": [],
+      "correct_answer": "Wo arbeitet ihr am Wochenende?",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "‚Wo‘ steht zuerst, danach folgen ‚arbeitet‘ und das Subjekt ‚ihr‘.",
+          "Die Zeitangabe wird sinnvoll eingebaut und die Frage endet korrekt."
+        ],
+        "sample_answer": "Wo arbeitet ihr am Wochenende?"
+      },
+      "explanation": "Nach dem Ortsfragewort steht das konjugierte Verb vor dem Subjekt.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Forme eine Ja-Nein-Frage: deine Eltern / heute / kommen / ?",
+      "options": [],
+      "correct_answer": "Kommen deine Eltern heute?",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Die Frage beginnt mit dem Verb ‚Kommen‘ und danach folgt das Subjekt.",
+          "‚Heute‘ steht im Satz und am Ende befindet sich ein Fragezeichen."
+        ],
+        "sample_answer": "Kommen deine Eltern heute?"
+      },
+      "explanation": "Eine Ja-Nein-Frage beginnt mit dem konjugierten Verb.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-modal-verbs-r1",
+    "template_key": "v1-a1-modal-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Modal verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Modalverben: können, müssen und möchten",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "modal-verbs",
+    "name": "Modalverben"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "modal-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein Modalverb zeigt Fähigkeit, Pflicht oder Wunsch. Das Modalverb wird konjugiert; das zweite Verb steht im Infinitiv am Satzende.",
+    "key_rule": "Subjekt – konjugiertes Modalverb – weitere Satzteile – Infinitiv.",
+    "correct_examples": ["Ich kann gut schwimmen.", "Wir müssen heute lernen."],
+    "common_mistake_warning": "Konjugiere nicht beide Verben; das zweite Verb bleibt im Infinitiv.",
+    "what_to_revise": "Lerne die Formen ich kann, du kannst, er kann sowie ich muss und du musst."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt eine Fähigkeit mit korrekter Verbform aus?",
+      "options": [
+        "Ich kann gut singe.",
+        "Ich kann gut singen.",
+        "Ich können gut singen."
+      ],
+      "correct_answer": "Ich kann gut singen.",
+      "accepted_answers": ["Ich kann gut singen."],
+      "explanation": "Zu ‚ich‘ gehört ‚kann‘; das zweite Verb bleibt als ‚singen‘ im Infinitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Pflicht ist grammatisch richtig formuliert?",
+      "options": [
+        "Du musst heute arbeiten.",
+        "Du muss heute arbeiten.",
+        "Du musst heute arbeitest."
+      ],
+      "correct_answer": "Du musst heute arbeiten.",
+      "accepted_answers": ["Du musst heute arbeiten."],
+      "explanation": "Die Form zu ‚du‘ lautet ‚musst‘ und ‚arbeiten‘ steht im Infinitiv am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt Annas Wunsch korrekt?",
+      "options": [
+        "Anna möchten einen Tee trinken.",
+        "Anna möchte einen Tee trinkt.",
+        "Anna möchte einen Tee trinken."
+      ],
+      "correct_answer": "Anna möchte einen Tee trinken.",
+      "accepted_answers": ["Anna möchte einen Tee trinken."],
+      "explanation": "Für Anna als einzelne Person lautet die Form ‚möchte‘; ‚trinken‘ bleibt im Infinitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kann, kannst, können]. Setze die passende Form ein: Ich ___ gut kochen.",
+      "options": [],
+      "correct_answer": "kann",
+      "accepted_answers": ["kann"],
+      "explanation": "Die erste Person Singular von ‚können‘ lautet ‚ich kann‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [müssen, muss, musst]. Setze die passende Form ein: Du ___ morgen früh aufstehen.",
+      "options": [],
+      "correct_answer": "musst",
+      "accepted_answers": ["musst"],
+      "explanation": "Zur Anrede ‚du‘ gehört die Form ‚musst‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [möchte, möchten, möchtest]. Setze die passende Form ein: Wir ___ zusammen essen.",
+      "options": [],
+      "correct_answer": "möchten",
+      "accepted_answers": ["möchten"],
+      "explanation": "Bei ‚wir‘ lautet die passende Wunschform ‚möchten‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi kann mit einem Patienten Deutsch sprechen. Welcher Satz ist richtig?",
+      "options": [
+        "Ravi kann mit dem Patienten Deutsch spricht.",
+        "Ravi kann mit dem Patienten Deutsch sprechen.",
+        "Ravi können mit dem Patienten Deutsch sprechen.",
+        "Ravi kann sprechen mit dem Patienten Deutsch."
+      ],
+      "correct_answer": "Ravi kann mit dem Patienten Deutsch sprechen.",
+      "accepted_answers": ["Ravi kann mit dem Patienten Deutsch sprechen."],
+      "rubric": null,
+      "explanation": "Nach einem Modalverb steht das zweite Verb im Infinitiv am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Das Team hat heute eine Pflicht. Welche Lösung mit ‚müssen‘ ist richtig?",
+      "options": [
+        "Wir müssen heute den Raum vorbereiten.",
+        "Wir heute müssen den Raum vorbereiten.",
+        "Wir muss heute den Raum vorbereiten.",
+        "Wir müssen heute den Raum vorbereitet."
+      ],
+      "correct_answer": "Wir müssen heute den Raum vorbereiten.",
+      "accepted_answers": ["Wir müssen heute den Raum vorbereiten."],
+      "rubric": null,
+      "explanation": "Das Modalverb steht an Position 2; der Infinitiv schließt den Satz ab.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

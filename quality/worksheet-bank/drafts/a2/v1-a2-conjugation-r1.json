@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-conjugation-r1",
+    "template_key": "v1-a2-conjugation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Conjugation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Konjugation: Präsensformen sicher bilden",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "conjugation",
+    "name": "Konjugation"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "conjugation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Konjugierte Verben passen ihre Endung und manchmal ihren Stamm an die Person und Zahl des Subjekts an.",
+    "key_rule": "Regelmäßige Verben verwenden die Präsensendungen; bei einigen starken Verben ändert sich in du und er oder sie der Stammvokal.",
+    "correct_examples": [
+      "Du arbeitest heute lange.",
+      "Er fährt mit dem Fahrrad."
+    ],
+    "common_mistake_warning": "Übertrage den Stammwechsel nicht auf wir oder sie im Plural.",
+    "what_to_revise": "Übe die Endungen sowie fahren, lesen, sprechen und nehmen im Präsens."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präsensform von „fahren“ passt zu „du“?",
+      "options": [
+        "Du fährst morgen nach Bonn.",
+        "Du fährt morgen nach Bonn.",
+        "Du fahren morgen nach Bonn.",
+        "Du fahrest morgen nach Bonn."
+      ],
+      "correct_answer": "Du fährst morgen nach Bonn.",
+      "accepted_answers": [
+        "Du fährst morgen nach Bonn."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei „du“ erhält „fahren“ den Stammwechsel a zu ä und die Endung „-st“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form von „arbeiten“ passt zum Pluralsubjekt?",
+      "options": [
+        "Meine Kollegen arbeitest heute.",
+        "Meine Kollegen arbeite heute.",
+        "Meine Kollegen arbeiten heute.",
+        "Meine Kollegen arbeitet heute."
+      ],
+      "correct_answer": "Meine Kollegen arbeiten heute.",
+      "accepted_answers": [
+        "Meine Kollegen arbeiten heute."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Ein Subjekt im Plural verlangt die Verbform „arbeiten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [lesen, lest, liest]. Ergänze: Meine Schwester ___ jeden Abend.",
+      "options": [],
+      "correct_answer": "liest",
+      "accepted_answers": [
+        "liest"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die dritte Person Singular von „lesen“ lautet mit Stammwechsel „liest“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [nehme, nimmt, nehmen]. Ergänze: Ich ___ morgens den Bus.",
+      "options": [],
+      "correct_answer": "nehme",
+      "accepted_answers": [
+        "nehme"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zur ersten Person Singular „ich“ gehört die Form „nehme“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [spricht, sprecht, sprichst]. Ergänze: Ihr ___ sehr leise.",
+      "options": [],
+      "correct_answer": "sprecht",
+      "accepted_answers": [
+        "sprecht"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Pronomen „ihr“ verlangt die Form „sprecht“ ohne Stammwechsel zu i.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Verbform: Die Pflegekraft ___ den Blutdruck.",
+      "options": [
+        "miss",
+        "misst",
+        "messt",
+        "messen"
+      ],
+      "correct_answer": "misst",
+      "accepted_answers": [
+        "misst"
+      ],
+      "rubric": null,
+      "explanation": "Bei der dritten Person Singular von messen lautet die Präsensform misst.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [arbeitet, arbeiten, arbeitest, arbeite]. Ravi ___ heute auf Station drei.",
+      "options": [],
+      "correct_answer": "arbeitet",
+      "accepted_answers": [
+        "arbeitet"
+      ],
+      "rubric": null,
+      "explanation": "Ravi ist dritte Person Singular; arbeiten erhält deshalb im Präsens die Endung -et.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Verbform: Wir ___ jeden Abend Deutsch.",
+      "options": [
+        "lerne",
+        "lernst",
+        "lernt",
+        "lernen"
+      ],
+      "correct_answer": "lernen",
+      "accepted_answers": [
+        "lernen"
+      ],
+      "rubric": null,
+      "explanation": "Zum Subjekt wir gehört im Präsens die Verbform lernen.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

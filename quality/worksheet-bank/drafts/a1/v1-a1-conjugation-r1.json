@@ -1,0 +1,133 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-conjugation-r1",
+    "template_key": "v1-a1-conjugation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Conjugation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Verbformen: Personen und Endungen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "conjugation",
+    "name": "Konjugation"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "conjugation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Verb passt zur Person: ich lerne, du lernst, er oder sie lernt, wir lernen, ihr lernt und sie lernen.",
+    "key_rule": "Finde zuerst das Subjekt. Wähle dann die passende Verbform für ich, du, er/sie/es, wir, ihr oder sie/Sie.",
+    "correct_examples": ["Ich lerne Deutsch.", "Tom und Lea spielen Fußball."],
+    "common_mistake_warning": "Verwende bei du meistens die Endung -st und bei er, sie oder es meistens die Endung -t.",
+    "what_to_revise": "Übe die Endungen regelmäßiger Verben sowie die häufigen Formen von sein und haben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zu ‚ich‘? Ich ___ jeden Morgen Kaffee.",
+      "options": ["trinkst", "trinken", "trinke"],
+      "correct_answer": "trinke",
+      "accepted_answers": ["trinke"],
+      "explanation": "Bei ‚ich‘ hat das Verb ‚trinken‘ die Form ‚trinke‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zu ‚du‘? Du ___ in Berlin.",
+      "options": ["wohnst", "wohne", "wohnt"],
+      "correct_answer": "wohnst",
+      "accepted_answers": ["wohnst"],
+      "explanation": "Bei ‚du‘ endet das regelmäßige Verb hier auf -st: ‚du wohnst‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form von ‚sein‘ passt? Wir ___ müde.",
+      "options": ["seid", "sind", "ist"],
+      "correct_answer": "sind",
+      "accepted_answers": ["sind"],
+      "explanation": "Die Form von ‚sein‘ für ‚wir‘ lautet ‚sind‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [arbeitet, arbeite, arbeiten]. Setze die passende Verbform ein: Mia ___ heute.",
+      "options": [],
+      "correct_answer": "arbeitet",
+      "accepted_answers": ["arbeitet"],
+      "explanation": "‚Mia‘ ist eine Person; deshalb lautet die Form ‚arbeitet‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [habt, hast, hat]. Setze die passende Form ein: Du ___ einen Bruder.",
+      "options": [],
+      "correct_answer": "hast",
+      "accepted_answers": ["hast"],
+      "explanation": "Die Form von ‚haben‘ für ‚du‘ lautet ‚hast‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wohnt, wohnst, wohnen]. Setze die passende Verbform ein: Asha und Ravi ___ in Berlin.",
+      "options": [],
+      "correct_answer": "wohnen",
+      "accepted_answers": ["wohnen"],
+      "explanation": "‚Asha und Ravi‘ sind mehrere Personen; die passende Form ist ‚wohnen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi ist eine einzelne Person und will Deutsch für die Arbeit lernen. Welche Präsensform von ‚lernen‘ passt zu ‚Ravi‘?",
+      "options": [
+        "Ravi lernt Deutsch für die Arbeit.",
+        "Ravi lerne Deutsch für die Arbeit.",
+        "Ravi lernen Deutsch für die Arbeit.",
+        "Ravi lernst Deutsch für die Arbeit."
+      ],
+      "correct_answer": "Ravi lernt Deutsch für die Arbeit.",
+      "accepted_answers": ["Ravi lernt Deutsch für die Arbeit."],
+      "rubric": null,
+      "explanation": "Bei ‚er‘ endet das regelmäßige Verb ‚lernen‘ auf -t: ‚er lernt‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Asha und ihre Kollegin arbeiten am Samstag zusammen. Welche Lösung beginnt mit ‚Wir‘ und verwendet die passende Verbform?",
+      "options": [
+        "Wir arbeitest am Samstag zusammen.",
+        "Wir arbeitet am Samstag zusammen.",
+        "Wir am Samstag arbeiten zusammen.",
+        "Wir arbeiten am Samstag zusammen."
+      ],
+      "correct_answer": "Wir arbeiten am Samstag zusammen.",
+      "accepted_answers": ["Wir arbeiten am Samstag zusammen."],
+      "rubric": null,
+      "explanation": "Das Subjekt ‚wir‘ verlangt die Verbform ‚arbeiten‘; im Hauptsatz steht sie an zweiter Stelle.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

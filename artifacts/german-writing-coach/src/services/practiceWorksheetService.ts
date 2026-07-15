@@ -1,17 +1,15 @@
 import { getSupabaseClient } from "@/lib/supabaseClient";
+import { PublicAppError } from "@/lib/appError";
+import {
+  callApiRpc,
+  parseApiArray,
+  parseApiPage,
+  parseApiRecord,
+  type ApiKeysetCursor,
+  type ApiPage,
+} from "@/services/apiFacade";
 import type { Database, Json } from "@/types/supabase";
 
-type PracticeAssignmentRow = Database["public"]["Tables"]["student_practice_assignments"]["Row"];
-type PracticeAttemptRow = Database["public"]["Tables"]["practice_test_attempts"]["Row"];
-type PracticeTestRow = Database["public"]["Tables"]["practice_tests"]["Row"];
-type GrammarTopicRow = Pick<Database["public"]["Tables"]["grammar_topics"]["Row"], "id" | "name" | "slug" | "description">;
-type ProfileRow = Pick<Database["public"]["Tables"]["profiles"]["Row"], "id" | "full_name" | "email">;
-type PracticeAssignmentRpcRow =
-  | Database["public"]["Functions"]["create_next_practice_assignment"]["Returns"][number]
-  | Database["public"]["Functions"]["ensure_student_practice_assignment"]["Returns"][number]
-  | Database["public"]["Functions"]["list_student_practice_assignments"]["Returns"][number]
-  | Database["public"]["Functions"]["start_practice_assignment"]["Returns"][number]
-  | Database["public"]["Functions"]["submit_practice_attempt"]["Returns"][number];
 type PracticeQuestionRpcRow =
   Database["public"]["Functions"]["get_practice_assignment_questions"]["Returns"][number];
 type PracticeReviewRpcRow =
@@ -26,7 +24,20 @@ export type PracticeAssignmentStatus =
   | "cancelled";
 
 export type PracticeAttemptStatus = "in_progress" | "submitted" | "checked";
-export type PracticeGenerationStatus = "idle" | "generating" | "ready" | "failed";
+export type PracticeEvaluationStatus =
+  | "queued"
+  | "evaluating"
+  | "completed"
+  | "not_needed"
+  | "needs_review"
+  | "failed";
+export type PracticeGenerationStatus =
+  | "idle"
+  | "queued"
+  | "generating"
+  | "ready"
+  | "needs_review"
+  | "failed";
 
 export interface PracticeMiniLesson {
   short_explanation: string;
@@ -44,6 +55,9 @@ export interface PracticeAssignmentSummary {
   grammar_topic_name: string;
   grammar_topic_slug: string;
   grammar_topic_description: string | null;
+  batch_id: string | null;
+  batch_name: string | null;
+  class_context_version: number;
   practice_test_id: string | null;
   worksheet_title: string | null;
   worksheet_level: string | null;
@@ -61,7 +75,9 @@ export interface PracticeAssignmentSummary {
   score_points: number | null;
   max_score_points: number | null;
   scoring_version: string | null;
-  evaluation_status: "not_needed" | "pending" | "evaluating" | "completed" | "failed" | string | null;
+  evaluation_status: PracticeEvaluationStatus | "pending" | string | null;
+  evaluation_automatic_retry_at?: string | null;
+  evaluation_automatic_retry_exhausted_at?: string | null;
   evaluation_started_at: string | null;
   evaluation_completed_at: string | null;
   evaluation_error: string | null;
@@ -69,6 +85,9 @@ export interface PracticeAssignmentSummary {
   passed: boolean | null;
   question_count: number;
   generation_status: PracticeGenerationStatus;
+  generation_retry_exhausted: boolean;
+  generation_automatic_retry_at?: string | null;
+  generation_automatic_retry_exhausted_at?: string | null;
   generation_started_at: string | null;
   generation_completed_at: string | null;
   generation_error: string | null;
@@ -77,8 +96,25 @@ export interface PracticeAssignmentSummary {
   repeat_number: number;
   adaptive_reason: string | null;
   adaptive_status: string | null;
+  resolution_cycle_id: string | null;
+  resolution_cycle_number: number | null;
+  evidence_cutoff_sequence: number | null;
   student_name?: string | null;
   student_email?: string | null;
+}
+
+export function hasDurableWorksheetPreparationState(
+  assignment: Pick<
+    PracticeAssignmentSummary,
+    "practice_test_id" | "generation_status"
+  >,
+) {
+  return (
+    Boolean(assignment.practice_test_id) ||
+    ["queued", "generating", "needs_review"].includes(
+      assignment.generation_status,
+    )
+  );
 }
 
 export type PracticeQuestionType =
@@ -129,56 +165,188 @@ export interface PracticeWorksheetDetail {
   questions: PracticeWorksheetQuestion[];
 }
 
+export interface PracticeClassContextOption {
+  batch_id: string;
+  batch_name: string;
+  worksheet_level: "A1" | "A2" | "B1" | "B2";
+}
+
 export interface PracticeAnswerInput {
   question_id: string;
   answer: string;
 }
 
-const PRACTICE_ASSIGNMENT_LIMITS = {
-  student: 40,
-  workspace: 160,
-} as const;
+export interface PracticeDraft {
+  draft_id: string;
+  assignment_id: string;
+  revision: number;
+  answers: PracticeAnswerInput[];
+  updated_at: string;
+}
+
+export interface SavedPracticeDraft extends PracticeDraft {
+  saved_at: string;
+}
+
+export type PracticeTeacherActionType =
+  | "score_override"
+  | "assignment_reassigned"
+  | "support_resolved"
+  | "semantic_review_finalized";
+
+export type PracticeSupportResolution =
+  | "reassigned"
+  | "contacted"
+  | "not_needed";
+export type PracticeSupportStatus = "open" | "resolved" | "not_applicable";
+
+export interface PracticeTeacherAction {
+  id: string;
+  action_revision: number;
+  action_type: PracticeTeacherActionType;
+  attempt_id: string | null;
+  resolution: PracticeSupportResolution | null;
+  reason: string;
+  before_state: Record<string, unknown>;
+  after_state: Record<string, unknown>;
+  related_assignment_id: string | null;
+  actor_id: string;
+  actor_name: string;
+  created_at: string;
+}
+
+export interface PracticeTeacherActionHistory {
+  assignment_id: string;
+  current_revision: number;
+  support_status: PracticeSupportStatus;
+  items: PracticeTeacherAction[];
+}
+
+export interface PracticeScoreOverrideResult {
+  action_id: string;
+  action_revision: number;
+  assignment_id: string;
+  attempt_id: string;
+  score_points: number;
+  max_score_points: number;
+  score_percent: number;
+  passed: boolean;
+  assignment_status: "passed" | "failed";
+  follow_up_assignment_id: string | null;
+}
+
+export type PracticeSemanticReviewStatus =
+  | "correct"
+  | "partially_correct"
+  | "capitalization_issue"
+  | "minor_punctuation"
+  | "incorrect";
+
+export interface PracticeSemanticReviewQuestion {
+  question_id: string;
+  question_number: number;
+  question_type: string;
+  prompt: string;
+  student_answer: string;
+  rubric: { criteria: string[]; sample_answer: string | null } | null;
+  sample_answer: string | null;
+  explanation: string | null;
+}
+
+export interface PracticeSemanticReviewDraft {
+  assignment_id: string;
+  attempt_id: string;
+  evaluation_version: number;
+  hold_reason_code: string;
+  current_action_revision: number;
+  questions: PracticeSemanticReviewQuestion[];
+}
+
+export interface PracticeSemanticReviewDecision {
+  question_id: string;
+  review_status: PracticeSemanticReviewStatus;
+  feedback_text: string;
+  corrected_answer: string | null;
+  model_answer: string | null;
+  short_reason: string;
+}
+
+export interface PracticeSemanticReviewResult {
+  action_id: string;
+  action_revision: number;
+  assignment_id: string;
+  attempt_id: string;
+  evaluation_status: "completed";
+  attempt_status: "checked";
+  assignment_status: "passed" | "failed";
+  score_points: number;
+  max_score_points: number;
+  score_percent: number;
+  passed: boolean;
+}
+
+const PRACTICE_ASSIGNMENT_PAGE_SIZE = 100;
 
 function requireClient() {
   const client = getSupabaseClient();
   if (!client) {
-    throw new Error("Supabase is not configured. Demo mode is still available.");
+    throw new Error(
+      "The application service is not configured. Please contact support.",
+    );
   }
   return client;
 }
 
 function parseOptions(options: Json | null): string[] {
   if (Array.isArray(options)) {
-    return options.filter((option): option is string => typeof option === "string");
+    return options.filter(
+      (option): option is string => typeof option === "string",
+    );
   }
 
   if (options && typeof options === "object") {
-    const candidate = (options as { choices?: unknown; options?: unknown }).choices
-      ?? (options as { choices?: unknown; options?: unknown }).options;
+    const candidate =
+      (options as { choices?: unknown; options?: unknown }).choices ??
+      (options as { choices?: unknown; options?: unknown }).options;
     if (Array.isArray(candidate)) {
-      return candidate.filter((option): option is string => typeof option === "string");
+      return candidate.filter(
+        (option): option is string => typeof option === "string",
+      );
     }
   }
 
   return [];
 }
 
-function parseMiniLesson(value: Json | null | undefined): PracticeMiniLesson | null {
+function parseMiniLesson(
+  value: Json | null | undefined,
+): PracticeMiniLesson | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) return null;
   const record = value as Record<string, unknown>;
   const examples = Array.isArray(record.correct_examples)
-    ? record.correct_examples.filter((example): example is string => typeof example === "string")
+    ? record.correct_examples.filter(
+        (example): example is string => typeof example === "string",
+      )
     : [];
 
   const miniLesson = {
-    short_explanation: typeof record.short_explanation === "string" ? record.short_explanation : "",
+    short_explanation:
+      typeof record.short_explanation === "string"
+        ? record.short_explanation
+        : "",
     key_rule: typeof record.key_rule === "string" ? record.key_rule : "",
     correct_examples: examples,
-    common_mistake_warning: typeof record.common_mistake_warning === "string" ? record.common_mistake_warning : "",
-    what_to_revise: typeof record.what_to_revise === "string" ? record.what_to_revise : "",
+    common_mistake_warning:
+      typeof record.common_mistake_warning === "string"
+        ? record.common_mistake_warning
+        : "",
+    what_to_revise:
+      typeof record.what_to_revise === "string" ? record.what_to_revise : "",
   };
 
-  return miniLesson.short_explanation || miniLesson.key_rule || miniLesson.correct_examples.length > 0
+  return miniLesson.short_explanation ||
+    miniLesson.key_rule ||
+    miniLesson.correct_examples.length > 0
     ? miniLesson
     : null;
 }
@@ -197,244 +365,32 @@ function normalizeStatus(status: string): PracticeAssignmentStatus {
   return "unlocked";
 }
 
-function normalizeAttemptStatus(status: string | null): PracticeAttemptStatus | null {
-  if (status === "in_progress" || status === "submitted" || status === "checked") return status;
+function normalizeAttemptStatus(
+  status: string | null,
+): PracticeAttemptStatus | null {
+  if (
+    status === "in_progress" ||
+    status === "submitted" ||
+    status === "checked"
+  )
+    return status;
   return null;
 }
 
-function normalizeGenerationStatus(status: string | null | undefined, hasWorksheet = false): PracticeGenerationStatus {
-  if (status === "idle" || status === "generating" || status === "ready" || status === "failed") return status;
+function normalizeGenerationStatus(
+  status: string | null | undefined,
+  hasWorksheet = false,
+): PracticeGenerationStatus {
+  if (
+    status === "idle" ||
+    status === "queued" ||
+    status === "generating" ||
+    status === "ready" ||
+    status === "needs_review" ||
+    status === "failed"
+  )
+    return status;
   return hasWorksheet ? "ready" : "idle";
-}
-
-type PracticeAssignmentWithGeneration = PracticeAssignmentRow & {
-  generation_status?: string | null;
-  generation_started_at?: string | null;
-  generation_completed_at?: string | null;
-  generation_error?: string | null;
-  previous_assignment_id?: string | null;
-  previous_attempt_id?: string | null;
-  repeat_number?: number | null;
-  adaptive_reason?: string | null;
-  adaptive_status?: string | null;
-};
-
-type PracticeTestWithMiniLesson = PracticeTestRow & {
-  mini_lesson?: Json | null;
-};
-
-function mapRpcAssignment(row: PracticeAssignmentRpcRow): PracticeAssignmentSummary {
-  return {
-    id: row.assignment_id,
-    workspace_id: row.workspace_id,
-    student_id: row.student_id,
-    grammar_topic_id: row.grammar_topic_id,
-    grammar_topic_name: row.grammar_topic_name,
-    grammar_topic_slug: row.grammar_topic_slug,
-    grammar_topic_description: null,
-    practice_test_id: row.practice_test_id,
-    worksheet_title: row.worksheet_title,
-    worksheet_level: row.worksheet_level,
-    worksheet_difficulty: row.worksheet_difficulty,
-    worksheet_mini_lesson: null,
-    status: normalizeStatus(row.status),
-    source: row.source,
-    assigned_at: row.assigned_at,
-    started_at: row.started_at,
-    completed_at: row.completed_at,
-    latest_attempt_id: row.latest_attempt_id,
-    latest_attempt_status: normalizeAttemptStatus(row.latest_attempt_status),
-    score: row.score,
-    max_score: row.max_score,
-    score_points: null,
-    max_score_points: null,
-    scoring_version: null,
-    evaluation_status: null,
-    evaluation_started_at: null,
-    evaluation_completed_at: null,
-    evaluation_error: null,
-    score_percent: row.score_percent,
-    passed: row.passed,
-    question_count: row.question_count,
-    generation_status: normalizeGenerationStatus(null, Boolean(row.practice_test_id)),
-    generation_started_at: null,
-    generation_completed_at: null,
-    generation_error: null,
-    previous_assignment_id: null,
-    previous_attempt_id: null,
-    repeat_number: 0,
-    adaptive_reason: null,
-    adaptive_status: null,
-  };
-}
-
-function mapReviewAssignment(row: PracticeReviewRpcRow): PracticeAssignmentSummary {
-  return {
-    id: row.assignment_id,
-    workspace_id: row.workspace_id,
-    student_id: row.student_id,
-    grammar_topic_id: row.grammar_topic_id,
-    grammar_topic_name: row.grammar_topic_name,
-    grammar_topic_slug: row.grammar_topic_slug,
-    grammar_topic_description: null,
-    practice_test_id: row.practice_test_id,
-    worksheet_title: row.worksheet_title,
-    worksheet_level: row.worksheet_level,
-    worksheet_difficulty: row.worksheet_difficulty,
-    worksheet_mini_lesson: null,
-    status: normalizeStatus(row.status),
-    source: row.source,
-    assigned_at: row.assigned_at,
-    started_at: row.started_at,
-    completed_at: row.completed_at,
-    latest_attempt_id: row.latest_attempt_id,
-    latest_attempt_status: normalizeAttemptStatus(row.latest_attempt_status),
-    score: row.score,
-    max_score: row.max_score,
-    score_points: asNullableNumber((row as PracticeReviewRpcRow & { score_points?: unknown }).score_points),
-    max_score_points: asNullableNumber((row as PracticeReviewRpcRow & { max_score_points?: unknown }).max_score_points),
-    scoring_version: asNullableString((row as PracticeReviewRpcRow & { scoring_version?: unknown }).scoring_version),
-    evaluation_status: asNullableString((row as PracticeReviewRpcRow & { evaluation_status?: unknown }).evaluation_status),
-    evaluation_started_at: null,
-    evaluation_completed_at: null,
-    evaluation_error: asNullableString((row as PracticeReviewRpcRow & { evaluation_error?: unknown }).evaluation_error),
-    score_percent: row.score_percent,
-    passed: row.passed,
-    question_count: row.question_count,
-    generation_status: normalizeGenerationStatus(null, Boolean(row.practice_test_id)),
-    generation_started_at: null,
-    generation_completed_at: null,
-    generation_error: null,
-    previous_assignment_id: null,
-    previous_attempt_id: null,
-    repeat_number: 0,
-    adaptive_reason: null,
-    adaptive_status: null,
-  };
-}
-
-function mapAssignmentFromTables(
-  assignment: PracticeAssignmentWithGeneration,
-  topic: GrammarTopicRow | undefined,
-  worksheet: PracticeTestWithMiniLesson | undefined,
-  latestAttempt: PracticeAttemptRow | undefined,
-  student?: ProfileRow | undefined,
-  questionCount = 0,
-): PracticeAssignmentSummary {
-  const latestAttemptWithPoints = latestAttempt as
-    | (PracticeAttemptRow & {
-      score_points?: number | null;
-      max_score_points?: number | null;
-      scoring_version?: string | null;
-      evaluation_status?: string | null;
-      evaluation_started_at?: string | null;
-      evaluation_completed_at?: string | null;
-      evaluation_error?: string | null;
-    })
-    | undefined;
-
-  return {
-    id: assignment.id,
-    workspace_id: assignment.workspace_id,
-    student_id: assignment.student_id,
-    grammar_topic_id: assignment.grammar_topic_id,
-    grammar_topic_name: topic?.name ?? "Grammar topic",
-    grammar_topic_slug: topic?.slug ?? "grammar-topic",
-    grammar_topic_description: topic?.description ?? null,
-    practice_test_id: assignment.practice_test_id,
-    worksheet_title: worksheet?.title ?? null,
-    worksheet_level: worksheet?.level ?? null,
-    worksheet_difficulty: worksheet?.difficulty ?? null,
-    worksheet_mini_lesson: parseMiniLesson(worksheet?.mini_lesson),
-    status: normalizeStatus(assignment.status),
-    source: assignment.source,
-    assigned_at: assignment.assigned_at,
-    started_at: assignment.started_at,
-    completed_at: assignment.completed_at,
-    latest_attempt_id: assignment.latest_attempt_id,
-    latest_attempt_status: normalizeAttemptStatus(latestAttempt?.status ?? null),
-    score: latestAttempt?.score ?? null,
-    max_score: latestAttempt?.max_score ?? null,
-    score_points: latestAttemptWithPoints?.score_points ?? null,
-    max_score_points: latestAttemptWithPoints?.max_score_points ?? null,
-    scoring_version: latestAttemptWithPoints?.scoring_version ?? null,
-    evaluation_status: latestAttemptWithPoints?.evaluation_status ?? null,
-    evaluation_started_at: latestAttemptWithPoints?.evaluation_started_at ?? null,
-    evaluation_completed_at: latestAttemptWithPoints?.evaluation_completed_at ?? null,
-    evaluation_error: latestAttemptWithPoints?.evaluation_error ?? null,
-    score_percent: latestAttemptWithPoints?.score_percent ?? null,
-    passed: latestAttemptWithPoints?.passed ?? null,
-    question_count: questionCount,
-    generation_status: normalizeGenerationStatus(assignment.generation_status, Boolean(assignment.practice_test_id)),
-    generation_started_at: assignment.generation_started_at ?? null,
-    generation_completed_at: assignment.generation_completed_at ?? null,
-    generation_error: assignment.generation_error ?? null,
-    previous_assignment_id: assignment.previous_assignment_id ?? null,
-    previous_attempt_id: assignment.previous_attempt_id ?? null,
-    repeat_number: assignment.repeat_number ?? 0,
-    adaptive_reason: assignment.adaptive_reason ?? null,
-    adaptive_status: assignment.adaptive_status ?? null,
-    student_name: student?.full_name ?? student?.email ?? null,
-    student_email: student?.email ?? null,
-  };
-}
-
-async function hydrateAssignments(assignments: PracticeAssignmentWithGeneration[]): Promise<PracticeAssignmentSummary[]> {
-  if (assignments.length === 0) return [];
-
-  const client = requireClient();
-  const topicIds = Array.from(new Set(assignments.map((assignment) => assignment.grammar_topic_id)));
-  const worksheetIds = Array.from(new Set(assignments.map((assignment) => assignment.practice_test_id).filter((id): id is string => Boolean(id))));
-  const attemptIds = Array.from(new Set(assignments.map((assignment) => assignment.latest_attempt_id).filter((id): id is string => Boolean(id))));
-  const studentIds = Array.from(new Set(assignments.map((assignment) => assignment.student_id)));
-
-  const [
-    { data: topics, error: topicsError },
-    { data: worksheets, error: worksheetsError },
-    { data: attempts, error: attemptsError },
-    { data: profiles, error: profilesError },
-  ] = await Promise.all([
-    client.from("grammar_topics").select("id, name, slug, description").in("id", topicIds),
-    worksheetIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from("practice_tests").select("*").in("id", worksheetIds),
-    attemptIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from("practice_test_attempts").select("*").in("id", attemptIds),
-    studentIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from("profiles").select("id, full_name, email").in("id", studentIds),
-  ]);
-
-  if (topicsError) throw topicsError;
-  if (worksheetsError) throw worksheetsError;
-  if (attemptsError) throw attemptsError;
-  if (profilesError) throw profilesError;
-
-  const topicMap = new Map(((topics ?? []) as GrammarTopicRow[]).map((topic) => [topic.id, topic]));
-  const worksheetMap = new Map(((worksheets ?? []) as PracticeTestWithMiniLesson[]).map((worksheet) => [worksheet.id, worksheet]));
-  const attemptMap = new Map(((attempts ?? []) as PracticeAttemptRow[]).map((attempt) => [attempt.id, attempt]));
-  const profileMap = new Map(((profiles ?? []) as ProfileRow[]).map((profile) => [profile.id, profile]));
-
-  return assignments.map((assignment) =>
-    mapAssignmentFromTables(
-      assignment,
-      topicMap.get(assignment.grammar_topic_id),
-      assignment.practice_test_id ? worksheetMap.get(assignment.practice_test_id) : undefined,
-      assignment.latest_attempt_id ? attemptMap.get(assignment.latest_attempt_id) : undefined,
-      profileMap.get(assignment.student_id),
-      0,
-    ),
-  );
-}
-
-type EdgeAssignmentSummary = Partial<PracticeAssignmentSummary> & {
-  id?: string;
-  assignment_id?: string;
-};
-
-function asString(value: unknown, fallback = "") {
-  return typeof value === "string" ? value : fallback;
 }
 
 function asNullableString(value: unknown) {
@@ -450,46 +406,266 @@ function asNullableNumber(value: unknown) {
   return null;
 }
 
-function mapEdgeAssignment(row: EdgeAssignmentSummary): PracticeAssignmentSummary {
-  const id = asString(row.id ?? row.assignment_id);
-  const practiceTestId = asNullableString(row.practice_test_id);
-  if (!id) {
-    throw new Error("Practice assignment was not returned.");
+function parsePositiveRevision(value: unknown, label: string): number {
+  if (typeof value !== "number" || !Number.isSafeInteger(value) || value < 1) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      `${label} returned an invalid response. Please refresh and try again.`,
+    );
+  }
+  return value;
+}
+
+function parseDraftTimestamp(value: unknown, label: string): string {
+  if (typeof value !== "string" || Number.isNaN(Date.parse(value))) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      `${label} returned an invalid response. Please refresh and try again.`,
+    );
+  }
+  return value;
+}
+
+function parsePracticeAnswers(
+  value: unknown,
+  label: string,
+): PracticeAnswerInput[] {
+  if (!Array.isArray(value)) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      `${label} returned an invalid response. Please refresh and try again.`,
+    );
+  }
+  const answers = value.map((answer) => {
+    if (
+      !answer ||
+      typeof answer !== "object" ||
+      Array.isArray(answer) ||
+      typeof (answer as Record<string, unknown>).question_id !== "string" ||
+      typeof (answer as Record<string, unknown>).answer !== "string"
+    ) {
+      throw new PublicAppError(
+        "data_invalid_response",
+        `${label} returned an invalid response. Please refresh and try again.`,
+      );
+    }
+    return {
+      question_id: (answer as Record<string, unknown>).question_id as string,
+      answer: (answer as Record<string, unknown>).answer as string,
+    };
+  });
+  if (
+    new Set(answers.map((answer) => answer.question_id)).size !== answers.length
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      `${label} returned an invalid response. Please refresh and try again.`,
+    );
+  }
+  return answers;
+}
+
+function parseTeacherActionRevision(
+  value: unknown,
+  label: string,
+  allowZero = false,
+) {
+  const minimum = allowZero ? 0 : 1;
+  if (
+    typeof value !== "number" ||
+    !Number.isSafeInteger(value) ||
+    value < minimum
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      `${label} returned an invalid response. Please refresh and try again.`,
+    );
+  }
+  return value;
+}
+
+function parseTeacherActionObject(
+  value: unknown,
+  label: string,
+): Record<string, unknown> {
+  return parseApiRecord<Record<string, unknown>>(value, label);
+}
+
+function parsePracticeTeacherAction(value: unknown): PracticeTeacherAction {
+  const row = parseApiRecord<Record<string, unknown>>(value, "Teacher action");
+  if (
+    typeof row.id !== "string" ||
+    ![
+      "score_override",
+      "assignment_reassigned",
+      "support_resolved",
+      "semantic_review_finalized",
+    ].includes(typeof row.action_type === "string" ? row.action_type : "") ||
+    typeof row.reason !== "string" ||
+    typeof row.actor_id !== "string" ||
+    typeof row.actor_name !== "string" ||
+    typeof row.created_at !== "string"
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Teacher action history returned an invalid response. Please refresh and try again.",
+    );
+  }
+
+  const resolution = asNullableString(row.resolution);
+  if (
+    resolution &&
+    !["reassigned", "contacted", "not_needed"].includes(resolution)
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Teacher action history returned an invalid response. Please refresh and try again.",
+    );
   }
 
   return {
-    id,
-    workspace_id: asString(row.workspace_id),
-    student_id: asString(row.student_id),
-    grammar_topic_id: asString(row.grammar_topic_id),
-    grammar_topic_name: asString(row.grammar_topic_name, "Grammar topic"),
-    grammar_topic_slug: asString(row.grammar_topic_slug, "grammar-topic"),
+    id: row.id,
+    action_revision: parseTeacherActionRevision(
+      row.action_revision,
+      "Teacher action",
+    ),
+    action_type: row.action_type as PracticeTeacherActionType,
+    attempt_id: asNullableString(row.attempt_id),
+    resolution: resolution as PracticeSupportResolution | null,
+    reason: row.reason,
+    before_state: parseTeacherActionObject(row.before_state, "Teacher action"),
+    after_state: parseTeacherActionObject(row.after_state, "Teacher action"),
+    related_assignment_id: asNullableString(row.related_assignment_id),
+    actor_id: row.actor_id,
+    actor_name: row.actor_name,
+    created_at: parseDraftTimestamp(row.created_at, "Teacher action"),
+  };
+}
+
+function parsePracticeTeacherActionHistory(
+  value: unknown,
+  assignmentId: string,
+): PracticeTeacherActionHistory {
+  const row = parseApiRecord<Record<string, unknown>>(
+    value,
+    "Teacher action history",
+  );
+  if (
+    row.schema_version !== 1 ||
+    row.assignment_id !== assignmentId ||
+    !["open", "resolved", "not_applicable"].includes(
+      typeof row.support_status === "string" ? row.support_status : "",
+    )
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Teacher action history returned an invalid response. Please refresh and try again.",
+    );
+  }
+
+  const items = parseApiArray<unknown>(row.items, "Teacher action history").map(
+    parsePracticeTeacherAction,
+  );
+  const currentRevision = parseTeacherActionRevision(
+    row.current_revision,
+    "Teacher action history",
+    true,
+  );
+  if ((items[0]?.action_revision ?? 0) !== currentRevision) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Teacher action history returned an invalid response. Please refresh and try again.",
+    );
+  }
+
+  return {
+    assignment_id: assignmentId,
+    current_revision: currentRevision,
+    support_status: row.support_status as PracticeSupportStatus,
+    items,
+  };
+}
+
+function mapApiAssignment(value: unknown): PracticeAssignmentSummary {
+  const row = parseApiRecord<Record<string, unknown>>(
+    value,
+    "Practice assignment",
+  );
+  const requiredStrings = [
+    row.id,
+    row.workspace_id,
+    row.student_id,
+    row.grammar_topic_id,
+    row.grammar_topic_name,
+    row.grammar_topic_slug,
+    row.status,
+    row.source,
+    row.assigned_at,
+  ];
+  if (requiredStrings.some((entry) => typeof entry !== "string")) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Practice assignment returned an invalid response. Please refresh and try again.",
+    );
+  }
+
+  const practiceTestId = asNullableString(row.practice_test_id);
+  return {
+    id: row.id as string,
+    workspace_id: row.workspace_id as string,
+    student_id: row.student_id as string,
+    grammar_topic_id: row.grammar_topic_id as string,
+    grammar_topic_name: row.grammar_topic_name as string,
+    grammar_topic_slug: row.grammar_topic_slug as string,
     grammar_topic_description: asNullableString(row.grammar_topic_description),
+    batch_id: asNullableString(row.batch_id),
+    batch_name: asNullableString(row.batch_name),
+    class_context_version: asNullableNumber(row.class_context_version) ?? 0,
     practice_test_id: practiceTestId,
     worksheet_title: asNullableString(row.worksheet_title),
     worksheet_level: asNullableString(row.worksheet_level),
     worksheet_difficulty: asNullableString(row.worksheet_difficulty),
-    worksheet_mini_lesson: parseMiniLesson(row.worksheet_mini_lesson as Json | null | undefined),
-    status: normalizeStatus(asString(row.status, "unlocked")),
-    source: asString(row.source, "weakness_auto"),
-    assigned_at: asString(row.assigned_at),
+    worksheet_mini_lesson: parseMiniLesson(
+      (row.worksheet_mini_lesson ?? null) as Json | null,
+    ),
+    status: normalizeStatus(row.status as string),
+    source: row.source as string,
+    assigned_at: row.assigned_at as string,
     started_at: asNullableString(row.started_at),
     completed_at: asNullableString(row.completed_at),
     latest_attempt_id: asNullableString(row.latest_attempt_id),
-    latest_attempt_status: normalizeAttemptStatus(asNullableString(row.latest_attempt_status)),
+    latest_attempt_status: normalizeAttemptStatus(
+      asNullableString(row.latest_attempt_status),
+    ),
     score: asNullableNumber(row.score),
     max_score: asNullableNumber(row.max_score),
     score_points: asNullableNumber(row.score_points),
     max_score_points: asNullableNumber(row.max_score_points),
     scoring_version: asNullableString(row.scoring_version),
     evaluation_status: asNullableString(row.evaluation_status),
+    evaluation_automatic_retry_at: asNullableString(
+      row.evaluation_automatic_retry_at,
+    ),
+    evaluation_automatic_retry_exhausted_at: asNullableString(
+      row.evaluation_automatic_retry_exhausted_at,
+    ),
     evaluation_started_at: asNullableString(row.evaluation_started_at),
     evaluation_completed_at: asNullableString(row.evaluation_completed_at),
     evaluation_error: asNullableString(row.evaluation_error),
     score_percent: asNullableNumber(row.score_percent),
     passed: typeof row.passed === "boolean" ? row.passed : null,
-    question_count: typeof row.question_count === "number" ? row.question_count : 0,
-    generation_status: normalizeGenerationStatus(asNullableString(row.generation_status), Boolean(practiceTestId)),
+    question_count: asNullableNumber(row.question_count) ?? 0,
+    generation_status: normalizeGenerationStatus(
+      asNullableString(row.generation_status),
+      Boolean(practiceTestId),
+    ),
+    generation_retry_exhausted: row.generation_retry_exhausted === true,
+    generation_automatic_retry_at: asNullableString(
+      row.generation_automatic_retry_at,
+    ),
+    generation_automatic_retry_exhausted_at: asNullableString(
+      row.generation_automatic_retry_exhausted_at,
+    ),
     generation_started_at: asNullableString(row.generation_started_at),
     generation_completed_at: asNullableString(row.generation_completed_at),
     generation_error: asNullableString(row.generation_error),
@@ -498,6 +674,9 @@ function mapEdgeAssignment(row: EdgeAssignmentSummary): PracticeAssignmentSummar
     repeat_number: asNullableNumber(row.repeat_number) ?? 0,
     adaptive_reason: asNullableString(row.adaptive_reason),
     adaptive_status: asNullableString(row.adaptive_status),
+    resolution_cycle_id: asNullableString(row.resolution_cycle_id),
+    resolution_cycle_number: asNullableNumber(row.resolution_cycle_number),
+    evidence_cutoff_sequence: asNullableNumber(row.evidence_cutoff_sequence),
     student_name: asNullableString(row.student_name),
     student_email: asNullableString(row.student_email),
   };
@@ -508,278 +687,446 @@ export async function ensureStudentPracticeAssignment(
   studentId: string,
   grammarTopicId: string,
 ): Promise<PracticeAssignmentSummary> {
-  const client = requireClient();
-  const { data, error } = await client.rpc("ensure_student_practice_assignment", {
-    target_workspace_id: workspaceId,
-    target_student_id: studentId,
-    target_grammar_topic_id: grammarTopicId,
-  });
-
-  if (error) throw error;
-  const row = data?.[0];
-  if (!row) throw new Error("Practice assignment was not returned.");
-  return mapRpcAssignment(row);
+  const value = await callApiRpc<unknown>(
+    "ensure_student_practice_assignment",
+    {
+      target_workspace_id: workspaceId,
+      target_student_id: studentId,
+      target_grammar_topic_id: grammarTopicId,
+    },
+    "Practice could not be unlocked. Please try again.",
+  );
+  return mapApiAssignment(value);
 }
 
 export async function listStudentPracticeAssignments(
   workspaceId: string,
   studentId: string,
 ): Promise<PracticeAssignmentSummary[]> {
-  const client = requireClient();
-  const { data, error } = await client.rpc("list_student_practice_assignments", {
-    target_workspace_id: workspaceId,
-    target_student_id: studentId,
-  });
+  const assignments: PracticeAssignmentSummary[] = [];
+  let cursor: { updated_at: string; id: string } | null = null;
 
-  if (error) throw error;
-  const summaries = ((data ?? []) as PracticeAssignmentRpcRow[])
-    .slice(0, PRACTICE_ASSIGNMENT_LIMITS.student)
-    .map(mapRpcAssignment);
-  const assignmentIds = summaries.map((assignment) => assignment.id);
-  if (assignmentIds.length === 0) return summaries;
-  const attemptIds = Array.from(new Set(summaries.map((assignment) => assignment.latest_attempt_id).filter((id): id is string => Boolean(id))));
+  do {
+    const value: unknown = await callApiRpc<unknown>(
+      "list_student_practice_assignments_page",
+      {
+        target_workspace_id: workspaceId,
+        target_student_id: studentId,
+        requested_page_size: PRACTICE_ASSIGNMENT_PAGE_SIZE,
+        cursor_updated_at: cursor?.updated_at ?? null,
+        cursor_assignment_id: cursor?.id ?? null,
+      },
+      "Practice assignments could not be loaded. Please try again.",
+    );
+    const page: ApiPage<unknown> = parseApiPage<unknown>(
+      value,
+      "Practice assignments",
+    );
+    assignments.push(...page.items.map(mapApiAssignment));
+    if (!page.has_more) break;
 
-  const [
-    { data: assignments, error: assignmentError },
-    { data: attempts, error: attemptsError },
-  ] = await Promise.all([
-    client
-      .from("student_practice_assignments")
-      .select("*")
-      .in("id", assignmentIds),
-    attemptIds.length === 0
-      ? Promise.resolve({ data: [], error: null })
-      : client.from("practice_test_attempts").select("*").in("id", attemptIds),
-  ]);
+    const next: ApiKeysetCursor | null = page.next_cursor;
+    if (
+      !next ||
+      typeof next.updated_at !== "string" ||
+      typeof next.id !== "string" ||
+      (cursor?.updated_at === next.updated_at && cursor.id === next.id)
+    ) {
+      parseApiPage(null, "Practice assignments");
+    }
+    cursor = { updated_at: next!.updated_at!, id: next!.id };
+  } while (cursor);
 
-  if (assignmentError) throw assignmentError;
-  if (attemptsError) throw attemptsError;
-  const assignmentMap = new Map(
-    ((assignments ?? []) as PracticeAssignmentWithGeneration[]).map((assignment) => [assignment.id, assignment]),
+  return assignments;
+}
+
+export async function getPracticeAssignmentSummary(
+  assignmentId: string,
+): Promise<PracticeAssignmentSummary> {
+  const value = await callApiRpc<unknown>(
+    "get_practice_assignment_summary",
+    { target_assignment_id: assignmentId },
+    "Practice assignment could not be loaded. Please try again.",
   );
-  const attemptMap = new Map(((attempts ?? []) as PracticeAttemptRow[]).map((attempt) => [attempt.id, attempt]));
+  return mapApiAssignment(value);
+}
 
-  return summaries.map((summary) => {
-    const assignment = assignmentMap.get(summary.id);
-    const latestAttempt = summary.latest_attempt_id ? attemptMap.get(summary.latest_attempt_id) : undefined;
-    const attemptWithPoints = latestAttempt as
-      | (PracticeAttemptRow & {
-        score_points?: number | null;
-        max_score_points?: number | null;
-        scoring_version?: string | null;
-        evaluation_status?: string | null;
-        evaluation_started_at?: string | null;
-        evaluation_completed_at?: string | null;
-        evaluation_error?: string | null;
-      })
-      | undefined;
+export async function listPracticeClassContextOptions(
+  assignmentId: string,
+): Promise<PracticeClassContextOption[]> {
+  const value = await callApiRpc<unknown>(
+    "list_practice_class_context_options",
+    { target_assignment_id: assignmentId },
+    "Available classes could not be loaded. Please try again.",
+  );
+  const root = parseApiRecord<Record<string, unknown>>(
+    value,
+    "Practice class options",
+  );
+  if (
+    root.schema_version !== 1 ||
+    root.assignment_id !== assignmentId ||
+    !Array.isArray(root.items)
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Available classes returned an invalid response. Please refresh and try again.",
+    );
+  }
+
+  return root.items.map((value) => {
+    const row = parseApiRecord<Record<string, unknown>>(
+      value,
+      "Practice class option",
+    );
+    if (
+      typeof row.batch_id !== "string" ||
+      typeof row.batch_name !== "string" ||
+      typeof row.worksheet_level !== "string" ||
+      !["A1", "A2", "B1", "B2"].includes(row.worksheet_level)
+    ) {
+      throw new PublicAppError(
+        "data_invalid_response",
+        "Available classes returned an invalid response. Please refresh and try again.",
+      );
+    }
     return {
-      ...summary,
-      score: latestAttempt?.score ?? summary.score,
-      max_score: latestAttempt?.max_score ?? summary.max_score,
-      score_points: attemptWithPoints?.score_points ?? summary.score_points,
-      max_score_points: attemptWithPoints?.max_score_points ?? summary.max_score_points,
-      scoring_version: attemptWithPoints?.scoring_version ?? summary.scoring_version,
-      evaluation_status: attemptWithPoints?.evaluation_status ?? summary.evaluation_status,
-      evaluation_started_at: attemptWithPoints?.evaluation_started_at ?? summary.evaluation_started_at,
-      evaluation_completed_at: attemptWithPoints?.evaluation_completed_at ?? summary.evaluation_completed_at,
-      evaluation_error: attemptWithPoints?.evaluation_error ?? summary.evaluation_error,
-      score_percent: latestAttempt?.score_percent ?? summary.score_percent,
-      passed: latestAttempt?.passed ?? summary.passed,
-      generation_status: normalizeGenerationStatus(assignment?.generation_status, Boolean(summary.practice_test_id)),
-      generation_started_at: assignment?.generation_started_at ?? null,
-      generation_completed_at: assignment?.generation_completed_at ?? null,
-      generation_error: assignment?.generation_error ?? null,
-      previous_assignment_id: assignment?.previous_assignment_id ?? null,
-      previous_attempt_id: assignment?.previous_attempt_id ?? null,
-      repeat_number: assignment?.repeat_number ?? 0,
-      adaptive_reason: assignment?.adaptive_reason ?? null,
-      adaptive_status: assignment?.adaptive_status ?? null,
+      batch_id: row.batch_id,
+      batch_name: row.batch_name,
+      worksheet_level:
+        row.worksheet_level as PracticeClassContextOption["worksheet_level"],
     };
   });
 }
 
-export async function getPracticeAssignmentSummary(assignmentId: string): Promise<PracticeAssignmentSummary> {
-  const client = requireClient();
-  const { data, error } = await client
-    .from("student_practice_assignments")
-    .select("*")
-    .eq("id", assignmentId)
-    .maybeSingle();
-
-  if (error) throw error;
-  if (!data) throw new Error("Practice assignment was not found.");
-
-  const hydrated = await hydrateAssignments([data as PracticeAssignmentWithGeneration]);
-  const assignment = hydrated[0];
-  if (!assignment) throw new Error("Practice assignment was not returned.");
-  return assignment;
+export async function resolvePracticeAssignmentClassContext(
+  assignmentId: string,
+  batchId: string,
+): Promise<PracticeAssignmentSummary> {
+  const value = await callApiRpc<unknown>(
+    "resolve_practice_assignment_class_context",
+    {
+      target_assignment_id: assignmentId,
+      target_batch_id: batchId,
+    },
+    "The worksheet class could not be saved. Please try again.",
+  );
+  const row = parseApiRecord<Record<string, unknown>>(
+    value,
+    "Practice class resolution",
+  );
+  if (
+    row.schema_version !== 1 ||
+    row.assignment_id !== assignmentId ||
+    row.batch_id !== batchId ||
+    typeof row.batch_name !== "string" ||
+    typeof row.worksheet_level !== "string" ||
+    !["A1", "A2", "B1", "B2"].includes(row.worksheet_level)
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "The saved worksheet class returned an invalid response. Please refresh and try again.",
+    );
+  }
+  return getPracticeAssignmentSummary(assignmentId);
 }
 
-export async function preparePracticeWorksheet(assignmentId: string): Promise<PracticeAssignmentSummary> {
+export async function preparePracticeWorksheet(
+  assignmentId: string,
+): Promise<PracticeAssignmentSummary> {
   const client = requireClient();
   const { data, error } = await client.functions.invoke<{
     error?: string;
-    assignment?: EdgeAssignmentSummary;
+    error_code?: string;
+    assignment_id?: string;
+    job_id?: string | null;
+    generation_status?: PracticeGenerationStatus;
   }>("generate-practice-worksheet", {
     body: { assignment_id: assignmentId },
   });
 
   if (error || data?.error) {
-    const currentAssignment = await getPracticeAssignmentSummary(assignmentId).catch(() => null);
+    const currentAssignment = await getPracticeAssignmentSummary(
+      assignmentId,
+    ).catch(() => null);
     if (
-      currentAssignment
-      && (
-        currentAssignment.practice_test_id
-        || currentAssignment.generation_status === "generating"
-        || currentAssignment.generation_status === "failed"
-      )
+      currentAssignment &&
+      hasDurableWorksheetPreparationState(currentAssignment)
     ) {
       return currentAssignment;
     }
     if (error) throw error;
-    throw new Error(data?.error);
+    if (data?.error_code === "worksheet_generation_retry_limit_exceeded") {
+      throw new PublicAppError(
+        "data_rate_limited",
+        "Automatic worksheet retries are exhausted. Your teacher can review this practice topic while approved material is checked.",
+      );
+    }
+    throw new PublicAppError(
+      "data_request_failed",
+      data?.error ?? "Worksheet preparation could not be started.",
+    );
   }
-  if (!data?.assignment) throw new Error("Worksheet preparation did not return an assignment.");
-  return mapEdgeAssignment(data.assignment);
+  if (
+    data?.assignment_id !== assignmentId ||
+    !data.generation_status ||
+    !["queued", "generating", "ready", "needs_review"].includes(
+      data.generation_status,
+    )
+  ) {
+    throw new Error(
+      "Worksheet preparation did not return a valid durable state.",
+    );
+  }
+
+  const currentAssignment = await getPracticeAssignmentSummary(assignmentId);
+  return {
+    ...currentAssignment,
+    generation_status: data.generation_status,
+  };
 }
 
 export async function listWorkspacePracticeAssignments(
   workspaceId: string,
 ): Promise<PracticeAssignmentSummary[]> {
-  const client = requireClient();
-  const { data, error } = await client
-    .from("student_practice_assignments")
-    .select("*")
-    .eq("workspace_id", workspaceId)
-    .order("updated_at", { ascending: false })
-    .limit(PRACTICE_ASSIGNMENT_LIMITS.workspace);
+  const assignments: PracticeAssignmentSummary[] = [];
+  let cursor: { updated_at: string; id: string } | null = null;
 
-  if (error) throw error;
-  return hydrateAssignments((data ?? []) as PracticeAssignmentWithGeneration[]);
+  do {
+    const value: unknown = await callApiRpc<unknown>(
+      "list_workspace_practice_assignments_page",
+      {
+        target_workspace_id: workspaceId,
+        requested_page_size: PRACTICE_ASSIGNMENT_PAGE_SIZE,
+        cursor_updated_at: cursor?.updated_at ?? null,
+        cursor_assignment_id: cursor?.id ?? null,
+      },
+      "Workspace practice assignments could not be loaded. Please try again.",
+    );
+    const page: ApiPage<unknown> = parseApiPage<unknown>(
+      value,
+      "Workspace practice assignments",
+    );
+    assignments.push(...page.items.map(mapApiAssignment));
+    if (!page.has_more) break;
+
+    const next: ApiKeysetCursor | null = page.next_cursor;
+    if (
+      !next ||
+      typeof next.updated_at !== "string" ||
+      typeof next.id !== "string" ||
+      (cursor?.updated_at === next.updated_at && cursor.id === next.id)
+    ) {
+      parseApiPage(null, "Workspace practice assignments");
+    }
+    cursor = { updated_at: next!.updated_at!, id: next!.id };
+  } while (cursor);
+
+  return assignments;
 }
 
-export async function startPracticeAssignment(assignmentId: string): Promise<PracticeAssignmentSummary> {
-  const client = requireClient();
-  const { data, error } = await client.rpc("start_practice_assignment", {
-    target_assignment_id: assignmentId,
-  });
+export async function startPracticeAssignment(
+  assignmentId: string,
+): Promise<PracticeAssignmentSummary> {
+  const value = await callApiRpc<unknown>(
+    "start_practice_assignment",
+    { target_assignment_id: assignmentId },
+    "Practice could not be started. Please try again.",
+  );
+  return mapApiAssignment(value);
+}
 
-  if (error) throw error;
-  const row = data?.[0];
-  if (!row) throw new Error("Practice assignment was not returned.");
-  return mapRpcAssignment(row);
+export async function getPracticeDraft(
+  assignmentId: string,
+): Promise<PracticeDraft | null> {
+  const value = await callApiRpc<unknown>(
+    "get_practice_draft",
+    { target_assignment_id: assignmentId },
+    "Saved worksheet answers could not be loaded. Please try again.",
+  );
+  const rows = parseApiArray<Record<string, unknown>>(value, "Practice draft");
+  if (rows.length > 1) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Practice draft returned an invalid response. Please refresh and try again.",
+    );
+  }
+  const row = rows[0];
+  if (!row) return null;
+  if (typeof row.draft_id !== "string" || row.assignment_id !== assignmentId) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Practice draft returned an invalid response. Please refresh and try again.",
+    );
+  }
+  return {
+    draft_id: row.draft_id,
+    assignment_id: assignmentId,
+    revision: parsePositiveRevision(row.revision, "Practice draft"),
+    answers: parsePracticeAnswers(row.answers, "Practice draft"),
+    updated_at: parseDraftTimestamp(row.updated_at, "Practice draft"),
+  };
+}
+
+export async function savePracticeDraft(
+  assignmentId: string,
+  answers: PracticeAnswerInput[],
+  expectedRevision: number,
+): Promise<SavedPracticeDraft> {
+  if (!Number.isSafeInteger(expectedRevision) || expectedRevision < 0) {
+    throw new PublicAppError(
+      "data_invalid_request",
+      "The worksheet draft revision is invalid. Refresh and try again.",
+    );
+  }
+  const value = await callApiRpc<unknown>(
+    "save_practice_draft",
+    {
+      target_assignment_id: assignmentId,
+      submitted_answers: answers as unknown as Json,
+      expected_revision: expectedRevision,
+    },
+    "Worksheet answers could not be saved. Please try again.",
+  );
+  const rows = parseApiArray<Record<string, unknown>>(
+    value,
+    "Practice draft save",
+  );
+  const row = rows[0];
+  if (
+    rows.length !== 1 ||
+    !row ||
+    typeof row.draft_id !== "string" ||
+    row.assignment_id !== assignmentId
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Practice draft save returned an invalid response. Please refresh and try again.",
+    );
+  }
+  const savedAt = parseDraftTimestamp(row.saved_at, "Practice draft save");
+  return {
+    draft_id: row.draft_id,
+    assignment_id: assignmentId,
+    revision: parsePositiveRevision(row.saved_revision, "Practice draft save"),
+    answers: parsePracticeAnswers(row.answers, "Practice draft save"),
+    updated_at: savedAt,
+    saved_at: savedAt,
+  };
 }
 
 export async function submitPracticeAttempt(
   assignmentId: string,
-  answers: PracticeAnswerInput[],
+  expectedRevision: number,
 ): Promise<PracticeAssignmentSummary> {
-  const client = requireClient();
-  const { data, error } = await client.rpc("submit_practice_attempt", {
-    target_assignment_id: assignmentId,
-    submitted_answers: answers as unknown as Json,
-  });
-
-  if (error) throw error;
-  const row = data?.[0];
-  if (!row) throw new Error("Practice attempt result was not returned.");
-  return mapRpcAssignment(row);
+  if (!Number.isSafeInteger(expectedRevision) || expectedRevision < 1) {
+    throw new PublicAppError(
+      "data_invalid_request",
+      "The worksheet draft revision is invalid. Refresh and try again.",
+    );
+  }
+  const value = await callApiRpc<unknown>(
+    "submit_practice_attempt",
+    {
+      target_assignment_id: assignmentId,
+      expected_revision: expectedRevision,
+    },
+    "Practice answers could not be submitted. Please try again.",
+  );
+  const result = mapApiAssignment(value);
+  if (result.id !== assignmentId) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Practice submission returned an invalid response. Please refresh and try again.",
+    );
+  }
+  return result;
 }
 
-export async function createNextPracticeAssignment(assignmentId: string): Promise<PracticeAssignmentSummary> {
-  const client = requireClient();
-  const { data, error } = await client.rpc("create_next_practice_assignment", {
-    target_assignment_id: assignmentId,
-  });
-
-  if (error) throw error;
-  const row = data?.[0];
-  if (!row) throw new Error("Practice assignment was not returned.");
-  const summary = mapRpcAssignment(row);
-
-  const { data: assignmentRow, error: assignmentError } = await client
-    .from("student_practice_assignments")
-    .select("*")
-    .eq("id", summary.id)
-    .maybeSingle();
-  if (assignmentError) throw assignmentError;
-  if (!assignmentRow) return summary;
-
-  const hydrated = await hydrateAssignments([assignmentRow as PracticeAssignmentWithGeneration]);
-  return {
-    ...summary,
-    ...hydrated[0],
-  };
+export async function createNextPracticeAssignment(
+  assignmentId: string,
+): Promise<PracticeAssignmentSummary> {
+  const value = await callApiRpc<unknown>(
+    "create_next_practice_assignment",
+    { target_assignment_id: assignmentId },
+    "The next practice assignment could not be created. Please try again.",
+  );
+  return mapApiAssignment(value);
 }
 
-export async function getChildPracticeAssignment(assignmentId: string): Promise<PracticeAssignmentSummary | null> {
-  const client = requireClient();
-  const { data, error } = await client
-    .from("student_practice_assignments")
-    .select("*")
-    .eq("previous_assignment_id", assignmentId)
-    .eq("source", "adaptive_repeat")
-    .neq("status", "cancelled")
-    .order("assigned_at", { ascending: false })
-    .limit(1)
-    .maybeSingle();
-
-  if (error) throw error;
-  if (!data) return null;
-
-  const hydrated = await hydrateAssignments([data as PracticeAssignmentWithGeneration]);
-  return hydrated[0] ?? null;
+export async function getChildPracticeAssignment(
+  assignmentId: string,
+): Promise<PracticeAssignmentSummary | null> {
+  const value = await callApiRpc<unknown>(
+    "get_child_practice_assignment",
+    { target_previous_assignment_id: assignmentId },
+    "The next practice assignment could not be loaded. Please try again.",
+  );
+  return value == null ? null : mapApiAssignment(value);
 }
 
 export async function evaluatePracticeAttempt(assignmentId: string): Promise<{
-  status: string;
+  accepted: true;
+  assignment_id: string;
+  attempt_id: string;
+  status: PracticeEvaluationStatus;
+  evaluation_status: PracticeEvaluationStatus;
   evaluated: boolean;
-  evaluated_question_count?: number;
 }> {
   const client = requireClient();
   const { data, error } = await client.functions.invoke<{
     error?: string;
-    status?: string;
+    accepted?: boolean;
+    assignment_id?: string;
+    attempt_id?: string;
+    status?: PracticeEvaluationStatus;
+    evaluation_status?: PracticeEvaluationStatus;
     evaluated?: boolean;
-    evaluated_question_count?: number;
   }>("evaluate-practice-attempt", {
     body: { assignment_id: assignmentId },
   });
 
   if (error) throw error;
   if (data?.error) throw new Error(data.error);
+  if (
+    data?.accepted !== true ||
+    data.assignment_id !== assignmentId ||
+    !data.attempt_id ||
+    !data.status ||
+    data.evaluation_status !== data.status ||
+    !["queued", "evaluating", "completed", "not_needed", "failed"].includes(
+      data.status,
+    )
+  ) {
+    throw new Error("Practice feedback did not return a valid durable state.");
+  }
   return {
-    status: data?.status ?? "completed",
+    accepted: true,
+    assignment_id: data.assignment_id,
+    attempt_id: data.attempt_id,
+    status: data.status,
+    evaluation_status: data.evaluation_status,
     evaluated: Boolean(data?.evaluated),
-    evaluated_question_count: data?.evaluated_question_count,
   };
 }
 
-export async function getPracticeWorksheetDetail(assignmentId: string): Promise<PracticeWorksheetDetail> {
-  const client = requireClient();
-  const { data: assignment, error: assignmentError } = await client
-    .from("student_practice_assignments")
-    .select("*")
-    .eq("id", assignmentId)
-    .maybeSingle();
-
-  if (assignmentError) throw assignmentError;
-  if (!assignment) throw new Error("Practice assignment was not found.");
-
-  const summaries = await hydrateAssignments([assignment as PracticeAssignmentWithGeneration]);
-  const summary = summaries[0];
+export async function getPracticeWorksheetDetail(
+  assignmentId: string,
+): Promise<PracticeWorksheetDetail> {
+  const summary = await getPracticeAssignmentSummary(assignmentId);
   if (!summary.practice_test_id) {
     return { assignment: summary, questions: [] };
   }
 
-  const { data: questions, error: questionsError } = await client
-    .rpc("get_practice_assignment_questions", {
-      target_assignment_id: assignmentId,
-    });
-
-  if (questionsError) throw questionsError;
-  const safeQuestions = (questions ?? []) as PracticeQuestionRpcRow[];
+  const value = await callApiRpc<unknown>(
+    "get_practice_assignment_questions",
+    { target_assignment_id: assignmentId },
+    "Worksheet questions could not be loaded. Please try again.",
+  );
+  const safeQuestions = parseApiArray<PracticeQuestionRpcRow>(
+    value,
+    "Worksheet questions",
+  );
 
   return {
     assignment: {
@@ -796,44 +1143,54 @@ export async function getPracticeWorksheetDetail(assignmentId: string): Promise<
   };
 }
 
-export async function getPracticeWorksheetReview(assignmentId: string): Promise<PracticeWorksheetDetail> {
-  const client = requireClient();
-  const { data, error } = await client.rpc("get_practice_assignment_review", {
-    target_assignment_id: assignmentId,
-  });
-
-  if (error) throw error;
-  const reviewRows = (data ?? []) as PracticeReviewRpcRow[];
+export async function getPracticeWorksheetReview(
+  assignmentId: string,
+): Promise<PracticeWorksheetDetail> {
+  const value = await callApiRpc<unknown>(
+    "get_practice_assignment_review",
+    { target_assignment_id: assignmentId },
+    "Worksheet review could not be loaded. Please try again.",
+  );
+  const reviewRows = parseApiArray<PracticeReviewRpcRow>(
+    value,
+    "Worksheet review",
+  );
   const firstRow = reviewRows[0];
   if (!firstRow) throw new Error("Worksheet review is not available yet.");
 
-  let assignment = mapReviewAssignment(firstRow);
-  const { data: assignmentRow, error: assignmentError } = await client
-    .from("student_practice_assignments")
-    .select("*")
-    .eq("id", assignmentId)
-    .maybeSingle();
-
-  if (assignmentError) throw assignmentError;
-  if (assignmentRow) {
-    const hydrated = await hydrateAssignments([assignmentRow as PracticeAssignmentWithGeneration]);
-    assignment = {
-      ...assignment,
-      ...hydrated[0],
-      question_count: reviewRows.length,
-      latest_attempt_id: firstRow.latest_attempt_id,
-      latest_attempt_status: normalizeAttemptStatus(firstRow.latest_attempt_status),
-      score: firstRow.score,
-      max_score: firstRow.max_score,
-      score_points: asNullableNumber((firstRow as PracticeReviewRpcRow & { score_points?: unknown }).score_points),
-      max_score_points: asNullableNumber((firstRow as PracticeReviewRpcRow & { max_score_points?: unknown }).max_score_points),
-      scoring_version: asNullableString((firstRow as PracticeReviewRpcRow & { scoring_version?: unknown }).scoring_version),
-      evaluation_status: asNullableString((firstRow as PracticeReviewRpcRow & { evaluation_status?: unknown }).evaluation_status),
-      evaluation_error: asNullableString((firstRow as PracticeReviewRpcRow & { evaluation_error?: unknown }).evaluation_error),
-      score_percent: firstRow.score_percent,
-      passed: firstRow.passed,
-    };
-  }
+  const currentAssignment = await getPracticeAssignmentSummary(assignmentId);
+  const assignment: PracticeAssignmentSummary = {
+    ...currentAssignment,
+    question_count: reviewRows.length,
+    latest_attempt_id: firstRow.latest_attempt_id,
+    latest_attempt_status: normalizeAttemptStatus(
+      firstRow.latest_attempt_status,
+    ),
+    score: firstRow.score,
+    max_score: firstRow.max_score,
+    score_points: asNullableNumber(
+      (firstRow as PracticeReviewRpcRow & { score_points?: unknown })
+        .score_points,
+    ),
+    max_score_points: asNullableNumber(
+      (firstRow as PracticeReviewRpcRow & { max_score_points?: unknown })
+        .max_score_points,
+    ),
+    scoring_version: asNullableString(
+      (firstRow as PracticeReviewRpcRow & { scoring_version?: unknown })
+        .scoring_version,
+    ),
+    evaluation_status: asNullableString(
+      (firstRow as PracticeReviewRpcRow & { evaluation_status?: unknown })
+        .evaluation_status,
+    ),
+    evaluation_error: asNullableString(
+      (firstRow as PracticeReviewRpcRow & { evaluation_error?: unknown })
+        .evaluation_error,
+    ),
+    score_percent: firstRow.score_percent,
+    passed: firstRow.passed,
+  };
 
   return {
     assignment: {
@@ -851,37 +1208,484 @@ export async function getPracticeWorksheetReview(assignmentId: string): Promise<
       explanation: question.explanation,
       is_correct: question.is_correct,
       review_status: question.review_status,
-      points_awarded: asNullableNumber((question as PracticeReviewRpcRow & { points_awarded?: unknown }).points_awarded),
-      max_points: asNullableNumber((question as PracticeReviewRpcRow & { max_points?: unknown }).max_points),
-      feedback_text: asNullableString((question as PracticeReviewRpcRow & { feedback_text?: unknown }).feedback_text),
-      corrected_answer: asNullableString((question as PracticeReviewRpcRow & { corrected_answer?: unknown }).corrected_answer),
-      model_answer: asNullableString((question as PracticeReviewRpcRow & { model_answer?: unknown }).model_answer),
-      short_reason: asNullableString((question as PracticeReviewRpcRow & { short_reason?: unknown }).short_reason),
-      evaluator_source: asNullableString((question as PracticeReviewRpcRow & { evaluator_source?: unknown }).evaluator_source),
+      points_awarded: asNullableNumber(
+        (question as PracticeReviewRpcRow & { points_awarded?: unknown })
+          .points_awarded,
+      ),
+      max_points: asNullableNumber(
+        (question as PracticeReviewRpcRow & { max_points?: unknown })
+          .max_points,
+      ),
+      feedback_text: asNullableString(
+        (question as PracticeReviewRpcRow & { feedback_text?: unknown })
+          .feedback_text,
+      ),
+      corrected_answer: asNullableString(
+        (question as PracticeReviewRpcRow & { corrected_answer?: unknown })
+          .corrected_answer,
+      ),
+      model_answer: asNullableString(
+        (question as PracticeReviewRpcRow & { model_answer?: unknown })
+          .model_answer,
+      ),
+      short_reason: asNullableString(
+        (question as PracticeReviewRpcRow & { short_reason?: unknown })
+          .short_reason,
+      ),
+      evaluator_source: asNullableString(
+        (question as PracticeReviewRpcRow & { evaluator_source?: unknown })
+          .evaluator_source,
+      ),
     })),
   };
 }
 
-export function getPracticeAssignmentLabel(assignment: PracticeAssignmentSummary) {
-  if (!assignment.practice_test_id && assignment.generation_status === "generating") return "Preparing worksheet";
-  if (!assignment.practice_test_id && assignment.generation_status === "failed") return "Preparation failed";
-  if (assignment.status === "unlocked" && !assignment.practice_test_id) return "Practice unlocked";
+export async function getPracticeTeacherActions(
+  assignmentId: string,
+): Promise<PracticeTeacherActionHistory> {
+  const value = await callApiRpc<unknown>(
+    "get_practice_teacher_actions",
+    { target_assignment_id: assignmentId },
+    "Teacher worksheet history could not be loaded. Please try again.",
+  );
+  return parsePracticeTeacherActionHistory(value, assignmentId);
+}
+
+export async function getPracticeSemanticReviewDraft(
+  assignmentId: string,
+): Promise<PracticeSemanticReviewDraft> {
+  const value = await callApiRpc<unknown>(
+    "get_practice_semantic_review_draft",
+    { target_assignment_id: assignmentId },
+    "The held answer review could not be loaded. Please try again.",
+  );
+  const row = parseApiRecord<Record<string, unknown>>(
+    value,
+    "Held answer review",
+  );
+  if (
+    row.schema_version !== 1 ||
+    row.assignment_id !== assignmentId ||
+    typeof row.attempt_id !== "string" ||
+    typeof row.hold_reason_code !== "string"
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "The held answer review returned an invalid response. Please refresh and try again.",
+    );
+  }
+
+  const questions = parseApiArray<unknown>(
+    row.questions,
+    "Held answer review",
+  ).map((value): PracticeSemanticReviewQuestion => {
+    const question = parseApiRecord<Record<string, unknown>>(
+      value,
+      "Held answer question",
+    );
+    if (
+      typeof question.question_id !== "string" ||
+      typeof question.question_number !== "number" ||
+      !Number.isSafeInteger(question.question_number) ||
+      question.question_number < 1 ||
+      typeof question.question_type !== "string" ||
+      typeof question.prompt !== "string" ||
+      typeof question.student_answer !== "string"
+    ) {
+      throw new PublicAppError(
+        "data_invalid_response",
+        "A held answer question returned an invalid response. Please refresh and try again.",
+      );
+    }
+    let rubric: PracticeSemanticReviewQuestion["rubric"] = null;
+    if (question.rubric != null) {
+      const rubricRow = parseApiRecord<Record<string, unknown>>(
+        question.rubric,
+        "Held answer rubric",
+      );
+      const criteria = parseApiArray<unknown>(
+        rubricRow.criteria,
+        "Held answer rubric",
+      );
+      if (criteria.some((criterion) => typeof criterion !== "string")) {
+        throw new PublicAppError(
+          "data_invalid_response",
+          "The held answer rubric returned an invalid response. Please refresh and try again.",
+        );
+      }
+      rubric = {
+        criteria: criteria as string[],
+        sample_answer: asNullableString(rubricRow.sample_answer),
+      };
+    }
+    return {
+      question_id: question.question_id,
+      question_number: question.question_number,
+      question_type: question.question_type,
+      prompt: question.prompt,
+      student_answer: question.student_answer,
+      rubric,
+      sample_answer: asNullableString(question.sample_answer),
+      explanation: asNullableString(question.explanation),
+    };
+  });
+  if (questions.length < 1 || questions.length > 3) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "The held answer review returned an invalid question count. Please refresh and try again.",
+    );
+  }
+
+  return {
+    assignment_id: assignmentId,
+    attempt_id: row.attempt_id,
+    evaluation_version: parsePositiveRevision(
+      row.evaluation_version,
+      "Held answer review",
+    ),
+    hold_reason_code: row.hold_reason_code,
+    current_action_revision: parseTeacherActionRevision(
+      row.current_action_revision,
+      "Held answer review",
+      true,
+    ),
+    questions,
+  };
+}
+
+const semanticReviewPoints: Record<PracticeSemanticReviewStatus, number> = {
+  correct: 1,
+  minor_punctuation: 1,
+  partially_correct: 0.5,
+  capitalization_issue: 0.5,
+  incorrect: 0,
+};
+
+export async function finalizePracticeSemanticReview(input: {
+  assignmentId: string;
+  commandId: string;
+  expectedActionRevision: number;
+  reason: string;
+  reviews: PracticeSemanticReviewDecision[];
+}): Promise<PracticeSemanticReviewResult> {
+  const reason = input.reason.trim();
+  if (
+    reason.length < 8 ||
+    reason.length > 1000 ||
+    !Number.isSafeInteger(input.expectedActionRevision) ||
+    input.expectedActionRevision < 0 ||
+    input.reviews.length < 1 ||
+    input.reviews.length > 3 ||
+    new Set(input.reviews.map((review) => review.question_id)).size !==
+      input.reviews.length ||
+    input.reviews.some(
+      (review) =>
+        !Object.hasOwn(semanticReviewPoints, review.review_status) ||
+        review.feedback_text.trim().length < 1 ||
+        review.feedback_text.trim().length > 500 ||
+        review.short_reason.trim().length < 1 ||
+        review.short_reason.trim().length > 240 ||
+        (review.review_status !== "correct" &&
+          !review.corrected_answer?.trim()),
+    )
+  ) {
+    throw new PublicAppError(
+      "data_invalid_request",
+      "Complete every held answer with a rubric-based verdict, correction, feedback, and audit reason.",
+    );
+  }
+
+  const value = await callApiRpc<unknown>(
+    "finalize_practice_semantic_review",
+    {
+      target_assignment_id: input.assignmentId,
+      command_id: input.commandId,
+      expected_action_revision: input.expectedActionRevision,
+      review_reason: reason,
+      reviews: input.reviews.map((review) => ({
+        question_id: review.question_id,
+        review_status: review.review_status,
+        points_awarded: semanticReviewPoints[review.review_status],
+        max_points: 1,
+        feedback_text: review.feedback_text.trim(),
+        corrected_answer:
+          review.review_status === "correct"
+            ? null
+            : review.corrected_answer?.trim() || null,
+        model_answer: review.model_answer?.trim() || null,
+        short_reason: review.short_reason.trim(),
+      })),
+    },
+    "The held answer review could not be finalized. Please try again.",
+  );
+  const row = parseApiRecord<Record<string, unknown>>(
+    value,
+    "Held answer finalization",
+  );
+  const scorePoints = asNullableNumber(row.score_points);
+  const maxScorePoints = asNullableNumber(row.max_score_points);
+  const scorePercent = asNullableNumber(row.score_percent);
+  if (
+    row.schema_version !== 1 ||
+    row.assignment_id !== input.assignmentId ||
+    typeof row.action_id !== "string" ||
+    typeof row.attempt_id !== "string" ||
+    row.evaluation_status !== "completed" ||
+    row.attempt_status !== "checked" ||
+    !["passed", "failed"].includes(String(row.assignment_status)) ||
+    scorePoints == null ||
+    maxScorePoints == null ||
+    scorePercent == null ||
+    typeof row.passed !== "boolean"
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "The held answer finalization returned an invalid response. Please refresh and try again.",
+    );
+  }
+  return {
+    action_id: row.action_id,
+    action_revision: parseTeacherActionRevision(
+      row.action_revision,
+      "Held answer finalization",
+    ),
+    assignment_id: input.assignmentId,
+    attempt_id: row.attempt_id,
+    evaluation_status: "completed",
+    attempt_status: "checked",
+    assignment_status: row.assignment_status as "passed" | "failed",
+    score_points: scorePoints,
+    max_score_points: maxScorePoints,
+    score_percent: scorePercent,
+    passed: row.passed,
+  };
+}
+
+export async function overridePracticeAttemptScore(
+  assignmentId: string,
+  scorePercent: number,
+  reason: string,
+  expectedActionRevision: number,
+): Promise<PracticeScoreOverrideResult> {
+  if (
+    !Number.isFinite(scorePercent) ||
+    scorePercent < 0 ||
+    scorePercent > 100 ||
+    reason.trim().length < 8 ||
+    !Number.isSafeInteger(expectedActionRevision) ||
+    expectedActionRevision < 0
+  ) {
+    throw new PublicAppError(
+      "data_invalid_request",
+      "Enter a score from 0 to 100 and a short reason for the audit history.",
+    );
+  }
+
+  const value = await callApiRpc<unknown>(
+    "override_practice_attempt_score",
+    {
+      target_assignment_id: assignmentId,
+      target_score_percent: scorePercent,
+      override_reason: reason.trim(),
+      expected_action_revision: expectedActionRevision,
+    },
+    "The worksheet score could not be updated. Please try again.",
+  );
+  const row = parseApiRecord<Record<string, unknown>>(
+    value,
+    "Worksheet score override",
+  );
+  if (
+    row.schema_version !== 1 ||
+    row.assignment_id !== assignmentId ||
+    typeof row.action_id !== "string" ||
+    typeof row.attempt_id !== "string" ||
+    typeof row.score_points !== "number" ||
+    typeof row.max_score_points !== "number" ||
+    typeof row.score_percent !== "number" ||
+    typeof row.passed !== "boolean" ||
+    !["passed", "failed"].includes(
+      typeof row.assignment_status === "string" ? row.assignment_status : "",
+    )
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Worksheet score override returned an invalid response. Please refresh and try again.",
+    );
+  }
+
+  return {
+    action_id: row.action_id,
+    action_revision: parseTeacherActionRevision(
+      row.action_revision,
+      "Worksheet score override",
+    ),
+    assignment_id: assignmentId,
+    attempt_id: row.attempt_id,
+    score_points: row.score_points,
+    max_score_points: row.max_score_points,
+    score_percent: row.score_percent,
+    passed: row.passed,
+    assignment_status: row.assignment_status as "passed" | "failed",
+    follow_up_assignment_id: asNullableString(row.follow_up_assignment_id),
+  };
+}
+
+export async function reassignPracticeAssignment(
+  assignmentId: string,
+  reason: string,
+  expectedActionRevision: number,
+): Promise<{ action_revision: number; replacement_assignment_id: string }> {
+  if (
+    reason.trim().length < 8 ||
+    !Number.isSafeInteger(expectedActionRevision) ||
+    expectedActionRevision < 0
+  ) {
+    throw new PublicAppError(
+      "data_invalid_request",
+      "Add a short reason before reassigning this worksheet.",
+    );
+  }
+
+  const value = await callApiRpc<unknown>(
+    "reassign_practice_assignment",
+    {
+      target_assignment_id: assignmentId,
+      reassignment_reason: reason.trim(),
+      expected_action_revision: expectedActionRevision,
+    },
+    "The follow-up worksheet could not be assigned. Please try again.",
+  );
+  const row = parseApiRecord<Record<string, unknown>>(
+    value,
+    "Worksheet reassignment",
+  );
+  if (
+    row.schema_version !== 1 ||
+    row.assignment_id !== assignmentId ||
+    typeof row.replacement_assignment_id !== "string"
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Worksheet reassignment returned an invalid response. Please refresh and try again.",
+    );
+  }
+  return {
+    action_revision: parseTeacherActionRevision(
+      row.action_revision,
+      "Worksheet reassignment",
+    ),
+    replacement_assignment_id: row.replacement_assignment_id,
+  };
+}
+
+export async function resolvePracticeSupport(
+  assignmentId: string,
+  resolution: PracticeSupportResolution,
+  notes: string,
+  expectedActionRevision: number,
+): Promise<{ action_revision: number; support_status: "resolved" }> {
+  if (
+    !["reassigned", "contacted", "not_needed"].includes(resolution) ||
+    notes.trim().length > 1000 ||
+    !Number.isSafeInteger(expectedActionRevision) ||
+    expectedActionRevision < 0
+  ) {
+    throw new PublicAppError(
+      "data_invalid_request",
+      "The support resolution is invalid. Review it and try again.",
+    );
+  }
+
+  const value = await callApiRpc<unknown>(
+    "resolve_practice_support",
+    {
+      target_assignment_id: assignmentId,
+      support_resolution: resolution,
+      support_notes: notes.trim() || null,
+      expected_action_revision: expectedActionRevision,
+    },
+    "The support recommendation could not be resolved. Please try again.",
+  );
+  const row = parseApiRecord<Record<string, unknown>>(
+    value,
+    "Support resolution",
+  );
+  if (
+    row.schema_version !== 1 ||
+    row.assignment_id !== assignmentId ||
+    row.support_status !== "resolved" ||
+    row.resolution !== resolution
+  ) {
+    throw new PublicAppError(
+      "data_invalid_response",
+      "Support resolution returned an invalid response. Please refresh and try again.",
+    );
+  }
+  return {
+    action_revision: parseTeacherActionRevision(
+      row.action_revision,
+      "Support resolution",
+    ),
+    support_status: "resolved",
+  };
+}
+
+export function getPracticeAssignmentLabel(
+  assignment: PracticeAssignmentSummary,
+) {
+  if (
+    !assignment.practice_test_id &&
+    assignment.generation_status === "generating"
+  )
+    return "Preparing worksheet";
+  if (!assignment.practice_test_id && assignment.generation_status === "failed")
+    return "Preparation failed";
+  if (assignment.status === "unlocked" && !assignment.practice_test_id)
+    return "Practice unlocked";
   if (assignment.status === "unlocked") return "Worksheet assigned";
   if (assignment.status === "in_progress") return "In progress";
   if (assignment.status === "passed") return "Passed";
   if (assignment.status === "failed") return "Needs more practice";
-  if (assignment.status === "completed" && (assignment.evaluation_status === "pending" || assignment.evaluation_status === "evaluating")) return "Preparing feedback";
-  if (assignment.status === "completed" && assignment.evaluation_status === "failed") return "Feedback needs retry";
-  if (assignment.status === "completed" && assignment.latest_attempt_status === "submitted") return "Submitted for review";
+  if (
+    assignment.status === "completed" &&
+    (assignment.evaluation_status === "pending" ||
+      assignment.evaluation_status === "queued" ||
+      assignment.evaluation_status === "evaluating")
+  )
+    return "Preparing feedback";
+  if (
+    assignment.status === "completed" &&
+    assignment.evaluation_status === "failed"
+  )
+    return "Feedback needs retry";
+  if (
+    assignment.status === "completed" &&
+    assignment.evaluation_status === "needs_review"
+  )
+    return "Teacher review required";
+  if (
+    assignment.status === "completed" &&
+    assignment.latest_attempt_status === "submitted"
+  )
+    return "Submitted for review";
   if (assignment.status === "completed") return "Completed";
   return "Cancelled";
 }
 
-export function getPracticeAssignmentBadgeClass(assignment: PracticeAssignmentSummary) {
-  if (!assignment.practice_test_id && assignment.generation_status === "failed") {
+export function getPracticeAssignmentBadgeClass(
+  assignment: PracticeAssignmentSummary,
+) {
+  if (
+    !assignment.practice_test_id &&
+    assignment.generation_status === "failed"
+  ) {
     return "bg-destructive/10 text-destructive border-destructive/30";
   }
-  if (!assignment.practice_test_id && assignment.generation_status === "generating") {
+  if (
+    !assignment.practice_test_id &&
+    assignment.generation_status === "generating"
+  ) {
     return "bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-950/40 dark:text-blue-100 dark:border-blue-700";
   }
   if (assignment.status === "passed") {
@@ -889,6 +1693,9 @@ export function getPracticeAssignmentBadgeClass(assignment: PracticeAssignmentSu
   }
   if (assignment.status === "failed") {
     return "bg-orange-50 text-orange-800 border-orange-200 dark:bg-orange-950/40 dark:text-orange-100 dark:border-orange-700";
+  }
+  if (assignment.evaluation_status === "needs_review") {
+    return "bg-amber-50 text-amber-800 border-amber-200 dark:bg-amber-950/40 dark:text-amber-100 dark:border-amber-700";
   }
   if (assignment.status === "in_progress") {
     return "bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-950/40 dark:text-blue-100 dark:border-blue-700";
@@ -899,7 +1706,24 @@ export function getPracticeAssignmentBadgeClass(assignment: PracticeAssignmentSu
   return "bg-primary/10 text-primary border-primary/20";
 }
 
-export function formatPracticeScore(assignment: PracticeAssignmentSummary) {
+export function hasTerminalPracticeResult(
+  assignment: PracticeAssignmentSummary,
+) {
+  return (
+    assignment.latest_attempt_status === "checked" &&
+    (assignment.evaluation_status === "completed" ||
+      assignment.evaluation_status === "not_needed")
+  );
+}
+
+export function formatPracticeScore(
+  assignment: PracticeAssignmentSummary,
+  options: { allowProvisional?: boolean } = {},
+) {
+  if (!options.allowProvisional && !hasTerminalPracticeResult(assignment)) {
+    return null;
+  }
+
   const formatPointValue = (value: number) => {
     if (Number.isInteger(value)) return value.toString();
     return value.toFixed(2).replace(/\.?0+$/, "");
@@ -910,11 +1734,17 @@ export function formatPracticeScore(assignment: PracticeAssignmentSummary) {
     assignment.max_score_points != null &&
     assignment.max_score_points > 0
   ) {
-    const percent = assignment.score_percent ?? ((assignment.score_points * 100) / assignment.max_score_points);
+    const percent =
+      assignment.score_percent ??
+      (assignment.score_points * 100) / assignment.max_score_points;
     return `${formatPointValue(assignment.score_points)}/${formatPointValue(assignment.max_score_points)} (${Math.round(percent)}%)`;
   }
 
-  if (assignment.score_percent == null || assignment.max_score == null || assignment.max_score === 0) {
+  if (
+    assignment.score_percent == null ||
+    assignment.max_score == null ||
+    assignment.max_score === 0
+  ) {
     return null;
   }
   return `${assignment.score ?? 0}/${assignment.max_score} (${Math.round(assignment.score_percent)}%)`;

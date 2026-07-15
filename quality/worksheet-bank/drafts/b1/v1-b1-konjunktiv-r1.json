@@ -1,0 +1,201 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-konjunktiv-r1",
+    "template_key": "v1-b1-konjunktiv-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Konjunktiv pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Konjunktiv II: Höflich und vorsichtig formulieren",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "konjunktiv",
+    "name": "Konjunktiv II"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "konjunktiv",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Konjunktiv II drückt höfliche Bitten, Empfehlungen, Wünsche und nicht reale Bedingungen aus.",
+    "key_rule": "Häufige Formen sind „wäre“, „hätte“, „könnte“ und „sollte“; andere Verben werden meist mit „würde“ plus Infinitiv gebildet.",
+    "correct_examples": [
+      "Könnten Sie mir bitte helfen?",
+      "Mit mehr Zeit würde ich regelmäßig kochen."
+    ],
+    "common_mistake_warning": "In der würde-Form steht der Infinitiv am Satzende und wird nicht zusätzlich konjugiert.",
+    "what_to_revise": "Wiederhole höfliche Fragen, Ratschläge und irreale wenn-Sätze im Präsens."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Bitte an eine Pflegekraft ist höflich formuliert?",
+      "options": [
+        "Sie erklären mir bitte den Ablauf müssen.",
+        "Könnten Sie mir bitte den Ablauf erklären?",
+        "Können Sie mir sofort den Ablauf erklären!"
+      ],
+      "correct_answer": "Könnten Sie mir bitte den Ablauf erklären?",
+      "accepted_answers": ["Könnten Sie mir bitte den Ablauf erklären?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Könnten Sie“ formuliert eine respektvolle Bitte im Konjunktiv II.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz gibt einen vorsichtigen Rat?",
+      "options": [
+        "Du solltest die E-Mail vor dem Senden noch einmal lesen.",
+        "Du sollst die E-Mail unbedingt sofort noch einmal lesen.",
+        "Du würdest die E-Mail noch einmal gelesen."
+      ],
+      "correct_answer": "Du solltest die E-Mail vor dem Senden noch einmal lesen.",
+      "accepted_answers": [
+        "Du solltest die E-Mail vor dem Senden noch einmal lesen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Solltest“ drückt eine Empfehlung aus, ohne einen Befehl zu formulieren.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher irreale Bedingungssatz ist korrekt?",
+      "options": [
+        "Wenn ich mehr Zeit habe würde, ich einen weiteren Kurs besuchen.",
+        "Wenn ich hätte mehr Zeit, ich würde einen weiteren Kurs besuchen.",
+        "Wenn ich mehr Zeit hätte, würde ich einen weiteren Kurs besuchen."
+      ],
+      "correct_answer": "Wenn ich mehr Zeit hätte, würde ich einen weiteren Kurs besuchen.",
+      "accepted_answers": [
+        "Wenn ich mehr Zeit hätte, würde ich einen weiteren Kurs besuchen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im wenn-Satz steht „hätte“ am Ende; der Hauptsatz enthält „würde“ plus Infinitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [könnten, können, konnten]. Ergänze die höfliche Frage: ___ Sie den Termin bitte bestätigen?",
+      "options": [],
+      "correct_answer": "Könnten",
+      "accepted_answers": ["Könnten"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Könnten Sie“ kennzeichnet eine höfliche Bitte.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [war, wäre, ist]. Ergänze den Wunsch des Patienten: Ein ruhigeres Zimmer ___ angenehm.",
+      "options": [],
+      "correct_answer": "wäre",
+      "accepted_answers": ["wäre"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Wäre“ drückt einen Wunsch oder eine vorsichtige Einschätzung aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [begann ich früher würde, würde ich früher begonnen, würde ich früher beginnen]. Ergänze: An deiner Stelle ___ .",
+      "options": [],
+      "correct_answer": "würde ich früher beginnen",
+      "accepted_answers": ["würde ich früher beginnen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem Vorfeld folgt „würde“, danach das Subjekt „ich“ und am Ende der Infinitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [solltest, musst, willst]. Ergänze den Rat: Bei Fragen ___ du dich an die Kursleitung wenden.",
+      "options": [],
+      "correct_answer": "solltest",
+      "accepted_answers": ["solltest"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Solltest“ formuliert hier eine hilfreiche Empfehlung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Bitte ist höflich und grammatisch korrekt?",
+      "options": [
+        "Könnten Sie bitte das Fenster schließen?",
+        "Könnten Sie bitte das Fenster zu schließen?",
+        "Würden können Sie bitte das Fenster schließen?",
+        "Würden Sie können das Fenster bitte schließen?"
+      ],
+      "correct_answer": "Könnten Sie bitte das Fenster schließen?",
+      "accepted_answers": [
+        "Könnten Sie bitte das Fenster schließen?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Könnten Sie ...?“ bildet eine höfliche Bitte; der Infinitiv „schließen“ steht ohne „zu“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung drückt einen irrealen Wunsch korrekt aus?",
+      "options": [
+        "Wenn hätte ich genug Zeit, ich würde jeden Tag lernen.",
+        "Wenn ich genug Zeit würde haben, lernte ich jeden Tag würde.",
+        "Wenn ich genug Zeit habe, würde ich jeden Tag gelernt.",
+        "Wenn ich genug Zeit hätte, würde ich jeden Tag lernen."
+      ],
+      "correct_answer": "Wenn ich genug Zeit hätte, würde ich jeden Tag lernen.",
+      "accepted_answers": [
+        "Wenn ich genug Zeit hätte, würde ich jeden Tag lernen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die irreale Bedingung steht mit „hätte“ im wenn-Satz; die gewünschte Folge wird mit „würde“ plus Infinitiv formuliert.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche drei Vorschläge verwenden „könnte“, „sollte“ und „würde“ korrekt?",
+      "options": [
+        "Das Team könnte einführen kurze Besprechungen. Die Leitung sollen Änderungen früher mitteilen. Ich einen Ruheraum würde einrichten.",
+        "Das Team könnte kurze Besprechungen einführen. Die Leitung sollte Änderungen früher mitteilen. Ich würde einen Ruheraum einrichten.",
+        "Das Team könnte kurze Besprechungen eingeführt. Die Leitung sollte Änderungen früher mitgeteilt. Ich würde einen Ruheraum eingerichtet.",
+        "Das Team können kurze Besprechungen einführen. Die Leitung sollte zu Änderungen früher mitteilen. Ich würde einrichtet einen Ruheraum."
+      ],
+      "correct_answer": "Das Team könnte kurze Besprechungen einführen. Die Leitung sollte Änderungen früher mitteilen. Ich würde einen Ruheraum einrichten.",
+      "accepted_answers": [
+        "Das Team könnte kurze Besprechungen einführen. Die Leitung sollte Änderungen früher mitteilen. Ich würde einen Ruheraum einrichten."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach den Konjunktivformen stehen die Vollverben jeweils als Infinitiv am Satzende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-register-r1",
+    "template_key": "v1-a2-register-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Register pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Register: Höflich und passend ansprechen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "register",
+    "name": "Register"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "register",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Register richtet sich nach Beziehung und Situation. „Du“ passt zu vertrauten Personen, „Sie“ zu formellen oder unbekannten Gesprächspartnern.",
+    "key_rule": "Bei der höflichen Anrede schreibt man Sie, Ihnen und Ihr groß und verwendet die Verbform der dritten Person Plural.",
+    "correct_examples": [
+      "Können Sie mir bitte helfen?",
+      "Kannst du mir kurz helfen?"
+    ],
+    "common_mistake_warning": "Mische in einer Nachricht nicht die Anrede „Sie“ mit einer du-Verbform.",
+    "what_to_revise": "Übe formelle Bitten, passende Grußformeln und den Wechsel zwischen du und Sie."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nachricht passt zu einer unbekannten Kursleiterin?",
+      "options": [
+        "Sehr geehrte Frau Bauer, könnten Sie mir bitte helfen?",
+        "Hallo Anna, kannst du mir mal helfen?",
+        "Hey, du musst mir helfen.",
+        "Liebe Freundin, helfen Sie mir sofort."
+      ],
+      "correct_answer": "Sehr geehrte Frau Bauer, könnten Sie mir bitte helfen?",
+      "accepted_answers": [
+        "Sehr geehrte Frau Bauer, könnten Sie mir bitte helfen?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Formelle Anrede, Nachname und Konjunktivform bilden eine passende höfliche Bitte.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz passt zu einem guten Freund?",
+      "options": [
+        "Können Sie morgen mitkommen?",
+        "Könnt du morgen mitkommen?",
+        "Kann Sie morgen mitkommen?",
+        "Kannst du morgen mitkommen?"
+      ],
+      "correct_answer": "Kannst du morgen mitkommen?",
+      "accepted_answers": [
+        "Kannst du morgen mitkommen?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei einer vertrauten Person verwendet man „du“ mit der Verbform „kannst“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Ihnen, dir, dich]. Ergänze die formelle Anrede: Kann ich ___ noch eine Frage stellen?",
+      "options": [],
+      "correct_answer": "Ihnen",
+      "accepted_answers": [
+        "Ihnen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die höfliche Dativform zu „Sie“ lautet „Ihnen“ und wird großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Liebe, Hey, Sehr geehrte]. Ergänze eine formelle Anrede: ___ Frau Weber,",
+      "options": [],
+      "correct_answer": "Sehr geehrte",
+      "accepted_answers": [
+        "Sehr geehrte"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Sehr geehrte Frau Weber“ ist die passende formelle Briefanrede.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Tschüssi, Mit freundlichen Grüßen, Bis später]. Ergänze eine formelle Grußformel: ___",
+      "options": [],
+      "correct_answer": "Mit freundlichen Grüßen",
+      "accepted_answers": [
+        "Mit freundlichen Grüßen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Diese Grußformel passt zu einer formellen E-Mail an eine unbekannte oder berufliche Kontaktperson.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Anrede passt zu einer formellen E-Mail an die Kursleiterin Frau Meier?",
+      "options": [
+        "Hey Frau!",
+        "Sehr geehrte Frau Meier,",
+        "Hallo du Meier,",
+        "Liebe Meier!"
+      ],
+      "correct_answer": "Sehr geehrte Frau Meier,",
+      "accepted_answers": [
+        "Sehr geehrte Frau Meier,"
+      ],
+      "rubric": null,
+      "explanation": "Sehr geehrte Frau Meier ist die passende formelle Anrede mit Nachnamen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Sie, du, dich, dein]. Könnten ___ mir bitte antworten?",
+      "options": [],
+      "correct_answer": "Sie",
+      "accepted_answers": [
+        "Sie"
+      ],
+      "rubric": null,
+      "explanation": "In einer formellen Bitte verwendet man die großgeschriebene Anrede Sie.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Schluss passt zu einer kurzen professionellen Nachricht an eine Praxis?",
+      "options": [
+        "Tschüssi",
+        "Mach's gut",
+        "Freundliche Grüße",
+        "Bis dann!"
+      ],
+      "correct_answer": "Freundliche Grüße",
+      "accepted_answers": [
+        "Freundliche Grüße"
+      ],
+      "rubric": null,
+      "explanation": "Freundliche Grüße ist eine passende professionelle Schlussformel; die anderen Optionen sind zu informell.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

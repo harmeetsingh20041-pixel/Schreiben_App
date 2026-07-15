@@ -1,0 +1,204 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-perfekt-r1",
+    "template_key": "v1-b2-perfekt-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Perfekt pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Perfektformen in differenzierten Rückblicken",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "perfekt",
+    "name": "Perfekt"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "perfekt",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Perfekt verbindet einen vergangenen Vorgang häufig mit der Gegenwart oder einem mündlichen Rückblick. Hilfsverb, Partizipbildung und Ersatzinfinitiv müssen zusammenpassen.",
+    "key_rule": "Veränderungen stehen oft mit sein, die meisten Tätigkeiten mit haben. Bei Modalverben lautet die Endgruppe beispielsweise verschieben müssen statt verschoben gemusst.",
+    "correct_examples": [
+      "Die Beteiligung ist innerhalb eines Jahres deutlich gestiegen.",
+      "Die Projektgruppe hat sämtliche Rückmeldungen systematisch ausgewertet."
+    ],
+    "common_mistake_warning": "Setze bei untrennbaren Verben kein ge- und ersetze bei einem Modalverb das Partizip durch den doppelten Infinitiv.",
+    "what_to_revise": "Wiederhole die Wahl von haben und sein, Partizipien trennbarer und untrennbarer Verben sowie den Ersatzinfinitiv."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Perfektform beschreibt die eingetretene Veränderung korrekt?",
+      "options": [
+        "Die Zahl der Anfragen ist deutlich zurückgehen.",
+        "Die Zahl der Anfragen ist deutlich zurückgegangen.",
+        "Die Zahl der Anfragen hat deutlich zurückgegangen."
+      ],
+      "correct_answer": "Die Zahl der Anfragen ist deutlich zurückgegangen.",
+      "accepted_answers": [
+        "Die Zahl der Anfragen ist deutlich zurückgegangen."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Zurückgehen‘ bezeichnet hier eine Veränderung und bildet das Perfekt mit ‚sein‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Partizip des untrennbaren Verbs ‚bewerten‘ ist korrekt eingesetzt?",
+      "options": [
+        "Das Team hat die Ergebnisse bewertet.",
+        "Das Team hat die Ergebnisse gebewertet.",
+        "Das Team ist die Ergebnisse bewertet."
+      ],
+      "correct_answer": "Das Team hat die Ergebnisse bewertet.",
+      "accepted_answers": [
+        "Das Team hat die Ergebnisse bewertet."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Verb mit der untrennbaren Vorsilbe be- bildet das Partizip ‚bewertet‘ ohne zusätzliches ge-.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Perfektform mit Modalverb verwendet den Ersatzinfinitiv korrekt?",
+      "options": [
+        "Das Team hat den Termin kurzfristig verschoben gemusst.",
+        "Das Team hat den Termin kurzfristig zu verschieben müssen.",
+        "Das Team hat den Termin kurzfristig verschieben müssen."
+      ],
+      "correct_answer": "Das Team hat den Termin kurzfristig verschieben müssen.",
+      "accepted_answers": [
+        "Das Team hat den Termin kurzfristig verschieben müssen."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Bei einem Modalverb steht nach ‚hat‘ die doppelte Infinitivgruppe ‚verschieben müssen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ansteigen | angesteigt | angestiegen]. Ergänze das Partizip: Die Zahl der Beschwerden ist im letzten Quartal deutlich ___.",
+      "options": [],
+      "correct_answer": "angestiegen",
+      "accepted_answers": [
+        "angestiegen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Partizip des trennbaren Verbs ‚ansteigen‘ lautet ‚angestiegen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [übergearbeitet | überarbeitet | geüberarbeitet]. Ergänze das untrennbare Partizip: Die Pflegefachkraft hat den Übergabebericht vollständig ___.",
+      "options": [],
+      "correct_answer": "überarbeitet",
+      "accepted_answers": [
+        "überarbeitet"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das untrennbare Verb ‚überarbeiten‘ bildet sein Partizip ohne ge-.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hat | ist | wurde]. Ergänze das passende Hilfsverb: Die Leitung ___ alle Einwände sorgfältig berücksichtigt.",
+      "options": [],
+      "correct_answer": "hat",
+      "accepted_answers": [
+        "hat"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die Tätigkeit ‚berücksichtigen‘ bildet das Perfekt mit ‚haben‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [entschieden gemusst | entscheiden gemusst | entscheiden müssen]. Ergänze den Ersatzinfinitiv: Wir haben uns kurzfristig ___.",
+      "options": [],
+      "correct_answer": "entscheiden müssen",
+      "accepted_answers": [
+        "entscheiden müssen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Mit dem Modalverb ‚müssen‘ steht nach ‚haben‘ die doppelte Infinitivgruppe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet das Partizip II von „akzeptieren“ korrekt?",
+      "options": [
+        "Die Leitung hat den Vorschlag nach langer Prüfung akzeptieren.",
+        "Die Leitung ist den Vorschlag nach langer Prüfung akzeptiert.",
+        "Die Leitung hat den Vorschlag nach langer Prüfung geakzeptiert.",
+        "Die Leitung hat den Vorschlag nach langer Prüfung akzeptiert."
+      ],
+      "correct_answer": "Die Leitung hat den Vorschlag nach langer Prüfung akzeptiert.",
+      "accepted_answers": [
+        "Die Leitung hat den Vorschlag nach langer Prüfung akzeptiert."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Verb ‚akzeptieren‘ bildet das Partizip ohne die Vorsilbe ge-.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung setzt beide Handlungen ins Perfekt und bewahrt ihre zeitliche Reihenfolge?",
+      "options": [
+        "Zuerst hat die Fachgruppe die Daten prüfen. Danach hat sie den Bericht veröffentlichen.",
+        "Zuerst hat die Fachgruppe die Daten geprüft. Danach hat sie den Bericht veröffentlicht.",
+        "Zuerst ist die Fachgruppe die Daten geprüft. Danach ist sie den Bericht veröffentlicht.",
+        "Zuerst hatte die Fachgruppe die Daten geprüft. Danach veröffentlichte sie den Bericht."
+      ],
+      "correct_answer": "Zuerst hat die Fachgruppe die Daten geprüft. Danach hat sie den Bericht veröffentlicht.",
+      "accepted_answers": [
+        "Zuerst hat die Fachgruppe die Daten geprüft. Danach hat sie den Bericht veröffentlicht."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die beiden Perfektsätze bewahren Abfolge und Bezug, während die Handlungen als abgeschlossen dargestellt werden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet im Nebensatz das Perfekt eines Modalverbs mit abhängigem Infinitiv standardsprachlich korrekt?",
+      "options": [
+        "Die Leitung erklärt, dass sie den Ablauf kurzfristig hat ändern müssen.",
+        "Die Leitung erklärt, dass sie den Ablauf kurzfristig ändern müssen hat.",
+        "Die Leitung erklärt, dass sie den Ablauf kurzfristig geändert gemusst hat.",
+        "Die Leitung erklärt, dass sie den Ablauf kurzfristig hat geändert müssen."
+      ],
+      "correct_answer": "Die Leitung erklärt, dass sie den Ablauf kurzfristig hat ändern müssen.",
+      "accepted_answers": [
+        "Die Leitung erklärt, dass sie den Ablauf kurzfristig hat ändern müssen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei einem Modalverb mit abhängigem Infinitiv steht der Ersatzinfinitiv („ändern müssen“). Im Nebensatz tritt die finite Form „hat“ in der Standardsprache vor diese Infinitivgruppe.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

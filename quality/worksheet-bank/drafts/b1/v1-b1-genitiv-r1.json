@@ -1,0 +1,182 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-genitiv-r1",
+    "template_key": "v1-b1-genitiv-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Genitiv pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Genitiv: Zugehörigkeit und Beziehungen ausdrücken",
+  "level": "B1",
+  "grammar_topic": { "slug": "genitiv", "name": "Genitiv" },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "genitiv",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Genitiv zeigt oft Zugehörigkeit oder eine nähere Beziehung. Er steht außerdem nach Präpositionen wie wegen, während und trotz.",
+    "key_rule": "Maskuline und neutrale Nomen erhalten im Genitiv Singular meist -s oder -es; Artikel und Adjektive müssen ebenfalls zum Genitiv passen.",
+    "correct_examples": [
+      "Das ist die Entscheidung des neuen Leiters.",
+      "Wegen des schlechten Wetters bleiben wir zu Hause."
+    ],
+    "common_mistake_warning": "Verwende nach Genitivpräpositionen in der Standardsprache nicht automatisch den Dativ.",
+    "what_to_revise": "Wiederhole die Genitivartikel des, der, eines und einer sowie die Endungen -s und -es."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet den Genitiv korrekt?",
+      "options": [
+        "Während dem Seminar wurden viele Fragen gestellt.",
+        "Während den Seminars wurden viele Fragen gestellt.",
+        "Während des Seminars wurden viele Fragen gestellt."
+      ],
+      "correct_answer": "Während des Seminars wurden viele Fragen gestellt.",
+      "accepted_answers": [
+        "Während des Seminars wurden viele Fragen gestellt."
+      ],
+      "explanation": "Die Präposition „während“ steht hier mit dem Genitiv; „das Seminar“ wird zu „des Seminars“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form drückt die Zugehörigkeit korrekt aus?",
+      "options": [
+        "die Farbe des Autos",
+        "die Farbe dem Auto",
+        "die Farbe den Autos"
+      ],
+      "correct_answer": "die Farbe des Autos",
+      "accepted_answers": ["die Farbe des Autos"],
+      "explanation": "Das neutrale Nomen „Auto“ steht im Genitiv Singular mit „des“ und der Endung -s.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nominalgruppe ist korrekt?",
+      "options": [
+        "der Name der neue Pflegekraft",
+        "der Name der neuen Pflegekraft",
+        "der Name die neue Pflegekraft"
+      ],
+      "correct_answer": "der Name der neuen Pflegekraft",
+      "accepted_answers": ["der Name der neuen Pflegekraft"],
+      "explanation": "Im femininen Genitiv steht „der“; nach dem bestimmten Artikel erhält das Adjektiv die Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [des, dem, den]. Ergänze standardsprachlich mit Genitiv: Wegen ___ schlechten Wetters fällt das Fest aus.",
+      "options": [],
+      "correct_answer": "des",
+      "accepted_answers": ["des"],
+      "explanation": "„Wegen“ verlangt hier den Genitiv; das neutrale Nomen „Wetter“ steht mit „des“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dem, des, der]. Ergänze: Die Tür ___ Hauses ist noch offen.",
+      "options": [],
+      "correct_answer": "des",
+      "accepted_answers": ["des"],
+      "explanation": "„Haus“ ist neutral; im Genitiv Singular heißt es „des Hauses“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, den, der]. Ergänze: Am Ende ___ Woche besprechen wir die Ergebnisse.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": ["der"],
+      "explanation": "Das feminine Nomen „Woche“ steht im Genitiv Singular mit „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, der, den]. Ergänze für diese Genitivübung standardsprachlich mit Genitiv: Trotz ___ Schwierigkeiten wurde das Projekt beendet.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": ["der"],
+      "explanation": "„Trotz“ steht hier mit dem Genitiv; im Plural lautet der bestimmte Artikel „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält auf der Pflegestation die korrekte Genitivgruppe?",
+      "options": [
+        "Die Ergebnisse den neuen Pflegestudie werden morgen auf der Station vorgestellt.",
+        "Die Ergebnisse der neuen Pflegestudie werden morgen auf der Station vorgestellt.",
+        "Die Ergebnisse die neue Pflegestudie werden morgen auf der Station vorgestellt.",
+        "Die Ergebnisse der neuen Pflegestudien wird morgen auf der Station vorgestellt."
+      ],
+      "correct_answer": "Die Ergebnisse der neuen Pflegestudie werden morgen auf der Station vorgestellt.",
+      "accepted_answers": [
+        "Die Ergebnisse der neuen Pflegestudie werden morgen auf der Station vorgestellt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Nomen „Pflegestudie“ steht nach „die Ergebnisse“ im Genitiv: „der neuen Pflegestudie“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Umformung mit Genitiv entspricht „die Unterlagen von dem neuen Mitarbeiter“?",
+      "options": [
+        "die Unterlagen dem neuen Mitarbeiters",
+        "die Unterlagen der neuen Mitarbeiter",
+        "die Unterlagen des neuen Mitarbeiters",
+        "die Unterlagen den neuen Mitarbeiter"
+      ],
+      "correct_answer": "die Unterlagen des neuen Mitarbeiters",
+      "accepted_answers": [
+        "die Unterlagen des neuen Mitarbeiters"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Maskulin Singular hat im Genitiv den Artikel „des“; „Mitarbeiter“ erhält hier die Endung -s.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Arbeitsplatzbeschreibung enthält alle Genitivformen korrekt?",
+      "options": [
+        "Die Tür des Büros ist geschlossen. Die Ergebnisse der Besprechung liegen vor. Wegen eines technischen Problems beginnt der Termin später.",
+        "Die Tür dem Büro ist geschlossen. Die Ergebnisse die Besprechung liegen vor. Wegen einem technischen Problem beginnt der Termin später.",
+        "Die Tür des Büro ist geschlossen. Die Ergebnisse der Besprechungs liegen vor. Wegen einer technischen Problems beginnt der Termin später.",
+        "Die Tür der Büros ist geschlossen. Die Ergebnisse den Besprechung liegen vor. Wegen eines technische Problem beginnt der Termin später."
+      ],
+      "correct_answer": "Die Tür des Büros ist geschlossen. Die Ergebnisse der Besprechung liegen vor. Wegen eines technischen Problems beginnt der Termin später.",
+      "accepted_answers": [
+        "Die Tür des Büros ist geschlossen. Die Ergebnisse der Besprechung liegen vor. Wegen eines technischen Problems beginnt der Termin später."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Des Büros“, „der Besprechung“ und „eines technischen Problems“ sind korrekte Genitivgruppen.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

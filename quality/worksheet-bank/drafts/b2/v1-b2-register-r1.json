@@ -1,0 +1,198 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-register-r1",
+    "template_key": "v1-b2-register-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Register pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Register: Situationsgerecht formulieren",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "register",
+    "name": "Register"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "register",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das sprachliche Register richtet sich nach Adressat, Zweck und Medium. Eine formelle Nachricht verwendet meist höfliche Anrede, präzise Wörter und vollständige Sätze.",
+    "key_rule": "Wähle Anrede, Pronomen, Wortschatz und Höflichkeitsform konsequent passend zur Kommunikationssituation.",
+    "correct_examples": [
+      "Ich bitte Sie um eine kurze Rückmeldung bis Freitag.",
+      "Schickst du mir die Fotos später?"
+    ],
+    "common_mistake_warning": "Mische in derselben Nachricht nicht die vertrauliche du-Form mit der formellen Sie-Form.",
+    "what_to_revise": "Vergleiche formelle Anfragen, sachliche Berichte und persönliche Nachrichten."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Anfrage an eine Behörde ist sachlich, präzise und kooperativ formuliert?",
+      "options": [
+        "Teilen Sie mir sofort den Bearbeitungsstand und den verbindlichen Entscheidungstermin mit.",
+        "Bezüglich meines Schreibens vom 3. Mai will ich endlich erfahren, weshalb noch nichts entschieden wurde.",
+        "Unter Bezugnahme auf mein Schreiben vom 3. Mai bitte ich Sie um Mitteilung, wann mit einer Entscheidung zu rechnen ist.",
+        "Ich möchte mal nachhaken, ob mein Antrag bei Ihnen überhaupt angekommen ist."
+      ],
+      "correct_answer": "Unter Bezugnahme auf mein Schreiben vom 3. Mai bitte ich Sie um Mitteilung, wann mit einer Entscheidung zu rechnen ist.",
+      "accepted_answers": [
+        "Unter Bezugnahme auf mein Schreiben vom 3. Mai bitte ich Sie um Mitteilung, wann mit einer Entscheidung zu rechnen ist."
+      ],
+      "explanation": "Die Formulierung stellt einen eindeutigen Bezug her, erfragt einen realistischen Zeithorizont und vermeidet Vorwürfe oder unangemessene Forderungen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Antwort auf eine formelle Beschwerde wahrt ein professionelles Register, ohne das Prüfergebnis vorwegzunehmen?",
+      "options": [
+        "Ihre Beschwerde ist vermutlich unbegründet, aber wir schauen uns das trotzdem einmal an.",
+        "Wir entschuldigen uns für sämtliche Fehler und garantieren Ihnen schon jetzt eine vollständige Erstattung.",
+        "Danke für die Nachricht. Wir melden uns irgendwann, sobald jemand Zeit dafür hat.",
+        "Vielen Dank für Ihren Hinweis. Wir prüfen den geschilderten Vorgang und informieren Sie bis Freitag über das Ergebnis."
+      ],
+      "correct_answer": "Vielen Dank für Ihren Hinweis. Wir prüfen den geschilderten Vorgang und informieren Sie bis Freitag über das Ergebnis.",
+      "accepted_answers": [
+        "Vielen Dank für Ihren Hinweis. Wir prüfen den geschilderten Vorgang und informieren Sie bis Freitag über das Ergebnis."
+      ],
+      "explanation": "Die Antwort bestätigt den Eingang, nennt den nächsten Schritt und einen Termin, ohne Schuld oder Ergebnis vor Abschluss der Prüfung zu behaupten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung berichtet ein positives Ergebnis und begrenzt dessen Aussagekraft angemessen?",
+      "options": [
+        "Die Rückmeldungen beweisen zweifelsfrei, dass die Maßnahme überall funktionieren wird.",
+        "Die Rückmeldungen deuten auf eine Verbesserung hin; aufgrund der kleinen Stichprobe ist das Ergebnis jedoch als vorläufig zu bewerten.",
+        "Die Rückmeldungen waren ziemlich gut, weshalb das Projekt wohl erfolgreich ist.",
+        "Obwohl nur wenige Personen teilnahmen, ist die Wirksamkeit endgültig bestätigt."
+      ],
+      "correct_answer": "Die Rückmeldungen deuten auf eine Verbesserung hin; aufgrund der kleinen Stichprobe ist das Ergebnis jedoch als vorläufig zu bewerten.",
+      "accepted_answers": [
+        "Die Rückmeldungen deuten auf eine Verbesserung hin; aufgrund der kleinen Stichprobe ist das Ergebnis jedoch als vorläufig zu bewerten."
+      ],
+      "explanation": "Die Formulierung trennt Beobachtung und Bewertung und kennzeichnet die begrenzte Datengrundlage mit angemessener wissenschaftlicher Vorsicht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [nach derzeitigem Stand | garantiert | irgendwie]. Ergänze die vorsichtig-sachliche Einschränkung: Die Maßnahme ist ___ als wirksam zu bewerten.",
+      "options": [],
+      "correct_answer": "nach derzeitigem Stand",
+      "accepted_answers": [
+        "nach derzeitigem Stand"
+      ],
+      "explanation": "„Nach derzeitigem Stand“ begrenzt die Bewertung auf die aktuell verfügbare Evidenz, ohne sie umgangssprachlich oder absolut zu formulieren.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [schicke ich dir das Zeug | müssen Sie sich eben melden | lasse ich Ihnen diese gern zukommen]. Ergänze das kooperative Angebot: Sollten Sie weitere Nachweise benötigen, ___.",
+      "options": [],
+      "correct_answer": "lasse ich Ihnen diese gern zukommen",
+      "accepted_answers": [
+        "lasse ich Ihnen diese gern zukommen"
+      ],
+      "explanation": "Die gewählte Fortsetzung hält die formelle Sie-Anrede ein und bietet Unterstützung an, ohne Druck oder Umgangssprache.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [fand irgendwie | ergab | behauptete]. Ergänze das präzise Berichtsverb: Die Prüfung ___ eine Abweichung von drei Prozent.",
+      "options": [],
+      "correct_answer": "ergab",
+      "accepted_answers": [
+        "ergab"
+      ],
+      "explanation": "„Ergab“ ordnet das Ergebnis eindeutig der Prüfung zu; die anderen Formen sind unbelegt wertend oder umgangssprachlich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [vorsichtig | hundertprozentig | total]. Ergänze die angemessene Absicherung: Aus den vorliegenden Daten lässt sich ___ ableiten, dass weitere Prüfungen erforderlich sind.",
+      "options": [],
+      "correct_answer": "vorsichtig",
+      "accepted_answers": [
+        "vorsichtig"
+      ],
+      "explanation": "„Vorsichtig ableiten“ kennzeichnet eine begrenzte Schlussfolgerung; absolute oder umgangssprachliche Verstärkungen passen nicht zur unsicheren Datenlage.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nachricht an Frau Neumann bleibt durchgehend formell, sachlich und handlungsorientiert?",
+      "options": [
+        "Sehr geehrte Frau Neumann, bei der Prüfung fehlte der Tätigkeitsnachweis. Könnten Sie ihn bitte bis Freitag nachreichen? Vielen Dank.",
+        "Hallo Frau Neumann, könnten Sie den fehlenden Nachweis mal eben rüberschicken? Danke dir!",
+        "Sehr geehrte Frau Neumann, du musst den Tätigkeitsnachweis bis Freitag nachreichen.",
+        "Sehr geehrte Frau Neumann, Ihre Unterlagen fehlen schon wieder. Schicken Sie sie diesmal rechtzeitig."
+      ],
+      "correct_answer": "Sehr geehrte Frau Neumann, bei der Prüfung fehlte der Tätigkeitsnachweis. Könnten Sie ihn bitte bis Freitag nachreichen? Vielen Dank.",
+      "rubric": null,
+      "explanation": "Die Nachricht benennt den überprüfbaren Sachverhalt, eine konkrete Frist und eine höfliche Handlungserwartung, ohne Registerwechsel oder Vorwurf.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Sehr geehrte Frau Neumann, bei der Prüfung fehlte der Tätigkeitsnachweis. Könnten Sie ihn bitte bis Freitag nachreichen? Vielen Dank."
+      ]
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung wahrt die Dringlichkeit und die Rückmeldefrist, formuliert die Bitte aber professionell?",
+      "options": [
+        "Die Freigabe ist dringend. Antworten Sie deshalb unverzüglich.",
+        "Wenn Sie irgendwann Zeit haben, könnten Sie sich vielleicht zur Freigabe äußern?",
+        "Du musst mir wegen der morgigen Freigabe bis 16 Uhr Bescheid geben.",
+        "Da die Freigabe morgen erfolgen muss, wäre ich Ihnen für eine Rückmeldung bis heute, 16 Uhr, dankbar."
+      ],
+      "correct_answer": "Da die Freigabe morgen erfolgen muss, wäre ich Ihnen für eine Rückmeldung bis heute, 16 Uhr, dankbar.",
+      "rubric": null,
+      "explanation": "Die Formulierung begründet die Dringlichkeit, erhält die konkrete Frist und mildert die Aufforderung mit einer formellen Konjunktivform.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Da die Freigabe morgen erfolgen muss, wäre ich Ihnen für eine Rückmeldung bis heute, 16 Uhr, dankbar."
+      ]
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nachricht wahrt gegenüber einer vorgesetzten Ärztin durchgehend ein höfliches, präzises und formelles Register?",
+      "options": [
+        "Liebe Frau Dr. Weber, ich kann da halt nicht. Wäre super, wenn Sie irgendwann einen anderen Termin hätten. Tschüss",
+        "Sehr geehrte Frau Dr. Weber, wegen einer Dienstplanänderung bitte ich um einen Ersatztermin. Könnten Sie mir einen Termin nennen? Mit freundlichen Grüßen",
+        "Hallo Frau Weber, mein Dienstplan ist jetzt anders. Schieben Sie den Termin einfach und sagen Sie mir, wann. Viele Grüße",
+        "Sehr geehrte Frau Dr. Weber, wegen meinem neuen Dienstplan brauche ich einen anderen Termin. Kannst du mir kurz Bescheid geben? Mit freundlichen Grüßen"
+      ],
+      "correct_answer": "Sehr geehrte Frau Dr. Weber, wegen einer Dienstplanänderung bitte ich um einen Ersatztermin. Könnten Sie mir einen Termin nennen? Mit freundlichen Grüßen",
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die korrekte Fassung kombiniert formelle Anrede und Grußformel, konsequente Sie-Form, einen sachlich benannten Anlass und eine höfliche konkrete Bitte.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Sehr geehrte Frau Dr. Weber, wegen einer Dienstplanänderung bitte ich um einen Ersatztermin. Könnten Sie mir einen Termin nennen? Mit freundlichen Grüßen"
+      ]
+    }
+  ]
+}

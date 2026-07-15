@@ -1,0 +1,198 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-subordinate-clauses-r1",
+    "template_key": "v1-b2-subordinate-clauses-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Subordinate clauses pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Nebensätze: Begründung, Gegensatz und Ziel",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "subordinate-clauses",
+    "name": "Nebensätze"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "subordinate-clauses",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Nebensätze gewichten Informationen und markieren differenzierte Beziehungen wie Grund, Einräumung, Bedingung, Methode oder zeitliche Vorordnung. Auch mehrteilige Verbgruppen stehen dabei am Nebensatzende.",
+    "key_rule": "Wähle die Subjunktion zuerst nach der gemeinten Beziehung: etwa „zumal“ für einen zusätzlichen Grund, „obgleich“ für eine Einräumung, „sofern“ für eine Bedingung, „indem“ für eine Methode und „nachdem“ für Vorzeitigkeit. Ordne anschließend den vollständigen Verbkomplex ans Ende.",
+    "correct_examples": [
+      "Die Auswertung bleibt vorläufig, sofern keine weiteren Daten vorliegen.",
+      "Nachdem alle Einwände geprüft worden waren, wurde der Beschluss veröffentlicht."
+    ],
+    "common_mistake_warning": "Verwechsle logisch ähnliche Beziehungen nicht und markiere einen Gegensatz nicht doppelt mit „obwohl“ und „aber“. Bei Passiv- oder Modalverbgruppen gehört der gesamte Verbkomplex an das Nebensatzende.",
+    "what_to_revise": "Übe kausale, konzessive, konditionale, modale und temporale Nebensätze sowie komplexe Verbgruppen im Passiv und mit Modalverb."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung nennt den Grund der Verschiebung und ordnet die Modalpassivgruppe korrekt?",
+      "options": [
+        "Die Freigabe wurde verschoben, weil mehrere Nachweise mussten noch geprüft werden.",
+        "Die Freigabe wurde verschoben, weil mehrere Nachweise noch geprüft werden mussten.",
+        "Die Freigabe wurde verschoben, obwohl mehrere Nachweise noch geprüft werden mussten.",
+        "Die Freigabe wurde verschoben, weil mussten mehrere Nachweise noch geprüft werden."
+      ],
+      "correct_answer": "Die Freigabe wurde verschoben, weil mehrere Nachweise noch geprüft werden mussten.",
+      "accepted_answers": [
+        "Die Freigabe wurde verschoben, weil mehrere Nachweise noch geprüft werden mussten."
+      ],
+      "explanation": "„Weil“ markiert den Grund; im Nebensatz steht die Modalpassivgruppe „geprüft werden mussten“ geschlossen am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung räumt das positive Testergebnis ein, ohne den fortbestehenden Vorbehalt logisch abzuschwächen?",
+      "options": [
+        "Obgleich die erste Testphase positive Ergebnisse lieferte, aber blieben Fragen zur langfristigen Zuverlässigkeit offen.",
+        "Weil die erste Testphase positive Ergebnisse lieferte, blieben dennoch ohne Zusammenhang Fragen zur Zuverlässigkeit offen.",
+        "Obgleich die erste Testphase positive Ergebnisse lieferte, blieben Fragen zur langfristigen Zuverlässigkeit offen.",
+        "Obgleich die erste Testphase lieferte positive Ergebnisse, blieben Fragen zur langfristigen Zuverlässigkeit offen."
+      ],
+      "correct_answer": "Obgleich die erste Testphase positive Ergebnisse lieferte, blieben Fragen zur langfristigen Zuverlässigkeit offen.",
+      "accepted_answers": [
+        "Obgleich die erste Testphase positive Ergebnisse lieferte, blieben Fragen zur langfristigen Zuverlässigkeit offen."
+      ],
+      "explanation": "„Obgleich“ kennzeichnet eine Einräumung; das positive Zwischenergebnis hebt den sachlichen Vorbehalt nicht auf.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bezeichnet die digitale Dokumentation eindeutig als Methode und nicht nur als Ziel?",
+      "options": [
+        "Die Station verringert Informationsverluste, indem dokumentiert sie jede Übergabe digital.",
+        "Die Station verringert Informationsverluste, obwohl sie jede Übergabe digital dokumentiert.",
+        "Die Station verringert Informationsverluste, sodass sie die Dokumentation als Methode einführt.",
+        "Die Station verringert Informationsverluste, indem sie jede Übergabe digital dokumentiert."
+      ],
+      "correct_answer": "Die Station verringert Informationsverluste, indem sie jede Übergabe digital dokumentiert.",
+      "accepted_answers": [
+        "Die Station verringert Informationsverluste, indem sie jede Übergabe digital dokumentiert."
+      ],
+      "explanation": "Der indem-Satz nennt die digitale Dokumentation als konkretes Mittel zur Verringerung von Informationsverlusten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sofern, wohingegen, zumal]. Ergänze den zusätzlichen Grund: Die Empfehlung wird erneut geprüft, ___ inzwischen zusätzliche Daten vorliegen.",
+      "options": [],
+      "correct_answer": "zumal",
+      "accepted_answers": [
+        "zumal"
+      ],
+      "explanation": "„Zumal“ führt die inzwischen vorliegenden Daten als zusätzlichen, besonders gewichteten Grund für die erneute Prüfung an.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Obgleich, Sobald, Indem]. Ergänze die Einräumung: ___ keine Teilnahmeverpflichtung besteht, nehmen fast alle Beschäftigten an der Schulung teil.",
+      "options": [],
+      "correct_answer": "Obgleich",
+      "accepted_answers": [
+        "Obgleich"
+      ],
+      "explanation": "„Obgleich“ markiert den unerwarteten Gegensatz zwischen der fehlenden Pflicht und der hohen freiwilligen Beteiligung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [während, sofern, sodass]. Ergänze die Bedingung: Die Pilotphase wird verlängert, ___ die Zuverlässigkeit bis Freitag nicht belegt werden kann.",
+      "options": [],
+      "correct_answer": "sofern",
+      "accepted_answers": [
+        "sofern"
+      ],
+      "explanation": "„Sofern“ stellt den fehlenden Zuverlässigkeitsnachweis als Bedingung für die Verlängerung dar.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Nachdem, Während, Sofern]. Ergänze die abgeschlossene Vorhandlung: ___ sämtliche Einwände ausgewertet worden waren, legte die Kommission die endgültige Fassung vor.",
+      "options": [],
+      "correct_answer": "Nachdem",
+      "accepted_answers": [
+        "Nachdem"
+      ],
+      "explanation": "„Nachdem“ ordnet die abgeschlossene Auswertung im Plusquamperfekt Passiv vor die spätere Vorlage der Fassung ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ordnet die koordinierte Modalpassivgruppe im damit-Nebensatz korrekt?",
+      "options": [
+        "Die Station nutzt eine Checkliste, damit kritische Abweichungen früh erkannt und dokumentiert werden können.",
+        "Die Station nutzt eine Checkliste, damit kritische Abweichungen früh können erkannt und dokumentiert werden.",
+        "Die Station nutzt eine Checkliste, damit können kritische Abweichungen früh erkannt und dokumentiert werden.",
+        "Die Station nutzt eine Checkliste, damit kritische Abweichungen können früh erkannt und dokumentiert werden."
+      ],
+      "correct_answer": "Die Station nutzt eine Checkliste, damit kritische Abweichungen früh erkannt und dokumentiert werden können.",
+      "rubric": null,
+      "explanation": "Im damit-Nebensatz schließen der Passivinfinitiv „werden“ und das finite Modalverb „können“ die koordinierte Verbgruppe ab.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Die Station nutzt eine Checkliste, damit kritische Abweichungen früh erkannt und dokumentiert werden können."
+      ]
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung drückt mit „ohne dass“ aus, dass die Beschäftigten vor der Änderung nicht informiert worden waren?",
+      "options": [
+        "Die Leitung änderte den Ablauf, ohne dass waren die Beschäftigten zuvor informiert worden.",
+        "Die Leitung änderte den Ablauf, ohne die Beschäftigten waren zuvor informiert worden.",
+        "Die Leitung änderte den Ablauf, sodass die Beschäftigten zuvor nicht informiert worden waren.",
+        "Die Leitung änderte den Ablauf, ohne dass die Beschäftigten zuvor informiert worden waren."
+      ],
+      "correct_answer": "Die Leitung änderte den Ablauf, ohne dass die Beschäftigten zuvor informiert worden waren.",
+      "rubric": null,
+      "explanation": "„Ohne dass“ markiert eine ausgebliebene Begleithandlung; die Plusquamperfekt-Passivgruppe steht am Nebensatzende.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Die Leitung änderte den Ablauf, ohne dass die Beschäftigten zuvor informiert worden waren."
+      ]
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung drückt zuerst einen unerwarteten Gegensatz und anschließend das Ziel der Entscheidung aus und verwendet in beiden Nebensätzen die korrekte Verbstellung?",
+      "options": [
+        "Obwohl die Frist bereits abgelaufen war, nahm die Leitung die Unterlagen noch an, damit keine bereits erbrachte Leistung unberücksichtigt blieb.",
+        "Weil die Frist bereits abgelaufen war, nahm die Leitung die Unterlagen noch an, obwohl keine bereits erbrachte Leistung unberücksichtigt blieb.",
+        "Obwohl die Frist war bereits abgelaufen, nahm die Leitung die Unterlagen noch an, damit blieb keine bereits erbrachte Leistung unberücksichtigt.",
+        "Damit die Frist bereits abgelaufen war, nahm die Leitung die Unterlagen noch an, obwohl keine bereits erbrachte Leistung blieb unberücksichtigt."
+      ],
+      "correct_answer": "Obwohl die Frist bereits abgelaufen war, nahm die Leitung die Unterlagen noch an, damit keine bereits erbrachte Leistung unberücksichtigt blieb.",
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Obwohl“ markiert den Gegensatz zwischen Fristablauf und Annahme. „Damit“ nennt das Ziel; in beiden Nebensätzen stehen die finiten Verben „war“ und „blieb“ am Ende.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Obwohl die Frist bereits abgelaufen war, nahm die Leitung die Unterlagen noch an, damit keine bereits erbrachte Leistung unberücksichtigt blieb."
+      ]
+    }
+  ]
+}

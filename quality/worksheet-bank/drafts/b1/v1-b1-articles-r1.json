@@ -1,0 +1,199 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-articles-r1",
+    "template_key": "v1-b1-articles-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Articles pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Artikel: Informationen präzise einführen und weiterführen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "articles",
+    "name": "Artikel"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "articles",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Artikel zeigen nicht nur Genus, Numerus und Kasus. Sie machen auch deutlich, ob eine Person oder Sache neu eingeführt, bereits bekannt oder eindeutig bestimmt ist.",
+    "key_rule": "Verwende bei der ersten Erwähnung oft den unbestimmten Artikel und bei der weiteren Erwähnung den bestimmten Artikel. Passe jede Artikelform an Kasus, Genus und Numerus an.",
+    "correct_examples": [
+      "Eine Kollegin hat angerufen. Die Kollegin kommt später.",
+      "Wir sprechen mit einem erfahrenen Praxisanleiter."
+    ],
+    "common_mistake_warning": "Behalte nicht dieselbe Artikelform bei, wenn eine Präposition oder die Satzfunktion einen anderen Kasus verlangt.",
+    "what_to_revise": "Wiederhole bestimmte und unbestimmte Artikel in Nominativ, Akkusativ und Dativ sowie den Wechsel von neuer zu bekannter Information."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Ein Gegenstand wird zuerst neu eingeführt und danach erneut genannt. Welche Artikelfolge ist richtig?",
+      "options": [
+        "Im Besprechungsraum liegt einen Schlüssel. Den Schlüssel gehört zum Archiv.",
+        "Im Besprechungsraum liegt ein Schlüssel. Der Schlüssel gehört zum Archiv.",
+        "Im Besprechungsraum liegt der Schlüssel. Ein Schlüssel gehört zum Archiv."
+      ],
+      "correct_answer": "Im Besprechungsraum liegt ein Schlüssel. Der Schlüssel gehört zum Archiv.",
+      "accepted_answers": [
+        "Im Besprechungsraum liegt ein Schlüssel. Der Schlüssel gehört zum Archiv."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei der ersten Erwähnung steht „ein Schlüssel“. Bei der zweiten Erwähnung ist der Schlüssel bekannt und erhält den bestimmten Artikel „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form passt nach der Dativpräposition „mit“ zu einer bisher nicht näher bestimmten femininen Person?",
+      "options": [
+        "Die Patientin spricht mit einer Pflegeberaterin.",
+        "Die Patientin spricht mit eine Pflegeberaterin.",
+        "Die Patientin spricht mit einen Pflegeberaterin."
+      ],
+      "correct_answer": "Die Patientin spricht mit einer Pflegeberaterin.",
+      "accepted_answers": ["Die Patientin spricht mit einer Pflegeberaterin."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Mit“ verlangt den Dativ. Der unbestimmte feminine Artikel lautet im Dativ „einer“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Die Sprecherin meint einen bestimmten, beiden Gesprächspartnern bekannten Bericht. Welcher Satz ist korrekt?",
+      "options": [
+        "Hast du der Bericht schon gelesen?",
+        "Hast du dem Bericht schon gelesen?",
+        "Hast du den Bericht schon gelesen?"
+      ],
+      "correct_answer": "Hast du den Bericht schon gelesen?",
+      "accepted_answers": ["Hast du den Bericht schon gelesen?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der bekannte maskuline Bericht ist das Akkusativobjekt. Deshalb steht der bestimmte Artikel „den“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Ein bisher nicht erwähnter männlicher Patient wird neu eingeführt. Wortbank: [Der, Den, Ein]. Ergänze: ___ Patient wartet vor dem Behandlungszimmer.",
+      "options": [],
+      "correct_answer": "Ein",
+      "accepted_answers": ["Ein"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Ein neu eingeführtes maskulines Subjekt steht hier im Nominativ mit dem unbestimmten Artikel „ein“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Gemeint ist die bereits besprochene Vereinbarung. Wortbank: [einer, die, eine]. Ergänze: Die Abteilungsleitung prüft ___ Vereinbarung am Nachmittag.",
+      "options": [],
+      "correct_answer": "die",
+      "accepted_answers": ["die"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die bekannte feminine Vereinbarung ist Akkusativobjekt; der bestimmte Artikel bleibt im femininen Akkusativ „die“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Das Team sucht erstmals eine beliebige zusätzliche Fachkraft. Wortbank: [eine, die, einer]. Ergänze: Für das Abendseminar sucht das Bildungszentrum ___ erfahrene Kursleitung.",
+      "options": [],
+      "correct_answer": "eine",
+      "accepted_answers": ["eine"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die nicht näher bestimmte feminine Kursleitung wird neu eingeführt und steht als Akkusativobjekt mit „eine“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Ein bestimmter Vertrag ist beiden Gesprächspartnern bekannt. Wortbank: [dem, den, einen]. Ergänze: Die Juristin erläutert ___ Vertrag im nächsten Termin.",
+      "options": [],
+      "correct_answer": "den",
+      "accepted_answers": ["den"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der bekannte maskuline Vertrag ist Akkusativobjekt und erhält deshalb den bestimmten Artikel „den“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet nach „mit“ den richtigen bestimmten Artikel?",
+      "options": [
+        "Die Teamleiterin spricht nach der Besprechung mit die Mitarbeitenden.",
+        "Die Teamleiterin spricht nach der Besprechung mit der Mitarbeitenden.",
+        "Die Teamleiterin spricht nach der Besprechung mit den Mitarbeitenden.",
+        "Die Teamleiterin spricht nach der Besprechung mit das Mitarbeitenden."
+      ],
+      "correct_answer": "Die Teamleiterin spricht nach der Besprechung mit den Mitarbeitenden.",
+      "accepted_answers": [
+        "Die Teamleiterin spricht nach der Besprechung mit den Mitarbeitenden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Mit“ verlangt den Dativ; im Dativ Plural lautet der bestimmte Artikel „den“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Ein Antrag wird zuerst neu eingeführt und danach erneut genannt. Welche Artikelfolge ist korrekt?",
+      "options": [
+        "Im Postfach liegt ein Antrag. Der Antrag muss heute unterschrieben werden.",
+        "Im Postfach liegt einem Antrag. Den Antrag muss heute unterschrieben werden.",
+        "Im Postfach liegt der Antrag. Ein Antrag muss heute unterschrieben werden.",
+        "Im Postfach liegt einen Antrag. Das Antrag muss heute unterschrieben werden."
+      ],
+      "correct_answer": "Im Postfach liegt ein Antrag. Der Antrag muss heute unterschrieben werden.",
+      "accepted_answers": [
+        "Im Postfach liegt ein Antrag. Der Antrag muss heute unterschrieben werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei der ersten Erwähnung führt „ein“ das Nomen ein; „der“ verweist anschließend auf denselben bekannten Antrag.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche kurze Stationsbeschreibung verwendet alle Artikel korrekt?",
+      "options": [
+        "Heute wird die neue Regelung eingeführt. Eine Regelung erklärt einem Ablauf. Vor der Schicht spricht die Leitung mit die Pflegekräfte.",
+        "Heute wird einer neue Regelung eingeführt. Der Regelung erklärt einen Ablauf. Vor der Schicht spricht die Leitung mit den Pflegekräften.",
+        "Heute wird eine neuen Regelung eingeführt. Das Regelung erklärt ein Ablauf. Vor der Schicht spricht die Leitung mit der Pflegekräften.",
+        "Heute wird eine neue Regelung eingeführt. Die Regelung erklärt einen Ablauf. Vor der Schicht spricht die Leitung mit den Pflegekräften."
+      ],
+      "correct_answer": "Heute wird eine neue Regelung eingeführt. Die Regelung erklärt einen Ablauf. Vor der Schicht spricht die Leitung mit den Pflegekräften.",
+      "accepted_answers": [
+        "Heute wird eine neue Regelung eingeführt. Die Regelung erklärt einen Ablauf. Vor der Schicht spricht die Leitung mit den Pflegekräften."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die neue Regelung wird mit „eine“ eingeführt und mit „die“ wiederaufgenommen; nach „mit“ steht „den Pflegekräften“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

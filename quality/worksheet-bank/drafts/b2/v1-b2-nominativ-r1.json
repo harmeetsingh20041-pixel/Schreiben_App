@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-nominativ-r1",
+    "template_key": "v1-b2-nominativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Nominativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Nominativ: Subjekte und Gleichsetzungen sicher erkennen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "nominativ",
+    "name": "Nominativ"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "nominativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Nominativ kennzeichnet meist das grammatische Subjekt, auch wenn dieses nicht am Satzanfang steht. Nach Verben wie „sein“, „werden“ und „bleiben“ steht außerdem ein Gleichsetzungsnominativ.",
+    "key_rule": "Bestimme mit Kasusmarkierung und Kongruenz, welche Nominalgruppe das finite Verb steuert; im Passiv darf die von-Gruppe nicht mit dem Subjekt verwechselt werden, und bei einer Gleichsetzung stehen beide Nominalgruppen im Nominativ.",
+    "correct_examples": [
+      "Den endgültigen Beschluss fasste die Kommission erst am Abend.",
+      "Diese Entwicklung bleibt ein ernstes Problem."
+    ],
+    "common_mistake_warning": "Die erste Nominalgruppe eines Satzes ist nicht automatisch das Subjekt; Vorfeldobjekte und Präpositionalgruppen können davor stehen.",
+    "what_to_revise": "Übe Subjekte nach vorangestellten Objekten, Subjekte im Passiv und den Gleichsetzungsnominativ."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nominalgruppe ist das Subjekt im Satz „Den ausführlichen Bericht hat die neue Qualitätsbeauftragte gestern vorgelegt“?",
+      "options": [
+        "die Zeitangabe („gestern“)",
+        "die handelnde Person („Qualitätsbeauftragte“)",
+        "das vorangestellte Objekt („Bericht“)"
+      ],
+      "correct_answer": "die handelnde Person („Qualitätsbeauftragte“)",
+      "accepted_answers": [
+        "die handelnde Person („Qualitätsbeauftragte“)"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Qualitätsbeauftragte führt die Handlung aus und stimmt im Singular mit „hat“ überein; der Bericht ist Akkusativobjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält nach „bleiben“ einen korrekt gebildeten Gleichsetzungsnominativ?",
+      "options": [
+        "Die Personalknappheit bleibt den zentralen Risikofaktor.",
+        "Die Personalknappheit bleibt dem zentralen Risikofaktor.",
+        "Die Personalknappheit bleibt der zentrale Risikofaktor."
+      ],
+      "correct_answer": "Die Personalknappheit bleibt der zentrale Risikofaktor.",
+      "accepted_answers": [
+        "Die Personalknappheit bleibt der zentrale Risikofaktor."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Bleiben“ setzt Subjekt und Prädikativ gleich; deshalb steht „der zentrale Risikofaktor“ ebenfalls im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Was ist das Nominativsubjekt des Passivsatzes „Von drei Stationen wurde ein gemeinsamer Vorschlag eingereicht“?",
+      "options": [
+        "die eingereichte Sache („Vorschlag“)",
+        "die Urhebergruppe in der von-Angabe („Stationen“)",
+        "das finite Verb („wurde“)"
+      ],
+      "correct_answer": "die eingereichte Sache („Vorschlag“)",
+      "accepted_answers": [
+        "die eingereichte Sache („Vorschlag“)"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Passiv wird das frühere Akkusativobjekt zum Nominativsubjekt; die Handelnden stehen in der von-Gruppe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den, dem, der]. Ergänze den Gleichsetzungsnominativ: Herr Mehta ist ___ zuständige Ansprechpartner für die Anerkennungsunterlagen.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „ist“ bezeichnet die zweite Nominalgruppe dieselbe Person und steht daher im maskulinen Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, der, den]. Ergänze das Subjekt: Nicht die Verzögerung, sondern ___ fehlende Rückmeldung verursachte die Unsicherheit.",
+      "options": [],
+      "correct_answer": "die",
+      "accepted_answers": [
+        "die"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Rückmeldung“ ist das feminine Subjekt und steht im Nominativ Singular; dazu passt das finite Verb „verursachte“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [welchem, welcher, welchen]. Ergänze die Frage nach dem Subjekt: ___ erfahrene Kollege übernimmt heute die fachliche Anleitung?",
+      "options": [],
+      "correct_answer": "Welcher",
+      "accepted_answers": [
+        "Welcher"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Fragewort gehört zum maskulinen Nominativsubjekt „Kollege“ und lautet daher „welcher“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einem, ein, einen]. Ergänze nach „werden“: Die strukturierte Einarbeitung wird ___ entscheidender Erfolgsfaktor sein.",
+      "options": [],
+      "correct_answer": "ein",
+      "accepted_answers": [
+        "ein"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „werden“ steht der Gleichsetzungsnominativ; beim maskulinen Nomen lautet der unbestimmte Artikel „ein“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet nach „sein“ den korrekten Gleichsetzungsnominativ?",
+      "options": [
+        "Die neue Stationsleitung ist eine erfahrene Intensivpflegekraft.",
+        "Die neue Stationsleitung ist einen erfahrenen Intensivpflegekraft.",
+        "Die neue Stationsleitung ist eine erfahrenen Intensivpflegekraft.",
+        "Die neue Stationsleitung ist einer erfahrenen Intensivpflegekraft."
+      ],
+      "correct_answer": "Die neue Stationsleitung ist eine erfahrene Intensivpflegekraft.",
+      "accepted_answers": [
+        "Die neue Stationsleitung ist eine erfahrene Intensivpflegekraft."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „sein“ steht kein Dativobjekt, sondern ein Gleichsetzungsnominativ mit „eine erfahrene Intensivpflegekraft“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung stellt das Akkusativobjekt ins Vorfeld, während „die Projektleiterin“ Nominativsubjekt bleibt?",
+      "options": [
+        "Den neuen Ablauf erläuterten die Projektleiterin den Mitarbeitenden ausführlich.",
+        "Den neuen Ablauf erläuterte die Projektleiterin den Mitarbeitenden ausführlich.",
+        "Dem neuen Ablauf erläuterte die Projektleiterin den Mitarbeitenden ausführlich.",
+        "Der neue Ablauf erläuterte die Projektleiterin den Mitarbeitenden ausführlich."
+      ],
+      "correct_answer": "Den neuen Ablauf erläuterte die Projektleiterin den Mitarbeitenden ausführlich.",
+      "accepted_answers": [
+        "Den neuen Ablauf erläuterte die Projektleiterin den Mitarbeitenden ausführlich."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Vorfeldposition ändert den Kasus nicht: Das vorangestellte Objekt bleibt Akkusativ, das spätere Subjekt bleibt Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet nach „als … gelten“ sowohl die prädikative Ergänzung als auch das nachgestellte Subjekt korrekt?",
+      "options": [
+        "Als maßgebliche Ursache für die Verzögerungen gelten die unvollständige Übergabedokumentation.",
+        "Als maßgebliche Ursache für die Verzögerungen gilt der unvollständigen Übergabedokumentation.",
+        "Als maßgebliche Ursache für die Verzögerungen gilt die unvollständige Übergabedokumentation.",
+        "Als maßgeblichen Ursache für die Verzögerungen gilt die unvollständige Übergabedokumentation."
+      ],
+      "correct_answer": "Als maßgebliche Ursache für die Verzögerungen gilt die unvollständige Übergabedokumentation.",
+      "accepted_answers": [
+        "Als maßgebliche Ursache für die Verzögerungen gilt die unvollständige Übergabedokumentation."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei „als etwas gelten“ steht die prädikative Ergänzung im Nominativ. Das nachgestellte Subjekt „die Übergabedokumentation“ bleibt ebenfalls Nominativ und verlangt die Singularform „gilt“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

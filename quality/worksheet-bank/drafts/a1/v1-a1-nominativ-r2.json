@@ -1,0 +1,149 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-nominativ-r2",
+    "template_key": "v1-a1-nominativ-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Nominativ accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Nominativ: Anwenden und Korrigieren 2",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "nominativ",
+    "name": "Nominativ"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "nominativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein Subjekt im Nominativ kann vor oder nach dem Verb stehen. Der Fall hängt von der Aufgabe im Satz ab, nicht von der Position.",
+    "key_rule": "Finde heraus, wer oder was etwas tut. Wähle dann die Nominativform, auch wenn eine Zeitangabe am Satzanfang steht.",
+    "correct_examples": [
+      "Heute arbeitet der Vater.",
+      "Wer wartet vor der Tür?"
+    ],
+    "common_mistake_warning": "Setze ein Subjekt nicht in den Akkusativ, nur weil es nach dem Verb steht.",
+    "what_to_revise": "Vergleiche die Formen: der Vater, den Vater und dem Vater. Übe auch das Fragewort wer im Nominativ."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortgruppe ist das Subjekt im Nominativ? Heute besucht der Vater den Arzt.",
+      "options": ["Heute","besucht","der Vater","den Arzt"],
+      "correct_answer": "der Vater",
+      "accepted_answers": ["der Vater"],
+      "explanation": "Der Vater besucht den Arzt. Der Vater ist das Subjekt; die Wortgruppe „den Arzt“ ist das Akkusativobjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den Satz mit dem richtigen Pronomen im Nominativ für die Kinder.",
+      "options": [
+        "Sie spielen im Garten.",
+        "Ihnen spielen im Garten.",
+        "Euch spielt im Garten.",
+        "Sie spielt im Garten."
+      ],
+      "correct_answer": "Sie spielen im Garten.",
+      "accepted_answers": ["Sie spielen im Garten."],
+      "explanation": "Das Subjekt die Kinder wird durch sie ersetzt. Dazu gehört die Verbform spielen im Plural.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Nutze die Wortbank [Mein Bruder, Meinen Bruder, Meinem Bruder]. Ergänze: ___ arbeitet in einer Bäckerei.",
+      "options": [],
+      "correct_answer": "Mein Bruder",
+      "accepted_answers": ["Mein Bruder"],
+      "explanation": "Der Bruder arbeitet. Deshalb braucht man die Nominativform mein Bruder.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Nutze die Wortbank [den neuen Schüler, dem neuen Schüler, der neue Schüler]. Ergänze: Morgen kommt ___ in unsere Klasse.",
+      "options": [],
+      "correct_answer": "der neue Schüler",
+      "accepted_answers": ["der neue Schüler"],
+      "explanation": "Der neue Schüler kommt. Deshalb steht die Wortgruppe im Nominativ: der neue Schüler.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Nutze die Wortbank [Wem, Wer, Wen]. Ergänze die Frage: ___ arbeitet heute im Krankenhaus?",
+      "options": [],
+      "correct_answer": "Wer",
+      "accepted_answers": ["Wer"],
+      "explanation": "‚Wer‘ fragt nach der Person, die heute im Krankenhaus arbeitet, und steht im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere den Fall des Subjekts in diesem Satz: Den Lehrer ist sehr freundlich.",
+      "options": [],
+      "correct_answer": "Der Lehrer ist sehr freundlich.",
+      "rubric": {
+        "criteria": [
+          "Ersetze die Akkusativform Den Lehrer durch die Nominativform Der Lehrer.",
+          "Lass die Beschreibung und die Bedeutung des Satzes unverändert."
+        ],
+        "sample_answer": "Der Lehrer ist sehr freundlich."
+      },
+      "explanation": "Der Lehrer ist das Subjekt des Satzes. Deshalb braucht der Artikel die Nominativform der.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Beginne mit Heute und ordne alle Satzteile: [Heute / arbeitet / der neue Kollege / im Büro].",
+      "options": [],
+      "correct_answer": "Heute arbeitet der neue Kollege im Büro.",
+      "rubric": {
+        "criteria": [
+          "Beginne mit Heute und verwende jeden vorgegebenen Satzteil genau einmal.",
+          "Setze arbeitet auf Position zwei und das Subjekt direkt dahinter.",
+          "Behalte die Nominativform der neue Kollege bei."
+        ],
+        "sample_answer": "Heute arbeitet der neue Kollege im Büro."
+      },
+      "explanation": "Die Zeitangabe steht zuerst und das Verb an zweiter Stelle. Der neue Kollege bleibt das Subjekt im Nominativ.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Beginne mit Wer und ordne alle Satzteile zu einer Frage: [Wer / kommt / heute / zur Party].",
+      "options": [],
+      "correct_answer": "Wer kommt heute zur Party?",
+      "rubric": {
+        "criteria": [
+          "Beginne mit dem Fragewort Wer im Nominativ und verwende jeden Satzteil genau einmal.",
+          "Setze das konjugierte Verb kommt direkt hinter Wer.",
+          "Schreibe eine vollständige Frage mit richtiger Großschreibung und Satzzeichen."
+        ],
+        "sample_answer": "Wer kommt heute zur Party?"
+      },
+      "explanation": "Wer ist das Fragewort für das Subjekt im Nominativ. Direkt danach steht das konjugierte Verb kommt.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-verb-position-r1",
+    "template_key": "v1-a2-verb-position-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Verb position pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Verbposition: Hauptsatz und Satzklammer",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "verb-position",
+    "name": "Verbposition"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "verb-position",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Im deutschen Aussagesatz steht das finite Verb an Position zwei. Infinitive, Partizipien und trennbare Vorsilben bilden oft das Satzende.",
+    "key_rule": "Auch nach einer Zeit- oder Ortsangabe bleibt das finite Verb an zweiter Stelle; der zweite Verbteil steht am Ende.",
+    "correct_examples": [
+      "Heute beginnt der Kurs um neun.",
+      "Wir müssen morgen früh arbeiten."
+    ],
+    "common_mistake_warning": "Zähle Satzglieder, nicht einzelne Wörter, wenn du Position zwei bestimmst.",
+    "what_to_revise": "Übe Inversion nach Zeitangaben und die Satzklammer mit Modalverben und trennbaren Verben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Aussagesatz hat das finite Verb korrekt an Position zwei?",
+      "options": [
+        "Nach der Pause der Unterricht beginnt heute.",
+        "Nach der Pause beginnen der Unterricht.",
+        "Nach der Pause beginnt der Unterricht.",
+        "Nach der Pause der Unterricht beginnt."
+      ],
+      "correct_answer": "Nach der Pause beginnt der Unterricht.",
+      "accepted_answers": [
+        "Nach der Pause beginnt der Unterricht."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Angabe „Nach der Pause“ besetzt Position eins; danach folgt das finite Verb „beginnt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz bildet die Satzklammer korrekt?",
+      "options": [
+        "Wir müssen die Aufgabe heute beenden.",
+        "Wir müssen beenden die Aufgabe heute.",
+        "Wir die Aufgabe müssen heute beenden.",
+        "Wir beenden müssen die Aufgabe heute."
+      ],
+      "correct_answer": "Wir müssen die Aufgabe heute beenden.",
+      "accepted_answers": [
+        "Wir müssen die Aufgabe heute beenden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das finite Modalverb steht an Position zwei und der Infinitiv „beenden“ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [fährt, fahren, fährst]. Ergänze Position zwei: Morgen ___ der Bus um sieben Uhr ab.",
+      "options": [],
+      "correct_answer": "fährt",
+      "accepted_answers": [
+        "fährt"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „Morgen“ muss das finite Verb „fährt“ an Position zwei stehen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ruft, die Kollegin, an]. Ergänze das Satzende: Die Kollegin ruft den Patienten heute ___.",
+      "options": [],
+      "correct_answer": "an",
+      "accepted_answers": [
+        "an"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beim trennbaren Verb „anrufen“ steht die Vorsilbe „an“ am Ende des Hauptsatzes.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wir, arbeiten, müssen]. Ergänze den zweiten Verbteil: Am Samstag müssen wir länger ___.",
+      "options": [],
+      "correct_answer": "arbeiten",
+      "accepted_answers": [
+        "arbeiten"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Modalverb „müssen“ öffnet die Satzklammer; der Infinitiv „arbeiten“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz hat die richtige Verbposition?",
+      "options": [
+        "Heute die Pflegekraft beginnt um sieben Uhr.",
+        "Heute um sieben Uhr die Pflegekraft beginnt.",
+        "Heute beginnen die Pflegekraft um sieben Uhr.",
+        "Heute beginnt die Pflegekraft um sieben Uhr."
+      ],
+      "correct_answer": "Heute beginnt die Pflegekraft um sieben Uhr.",
+      "accepted_answers": [
+        "Heute beginnt die Pflegekraft um sieben Uhr."
+      ],
+      "rubric": null,
+      "explanation": "Nach dem vorangestellten heute steht das konjugierte Verb beginnt an zweiter Position.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [prüfe, prüft, prüfen, geprüft]. Nach der Pause ___ Ravi die Liste.",
+      "options": [],
+      "correct_answer": "prüft",
+      "accepted_answers": [
+        "prüft"
+      ],
+      "rubric": null,
+      "explanation": "Nach der vorangestellten Zeitangabe steht das konjugierte Verb prüft direkt an zweiter Position.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Hauptsatz ist richtig?",
+      "options": [
+        "Morgen fahren früh wir nach Köln.",
+        "Morgen fahren wir früh nach Köln.",
+        "Morgen wir fahren früh nach Köln.",
+        "Morgen früh wir nach Köln fahren."
+      ],
+      "correct_answer": "Morgen fahren wir früh nach Köln.",
+      "accepted_answers": [
+        "Morgen fahren wir früh nach Köln."
+      ],
+      "rubric": null,
+      "explanation": "Morgen besetzt die erste Position; das konjugierte Verb fahren steht an zweiter Stelle.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

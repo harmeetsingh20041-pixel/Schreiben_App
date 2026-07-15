@@ -1,0 +1,142 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-praeteritum-r1",
+    "template_key": "v1-a1-praeteritum-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Praeteritum pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Zusatztraining: Häufige Formen im Präteritum",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "praeteritum",
+    "name": "Präteritum"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "praeteritum",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Im Alltag begegnet das Präteritum besonders oft bei sein, haben und Modalverben. Auch einige häufige Verben stehen in kurzen Erzählungen im Präteritum.",
+    "key_rule": "Lerne wichtige Formen als Paare: sein – war, haben – hatte, können – konnte und gehen – ging.",
+    "correct_examples": [
+      "Am Montag war der Kurs kurz.",
+      "Wir hatten gestern frei."
+    ],
+    "common_mistake_warning": "Mische in derselben einfachen Aussage nicht eine Präteritumform mit einem zusätzlichen Perfekt-Hilfsverb.",
+    "what_to_revise": "Übe war, waren, hatte, hatten, konnte und ging mit einfachen Zeitangaben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präteritumform von ‚sein‘ passt? Gestern ___ ich müde.",
+      "options": ["gewesen", "war", "bin"],
+      "correct_answer": "war",
+      "accepted_answers": ["war"],
+      "answer_contract_version": 1,
+      "explanation": "Die Präteritumform von ‚sein‘ für ‚ich‘ lautet ‚war‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präteritumform von ‚haben‘ passt? Wir ___ genug Zeit.",
+      "options": ["haben", "gehabt", "hatten"],
+      "correct_answer": "hatten",
+      "accepted_answers": ["hatten"],
+      "answer_contract_version": 1,
+      "explanation": "Für das Subjekt ‚wir‘ lautet die Präteritumform von ‚haben‘: ‚hatten‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präteritumform von ‚sein‘ passt? Meine Kollegin ___ gestern krank.",
+      "options": ["war", "ist", "gewesen"],
+      "correct_answer": "war",
+      "accepted_answers": ["war"],
+      "answer_contract_version": 1,
+      "explanation": "Die Präteritumform von ‚sein‘ für die einzelne Kollegin lautet ‚war‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wird | war | ist]. Ergänze: Der Termin ___ gestern um neun Uhr.",
+      "options": [],
+      "correct_answer": "war",
+      "accepted_answers": ["war"],
+      "answer_contract_version": 1,
+      "explanation": "‚War‘ setzt den Termin eindeutig in die Vergangenheit.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hatte | habe | hätte]. Ergänze im Präteritum: Ich ___ am Freitag frei.",
+      "options": [],
+      "correct_answer": "hatte",
+      "accepted_answers": ["hatte"],
+      "answer_contract_version": 1,
+      "explanation": "Die Präteritumform von ‚haben‘ für ‚ich‘ ist ‚hatte‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [haben | gehabt | hatten]. Ergänze: Wir ___ am Freitag einen Termin.",
+      "options": [],
+      "correct_answer": "hatten",
+      "accepted_answers": ["hatten"],
+      "answer_contract_version": 1,
+      "explanation": "Die Präteritumform von ‚haben‘ für ‚wir‘ lautet ‚hatten‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha erzählt von ihrem gestrigen Dienst. Welcher Satz im Präteritum ist richtig?",
+      "options": [
+        "Gestern waren Asha sehr müde.",
+        "Gestern ist Asha sehr müde.",
+        "Gestern Asha war sehr müde.",
+        "Gestern war Asha sehr müde."
+      ],
+      "correct_answer": "Gestern war Asha sehr müde.",
+      "accepted_answers": ["Gestern war Asha sehr müde."],
+      "rubric": null,
+      "explanation": "Nach der Zeitangabe ‚Gestern‘ folgt im Hauptsatz direkt das finite Verb ‚war‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi hatte früher einen anderen Arbeitsplatz. Welcher Satz ist richtig?",
+      "options": [
+        "Früher hatte Ravi einen anderen Arbeitsplatz.",
+        "Früher hatten Ravi einen anderen Arbeitsplatz.",
+        "Früher Ravi hatte einen anderen Arbeitsplatz.",
+        "Früher hat Ravi einen anderen Arbeitsplatz."
+      ],
+      "correct_answer": "Früher hatte Ravi einen anderen Arbeitsplatz.",
+      "accepted_answers": ["Früher hatte Ravi einen anderen Arbeitsplatz."],
+      "rubric": null,
+      "explanation": "Im Hauptsatz folgt auf ‚Früher‘ die finite Form ‚hatte‘.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-relative-clauses-r1",
+    "template_key": "v1-b1-relative-clauses-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Relative clauses pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Relativsätze: Personen und Dinge genauer beschreiben",
+  "level": "B1",
+  "grammar_topic": { "slug": "relative-clauses", "name": "Relativsätze" },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "relative-clauses",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein Relativsatz ergänzt Informationen zu einer Person oder Sache, ohne das Bezugswort zu wiederholen.",
+    "key_rule": "Genus und Numerus des Relativpronomens kommen vom Bezugswort; sein Kasus ergibt sich aus der Funktion im Relativsatz. Das Verb steht am Ende.",
+    "correct_examples": [
+      "Die Lampe, die über dem Tisch hängt, ist neu.",
+      "Der Kursleiter, dem wir eine Frage stellten, antwortete sofort."
+    ],
+    "common_mistake_warning": "Bestimme den Kasus im Relativsatz selbst und übernimm ihn nicht automatisch aus dem Hauptsatz.",
+    "what_to_revise": "Wiederhole der, die, das, den, dem, denen, dessen und deren sowie Präpositionen mit festem Kasus."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den Satz, in dem das Relativpronomen korrekt als Subjekt steht.",
+      "options": [
+        "Der Mann, der dort wartet, ist mein Nachbar.",
+        "Der Mann, den dort wartet, ist mein Nachbar.",
+        "Der Mann, dem dort wartet, ist mein Nachbar."
+      ],
+      "correct_answer": "Der Mann, der dort wartet, ist mein Nachbar.",
+      "accepted_answers": ["Der Mann, der dort wartet, ist mein Nachbar."],
+      "explanation": "Das Relativpronomen ist Subjekt von „wartet“ und steht für das maskuline Bezugswort im Nominativ: „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Relativsatz ist korrekt?",
+      "options": [
+        "Das Buch, den ich gerade lese, ist spannend.",
+        "Das Buch, das ich gerade lese, ist spannend.",
+        "Das Buch, dem ich gerade lese, ist spannend."
+      ],
+      "correct_answer": "Das Buch, das ich gerade lese, ist spannend.",
+      "accepted_answers": ["Das Buch, das ich gerade lese, ist spannend."],
+      "explanation": "„Lesen“ verlangt ein Akkusativobjekt; beim neutralen Bezugswort lautet das Pronomen „das“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung mit „mit“ ist korrekt?",
+      "options": [
+        "Die Kollegin, mit die ich arbeite, kommt aus Köln.",
+        "Die Kollegin, der mit ich arbeite, kommt aus Köln.",
+        "Die Kollegin, mit der ich arbeite, kommt aus Köln."
+      ],
+      "correct_answer": "Die Kollegin, mit der ich arbeite, kommt aus Köln.",
+      "accepted_answers": [
+        "Die Kollegin, mit der ich arbeite, kommt aus Köln."
+      ],
+      "explanation": "„Mit“ verlangt den Dativ; für ein feminines Bezugswort steht „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dem, der, den]. Ergänze: Der Bericht, ___ wir vor der Übergabe gelesen haben, war sehr übersichtlich.",
+      "options": [],
+      "correct_answer": "den",
+      "accepted_answers": ["den"],
+      "explanation": "„Lesen“ verlangt hier den Akkusativ; bei einem maskulinen Bezugswort lautet das Relativpronomen „den“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [der, die, den]. Ergänze: Die Frau, ___ ich beim Tragen helfe, wohnt nebenan.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": ["der"],
+      "explanation": "„Jemandem helfen“ verlangt den Dativ; feminin Singular lautet das Relativpronomen „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [denen, dessen, deren]. Ergänze: Der Schüler, ___ Fahrrad gestohlen wurde, kam zu Fuß.",
+      "options": [],
+      "correct_answer": "dessen",
+      "accepted_answers": ["dessen"],
+      "explanation": "Das Fahrrad gehört zum maskulinen Bezugswort „der Schüler“; deshalb steht „dessen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, denen, deren]. Ergänze: Die Gäste, ___ wir Kaffee angeboten haben, bleiben noch etwas.",
+      "options": [],
+      "correct_answer": "denen",
+      "accepted_answers": ["denen"],
+      "explanation": "„Jemandem etwas anbieten“ verlangt für die Personen den Dativ; im Plural heißt es „denen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält das passende Relativpronomen für das Akkusativobjekt „Dokumentationssoftware“?",
+      "options": [
+        "Das ist die Dokumentationssoftware, deren ich jeden Tag benutze.",
+        "Das ist die Dokumentationssoftware, der ich jeden Tag benutze.",
+        "Das ist die Dokumentationssoftware, dem ich jeden Tag benutze.",
+        "Das ist die Dokumentationssoftware, die ich jeden Tag benutze."
+      ],
+      "correct_answer": "Das ist die Dokumentationssoftware, die ich jeden Tag benutze.",
+      "accepted_answers": ["Das ist die Dokumentationssoftware, die ich jeden Tag benutze."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Benutzen“ verlangt ein Akkusativobjekt; für das feminine Bezugswort „Dokumentationssoftware“ steht „die“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung mit „in der“ ist vollständig korrekt?",
+      "options": [
+        "Ich kenne eine Werkstatt, in der kann man Fahrräder reparieren lassen.",
+        "Ich kenne eine Werkstatt in der, man Fahrräder reparieren lassen kann.",
+        "Ich kenne eine Werkstatt, in der man Fahrräder reparieren lassen kann.",
+        "Ich kenne eine Werkstatt, in die kann man Fahrräder reparieren lassen."
+      ],
+      "correct_answer": "Ich kenne eine Werkstatt, in der man Fahrräder reparieren lassen kann.",
+      "accepted_answers": ["Ich kenne eine Werkstatt, in der man Fahrräder reparieren lassen kann."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Ortspräposition bleibt erhalten und wird mit dem passenden Relativpronomen verbunden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Beschreibung verwendet in den Relativsätzen Nominativ, Dativ und Akkusativ jeweils passend?",
+      "options": [
+        "Das ist der Raum, der täglich genutzt wird. Die Kollegin, der ich helfe, bereitet ihn vor. Der Bildschirm, den wir verwenden, steht vorn.",
+        "Das ist der Raum, der täglich genutzt wird. Die Kollegin, die ich helfe, bereitet ihn vor. Der Bildschirm, dem wir verwenden, steht vorn.",
+        "Das ist der Raum, dem täglich genutzt wird. Die Kollegin, der ich helfe, bereitet ihn vor. Der Bildschirm, die wir verwenden, steht vorn.",
+        "Das ist der Raum, den täglich genutzt wird. Die Kollegin, die ich helfe, bereitet ihn vor. Der Bildschirm, der wir verwenden, steht vorn."
+      ],
+      "correct_answer": "Das ist der Raum, der täglich genutzt wird. Die Kollegin, der ich helfe, bereitet ihn vor. Der Bildschirm, den wir verwenden, steht vorn.",
+      "accepted_answers": ["Das ist der Raum, der täglich genutzt wird. Die Kollegin, der ich helfe, bereitet ihn vor. Der Bildschirm, den wir verwenden, steht vorn."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Kasuswechsel zeigt, dass die Funktion des Pronomens innerhalb jedes Relativsatzes neu bestimmt wird.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

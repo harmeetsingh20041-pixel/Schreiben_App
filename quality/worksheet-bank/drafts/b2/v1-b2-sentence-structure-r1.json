@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-sentence-structure-r1",
+    "template_key": "v1-b2-sentence-structure-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Sentence structure pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Satzstruktur: Komplexe Aussagen klar und vollständig bauen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "sentence-structure",
+    "name": "Satzstruktur"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "sentence-structure",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Komplexe Sätze brauchen einen klaren Hauptsatzkern und logisch angeschlossene Neben- oder Teilsätze. Parallel gebaute Elemente erleichtern das Lesen und verhindern Fragmente oder unverbundene Satzreihen.",
+    "key_rule": "Prüfe für jeden Teilsatz Subjektbezug, finites Verb und logische Funktion; ordne gleichrangige Informationen parallel und untergeordnete Informationen mit einer passenden Einleitung.",
+    "correct_examples": [
+      "Da die Daten noch unvollständig waren, wurde die Entscheidung vertagt.",
+      "Die Maßnahme senkt den Aufwand und verbessert zugleich die Nachvollziehbarkeit."
+    ],
+    "common_mistake_warning": "Eine mit „weil“, „obwohl“ oder einem Relativpronomen beginnende Wortgruppe ist allein noch kein vollständiger Satz.",
+    "what_to_revise": "Übe vollständige Haupt- und Nebensätze, Parallelismus, Satzgrenzen und die logische Gewichtung von Informationen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante bildet trotz der einleitenden Begründung einen vollständigen Satz?",
+      "options": [
+        "Mehrere Angaben fehlten, deshalb weil der Antrag erneut geprüft.",
+        "Weil mehrere Angaben fehlten, musste der Antrag erneut geprüft werden.",
+        "Weil mehrere Angaben in den eingereichten Unterlagen fehlten."
+      ],
+      "correct_answer": "Weil mehrere Angaben fehlten, musste der Antrag erneut geprüft werden.",
+      "accepted_answers": [
+        "Weil mehrere Angaben fehlten, musste der Antrag erneut geprüft werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der weil-Satz wird durch einen vollständigen Hauptsatz ergänzt; die beiden anderen Varianten enthalten ein Fragment oder eine fehlerhafte Verknüpfung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet eine parallele Struktur für zwei Ziele?",
+      "options": [
+        "Die Schulung soll Fehler reduzieren und die Kommunikation verbessern.",
+        "Die Schulung soll Fehler reduzieren und eine Verbesserung der Kommunikation.",
+        "Die Schulung soll zur Fehlerreduktion und verbessert die Kommunikation."
+      ],
+      "correct_answer": "Die Schulung soll Fehler reduzieren und die Kommunikation verbessern.",
+      "accepted_answers": [
+        "Die Schulung soll Fehler reduzieren und die Kommunikation verbessern."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beide koordinierten Ziele sind als parallele Infinitivgruppen mit gemeinsamem Modalverb aufgebaut.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante gliedert zwei eng zusammengehörige vollständige Hauptsätze ausdrücklich mit einem Semikolon?",
+      "options": [
+        "Die Prüfung ist abgeschlossen die Freigabe steht jedoch noch aus.",
+        "Die Prüfung abgeschlossen; obwohl die Freigabe noch aussteht.",
+        "Die Prüfung ist abgeschlossen; die Freigabe steht jedoch noch aus."
+      ],
+      "correct_answer": "Die Prüfung ist abgeschlossen; die Freigabe steht jedoch noch aus.",
+      "accepted_answers": [
+        "Die Prüfung ist abgeschlossen; die Freigabe steht jedoch noch aus."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Semikolon trennt die beiden vollständigen Hauptsätze deutlich, bewahrt aber ihren engen gedanklichen Zusammenhang.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sodass, obwohl, während]. Ergänze die Folgerelation: Die Zuständigkeiten wurden eindeutig festgelegt, ___ Rückfragen deutlich seltener wurden.",
+      "options": [],
+      "correct_answer": "sodass",
+      "accepted_answers": [
+        "sodass"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Sodass“ leitet einen Folgesatz ein und verbindet die klare Regelung logisch mit den selteneren Rückfragen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [obwohl, einerseits, einerseits weil]. Ergänze die parallele Gegenüberstellung: ___ erhöht das Verfahren die Sicherheit, andererseits verursacht es mehr Aufwand.",
+      "options": [],
+      "correct_answer": "Einerseits",
+      "accepted_answers": [
+        "Einerseits"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Einerseits“ eröffnet die feste parallele Struktur, die später durch „andererseits“ ergänzt wird.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [denn, deshalb, der]. Ergänze den Relativanschluss: Der Leitfaden, ___ gestern veröffentlicht wurde, enthält konkrete Beispiele.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Der“ nimmt das maskuline Bezugswort „Leitfaden“ als Subjekt des eingeschobenen Relativsatzes wieder auf.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [und, weil, ob]. Ergänze zwei parallele Infinitive: Ziel ist, Risiken früh zu erkennen ___ geeignete Maßnahmen einzuleiten.",
+      "options": [],
+      "correct_answer": "und",
+      "accepted_answers": [
+        "und"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die beiden gleichrangigen zu-Infinitive werden parallel und ohne strukturellen Wechsel durch „und“ koordiniert.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ergänzt den weil-Nebensatz zu einem vollständigen Satz, ohne die Begründung zu verändern?",
+      "options": [
+        "Weil die erforderliche Zustimmung noch nicht vorlag.",
+        "Weil die erforderliche Zustimmung noch nicht vorlag, und das Projekt nicht beginnen konnte.",
+        "Die erforderliche Zustimmung noch nicht vorlag, deshalb konnte das Projekt nicht beginnen.",
+        "Weil die erforderliche Zustimmung noch nicht vorlag, konnte das Projekt nicht beginnen."
+      ],
+      "correct_answer": "Weil die erforderliche Zustimmung noch nicht vorlag, konnte das Projekt nicht beginnen.",
+      "accepted_answers": [
+        "Weil die erforderliche Zustimmung noch nicht vorlag, konnte das Projekt nicht beginnen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Ein eingeleiteter Kausalsatz benötigt einen übergeordneten Hauptsatz, um als vollständige Äußerung zu funktionieren.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verbindet Einwand, Entscheidung und Begründung in einem klaren komplexen Satz?",
+      "options": [
+        "Obwohl die neue Software Zeit spart, setzt die Klinik sie ein, weil ihre Einführung intensive Schulungen erfordert.",
+        "Obwohl ihre Einführung intensive Schulungen erfordert, setzt die Klinik die neue Software ein, weil das Programm Zeit spart.",
+        "Die neue Software spart Zeit, und ihre Einführung erfordert intensive Schulungen, und die Klinik setzt sie ein.",
+        "Weil ihre Einführung intensive Schulungen erfordert, setzt die Klinik die neue Software ein, obwohl das Programm Zeit spart."
+      ],
+      "correct_answer": "Obwohl ihre Einführung intensive Schulungen erfordert, setzt die Klinik die neue Software ein, weil das Programm Zeit spart.",
+      "accepted_answers": [
+        "Obwohl ihre Einführung intensive Schulungen erfordert, setzt die Klinik die neue Software ein, weil das Programm Zeit spart."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Struktur gewichtet Einwand und Begründung klar und benennt jeden Referenten so, dass kein Pronomen mehrdeutig bleibt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet aus Ursache, Entscheidung und Arbeitsauftrag einen vollständigen, logisch gewichteten Satz mit parallelen Prädikaten?",
+      "options": [
+        "Da die Daten noch unvollständig waren, die Leitung vertagte die Entscheidung und beauftragte das Team, damit die fehlenden Angaben ergänzen.",
+        "Die Daten noch unvollständig waren, deshalb die Leitung die Entscheidung vertagte und das Team die fehlenden Angaben zu ergänzen.",
+        "Da die Daten noch unvollständig waren, vertagte die Leitung die Entscheidung und beauftragte das Team damit, die fehlenden Angaben zu ergänzen.",
+        "Da die Daten noch unvollständig waren. Vertagte die Leitung die Entscheidung und das Team mit der Ergänzung der fehlenden Angaben."
+      ],
+      "correct_answer": "Da die Daten noch unvollständig waren, vertagte die Leitung die Entscheidung und beauftragte das Team damit, die fehlenden Angaben zu ergänzen.",
+      "accepted_answers": [
+        "Da die Daten noch unvollständig waren, vertagte die Leitung die Entscheidung und beauftragte das Team damit, die fehlenden Angaben zu ergänzen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der da-Satz nennt die Ursache. Im Hauptsatz teilen sich „vertagte“ und „beauftragte“ dasselbe Subjekt; die abhängige Infinitivgruppe ergänzt den zweiten Auftrag vollständig.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

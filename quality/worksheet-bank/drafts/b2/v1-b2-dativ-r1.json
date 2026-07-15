@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-dativ-r1",
+    "template_key": "v1-b2-dativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Dativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Dativ: Rektion und komplexe Ergänzungen präzisieren",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "dativ",
+    "name": "Dativ"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "dativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Dativ kennzeichnet Empfänger und Bezugspersonen, folgt bestimmten Verben und Präpositionen und bezeichnet bei räumlichen Wechselpräpositionen einen Ort auf die Frage „wo?“. Der Akkusativ bezeichnet dort ein Ziel oder eine Veränderung des Ortes auf die Frage „wohin?“. Erweiterte Nominalgruppen müssen vollständig übereinstimmen.",
+    "key_rule": "Lerne die Rektion als feste Einheit, etwa „jemandem widersprechen“ oder „an etwas teilnehmen“. Unterscheide bei räumlichen Wechselpräpositionen zwischen Ort oder Lage im Dativ und Ziel oder Ortswechsel im Akkusativ; eine Bewegung innerhalb desselben Ortes kann deshalb im Dativ stehen.",
+    "correct_examples": [
+      "Der Ausschuss stimmte dem sorgfältig begründeten Antrag zu.",
+      "Die Unterlagen liegen in einem verschlossenen Fach."
+    ],
+    "common_mistake_warning": "Ein belebtes Objekt steht nicht automatisch im Akkusativ; zahlreiche Verben verlangen die Person ausdrücklich im Dativ.",
+    "what_to_revise": "Übe Dativverben, Präpositionen, Dativ Plural mit zusätzlichem -n und lokale Wechselpräpositionen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet die Rektion von „widersprechen“ korrekt?",
+      "options": [
+        "Die Fachärztin widersprach den vorläufigen Befund.",
+        "Die Fachärztin widersprach des vorläufigen Befunds.",
+        "Die Fachärztin widersprach dem vorläufigen Befund."
+      ],
+      "correct_answer": "Die Fachärztin widersprach dem vorläufigen Befund.",
+      "accepted_answers": [
+        "Die Fachärztin widersprach dem vorläufigen Befund."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Widersprechen“ verlangt ein Dativobjekt; die maskuline Nominalgruppe lautet „dem vorläufigen Befund“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist nach der Präposition „gemäß“ in diesem formellen Satz standardsprachlich korrekt?",
+      "options": [
+        "Gemäß den aktualisierten Dienstanweisung muss der Vorfall gemeldet werden.",
+        "Gemäß der aktualisierten Dienstanweisung muss der Vorfall gemeldet werden.",
+        "Gemäß die aktualisierte Dienstanweisung muss der Vorfall gemeldet werden."
+      ],
+      "correct_answer": "Gemäß der aktualisierten Dienstanweisung muss der Vorfall gemeldet werden.",
+      "accepted_answers": [
+        "Gemäß der aktualisierten Dienstanweisung muss der Vorfall gemeldet werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Gemäß“ regiert den Dativ; beim femininen Singular steht „der aktualisierten Dienstanweisung“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt einen Ort und verwendet deshalb nach „auf“ den Dativ?",
+      "options": [
+        "Die freigegebenen Formulare liegen auf dem zentralen Server.",
+        "Die Mitarbeitenden laden die Formulare auf den zentralen Server.",
+        "Die IT überträgt den Server in ein neues Rechenzentrum."
+      ],
+      "correct_answer": "Die freigegebenen Formulare liegen auf dem zentralen Server.",
+      "accepted_answers": [
+        "Die freigegebenen Formulare liegen auf dem zentralen Server."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Liegen“ bezeichnet eine feste Position; die Frage „wo?“ führt bei der Wechselpräposition „auf“ zum Dativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den, des, dem]. Ergänze das Dativobjekt: Die Kommission stimmte ___ überarbeiteten Vorschlag einstimmig zu.",
+      "options": [],
+      "correct_answer": "dem",
+      "accepted_answers": [
+        "dem"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Verbindung „einem Vorschlag zustimmen“ verlangt den Dativ; maskulin Singular steht „dem“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [der beteiligten Teams, den beteiligten Teams, die beteiligten Teams]. Ergänze: Die Projektleitung dankte ___ für ihre sorgfältige Vorbereitung.",
+      "options": [],
+      "correct_answer": "den beteiligten Teams",
+      "accepted_answers": [
+        "den beteiligten Teams"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Danken“ verlangt den Dativ; im Plural trägt der Artikel die Form „den“, während „Teams“ bereits auf -s endet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einer, eine, einerseits]. Ergänze die lokale Angabe: Die unterschriebenen Einwilligungen befinden sich in ___ abschließbaren Mappe.",
+      "options": [],
+      "correct_answer": "einer",
+      "accepted_answers": [
+        "einer"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste Lage beantwortet „wo?“; nach „in“ steht deshalb der feminine Dativ „einer … Mappe“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wem, wen, wessen]. Ergänze die Dativfrage: ___ wurde die Verantwortung für die abschließende Prüfung übertragen?",
+      "options": [],
+      "correct_answer": "Wem",
+      "accepted_answers": [
+        "Wem"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Person, die etwas erhält, ist bei „jemandem etwas übertragen“ das Dativobjekt und wird mit „wem“ erfragt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet nach dem Verb „folgen“ den korrekten Dativ Singular?",
+      "options": [
+        "Die neue Kollegin folgte den erfahrenen Praxisanleiter in den Besprechungsraum.",
+        "Die neue Kollegin folgte des erfahrenen Praxisanleiters in den Besprechungsraum.",
+        "Die neue Kollegin folgte dem erfahrenen Praxisanleitern in den Besprechungsraum.",
+        "Die neue Kollegin folgte dem erfahrenen Praxisanleiter in den Besprechungsraum."
+      ],
+      "correct_answer": "Die neue Kollegin folgte dem erfahrenen Praxisanleiter in den Besprechungsraum.",
+      "accepted_answers": [
+        "Die neue Kollegin folgte dem erfahrenen Praxisanleiter in den Besprechungsraum."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Folgen“ verlangt den Dativ; Artikel und Adjektiv müssen deshalb als „dem erfahrenen“ erscheinen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bezeichnet die Station korrekt als Dativempfängerin der bereitgestellten Tablets?",
+      "options": [
+        "Die Verwaltung stellt die Station zusätzliche Tablets für die Dokumentation zur Verfügung.",
+        "Die Verwaltung stellt der Station zusätzliche Tablets für die Dokumentation zur Verfügung.",
+        "Die Verwaltung stellt der Stationen zusätzliche Tablets für die Dokumentation zur Verfügung.",
+        "Die Verwaltung stellt den Station zusätzliche Tablets für die Dokumentation zur Verfügung."
+      ],
+      "correct_answer": "Die Verwaltung stellt der Station zusätzliche Tablets für die Dokumentation zur Verfügung.",
+      "accepted_answers": [
+        "Die Verwaltung stellt der Station zusätzliche Tablets für die Dokumentation zur Verfügung."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei „jemandem etwas zur Verfügung stellen“ bezeichnet der Dativ den Empfänger der bereitgestellten Sache.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet bei „von etwas absehen“ und „etwas zustimmen“ jeweils den korrekten Dativ?",
+      "options": [
+        "Die Leitung sieht von einer sofortigen Umstellung ab und stimmt ein schrittweises Vorgehen zu.",
+        "Die Leitung sieht von einem sofortigen Umstellung ab und stimmt einem schrittweisen Vorgehen zu.",
+        "Die Leitung sieht von einer sofortigen Umstellung ab und stimmt einem schrittweisen Vorgehen zu.",
+        "Die Leitung sieht von eine sofortige Umstellung ab und stimmt einen schrittweisen Vorgehen zu."
+      ],
+      "correct_answer": "Die Leitung sieht von einer sofortigen Umstellung ab und stimmt einem schrittweisen Vorgehen zu.",
+      "accepted_answers": [
+        "Die Leitung sieht von einer sofortigen Umstellung ab und stimmt einem schrittweisen Vorgehen zu."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Präposition „von“ regiert den Dativ („von einer Umstellung“); außerdem verlangt das Verb „zustimmen“ ein Dativobjekt („einem Vorgehen zustimmen“).",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

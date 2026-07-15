@@ -1,0 +1,178 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-praeteritum-r2",
+    "template_key": "v1-b1-praeteritum-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Präteritum accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Präteritum im Bericht: Abläufe präzise darstellen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "praeteritum",
+    "name": "Präteritum"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "praeteritum",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "In sachlichen Berichten und schriftlichen Erzählungen verbindet das Präteritum mehrere abgeschlossene Ereignisse zu einem klaren Ablauf.",
+    "key_rule": "Wähle die zum Subjekt passende Form und beachte bei starken sowie trennbaren Verben Stammwechsel und Satzklammer.",
+    "correct_examples": [
+      "Als die Tür aufging, betraten alle den Raum.",
+      "Am Abend brachte die Kurierin die Unterlagen."
+    ],
+    "common_mistake_warning": "Mische in einem zusammenhängenden schriftlichen Bericht Präteritum und Perfekt nicht ohne einen inhaltlichen Grund.",
+    "what_to_revise": "Übe seltenere starke Formen wie erlosch, wusste, brachte und fiel aus."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt den Ablauf im Präteritum korrekt?",
+      "options": [
+        "Als der Alarm ertönte, alle verließen das Gebäude.",
+        "Als der Alarm ertönte, verließen alle das Gebäude.",
+        "Als der Alarm ertönte, verlassten alle das Gebäude.",
+        "Als der Alarm ertönte, haben alle das Gebäude verließen."
+      ],
+      "correct_answer": "Als der Alarm ertönte, verließen alle das Gebäude.",
+      "accepted_answers": [
+        "Als der Alarm ertönte, verließen alle das Gebäude."
+      ],
+      "explanation": "„Ertönen“ bildet regelmäßig „ertönte“; die starke Präteritumform von „verlassen“ lautet im Plural „verließen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präteritumform von „wissen“ passt? Niemand ___, warum das Gerät plötzlich ausfiel.",
+      "options": ["gewusst","wüsste","wusste","weißte"],
+      "correct_answer": "wusste",
+      "accepted_answers": ["wusste"],
+      "explanation": "Die Präteritumform von „wissen“ in der dritten Person Singular lautet „wusste“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den korrekten Satz mit zwei Präteritumformen.",
+      "options": [
+        "Die Techniker findeten den Fehler und beheben ihn sofort.",
+        "Die Techniker fanden den Fehler und haben ihn behoben sofort.",
+        "Die Techniker fanden den Fehler und behiebten ihn sofort.",
+        "Die Techniker fanden den Fehler und behoben ihn sofort."
+      ],
+      "correct_answer": "Die Techniker fanden den Fehler und behoben ihn sofort.",
+      "accepted_answers": [
+        "Die Techniker fanden den Fehler und behoben ihn sofort."
+      ],
+      "explanation": "Die starken Verben „finden“ und „beheben“ lauten im Präteritum Plural „fanden“ und „behoben“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werteten, wertete, wertet]. Ergänze: Die Pflegekräfte ___ die Rückmeldungen zur Schulung sorgfältig aus.",
+      "options": [],
+      "correct_answer": "werteten",
+      "accepted_answers": ["werteten"],
+      "explanation": "„Auswerten“ ist ein schwaches trennbares Verb; im Plural lautet die finite Form „werteten“ und „aus“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [bringte, gebracht, brachte]. Ergänze: Die Kurierin ___ die Unterlagen noch am selben Tag.",
+      "options": [],
+      "correct_answer": "brachte",
+      "accepted_answers": ["brachte"],
+      "explanation": "Das gemischte Verb „bringen“ bildet das Präteritum mit Stammwechsel und -te: „brachte“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [erloschen, erlosch, erlöschte]. Ergänze: Nach wenigen Sekunden ___ das Licht vollständig.",
+      "options": [],
+      "correct_answer": "erlosch",
+      "accepted_answers": ["erlosch"],
+      "explanation": "Die starke Präteritumform von „erlöschen“ in der dritten Person Singular lautet „erlosch“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [durfte, dürfte, gedurft]. Ergänze den vergangenen Bericht ausdrücklich im Präteritum: Aus Sicherheitsgründen ___ niemand den Schulungsraum betreten.",
+      "options": [],
+      "correct_answer": "durfte",
+      "accepted_answers": ["durfte"],
+      "explanation": "„Durfte“ ist die Präteritumform von „dürfen“ für die dritte Person Singular.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit „Plötzlich“: [Plötzlich / fiel / der Strom / im ganzen Gebäude / aus].",
+      "options": [],
+      "correct_answer": "Plötzlich fiel der Strom im ganzen Gebäude aus.",
+      "rubric": {
+        "criteria": [
+          "Alle Satzteile werden genau einmal verwendet.",
+          "Die Präteritumform „fiel“ steht nach „Plötzlich“ an Position zwei.",
+          "Die trennbare Vorsilbe „aus“ schließt den Satz ab."
+        ],
+        "sample_answer": "Plötzlich fiel der Strom im ganzen Gebäude aus."
+      },
+      "explanation": "Bei „ausfallen“ bildet „fiel“ mit der abgetrennten Vorsilbe „aus“ die Präteritum-Satzklammer.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Schreibe den Berichtssatz im Präteritum und behalte alle Informationen: Die Techniker haben den Fehler nach zwei Stunden gefunden.",
+      "options": [],
+      "correct_answer": "Die Techniker fanden den Fehler nach zwei Stunden.",
+      "rubric": {
+        "criteria": [
+          "„Haben gefunden“ wird durch die passende Präteritumform „fanden“ ersetzt.",
+          "Subjekt, Objekt und Zeitangabe bleiben vollständig erhalten."
+        ],
+        "sample_answer": "Die Techniker fanden den Fehler nach zwei Stunden."
+      },
+      "explanation": "Die starke Präteritumform „fanden“ ersetzt die Perfektform, ohne den Inhalt zu verändern.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Verfasse einen sachlichen Bericht aus drei Sätzen über eine technische Störung auf einer Pflegestation. Verwende mindestens drei verschiedene Verben im Präteritum, darunter ein trennbares Verb.",
+      "options": [],
+      "correct_answer": "Am Morgen fiel das interne Kommunikationssystem auf der Station aus. Eine Technikerin prüfte sofort alle Geräte und fand ein defektes Kabel. Nach der Reparatur lief das System wieder stabil.",
+      "rubric": {
+        "criteria": [
+          "Der Text besteht aus drei logisch verbundenen Berichtssätzen über eine technische Störung auf einer Pflegestation.",
+          "Mindestens drei verschiedene Verben stehen korrekt im Präteritum.",
+          "Mindestens ein trennbares Verb bildet eine korrekte Satzklammer."
+        ],
+        "sample_answer": "Am Morgen fiel das interne Kommunikationssystem auf der Station aus. Eine Technikerin prüfte sofort alle Geräte und fand ein defektes Kabel. Nach der Reparatur lief das System wieder stabil."
+      },
+      "explanation": "Ein einheitliches Präteritum und klare Zeitangaben machen einen schriftlichen Störungsbericht nachvollziehbar.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

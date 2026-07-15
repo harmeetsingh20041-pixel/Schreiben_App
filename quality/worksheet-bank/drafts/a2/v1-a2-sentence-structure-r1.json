@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-sentence-structure-r1",
+    "template_key": "v1-a2-sentence-structure-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Sentence structure pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Satzstruktur: Informationen verständlich ordnen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "sentence-structure",
+    "name": "Satzstruktur"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "sentence-structure",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein klarer deutscher Satz ordnet Subjekt, Verb und Ergänzungen so, dass Handlung, Zeit und Beteiligte leicht erkennbar sind.",
+    "key_rule": "Im Hauptsatz steht das finite Verb an Position zwei; häufig folgen Subjekt sowie Angaben in der Reihenfolge Zeit, Art und Ort.",
+    "correct_examples": [
+      "Wir besprechen heute gemeinsam das Problem.",
+      "Am Montag beginnt der neue Kurs."
+    ],
+    "common_mistake_warning": "Setze nicht mehrere Satzglieder vor das finite Verb eines Aussagesatzes.",
+    "what_to_revise": "Übe kurze Hauptsätze mit Subjekt, Verb, Objekt sowie Zeit- und Ortsangaben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ordnet Zeit, Handlung und Ort klar?",
+      "options": [
+        "Wir treffen uns morgen im Kursraum.",
+        "Wir morgen treffen uns im Kursraum.",
+        "Morgen wir uns treffen im Kursraum.",
+        "Wir im Kursraum morgen uns treffen."
+      ],
+      "correct_answer": "Wir treffen uns morgen im Kursraum.",
+      "accepted_answers": [
+        "Wir treffen uns morgen im Kursraum."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das finite Verb steht an Position zwei; Zeit und Ort folgen in einer verständlichen Reihenfolge.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beginnt korrekt mit einer Ortsangabe?",
+      "options": [
+        "Im Büro auf dem Tisch der Plan liegt.",
+        "Im Büro liegen der neue Plan auf dem Tisch.",
+        "Im Büro liegt der neue Plan auf dem Tisch.",
+        "Im Büro der neue Plan liegt auf dem Tisch."
+      ],
+      "correct_answer": "Im Büro liegt der neue Plan auf dem Tisch.",
+      "accepted_answers": [
+        "Im Büro liegt der neue Plan auf dem Tisch."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Ortsangabe besetzt das Vorfeld und danach folgt das finite Verb vor dem Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [bespricht, das Team, heute]. Ergänze das finite Verb: Das Team ___ heute den Dienstplan.",
+      "options": [],
+      "correct_answer": "bespricht",
+      "accepted_answers": [
+        "bespricht"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zwischen Subjekt und den weiteren Angaben steht die passende finite Verbform „bespricht“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den Kurs, wir, beginnen]. Ergänze direkt nach der Zeitangabe: Morgen ___ wir den Kurs.",
+      "options": [],
+      "correct_answer": "beginnen",
+      "accepted_answers": [
+        "beginnen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem Vorfeld „Morgen“ steht im Hauptsatz das finite Verb „beginnen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gestern, im Seminarraum, sorgfältig]. Ergänze die passende Ortsangabe: Wir übten gestern gemeinsam ___.",
+      "options": [],
+      "correct_answer": "im Seminarraum",
+      "accepted_answers": [
+        "im Seminarraum"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Frage „Wo übten wir?“ wird durch die Ortsangabe „im Seminarraum“ beantwortet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Hauptsatz ist richtig aufgebaut?",
+      "options": [
+        "Nach der Übergabe die Pflegekraft dokumentiert die Werte.",
+        "Nach der Übergabe dokumentieren die Pflegekraft die Werte.",
+        "Nach der Übergabe die Werte die Pflegekraft dokumentiert.",
+        "Nach der Übergabe dokumentiert die Pflegekraft die Werte."
+      ],
+      "correct_answer": "Nach der Übergabe dokumentiert die Pflegekraft die Werte.",
+      "accepted_answers": [
+        "Nach der Übergabe dokumentiert die Pflegekraft die Werte."
+      ],
+      "rubric": null,
+      "explanation": "Nach der Zeitangabe steht das konjugierte Verb dokumentiert an zweiter Position, danach folgt das Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [prüfen, geprüft, prüfe, prüft]. Am Morgen ___ die Pflegekraft den Plan.",
+      "options": [],
+      "correct_answer": "prüft",
+      "accepted_answers": [
+        "prüft"
+      ],
+      "rubric": null,
+      "explanation": "Nach der Zeitangabe steht das konjugierte Verb prüft an zweiter Position.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist klar und vollständig?",
+      "options": [
+        "Heute die Übung im Kursraum die Teilnehmer bearbeiten gemeinsam.",
+        "Die Teilnehmer bearbeiten heute gemeinsam die Übung im Kursraum.",
+        "Die Teilnehmer heute gemeinsam im Kursraum die Übung.",
+        "Bearbeiten die Teilnehmer gemeinsam heute die Übung im Kursraum."
+      ],
+      "correct_answer": "Die Teilnehmer bearbeiten heute gemeinsam die Übung im Kursraum.",
+      "accepted_answers": [
+        "Die Teilnehmer bearbeiten heute gemeinsam die Übung im Kursraum."
+      ],
+      "rubric": null,
+      "explanation": "Der Satz enthält Subjekt und Verb in klarer Hauptsatzstellung sowie verständlich geordnete Angaben.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

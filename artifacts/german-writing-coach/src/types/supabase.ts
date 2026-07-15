@@ -12,6 +12,246 @@ export type Database = {
   __InternalSupabase: {
     PostgrestVersion: "14.5"
   }
+  api: {
+    Tables: {
+      [_ in never]: never
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      get_practice_teacher_actions: {
+        Args: {
+          target_assignment_id: string
+        }
+        Returns: Json
+      }
+      get_practice_semantic_review_draft: {
+        Args: {
+          target_assignment_id: string
+        }
+        Returns: Json
+      }
+      list_practice_class_context_options: {
+        Args: {
+          target_assignment_id: string
+        }
+        Returns: Json
+      }
+      get_practice_draft: {
+        Args: {
+          target_assignment_id: string
+        }
+        Returns: {
+          answers: Json
+          assignment_id: string
+          draft_id: string
+          revision: number
+          updated_at: string
+        }[]
+      }
+      get_writing_draft: {
+        Args: {
+          target_draft_id: string
+        }
+        Returns: {
+          batch_id: string
+          draft_id: string
+          revision: number
+          source_id: string | null
+          source_type: string
+          text: string
+          updated_at: string
+          workspace_id: string
+        }[]
+      }
+      get_writing_draft_by_context: {
+        Args: {
+          target_batch_id: string
+          target_source_id: string | null
+          target_source_type: string
+          target_workspace_id: string
+        }
+        Returns: {
+          batch_id: string
+          draft_id: string
+          revision: number
+          source_id: string | null
+          source_type: string
+          text: string
+          updated_at: string
+          workspace_id: string
+        }[]
+      }
+      get_submission_detail: {
+        Args: {
+          target_submission_id: string
+        }
+        Returns: Json
+      }
+      list_student_submissions_page: {
+        Args: {
+          cursor_created_at?: string | null
+          cursor_id?: string | null
+          requested_page_size?: number
+          target_batch_id?: string | null
+          target_evaluation_status?: string | null
+          target_release_status?: string | null
+          target_student_id: string
+          target_workspace_id: string
+        }
+        Returns: Json
+      }
+      list_my_writing_drafts: {
+        Args: {
+          page_size?: number
+          target_workspace_id: string
+        }
+        Returns: {
+          batch_id: string
+          character_count: number
+          draft_id: string
+          preview: string
+          revision: number
+          source_id: string | null
+          source_type: string
+          updated_at: string
+        }[]
+      }
+      list_workspace_submissions_page: {
+        Args: {
+          cursor_created_at?: string | null
+          cursor_id?: string | null
+          requested_page_size?: number
+          target_batch_id?: string | null
+          target_evaluation_status?: string | null
+          target_release_status?: string | null
+          target_student_id?: string | null
+          target_workspace_id: string
+        }
+        Returns: Json
+      }
+      override_practice_attempt_score: {
+        Args: {
+          expected_action_revision: number
+          override_reason: string
+          target_assignment_id: string
+          target_score_percent: number
+        }
+        Returns: Json
+      }
+      opt_in_restricted_practice: {
+        Args: {
+          opt_in_reason: string
+          target_cycle_id: string
+        }
+        Returns: Json
+      }
+      finalize_practice_semantic_review: {
+        Args: {
+          command_id: string
+          expected_action_revision: number
+          review_reason: string
+          reviews: Json
+          target_assignment_id: string
+        }
+        Returns: Json
+      }
+      reassign_practice_assignment: {
+        Args: {
+          expected_action_revision: number
+          reassignment_reason: string
+          target_assignment_id: string
+        }
+        Returns: Json
+      }
+      resolve_practice_support: {
+        Args: {
+          expected_action_revision: number
+          support_notes: string | null
+          support_resolution: string
+          target_assignment_id: string
+        }
+        Returns: Json
+      }
+      resolve_practice_assignment_class_context: {
+        Args: {
+          target_assignment_id: string
+          target_batch_id: string
+        }
+        Returns: Json
+      }
+      submit_writing: {
+        Args: {
+          batch_id: string
+          source_id: string | null
+          source_type: string
+          text: string
+        }
+        Returns: {
+          evaluation_status: string
+          release_at: string | null
+          release_status: string
+          submission_id: string
+        }[]
+      }
+      save_practice_draft: {
+        Args: {
+          expected_revision: number
+          submitted_answers: Json
+          target_assignment_id: string
+        }
+        Returns: {
+          answers: Json
+          assignment_id: string
+          draft_id: string
+          saved_at: string
+          saved_revision: number
+        }[]
+      }
+      save_writing_draft: {
+        Args: {
+          batch_id: string
+          draft_id: string | null
+          expected_revision: number
+          source_id: string | null
+          source_type: string
+          text: string
+        }
+        Returns: {
+          saved_at: string
+          saved_draft_id: string
+          saved_revision: number
+          workspace_id: string
+        }[]
+      }
+      submit_practice_attempt: {
+        Args: {
+          expected_revision: number
+          target_assignment_id: string
+        }
+        Returns: Json
+      }
+      submit_writing_draft: {
+        Args: {
+          expected_revision: number
+          target_draft_id: string
+        }
+        Returns: {
+          evaluation_status: string
+          release_at: string | null
+          release_status: string
+          submission_id: string
+        }[]
+      }
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
   graphql_public: {
     Tables: {
       [_ in never]: never
@@ -169,7 +409,6 @@ export type Database = {
           feedback_mode: string
           id: string
           is_active: boolean
-          join_code: string
           join_code_enabled: boolean
           join_requires_approval: boolean
           level: string
@@ -186,7 +425,6 @@ export type Database = {
           feedback_mode?: string
           id?: string
           is_active?: boolean
-          join_code: string
           join_code_enabled?: boolean
           join_requires_approval?: boolean
           level: string
@@ -203,7 +441,6 @@ export type Database = {
           feedback_mode?: string
           id?: string
           is_active?: boolean
-          join_code?: string
           join_code_enabled?: boolean
           join_requires_approval?: boolean
           level?: string
@@ -857,7 +1094,12 @@ export type Database = {
           grammar_topic_id: string
           id: string
           last_seen_at: string | null
+          mastery_pass_count: number
           practice_unlocked: boolean
+          resolution_cycle_id: string | null
+          resolution_cycle_number: number
+          resolved_through_sequence: number
+          state_reason: string | null
           student_id: string
           total_correct_after_practice: number
           total_major_issues: number
@@ -870,7 +1112,12 @@ export type Database = {
           grammar_topic_id: string
           id?: string
           last_seen_at?: string | null
+          mastery_pass_count?: number
           practice_unlocked?: boolean
+          resolution_cycle_id?: string | null
+          resolution_cycle_number?: number
+          resolved_through_sequence?: number
+          state_reason?: string | null
           student_id: string
           total_correct_after_practice?: number
           total_major_issues?: number
@@ -883,7 +1130,12 @@ export type Database = {
           grammar_topic_id?: string
           id?: string
           last_seen_at?: string | null
+          mastery_pass_count?: number
           practice_unlocked?: boolean
+          resolution_cycle_id?: string | null
+          resolution_cycle_number?: number
+          resolved_through_sequence?: number
+          state_reason?: string | null
           student_id?: string
           total_correct_after_practice?: number
           total_major_issues?: number
@@ -993,7 +1245,10 @@ export type Database = {
           adaptive_status: string | null
           assigned_at: string
           assigned_by: string | null
+          batch_id: string | null
+          class_context_version: number
           completed_at: string | null
+          evidence_cutoff_sequence: number | null
           generation_completed_at: string | null
           generation_error: string | null
           generation_started_at: string | null
@@ -1005,11 +1260,14 @@ export type Database = {
           previous_assignment_id: string | null
           previous_attempt_id: string | null
           repeat_number: number
+          resolution_cycle_id: string | null
+          resolution_cycle_number: number | null
           source: string
           started_at: string | null
           status: string
           student_id: string
           updated_at: string
+          worksheet_level: string | null
           workspace_id: string
         }
         Insert: {
@@ -1017,7 +1275,10 @@ export type Database = {
           adaptive_status?: string | null
           assigned_at?: string
           assigned_by?: string | null
+          batch_id?: string | null
+          class_context_version?: number
           completed_at?: string | null
+          evidence_cutoff_sequence?: number | null
           generation_completed_at?: string | null
           generation_error?: string | null
           generation_started_at?: string | null
@@ -1029,11 +1290,14 @@ export type Database = {
           previous_assignment_id?: string | null
           previous_attempt_id?: string | null
           repeat_number?: number
+          resolution_cycle_id?: string | null
+          resolution_cycle_number?: number | null
           source?: string
           started_at?: string | null
           status?: string
           student_id: string
           updated_at?: string
+          worksheet_level?: string | null
           workspace_id: string
         }
         Update: {
@@ -1041,7 +1305,10 @@ export type Database = {
           adaptive_status?: string | null
           assigned_at?: string
           assigned_by?: string | null
+          batch_id?: string | null
+          class_context_version?: number
           completed_at?: string | null
+          evidence_cutoff_sequence?: number | null
           generation_completed_at?: string | null
           generation_error?: string | null
           generation_started_at?: string | null
@@ -1053,11 +1320,14 @@ export type Database = {
           previous_assignment_id?: string | null
           previous_attempt_id?: string | null
           repeat_number?: number
+          resolution_cycle_id?: string | null
+          resolution_cycle_number?: number | null
           source?: string
           started_at?: string | null
           status?: string
           student_id?: string
           updated_at?: string
+          worksheet_level?: string | null
           workspace_id?: string
         }
         Relationships: [
@@ -1066,6 +1336,13 @@ export type Database = {
             columns: ["assigned_by"]
             isOneToOne: false
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "student_practice_assignments_batch_id_fkey"
+            columns: ["batch_id"]
+            isOneToOne: false
+            referencedRelation: "batches"
             referencedColumns: ["id"]
           },
           {
@@ -1228,6 +1505,8 @@ export type Database = {
           checked_at: string | null
           corrected_text: string | null
           created_at: string
+          evaluation_status: string | null
+          evaluation_version: number
           feedback_completed_at: string | null
           feedback_error: string | null
           feedback_mode: string | null
@@ -1241,6 +1520,8 @@ export type Database = {
           overall_summary: string | null
           question_id: string | null
           question_source: string | null
+          release_at: string | null
+          release_status: string | null
           status: string
           student_id: string
           updated_at: string
@@ -1252,6 +1533,8 @@ export type Database = {
           checked_at?: string | null
           corrected_text?: string | null
           created_at?: string
+          evaluation_status?: string | null
+          evaluation_version?: number
           feedback_completed_at?: string | null
           feedback_error?: string | null
           feedback_mode?: string | null
@@ -1265,6 +1548,8 @@ export type Database = {
           overall_summary?: string | null
           question_id?: string | null
           question_source?: string | null
+          release_at?: string | null
+          release_status?: string | null
           status?: string
           student_id: string
           updated_at?: string
@@ -1276,6 +1561,8 @@ export type Database = {
           checked_at?: string | null
           corrected_text?: string | null
           created_at?: string
+          evaluation_status?: string | null
+          evaluation_version?: number
           feedback_completed_at?: string | null
           feedback_error?: string | null
           feedback_mode?: string | null
@@ -1289,6 +1576,8 @@ export type Database = {
           overall_summary?: string | null
           question_id?: string | null
           question_source?: string | null
+          release_at?: string | null
+          release_status?: string | null
           status?: string
           student_id?: string
           updated_at?: string
@@ -1565,6 +1854,29 @@ export type Database = {
           submission_id: string
         }[]
       }
+      get_auth_context: {
+        Args: never
+        Returns: {
+          can_create_teacher_workspace: boolean
+          email: string
+          full_name: string | null
+          global_role: string
+          memberships: Json
+          teacher_entitled: boolean
+          teacher_workspace_count: number
+          teacher_workspace_limit: number
+          user_id: string
+        }[]
+      }
+      get_batch_join_code: {
+        Args: { target_batch_id: string }
+        Returns: {
+          batch_id: string
+          join_code: string
+          join_code_enabled: boolean
+          join_requires_approval: boolean
+        }[]
+      }
       ensure_student_practice_assignment: {
         Args: {
           target_grammar_topic_id: string
@@ -1689,6 +2001,23 @@ export type Database = {
       is_workspace_member: {
         Args: { target_workspace_id: string }
         Returns: boolean
+      }
+      list_workspace_batch_join_codes: {
+        Args: { target_workspace_id: string }
+        Returns: {
+          batch_id: string
+          join_code: string
+          join_code_enabled: boolean
+          join_requires_approval: boolean
+        }[]
+      }
+      offboard_student: {
+        Args: { student_id: string; workspace_id: string }
+        Returns: {
+          cancelled_join_requests: number
+          membership_removed: boolean
+          removed_batch_assignments: number
+        }[]
       }
       list_student_practice_assignments: {
         Args: { target_student_id: string; target_workspace_id: string }
@@ -1946,6 +2275,9 @@ export type CompositeTypes<
     : never
 
 export const Constants = {
+  api: {
+    Enums: {},
+  },
   graphql_public: {
     Enums: {},
   },

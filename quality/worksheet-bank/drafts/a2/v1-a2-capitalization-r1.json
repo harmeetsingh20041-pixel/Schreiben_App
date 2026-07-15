@@ -1,0 +1,164 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-capitalization-r1",
+    "template_key": "v1-a2-capitalization-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Capitalization pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Großschreibung: Nomen und Satzanfänge",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "capitalization",
+    "name": "Groß- und Kleinschreibung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "capitalization",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Im Deutschen beginnen Nomen und Satzanfänge mit einem Großbuchstaben. Verben und Adjektive schreibt man normalerweise klein.",
+    "key_rule": "Artikel und Begleiter wie der, ein oder mein helfen dabei, Nomen zu erkennen; auch nominalisierte Verben können großgeschrieben werden.",
+    "correct_examples": [
+      "Die neue Aufgabe ist leicht.",
+      "Beim Essen sprechen wir wenig."
+    ],
+    "common_mistake_warning": "Schreibe nicht jedes wichtige Wort groß, sondern prüfe seine grammatische Funktion.",
+    "what_to_revise": "Markiere Nomen, Satzanfänge und einfache Nominalisierungen nach beim oder zum."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet Groß- und Kleinschreibung korrekt?",
+      "options": [
+        "Die besprechung startet am Montag.",
+        "Die Sitzung Beginnt am Montag.",
+        "am Montag beginnt die Besprechung.",
+        "Die Besprechung beginnt am Montag."
+      ],
+      "correct_answer": "Die Besprechung beginnt am Montag.",
+      "accepted_answers": ["Die Besprechung beginnt am Montag."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Besprechung“ und „Montag“ sind Nomen; das Verb „beginnt“ bleibt klein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher vollständige Satz ist in Groß- und Kleinschreibung korrekt?",
+      "options": [
+        "Beim Lernen brauche ich Ruhe.",
+        "Beim lernen brauche ich heute Ruhe.",
+        "beim Üben brauche ich Ruhe.",
+        "Beim Lesen Brauche ich Ruhe."
+      ],
+      "correct_answer": "Beim Lernen brauche ich Ruhe.",
+      "accepted_answers": ["Beim Lernen brauche ich Ruhe."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „beim“ wird der substantivierte Infinitiv „Lernen“ großgeschrieben; „brauche“ bleibt klein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gearbeitet, Arbeit, arbeiten]. Ergänze das Nomen: Nach der ___ fahre ich nach Hause.",
+      "options": [],
+      "correct_answer": "Arbeit",
+      "accepted_answers": ["Arbeit"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Artikel „der“ zeigt ein Nomen an; „Arbeit“ beginnt deshalb mit einem Großbuchstaben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [schreiben, Schreiber, Schrift]. Ergänze das Verb: Wir ___ heute eine kurze E-Mail.",
+      "options": [],
+      "correct_answer": "schreiben",
+      "accepted_answers": ["schreiben"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Hier bezeichnet „schreiben“ eine Handlung und ist ein Verb; es wird kleingeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [frühstücken, früh, Frühstück]. Ergänze: Das ___ ist schon fertig.",
+      "options": [],
+      "correct_answer": "Frühstück",
+      "accepted_answers": ["Frühstück"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Artikel „Das“ zeigt das Nomen „Frühstück“ an, das großgeschrieben wird.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schreibweise ist richtig?",
+      "options": [
+        "Heute beginnt der deutschkurs.",
+        "am Montag beginnt heute der Deutschkurs.",
+        "Am Montag beginnt der Deutschkurs.",
+        "Am montag beginnt der Deutschkurs pünktlich."
+      ],
+      "correct_answer": "Am Montag beginnt der Deutschkurs.",
+      "accepted_answers": ["Am Montag beginnt der Deutschkurs."],
+      "rubric": null,
+      "explanation": "Montag und Deutschkurs sind Nomen und werden großgeschrieben; auch der Satzanfang beginnt groß.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Korrigiere nur die Groß- und Kleinschreibung im Ausgangssatz: „am morgen liest die pflegekraft den bericht vollständig.“ Welche Option bewahrt alle Wörter?",
+      "options": [
+        "Variante A: am Morgen liest die Pflegekraft den Bericht vollständig.",
+        "Variante B: Am Morgen liest die Pflegekraft den Bericht vollständig.",
+        "Variante C: Am Morgen liest die pflegekraft den Bericht vollständig.",
+        "Variante D: Am morgen liest die Pflegekraft den Bericht vollständig."
+      ],
+      "correct_answer": "Variante B: Am Morgen liest die Pflegekraft den Bericht vollständig.",
+      "accepted_answers": [
+        "Variante B: Am Morgen liest die Pflegekraft den Bericht vollständig."
+      ],
+      "rubric": null,
+      "explanation": "Der Satzanfang Am sowie die Nomen Morgen, Pflegekraft und Bericht werden großgeschrieben; vollständig bleibt unverändert.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schreibweise ist vollständig korrekt?",
+      "options": [
+        "Nach dem Essen gehen wir spazieren.",
+        "Nach dem essen gehen wir heute spazieren.",
+        "nach dem Essen gehen wir oft spazieren.",
+        "Nach dem Essen gehen Wir zusammen spazieren."
+      ],
+      "correct_answer": "Nach dem Essen gehen wir spazieren.",
+      "accepted_answers": ["Nach dem Essen gehen wir spazieren."],
+      "rubric": null,
+      "explanation": "Essen ist hier ein substantivierter Infinitiv und wird großgeschrieben; wir bleibt klein.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

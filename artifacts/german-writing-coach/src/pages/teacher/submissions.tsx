@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { Link, useSearch } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Eye, Calendar, Clock, CheckCircle2 } from "lucide-react";
+import { Eye, Calendar } from "lucide-react";
 import { getSubmissionIssueLabel, SubmissionStatusBadge } from "@/components/submission-status-badge";
 import { useAuth } from "@/lib/auth";
-import { formatErrorMessage, getActiveWorkspaceId } from "@/lib/workspaceData";
-import { listTeacherWorkspaceSubmissions, type WritingSubmission } from "@/services/submissionService";
-import { MOCK_SUBMISSIONS, MOCK_STUDENTS, MOCK_QUESTIONS } from "@/data/mockData";
+import { formatErrorMessage } from "@/lib/workspaceData";
+import { appQueryKeys } from "@/lib/appQueryKeys";
+import { listTeacherWorkspaceSubmissionsPage, type SubmissionCursor } from "@/services/submissionService";
 
 function formatSubmissionDate(value: string) {
   return new Date(value).toLocaleDateString(undefined, {
@@ -20,48 +20,45 @@ function formatSubmissionDate(value: string) {
 }
 
 export default function TeacherSubmissions() {
-  const { authMode, user, workspaceMemberships } = useAuth();
-  const useRealData = authMode === "supabase" && Boolean(user);
-  const workspaceId = getActiveWorkspaceId(workspaceMemberships);
+  const { activeWorkspaceId: workspaceId, user } = useAuth();
   const searchParams = new URLSearchParams(useSearch());
   const filterStudent = searchParams.get("student");
   const filterBatch = searchParams.get("batch");
-  const [realSubmissions, setRealSubmissions] = useState<WritingSubmission[]>([]);
-  const [loading, setLoading] = useState(useRealData);
-  const [error, setError] = useState<string | null>(null);
+  const [cursorTrail, setCursorTrail] = useState<Array<SubmissionCursor | null>>([null]);
+  const cursor = cursorTrail[cursorTrail.length - 1] ?? null;
+  const pageNumber = cursorTrail.length;
 
   useEffect(() => {
-    if (!useRealData) return;
-    if (!workspaceId) {
-      setLoading(false);
-      setError("No workspace found.");
-      return;
-    }
+    setCursorTrail([null]);
+  }, [filterBatch, filterStudent, workspaceId]);
 
-    async function loadSubmissions() {
-      try {
-        setLoading(true);
-        setError(null);
-        setRealSubmissions(await listTeacherWorkspaceSubmissions(workspaceId!));
-      } catch (loadError) {
-        setError(formatErrorMessage(loadError, "Unable to load real submissions."));
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    void loadSubmissions();
-  }, [useRealData, workspaceId]);
-
-  let filtered = useRealData ? [] : MOCK_SUBMISSIONS;
-  if (!useRealData && filterStudent) {
-    filtered = filtered.filter(s => s.studentId === filterStudent);
-  } else if (!useRealData && filterBatch) {
-    filtered = filtered.filter(s => {
-      const student = MOCK_STUDENTS.find(st => st.id === s.studentId);
-      return student?.batchId === filterBatch;
-    });
-  }
+  const submissionsQuery = useQuery({
+    queryKey: appQueryKeys.teacherSubmissionsPage({
+      workspaceId: workspaceId ?? "inactive-workspace",
+      studentId: filterStudent,
+      batchId: filterBatch,
+      pageSize: 25,
+      cursor,
+    }),
+    enabled: Boolean(user) && Boolean(workspaceId),
+    queryFn: () => listTeacherWorkspaceSubmissionsPage({
+      workspaceId: workspaceId!,
+      pageSize: 25,
+      studentId: filterStudent,
+      batchId: filterBatch,
+      cursor,
+    }),
+    placeholderData: keepPreviousData,
+  });
+  const realSubmissionPage = submissionsQuery.data;
+  const realSubmissions = realSubmissionPage?.items ?? [];
+  const loading = Boolean(workspaceId)
+    && (submissionsQuery.isPending || submissionsQuery.isPlaceholderData);
+  const error = !workspaceId
+    ? "No workspace found."
+    : submissionsQuery.error
+      ? formatErrorMessage(submissionsQuery.error, "Unable to load submissions.")
+      : null;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl animate-in fade-in duration-500">
@@ -85,29 +82,26 @@ export default function TeacherSubmissions() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {useRealData && loading ? (
+            {loading ? (
               <TableRow>
                 <TableCell colSpan={6} className="text-center py-12 text-muted-foreground">
-                  Loading real submissions...
+                  <span role="status">Loading submissions...</span>
                 </TableCell>
               </TableRow>
-            ) : useRealData && error ? (
+            ) : error ? (
               <TableRow>
                 <TableCell colSpan={6} className="text-center py-12 text-destructive">
-                  {error}
+                  <span role="alert">{error}</span>
                 </TableCell>
               </TableRow>
-            ) : useRealData && realSubmissions.length === 0 ? (
+            ) : realSubmissions.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6} className="text-center py-12">
-                  <h2 className="text-lg font-semibold mb-2 text-foreground">No real submissions yet.</h2>
+                  <h2 className="text-lg font-semibold mb-2 text-foreground">No submissions yet.</h2>
                   <p className="text-sm text-muted-foreground">Writing submissions will appear here after students submit work.</p>
                 </TableCell>
               </TableRow>
-            ) : useRealData ? realSubmissions
-              .filter((submission) => !filterStudent || submission.student_id === filterStudent)
-              .filter((submission) => !filterBatch || submission.batch_id === filterBatch)
-              .map((submission) => (
+            ) : realSubmissions.map((submission) => (
                 <TableRow key={submission.id}>
                   <TableCell>
                     <div className="font-medium text-foreground">{submission.student_name ?? "Student"}</div>
@@ -137,71 +131,56 @@ export default function TeacherSubmissions() {
                     />
                   </TableCell>
                   <TableCell className="text-right">
-                    <Link href={`/teacher/submission/${submission.id}`}>
-                      <Button variant="ghost" size="sm" className="hover:bg-primary/10 hover:text-primary">
+                    <Button asChild variant="ghost" size="sm" className="hover:bg-primary/10 hover:text-primary">
+                      <Link href={`/teacher/submission/${submission.id}`}>
                         <Eye className="w-4 h-4 mr-2" /> Open
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
                   </TableCell>
                 </TableRow>
-              )) : filtered.map(sub => {
-              const student = MOCK_STUDENTS.find(s => s.id === sub.studentId);
-              const question = MOCK_QUESTIONS.find(q => q.id === sub.questionId);
-              const isReviewed = sub.status === "Reviewed";
-
-              return (
-                <TableRow key={sub.id}>
-                  <TableCell>
-                    <div className="font-medium text-foreground">{student?.name}</div>
-                    <div className="text-xs text-muted-foreground hidden sm:block">{student?.email}</div>
-                  </TableCell>
-                  <TableCell>
-                    <div className="font-medium text-sm line-clamp-1">{question ? question.title : "Free Writing"}</div>
-                    {question && <div className="text-xs text-muted-foreground">Level {question.level}</div>}
-                  </TableCell>
-                  <TableCell className="hidden md:table-cell text-sm text-muted-foreground">
-                    <div className="flex items-center">
-                      <Calendar className="w-3 h-3 mr-1" /> {sub.date}
-                    </div>
-                  </TableCell>
-                  <TableCell className="hidden sm:table-cell">
-                    <div className="flex gap-1 flex-wrap">
-                      {sub.main_grammar_issues.map(iss => (
-                        <Badge key={iss} variant="secondary" className="text-[10px] py-0 h-4 bg-muted">
-                          {iss}
-                        </Badge>
-                      ))}
-                    </div>
-                    <div className="text-xs text-muted-foreground mt-1">
-                      {sub.number_of_corrections} corrections
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="outline" className={isReviewed ? "bg-green-50 text-green-700 border-green-200" : "bg-accent/10 text-accent-foreground border-accent/20"}>
-                      {isReviewed ? <CheckCircle2 className="w-3 h-3 mr-1" /> : <Clock className="w-3 h-3 mr-1" />}
-                      {sub.status}
-                    </Badge>
-                  </TableCell>
-                  <TableCell className="text-right">
-                    <Link href={`/teacher/submission/${sub.id}`}>
-                      <Button variant="ghost" size="sm" className="hover:bg-primary/10 hover:text-primary">
-                        <Eye className="w-4 h-4 mr-2" /> Open
-                      </Button>
-                    </Link>
-                  </TableCell>
-                </TableRow>
-              );
-            })}
-            {!useRealData && filtered.length === 0 && (
-              <TableRow>
-                <TableCell colSpan={6} className="text-center py-12 text-muted-foreground">
-                  No submissions found.
-                </TableCell>
-              </TableRow>
-            )}
+              ))}
           </TableBody>
         </Table>
       </Card>
+      {realSubmissionPage && realSubmissionPage.total_count > 0 && (
+        <div className="mt-4 flex flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          {submissionsQuery.isPlaceholderData ? (
+            <p role="status">Loading page {pageNumber}...</p>
+          ) : (
+            <p>
+              Showing {(pageNumber - 1) * realSubmissionPage.page_size + 1}
+              {"–"}
+              {Math.min(
+                (pageNumber - 1) * realSubmissionPage.page_size + realSubmissionPage.returned_count,
+                realSubmissionPage.total_count,
+              )} of {realSubmissionPage.total_count}
+            </p>
+          )}
+          <div className="flex gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              disabled={cursorTrail.length === 1 || submissionsQuery.isFetching}
+              onClick={() => setCursorTrail((current) => current.slice(0, -1))}
+            >
+              Previous
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              disabled={!realSubmissionPage.has_more || submissionsQuery.isFetching}
+              onClick={() => {
+                if (!realSubmissionPage.next_cursor) return;
+                setCursorTrail((current) => [...current, realSubmissionPage.next_cursor]);
+              }}
+            >
+              Next
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

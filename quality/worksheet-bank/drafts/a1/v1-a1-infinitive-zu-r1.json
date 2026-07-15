@@ -1,0 +1,167 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-infinitive-zu-r1",
+    "template_key": "v1-a1-infinitive-zu-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Infinitive zu pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Zusatztraining: Wendungen mit zu erkennen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "infinitive-zu",
+    "name": "Infinitiv mit zu"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "infinitive-zu",
+    "stretch-practice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Dieses Zusatztraining hilft dir, häufige Wendungen mit zu und Infinitiv zu verstehen, wenn sie in einem Text vorkommen.",
+    "key_rule": "Erkenne zuerst einfache Muster wie ‚versuchen, zu kommen‘. Bei trennbaren Verben steht zu in der Verbform: ‚anzurufen‘.",
+    "correct_examples": [
+      "Wir beginnen, das Zimmer zu putzen.",
+      "Er versucht, früher zu kommen."
+    ],
+    "common_mistake_warning": "Nach diesen Wendungen steht der Infinitiv und keine konjugierte Verbform.",
+    "what_to_revise": "Übe zuerst wenige häufige Muster wie ‚versuchen, zu kommen‘ und ‚vergessen, anzurufen‘."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist richtig?",
+      "options": [
+        "Ich versuche, Deutsch lerne.",
+        "Ich versuche zu Deutsch lernen.",
+        "Ich versuche, Deutsch zu lernen."
+      ],
+      "correct_answer": "Ich versuche, Deutsch zu lernen.",
+      "accepted_answers": [
+        "Ich versuche, Deutsch zu lernen."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚versuche‘ steht hier die Gruppe ‚zu lernen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form passt bei einem trennbaren Verb? Ich plane, heute ___.",
+      "options": [
+        "einzukaufen",
+        "zu einkaufen",
+        "einkaufe"
+      ],
+      "correct_answer": "einzukaufen",
+      "accepted_answers": [
+        "einzukaufen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Bei ‚einkaufen‘ steht ‚zu‘ zwischen ‚ein‘ und ‚kaufen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ergänzung ist richtig? Sie beginnt, das Essen ___.",
+      "options": [
+        "gekocht",
+        "zu kochen",
+        "kocht"
+      ],
+      "correct_answer": "zu kochen",
+      "accepted_answers": [
+        "zu kochen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚beginnt‘ folgt in dieser Konstruktion ‚zu‘ mit dem Infinitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gelernt | zu lernen | lernt]. Ergänze: Ravi versucht, jeden Tag ___.",
+      "options": [],
+      "correct_answer": "zu lernen",
+      "accepted_answers": [
+        "zu lernen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Versuchen‘ wird hier mit ‚zu‘ und dem Infinitiv ‚lernen‘ ergänzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einzukaufen | zu einkaufen | eingekauft]. Ergänze: Ich habe vor, später ___.",
+      "options": [],
+      "correct_answer": "einzukaufen",
+      "accepted_answers": [
+        "einzukaufen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Beim trennbaren Verb ‚einkaufen‘ steht ‚zu‘ zwischen den Verbteilen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [schläft | geschlafen | zu schlafen]. Ergänze: Das Kind versucht, ruhig ___.",
+      "options": [],
+      "correct_answer": "zu schlafen",
+      "accepted_answers": [
+        "zu schlafen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚versucht‘ steht die Infinitivgruppe ‚zu schlafen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha möchte pünktlich zum Dienst kommen. Welche Form mit ‚zu‘ ist richtig?",
+      "options": [
+        "Asha versucht, pünktlich kommt.",
+        "Asha versucht, pünktlich gekommen.",
+        "Asha versucht, pünktlich kommen.",
+        "Asha versucht, pünktlich zu kommen."
+      ],
+      "correct_answer": "Asha versucht, pünktlich zu kommen.",
+      "accepted_answers": ["Asha versucht, pünktlich zu kommen."],
+      "rubric": null,
+      "explanation": "Die Wendung ‚versuchen‘ wird hier mit ‚zu kommen‘ vervollständigt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi sucht einen Deutschkurs für die Arbeit. Welcher Satz ist richtig?",
+      "options": [
+        "Ravi hofft, bald einen Deutschkurs zu finden.",
+        "Ravi hofft, bald einen Deutschkurs finden.",
+        "Ravi hofft, bald einen Deutschkurs zu findet.",
+        "Ravi hofft, bald zu einen Deutschkurs finden."
+      ],
+      "correct_answer": "Ravi hofft, bald einen Deutschkurs zu finden.",
+      "accepted_answers": ["Ravi hofft, bald einen Deutschkurs zu finden."],
+      "rubric": null,
+      "explanation": "Die Infinitivgruppe ‚bald einen Kurs zu finden‘ folgt auf das einleitende Verb.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-articles-r1",
+    "template_key": "v1-b2-articles-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Articles pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Artikelgebrauch: Referenz und Kasus präzise steuern",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "articles",
+    "name": "Artikelgebrauch"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "articles",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Artikel zeigen nicht nur Genus und Kasus, sondern auch, ob eine Information neu, bereits bekannt oder allgemein gemeint ist. In formellen Texten entscheidet dieser Bezug oft darüber, ob eine Aussage eindeutig wirkt.",
+    "key_rule": "Führe neue zählbare Nomen meist unbestimmt ein, greife bekannte Referenten bestimmt auf und prüfe die Artikelform anschließend am Kasus der gesamten Nominalgruppe.",
+    "correct_examples": [
+      "Eine Fachkommission legte Empfehlungen vor. Die Kommission begründete sie ausführlich.",
+      "Geduld ist in schwierigen Gesprächen unverzichtbar."
+    ],
+    "common_mistake_warning": "Ein bestimmter Artikel ist nicht automatisch formeller; ohne klaren vorherigen oder situativen Bezug kann er die Aussage sogar unverständlich machen.",
+    "what_to_revise": "Übe die Verbindung von Referenz, Präposition, Kasus und Adjektivendung innerhalb komplexer Nominalgruppen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Im vorherigen Satz wurde erstmals ein neues Übergabeverfahren beschrieben. Welche Fortsetzung nimmt genau dieses Verfahren eindeutig wieder auf?",
+      "options": [
+        "Ein Verfahren soll ab Oktober auf allen Stationen gelten.",
+        "Verfahren soll ab Oktober auf allen Stationen gelten.",
+        "Das Verfahren soll ab Oktober auf allen Stationen gelten."
+      ],
+      "correct_answer": "Das Verfahren soll ab Oktober auf allen Stationen gelten.",
+      "accepted_answers": [
+        "Das Verfahren soll ab Oktober auf allen Stationen gelten."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der bestimmte Artikel signalisiert, dass erneut auf das unmittelbar zuvor eingeführte Verfahren Bezug genommen wird.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung verwendet die feste Verbindung mit dem abstrakten Nomen standardsprachlich?",
+      "options": [
+        "Das Team stand während der Umstellung unter Druck.",
+        "Das Team stand während der Umstellung unter einem Druck.",
+        "Das Team stand während der Umstellung unter den Druck."
+      ],
+      "correct_answer": "Das Team stand während der Umstellung unter Druck.",
+      "accepted_answers": [
+        "Das Team stand während der Umstellung unter Druck."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der festen Wendung „unter Druck stehen“ wird „Druck“ allgemein und daher ohne Artikel gebraucht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nominalgruppe ist nach „mit“ vollständig korrekt dekliniert?",
+      "options": [
+        "mit einem ungewöhnlich klarer Begründung",
+        "mit einer ungewöhnlich klaren Begründung",
+        "mit eine ungewöhnlich klare Begründung"
+      ],
+      "correct_answer": "mit einer ungewöhnlich klaren Begründung",
+      "accepted_answers": [
+        "mit einer ungewöhnlich klaren Begründung"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Mit“ verlangt den Dativ; beim femininen Nomen stehen der unbestimmte Artikel und das Adjektiv in der Form „einer … klaren“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dem, den, des]. Ergänze die Artikelform: Aufgrund ___ unerwarteten Ausfalls wurde die Schulung verschoben.",
+      "options": [],
+      "correct_answer": "des",
+      "accepted_answers": [
+        "des"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Aufgrund“ wird hier mit dem Genitiv verwendet; „Ausfall“ ist maskulin und verlangt „des“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [eines, einer, eine]. Ergänze den Artikel bei der ersten Erwähnung: Die Klinik sucht nach ___ tragfähigen Lösung für die Nachtbesetzung.",
+      "options": [],
+      "correct_answer": "einer",
+      "accepted_answers": [
+        "einer"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Nach“ verlangt den Dativ; die erstmals erwähnte feminine Lösung steht deshalb unbestimmt als „einer“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, eine, der]. Ergänze den anaphorischen Artikel: Eine neue Richtlinie wurde gestern verteilt. ___ Richtlinie tritt am Montag in Kraft.",
+      "options": [],
+      "correct_answer": "Die",
+      "accepted_answers": [
+        "Die"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei der zweiten Nennung ist die Richtlinie bereits identifiziert; der bestimmte Artikel stellt den eindeutigen Rückbezug her.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [keiner, keine, keinen]. Ergänze die passende Form: Trotz intensiver Suche fand das Projektteam ___ geeigneten Ersatz für das Messgerät.",
+      "options": [],
+      "correct_answer": "keinen",
+      "accepted_answers": [
+        "keinen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Ersatz“ ist maskulin und steht als direktes Objekt im Akkusativ; die Negativartikelform lautet „keinen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung führt eine Reaktion neu ein und nimmt genau dieselbe Reaktion anschließend mit dem bestimmten Artikel wieder auf?",
+      "options": [
+        "Eine Patientin meldete eine allergische Reaktion. Die Reaktion wurde sofort dokumentiert.",
+        "Eine Patientin meldete eine allergische Reaktion. Eine Reaktion wurde sofort dokumentiert.",
+        "Eine Patientin meldete eine allergische Reaktion. Reaktion wurde sofort dokumentiert.",
+        "Eine Patientin meldete eine allergische Reaktion. Der Reaktion wurde sofort dokumentiert."
+      ],
+      "correct_answer": "Eine Patientin meldete eine allergische Reaktion. Die Reaktion wurde sofort dokumentiert.",
+      "accepted_answers": [
+        "Eine Patientin meldete eine allergische Reaktion. Die Reaktion wurde sofort dokumentiert."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die zweite Nennung verweist auf dieselbe Reaktion und muss diesen Rückbezug mit dem bestimmten Artikel markieren.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung gibt den Grund in formellem Standarddeutsch mit „wegen“ und einer korrekten Genitivkette wieder?",
+      "options": [
+        "Wegen den unerwarteten Ausfalls eines wichtigen Geräts musste die Untersuchung unterbrochen werden.",
+        "Wegen des unerwarteten Ausfalls eines wichtigen Geräts musste die Untersuchung unterbrochen werden.",
+        "Wegen dem unerwarteten Ausfall eines wichtigen Geräts musste die Untersuchung unterbrochen werden.",
+        "Wegen des unerwarteten Ausfall eines wichtigen Geräts musste die Untersuchung unterbrochen werden."
+      ],
+      "correct_answer": "Wegen des unerwarteten Ausfalls eines wichtigen Geräts musste die Untersuchung unterbrochen werden.",
+      "accepted_answers": [
+        "Wegen des unerwarteten Ausfalls eines wichtigen Geräts musste die Untersuchung unterbrochen werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Nominalisierung verlangt innerhalb der Genitivkette die Formen „des … Ausfalls“ und „eines … Geräts“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Artikelwahl führt einen neuen Referenten ein und nimmt ihn anschließend eindeutig wieder auf?",
+      "options": [
+        "Für die Fortbildung wurde ein externer Referent gewonnen. Ein Referent leitet beide Praxismodule.",
+        "Für die Fortbildung wurde externer Referent gewonnen. Der Referent leitet beide Praxismodule.",
+        "Für die Fortbildung wurde ein externer Referent gewonnen. Der Referent leitet beide Praxismodule.",
+        "Für die Fortbildung wurde der externe Referent gewonnen. Ein Referent leitet beide Praxismodule."
+      ],
+      "correct_answer": "Für die Fortbildung wurde ein externer Referent gewonnen. Der Referent leitet beide Praxismodule.",
+      "accepted_answers": [
+        "Für die Fortbildung wurde ein externer Referent gewonnen. Der Referent leitet beide Praxismodule."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der unbestimmte Artikel führt den Referenten als neue Information ein; der bestimmte Artikel kennzeichnet bei der zweiten Nennung den eindeutigen Rückbezug.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

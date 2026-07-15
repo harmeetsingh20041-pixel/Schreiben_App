@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-articles-r1",
+    "template_key": "v1-a2-articles-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Articles pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Artikel: Fälle im Alltag sicher wählen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "articles",
+    "name": "Artikel"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "articles",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Artikel zeigen Genus, Numerus und Kasus eines Nomens. Im A2-Alltag sind besonders Nominativ, Akkusativ und Dativ wichtig.",
+    "key_rule": "Das Subjekt steht meist im Nominativ, das direkte Objekt oft im Akkusativ und nach mit immer im Dativ.",
+    "correct_examples": [
+      "Der Kurs beginnt heute.",
+      "Sie spricht mit dem Arzt."
+    ],
+    "common_mistake_warning": "Wähle den Artikel nicht nur nach dem Genus; prüfe auch die Funktion oder Präposition.",
+    "what_to_revise": "Vergleiche der, den und dem sowie eine und einer in kurzen Alltagssätzen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet den bestimmten Artikel nach „mit“ korrekt?",
+      "options": [
+        "Ich fahre mit das Bus.",
+        "Ich fahre mit dem Bus.",
+        "Ich fahre mit den Bus.",
+        "Ich fahre mit der Bus."
+      ],
+      "correct_answer": "Ich fahre mit dem Bus.",
+      "accepted_answers": [
+        "Ich fahre mit dem Bus."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Präposition „mit“ verlangt den Dativ; der maskuline Artikel lautet deshalb „dem“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ergänzung passt: Wir suchen ___ ruhige Wohnung.",
+      "options": [
+        "einem",
+        "einer",
+        "eine",
+        "einen"
+      ],
+      "correct_answer": "eine",
+      "accepted_answers": [
+        "eine"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Nomen „Wohnung“ steht hier als Akkusativobjekt; der unbestimmte Artikel bleibt „eine“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Den, Dem, Der]. Ergänze das Subjekt: ___ Schlüssel liegt auf dem Tisch.",
+      "options": [],
+      "correct_answer": "Der",
+      "accepted_answers": [
+        "Der"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Schlüssel“ ist das Subjekt im Nominativ; der maskuline bestimmte Artikel ist „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, der, den]. Ergänze nach „mit“: Sie spricht mit ___ Kollegin.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „mit“ steht Dativ; bei einem femininen Nomen lautet der bestimmte Artikel „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einen, einem, einer]. Ergänze das direkte Objekt: Er kauft ___ Mantel.",
+      "options": [],
+      "correct_answer": "einen",
+      "accepted_answers": [
+        "einen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das maskuline direkte Objekt steht im Akkusativ; „ein“ wird zu „einen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den passenden Artikel: Der Arzt gibt ___ Patientin einen Termin.",
+      "options": [
+        "den",
+        "das",
+        "die",
+        "der"
+      ],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "rubric": null,
+      "explanation": "Die Person, die etwas bekommt, steht hier im Dativ; bei Patientin lautet der Artikel der.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [eine, einem, einer, einen]. Die Pflegekraft holt ___ Stuhl aus dem Wartezimmer.",
+      "options": [],
+      "correct_answer": "einen",
+      "accepted_answers": [
+        "einen"
+      ],
+      "rubric": null,
+      "explanation": "Stuhl ist maskulin und ein direktes Objekt; im Akkusativ heißt der unbestimmte Artikel einen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den passenden Artikel: Vor dem Gebäude wartet ___ Bus.",
+      "options": [
+        "ein",
+        "eine",
+        "einen",
+        "einem"
+      ],
+      "correct_answer": "ein",
+      "accepted_answers": [
+        "ein"
+      ],
+      "rubric": null,
+      "explanation": "Bus ist maskulin und das Subjekt des Satzes; im Nominativ lautet der unbestimmte Artikel ein.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

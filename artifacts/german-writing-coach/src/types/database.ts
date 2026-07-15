@@ -30,9 +30,9 @@ export type CorrectionStatus =
   | "unclear";
 export type TopicSeverity = "minor" | "major" | "mixed";
 export type WeaknessLevel =
-  | "tracking"
-  | "weak"
+  | "locked"
   | "unlocked"
+  | "in_progress"
   | "improving"
   | "mastered";
 export type PracticeDifficulty = "easy" | "medium" | "hard";
@@ -40,7 +40,8 @@ export type PracticeVisibility = "workspace" | "private";
 export type PracticeAssignmentSource =
   | "weakness_auto"
   | "teacher_assigned"
-  | "manual";
+  | "manual"
+  | "adaptive_repeat";
 export type PracticeAssignmentStatus =
   | "unlocked"
   | "in_progress"
@@ -220,6 +221,9 @@ export interface StudentPracticeAssignment {
   workspace_id: string;
   student_id: string;
   grammar_topic_id: string;
+  batch_id: string | null;
+  worksheet_level: Level | null;
+  class_context_version: number;
   practice_test_id: string | null;
   source: PracticeAssignmentSource;
   status: PracticeAssignmentStatus;

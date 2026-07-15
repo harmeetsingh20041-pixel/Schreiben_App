@@ -1,0 +1,178 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-spelling-r1",
+    "template_key": "v1-a2-spelling-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Spelling pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Rechtschreibung: Häufige Wörter sicher schreiben",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "spelling",
+    "name": "Rechtschreibung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "spelling",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Gute Rechtschreibung macht kurze Nachrichten und Formulare verständlich. Häufige Schwierigkeiten sind ie oder i, doppelte Konsonanten sowie ss oder ß.",
+    "key_rule": "Präge dir häufige Wortbilder ein: Nach kurzem Vokal steht für einen stimmlosen s-Laut meist ss, nach langem Vokal oder Doppellaut meist ß; andere s-Laute können mit s geschrieben werden.",
+    "correct_examples": [
+      "Vielleicht kommt sie später.",
+      "Wir treffen uns draußen."
+    ],
+    "common_mistake_warning": "Verlasse dich nicht nur auf den Klang, weil verschiedene Schreibweisen ähnlich klingen können.",
+    "what_to_revise": "Übe häufige Wörter wie vielleicht, müssen, treffen, heißen, Straße und wieder."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schreibweise ist im Standarddeutsch in Deutschland korrekt?",
+      "options": [
+        "Die Straaße ist heute gesperrt.",
+        "Die Strasße ist heute gesperrt.",
+        "Die Straße ist heute gesperrt.",
+        "Die Strase ist heute gesperrt."
+      ],
+      "correct_answer": "Die Straße ist heute gesperrt.",
+      "accepted_answers": [
+        "Die Straße ist heute gesperrt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem langen Vokal in „Straße“ steht im Standarddeutsch in Deutschland ein „ß“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz schreibt das häufige Adverb korrekt?",
+      "options": [
+        "Vielleicht beginnt der Kurs später.",
+        "Vieleicht beginnt der Kurs später.",
+        "Vielleischt beginnt der Kurs später.",
+        "Vileicht beginnt der Kurs später."
+      ],
+      "correct_answer": "Vielleicht beginnt der Kurs später.",
+      "accepted_answers": [
+        "Vielleicht beginnt der Kurs später."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste Standardschreibung lautet „vielleicht“ mit „ie“ und doppeltem „l“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [heist, haisst, heißt]. Ergänze nach deutscher Standardschreibung: Wie ___ die neue Kollegin?",
+      "options": [],
+      "correct_answer": "heißt",
+      "accepted_answers": [
+        "heißt"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die dritte Person Singular von „heißen“ wird in Deutschland mit „ß“ geschrieben: „heißt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kommen, komen, komenn]. Ergänze: Die Teilnehmer ___ morgen wieder.",
+      "options": [],
+      "correct_answer": "kommen",
+      "accepted_answers": [
+        "kommen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem kurzen Vokal steht in „kommen“ ein doppeltes „m“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wiedder, wieder, wider]. Ergänze die Bedeutung „noch einmal“: Bitte lesen Sie den Satz ___.",
+      "options": [],
+      "correct_answer": "wieder",
+      "accepted_answers": [
+        "wieder"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der Bedeutung „noch einmal“ schreibt man „wieder“ mit „ie“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Zeile schreibt Kollegin, kommt, Mittwoch und wieder richtig?",
+      "options": [
+        "Die Kolegin kommt am Mittwoch wieder.",
+        "Die Kollegin komt am Mitwoch wieder.",
+        "Die Kollegin kommt am Mittwoch wider.",
+        "Die Kollegin kommt am Mittwoch wieder."
+      ],
+      "correct_answer": "Die Kollegin kommt am Mittwoch wieder.",
+      "accepted_answers": [
+        "Die Kollegin kommt am Mittwoch wieder."
+      ],
+      "rubric": null,
+      "explanation": "Kollegin, kommt, Mittwoch und wieder sind in dieser Form richtig geschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Option korrigiert alle fehlerhaften Wortbilder in diesem Satz: Ich mus vileicht am Mitwoch wider arbeiten?",
+      "options": [
+        "Ich muss vielleicht am Mitwoch morgen wieder arbeiten.",
+        "Ich muss vielleicht am Mittwoch wieder arbeiten.",
+        "Ich mus vielleicht heute am Mittwoch wieder arbeiten.",
+        "Ich muss vileicht am Mittwoch wieder arbeiten."
+      ],
+      "correct_answer": "Ich muss vielleicht am Mittwoch wieder arbeiten.",
+      "accepted_answers": [
+        "Ich muss vielleicht am Mittwoch wieder arbeiten."
+      ],
+      "rubric": null,
+      "explanation": "Muss, vielleicht, Mittwoch und wieder sind in der richtigen Option nach der Standardschreibung geschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Zeile schreibt heißt und Alltag nach deutscher Standardschreibung richtig?",
+      "options": [
+        "Der Kurs haisst „Deutsch im Alltag“.",
+        "Der Kurs heißt „Deutsch im Alltag“.",
+        "Der Kurs heist „Deutsch im Alltag“.",
+        "Der Kurs heißt „Deutsch im Altag“."
+      ],
+      "correct_answer": "Der Kurs heißt „Deutsch im Alltag“.",
+      "accepted_answers": [
+        "Der Kurs heißt „Deutsch im Alltag“."
+      ],
+      "rubric": null,
+      "explanation": "Heißt wird mit ß und Alltag mit doppeltem l geschrieben.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

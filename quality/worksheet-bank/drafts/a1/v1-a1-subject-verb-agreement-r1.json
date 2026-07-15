@@ -1,0 +1,148 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-subject-verb-agreement-r1",
+    "template_key": "v1-a1-subject-verb-agreement-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Subject-verb agreement pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Subjekt und Verb: Singular oder Plural",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "subject-verb-agreement",
+    "name": "Subjekt-Verb-Kongruenz"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "subject-verb-agreement",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Subjekt und Verb gehören zusammen. Eine Person oder Sache braucht eine Singularform; mehrere Personen oder Sachen brauchen meistens eine Pluralform.",
+    "key_rule": "Frage: Wer oder was macht etwas? Dieses Subjekt bestimmt die Form des Verbs.",
+    "correct_examples": [
+      "Das Kind spielt im Garten.",
+      "Die Kinder spielen im Garten."
+    ],
+    "common_mistake_warning": "Achte darauf, ob das Subjekt eine Person oder mehrere Personen bezeichnet.",
+    "what_to_revise": "Markiere zuerst das Subjekt und prüfe danach die Endung des Verbs."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zu dem Subjekt ‚die Mutter und das Kind‘?",
+      "options": [
+        "Die Mutter und das Kind wartest hier.",
+        "Die Mutter und das Kind warten hier.",
+        "Die Mutter und das Kind wartet hier."
+      ],
+      "correct_answer": "Die Mutter und das Kind warten hier.",
+      "accepted_answers": ["Die Mutter und das Kind warten hier."],
+      "explanation": "Zwei Personen mit ‚und‘ bilden ein Pluralsubjekt; deshalb lautet die Verbform ‚warten‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zum Subjekt ‚wir‘?",
+      "options": [
+        "Wir kommt morgen.",
+        "Wir kommst morgen.",
+        "Wir kommen morgen."
+      ],
+      "correct_answer": "Wir kommen morgen.",
+      "accepted_answers": ["Wir kommen morgen."],
+      "explanation": "Zum Subjekt ‚wir‘ gehört die Pluralform ‚kommen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz hat die passende Verbform zum Subjekt ‚der Zug‘?",
+      "options": [
+        "Der Zug fährt um acht Uhr.",
+        "Der Zug fahren um acht Uhr.",
+        "Der Zug fährst um acht Uhr."
+      ],
+      "correct_answer": "Der Zug fährt um acht Uhr.",
+      "accepted_answers": ["Der Zug fährt um acht Uhr."],
+      "explanation": "‚Der Zug‘ ist Singular; die passende Verbform ist ‚fährt‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kommst, kommen, kommt]. Setze die passende Verbform ein: Meine Freunde ___ um acht Uhr.",
+      "options": [],
+      "correct_answer": "kommen",
+      "accepted_answers": ["kommen"],
+      "explanation": "‚Meine Freunde‘ ist Plural; deshalb passt ‚kommen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wohnen, wohnt, wohnst]. Setze die passende Verbform ein: Die Familien ___ in Köln.",
+      "options": [],
+      "correct_answer": "wohnen",
+      "accepted_answers": ["wohnen"],
+      "explanation": "‚Die Familien‘ ist Plural; deshalb gehört dazu die Verbform ‚wohnen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [beginnen, beginnst, beginnt]. Setze die passende Verbform ein: Der Deutschkurs ___ um neun Uhr.",
+      "options": [],
+      "correct_answer": "beginnt",
+      "accepted_answers": ["beginnt"],
+      "explanation": "‚Der Deutschkurs‘ ist Singular; deshalb gehört dazu die Verbform ‚beginnt‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zum Pluralsubjekt ‚die Pflegekräfte‘?",
+      "options": [
+        "Die Pflegekräfte arbeite im Krankenhaus.",
+        "Die Pflegekräfte arbeitet im Krankenhaus.",
+        "Die Pflegekräfte arbeiten im Krankenhaus.",
+        "Die Pflegekräfte arbeitest im Krankenhaus."
+      ],
+      "correct_answer": "Die Pflegekräfte arbeiten im Krankenhaus.",
+      "accepted_answers": ["Die Pflegekräfte arbeiten im Krankenhaus."],
+      "rubric": null,
+      "explanation": "‚Die Pflegekräfte‘ bezeichnet mehrere Personen und verlangt die Pluralform ‚arbeiten‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Asha und Ravi haben heute Dienst. Welche Verbform passt zu den zwei Namen?",
+      "options": [
+        "Asha und Ravi arbeiten heute in der Klinik.",
+        "Asha und Ravi arbeite heute in der Klinik.",
+        "Asha und Ravi arbeitet heute in der Klinik.",
+        "Asha und Ravi arbeitest heute in der Klinik."
+      ],
+      "correct_answer": "Asha und Ravi arbeiten heute in der Klinik.",
+      "accepted_answers": ["Asha und Ravi arbeiten heute in der Klinik."],
+      "rubric": null,
+      "explanation": "Zwei Namen bilden ein Pluralsubjekt; deshalb lautet die Verbform ‚arbeiten‘.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

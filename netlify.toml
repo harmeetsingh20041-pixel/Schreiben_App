@@ -1,0 +1,39 @@
+# Dedicated staging-site configuration. Production promotion must use the
+# production preflight and its own approved domain/configuration.
+[build]
+  command = "pnpm run build:ci"
+  publish = "artifacts/german-writing-coach/dist/public"
+
+[build.environment]
+  NODE_VERSION = "24.18.0"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "base-uri 'self'; frame-ancestors 'none'; object-src 'none'"
+    Permissions-Policy = "camera=(), geolocation=(), microphone=(), payment=(), usb=()"
+    Referrer-Policy = "same-origin"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/manifest+json; charset=utf-8"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-relative-clauses-r1",
+    "template_key": "v1-a2-relative-clauses-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Relative clauses pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Relativsätze: Personen und Dinge beschreiben",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "relative-clauses",
+    "name": "Relativsätze"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "relative-clauses",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein Relativsatz gibt zusätzliche Informationen zu einem Nomen, ohne einen neuen Hauptsatz zu beginnen.",
+    "key_rule": "Das Relativpronomen richtet sich in Genus und Numerus nach dem Bezugswort; sein Kasus ergibt sich aus seiner Aufgabe im Relativsatz. Das Verb steht am Ende.",
+    "correct_examples": [
+      "Das ist die Frau, die hier arbeitet.",
+      "Ich suche den Schlüssel, den du gefunden hast."
+    ],
+    "common_mistake_warning": "Wähle den Kasus des Relativpronomens nach dem Relativsatz, nicht nach dem Hauptsatz.",
+    "what_to_revise": "Übe einfache Relativsätze mit der, die, das und den als Subjekt oder direktes Objekt."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Relativsatz beschreibt eine weibliche Person als Subjekt korrekt?",
+      "options": [
+        "Das ist die Ärztin, der heute arbeitet.",
+        "Das ist die Ärztin, den heute arbeitet.",
+        "Das ist die Ärztin, die arbeitet heute.",
+        "Das ist die Ärztin, die heute arbeitet."
+      ],
+      "correct_answer": "Das ist die Ärztin, die heute arbeitet.",
+      "accepted_answers": [
+        "Das ist die Ärztin, die heute arbeitet."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Bezugswort verlangt „die“; als Subjekt steht das Relativpronomen im Nominativ und das Verb am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet das Relativpronomen als maskulines Akkusativobjekt?",
+      "options": [
+        "Das ist der Film, dem wir gestern gesehen haben.",
+        "Das ist der Film, den wir haben gestern gesehen.",
+        "Das ist der Film, den wir gestern gesehen haben.",
+        "Das ist der Film, der wir gestern gesehen haben."
+      ],
+      "correct_answer": "Das ist der Film, den wir gestern gesehen haben.",
+      "accepted_answers": [
+        "Das ist der Film, den wir gestern gesehen haben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Relativsatz sehen wir den Film; deshalb steht das maskuline Pronomen im Akkusativ als „den“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [der, den, die]. Ergänze: Ich kenne die Kollegin, ___ im Labor arbeitet.",
+      "options": [],
+      "correct_answer": "die",
+      "accepted_answers": [
+        "die"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Bezugswort ist feminin und das Pronomen ist Subjekt; daher lautet es „die“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [das, dem, den]. Ergänze: Wo ist das Buch, ___ du brauchst?",
+      "options": [],
+      "correct_answer": "das",
+      "accepted_answers": [
+        "das"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Bezugswort „Buch“ ist im Relativsatz Akkusativobjekt; die Form bleibt „das“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dem, den, der]. Ergänze: Das ist der Kurs, ___ ich besuchen möchte.",
+      "options": [],
+      "correct_answer": "den",
+      "accepted_answers": [
+        "den"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Kurs“ ist maskulin und im Relativsatz direktes Objekt; deshalb heißt das Pronomen „den“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Relativpronomen: Das ist der Patient, ___ heute entlassen wird.",
+      "options": [
+        "den",
+        "der",
+        "die",
+        "das"
+      ],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "rubric": null,
+      "explanation": "Das Bezugswort Patient ist maskulin und das Relativpronomen ist Subjekt; deshalb lautet es der.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, der, das, den]. Ich suche die Akte, ___ auf dem Tisch liegt.",
+      "options": [],
+      "correct_answer": "die",
+      "accepted_answers": [
+        "die"
+      ],
+      "rubric": null,
+      "explanation": "Das feminine Bezugswort die Akte ist im Relativsatz das Subjekt; das Relativpronomen lautet die.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Option fügt den zweiten Satz als Relativsatz in den ersten Satz ein? Ausgangssätze: „Die Kollegin kommt aus Delhi. Sie arbeitet heute.“",
+      "options": [
+        "Die Kollegin, die heute arbeitet, kommt aus Delhi.",
+        "Die Kollegin, der heute arbeitet, kommt aus Delhi.",
+        "Die Kollegin, die arbeitet heute, kommt aus Delhi.",
+        "Die Kollegin die heute arbeitet kommt, aus Delhi."
+      ],
+      "correct_answer": "Die Kollegin, die heute arbeitet, kommt aus Delhi.",
+      "accepted_answers": [
+        "Die Kollegin, die heute arbeitet, kommt aus Delhi."
+      ],
+      "rubric": null,
+      "explanation": "Das Relativpronomen die passt zu Kollegin; arbeitet steht am Ende des Relativsatzes, der von Kommas umschlossen ist.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

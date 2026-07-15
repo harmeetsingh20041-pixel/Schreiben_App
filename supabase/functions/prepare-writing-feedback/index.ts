@@ -1,123 +1,67 @@
 import {
-  cleanString,
-  corsHeaders,
-  createAdminClient,
-  createRequestId,
-  durationMs,
-  FeedbackHttpError,
-  jsonResponse,
-  logFunctionEvent,
-  prepareSubmissionFeedback,
-} from "../_shared/writing-feedback.ts";
+  createClient,
+  type SupabaseClient,
+} from "npm:@supabase/supabase-js@2.110.0";
+import { createSupabaseUserJwtVerifier } from "../_shared/user-auth.ts";
+import { requireEnv } from "../_shared/writing-feedback.ts";
+import { createPrepareWritingFeedbackHandler } from "./handler.ts";
 
-Deno.serve(async (req) => {
-  const requestId = createRequestId();
-  const startedAt = Date.now();
+declare const EdgeRuntime: {
+  waitUntil(promise: Promise<unknown>): void;
+};
 
-  if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: corsHeaders });
+function getPublishableKey() {
+  const directKey = Deno.env.get("SUPABASE_PUBLISHABLE_KEY") ??
+    Deno.env.get("SUPABASE_ANON_KEY");
+  if (directKey) return directKey;
+
+  const keys = Deno.env.get("SUPABASE_PUBLISHABLE_KEYS");
+  if (keys) {
+    try {
+      const parsed = JSON.parse(keys) as Record<string, string>;
+      if (parsed.default) return parsed.default;
+      const firstKey = Object.values(parsed).find(Boolean);
+      if (firstKey) return firstKey;
+    } catch {
+      // The stable configuration error is returned by the handler.
+    }
   }
 
-  if (req.method !== "POST") {
-    return jsonResponse({ error: "Method not allowed." }, 405);
-  }
+  throw new Error("Supabase publishable key is not configured.");
+}
 
-  let submissionId = "";
-  try {
-    const body = await req.json();
-    submissionId = cleanString(body.submission_id || body.submissionId);
-  } catch {
-    logFunctionEvent({
-      request_id: requestId,
-      function: "prepare-writing-feedback",
-      stage: "parse_request",
-      status: "failed",
-      safe_error_code: "invalid_body",
-      duration_ms: durationMs(startedAt),
-    });
-    return jsonResponse({ error: "Invalid request body." }, 400);
-  }
+function createAuthenticatedClient(jwt: string) {
+  return createClient(requireEnv("SUPABASE_URL"), getPublishableKey(), {
+    auth: { persistSession: false, autoRefreshToken: false },
+    global: { headers: { Authorization: `Bearer ${jwt}` } },
+    db: { schema: "api" },
+  });
+}
 
-  if (!submissionId) {
-    return jsonResponse({ error: "Submission id is required." }, 400);
-  }
+async function kickWritingProcessor(jwt: string) {
+  const response = await fetch(
+    `${requireEnv("SUPABASE_URL")}/functions/v1/kick-writing-jobs`,
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        apikey: getPublishableKey(),
+        "Content-Type": "application/json",
+      },
+      // The relay verifies this JWT cryptographically before it binds the
+      // durable rate limit to the caller. The downstream worker remains entity-free.
+      body: "{}",
+    },
+  );
+  if (!response.ok) throw new Error("Writing processor kick was not accepted.");
+}
 
-  const authHeader = req.headers.get("Authorization") ?? "";
-  const jwt = authHeader.replace(/^Bearer\s+/i, "").trim();
-  if (!jwt) {
-    logFunctionEvent({
-      request_id: requestId,
-      function: "prepare-writing-feedback",
-      stage: "auth",
-      status: "failed",
-      submission_id: submissionId,
-      safe_error_code: "missing_jwt",
-      duration_ms: durationMs(startedAt),
-    });
-    return jsonResponse({ error: "Authentication required." }, 401);
-  }
-
-  let admin;
-  try {
-    admin = createAdminClient();
-  } catch (error) {
-    logFunctionEvent({
-      request_id: requestId,
-      function: "prepare-writing-feedback",
-      stage: "config",
-      status: "failed",
-      submission_id: submissionId,
-      safe_error_code: "admin_client_config_failed",
-      duration_ms: durationMs(startedAt),
-    });
-    return jsonResponse({ error: "Feedback could not be prepared. Please try again later." }, 500);
-  }
-
-  const { data: userData, error: userError } = await admin.auth.getUser(jwt);
-  if (userError || !userData.user) {
-    logFunctionEvent({
-      request_id: requestId,
-      function: "prepare-writing-feedback",
-      stage: "auth",
-      status: "failed",
-      submission_id: submissionId,
-      safe_error_code: "invalid_jwt",
-      duration_ms: durationMs(startedAt),
-    });
-    return jsonResponse({ error: "Authentication required." }, 401);
-  }
-
-  try {
-    const result = await prepareSubmissionFeedback({
-      admin,
-      submissionId,
-      callerId: userData.user.id,
-      requireTeacherAccess: true,
-      source: "manual",
-      requestId,
-    });
-
-    logFunctionEvent({
-      request_id: requestId,
-      function: "prepare-writing-feedback",
-      stage: "response",
-      status: "succeeded",
-      submission_id: submissionId,
-      duration_ms: durationMs(startedAt),
-    });
-    return jsonResponse(result);
-  } catch (error) {
-    const status = error instanceof FeedbackHttpError ? error.status : 500;
-    const message = error instanceof Error ? error.message : "Feedback could not be prepared.";
-    logFunctionEvent({
-      request_id: requestId,
-      function: "prepare-writing-feedback",
-      stage: "response",
-      status: "failed",
-      submission_id: submissionId,
-      safe_error_code: `feedback_http_${status}`,
-      duration_ms: durationMs(startedAt),
-    });
-    return jsonResponse({ error: message }, status);
-  }
+const handler = createPrepareWritingFeedbackHandler({
+  verifyUserToken: createSupabaseUserJwtVerifier(),
+  createAuthenticatedClient: (jwt) =>
+    createAuthenticatedClient(jwt) as unknown as SupabaseClient,
+  kickWritingProcessor,
+  waitUntil: (promise) => EdgeRuntime.waitUntil(promise),
 });
+
+Deno.serve(handler);

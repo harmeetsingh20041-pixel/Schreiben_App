@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-separable-verbs-r1",
+    "template_key": "v1-b2-separable-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Separable verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Trennbare Verben: Komplexe Verbklammern korrekt bilden",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "separable-verbs",
+    "name": "Trennbare Verben"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "separable-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Trennbare Präfixe stehen im Hauptsatz am Ende, bleiben im Nebensatz am Verbstamm und umschließen im Infinitiv mit „zu“ häufig das Element „zu“. Im Partizip steht „ge“ zwischen Präfix und Stamm, sofern das Grundverb dies zulässt.",
+    "key_rule": "Erkenne zuerst, ob Präfix und Verb in der gemeinten Bedeutung trennbar sind; bilde dann Hauptsatz, Nebensatz, Partizip oder zu-Infinitiv nach dem jeweiligen Muster.",
+    "correct_examples": [
+      "Die Fachgruppe führt nächste Woche eine Befragung durch.",
+      "Nachdem sie die Daten ausgewertet hatte, stellte sie die Ergebnisse vor."
+    ],
+    "common_mistake_warning": "Ein trennbares Verb wird im Nebensatz nicht auseinandergerissen; dort steht die finite Gesamtform geschlossen am Ende.",
+    "what_to_revise": "Übe Satzklammer, Nebensatzformen, Partizip II und zu-Infinitive häufiger Präfixverben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Hauptsatz bildet „sicherstellen“ als Satzklammer korrekt?",
+      "options": [
+        "Die Teamleitung stellt eine lückenlose Übergabe sicher.",
+        "Die Teamleitung sicherstellt eine lückenlose Übergabe.",
+        "Die Teamleitung stellt sicher eine lückenlose Übergabe."
+      ],
+      "correct_answer": "Die Teamleitung stellt eine lückenlose Übergabe sicher.",
+      "accepted_answers": [
+        "Die Teamleitung stellt eine lückenlose Übergabe sicher."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Hauptsatz steht „stellt“ an zweiter Stelle und der trennbare Präfixteil „sicher“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist im weil-Satz mit „teilnehmen“ korrekt?",
+      "options": [
+        "Die Kollegin fehlt, weil sie nimmt an einer Fortbildung teil.",
+        "Die Kollegin fehlt, weil sie an einer Fortbildung nimmt teil.",
+        "Die Kollegin fehlt, weil sie an einer Fortbildung teilnimmt."
+      ],
+      "correct_answer": "Die Kollegin fehlt, weil sie an einer Fortbildung teilnimmt.",
+      "accepted_answers": [
+        "Die Kollegin fehlt, weil sie an einer Fortbildung teilnimmt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Nebensatz bleibt das Präfix mit dem Verbstamm verbunden; die finite Gesamtform „teilnimmt“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Partizip II von „bekannt geben“ ist korrekt in den Passivsatz eingebaut?",
+      "options": [
+        "Die Entscheidung wurde gestern gebekannt geben.",
+        "Die Entscheidung wurde gestern bekannt gegeben.",
+        "Die Entscheidung wurde gestern bekanntgegebenen."
+      ],
+      "correct_answer": "Die Entscheidung wurde gestern bekannt gegeben.",
+      "accepted_answers": [
+        "Die Entscheidung wurde gestern bekannt gegeben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Verbindung bildet das Partizip als „bekannt gegeben“; auch die Zusammenschreibung „bekanntgegeben“ ist normgerecht. Zusammen mit „wurde“ entsteht das Vorgangspassiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ein, vor, aus]. Ergänze den Präfixteil: Die Arbeitsgruppe wertet die anonymisierten Rückmeldungen systematisch ___.",
+      "options": [],
+      "correct_answer": "aus",
+      "accepted_answers": [
+        "aus"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das trennbare Verb „auswerten“ bildet im Hauptsatz die Klammer „wertet … aus“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zurück, zu, ein]. Ergänze den Präfixteil: Das Team greift bei komplexen Fällen auf eine Fachberatung ___.",
+      "options": [],
+      "correct_answer": "zurück",
+      "accepted_answers": [
+        "zurück"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Hauptsatz wird „zurückgreifen“ in die finite Form „greift“ und den abschließenden Präfixteil „zurück“ getrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einzgearbeiten, einzuarbeiten, zu einarbeiten]. Ergänze den zu-Infinitiv: Die neue Kollegin benötigt Zeit, um sich in das System ___.",
+      "options": [],
+      "correct_answer": "einzuarbeiten",
+      "accepted_answers": [
+        "einzuarbeiten"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beim trennbaren Verb „einarbeiten“ steht „zu“ zwischen Präfix und Stamm: „einzuarbeiten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [vorgestellt hatte, hatte vorgestellt, vorstellt hatte]. Ergänze den Nebensatz: Nachdem die Kommission den Entwurf ___, begann die Diskussion.",
+      "options": [],
+      "correct_answer": "vorgestellt hatte",
+      "accepted_answers": [
+        "vorgestellt hatte"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die vorzeitige Handlung steht im Plusquamperfekt; der Verbkomplex „vorgestellt hatte“ schließt den Nebensatz.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung stellt das trennbare Verb im sobald-Nebensatz korrekt als geschlossene Verbform ans Ende?",
+      "options": [
+        "Sobald gibt die Leitung die Ergebnisse frei, werden alle Beteiligten informiert.",
+        "Sobald die Leitung gibt die Ergebnisse frei, werden alle Beteiligten informiert.",
+        "Sobald die Leitung die Ergebnisse gibt frei, werden alle Beteiligten informiert.",
+        "Sobald die Leitung die Ergebnisse freigibt, werden alle Beteiligten informiert."
+      ],
+      "correct_answer": "Sobald die Leitung die Ergebnisse freigibt, werden alle Beteiligten informiert.",
+      "accepted_answers": [
+        "Sobald die Leitung die Ergebnisse freigibt, werden alle Beteiligten informiert."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In einem eingeleiteten Nebensatz bleibt das trennbare Verb als finite Gesamtform verbunden und steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet den selbstständigen Hauptsatz mit den trennbaren Verben „nachvollziehen“ und „einleiten“ korrekt?",
+      "options": [
+        "Das Team hatte die Ursachen nachvollziehen und leitete anschließend Gegenmaßnahmen.",
+        "Das Team hatte die Ursachen nachvollzogen und leitete anschließend Gegenmaßnahmen ein.",
+        "Das Team hatte die Ursachen nachgezogen und anschließend Gegenmaßnahmen einleitete.",
+        "Das Team nachvollzog die Ursachen und anschließend leitete Gegenmaßnahmen ein."
+      ],
+      "correct_answer": "Das Team hatte die Ursachen nachvollzogen und leitete anschließend Gegenmaßnahmen ein.",
+      "accepted_answers": [
+        "Das Team hatte die Ursachen nachvollzogen und leitete anschließend Gegenmaßnahmen ein."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beide Verben sind trennbar: Im Plusquamperfekt erscheint „nachvollziehen“ als Partizip „nachvollzogen“, während die finite Präteritumform von „einleiten“ die Klammer „leitete … ein“ bildet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet die trennbaren Verben „ankündigen“, „freigeben“ und „aufarbeiten“ in Hauptsatz, zu-Infinitiv und Nebensatz korrekt?",
+      "options": [
+        "Die Leitung kündigte an, die Ergebnisse freizugeben, sobald das Team alle Rückfragen aufgearbeitet hat.",
+        "Die Leitung ankündigte, die Ergebnisse frei zu geben, sobald das Team alle Rückfragen aufgearbeitet hat.",
+        "Die Leitung kündigte an, die Ergebnisse zu freigeben, sobald das Team hat alle Rückfragen aufgearbeitet.",
+        "Die Leitung kündigte die Ergebnisse freigeben zu an, sobald das Team alle Rückfragen geaufarbeitet hat."
+      ],
+      "correct_answer": "Die Leitung kündigte an, die Ergebnisse freizugeben, sobald das Team alle Rückfragen aufgearbeitet hat.",
+      "accepted_answers": [
+        "Die Leitung kündigte an, die Ergebnisse freizugeben, sobald das Team alle Rückfragen aufgearbeitet hat."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Hauptsatz wird „ankündigen“ zu „kündigte ... an“. Der zu-Infinitiv lautet „freizugeben“, und im sobald-Satz steht das Perfekt „aufgearbeitet hat“ geschlossen am Ende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

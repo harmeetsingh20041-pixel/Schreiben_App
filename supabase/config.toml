@@ -1,2 +1,57 @@
+[api]
+enabled = true
+schemas = ["api"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+# Local Auth defaults only. Never push this file directly to a remote.
+# Use the targeted `pnpm supabase:auth:configure` guard documented in the
+# launch runbook; it PATCHes only the approved remote Auth fields and verifies
+# them with a readback.
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = []
+jwt_expiry = 600
+minimum_password_length = 8
+
+[auth.email]
+enable_confirmations = true
+max_frequency = "1m0s"
+otp_length = 8
+
+[auth.mfa.totp]
+enroll_enabled = true
+verify_enabled = true
+
+[storage.vector]
+enabled = false
+
 [functions.process-due-feedback]
 verify_jwt = false
+
+[functions.process-writing-jobs]
+verify_jwt = false
+
+[functions.kick-writing-jobs]
+verify_jwt = false
+
+[functions.prepare-writing-feedback]
+verify_jwt = false
+
+[functions.generate-practice-worksheet]
+verify_jwt = false
+
+[functions.evaluate-practice-attempt]
+verify_jwt = false
+
+[functions.process-worksheet-generation-jobs]
+verify_jwt = false
+
+[functions.process-worksheet-answer-jobs]
+verify_jwt = false
+
+[functions.recover-async-jobs]
+verify_jwt = false
+
+[edge_runtime]
+policy = "per_worker"

@@ -1,0 +1,129 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-plural-forms-r1",
+    "template_key": "v1-a2-plural-forms-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Plural forms pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Pluralformen: Häufige Muster erkennen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "plural-forms",
+    "name": "Pluralformen"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "plural-forms",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Deutsche Nomen bilden den Plural mit verschiedenen Endungen, manchmal mit Umlaut und manchmal ohne zusätzliche Endung.",
+    "key_rule": "Lerne jedes Nomen mit Artikel und Pluralform; häufig sind -e, -er, -(e)n oder -s, daneben gibt es Pluralformen ohne zusätzliche Endung.",
+    "correct_examples": ["der Stuhl – die Stühle", "das Zimmer – die Zimmer"],
+    "common_mistake_warning": "Eine einzige Pluralendung passt nicht zu allen Nomen.",
+    "what_to_revise": "Ordne bekannte Nomen nach den Pluralmustern -e, -er, -(e)n, -s und ohne zusätzliche Endung."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Pluralform des Nomens Apfel.",
+      "options": ["die Äpfel", "die Apfeln", "die Äpfels", "die Apfel"],
+      "correct_answer": "die Äpfel",
+      "accepted_answers": ["die Äpfel"],
+      "explanation": "Apfel bildet den Plural mit Umlaut, aber ohne zusätzliche Endung: die Äpfel.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Pluralform des Nomens Tasche.",
+      "options": ["die Täschen", "die Taschen", "die Täsche", "die Tasches"],
+      "correct_answer": "die Taschen",
+      "accepted_answers": ["die Taschen"],
+      "explanation": "Feminine Nomen auf -e bilden den Plural häufig mit -n; aus Tasche wird Taschen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Kinder, Kinde, Kindern]. Setze die richtige Form von Kind ein: Im Garten spielen viele ___.",
+      "options": [],
+      "correct_answer": "Kinder",
+      "accepted_answers": ["Kinder"],
+      "explanation": "Das Nomen Kind bildet den Plural mit der Endung -er: die Kinder.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Buche, Büchern, Bücher]. Setze die richtige Form von Buch ein: In diesem Regal stehen nur deutsche ___.",
+      "options": [],
+      "correct_answer": "Bücher",
+      "accepted_answers": ["Bücher"],
+      "explanation": "Buch bildet den Plural mit Umlaut und der Endung -er: die Bücher.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Fraue, Frauen, Frau]. Setze die richtige Form von Frau ein: Zwei ___ warten vor dem Kino.",
+      "options": [],
+      "correct_answer": "Frauen",
+      "accepted_answers": ["Frauen"],
+      "explanation": "Frau bildet den Plural mit der Endung -en: die Frauen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Pluralform: Im Schrank liegen zwei ___.",
+      "options": ["Handtuch", "Handtüches", "Handtücher", "Handtüchern"],
+      "correct_answer": "Handtücher",
+      "accepted_answers": ["Handtücher"],
+      "rubric": null,
+      "explanation": "Der Nominativ Plural von das Handtuch lautet die Handtücher.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Ärzte, Arzte, Ärztin, Arztes]. In der Praxis arbeiten drei ___.",
+      "options": [],
+      "correct_answer": "Ärzte",
+      "accepted_answers": ["Ärzte"],
+      "rubric": null,
+      "explanation": "Die Pluralform von Arzt lautet Ärzte und hat einen Umlaut.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Pluralgruppe zu ein Termin.",
+      "options": [
+        "viele Terminen",
+        "viele Termins",
+        "viele Terminer",
+        "viele Termine"
+      ],
+      "correct_answer": "viele Termine",
+      "accepted_answers": ["viele Termine"],
+      "rubric": null,
+      "explanation": "Der Plural von Termin lautet Termine; nach viele steht hier kein zusätzlicher Artikel.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

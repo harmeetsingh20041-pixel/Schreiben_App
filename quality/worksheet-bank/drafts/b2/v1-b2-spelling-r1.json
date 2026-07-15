@@ -1,0 +1,214 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-spelling-r1",
+    "template_key": "v1-b2-spelling-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Spelling pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Rechtschreibung: Stolperstellen sicher beherrschen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "spelling",
+    "name": "Rechtschreibung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "spelling",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Auf B2-Niveau entscheidet sichere Rechtschreibung darüber, ob komplexe berufliche Texte eindeutig und glaubwürdig wirken. Dieses Arbeitsblatt verwendet bei ß-Fragen die in Deutschland und Österreich übliche Schreibung; in der Schweizer Standardorthografie steht stattdessen ss.",
+    "key_rule": "Prüfe Wortstamm, Ableitung und grammatische Funktion: Das hilft besonders bei dass/das, seit/seid, wider/wieder sowie s-, ss- und ß-Schreibungen.",
+    "correct_examples": [
+      "Die Ergebnisse sind äußerst zuverlässig.",
+      "Wir wissen, dass die Frist weiterhin gilt."
+    ],
+    "common_mistake_warning": "Verlasse dich bei seltenen oder abgeleiteten Wörtern nicht allein auf den Klang; ähnliche Lautfolgen können unterschiedlich geschrieben werden.",
+    "what_to_revise": "Wiederhole häufige Homophone, Wortfamilien und die Schreibung langer fachsprachlicher Wörter."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schreibung ist nach der in Deutschland und Österreich üblichen Standardorthografie korrekt?",
+      "options": [
+        "Die Maßnahme ist verhältnismäßig.",
+        "Die Maßnahme ist verhältnissmäßig.",
+        "Die Maßnahme ist verhältnismäßich.",
+        "Die Maßnahme ist verhältnissmäsig."
+      ],
+      "correct_answer": "Die Maßnahme ist verhältnismäßig.",
+      "accepted_answers": [
+        "Die Maßnahme ist verhältnismäßig."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Adjektiv wird aus „Verhältnis“ und „-mäßig“ gebildet und lautet in Deutschland und Österreich deshalb „verhältnismäßig“. In der Schweizer Standardorthografie lautet die entsprechende Form „verhältnismässig“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz unterscheidet Konjunktion und Artikel beziehungsweise Pronomen korrekt?",
+      "options": [
+        "Die Analyse zeigt, das dass Verfahren zuverlässig ist.",
+        "Die Analyse zeigt, dass dass Verfahren zuverlässig ist.",
+        "Die Analyse zeigt, das das Verfahren zuverlässig ist.",
+        "Die Analyse zeigt, dass das Verfahren zuverlässig ist."
+      ],
+      "correct_answer": "Die Analyse zeigt, dass das Verfahren zuverlässig ist.",
+      "accepted_answers": [
+        "Die Analyse zeigt, dass das Verfahren zuverlässig ist."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Dass“ leitet den Nebensatz ein; „das“ gehört als bestimmter Artikel zum Nomen „Verfahren“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante enthält die korrekte Schreibung des Nomens?",
+      "options": [
+        "Das Missverständniss ließ sich klären.",
+        "Das Missverständnis ließ sich klären.",
+        "Das Misverständnis ließ sich klären.",
+        "Das Missverstandnis ließ sich klären."
+      ],
+      "correct_answer": "Das Missverständnis ließ sich klären.",
+      "accepted_answers": [
+        "Das Missverständnis ließ sich klären."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Missverständnis“ beginnt mit dem Präfix „miss-“ und endet beim Singular auf „-nis“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [seid, seit, seitdem]. Ergänze die Verbform: Ihr ___ bereits seit Januar für den Bereich zuständig.",
+      "options": [],
+      "correct_answer": "seid",
+      "accepted_answers": [
+        "seid"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Seid“ ist die Präsensform von „sein“ für „ihr“; „seit“ bezeichnet dagegen einen zeitlichen Beginn.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gegen, wider, erneut]. Ergänze den abgetrennten Verbzusatz: Die Grafik spiegelt die Entwicklung zutreffend ___.",
+      "options": [],
+      "correct_answer": "wider",
+      "accepted_answers": [
+        "wider"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die etablierte Schreibung des trennbaren Verbs lautet „widerspiegeln“. „Wieder“ würde „erneut“ bedeuten und passt hier nicht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [nähmlich, nemlich, nämlich]. Ergänze das korrekt geschriebene Erläuterungswort: Ein Punkt blieb offen, ___ die Finanzierung.",
+      "options": [],
+      "correct_answer": "nämlich",
+      "accepted_answers": [
+        "nämlich"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Nämlich“ wird mit ä und ohne zusätzliches h nach dem Vokal geschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [standartiesiert, standardisiert, standartisiert]. Ergänze die korrekte Form: Die Abläufe der Pflegedokumentation werden schrittweise ___.",
+      "options": [],
+      "correct_answer": "standardisiert",
+      "accepted_answers": [
+        "standardisiert"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Wortfamilie gehört zu „Standard“; das Verb und sein Partizip behalten deshalb das d.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung schreibt „widersprüchlich“ und „nämlich“ korrekt?",
+      "options": [
+        "Die Ergebnisse sind wiedersprüchlich, nähmlich in zwei Punkten.",
+        "Die Ergebnisse sind widersprüchlich, nähmlich in zwei Punkten.",
+        "Die Ergebnisse sind widersprüchlich, nämlich in zwei Punkten.",
+        "Die Ergebnisse sind wiedersprüchlich, nämlich in zwei Punkten."
+      ],
+      "correct_answer": "Die Ergebnisse sind widersprüchlich, nämlich in zwei Punkten.",
+      "accepted_answers": [
+        "Die Ergebnisse sind widersprüchlich, nämlich in zwei Punkten."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beide Fehler beruhen auf einer lautnahen, aber nicht standardsprachlichen Schreibung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet das Nomen „Missverständnis“ korrekt geschrieben und grammatisch passend?",
+      "options": [
+        "Bei den Angaben kamm es zu einem Missverständniss.",
+        "Bei den Angaben kam es zu einem Missverständnis.",
+        "Bei den Angaben kam es zu einem Mißverständniss.",
+        "Bei den Angaben kam es zu einen Missverständnis."
+      ],
+      "correct_answer": "Bei den Angaben kam es zu einem Missverständnis.",
+      "accepted_answers": [
+        "Bei den Angaben kam es zu einem Missverständnis."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Umformulierung prüft die sichere Einbettung eines häufig fehlerhaft geschriebenen Nomens in einen neuen Satz.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ist in Deutschland und Österreich vollständig standardorthografisch geschrieben?",
+      "options": [
+        "Die Verantwortliche wies ausdrücklich darauf hin, dass die Unterlagen im Voraus geprüft werden müssen und keineswegs unvollständig sein dürfen.",
+        "Die Verantwortliche wieß ausdrücklich darauf hin, dass die Unterlagen im Voraus geprüft werden müssen und keineswegs unvollständig sein dürfen.",
+        "Die Verantwortliche wies ausdrücklich darauf hin, das die Unterlagen im Vorraus geprüft werden müssen und keineswegs unvollständig sein dürfen.",
+        "Die Verantwortliche wies ausdrücklich daraufhin, dass die Unterlagen im Voraus geprüft werden müssen und keines Wegs unvollständig sein dürfen."
+      ],
+      "correct_answer": "Die Verantwortliche wies ausdrücklich darauf hin, dass die Unterlagen im Voraus geprüft werden müssen und keineswegs unvollständig sein dürfen.",
+      "accepted_answers": [
+        "Die Verantwortliche wies ausdrücklich darauf hin, dass die Unterlagen im Voraus geprüft werden müssen und keineswegs unvollständig sein dürfen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Korrekt sind „wies“, die Verbindung „darauf hinweisen“, die Konjunktion „dass“, die feste Schreibung „im Voraus“ und das zusammengeschriebene Adverb „keineswegs“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

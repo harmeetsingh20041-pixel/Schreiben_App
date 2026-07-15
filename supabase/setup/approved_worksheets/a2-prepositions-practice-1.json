@@ -13,10 +13,7 @@
   "mini_lesson": {
     "short_explanation": "Prepositions connect sentence parts and often belong to fixed phrases.",
     "key_rule": "Learn a preposition together with the noun phrase or verb pattern that follows it.",
-    "correct_examples": [
-      "Ich warte auf den Bus.",
-      "Wir fahren mit dem Zug."
-    ],
+    "correct_examples": ["Ich warte auf den Bus.", "Wir fahren mit dem Zug."],
     "common_mistake_warning": "Do not choose a preposition only by translating one English word.",
     "what_to_revise": "Review common A2 phrases such as warten auf, sprechen mit, sich interessieren für, and fahren mit."
   },
@@ -27,6 +24,7 @@
       "prompt": "Choose the best option: Ich warte ___ den Bus.",
       "options": ["auf", "mit", "bei", "nach"],
       "correct_answer": "auf",
+      "accepted_answers": ["auf"],
       "explanation": "The fixed phrase is auf den Bus warten.",
       "evaluation_mode": "local_exact"
     },
@@ -36,42 +34,47 @@
       "prompt": "Choose the best option: Wir sprechen ___ der Lehrerin.",
       "options": ["mit", "für", "gegen", "ohne"],
       "correct_answer": "mit",
+      "accepted_answers": ["mit"],
       "explanation": "Sprechen mit means to speak with a person.",
       "evaluation_mode": "local_exact"
     },
     {
       "question_number": 3,
       "question_type": "fill_blank",
-      "prompt": "Complete the sentence with one preposition: Sie interessiert sich ___ Musik.",
+      "prompt": "Use the closed word bank [für, mit, nach, bei]. Complete: Sie interessiert sich ___ Musik.",
       "options": [],
       "correct_answer": "für",
+      "accepted_answers": ["für"],
       "explanation": "Sich interessieren für is the phrase for being interested in something.",
       "evaluation_mode": "local_exact"
     },
     {
       "question_number": 4,
       "question_type": "fill_blank",
-      "prompt": "Complete the sentence with one preposition: Am Samstag fahre ich ___ dem Zug nach Köln.",
+      "prompt": "Use the closed word bank [mit, bei, für, ohne]. Complete: Am Samstag fahre ich ___ dem Zug nach Köln.",
       "options": [],
       "correct_answer": "mit",
+      "accepted_answers": ["mit"],
       "explanation": "Use mit for means of transport such as mit dem Zug.",
       "evaluation_mode": "local_exact"
     },
     {
       "question_number": 5,
-      "question_type": "sentence_correction",
-      "prompt": "Correct this sentence: Ich warte für den Bus.",
+      "question_type": "fill_blank",
+      "prompt": "Use the closed word bank [auf, für, mit, ohne]. Complete: Jeden Morgen warte ich ___ den Bus.",
       "options": [],
-      "correct_answer": "Ich warte auf den Bus.",
+      "correct_answer": "auf",
+      "accepted_answers": ["auf"],
       "explanation": "The phrase is auf den Bus warten, not für den Bus warten.",
       "evaluation_mode": "local_exact"
     },
     {
       "question_number": 6,
-      "question_type": "sentence_correction",
-      "prompt": "Correct this sentence: Wir fahren bei dem Bus zur Schule.",
+      "question_type": "fill_blank",
+      "prompt": "Use the closed word bank [mit, bei, von, gegen]. Complete: Wir fahren ___ dem Bus zur Schule.",
       "options": [],
-      "correct_answer": "Wir fahren mit dem Bus zur Schule.",
+      "correct_answer": "mit",
+      "accepted_answers": ["mit"],
       "explanation": "For means of transport, use mit dem Bus.",
       "evaluation_mode": "local_exact"
     },
@@ -81,8 +84,16 @@
       "prompt": "Put the parts in order: am Nachmittag / mit dem Bus / fährt / Lara / zur Bibliothek / oft",
       "options": [],
       "correct_answer": "Am Nachmittag fährt Lara oft mit dem Bus zur Bibliothek.",
+      "rubric": {
+        "criteria": [
+          "Use every supplied chunk exactly once.",
+          "Place the conjugated verb fährt in position two after the opening time phrase.",
+          "Produce a grammatical sentence with correct capitalization and punctuation."
+        ],
+        "sample_answer": "Am Nachmittag fährt Lara oft mit dem Bus zur Bibliothek."
+      },
       "explanation": "The time phrase starts the sentence, so the conjugated verb fährt comes second.",
-      "evaluation_mode": "local_exact"
+      "evaluation_mode": "open_evaluation"
     },
     {
       "question_number": 8,
@@ -90,8 +101,16 @@
       "prompt": "Rewrite the sentence with the time phrase first: Lara fährt oft mit dem Bus zur Bibliothek am Nachmittag.",
       "options": [],
       "correct_answer": "Am Nachmittag fährt Lara oft mit dem Bus zur Bibliothek.",
+      "rubric": {
+        "criteria": [
+          "Place Am Nachmittag at the start.",
+          "Keep fährt as the conjugated verb in position two.",
+          "Preserve the original meaning and all essential sentence elements."
+        ],
+        "sample_answer": "Am Nachmittag fährt Lara oft mit dem Bus zur Bibliothek."
+      },
       "explanation": "After a fronted time phrase, the verb stays in position two.",
-      "evaluation_mode": "local_exact"
+      "evaluation_mode": "open_evaluation"
     },
     {
       "question_number": 9,
@@ -99,8 +118,15 @@
       "prompt": "Rewrite the sentence correctly: Ich gehe mit meine Schwester ins Kino.",
       "options": [],
       "correct_answer": "Ich gehe mit meiner Schwester ins Kino.",
+      "rubric": {
+        "criteria": [
+          "Use the dative form meiner Schwester after mit.",
+          "Keep the intended meaning and the rest of the sentence grammatical."
+        ],
+        "sample_answer": "Ich gehe mit meiner Schwester ins Kino."
+      },
       "explanation": "Mit takes dative, so meine Schwester becomes meiner Schwester.",
-      "evaluation_mode": "local_exact"
+      "evaluation_mode": "open_evaluation"
     }
   ]
 }

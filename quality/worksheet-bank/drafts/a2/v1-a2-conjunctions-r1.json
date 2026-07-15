@@ -1,0 +1,148 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-conjunctions-r1",
+    "template_key": "v1-a2-conjunctions-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Conjunctions pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Konjunktionen: Gründe und Aussagen verbinden",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "conjunctions",
+    "name": "Konjunktionen"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "conjunctions",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Konjunktionen verbinden Wörter und Sätze. Einige lassen die normale Wortstellung, andere schicken das konjugierte Verb ans Ende.",
+    "key_rule": "Nach weil, dass, wenn und obwohl steht das Verb am Ende des Nebensatzes; nach aber, denn, oder und sondern bleibt es im Hauptsatz an Position zwei.",
+    "correct_examples": [
+      "Wir gehen hinein, weil es regnet.",
+      "Sie kommt, aber sie bleibt nicht lange."
+    ],
+    "common_mistake_warning": "Setze das Verb nach einer unterordnenden Konjunktion nicht direkt hinter das Subjekt.",
+    "what_to_revise": "Vergleiche denn mit weil und aber mit obwohl."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Konjunktion: Ich bleibe zu Hause, ___ ich krank bin.",
+      "options": ["aber","denn","oder","weil"],
+      "correct_answer": "weil",
+      "accepted_answers": ["weil"],
+      "explanation": "Weil nennt einen Grund und leitet einen Nebensatz ein; das Verb bin steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den grammatisch richtigen Satz.",
+      "options": [
+        "Ich glaube dass, er heute kommt.",
+        "Ich glaube, dass er heute kommt.",
+        "Ich glaube, dass er kommt heute.",
+        "Ich glaube, dass kommt er heute."
+      ],
+      "correct_answer": "Ich glaube, dass er heute kommt.",
+      "accepted_answers": ["Ich glaube, dass er heute kommt."],
+      "explanation": "Nach dass steht das konjugierte Verb am Ende des Nebensatzes; vor dem Nebensatz steht ein Komma.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [weil, dass, denn]. Setze ein: Die Pflegekraft bleibt länger, ___ ihre Kollegin braucht Hilfe.",
+      "options": [],
+      "correct_answer": "denn",
+      "accepted_answers": ["denn"],
+      "explanation": "Denn nennt einen Grund und verbindet zwei Hauptsätze; im zweiten Hauptsatz steht braucht an Position zwei.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [aber, weil, dass]. Setze ein: Ich möchte mitkommen, ___ ich muss noch arbeiten.",
+      "options": [],
+      "correct_answer": "aber",
+      "accepted_answers": ["aber"],
+      "explanation": "Aber verbindet zwei gegensätzliche Hauptsätze; im zweiten Hauptsatz bleibt muss an Position zwei.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [oder, dass, denn]. Setze ein: Wir wissen, ___ der Kurs morgen beginnt.",
+      "options": [],
+      "correct_answer": "dass",
+      "accepted_answers": ["dass"],
+      "explanation": "Dass leitet den Inhalt von wissen ein; beginnt steht am Ende des Nebensatzes.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ergänzung ist nach weil richtig? Die Pflegekraft bleibt im Zimmer, ...",
+      "options": [
+        "weil der Patient braucht Hilfe.",
+        "weil Hilfe der Patient braucht sie.",
+        "weil der Patient Hilfe braucht.",
+        "weil braucht der Patient Hilfe."
+      ],
+      "correct_answer": "weil der Patient Hilfe braucht.",
+      "accepted_answers": [
+        "weil der Patient Hilfe braucht."
+      ],
+      "rubric": null,
+      "explanation": "Weil leitet einen Nebensatz ein; das konjugierte Verb braucht steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [aber, oder, dass, denn]. Die Pflegekraft erklärt, ___ der Patient das Medikament später bekommt.",
+      "options": [],
+      "correct_answer": "dass",
+      "accepted_answers": [
+        "dass"
+      ],
+      "rubric": null,
+      "explanation": "Nach erklärt kann ein dass-Satz den Inhalt der Erklärung nennen; das Verb steht am Nebensatzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist richtig verbunden?",
+      "options": [
+        "Ich gehe zum Kurs, obwohl ich müde bin.",
+        "Ich gehe zum Kurs, obwohl bin ich müde.",
+        "Ich gehe zum Kurs, obwohl ich bin müde.",
+        "Ich gehe zum Kurs obwohl, ich müde bin."
+      ],
+      "correct_answer": "Ich gehe zum Kurs, obwohl ich müde bin.",
+      "accepted_answers": [
+        "Ich gehe zum Kurs, obwohl ich müde bin."
+      ],
+      "rubric": null,
+      "explanation": "Obwohl leitet einen Nebensatz ein; bin steht am Ende und vor obwohl steht ein Komma.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

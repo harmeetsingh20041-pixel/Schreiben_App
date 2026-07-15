@@ -1,0 +1,153 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-word-order-r1",
+    "template_key": "v1-a2-word-order-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Word order pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Wortstellung: Verbzweit und Satzklammer",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "word-order",
+    "name": "Wortstellung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "word-order",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Im deutschen Hauptsatz steht das konjugierte Verb an Position zwei. Andere Satzteile können vor dem Verb stehen und verändern dann die Reihenfolge.",
+    "key_rule": "In der neutralen Grundstellung folgt auf eine Zeit- oder Ortsangabe im Vorfeld direkt das Verb und danach meist das Subjekt; im Nebensatz steht das konjugierte Verb am Ende.",
+    "correct_examples": [
+      "Heute beginnt die Frühschicht um sieben Uhr.",
+      "Die Pflegekraft sagt, dass das Zimmer frei ist."
+    ],
+    "common_mistake_warning": "Zähle Satzteile, nicht einzelne Wörter, wenn du die zweite Position bestimmst.",
+    "what_to_revise": "Übe Verbzweitstellung, Satzklammer und Verbendstellung nach weil und dass."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den Satz mit neutraler Standardwortstellung und korrekter Verbzweitstellung.",
+      "options": [
+        "Morgen sie fährt mit dem Zug zur Arbeit.",
+        "Morgen mit dem Zug sie fährt zur Arbeit.",
+        "Morgen sie mit dem Zug zur Arbeit fährt.",
+        "Morgen fährt sie mit dem Zug zur Arbeit."
+      ],
+      "correct_answer": "Morgen fährt sie mit dem Zug zur Arbeit.",
+      "accepted_answers": ["Morgen fährt sie mit dem Zug zur Arbeit."],
+      "explanation": "In der neutralen Grundstellung folgt auf das Vorfeld Morgen direkt das konjugierte Verb fährt und danach das Subjekt sie.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den neutralen standardsprachlichen Satz mit einem Modalverb und geschlossener Satzklammer.",
+      "options": [
+        "Wir müssen heute länger arbeiten.",
+        "Heute wir müssen länger arbeiten.",
+        "Wir arbeiten heute länger müssen.",
+        "Wir heute länger arbeiten müssen."
+      ],
+      "correct_answer": "Wir müssen heute länger arbeiten.",
+      "accepted_answers": ["Wir müssen heute länger arbeiten."],
+      "explanation": "In der neutralen Standardsprache steht das konjugierte Modalverb müssen an Position zwei; der Infinitiv arbeiten schließt die Satzklammer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ich, Buch, lese]. Setze ein: Am Abend ___ ich oft ein Buch.",
+      "options": [],
+      "correct_answer": "lese",
+      "accepted_answers": ["lese"],
+      "explanation": "Nach dem Vorfeld Am Abend muss das konjugierte Verb lese direkt folgen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gehen, wir, nach]. Setze ein: Nach dem Kurs ___ wir zusammen nach Hause.",
+      "options": [],
+      "correct_answer": "gehen",
+      "accepted_answers": ["gehen"],
+      "explanation": "Nach der vorangestellten Zeitangabe steht das Verb gehen an Position zwei.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gelernt, lernen, lerne]. Setze ein: Ich möchte morgen Deutsch ___.",
+      "options": [],
+      "correct_answer": "lernen",
+      "accepted_answers": ["lernen"],
+      "explanation": "Beim Modalverb möchte steht der Infinitiv lernen am Ende der Satzklammer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz hat eine natürliche Hauptsatzstellung?",
+      "options": [
+        "Fährt die Pflegekraft heute mit dem Bus zur Klinik.",
+        "Die Pflegekraft mit dem Bus heute fährt zur Klinik.",
+        "Die Pflegekraft fährt heute mit dem Bus zur Klinik.",
+        "Die Pflegekraft heute zur Klinik mit dem Bus fährt."
+      ],
+      "correct_answer": "Die Pflegekraft fährt heute mit dem Bus zur Klinik.",
+      "accepted_answers": [
+        "Die Pflegekraft fährt heute mit dem Bus zur Klinik."
+      ],
+      "rubric": null,
+      "explanation": "Im Aussagesatz steht fährt an zweiter Position; Zeit, Verkehrsmittel und Ziel folgen verständlich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [arbeitest, arbeitet, arbeiten, gearbeitet]. Am Montag ___ Ravi in der Klinik.",
+      "options": [],
+      "correct_answer": "arbeitet",
+      "accepted_answers": [
+        "arbeitet"
+      ],
+      "rubric": null,
+      "explanation": "Nach Am Montag steht das konjugierte Verb arbeitet an zweiter Position, danach folgt das Subjekt Ravi.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist richtig geordnet?",
+      "options": [
+        "Nach dem Kurs wiederholen Mina zu Hause die neuen Wörter.",
+        "Nach dem Kurs wiederholt Mina zu Hause die neuen Wörter.",
+        "Nach dem Kurs Mina wiederholt die neuen Wörter zu Hause.",
+        "Nach dem Kurs zu Hause die neuen Wörter Mina wiederholt."
+      ],
+      "correct_answer": "Nach dem Kurs wiederholt Mina zu Hause die neuen Wörter.",
+      "accepted_answers": [
+        "Nach dem Kurs wiederholt Mina zu Hause die neuen Wörter."
+      ],
+      "rubric": null,
+      "explanation": "Nach der Zeitangabe steht wiederholt an zweiter Position; danach folgen Subjekt, Ort und Objekt klar geordnet.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

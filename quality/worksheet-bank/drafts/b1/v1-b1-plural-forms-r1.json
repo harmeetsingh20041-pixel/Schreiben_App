@@ -1,0 +1,183 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-plural-forms-r1",
+    "template_key": "v1-b1-plural-forms-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Plural forms pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Pluralformen: Häufige Muster im Berufsalltag festigen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "plural-forms",
+    "name": "Pluralformen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "plural-forms",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Deutsche Nomen bilden den Plural mit verschiedenen Endungen, mit oder ohne Umlaut, oder ohne sichtbare Veränderung. Deshalb sollte die Pluralform zusammen mit dem Nomen gelernt werden.",
+    "key_rule": "Achte neben der Pluralendung auch auf Umlaut und Dativ-Plural-n. Berufsbezeichnungen auf „-in“ bilden den Plural regelmäßig mit „-innen“.",
+    "correct_examples": [
+      "Aus einer Ärztin werden mehrere Ärztinnen.",
+      "Die Berichte liegen neben den Formularen."
+    ],
+    "common_mistake_warning": "Hänge nicht automatisch „-s“ an jedes deutsche Nomen; viele häufige Wörter haben andere Pluralmuster.",
+    "what_to_revise": "Wiederhole häufige Endungen (-e, -er, -en/-n, -s), Umlautformen und das zusätzliche -n im Dativ Plural."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Pluralform von „der Befund“ ist korrekt?",
+      "options": ["die Befunde", "die Befunder", "die Befunds"],
+      "correct_answer": "die Befunde",
+      "accepted_answers": ["die Befunde"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Nomen „Befund“ bildet den Plural mit -e: „die Befunde“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Pluralform von „die Pflegefachkraft“ ist korrekt?",
+      "options": [
+        "die Pflegefachkraften",
+        "die Pflegefachkrafte",
+        "die Pflegefachkräfte"
+      ],
+      "correct_answer": "die Pflegefachkräfte",
+      "accepted_answers": ["die Pflegefachkräfte"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Pflegefachkraft“ bildet wie „Kraft“ den Plural mit Umlaut und -e: „Pflegefachkräfte“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form steht korrekt im Dativ Plural? Die Stationsleitung spricht mit ___.",
+      "options": ["die Ärzten","den Ärzten","den Ärzte"],
+      "correct_answer": "den Ärzten",
+      "accepted_answers": ["den Ärzten"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Plural lautet „Ärzte“; im Dativ Plural kommt nach „den“ zusätzlich die Endung -n hinzu: „Ärzten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Gemeint sind mehrere weibliche Beraterinnen. Wortbank: [Beraterinen, Berater, Beraterinnen]. Ergänze: In der Niederlassung arbeiten drei ___.",
+      "options": [],
+      "correct_answer": "Beraterinnen",
+      "accepted_answers": ["Beraterinnen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feminine Berufsbezeichnung auf „-in“ bildet den Plural mit „-innen“ und doppeltem n.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Es sind mehrere Exemplare des Dokuments „Bericht“ gemeint. Wortbank: [Berichts, Berichte, Berichten]. Ergänze: Der Mitarbeiter archiviert die alten ___.",
+      "options": [],
+      "correct_answer": "Berichte",
+      "accepted_answers": ["Berichte"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Akkusativ Plural von „der Bericht“ lautet „die Berichte“; hier ist keine zusätzliche Dativendung nötig.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Mehrere Zimmer sind wegen eines Umbaus geschlossen. Wortbank: [Zimmer, Zimmern, Zimmers]. Ergänze: Zwei ___ bleiben heute gesperrt.",
+      "options": [],
+      "correct_answer": "Zimmer",
+      "accepted_answers": ["Zimmer"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei „das Zimmer“ sind Singular und Plural gleich; die Zahl „zwei“ macht den Plural eindeutig.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Mehrere Anträge liegen zur Bearbeitung vor. Wortbank: [Anträge, Antrage, Antrags]. Ergänze: Die Behörde prüft heute fünf ___.",
+      "options": [],
+      "correct_answer": "Anträge",
+      "accepted_answers": ["Anträge"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Der Antrag“ bildet den Plural mit Umlaut und -e: „die Anträge“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält beide Pluralformen korrekt?",
+      "options": [
+        "Die Beraterinen prüfen die Verträger gemeinsam.",
+        "Die Beraterinnen prüfen die Verträge gemeinsam.",
+        "Die Beraterinen prüfen die Verträge gemeinsam.",
+        "Die Beraterinnen prüfen die Verträger gemeinsam."
+      ],
+      "correct_answer": "Die Beraterinnen prüfen die Verträge gemeinsam.",
+      "accepted_answers": ["Die Beraterinnen prüfen die Verträge gemeinsam."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Beraterin“ bildet den Plural mit -innen; „Vertrag“ bildet ihn mit Umlaut und -e: „Verträge“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Pluralfassung des Satzes „Eine Fachkraft bearbeitet einen Antrag und eröffnet ein Konto“ ist vollständig korrekt?",
+      "options": [
+        "Fachkräfte bearbeiten Anträge und eröffnen Konten.",
+        "Fachkräfte bearbeiten Antrage und eröffnen Konten.",
+        "Fachkräfte bearbeitet Anträge und eröffnet Konten.",
+        "Fachkräften bearbeiten Anträge und eröffnen Kontos."
+      ],
+      "correct_answer": "Fachkräfte bearbeiten Anträge und eröffnen Konten.",
+      "accepted_answers": ["Fachkräfte bearbeiten Anträge und eröffnen Konten."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die drei Nomen heißen im Plural „Fachkräfte“, „Anträge“ und „Konten“; beide Verben stehen ebenfalls im Plural.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung enthält sowohl eine korrekte Berufsbezeichnung auf „-innen“ als auch eine korrekte Dativ-Pluralform?",
+      "options": [
+        "Die Ärztinnen sprechen mit drei Patient.",
+        "Die Ärztinen sprechen mit drei Patienten.",
+        "Die Ärztinnen sprechen mit drei Patienten.",
+        "Die Ärztinnen sprechen mit drei Patientenen."
+      ],
+      "correct_answer": "Die Ärztinnen sprechen mit drei Patienten.",
+      "accepted_answers": ["Die Ärztinnen sprechen mit drei Patienten."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Ärztinnen“ ist der feminine Plural. Die Zahl „drei“ macht die Mehrzahl eindeutig; nach „mit“ steht „Patienten“ im Dativ Plural.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

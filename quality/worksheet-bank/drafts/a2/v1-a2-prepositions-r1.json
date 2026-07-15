@@ -1,0 +1,143 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-prepositions-r1",
+    "template_key": "v1-a2-prepositions-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Prepositions pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Präpositionen: Ort oder Richtung",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "prepositions",
+    "name": "Präpositionen"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "prepositions",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Präpositionen bestimmen häufig den Kasus. Wechselpräpositionen stehen bei einer Position mit Dativ und bei einer Richtung mit Akkusativ.",
+    "key_rule": "Frage Wo? führt bei an, auf, hinter, in, neben, über, unter, vor und zwischen zum Dativ; Wohin? führt zum Akkusativ.",
+    "correct_examples": [
+      "Die Lampe steht auf dem Tisch.",
+      "Ich stelle die Lampe auf den Tisch."
+    ],
+    "common_mistake_warning": "Entscheide bei Wechselpräpositionen nicht nur nach dem Verb, sondern nach Position oder Zielrichtung.",
+    "what_to_revise": "Übe Wo? im Dativ und Wohin? im Akkusativ sowie feste Verbindungen wie warten auf."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Form für eine Position: Das Bild hängt ___ Wand.",
+      "options": ["an die","auf den","in das","an der"],
+      "correct_answer": "an der",
+      "accepted_answers": ["an der"],
+      "explanation": "Die Frage lautet Wo? Bei einer Position steht an mit Dativ; Wand ist feminin, deshalb an der Wand.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Form für eine Richtung: Ich hänge das Bild ___ Wand.",
+      "options": ["in den","an die","an der","auf dem"],
+      "correct_answer": "an die",
+      "accepted_answers": ["an die"],
+      "explanation": "Die Frage lautet Wohin? Bei einer Richtung steht an mit Akkusativ; Wand ist feminin, deshalb an die Wand.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [an die, am, ans]. Setze ein: Der Schreibtisch steht direkt ___ Fenster.",
+      "options": [],
+      "correct_answer": "am",
+      "accepted_answers": ["am"],
+      "explanation": "Der Schreibtisch hat eine feste Position an dem Fenster; an dem wird zu am zusammengezogen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [auf dem, unter den, auf den]. Die Patientenakte soll auf der Tischplatte liegen. Setze ein: Leg sie bitte ___ Tisch.",
+      "options": [],
+      "correct_answer": "auf den",
+      "accepted_answers": ["auf den"],
+      "explanation": "Legen beschreibt hier eine Richtung zur Tischplatte; deshalb steht auf mit Akkusativ: auf den Tisch.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [unter dem, unter den, über das]. Setze ein: Die Schuhe liegen ___ Bett.",
+      "options": [],
+      "correct_answer": "unter dem",
+      "accepted_answers": ["unter dem"],
+      "explanation": "Liegen beschreibt eine Position; unter steht deshalb mit dem Dativ unter dem Bett.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Präposition: Die Pflegekraft legt die Akte ___ den Tisch.",
+      "options": [
+        "bei",
+        "mit",
+        "auf",
+        "aus"
+      ],
+      "correct_answer": "auf",
+      "accepted_answers": [
+        "auf"
+      ],
+      "rubric": null,
+      "explanation": "Bei einer Bewegung auf eine Oberfläche verwendet man auf mit Akkusativ: auf den Tisch.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [vom, im, ins, aus]. Der Patient wartet ___ Wartezimmer.",
+      "options": [],
+      "correct_answer": "im",
+      "accepted_answers": [
+        "im"
+      ],
+      "rubric": null,
+      "explanation": "Eine feste Position in einem Raum wird mit in plus Dativ ausgedrückt: im Wartezimmer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet die Präpositionen richtig?",
+      "options": [
+        "Wir fahren mit dem Bus zur Klinik.",
+        "Wir fahren bei den Bus zu Klinik.",
+        "Wir fahren aus dem Bus an Klinik.",
+        "Wir fahren von den Bus in der Klinik."
+      ],
+      "correct_answer": "Wir fahren mit dem Bus zur Klinik.",
+      "accepted_answers": [
+        "Wir fahren mit dem Bus zur Klinik."
+      ],
+      "rubric": null,
+      "explanation": "Mit verlangt den Dativ dem Bus; zur ist die Verbindung aus zu und der.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

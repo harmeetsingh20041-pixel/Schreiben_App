@@ -1,0 +1,157 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-perfekt-r2",
+    "template_key": "v1-a2-perfekt-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Perfekt accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Perfekt im Alltag: Besondere Partizipien",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "perfekt",
+    "name": "Perfekt"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "perfekt",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Beim Übertragen ganzer Abläufe ins Perfekt müssen Hilfsverb, Partizip und trennbare Vorsilbe in jedem Satz zusammenpassen.",
+    "key_rule": "Prüfe zuerst das Hilfsverb und bilde danach das Partizip: Das Perfekt von aufstehen lautet „ist aufgestanden“, das von einkaufen lautet „hat eingekauft“.",
+    "correct_examples": [
+      "Er ist heute früh aufgestanden.",
+      "Am Samstag haben wir eingekauft und gemeinsam gekocht."
+    ],
+    "common_mistake_warning": "Ortsveränderung verlangt häufig sein; ein korrektes Partizip allein reicht mit dem falschen Hilfsverb nicht aus.",
+    "what_to_revise": "Repariere falsche Hilfsverben und übertrage mehrteilige Abläufe mit regelmäßigen, unregelmäßigen und trennbaren Verben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die korrekte Perfektform von aufstehen.",
+      "options": [
+        "Er ist früh aufgestanden.",
+        "Er hat früh aufgestanden.",
+        "Er ist früh geaufstanden.",
+        "Er früh aufgestanden ist."
+      ],
+      "correct_answer": "Er ist früh aufgestanden.",
+      "accepted_answers": ["Er ist früh aufgestanden."],
+      "explanation": "Aufstehen bezeichnet eine Zustandsänderung und bildet das Perfekt mit sein; das Partizip lautet aufgestanden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die korrekte Perfektform von besuchen.",
+      "options": [
+        "Wir sind das Museum besucht.",
+        "Wir haben das Museum gebesucht.",
+        "Wir haben das Museum besuchen.",
+        "Wir haben das Museum besucht."
+      ],
+      "correct_answer": "Wir haben das Museum besucht.",
+      "accepted_answers": ["Wir haben das Museum besucht."],
+      "explanation": "Verben mit der untrennbaren Vorsilbe be- bilden das Partizip ohne ge-: besucht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die korrekte Perfektform von arbeiten.",
+      "options": [
+        "Sie hat lange gearbeiten.",
+        "Sie lange gearbeitet hat.",
+        "Sie hat lange gearbeitet.",
+        "Sie ist lange gearbeitet."
+      ],
+      "correct_answer": "Sie hat lange gearbeitet.",
+      "accepted_answers": ["Sie hat lange gearbeitet."],
+      "explanation": "Bei Verbstämmen auf -t steht im regelmäßigen Partizip -et; arbeiten wird zu gearbeitet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Setze die passende Form von mitbringen ein: Die Gäste haben einen Salat ___.",
+      "options": [],
+      "correct_answer": "mitgebracht",
+      "accepted_answers": ["mitgebracht"],
+      "explanation": "Beim trennbaren Verb mitbringen steht ge zwischen Vorsilbe und Stamm: mitgebracht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Setze die passende Form von vergessen ein: Ich habe den Termin leider ___.",
+      "options": [],
+      "correct_answer": "vergessen",
+      "accepted_answers": ["vergessen"],
+      "explanation": "Vergessen bildet das Perfekt mit haben; das Partizip lautet ebenfalls vergessen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere das Hilfsverb: Er hat heute sehr früh aufgestanden.",
+      "options": [],
+      "correct_answer": "Er ist heute sehr früh aufgestanden.",
+      "rubric": {
+        "criteria": [
+          "Ersetze hat durch ist.",
+          "Lass Zeitangaben und Partizip unverändert."
+        ],
+        "sample_answer": "Er ist heute sehr früh aufgestanden."
+      },
+      "explanation": "Aufstehen bildet das Perfekt wegen der Zustandsänderung mit dem Hilfsverb sein.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit Am Wochenende: [Am Wochenende / sind / wir / nach Köln / gefahren].",
+      "options": [],
+      "correct_answer": "Am Wochenende sind wir nach Köln gefahren.",
+      "rubric": {
+        "criteria": [
+          "Verwende alle Satzteile genau einmal.",
+          "Setze sind an Position zwei und gefahren ans Satzende."
+        ],
+        "sample_answer": "Am Wochenende sind wir nach Köln gefahren."
+      },
+      "explanation": "Die Perfektform sind gefahren bildet eine Satzklammer; die Zielangabe steht davor.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Setze beide Sätze ins Perfekt: Zuerst kauft sie ein. Dann kocht sie.",
+      "options": [],
+      "correct_answer": "Zuerst hat sie eingekauft. Dann hat sie gekocht.",
+      "rubric": {
+        "criteria": [
+          "Bilde hat eingekauft für den ersten Satz.",
+          "Bilde hat gekocht für den zweiten Satz und behalte die zeitliche Reihenfolge."
+        ],
+        "sample_answer": "Zuerst hat sie eingekauft. Dann hat sie gekocht."
+      },
+      "explanation": "Einkaufen bildet das Partizip eingekauft; kochen bildet gekocht. Beide Verben verwenden haben.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

@@ -1,6 +1,14 @@
-# Supabase Auth Phase
+# Supabase Auth Phase (Historical Staging Record)
 
-Phase 3 adds the auth foundation while keeping the existing demo UI available.
+> [!WARNING]
+> Historical staging implementation record. This describes Phase 3 test state,
+> not the current V1 Auth contract and not a production setup procedure. The
+> named linked project is staging only. Use
+> [`V1_LAUNCH_RUNBOOK.md`](./V1_LAUNCH_RUNBOOK.md) and
+> [`PRODUCTION_PREFLIGHT.md`](./PRODUCTION_PREFLIGHT.md) for production.
+
+Phase 3 added the initial Auth foundation while keeping the then-existing demo
+UI available.
 
 ## Implemented
 
@@ -23,8 +31,9 @@ Phase 3 adds the auth foundation while keeping the existing demo UI available.
   - Split broad `FOR ALL` RLS policies into explicit insert/update/delete policies.
   - Allowed the trusted onboarding RPC to create the first owner membership while direct client owner inserts stay blocked.
 - Live Supabase TypeScript types generated into `artifacts/german-writing-coach/src/types/supabase.ts`.
-- Supabase project migrations applied to project `vzcgalzspdehmnvqczfw`.
-- Grammar topic seed data applied to the linked project.
+- Supabase project migrations applied to historical staging project
+  `vzcgalzspdehmnvqczfw`.
+- Grammar topic seed data applied to that historical staging project.
 
 ## Intentionally Not Implemented
 
@@ -35,13 +44,19 @@ Phase 3 adds the auth foundation while keeping the existing demo UI available.
 - Replacement of mock batches, questions, students, submissions, or writing corrections.
 - Service role usage in the frontend.
 
-## Mock Fallback
+## Historical Mock Fallback
 
-If `VITE_SUPABASE_URL` or `VITE_SUPABASE_ANON_KEY` is missing, the Supabase client returns `null`. The app stays in demo mode and the existing student/teacher demo buttons continue to work.
+At that phase, a missing `VITE_SUPABASE_URL` or `VITE_SUPABASE_ANON_KEY`
+caused the Supabase client to return `null`, leaving the old demo UI available.
+Production demo mode is now independently required to be disabled.
 
-The local `.env.local` now uses the project URL and a frontend publishable key. The file is ignored and must not be committed.
+At that phase, local `.env.local` used the staging project URL and a frontend
+publishable key. The file remains ignored and must not be committed.
 
-## First Teacher Workspace
+## Historical Staging Walkthrough: First Teacher Workspace
+
+The following records the original staging smoke flow. It must not be used to
+provision or validate production.
 
 1. Add `artifacts/german-writing-coach/.env.local` with the project URL and publishable/anon key.
 2. Start the app.
@@ -52,19 +67,21 @@ The local `.env.local` now uses the project URL and a frontend publishable key. 
 
 Remote Supabase Auth testing must follow `docs/SUPABASE_EMAIL_TESTING_POLICY.md`. Fake or unreachable email addresses must not be used for hosted Auth signups or confirmation resends.
 
-## Verification
+## Historical Staging Verification
 
 - Linked project migration history matches local migrations through `20260704085609`.
 - `public.grammar_topics` contains 10 seed rows.
 - Auth/profile hardening triggers exist in the remote database.
-- Live teacher login passed after manual email confirmation for `phase3.teacher.20260704.authcheck@gmail.com`.
+- Live teacher login passed after manual email confirmation with a controlled
+  staging account.
 - Teacher onboarding created `Phase 3 Test Workspace`, inserted an `owner` membership, and redirected to `/teacher/dashboard`.
 - Sign out/sign in passed after workspace creation; the teacher returned to `/teacher/dashboard` instead of onboarding.
 - Student signup smoke was blocked by Supabase email rate limiting before account creation; no student test rows were created.
 - Rolled-back RLS probes confirmed profile role updates are blocked, direct owner membership creation is blocked, and `create_teacher_workspace` works.
-- Supabase security advisors report one project-level Auth warning: leaked password protection is disabled.
-- Supabase performance advisors report no issues.
+- At that time, staging security advisors reported one Auth warning:
+  leaked-password protection was disabled.
+- At that time, staging performance advisors reported no issues.
 
-## Phase 4 Recommendation
+## Historical Phase 4 Recommendation
 
 Phase 4 should replace mock batches, questions, students, and submissions with real Supabase queries gradually. Keep the writing correction flow mocked until DeepSeek integration is designed and secured.

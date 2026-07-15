@@ -1,0 +1,157 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-separable-verbs-r2",
+    "template_key": "v1-a2-separable-verbs-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Separable verbs accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Trennbare Verben: Nebensatz und Perfekt",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "separable-verbs",
+    "name": "Trennbare Verben"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "separable-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Trennbare Verben verändern ihre Form beim Wechsel zwischen Hauptsatz, Nebensatz und Perfekt; die Vorsilbe darf dabei nicht verloren gehen.",
+    "key_rule": "Trenne im Hauptsatz, verbinde im Nebensatz und bilde das Partizip meist mit eingeschobenem ge: er nimmt mit, weil er mitnimmt, er hat mitgenommen.",
+    "correct_examples": [
+      "Weil der Bus pünktlich abfährt, warten wir am Eingang.",
+      "Wir haben für den Umzug aufgeräumt."
+    ],
+    "common_mistake_warning": "Nebensätze trennen die finite Form nicht; im Perfekt steht ge bei vielen trennbaren Verben zwischen Vorsilbe und Stamm.",
+    "what_to_revise": "Übertrage ankommen, mitnehmen, fortsetzen und einkaufen zwischen Hauptsatz, Nebensatz und Perfekt."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den korrekten Nebensatz mit ankommen.",
+      "options": [
+        "weil der Zug pünktlich ankommt",
+        "weil der Zug kommt pünktlich an",
+        "weil ankommt der Zug pünktlich",
+        "weil der Zug an pünktlich kommt"
+      ],
+      "correct_answer": "weil der Zug pünktlich ankommt",
+      "accepted_answers": ["weil der Zug pünktlich ankommt"],
+      "explanation": "Im Nebensatz steht das trennbare Verb am Ende wieder zusammengeschrieben: ankommt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Perfektform von einladen.",
+      "options": [
+        "Sie hat uns geeinladet.",
+        "Sie ist uns eingeladen.",
+        "Sie hat uns einladen.",
+        "Sie hat uns eingeladen."
+      ],
+      "correct_answer": "Sie hat uns eingeladen.",
+      "accepted_answers": ["Sie hat uns eingeladen."],
+      "explanation": "Das Partizip von einladen lautet eingeladen und wird hier mit haben verwendet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den korrekten Hauptsatz mit mitnehmen.",
+      "options": [
+        "Er morgen einen Regenschirm mitnimmt.",
+        "Er nimmt morgen einen Regenschirm mit.",
+        "Er mitnimmt morgen einen Regenschirm.",
+        "Er nimmt mit morgen einen Regenschirm."
+      ],
+      "correct_answer": "Er nimmt morgen einen Regenschirm mit.",
+      "accepted_answers": ["Er nimmt morgen einen Regenschirm mit."],
+      "explanation": "Im Hauptsatz steht nimmt an Position zwei und die Vorsilbe mit am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [bringen, bringt, bringst]. Setze die konjugierte Form von mitbringen ein: Die Kollegin ___ einen Salat mit.",
+      "options": [],
+      "correct_answer": "bringt",
+      "accepted_answers": ["bringt"],
+      "explanation": "Mitbringen wird im Hauptsatz getrennt; bei dem singularischen Subjekt Die Kollegin lautet die finite Form bringt, und mit steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kommst, kommen, kommt]. Setze die konjugierte Form von zurückkommen ein: Mein Bruder ___ am Sonntag zurück.",
+      "options": [],
+      "correct_answer": "kommt",
+      "accepted_answers": ["kommt"],
+      "explanation": "Zurückkommen wird im Hauptsatz getrennt; bei mein Bruder lautet die konjugierte Form kommt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere den Nebensatz: Weil ich stehe früh auf, bin ich abends müde.",
+      "options": [],
+      "correct_answer": "Weil ich früh aufstehe, bin ich abends müde.",
+      "rubric": {
+        "criteria": [
+          "Setze das Verb im weil-Satz ans Ende.",
+          "Schreibe aufstehe im Nebensatz zusammen und behalte den Hauptsatz bei."
+        ],
+        "sample_answer": "Weil ich früh aufstehe, bin ich abends müde."
+      },
+      "explanation": "Im Nebensatz mit weil steht das konjugierte Verb am Ende; trennbares aufstehen wird dort zusammengeschrieben.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit Nach der Pause: [Nach der Pause / setzen / wir / die Arbeit / fort].",
+      "options": [],
+      "correct_answer": "Nach der Pause setzen wir die Arbeit fort.",
+      "rubric": {
+        "criteria": [
+          "Verwende alle Satzteile genau einmal.",
+          "Setze setzen an Position zwei und fort ans Satzende."
+        ],
+        "sample_answer": "Nach der Pause setzen wir die Arbeit fort."
+      },
+      "explanation": "Fortsetzen wird im Hauptsatz getrennt; die Vorsilbe fort steht am Ende.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Setze den Satz ins Perfekt: Er kauft im Supermarkt ein.",
+      "options": [],
+      "correct_answer": "Er hat im Supermarkt eingekauft.",
+      "rubric": {
+        "criteria": [
+          "Verwende hat als Hilfsverb.",
+          "Bilde das Partizip eingekauft und setze es ans Satzende."
+        ],
+        "sample_answer": "Er hat im Supermarkt eingekauft."
+      },
+      "explanation": "Das Perfekt von einkaufen wird mit haben und dem Partizip eingekauft gebildet.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-negation-r1",
+    "template_key": "v1-a2-negation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Negation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Negation: Kein und nicht passend einsetzen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "negation",
+    "name": "Negation"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "negation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Mit „kein“ verneint man meist ein Nomen ohne bestimmten Artikel. „Nicht“ verneint Verben, Eigenschaften, bestimmte Nomen oder einzelne Satzteile.",
+    "key_rule": "„Kein“ wird wie ein unbestimmter Artikel dekliniert; „nicht“ steht möglichst nah vor dem gezielt verneinten Satzteil oder spät bei der ganzen Handlung.",
+    "correct_examples": [
+      "Ich habe keinen Termin.",
+      "Der Termin ist nicht heute."
+    ],
+    "common_mistake_warning": "Verwende nicht gleichzeitig „kein“ und einen weiteren Artikel vor demselben Nomen.",
+    "what_to_revise": "Vergleiche kein bei Nomen mit nicht bei Verben, Adjektiven und bestimmten Angaben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verneinung passt zu einem unbestimmten maskulinen Objekt?",
+      "options": [
+        "Ich habe kein Schlüssel.",
+        "Ich habe keiner Schlüssel.",
+        "Ich habe keinen Schlüssel nicht.",
+        "Ich habe keinen Schlüssel."
+      ],
+      "correct_answer": "Ich habe keinen Schlüssel.",
+      "accepted_answers": [
+        "Ich habe keinen Schlüssel."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das maskuline Akkusativnomen ohne bestimmten Artikel wird mit „keinen“ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verneint nur den Zeitpunkt?",
+      "options": [
+        "Nicht wir treffen uns am Montag, sondern am Dienstag.",
+        "Wir kein treffen uns am Montag, sondern am Dienstag.",
+        "Wir treffen uns nicht am Montag, sondern am Dienstag.",
+        "Wir treffen nicht uns am Montag, sondern am Dienstag."
+      ],
+      "correct_answer": "Wir treffen uns nicht am Montag, sondern am Dienstag.",
+      "accepted_answers": [
+        "Wir treffen uns nicht am Montag, sondern am Dienstag."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Nicht“ steht direkt vor der Zeitangabe, die durch eine andere ersetzt wird.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [keinen, keine, nicht]. Ergänze: Heute gibt es ___ freien Plätze.",
+      "options": [],
+      "correct_answer": "keine",
+      "accepted_answers": [
+        "keine"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Pluralnomen „Plätze“ ohne Artikel wird mit „keine“ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kein, keine, nicht]. Ergänze die Eigenschaftsverneinung: Die Aufgabe ist ___ schwer.",
+      "options": [],
+      "correct_answer": "nicht",
+      "accepted_answers": [
+        "nicht"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Ein prädikatives Adjektiv wird mit „nicht“ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [keinen, keine, nicht]. Ergänze: Wir brauchen heute ___ Drucker.",
+      "options": [],
+      "correct_answer": "keinen",
+      "accepted_answers": [
+        "keinen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das maskuline Akkusativnomen „Drucker“ wird mit „keinen“ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Negation: Die Pflegekraft hat heute ___ Nachtdienst.",
+      "options": [
+        "keine",
+        "keinen",
+        "keinem",
+        "kein"
+      ],
+      "correct_answer": "keinen",
+      "accepted_answers": [
+        "keinen"
+      ],
+      "rubric": null,
+      "explanation": "Nachtdienst ist maskulin und steht im Akkusativ; deshalb lautet die Negation keinen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kein, keine, keinen, nicht]. Der Patient wartet ___ im Flur, sondern im Zimmer.",
+      "options": [],
+      "correct_answer": "nicht",
+      "accepted_answers": [
+        "nicht"
+      ],
+      "rubric": null,
+      "explanation": "Nicht verneint hier die Ortsangabe im Flur und bildet den Gegensatz nicht ..., sondern ... .",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verneinung ist richtig?",
+      "options": [
+        "Wir haben kein Brot.",
+        "Wir haben nicht Brot.",
+        "Wir haben keinen Brot.",
+        "Wir nicht haben Brot."
+      ],
+      "correct_answer": "Wir haben kein Brot.",
+      "accepted_answers": [
+        "Wir haben kein Brot."
+      ],
+      "rubric": null,
+      "explanation": "Das neutrale Nomen Brot wird ohne bestimmten Artikel mit kein verneint.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

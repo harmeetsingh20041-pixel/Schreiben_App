@@ -1,0 +1,142 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-dativ-r2",
+    "template_key": "v1-a2-dativ-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Dativ accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Dativ im Alltag: Formen übertragen und reparieren",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "dativ",
+    "name": "Dativ"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "dativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "In längeren Sätzen muss der Dativ auch bei Possessivartikeln, mehreren Empfängern und nach festen Dativverben sicher erkennbar bleiben.",
+    "key_rule": "Passe Artikel und Nomen gemeinsam an: meinem Vater, einer Kollegin und den Großeltern; im Dativ Plural erhält das Nomen meist zusätzlich -n.",
+    "correct_examples": [
+      "Ich antworte meinem Bruder sofort.",
+      "Die Trainerin erklärt den Schülern die Aufgabe."
+    ],
+    "common_mistake_warning": "Vergiss bei einem pluralischen Empfänger die zusätzliche Nomenendung nicht: den Schülern, nicht den Schüler.",
+    "what_to_revise": "Übertrage Dativformen zwischen Singular und Plural und übe Possessivartikel sowie die Reihenfolge Dativ vor Akkusativ."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Das Spielzeug gehört ___ Kind.",
+      "options": ["der","dem","den","das"],
+      "correct_answer": "dem",
+      "accepted_answers": ["dem"],
+      "explanation": "Gehören verbindet die zugehörige Person oder Sache mit dem Dativ; Kind ist neutral, daher dem Kind.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Form: Sie arbeitet seit ___ Woche in der Bibliothek.",
+      "options": ["eine","einen","einem","einer"],
+      "correct_answer": "einer",
+      "accepted_answers": ["einer"],
+      "explanation": "Seit verlangt den Dativ; Woche ist feminin, deshalb lautet die Form einer Woche.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den passenden Artikel: Ich spreche mit ___ Kolleginnen über den Termin.",
+      "options": ["den", "die", "der", "dem"],
+      "correct_answer": "den",
+      "accepted_answers": ["den"],
+      "explanation": "Mit verlangt den Dativ; im Plural steht der bestimmte Artikel den.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [meiner, meinen, meinem]. Setze ein: Ich helfe ___ Vater im Garten.",
+      "options": [],
+      "correct_answer": "meinem",
+      "accepted_answers": ["meinem"],
+      "explanation": "Helfen verlangt den Dativ; Vater ist maskulin, deshalb heißt es meinem Vater.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den, dem, der]. Setze ein: Am Sonntag fahren wir zu ___ Großeltern.",
+      "options": [],
+      "correct_answer": "den",
+      "accepted_answers": ["den"],
+      "explanation": "Zu verlangt den Dativ; Großeltern steht im Plural und bekommt den Artikel den.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere den Dativfehler, ohne den Inhalt zu verändern: Sie antwortet ihrer Bruder sofort.",
+      "options": [],
+      "correct_answer": "Sie antwortet ihrem Bruder sofort.",
+      "rubric": {
+        "criteria": [
+          "Bilde Bruder mit dem maskulinen Dativ ihrem.",
+          "Behalte Verb, Adverb und Satzbedeutung bei."
+        ],
+        "sample_answer": "Sie antwortet ihrem Bruder sofort."
+      },
+      "explanation": "Antworten verlangt ein Dativobjekt; beim maskulinen Nomen Bruder lautet die Form ihrem Bruder.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit Nach dem Kurs: [Nach dem Kurs / schickt / die Teilnehmerin / dem Lehrer / eine Nachricht].",
+      "options": [],
+      "correct_answer": "Nach dem Kurs schickt die Teilnehmerin dem Lehrer eine Nachricht.",
+      "rubric": {
+        "criteria": [
+          "Verwende alle Satzteile genau einmal.",
+          "Setze schickt an Position zwei und dem Lehrer als Dativempfänger vor das Akkusativobjekt."
+        ],
+        "sample_answer": "Nach dem Kurs schickt die Teilnehmerin dem Lehrer eine Nachricht."
+      },
+      "explanation": "Das Vorfeld Nach dem Kurs wird von dem Verb schickt gefolgt; der Lehrer empfängt die Nachricht.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Setze Schüler in den Plural und passe den Satz vollständig an: Der Trainer erklärt dem Schüler die Aufgabe.",
+      "options": [],
+      "correct_answer": "Der Trainer erklärt den Schülern die Aufgabe.",
+      "rubric": {
+        "criteria": [
+          "Verwende den Dativ Plural den Schülern.",
+          "Lass Subjekt, Verb und Akkusativobjekt inhaltlich unverändert."
+        ],
+        "sample_answer": "Der Trainer erklärt den Schülern die Aufgabe."
+      },
+      "explanation": "Im Dativ Plural steht den, und Schüler erhält zusätzlich die Endung -n.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

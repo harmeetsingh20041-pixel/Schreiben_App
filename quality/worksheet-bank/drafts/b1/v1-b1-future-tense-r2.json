@@ -1,0 +1,184 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-future-tense-r2",
+    "template_key": "v1-b1-future-tense-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Future tense accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Futur I im Kontext: Absichten und Vermutungen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "future-tense",
+    "name": "Futur I"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "future-tense",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Neben zukünftigen Plänen kann das Futur I auch eine Vermutung über die Gegenwart ausdrücken, häufig zusammen mit wohl, vermutlich oder wahrscheinlich.",
+    "key_rule": "Im Nebensatz wandert die gesamte Verbgruppe ans Ende: Der Infinitiv steht vor der konjugierten Form von „werden“.",
+    "correct_examples": [
+      "Sie wird vermutlich noch in einer Besprechung sein.",
+      "Wir hoffen, dass der Kurs im Mai beginnen wird."
+    ],
+    "common_mistake_warning": "Verwechsle das Futur I nicht mit dem Konjunktiv II: „wird“ beschreibt Zukunft oder Vermutung, „würde“ kennzeichnet meist eine Bedingung oder höfliche Möglichkeit.",
+    "what_to_revise": "Übe Futur I in Hauptsätzen, Fragen und dass-Sätzen sowie die Signale für Vermutungen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt eine Vermutung über die Gegenwart korrekt aus?",
+      "options": [
+        "Er wird wohl noch im Büro ist.",
+        "Er würde wohl noch im Büro sein gewesen.",
+        "Er wohl wird noch im Büro sein.",
+        "Er wird wohl noch im Büro sein."
+      ],
+      "correct_answer": "Er wird wohl noch im Büro sein.",
+      "accepted_answers": ["Er wird wohl noch im Büro sein."],
+      "explanation": "„Wird wohl ... sein“ kennzeichnet eine Vermutung; „sein“ bleibt als Infinitiv am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher dass-Satz über eine Teilnehmerin enthält eine korrekte Futur-I-Verbgruppe?",
+      "options": [
+        "Ich glaube, dass die Teilnehmerin morgen teilnehmen werden.",
+        "Ich glaube, dass die Teilnehmerin morgen teilnehmen wird.",
+        "Ich glaube, dass die Teilnehmerin wird morgen teilnehmen.",
+        "Ich glaube, dass die Teilnehmerin morgen wird teilnehmen."
+      ],
+      "correct_answer": "Ich glaube, dass die Teilnehmerin morgen teilnehmen wird.",
+      "accepted_answers": [
+        "Ich glaube, dass die Teilnehmerin morgen teilnehmen wird."
+      ],
+      "explanation": "Das Singularsubjekt „die Teilnehmerin“ verlangt „wird“; im Nebensatz steht der Infinitiv „teilnehmen“ direkt davor.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die grammatisch korrekte Ankündigung.",
+      "options": [
+        "Die Stadt wird im kommenden Jahr neue Wohnungen bauen.",
+        "Die Stadt werden im kommenden Jahr neue Wohnungen bauen.",
+        "Die Stadt wird im kommenden Jahr neue Wohnungen gebaut.",
+        "Die Stadt wird im kommenden Jahr neue Wohnungen baut."
+      ],
+      "correct_answer": "Die Stadt wird im kommenden Jahr neue Wohnungen bauen.",
+      "accepted_answers": [
+        "Die Stadt wird im kommenden Jahr neue Wohnungen bauen."
+      ],
+      "explanation": "Das Singularsubjekt „die Stadt“ verlangt „wird“; „bauen“ bildet den Infinitiv am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wurde, wird, würde]. Ergänze die feste Ankündigung im Futur I: Die Ärztin ___ Sie am Nachmittag zurückrufen.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": ["wird"],
+      "explanation": "Die angekündigte zukünftige Handlung wird mit „wird ... zurückrufen“ ausgedrückt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werden, würden, wurden]. Ergänze die Vorhersage ausdrücklich im Futur I: Digitale Dokumentationssysteme ___ die Arbeit auf der Station weiter verändern.",
+      "options": [],
+      "correct_answer": "werden",
+      "accepted_answers": ["werden"],
+      "explanation": "Das Pluralsubjekt „digitale Dokumentationssysteme“ verlangt im Futur I „werden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [würdest, wurdest, wirst]. Ergänze die zuversichtliche Vorhersage ausdrücklich im Futur I: Mit regelmäßigem Training ___ du die Prüfung sicher schaffen.",
+      "options": [],
+      "correct_answer": "wirst",
+      "accepted_answers": ["wirst"],
+      "explanation": "Die zuversichtliche Vorhersage für „du“ verwendet „wirst“ und den Infinitiv „schaffen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wäre, ist, wird]. Ergänze: Der Zug ___ vermutlich mit einigen Minuten Verspätung kommen.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": ["wird"],
+      "explanation": "„Vermutlich“ signalisiert eine Vorhersage; zum Singularsubjekt gehört „wird“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit „Nächstes Jahr“: [Nächstes Jahr / wird / das Krankenhaus / neue Schulungsräume / eröffnen].",
+      "options": [],
+      "correct_answer": "Nächstes Jahr wird das Krankenhaus neue Schulungsräume eröffnen.",
+      "rubric": {
+        "criteria": [
+          "Alle Satzteile werden genau einmal verwendet.",
+          "„Wird“ steht nach dem Vorfeld „Nächstes Jahr“ an Position zwei.",
+          "Der Infinitiv „eröffnen“ schließt den Satz ab."
+        ],
+        "sample_answer": "Nächstes Jahr wird das Krankenhaus neue Schulungsräume eröffnen."
+      },
+      "explanation": "Die vorangestellte Zeitangabe verändert die Futur-Satzklammer nicht: „wird“ bleibt finit und „eröffnen“ steht am Ende.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Formuliere die Vorhersage ausdrücklich im Futur I und behalte die Unsicherheit bei: Voraussichtlich steigt die Nachfrage im nächsten Jahr.",
+      "options": [],
+      "correct_answer": "Voraussichtlich wird die Nachfrage im nächsten Jahr steigen.",
+      "rubric": {
+        "criteria": [
+          "Das Unsicherheitssignal „Voraussichtlich“ bleibt erhalten.",
+          "„Wird“ steht an Position zwei und „steigen“ als Infinitiv am Satzende.",
+          "Subjekt und Zeitangabe bleiben vollständig erhalten."
+        ],
+        "sample_answer": "Voraussichtlich wird die Nachfrage im nächsten Jahr steigen."
+      },
+      "explanation": "Die Präsensvorhersage wird durch „wird ... steigen“ ausdrücklich als Futur I formuliert.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Verfasse eine Ankündigung aus drei Sätzen für ein neues Sprachtraining im Krankenhaus. Formuliere eine Absicht, eine Vorhersage und ein Versprechen jeweils im Futur I.",
+      "options": [],
+      "correct_answer": "Wir werden im Herbst ein neues Sprachtraining für Pflegekräfte anbieten. Das zusätzliche Training wird vielen Teilnehmenden mehr Sicherheit bei beruflichen Gesprächen geben. Unser Team wird organisatorische Fragen innerhalb eines Arbeitstages beantworten.",
+      "rubric": {
+        "criteria": [
+          "Die Ankündigung besteht aus drei inhaltlich verbundenen Sätzen über ein Sprachtraining im Krankenhaus.",
+          "Absicht, Vorhersage und Versprechen sind jeweils verständlich erkennbar.",
+          "Alle drei Sätze verwenden eine korrekte Futur-I-Satzklammer."
+        ],
+        "sample_answer": "Wir werden im Herbst ein neues Sprachtraining für Pflegekräfte anbieten. Das zusätzliche Training wird vielen Teilnehmenden mehr Sicherheit bei beruflichen Gesprächen geben. Unser Team wird organisatorische Fragen innerhalb eines Arbeitstages beantworten."
+      },
+      "explanation": "Die Aufgabe überträgt dieselbe Futurform auf drei unterschiedliche kommunikative Funktionen.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

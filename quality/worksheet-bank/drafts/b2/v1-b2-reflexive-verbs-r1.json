@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-reflexive-verbs-r1",
+    "template_key": "v1-b2-reflexive-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Reflexive verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Reflexive Verben: Feste Bezüge und Kasus sicher wählen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "reflexive-verbs",
+    "name": "Reflexive Verben"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "reflexive-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Bei echten reflexiven Verben gehört das Reflexivpronomen fest zum Verb, häufig zusammen mit einer Präposition. Bei anderen Verben richtet sich Akkusativ oder Dativ danach, ob zusätzlich ein direktes Objekt vorhanden ist.",
+    "key_rule": "Lerne feste Einheiten wie „sich mit etwas auseinandersetzen“; steht daneben ein Akkusativobjekt, verwendet die erste oder zweite Person oft das Dativpronomen „mir“, „dir“ oder „uns“.",
+    "correct_examples": [
+      "Wir setzen uns kritisch mit den Ergebnissen auseinander.",
+      "Ich habe mir die einzelnen Schritte genau notiert."
+    ],
+    "common_mistake_warning": "Die Präposition eines reflexiven Verbs kann nicht frei gewählt werden; „sich erinnern“ verlangt beispielsweise „an“ plus Akkusativ.",
+    "what_to_revise": "Übe feste reflexive Verbindungen, Präpositionalergänzungen und den Unterschied zwischen Akkusativ- und Dativreflexiv."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet die feste Verbindung „sich mit etwas auseinandersetzen“ korrekt?",
+      "options": [
+        "Das Team setzt sich kritisch über die Ergebnisse auseinander.",
+        "Das Team setzt kritisch mit den Ergebnissen sich auseinander.",
+        "Das Team setzt sich kritisch mit den Ergebnissen auseinander."
+      ],
+      "correct_answer": "Das Team setzt sich kritisch mit den Ergebnissen auseinander.",
+      "accepted_answers": [
+        "Das Team setzt sich kritisch mit den Ergebnissen auseinander."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Verbindung verlangt das Reflexivpronomen und die Präposition „mit“ plus Dativ; der Präfixteil steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form unterscheidet Dativreflexiv und direktes Objekt korrekt?",
+      "options": [
+        "Ich notiere mir die wichtigsten Rückfragen.",
+        "Ich notiere mich die wichtigsten Rückfragen.",
+        "Ich notiere meiner die wichtigsten Rückfragen."
+      ],
+      "correct_answer": "Ich notiere mir die wichtigsten Rückfragen.",
+      "accepted_answers": [
+        "Ich notiere mir die wichtigsten Rückfragen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Die Rückfragen“ besetzen den Akkusativ; deshalb steht die betroffene Person reflexiv im Dativ als „mir“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet die Rektion von „sich bewusst sein“ korrekt?",
+      "options": [
+        "Die Leitung ist ihr den möglichen Folgen bewusst.",
+        "Die Leitung ist sich der möglichen Folgen bewusst.",
+        "Die Leitung ist sich die möglichen Folgen bewusst."
+      ],
+      "correct_answer": "Die Leitung ist sich der möglichen Folgen bewusst.",
+      "accepted_answers": [
+        "Die Leitung ist sich der möglichen Folgen bewusst."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste Verbindung lautet „sich einer Sache bewusst sein“ und verbindet das Reflexivpronomen mit einer Genitivergänzung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sie, sich, ihr]. Ergänze die feste Verbindung: Die Arbeitsgruppe beschäftigt ___ intensiv mit den Rückmeldungen aus dem Pilotprojekt.",
+      "options": [],
+      "correct_answer": "sich",
+      "accepted_answers": [
+        "sich"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Sich mit etwas beschäftigen“ ist eine feste reflexive Verbindung; in der dritten Person steht „sich“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [uns, wir, unser]. Ergänze das Reflexivpronomen: Wir erkundigen ___ bei der Behörde nach dem aktuellen Bearbeitungsstand.",
+      "options": [],
+      "correct_answer": "uns",
+      "accepted_answers": [
+        "uns"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Verb „sich erkundigen“ verlangt in der ersten Person Plural das Reflexivpronomen „uns“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [mich, mein, mir]. Ergänze den Dativreflexiv neben dem Akkusativobjekt: Ich habe ___ den Ablauf noch einmal genau angesehen.",
+      "options": [],
+      "correct_answer": "mir",
+      "accepted_answers": [
+        "mir"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Den Ablauf“ ist das Akkusativobjekt; die betrachtende Person steht bei „sich etwas ansehen“ reflexiv im Dativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [über, für, an]. Ergänze die feste Präposition: Die Teilnehmerin erinnert sich noch genau ___ das erste Anerkennungsgespräch.",
+      "options": [],
+      "correct_answer": "an",
+      "accepted_answers": [
+        "an"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste Rektion lautet „sich an etwas erinnern“ mit „an“ plus Akkusativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet Reflexivpronomen und feste Präposition bei „sich auseinandersetzen“ korrekt?",
+      "options": [
+        "Wir haben uns ausführlich mit dem neuen Leitfaden auseinandergesetzt.",
+        "Wir haben uns ausführlich über dem neuen Leitfaden auseinandergesetzt.",
+        "Wir haben uns ausführlich an den neuen Leitfaden auseinandergesetzt.",
+        "Wir haben sich ausführlich über den neuen Leitfaden auseinandergesetzt."
+      ],
+      "correct_answer": "Wir haben uns ausführlich mit dem neuen Leitfaden auseinandergesetzt.",
+      "accepted_answers": [
+        "Wir haben uns ausführlich mit dem neuen Leitfaden auseinandergesetzt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Person und feste Rektion müssen gemeinsam stimmen: „wir haben uns mit etwas auseinandergesetzt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet die reflexive Verbindung „sich für etwas entscheiden“ korrekt?",
+      "options": [
+        "Nach sorgfältiger Abwägung entschied das Team für die schrittweise Einführung.",
+        "Nach sorgfältiger Abwägung entschied sich das Team zu die schrittweise Einführung.",
+        "Nach sorgfältiger Abwägung entschied sich das Team für die schrittweise Einführung.",
+        "Nach sorgfältiger Abwägung entschied sich der Team für der schrittweisen Einführung."
+      ],
+      "correct_answer": "Nach sorgfältiger Abwägung entschied sich das Team für die schrittweise Einführung.",
+      "accepted_answers": [
+        "Nach sorgfältiger Abwägung entschied sich das Team für die schrittweise Einführung."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste reflexive Verbindung ersetzt „wählen“ durch „sich für etwas entscheiden“ ohne Bedeutungsverlust.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet sowohl die feste Verbindung „sich mit etwas auseinandersetzen“ als auch das Dativreflexiv bei einem zusätzlichen Akkusativobjekt korrekt?",
+      "options": [
+        "Ich setzte mir mit den widersprüchlichen Befunden auseinander und notierte mich die wichtigsten Rückfragen.",
+        "Ich setzte mich über die widersprüchlichen Befunde auseinander und notierte mir die wichtigsten Rückfragen.",
+        "Ich setzte mich mit den widersprüchlichen Befunden auseinander und notierte mich die wichtigsten Rückfragen.",
+        "Ich setzte mich mit den widersprüchlichen Befunden auseinander und notierte mir die wichtigsten Rückfragen."
+      ],
+      "correct_answer": "Ich setzte mich mit den widersprüchlichen Befunden auseinander und notierte mir die wichtigsten Rückfragen.",
+      "accepted_answers": [
+        "Ich setzte mich mit den widersprüchlichen Befunden auseinander und notierte mir die wichtigsten Rückfragen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste Verbindung verlangt „sich mit etwas auseinandersetzen“, hier also „mich mit“. Neben dem Akkusativobjekt „die wichtigsten Rückfragen“ steht bei „notieren“ das Dativreflexiv „mir“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

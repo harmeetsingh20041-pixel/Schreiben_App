@@ -1,0 +1,143 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-pronouns-r1",
+    "template_key": "v1-a2-pronouns-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Pronouns pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Pronomen: Akkusativ und Dativ unterscheiden",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "pronouns",
+    "name": "Pronomen"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "pronouns",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Pronomen ersetzen bereits bekannte Nomen. Ihre Form richtet sich nach Person, Numerus und Kasus.",
+    "key_rule": "Im Akkusativ stehen zum Beispiel mich, dich, ihn, sie und es; im Dativ mir, dir, ihm, ihr und ihnen.",
+    "correct_examples": [
+      "Ich sehe den Mann. Ich sehe ihn.",
+      "Wir helfen den Kindern. Wir helfen ihnen."
+    ],
+    "common_mistake_warning": "Wähle die Pronomenform nicht nur nach der Person, sondern auch nach der Funktion im Satz.",
+    "what_to_revise": "Vergleiche er, ihn und ihm sowie sie, sie und ihr."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Pronomen: Kennst du die neue Nachbarin? Ja, ich kenne ___.",
+      "options": ["ihr","ihm","er","sie"],
+      "correct_answer": "sie",
+      "accepted_answers": ["sie"],
+      "explanation": "Die Nachbarin ist ein feminines Akkusativobjekt und wird deshalb durch sie ersetzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Kannst du mir helfen? Ja, ich helfe ___ gern.",
+      "options": ["dir", "dich", "du", "dein"],
+      "correct_answer": "dir",
+      "accepted_answers": ["dir"],
+      "explanation": "Helfen verlangt den Dativ; für die zweite Person Singular lautet das Pronomen dir.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ihm, er, ihn]. Setze ein: Der Film gefällt Paul. Er gefällt ___.",
+      "options": [],
+      "correct_answer": "ihm",
+      "accepted_answers": ["ihm"],
+      "explanation": "Gefallen verlangt für die betroffene Person den Dativ; Paul wird durch ihm ersetzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [unser, uns, wir]. Setze ein: Die Lehrerin erklärt Anna und mir die Aufgabe. Sie erklärt ___ die Aufgabe.",
+      "options": [],
+      "correct_answer": "uns",
+      "accepted_answers": ["uns"],
+      "explanation": "Anna und mir bilden zusammen die erste Person Plural; das Dativpronomen lautet uns.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ihm, sie, es]. Setze ein: Wo ist das Buch? Ich habe ___ auf den Tisch gelegt.",
+      "options": [],
+      "correct_answer": "es",
+      "accepted_answers": ["es"],
+      "explanation": "Das neutrale Akkusativobjekt das Buch wird durch das Pronomen es ersetzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Pronomen: Die Pflegekraft sieht den Patienten. Sie begrüßt ___.",
+      "options": [
+        "sein",
+        "er",
+        "ihn",
+        "ihm"
+      ],
+      "correct_answer": "ihn",
+      "accepted_answers": [
+        "ihn"
+      ],
+      "rubric": null,
+      "explanation": "Der maskuline Patient ist das direkte Objekt; das Akkusativpronomen lautet ihn.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ihn, ihr, ihm, sie]. Ravi hilft der Kollegin. Er gibt ___ die Mappe.",
+      "options": [],
+      "correct_answer": "ihr",
+      "accepted_answers": [
+        "ihr"
+      ],
+      "rubric": null,
+      "explanation": "Der Kollegin steht im Dativ; das passende feminine Dativpronomen lautet ihr.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Subjektpronomen: Mina und ich lernen zusammen. ___ üben jeden Abend.",
+      "options": [
+        "Du",
+        "Wir",
+        "Ihr",
+        "Sie"
+      ],
+      "correct_answer": "Wir",
+      "accepted_answers": [
+        "Wir"
+      ],
+      "rubric": null,
+      "explanation": "Mina und ich werden durch das Pronomen wir ersetzt.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

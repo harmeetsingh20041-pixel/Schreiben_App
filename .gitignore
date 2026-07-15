@@ -32,8 +32,23 @@ node_modules
 /.sass-cache
 /connect.lock
 /coverage
-/artifacts/*/.env.local
-/.env.local
+/playwright-report/
+/test-results/
+/output/
+/docs/security/PHASE_1_WORKING_TREE_REVIEW.md
+/quality/evidence/security/2026-07-14-deep-security-scan-attestation.json
+/.e2e-private/
+.playwright-cli/
+**/.netlify/
+
+# Environment files may contain browser and server credentials. Ignore every
+# Vite/Node env variant at every depth, but keep the documented empty examples.
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
 /supabase/.temp/
 /libpeerconnection.log
 npm-debug.log

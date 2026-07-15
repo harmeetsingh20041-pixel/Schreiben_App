@@ -39,12 +39,12 @@ const statusMeta = {
     actionLabel: "Open feedback",
   },
   needs_review: {
-    label: "Needs review",
+    label: "Teacher review",
     icon: AlertCircle,
     className: "bg-orange-100 text-orange-950 border-orange-300 dark:bg-orange-950 dark:text-orange-100 dark:border-orange-700",
-    issueLabel: "Needs review",
+    issueLabel: "Teacher review required",
     studentSummary: "Your teacher is reviewing this feedback.",
-    actionLabel: "Open feedback",
+    actionLabel: "View submission",
   },
   failed: {
     label: "Feedback failed",
@@ -114,7 +114,7 @@ export function getSubmissionStatusMeta(input: SubmissionStatusInput) {
       label: "Waiting for review",
       className: "bg-slate-100 text-slate-800 border-slate-300 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-600",
       issueLabel: "Waiting for review",
-      studentSummary: "Waiting for review.",
+      studentSummary: "Your teacher will review the feedback before it is released.",
     };
   }
 
@@ -164,7 +164,7 @@ export function SubmissionStatusBadge({ status, feedbackMode, feedbackScheduledA
 
   return (
     <Badge variant="outline" className={cn("font-semibold shadow-sm", meta.className, className)}>
-      <Icon className={cn("w-3 h-3 mr-1", normalizeStatus(status) === "checking" && "animate-spin")} />
+      <Icon aria-hidden="true" className={cn("w-3 h-3 mr-1", normalizeStatus(status) === "checking" && "animate-spin")} />
       {meta.label}
     </Badge>
   );

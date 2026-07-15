@@ -1,0 +1,197 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-register-r1",
+    "template_key": "v1-b1-register-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Register pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Sprachregister: Beruflich angemessen formulieren",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "register",
+    "name": "Sprachregister"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "register",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Sprachregister richtet Wortwahl und Anrede an Situation, Beziehung und Kommunikationsziel aus.",
+    "key_rule": "In formellen beruflichen Texten verwendet man höfliche Anrede, vollständige Sätze und sachliche statt umgangssprachlicher Ausdrücke.",
+    "correct_examples": [
+      "Wären Sie so freundlich, mir die Unterlagen erneut zu senden?",
+      "Vielen Dank für Ihre schnelle Rückmeldung."
+    ],
+    "common_mistake_warning": "Eine direkte Form kann unter Kolleginnen passend sein, gegenüber unbekannten Personen aber unhöflich wirken.",
+    "what_to_revise": "Wiederhole Sie-Anrede, höfliche Bitten, sachliche Beschwerden und passende Grußformeln."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Bitte an eine unbekannte Pflegeleitung ist höflich, klar und nicht drängend formuliert?",
+      "options": [
+        "Könnten Sie mir bitte den aktuellen Dienstplan zusenden?",
+        "Bitte senden Sie mir den Dienstplan heute noch; ich brauche ihn dringend.",
+        "Sie müssen mir den aktuellen Dienstplan sofort zusenden."
+      ],
+      "correct_answer": "Könnten Sie mir bitte den aktuellen Dienstplan zusenden?",
+      "accepted_answers": [
+        "Könnten Sie mir bitte den aktuellen Dienstplan zusenden?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Sie-Anrede und der Konjunktiv formulieren die Bitte respektvoll und eindeutig.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung benennt den Schaden sachlich und bittet kooperativ um Prüfung?",
+      "options": [
+        "Die gelieferte Ware war beschädigt; senden Sie uns umgehend Ersatz.",
+        "Leider ist bei der Lieferung etwas schiefgegangen; kümmern Sie sich bitte darum.",
+        "Leider war die gelieferte Ware beschädigt; bitte prüfen Sie den Vorgang."
+      ],
+      "correct_answer": "Leider war die gelieferte Ware beschädigt; bitte prüfen Sie den Vorgang.",
+      "accepted_answers": [
+        "Leider war die gelieferte Ware beschädigt; bitte prüfen Sie den Vorgang."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Formulierung beschreibt das Problem sachlich und nennt eine konkrete Bitte.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche freundliche Bitte passt zu einer vertrauten Kollegin?",
+      "options": [
+        "Hallo Mira, du musst morgen meine Frühbesprechung übernehmen.",
+        "Hallo Mira, kannst du morgen meine Frühbesprechung übernehmen?",
+        "Sehr geehrte Frau Meier, wären Sie zur Übernahme meiner Frühbesprechung bereit?"
+      ],
+      "correct_answer": "Hallo Mira, kannst du morgen meine Frühbesprechung übernehmen?",
+      "accepted_answers": [
+        "Hallo Mira, kannst du morgen meine Frühbesprechung übernehmen?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Du-Anrede ist freundlich und passt zu einer vertrauten Arbeitsbeziehung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Hallo Frau Keller, Sehr geehrte Frau Keller, Guten Morgen]. Ergänze die klassische vollständige Anrede für eine förmliche E-Mail an eine unbekannte Ansprechpartnerin: ___,",
+      "options": [],
+      "correct_answer": "Sehr geehrte Frau Keller",
+      "accepted_answers": ["Sehr geehrte Frau Keller"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die vollständige Anrede mit „Sehr geehrte“ ist in einer formellen E-Mail angemessen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Können Sie, Konnten Sie, Könnten Sie]. Ergänze die besonders höfliche Bitte mit dem Konjunktiv II von „können“: ___ bitte kurz im Wartebereich Platz nehmen?",
+      "options": [],
+      "correct_answer": "Könnten Sie",
+      "accepted_answers": ["Könnten Sie"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Könnten Sie“ formuliert eine respektvolle Bitte in der Sie-Anrede.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Ich möchte Sie darauf hinweisen, Sie haben offenbar vergessen, Wie Sie selbstverständlich wissen]. Ergänze ohne Vorwurf oder Unterstellung: ___, dass die Frist morgen endet.",
+      "options": [],
+      "correct_answer": "Ich möchte Sie darauf hinweisen",
+      "accepted_answers": ["Ich möchte Sie darauf hinweisen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Wendung kündigt eine wichtige Information formell und neutral an.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Ich verlange, Ich bitte Sie um, Du schickst mir]. Ergänze die sachliche formelle Bitte: ___ eine erneute Zusendung der Unterlagen.",
+      "options": [],
+      "correct_answer": "Ich bitte Sie um",
+      "accepted_answers": ["Ich bitte Sie um"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Sie-Anrede und „bitte“ formulieren das Anliegen sachlich und respektvoll.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nachricht beschreibt das Problem bei der Übergabe professionell und ohne pauschalen Vorwurf?",
+      "options": [
+        "Hey, die Übergabe war chaotisch und keiner wusste Bescheid.",
+        "Guten Tag, bei der Übergabe fehlten heute wichtige Informationen, sodass mehrere Fragen offenblieben.",
+        "Hallo, Ihre Leute haben die Übergabe mal wieder nicht hinbekommen.",
+        "Die Übergabe war eine Katastrophe; kümmern Sie sich darum!"
+      ],
+      "correct_answer": "Guten Tag, bei der Übergabe fehlten heute wichtige Informationen, sodass mehrere Fragen offenblieben.",
+      "accepted_answers": ["Guten Tag, bei der Übergabe fehlten heute wichtige Informationen, sodass mehrere Fragen offenblieben."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Professionelle Kommunikation benennt beobachtbare Probleme und vermeidet pauschale Vorwürfe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante formuliert „Schicken Sie mir die Rechnung heute“ als höfliche E-Mail-Bitte, ohne den Zeitpunkt zu verändern?",
+      "options": [
+        "Könnten Sie mir die Rechnung bitte noch heute zusenden?",
+        "Vielleicht schicken Sie mir irgendwann die Rechnung.",
+        "Sie müssen mir die Rechnung heute schicken.",
+        "Schicken Sie endlich heute die Rechnung!"
+      ],
+      "correct_answer": "Könnten Sie mir die Rechnung bitte noch heute zusenden?",
+      "accepted_answers": ["Könnten Sie mir die Rechnung bitte noch heute zusenden?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Eine indirekte Bitte wirkt kooperativ, ohne das Kommunikationsziel abzuschwächen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche E-Mail enthält formelle Anrede und Grußformel sowie Terminproblem, höfliche Bitte um eine Alternative und Dank?",
+      "options": [
+        "Sehr geehrte Damen und Herren, ich kann den Termin nicht wahrnehmen. Viele Grüße, Priya Sharma",
+        "Guten Tag, wann gibt es einen anderen Termin? Antworten Sie schnell. Danke!",
+        "Sehr geehrte Damen und Herren,\n\nich habe am Kurstermin Dienst. Könnten Sie mir bitte einen Ersatztermin nennen? Vielen Dank.\n\nMit freundlichen Grüßen\nPriya",
+        "Hallo, der Termin passt nicht. Geben Sie mir einen anderen. Danke. Grüße, Priya"
+      ],
+      "correct_answer": "Sehr geehrte Damen und Herren,\n\nich habe am Kurstermin Dienst. Könnten Sie mir bitte einen Ersatztermin nennen? Vielen Dank.\n\nMit freundlichen Grüßen\nPriya",
+      "accepted_answers": ["Sehr geehrte Damen und Herren,\n\nich habe am Kurstermin Dienst. Könnten Sie mir bitte einen Ersatztermin nennen? Vielen Dank.\n\nMit freundlichen Grüßen\nPriya"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Ein passendes formelles Register verbindet klare Informationen mit respektvoller Bitte und Dank.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-separable-verbs-r1",
+    "template_key": "v1-a1-separable-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Separable verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Trennbare Verben im Alltag",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "separable-verbs",
+    "name": "Trennbare Verben"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "separable-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Bei trennbaren Verben steht im Hauptsatz der konjugierte Verbstamm früh und die Vorsilbe am Satzende.",
+    "key_rule": "Trenne zum Beispiel aufstehen zu ‚ich stehe … auf‘ und anrufen zu ‚sie ruft … an‘.",
+    "correct_examples": [
+      "Mira lädt ihre Freundin ein.",
+      "Der Kurs fängt um neun Uhr an."
+    ],
+    "common_mistake_warning": "Setze die Vorsilbe im einfachen Hauptsatz nicht direkt vor den konjugierten Verbstamm.",
+    "what_to_revise": "Übe die Paare aufstehen, anrufen, einkaufen und anfangen mit einfachen Sätzen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz mit ‚aufstehen‘ ist richtig?",
+      "options": [
+        "Ich aufstehe um sechs Uhr.",
+        "Ich stehe auf um sechs Uhr auf.",
+        "Ich stehe um sechs Uhr auf."
+      ],
+      "correct_answer": "Ich stehe um sechs Uhr auf.",
+      "accepted_answers": ["Ich stehe um sechs Uhr auf."],
+      "answer_contract_version": 1,
+      "explanation": "Der Verbstamm ‚stehe‘ steht früh und die Vorsilbe ‚auf‘ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz mit ‚anrufen‘ ist richtig?",
+      "options": [
+        "Mira ruft an ihre Mutter an.",
+        "Mira ruft ihre Mutter an.",
+        "Mira anruft ihre Mutter."
+      ],
+      "correct_answer": "Mira ruft ihre Mutter an.",
+      "accepted_answers": ["Mira ruft ihre Mutter an."],
+      "answer_contract_version": 1,
+      "explanation": "Bei ‚anrufen‘ steht ‚ruft‘ an zweiter Stelle und ‚an‘ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz mit ‚einkaufen‘ ist richtig?",
+      "options": [
+        "Wir kaufen am Samstag ein.",
+        "Wir einkaufen am Samstag.",
+        "Wir kaufen ein am Samstag ein."
+      ],
+      "correct_answer": "Wir kaufen am Samstag ein.",
+      "accepted_answers": ["Wir kaufen am Samstag ein."],
+      "answer_contract_version": 1,
+      "explanation": "Der Verbstamm ‚kaufen‘ wird konjugiert; ‚ein‘ schließt den Satz ab.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ein | auf | an]. Ergänze die Vorsilbe von ‚aufstehen‘: Ravi steht früh ___.",
+      "options": [],
+      "correct_answer": "auf",
+      "accepted_answers": ["auf"],
+      "answer_contract_version": 1,
+      "explanation": "Die abgetrennte Vorsilbe des Verbs ‚aufstehen‘ lautet ‚auf‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [an | aus | mit]. Ergänze die Vorsilbe von ‚anrufen‘: Ich rufe später ___.",
+      "options": [],
+      "correct_answer": "an",
+      "accepted_answers": ["an"],
+      "answer_contract_version": 1,
+      "explanation": "Bei ‚anrufen‘ steht die abgetrennte Vorsilbe ‚an‘ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [auf | zu | ein]. Ergänze die Vorsilbe von ‚einkaufen‘: Wir kaufen heute ___.",
+      "options": [],
+      "correct_answer": "ein",
+      "accepted_answers": ["ein"],
+      "answer_contract_version": 1,
+      "explanation": "Die Vorsilbe ‚ein‘ gehört zum trennbaren Verb ‚einkaufen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha beginnt ihren Frühdienst sehr früh. Welcher Satz verwendet das trennbare Verb ‚aufstehen‘ richtig?",
+      "options": [
+        "Asha aufsteht vor dem Frühdienst früh.",
+        "Asha steht vor dem Frühdienst früh auf.",
+        "Asha steht auf vor dem Frühdienst früh.",
+        "Asha stehen vor dem Frühdienst früh auf."
+      ],
+      "correct_answer": "Asha steht vor dem Frühdienst früh auf.",
+      "accepted_answers": ["Asha steht vor dem Frühdienst früh auf."],
+      "rubric": null,
+      "explanation": "Im Hauptsatz wird ‚aufstehen‘ getrennt und die Vorsilbe ans Ende gestellt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi ruft nach dem Dienst seine Kursleiterin an. Welcher Satz ist richtig?",
+      "options": [
+        "Nach dem Dienst ruft Ravi seine Kursleiterin an.",
+        "Nach dem Dienst ruft an Ravi seine Kursleiterin.",
+        "Nach dem Dienst anruft Ravi seine Kursleiterin.",
+        "Nach dem Dienst Ravi ruft seine Kursleiterin an."
+      ],
+      "correct_answer": "Nach dem Dienst ruft Ravi seine Kursleiterin an.",
+      "accepted_answers": ["Nach dem Dienst ruft Ravi seine Kursleiterin an."],
+      "rubric": null,
+      "explanation": "Zum Subjekt ‚Ravi‘ gehört ‚ruft‘; das trennbare Verb ‚anrufen‘ bildet im Hauptsatz die Klammer ‚ruft … an‘.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

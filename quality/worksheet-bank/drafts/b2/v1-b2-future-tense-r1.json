@@ -1,0 +1,214 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-future-tense-r1",
+    "template_key": "v1-b2-future-tense-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Future tense pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Zukunft ausdrücken: Präsens, Futur I und Futur II",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "future-tense",
+    "name": "Zukunftsformen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "future-tense",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Zukünftiges kann mit Präsens plus Zeitangabe, mit Futur I für Prognosen oder Absichten und mit Futur II für künftig abgeschlossene Vorgänge ausgedrückt werden.",
+    "key_rule": "Futur I besteht aus „werden“ plus Infinitiv; Futur II aus „werden“, Partizip II, haben oder sein und beschreibt einen Abschluss bis zu einem zukünftigen Zeitpunkt.",
+    "correct_examples": [
+      "Nächste Woche beginnt die Pilotphase.",
+      "Die Nachfrage wird voraussichtlich weiter zunehmen."
+    ],
+    "common_mistake_warning": "Verwende Futur II nicht nur wegen einer Zukunftsangabe; entscheidend ist, dass die Handlung zu diesem Zeitpunkt bereits abgeschlossen sein wird.",
+    "what_to_revise": "Vergleiche terminierte Pläne im Präsens, Prognosen im Futur I und Abschlussfristen im Futur II."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht korrekt im Futur II und stellt die Prüfung als bis Freitag abgeschlossen dar?",
+      "options": [
+        "Bis Freitag hat das Team die Prüfung abgeschlossen.",
+        "Bis Freitag würde das Team die Prüfung abgeschlossen haben.",
+        "Bis Freitag wird das Team die Prüfung abgeschlossen haben.",
+        "Bis Freitag wird das Team die Prüfung abschließen."
+      ],
+      "correct_answer": "Bis Freitag wird das Team die Prüfung abgeschlossen haben.",
+      "accepted_answers": [
+        "Bis Freitag wird das Team die Prüfung abgeschlossen haben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Futur II markiert hier, dass die Prüfung spätestens am Freitag abgeschlossen sein wird.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung eignet sich als sachliche Prognose?",
+      "options": [
+        "Die Nachfrage ist im kommenden Quartal gestiegen.",
+        "Die Nachfrage würde im kommenden Quartal gestiegen.",
+        "Die Nachfrage war im kommenden Quartal steigen.",
+        "Die Nachfrage wird im kommenden Quartal steigen."
+      ],
+      "correct_answer": "Die Nachfrage wird im kommenden Quartal steigen.",
+      "accepted_answers": [
+        "Die Nachfrage wird im kommenden Quartal steigen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Futur I mit „wird“ und Infinitiv eignet sich für eine sachliche Prognose über eine erwartete Entwicklung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet für einen fest terminierten Plan idiomatisch das Präsens?",
+      "options": [
+        "Die Schulung beginnt morgen um neun Uhr.",
+        "Die Schulung begann morgen um neun Uhr.",
+        "Die Schulung hat morgen um neun Uhr begonnen.",
+        "Die Schulung wäre morgen um neun Uhr beginnen."
+      ],
+      "correct_answer": "Die Schulung beginnt morgen um neun Uhr.",
+      "accepted_answers": [
+        "Die Schulung beginnt morgen um neun Uhr."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei einem festen Termin reicht das Präsens zusammen mit der eindeutigen Zeitangabe „morgen“ aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werden, wird, wurden]. Ergänze Futur I beim Pluralsubjekt: Die neuen Richtlinien ___ zahlreiche Abläufe verändern.",
+      "options": [],
+      "correct_answer": "werden",
+      "accepted_answers": [
+        "werden"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zum Pluralsubjekt „die neuen Richtlinien“ gehört im Futur I die finite Form „werden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ausgewertet, ausgewertet haben, auswerten]. Ergänze Futur II: Bis Monatsende werden wir alle Rückmeldungen ___.",
+      "options": [],
+      "correct_answer": "ausgewertet haben",
+      "accepted_answers": [
+        "ausgewertet haben"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Futur II verlangt nach „werden“ das Partizip „ausgewertet“ und den Infinitiv „haben“ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werde, werden, wird]. Ergänze die Prognose: Vermutlich ___ sich der Ablauf nach der Testphase vereinfachen.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": [
+        "wird"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Singularsubjekt „der Ablauf“ verlangt im Futur I die Form „wird“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sein, haben, werden]. Ergänze das Futur II mit einem Bewegungsverb: Bis 18 Uhr werden alle Teilnehmenden eingetroffen ___.",
+      "options": [],
+      "correct_answer": "sein",
+      "accepted_answers": [
+        "sein"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Perfekt von „eintreffen“ wird mit „sein“ gebildet; dieses Hilfsverb bleibt auch im Futur II erhalten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet das Futur II für den erwarteten Abschluss bis morgen korrekt?",
+      "options": [
+        "Bis morgen wird die Pflegedienstleitung den Dienstplan veröffentlichen gehabt haben.",
+        "Bis morgen wird die Pflegedienstleitung den Dienstplan veröffentlicht haben.",
+        "Bis morgen wird die Pflegedienstleitung den Dienstplan veröffentlichen haben.",
+        "Bis morgen wird die Pflegedienstleitung den Dienstplan veröffentlicht gehabt haben."
+      ],
+      "correct_answer": "Bis morgen wird die Pflegedienstleitung den Dienstplan veröffentlicht haben.",
+      "accepted_answers": [
+        "Bis morgen wird die Pflegedienstleitung den Dienstplan veröffentlicht haben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Futur II folgt auf die finite Form von „werden“ das Partizip II und anschließend „haben“ oder „sein“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung betont im Futur II, dass die Umstellung bis Montag abgeschlossen sein wird?",
+      "options": [
+        "Die Technikabteilung hat die Umstellung bis Montag abgeschlossen werden.",
+        "Die Technikabteilung wird die Umstellung bis Montag abschließen gehabt.",
+        "Die Technikabteilung wird die Umstellung bis Montag abgeschlossen haben.",
+        "Die Technikabteilung wird die Umstellung bis Montag abschließen."
+      ],
+      "correct_answer": "Die Technikabteilung wird die Umstellung bis Montag abgeschlossen haben.",
+      "accepted_answers": [
+        "Die Technikabteilung wird die Umstellung bis Montag abgeschlossen haben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Umformulierung stellt nicht nur den zukünftigen Vorgang, sondern seinen Abschluss bis spätestens Montag in den Vordergrund.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung drückt im Futur II Passiv aus, dass die Prüfung bis Freitag abgeschlossen sein wird?",
+      "options": [
+        "Bis Freitag werden alle Unterlagen geprüft worden sein.",
+        "Bis Freitag werden alle Unterlagen geprüft geworden sein.",
+        "Bis Freitag werden alle Unterlagen geprüft werden sein.",
+        "Bis Freitag sind alle Unterlagen geprüft worden werden."
+      ],
+      "correct_answer": "Bis Freitag werden alle Unterlagen geprüft worden sein.",
+      "accepted_answers": [
+        "Bis Freitag werden alle Unterlagen geprüft worden sein."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Futur II Passiv verbindet die Futurform von „werden“ mit „Partizip II + worden + sein“: „werden geprüft worden sein“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

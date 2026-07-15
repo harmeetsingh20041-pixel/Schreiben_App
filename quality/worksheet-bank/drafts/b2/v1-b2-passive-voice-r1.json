@@ -1,0 +1,195 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-passive-voice-r1",
+    "template_key": "v1-b2-passive-voice-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Passive voice pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Passiv: Vorgänge sachlich beschreiben",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "passive-voice",
+    "name": "Passiv"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "passive-voice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Vorgangspassiv rückt eine Handlung oder einen Prozess in den Mittelpunkt. Es wird mit einer Form von „werden“ und dem Partizip II gebildet.",
+    "key_rule": "Präsens: wird geprüft; Präteritum: wurde geprüft; Perfekt: ist geprüft worden; mit Modalverb: muss geprüft werden.",
+    "correct_examples": [
+      "Die Anträge werden täglich bearbeitet.",
+      "Der Vertrag muss noch unterschrieben werden."
+    ],
+    "common_mistake_warning": "Verwechsle im Perfekt „worden“ nicht mit „geworden“ und setze beim Modalpassiv „werden“ an das Satzende.",
+    "what_to_revise": "Wiederhole die Zeitformen von „werden“, das Partizip II und die Satzklammer bei Modalverben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht korrekt im Vorgangspassiv Präsens?",
+      "options": [
+        "Die Anträge sind jeden Morgen geprüft.",
+        "Die Anträge werden jeden Morgen prüfen.",
+        "Die Anträge werden jeden Morgen geprüft."
+      ],
+      "correct_answer": "Die Anträge werden jeden Morgen geprüft.",
+      "accepted_answers": [
+        "Die Anträge werden jeden Morgen geprüft."
+      ],
+      "explanation": "„Werden“ plus Partizip II bezeichnet einen laufenden oder regelmäßig ausgeführten Vorgang.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form beschreibt den abgeschlossenen Prüfvorgang korrekt im Passiv Perfekt?",
+      "options": [
+        "Die Unterlagen sind gestern geprüft worden.",
+        "Die Unterlagen wurden gestern geprüft worden.",
+        "Die Unterlagen sind gestern geprüft geworden."
+      ],
+      "correct_answer": "Die Unterlagen sind gestern geprüft worden.",
+      "accepted_answers": [
+        "Die Unterlagen sind gestern geprüft worden."
+      ],
+      "explanation": "Das Passiv Perfekt besteht aus einer Form von „sein“, dem Partizip II und „worden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält ein korrektes Passiv mit Modalverb?",
+      "options": [
+        "Die Sicherheitsregeln werden regelmäßig überprüfen müssen.",
+        "Die Sicherheitsregeln müssen regelmäßig überprüft werden.",
+        "Die Sicherheitsregeln müssen regelmäßig überprüft worden."
+      ],
+      "correct_answer": "Die Sicherheitsregeln müssen regelmäßig überprüft werden.",
+      "accepted_answers": [
+        "Die Sicherheitsregeln müssen regelmäßig überprüft werden."
+      ],
+      "explanation": "Beim Modalpassiv stehen Partizip II und „werden“ am Ende; das Modalverb ist konjugiert.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wird, wurde, ist]. Ergänze ausdrücklich das Vorgangspassiv Präsens: Der Pflegebericht ___ gerade überarbeitet.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": [
+        "wird"
+      ],
+      "explanation": "„Gerade“ und die verlangte Zeitform führen zu „wird überarbeitet“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [war, wurde, wird]. Ergänze ausdrücklich das Vorgangspassiv Präteritum: Die Entscheidung ___ gestern bekannt gegeben.",
+      "options": [],
+      "correct_answer": "wurde",
+      "accepted_answers": [
+        "wurde"
+      ],
+      "explanation": "Das Vorgangspassiv im Präteritum wird mit „wurde“ plus Partizip II gebildet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [geworden, werden, worden]. Ergänze das Passiv Perfekt: Alle Teilnehmenden sind rechtzeitig informiert ___.",
+      "options": [],
+      "correct_answer": "worden",
+      "accepted_answers": [
+        "worden"
+      ],
+      "explanation": "Im Passiv Perfekt lautet die Form „sind informiert worden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werden, worden, geworden]. Ergänze das Modalpassiv: Vertrauliche Daten dürfen nicht weitergegeben ___.",
+      "options": [],
+      "correct_answer": "werden",
+      "accepted_answers": [
+        "werden"
+      ],
+      "explanation": "Nach dem Partizip „weitergegeben“ schließt der Infinitiv „werden“ das Modalpassiv ab.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet das Vorgangspassiv im Präteritum ohne überflüssiges Hilfsverb?",
+      "options": [
+        "Der Antrag wurde gestern geprüft worden.",
+        "Der Antrag ist gestern geprüft.",
+        "Der Antrag wurde gestern geprüft.",
+        "Der Antrag hat gestern geprüft."
+      ],
+      "correct_answer": "Der Antrag wurde gestern geprüft.",
+      "rubric": null,
+      "explanation": "„Wurde geprüft“ ist bereits das vollständige Vorgangspassiv im Präteritum.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Der Antrag wurde gestern geprüft."
+      ]
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung setzt den Aktivsatz ins Vorgangspassiv Präteritum und nennt den Handelnden mit „von“?",
+      "options": [
+        "Die Anlage ist von einer externen Fachkraft überprüft.",
+        "Die Anlage wurde durch einer externen Fachkraft überprüft.",
+        "Von einer externen Fachkraft überprüfte die Anlage.",
+        "Die Anlage wurde von einer externen Fachkraft überprüft."
+      ],
+      "correct_answer": "Die Anlage wurde von einer externen Fachkraft überprüft.",
+      "rubric": null,
+      "explanation": "Beim Aktiv-Passiv-Wechsel bleibt die Zeitform erhalten; der Handelnde kann mit „von“ ergänzt werden.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Die Anlage wurde von einer externen Fachkraft überprüft."
+      ]
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet das Plusquamperfekt Passiv für einen bereits vor der Prüfung abgeschlossenen Vorgang korrekt?",
+      "options": [
+        "Die Unterlagen wurden vor Beginn der Prüfung vollständig anonymisiert gewesen.",
+        "Die Unterlagen waren vor Beginn der Prüfung vollständig anonymisiert worden.",
+        "Die Unterlagen hatten vor Beginn der Prüfung vollständig anonymisiert worden.",
+        "Die Unterlagen waren vor Beginn der Prüfung vollständig anonymisiert werden."
+      ],
+      "correct_answer": "Die Unterlagen waren vor Beginn der Prüfung vollständig anonymisiert worden.",
+      "rubric": null,
+      "explanation": "Das Plusquamperfekt Passiv wird mit der Präteritumform von „sein“, dem Partizip II und „worden“ gebildet: „waren … anonymisiert worden“.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Die Unterlagen waren vor Beginn der Prüfung vollständig anonymisiert worden."
+      ],
+      "answer_contract_version": 1
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-conjunctions-r1",
+    "template_key": "v1-b1-conjunctions-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Conjunctions pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Konjunktionen: Aussagen logisch verknüpfen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "conjunctions",
+    "name": "Konjunktionen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "conjunctions",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Konjunktionen verbinden Wörter oder Sätze und zeigen Beziehungen wie Grund, Gegensatz, Bedingung oder Alternative.",
+    "key_rule": "Nebenordnende Konjunktionen verändern die Hauptsatzstellung nicht; unterordnende Konjunktionen schicken das finite Verb ans Nebensatzende.",
+    "correct_examples": [
+      "Ich bleibe länger, denn die Aufgabe ist dringend.",
+      "Falls du Hilfe brauchst, ruf mich an."
+    ],
+    "common_mistake_warning": "„Denn“ leitet keinen Nebensatz ein, während nach „weil“ das finite Verb am Ende steht.",
+    "what_to_revise": "Wiederhole und, aber, oder, denn, sondern, weil, obwohl, falls und während."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung begründet die Handlung mit korrekter Wortstellung?",
+      "options": [
+        "Die Pflegekraft ruft den Arzt, weil sich der Zustand verändert hat.",
+        "Die Pflegekraft ruft den Arzt, weil der Zustand hat sich verändert.",
+        "Die Pflegekraft ruft den Arzt, denn sich der Zustand verändert hat."
+      ],
+      "correct_answer": "Die Pflegekraft ruft den Arzt, weil sich der Zustand verändert hat.",
+      "accepted_answers": [
+        "Die Pflegekraft ruft den Arzt, weil sich der Zustand verändert hat."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Weil“ leitet einen Nebensatz ein; das finite Hilfsverb steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet „sondern“ korrekt?",
+      "options": [
+        "Der Termin sondern nicht am Dienstag ist am Donnerstag.",
+        "Der Termin ist nicht am Dienstag, sondern am Donnerstag.",
+        "Der Termin ist am Dienstag, sondern am Donnerstag."
+      ],
+      "correct_answer": "Der Termin ist nicht am Dienstag, sondern am Donnerstag.",
+      "accepted_answers": [
+        "Der Termin ist nicht am Dienstag, sondern am Donnerstag."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Sondern“ korrigiert nach einer Negation die zuvor verneinte Information.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Konjunktion drückt einen unerwarteten Gegensatz aus?",
+      "options": [
+        "Damit die Aufgabe schwierig war, beendete das Team sie pünktlich.",
+        "Falls die Aufgabe schwierig war, beendete das Team sie pünktlich.",
+        "Obwohl die Aufgabe schwierig war, beendete das Team sie pünktlich."
+      ],
+      "correct_answer": "Obwohl die Aufgabe schwierig war, beendete das Team sie pünktlich.",
+      "accepted_answers": [
+        "Obwohl die Aufgabe schwierig war, beendete das Team sie pünktlich."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Obwohl“ verbindet einen erschwerenden Umstand mit einem unerwarteten Ergebnis.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [denn, weil, obwohl]. Ergänze ohne Verbendstellung: Ich fahre früher los, ___ der Verkehr ist morgens stark.",
+      "options": [],
+      "correct_answer": "denn",
+      "accepted_answers": ["denn"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „denn“ bleibt die normale Hauptsatzwortstellung erhalten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [damit, falls, während]. Ergänze den gleichzeitigen Ablauf: ___ die Ärztin den Patienten untersucht, dokumentiert die Pflegekraft die Angaben.",
+      "options": [],
+      "correct_answer": "während",
+      "accepted_answers": ["während"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Während“ zeigt, dass zwei Handlungen gleichzeitig stattfinden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sondern, falls, obwohl]. Ergänze die Bedingung: ___ das System ausfällt, benutzen wir das Papierformular.",
+      "options": [],
+      "correct_answer": "falls",
+      "accepted_answers": ["falls"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Falls“ leitet eine mögliche Bedingung ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [weil, oder, denn]. Ergänze die Alternative: Möchten Sie online teilnehmen, ___ kommen Sie ins Büro?",
+      "options": [],
+      "correct_answer": "oder",
+      "accepted_answers": ["oder"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Oder“ verbindet zwei gleichwertige Alternativen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung hat nach „weil“ die richtige Wortstellung?",
+      "options": [
+        "Der Patient bleibt zur Beobachtung, weil noch ist sein Kreislauf instabil.",
+        "Der Patient bleibt zur Beobachtung, weil sein Kreislauf ist noch instabil.",
+        "Der Patient bleibt zur Beobachtung, weil ist sein Kreislauf noch instabil.",
+        "Der Patient bleibt zur Beobachtung, weil sein Kreislauf noch instabil ist."
+      ],
+      "correct_answer": "Der Patient bleibt zur Beobachtung, weil sein Kreislauf noch instabil ist.",
+      "accepted_answers": [
+        "Der Patient bleibt zur Beobachtung, weil sein Kreislauf noch instabil ist."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Weil“ leitet einen Nebensatz ein; das finite Verb „ist“ steht deshalb am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung mit „obwohl“ ist grammatisch und inhaltlich korrekt?",
+      "options": [
+        "Obwohl das Wetter sehr schlecht war, war die Veranstaltung gut besucht.",
+        "Obwohl war das Wetter sehr schlecht, die Veranstaltung war gut besucht.",
+        "Obwohl das Wetter war sehr schlecht, war die Veranstaltung gut besucht.",
+        "Obwohl die Veranstaltung gut besucht war, deshalb das Wetter sehr schlecht war."
+      ],
+      "correct_answer": "Obwohl das Wetter sehr schlecht war, war die Veranstaltung gut besucht.",
+      "accepted_answers": [
+        "Obwohl das Wetter sehr schlecht war, war die Veranstaltung gut besucht."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der obwohl-Satz bezeichnet den unerwarteten Gegensatz und hat Verbendstellung; der folgende Hauptsatz beginnt mit dem finiten Verb.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher kurze Problembericht verwendet „weil“, „obwohl“ und „damit“ korrekt?",
+      "options": [
+        "Wir riefen den Techniker, weil das System fiel aus. Obwohl schnell er kam, die Reparatur dauerte. Er erklärte den Fehler, damit wir vermeiden ihn.",
+        "Wir riefen den Techniker, weil ausfiel das System. Obwohl kam er schnell, dauerte die Reparatur. Er erklärte den Fehler, damit künftig wir ihn vermeiden.",
+        "Wir riefen den Techniker, weil das System ausfiel. Obwohl er schnell kam, dauerte die Reparatur. Er erklärte den Fehler, damit wir ihn künftig vermeiden.",
+        "Wir riefen den Techniker, weil fiel das System aus. Obwohl er kam schnell, dauerte die Reparatur. Er erklärte den Fehler, damit vermeiden wir ihn."
+      ],
+      "correct_answer": "Wir riefen den Techniker, weil das System ausfiel. Obwohl er schnell kam, dauerte die Reparatur. Er erklärte den Fehler, damit wir ihn künftig vermeiden.",
+      "accepted_answers": [
+        "Wir riefen den Techniker, weil das System ausfiel. Obwohl er schnell kam, dauerte die Reparatur. Er erklärte den Fehler, damit wir ihn künftig vermeiden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Alle drei unterordnenden Konjunktionen schicken das finite Verb im jeweiligen Nebensatz ans Ende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

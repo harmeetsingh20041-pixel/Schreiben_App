@@ -9,22 +9,20 @@ Use local scoring whenever exact scoring is fair. Use the `evaluate-practice-att
 Local-first question types:
 
 - `multiple_choice`
-- `fill_blank` with one exact answer
-- `word_order` with one exact answer
-- exact `sentence_correction`
-- exact `transformation`
-- exact `rewrite_sentence`
-- exact `short_answer`
+- constrained `fill_blank` with an explicit, complete `accepted_answers` set
 
 Open/flexible question types:
 
 - `mini_writing`
-- flexible `short_answer`
+- flexible `fill_blank`
+- `word_order`
 - flexible `rewrite_sentence`
 - flexible `transformation`
 - flexible `sentence_correction`
 
-Flexible questions use a non-local answer key marker such as `manual_review`, so they are not accidentally scored as exact-answer questions.
+Every flexible question uses `evaluation_mode = open_evaluation` and carries a
+real rubric with concrete criteria and a sample answer. Sentinel answer keys such
+as `manual_review` are invalid and must never be treated as model answers.
 
 ## Evaluation Flow
 

@@ -1,0 +1,146 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-register-r1",
+    "template_key": "v1-a1-register-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Register pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Höflich oder vertraut ansprechen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "register",
+    "name": "Formell und informell"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "register",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Im Deutschen spricht man vertraute Personen meist mit du und fremde oder berufliche Kontakte oft mit Sie an.",
+    "key_rule": "Halte eine Anredeform im ganzen kurzen Text bei: du mit deinem oder Sie mit Ihrem.",
+    "correct_examples": [
+      "Guten Tag, Frau Rao. Wie geht es Ihnen?",
+      "Hallo Arun, kommst du heute?"
+    ],
+    "common_mistake_warning": "Wechsle nicht mitten in einer Nachricht zwischen du und Sie.",
+    "what_to_revise": "Übe passende Grüße, Pronomen und Abschlüsse für formelle und informelle Nachrichten."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Anrede passt zu einer formellen Nachricht an eine unbekannte Lehrerin?",
+      "options": ["Hallo du da,", "Guten Tag, Frau Keller,", "Hi Kumpel,"],
+      "correct_answer": "Guten Tag, Frau Keller,",
+      "accepted_answers": ["Guten Tag, Frau Keller,"],
+      "answer_contract_version": 1,
+      "explanation": "‚Guten Tag‘ mit Familiennamen ist eine passende formelle Anrede.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Frage ist formell?",
+      "options": [
+        "Kannst du mir helfen?",
+        "Hilf mir mal!",
+        "Können Sie mir helfen?"
+      ],
+      "correct_answer": "Können Sie mir helfen?",
+      "accepted_answers": ["Können Sie mir helfen?"],
+      "answer_contract_version": 1,
+      "explanation": "Die großgeschriebene Anrede ‚Sie‘ kennzeichnet die formelle Frage.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Abschluss passt zu einer kurzen formellen Nachricht?",
+      "options": ["Mit freundlichen Grüßen", "Bis dann, Kumpel", "Tschüssi"],
+      "correct_answer": "Mit freundlichen Grüßen",
+      "accepted_answers": ["Mit freundlichen Grüßen"],
+      "answer_contract_version": 1,
+      "explanation": "Dieser Abschluss ist eine übliche höfliche Form in formellen Nachrichten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ihr | Sie | du]. Ergänze formell: Haben ___ morgen Zeit?",
+      "options": [],
+      "correct_answer": "Sie",
+      "accepted_answers": ["Sie"],
+      "answer_contract_version": 1,
+      "explanation": "Die formelle Anrede verwendet das großgeschriebene Pronomen ‚Sie‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [du | Sie | euch]. Ergänze informell: Kommst ___ heute zum Kurs?",
+      "options": [],
+      "correct_answer": "du",
+      "accepted_answers": ["du"],
+      "answer_contract_version": 1,
+      "explanation": "Eine vertraute einzelne Person wird informell mit ‚du‘ angesprochen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Hey Leute | Bis später | Guten Tag]. Ergänze die formelle Begrüßung: ___, Herr Braun.",
+      "options": [],
+      "correct_answer": "Guten Tag",
+      "accepted_answers": ["Guten Tag"],
+      "answer_contract_version": 1,
+      "explanation": "‚Guten Tag‘ ist die passende höfliche Begrüßung für Herrn Braun.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha schreibt ihrer neuen Pflegedienstleitung Frau Dr. Keller. Welche Nachricht ist für diesen formellen Kontakt am passendsten?",
+      "options": [
+        "Hi Frau Dr. Keller, könnten du mir helfen?",
+        "Hey Frau Dr. Keller, kannst du mir helfen?",
+        "Hallo Frau Dr. Keller, hilf mir bitte!",
+        "Guten Tag, Frau Dr. Keller. Könnten Sie mir bitte helfen?"
+      ],
+      "correct_answer": "Guten Tag, Frau Dr. Keller. Könnten Sie mir bitte helfen?",
+      "accepted_answers": ["Guten Tag, Frau Dr. Keller. Könnten Sie mir bitte helfen?"],
+      "rubric": null,
+      "explanation": "Eine berufliche formelle Bitte verwendet eine passende Anrede, einen höflichen Gruß und die Sie-Form.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi bittet einen Kursleiter um eine Antwort. Welche Bitte ist eindeutig formell?",
+      "options": [
+        "Könnten Sie mir bitte antworten?",
+        "Antwortest du mir bitte?",
+        "Du sollst mir antworten.",
+        "Kannst du mir bitte antworten?"
+      ],
+      "correct_answer": "Könnten Sie mir bitte antworten?",
+      "accepted_answers": ["Könnten Sie mir bitte antworten?"],
+      "rubric": null,
+      "explanation": "Die höfliche Frage beginnt mit ‚Könnten Sie‘ und endet mit dem Infinitiv.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

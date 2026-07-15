@@ -1,0 +1,204 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-plusquamperfekt-r1",
+    "template_key": "v1-b2-plusquamperfekt-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Plusquamperfekt pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Vorzeitigkeit eindeutig ausdrücken",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "plusquamperfekt",
+    "name": "Plusquamperfekt"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "plusquamperfekt",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Plusquamperfekt markiert eine Handlung, die vor einem bereits vergangenen Bezugspunkt schon beendet war. Es verhindert unklare Zeitfolgen in Berichten und Erzählungen.",
+    "key_rule": "Bilde die Vorvergangenheit mit hatte oder war plus Partizip II. Im Nebensatz steht das Hilfsverb meist am Ende; beim Ersatzinfinitiv steht es vor der Infinitivgruppe: ..., weil das Team den Ablauf hatte ändern müssen.",
+    "correct_examples": [
+      "Bevor die Sitzung begann, waren sämtliche Unterlagen verteilt worden.",
+      "Die Gruppe hatte ihre Position bereits abgestimmt, als die Rückfrage eintraf."
+    ],
+    "common_mistake_warning": "Verwende das Plusquamperfekt nur für einen abgeschlossenen Vorgang vor einem erkennbaren vergangenen Bezugspunkt. Im gewöhnlichen Nebensatz steht das Hilfsverb am Ende; beim Ersatzinfinitiv steht es davor: „..., weil das Team den Ablauf hatte ändern müssen“.",
+    "what_to_revise": "Übe hatte und war mit Partizip II, nachdem- und bevor-Sätze sowie den Ersatzinfinitiv im Plusquamperfekt."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz markiert die abgeschlossene Vorhandlung korrekt?",
+      "options": [
+        "Nachdem hatte die Leitung den Plan genehmigt, begann die Umsetzung.",
+        "Nachdem die Leitung den Plan genehmigt hatte, begann die Umsetzung.",
+        "Nachdem die Leitung den Plan genehmigte, hatte die Umsetzung begonnen."
+      ],
+      "correct_answer": "Nachdem die Leitung den Plan genehmigt hatte, begann die Umsetzung.",
+      "accepted_answers": [
+        "Nachdem die Leitung den Plan genehmigt hatte, begann die Umsetzung."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Genehmigt hatte‘ liegt zeitlich vor dem späteren Beginn der Umsetzung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form bezeichnet die frühere Bewegung vor dem vergangenen Kontrollzeitpunkt?",
+      "options": [
+        "Der Transport war bereits eingetroffen, bevor die Kontrolle begann.",
+        "Der Transport hatte bereits eingetroffen, bevor die Kontrolle begann.",
+        "Der Transport ist bereits eingetroffen, bevor die Kontrolle begann."
+      ],
+      "correct_answer": "Der Transport war bereits eingetroffen, bevor die Kontrolle begann.",
+      "accepted_answers": [
+        "Der Transport war bereits eingetroffen, bevor die Kontrolle begann."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Bewegungsverb ‚eintreffen‘ bildet das Plusquamperfekt mit ‚war‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Plusquamperfektform mit Modalverb ist korrekt?",
+      "options": [
+        "Das Team hatte den Ablauf geändert gemusst, bevor die Prüfung begann.",
+        "Das Team musste den Ablauf geändert hatte, bevor die Prüfung begann.",
+        "Das Team hatte den Ablauf ändern müssen, bevor die Prüfung begann."
+      ],
+      "correct_answer": "Das Team hatte den Ablauf ändern müssen, bevor die Prüfung begann.",
+      "accepted_answers": [
+        "Das Team hatte den Ablauf ändern müssen, bevor die Prüfung begann."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Mit dem Modalverb steht nach ‚hatte‘ der Ersatzinfinitiv ‚ändern müssen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [abschließen | schloss ab | abgeschlossen]. Ergänze das Plusquamperfekt: Bevor die Gäste eintrafen, hatte das Team die Vorbereitung ___.",
+      "options": [],
+      "correct_answer": "abgeschlossen",
+      "accepted_answers": [
+        "abgeschlossen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Hatte abgeschlossen‘ markiert die Vorbereitung als vor dem Eintreffen beendet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [erschienen | erscheinen | erschienen gewesen]. Ergänze das Plusquamperfekt: Als die Besprechung begann, waren bereits alle Beteiligten ___.",
+      "options": [],
+      "correct_answer": "erschienen",
+      "accepted_answers": [
+        "erschienen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die Beteiligten kamen vor dem Beginn an; daher steht ‚waren erschienen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [übersehen hat | übersehen hatte | hatte übersehen]. Ergänze die Nebensatzstellung: Nachdem sie den Hinweis ___, korrigierte sie den Bericht.",
+      "options": [],
+      "correct_answer": "übersehen hatte",
+      "accepted_answers": [
+        "übersehen hatte"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Im nachdem-Nebensatz steht das Plusquamperfekt-Hilfsverb ‚hatte‘ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [verschoben gemusst | zu verschieben müssen | verschieben müssen]. Ergänze den Ersatzinfinitiv: Wegen eines Ausfalls hatte die Leitung den Termin ___.",
+      "options": [],
+      "correct_answer": "verschieben müssen",
+      "accepted_answers": [
+        "verschieben müssen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Im Plusquamperfekt mit Modalverb folgt auf ‚hatte‘ die Endgruppe ‚verschieben müssen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung stellt das Hilfsverb im nachdem-Nebensatz korrekt ans Ende?",
+      "options": [
+        "Nachdem die Übergabe hatte geendet, begann die Teambesprechung.",
+        "Nachdem die Übergabe geendet hatte, begann die Teambesprechung.",
+        "Nachdem hatte die Übergabe geendet, begann die Teambesprechung.",
+        "Nachdem die Übergabe geendet, hatte begann die Teambesprechung."
+      ],
+      "correct_answer": "Nachdem die Übergabe geendet hatte, begann die Teambesprechung.",
+      "accepted_answers": [
+        "Nachdem die Übergabe geendet hatte, begann die Teambesprechung."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im eingeleiteten Nebensatz steht die finite Plusquamperfektform am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung setzt nur die frühere Handlung ins Plusquamperfekt und die spätere ins Präteritum?",
+      "options": [
+        "Nachdem die Fachkraft hatte die Medikation geprüft, dokumentierte sie die Änderung.",
+        "Nachdem die Fachkraft die Medikation prüfte, hatte sie die Änderung dokumentiert.",
+        "Nachdem die Fachkraft die Medikation geprüft hat, dokumentierte sie die Änderung.",
+        "Nachdem die Fachkraft die Medikation geprüft hatte, dokumentierte sie die Änderung."
+      ],
+      "correct_answer": "Nachdem die Fachkraft die Medikation geprüft hatte, dokumentierte sie die Änderung.",
+      "accepted_answers": [
+        "Nachdem die Fachkraft die Medikation geprüft hatte, dokumentierte sie die Änderung."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der nachdem-Satz ordnet die abgeschlossene Prüfung eindeutig vor der anschließenden Dokumentation ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet im nachdem-Satz das Plusquamperfekt eines Modalverbs nach der standardsprachlichen Regel des Ersatzinfinitivs?",
+      "options": [
+        "Nachdem das Team den Ablauf hatte geändert müssen, wurde der überarbeitete Plan freigegeben.",
+        "Nachdem das Team den Ablauf ändern musste, wurde der überarbeitete Plan freigegeben.",
+        "Nachdem das Team den Ablauf hatte ändern müssen, wurde der überarbeitete Plan freigegeben.",
+        "Nachdem das Team den Ablauf ändern müssen hatte, wurde der überarbeitete Plan freigegeben."
+      ],
+      "correct_answer": "Nachdem das Team den Ablauf hatte ändern müssen, wurde der überarbeitete Plan freigegeben.",
+      "accepted_answers": [
+        "Nachdem das Team den Ablauf hatte ändern müssen, wurde der überarbeitete Plan freigegeben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei einem Modalverb steht im Plusquamperfekt der Ersatzinfinitiv „ändern müssen“. Im eingeleiteten Nebensatz steht das Hilfsverb davor: „hatte ändern müssen“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

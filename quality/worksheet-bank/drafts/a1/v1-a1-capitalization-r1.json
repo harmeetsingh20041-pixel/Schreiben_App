@@ -1,0 +1,151 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-capitalization-r1",
+    "template_key": "v1-a1-capitalization-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Capitalization pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Großschreibung im Alltag",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "capitalization",
+    "name": "Großschreibung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "capitalization",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Im Deutschen beginnen Sätze und Nomen mit einem Großbuchstaben. Namen und die höfliche Anrede Sie werden ebenfalls großgeschrieben.",
+    "key_rule": "Schreibe den Satzanfang, Personen- und Ortsnamen sowie Nomen wie Arbeit oder Kaffee groß.",
+    "correct_examples": ["Heute beginnt der Kurs.", "Ravi wohnt in Köln."],
+    "common_mistake_warning": "Verben und gewöhnliche Adjektive werden mitten im Satz normalerweise kleingeschrieben.",
+    "what_to_revise": "Markiere in kurzen Sätzen zuerst alle Nomen und prüfe danach den Satzanfang."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante schreibt den Krankenhaussatz korrekt?",
+      "options": [
+        "Variante A: Morgen Arbeite ich im Krankenhaus.",
+        "Variante B: Morgen arbeite ich im Krankenhaus.",
+        "Variante C: morgen arbeite ich im krankenhaus."
+      ],
+      "correct_answer": "Variante B: Morgen arbeite ich im Krankenhaus.",
+      "accepted_answers": ["Variante B: Morgen arbeite ich im Krankenhaus."],
+      "answer_contract_version": 1,
+      "explanation": "Der Satzanfang und das Nomen ‚Krankenhaus‘ werden großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante schreibt den Kaffeesatz korrekt?",
+      "options": [
+        "Variante A: Ich trinke Kaffee.",
+        "Variante B: Ich trinke kaffee.",
+        "Variante C: Ich Trinke Kaffee."
+      ],
+      "correct_answer": "Variante A: Ich trinke Kaffee.",
+      "accepted_answers": ["Variante A: Ich trinke Kaffee."],
+      "answer_contract_version": 1,
+      "explanation": "‚Kaffee‘ ist ein Nomen; das Verb ‚trinke‘ bleibt kleingeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Frage verwendet die formelle Anrede ‚Sie‘ und schreibt sie korrekt?",
+      "options": [
+        "Wo wohnt sie heute?",
+        "wo Wohnen Sie jetzt?",
+        "Wo wohnen Sie?"
+      ],
+      "correct_answer": "Wo wohnen Sie?",
+      "accepted_answers": ["Wo wohnen Sie?"],
+      "answer_contract_version": 1,
+      "explanation": "Die höfliche Anrede ‚Sie‘ und der Satzanfang werden großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kochen | kühl | Küche]. Ergänze mit dem korrekt großgeschriebenen Nomen: Der Raum zum Kochen heißt ___.",
+      "options": [],
+      "correct_answer": "Küche",
+      "accepted_answers": ["Küche"],
+      "answer_contract_version": 1,
+      "explanation": "‚Küche‘ ist ein Nomen und beginnt deshalb mit einem Großbuchstaben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [morgen | Montag | montags]. Ergänze mit dem korrekt großgeschriebenen Nomen für den Wochentag: Der Kurs beginnt am ___.",
+      "options": [],
+      "correct_answer": "Montag",
+      "accepted_answers": ["Montag"],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚am‘ steht hier das Nomen ‚Montag‘. Wochentage werden im Deutschen großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Sie | Ihnen | du]. Ergänze die höfliche Anrede: Kommen ___ aus Indien?",
+      "options": [],
+      "correct_answer": "Sie",
+      "accepted_answers": ["Sie"],
+      "answer_contract_version": 1,
+      "explanation": "Die formelle Anrede ‚Sie‘ wird immer mit großem S geschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Ausgangssatz: heute arbeitet asha im krankenhaus. Welche Wörter müssen großgeschrieben werden?",
+      "options": [
+        "asha, arbeitet, krankenhaus",
+        "asha, krankenhaus",
+        "heute, arbeitet, im",
+        "heute, asha, krankenhaus"
+      ],
+      "correct_answer": "heute, asha, krankenhaus",
+      "accepted_answers": ["heute, asha, krankenhaus"],
+      "rubric": null,
+      "explanation": "‚Heute‘ beginnt den Satz; ‚Asha‘ ist ein Name und ‚Krankenhaus‘ ein Nomen. Richtig lautet der Satz: ‚Heute arbeitet Asha im Krankenhaus.‘",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ausgangssatz: am montag lernt ravi deutsch für die arbeit. Welche Wörter müssen großgeschrieben werden?",
+      "options": [
+        "montag, ravi, deutsch, arbeit",
+        "am, montag, ravi, deutsch",
+        "am, montag, ravi, deutsch, arbeit",
+        "am, lernt, ravi, deutsch, arbeit"
+      ],
+      "correct_answer": "am, montag, ravi, deutsch, arbeit",
+      "accepted_answers": ["am, montag, ravi, deutsch, arbeit"],
+      "rubric": null,
+      "explanation": "Satzanfang, Wochentag, Name, Sprachname und das Nomen ‚Arbeit‘ brauchen Großbuchstaben. Richtig lautet der Satz: ‚Am Montag lernt Ravi Deutsch für die Arbeit.‘",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

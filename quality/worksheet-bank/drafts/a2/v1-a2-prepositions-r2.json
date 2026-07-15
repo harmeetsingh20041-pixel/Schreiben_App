@@ -1,0 +1,142 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-prepositions-r2",
+    "template_key": "v1-a2-prepositions-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Prepositions accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Präpositionen im Kontext: Feste Verbindungen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "prepositions",
+    "name": "Präpositionen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "prepositions",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Viele Verben und Wendungen verbinden sich fest mit einer Präposition und einem Kasus. Lerne deshalb Verb, Präposition und Kasus als Einheit.",
+    "key_rule": "Warten auf, sich interessieren für und denken an stehen mit Akkusativ; teilnehmen an und sprechen mit stehen mit Dativ. Bei Sachen kann die Präpositionalgruppe ‚über etwas‘ durch ‚darüber‘ ersetzt werden.",
+    "correct_examples": [
+      "Wir warten auf den Bus.",
+      "Sie nimmt am Sprachkurs teil."
+    ],
+    "common_mistake_warning": "Wähle bei festen Verbindungen die Präposition nicht nur nach ihrer allgemeinen Bedeutung oder nach den Fragen ‚Wo?‘ und ‚Wohin?‘.",
+    "what_to_revise": "Übe warten auf, teilnehmen an, sich interessieren für, denken an sowie sprechen mit einer Person oder über eine Sache. Wiederhole für Sachen auch das kurze Wort darüber."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Ergänzung: Wir warten schon lange ___ Bus.",
+      "options": ["für den", "mit dem", "auf den", "an dem"],
+      "correct_answer": "auf den",
+      "accepted_answers": ["auf den"],
+      "explanation": "Warten verbindet sich mit auf und dem Akkusativ; bei Bus lautet die Form auf den Bus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Verbindung: Sie nimmt regelmäßig ___ Sprachkurs teil.",
+      "options": ["am", "auf den", "für einen", "über den"],
+      "correct_answer": "am",
+      "accepted_answers": ["am"],
+      "explanation": "Teilnehmen verbindet sich mit an und dem Dativ; an dem wird hier zur natürlichen Form am zusammengezogen: am Sprachkurs.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Präposition: Er interessiert sich ___ moderne Kunst.",
+      "options": ["an", "über", "mit", "für"],
+      "correct_answer": "für",
+      "accepted_answers": ["für"],
+      "explanation": "Sich interessieren verbindet sich mit für und einem Akkusativobjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [auf den, mit dem, an den]. Setze ein: Die Pflegekraft denkt ___ nächsten Termin.",
+      "options": [],
+      "correct_answer": "an den",
+      "accepted_answers": ["an den"],
+      "explanation": "Die feste Verbindung lautet an etwas denken; Termin steht im Akkusativ: an den nächsten Termin.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [mit der, an der, für die]. Setze ein: Die Patientin spricht ___ Ärztin über ihre Schmerzen.",
+      "options": [],
+      "correct_answer": "mit der",
+      "accepted_answers": ["mit der"],
+      "explanation": "Die Verbindung mit einer Person sprechen verwendet die Präposition mit und den Dativ; bei Ärztin lautet die Form mit der Ärztin.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere die feste Präposition: Ich interessiere mich an klassischer Musik.",
+      "options": [],
+      "correct_answer": "Ich interessiere mich für klassische Musik.",
+      "rubric": {
+        "criteria": [
+          "Ersetze an durch für.",
+          "Lass Reflexivpronomen und Nominalgruppe inhaltlich unverändert."
+        ],
+        "sample_answer": "Ich interessiere mich für klassische Musik."
+      },
+      "explanation": "Die feste Verbindung lautet sich für etwas interessieren und steht mit Akkusativ.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit Seit zwei Jahren: [Seit zwei Jahren / wohnt / sie / bei ihrer Tante].",
+      "options": [],
+      "correct_answer": "Seit zwei Jahren wohnt sie bei ihrer Tante.",
+      "rubric": {
+        "criteria": [
+          "Verwende alle Satzteile genau einmal.",
+          "Setze wohnt an Position zwei und behalte beide Dativpräpositionen korrekt."
+        ],
+        "sample_answer": "Seit zwei Jahren wohnt sie bei ihrer Tante."
+      },
+      "explanation": "Seit und bei verlangen den Dativ; nach dem Vorfeld steht das konjugierte Verb an Position zwei.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Ersetze ‚über das Problem‘ durch das passende kurze Wort mit ‚da-‘: Wir sprechen über das Problem.",
+      "options": [],
+      "correct_answer": "Wir sprechen darüber.",
+      "rubric": {
+        "criteria": [
+          "Ersetze über das Problem vollständig durch darüber.",
+          "Behalte Subjekt und Verb unverändert."
+        ],
+        "sample_answer": "Wir sprechen darüber."
+      },
+      "explanation": "Wenn es um eine Sache geht, kann ‚über das Problem‘ kurz durch ‚darüber‘ ersetzt werden.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

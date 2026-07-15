@@ -1,0 +1,191 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-spelling-r1",
+    "template_key": "v1-b1-spelling-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Spelling pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Rechtschreibung: Berufliche Texte sicher schreiben",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "spelling",
+    "name": "Rechtschreibung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "spelling",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Sichere Rechtschreibung macht Mitteilungen eindeutig und unterstützt einen professionellen Eindruck.",
+    "key_rule": "Achte besonders auf lange und kurze Vokale, s-Laute, Doppelkonsonanten und die Schreibung zusammengesetzter Wörter.",
+    "correct_examples": [
+      "Die Rückmeldung war pünktlich und verständlich.",
+      "Bitte schließen Sie die Bürotür leise."
+    ],
+    "common_mistake_warning": "Bei zusammengesetzten Nomen werden die Bestandteile in der Regel zusammengeschrieben.",
+    "what_to_revise": "Wiederhole dass/das, ss/ß, ie/ei, Doppelkonsonanten und häufige berufliche Komposita."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schreibweise ist in einem Pflegebericht korrekt?",
+      "options": [
+        "Der Zustand hat sich ferbessert.",
+        "Der Zustand hat sich verbessert.",
+        "Der Zustant hat sich verbesert."
+      ],
+      "correct_answer": "Der Zustand hat sich verbessert.",
+      "accepted_answers": ["Der Zustand hat sich verbessert."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Zustand“ endet mit d und „verbessert“ enthält den Doppelkonsonanten ss.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet „dass“ korrekt?",
+      "options": [
+        "Wir hoffen, das die Lieferung heute kommt.",
+        "Wir hoffen, daß die Lieferung heute kommt.",
+        "Wir hoffen, dass die Lieferung heute kommt."
+      ],
+      "correct_answer": "Wir hoffen, dass die Lieferung heute kommt.",
+      "accepted_answers": ["Wir hoffen, dass die Lieferung heute kommt."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Konjunktion „dass“ wird mit ss geschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welches zusammengesetzte Nomen ist richtig geschrieben?",
+      "options": [
+        "Fortbildungsunterlagen",
+        "Fortbildungs Unterlagen",
+        "Fortbildungunterlaagen"
+      ],
+      "correct_answer": "Fortbildungsunterlagen",
+      "accepted_answers": ["Fortbildungsunterlagen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Bestandteile werden mit dem Fugenelement s zu einem Wort verbunden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zuverläßig, zuverlessig, zuverlässig]. Ergänze die korrekte Schreibweise: Die neue Kollegin arbeitet sehr ___ .",
+      "options": [],
+      "correct_answer": "zuverlässig",
+      "accepted_answers": ["zuverlässig"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach kurzem betontem Vokal steht in „zuverlässig“ ein Doppel-s.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Pazientenzimmer, Patientenzimmer, Patienten Zimmer]. Ergänze das korrekt geschriebene Kompositum: Das Gespräch findet im ___ statt.",
+      "options": [],
+      "correct_answer": "Patientenzimmer",
+      "accepted_answers": ["Patientenzimmer"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Patientenzimmer“ wird zusammengeschrieben und beginnt mit „Patient-“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Bescheid, Beschied, Bescheit]. Ergänze: Bitte geben Sie mir morgen ___ .",
+      "options": [],
+      "correct_answer": "Bescheid",
+      "accepted_answers": ["Bescheid"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Wort „Bescheid“ wird mit „ei“ und einem d am Ende geschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Masnahme, Maßnahme, Massnahme]. Ergänze die Standardschreibung in Deutschland und Österreich: Diese ___ gilt ab Montag.",
+      "options": [],
+      "correct_answer": "Maßnahme",
+      "accepted_answers": ["Maßnahme"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem langen Vokal a steht in „Maßnahme“ ein ß.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ist vollständig richtig geschrieben?",
+      "options": [
+        "Die Pflegedokumentazion muss regelmäßig und gewissenhaft aktualisiert werden.",
+        "Die Pflegedokumentation muss regelmäsig und gewisenhaft aktualisiert werden.",
+        "Die Pflegedokumentation muss regelmäßig und gewissenhaft aktualisiert werden.",
+        "Die Pflegedokumentation muss regelmäßig und gewießenhaft aktualisiert werden."
+      ],
+      "correct_answer": "Die Pflegedokumentation muss regelmäßig und gewissenhaft aktualisiert werden.",
+      "accepted_answers": ["Die Pflegedokumentation muss regelmäßig und gewissenhaft aktualisiert werden."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Korrektur betrifft typische Fremdwort-, s-Laut- und Doppelkonsonantenschreibungen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält das aus „Arbeit + Zeit + Erfassung“ korrekt gebildete Kompositum?",
+      "options": [
+        "Die Arbeitzeiterfassung erfolgt ab sofort digital.",
+        "Die Arbeits Zeit Erfassung erfolgt ab sofort digital.",
+        "Die Arbeitszeiterfaßung erfolgt ab sofort digital.",
+        "Die Arbeitszeiterfassung erfolgt ab sofort digital."
+      ],
+      "correct_answer": "Die Arbeitszeiterfassung erfolgt ab sofort digital.",
+      "accepted_answers": ["Die Arbeitszeiterfassung erfolgt ab sofort digital."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Mehrteilige deutsche Nomen werden zu einem Wort verbunden; hier verbindet ein Fugenelement die Bestandteile.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nachricht schreibt „voraussichtlich“, „Besprechungsraum“ und „Rückmeldung“ vollständig korrekt?",
+      "options": [
+        "Der Termin beginnt voraussichtlich später. Der Besprechungsraum bleibt unverändert. Bitte senden Sie eine Rückmeldunng.",
+        "Der Termin beginnt voraussichtlich später. Der Besprechungsraum bleibt unverändert. Bitte senden Sie eine Rückmeldung.",
+        "Der Termin beginnt vorraussichtlich später. Der Besprechungsraum bleibt unverändert. Bitte senden Sie eine Rückmeldung.",
+        "Der Termin beginnt voraussichtlich später. Der Besprechungs Raum bleibt unverändert. Bitte senden Sie eine Rückmeldung."
+      ],
+      "correct_answer": "Der Termin beginnt voraussichtlich später. Der Besprechungsraum bleibt unverändert. Bitte senden Sie eine Rückmeldung.",
+      "accepted_answers": ["Der Termin beginnt voraussichtlich später. Der Besprechungsraum bleibt unverändert. Bitte senden Sie eine Rückmeldung."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Korrekte häufige Berufswörter machen eine kurze organisatorische Nachricht verlässlich.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

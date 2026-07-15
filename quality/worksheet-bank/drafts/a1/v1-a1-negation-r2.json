@@ -1,0 +1,153 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-negation-r2",
+    "template_key": "v1-a1-negation-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Negation accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Verneinung im Alltag: Formen sicher wählen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "negation",
+    "name": "Verneinung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "negation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Die Wahl zwischen ‚nicht‘ und einer Form von ‚kein‘ hängt davon ab, was verneint wird. Nomen brauchen oft kein, keine oder keinen; Eigenschaften und ganze Aussagen brauchen oft nicht.",
+    "key_rule": "Prüfe zuerst: Wird ein Nomen oder eine andere Information verneint? Wähle dann die passende Form und setze sie an die richtige Stelle.",
+    "correct_examples": [
+      "Wir haben keine Zeit.",
+      "Der Zug ist heute nicht pünktlich."
+    ],
+    "common_mistake_warning": "Achte bei maskulinen Akkusativobjekten auf die Endung -en in ‚keinen‘.",
+    "what_to_revise": "Übe Verneinungen mit Terminen, Lebensmitteln, Verkehr und Eigenschaften."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verneint das feminine Nomen ‚Fahrkarte‘ korrekt?",
+      "options": [
+        "Sie hat nicht Fahrkarte.",
+        "Sie hat keine Fahrkarte.",
+        "Sie hat kein Fahrkarte."
+      ],
+      "correct_answer": "Sie hat keine Fahrkarte.",
+      "accepted_answers": ["Sie hat keine Fahrkarte."],
+      "explanation": "‚Fahrkarte‘ ist feminin; die passende Verneinung lautet ‚keine Fahrkarte‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Verneinung des Adjektivs ‚müde‘.",
+      "options": [
+        "Die Gäste sind nicht müde.",
+        "Die Gäste sind keine müde.",
+        "Die Gäste nicht sind müde."
+      ],
+      "correct_answer": "Die Gäste sind nicht müde.",
+      "accepted_answers": ["Die Gäste sind nicht müde."],
+      "explanation": "Das Adjektiv ‚müde‘ wird nach ‚sein‘ mit ‚nicht‘ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [keinen, keine, nicht]. Setze die passende Form ein: Ich habe morgen ___ Termin.",
+      "options": [],
+      "correct_answer": "keinen",
+      "accepted_answers": ["keinen"],
+      "explanation": "‚Termin‘ ist maskulin und steht nach ‚haben‘ im Akkusativ; deshalb heißt es ‚keinen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kein, keine, nicht]. Setze die passende Verneinung ein: Das Geschäft ist heute ___ geöffnet.",
+      "options": [],
+      "correct_answer": "nicht",
+      "accepted_answers": ["nicht"],
+      "explanation": "Die Eigenschaft ‚geöffnet‘ wird mit ‚nicht‘ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [nicht, keine, keinen]. Setze die passende Form ein: Im Kühlschrank sind ___ Eier.",
+      "options": [],
+      "correct_answer": "keine",
+      "accepted_answers": ["keine"],
+      "explanation": "Der Plural ‚Eier‘ wird mit der Form ‚keine‘ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Repariere den Satz: Wir kaufen kein Äpfel.",
+      "options": [],
+      "correct_answer": "Wir kaufen keine Äpfel.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Die falsche Form ‚kein‘ wird durch die korrekte Pluralform ‚keine‘ ersetzt.",
+          "Der übrige Satz und seine Bedeutung bleiben unverändert und korrekt."
+        ],
+        "sample_answer": "Wir kaufen keine Äpfel."
+      },
+      "explanation": "Das Pluralnomen ‚Äpfel‘ wird mit der Form ‚keine‘ verneint.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Bilde die neutrale Verneinung der ganzen Aussage. Beginne mit ‚Sie‘: sie / heute / nicht / kommt",
+      "options": [],
+      "correct_answer": "Sie kommt heute nicht.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Alle Wörter werden verwendet und ‚kommt‘ steht nach dem Subjekt.",
+          "‚Nicht‘ verneint neutral die gesamte Aussage und steht nach ‚heute‘."
+        ],
+        "sample_answer": "Sie kommt heute nicht."
+      },
+      "explanation": "Die neutrale Verneinung der ganzen Aussage steht hier am Satzende.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz, der mit ‚Er‘ beginnt: kein / er / Auto / hat",
+      "options": [],
+      "correct_answer": "Er hat kein Auto.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Der Satz hat die Reihenfolge Subjekt – Verb – Verneinung – Nomen.",
+          "Die Form ‚kein‘ passt zum neutralen Akkusativnomen ‚Auto‘."
+        ],
+        "sample_answer": "Er hat kein Auto."
+      },
+      "explanation": "‚Auto‘ ist neutral; nach ‚hat‘ steht deshalb ‚kein Auto‘.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

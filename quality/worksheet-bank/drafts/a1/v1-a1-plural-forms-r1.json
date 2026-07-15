@@ -1,0 +1,134 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-plural-forms-r1",
+    "template_key": "v1-a1-plural-forms-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Plural forms pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Häufige Nomen im Plural",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "plural-forms",
+    "name": "Pluralformen"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "plural-forms",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Deutsche Nomen bilden den Plural unterschiedlich, zum Beispiel mit -e, -er, -en oder ohne zusätzliche Endung.",
+    "key_rule": "Lerne jedes Nomen mit Artikel und Pluralform: der Tag, die Tage.",
+    "correct_examples": ["ein Bild, zwei Bilder", "eine Lampe, viele Lampen"],
+    "common_mistake_warning": "Hänge nicht automatisch -s an jedes deutsche Nomen.",
+    "what_to_revise": "Erstelle Wortpaare aus Singular und Plural für häufige Dinge im Alltag."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wie lautet der Plural von ‚das Buch‘?",
+      "options": ["die Buchs", "die Bücher", "die Buche"],
+      "correct_answer": "die Bücher",
+      "accepted_answers": ["die Bücher"],
+      "answer_contract_version": 1,
+      "explanation": "Der Plural von ‚das Buch‘ lautet mit Umlaut und -er: ‚die Bücher‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wie lautet der Plural von ‚die Frau‘?",
+      "options": ["die Frauen", "die Fraue", "die Fraus"],
+      "correct_answer": "die Frauen",
+      "accepted_answers": ["die Frauen"],
+      "answer_contract_version": 1,
+      "explanation": "Das Nomen ‚Frau‘ bildet den Plural mit der Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wie lautet der Plural von ‚das Krankenhaus‘?",
+      "options": ["die Krankenhause", "die Krankenhauses", "die Krankenhäuser"],
+      "correct_answer": "die Krankenhäuser",
+      "accepted_answers": ["die Krankenhäuser"],
+      "answer_contract_version": 1,
+      "explanation": "Der Plural enthält einen Umlaut und die Endung -er: ‚Krankenhäuser‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Tischer | Tischs | Tische]. Ergänze den Plural von ‚Tisch‘: zwei ___.",
+      "options": [],
+      "correct_answer": "Tische",
+      "accepted_answers": ["Tische"],
+      "answer_contract_version": 1,
+      "explanation": "‚Tisch‘ bildet den Plural mit der Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Kinder | Kinde | Kinds]. Ergänze den Plural von ‚Kind‘: drei ___.",
+      "options": [],
+      "correct_answer": "Kinder",
+      "accepted_answers": ["Kinder"],
+      "answer_contract_version": 1,
+      "explanation": "Der Plural von ‚Kind‘ lautet ‚Kinder‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Äpfe | Äpfel | Apfels]. Ergänze den Plural von ‚Apfel‘: viele ___.",
+      "options": [],
+      "correct_answer": "Äpfel",
+      "accepted_answers": ["Äpfel"],
+      "answer_contract_version": 1,
+      "explanation": "Bei ‚Apfel‘ zeigt der Umlaut die Pluralform ‚Äpfel‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "In einem Patientenzimmer steht ein Bett; nun werden zwei gebraucht. Welche Pluralform von ‚Bett‘ ist richtig?",
+      "options": ["zwei Betts", "zwei Betten", "zwei Bätter", "zwei Bette"],
+      "correct_answer": "zwei Betten",
+      "accepted_answers": ["zwei Betten"],
+      "rubric": null,
+      "explanation": "Die Pluralform von ‚Bett‘ lautet ‚Betten‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi braucht nicht nur ein Formular, sondern drei für die Arbeit. Welche Pluralform von ‚Formular‘ ist richtig?",
+      "options": [
+        "drei Formulars",
+        "drei Formuläre",
+        "drei Formulare",
+        "drei Formularen"
+      ],
+      "correct_answer": "drei Formulare",
+      "accepted_answers": ["drei Formulare"],
+      "rubric": null,
+      "explanation": "Die Pluralform von ‚Formular‘ lautet ‚Formulare‘.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

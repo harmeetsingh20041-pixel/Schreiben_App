@@ -1,0 +1,178 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-adjective-endings-r1",
+    "template_key": "v1-b1-adjective-endings-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Adjective endings pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Adjektivendungen: Präzise beschreiben",
+  "level": "B1",
+  "grammar_topic": { "slug": "adjective-endings", "name": "Adjektivendungen" },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "adjective-endings",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Die Endung eines attributiven Adjektivs hängt von Genus, Numerus, Kasus und dem vorausgehenden Artikelwort ab.",
+    "key_rule": "Prüfe zuerst Artikel und Kasus: Trägt der Artikel die grammatische Information deutlich, endet das Adjektiv häufig auf -e oder -en; sonst übernimmt es eine stärkere Endung.",
+    "correct_examples": [
+      "mit einer zuverlässigen Kollegin",
+      "bei starkem Verkehr"
+    ],
+    "common_mistake_warning": "Eine vertraute Endung wie -en passt nicht überall; besonders ohne Artikel muss das Adjektiv oft Genus und Kasus zeigen.",
+    "what_to_revise": "Vergleiche der aktuelle Plan, ein aktueller Plan und bei aktuellem Bedarf."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist korrekt? Auf der Station arbeiten wir mit einem ___ Kollegen zusammen.",
+      "options": ["erfahrene","erfahrenen","erfahrener","erfahrenem"],
+      "correct_answer": "erfahrenen",
+      "accepted_answers": ["erfahrenen"],
+      "explanation": "Nach „einem“ steht das Adjektiv im Dativ Maskulin mit der Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortgruppe ist korrekt? Die Krankenhausküche serviert ___.",
+      "options": [
+        "frischen vegetarischen Gerichte",
+        "frischer vegetarische Gerichte",
+        "frisches vegetarisches Gerichte",
+        "frische vegetarische Gerichte"
+      ],
+      "correct_answer": "frische vegetarische Gerichte",
+      "accepted_answers": ["frische vegetarische Gerichte"],
+      "explanation": "Im Akkusativ Plural ohne Artikel erhalten beide Adjektive die Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ergänzung passt? ___ steht direkt am Bahnhof.",
+      "options": [
+        "Das moderne Gebäude",
+        "Das modernes Gebäude",
+        "Der moderne Gebäude",
+        "Das modernen Gebäude"
+      ],
+      "correct_answer": "Das moderne Gebäude",
+      "accepted_answers": ["Das moderne Gebäude"],
+      "explanation": "Nach dem bestimmten Artikel „das“ erhält das Adjektiv im Nominativ Neutrum die Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [interessanten, interessantes, interessante]. Ergänze: Das Unternehmen macht uns ein ___ Angebot.",
+      "options": [],
+      "correct_answer": "interessantes",
+      "accepted_answers": ["interessantes"],
+      "explanation": "Nach „ein“ zeigt das Adjektiv im Akkusativ Neutrum die Endung -es.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [schlechtem, schlechten, schlechtes]. Ergänze: Bei ___ Wetter bleiben die Türen geschlossen.",
+      "options": [],
+      "correct_answer": "schlechtem",
+      "accepted_answers": ["schlechtem"],
+      "explanation": "Nach „bei“ steht der Dativ; ohne Artikel zeigt das Adjektiv beim neutralen Nomen die Endung -em.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wichtigen, wichtiger, wichtige]. Ergänze: Für morgen sind mehrere ___ Termine geplant.",
+      "options": [],
+      "correct_answer": "wichtige",
+      "accepted_answers": ["wichtige"],
+      "explanation": "Nach „mehrere“ erhält das Adjektiv im Nominativ Plural die Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [neuer, neuen, neue]. Ergänze: Die Ergebnisse ___ Studien werden morgen vorgestellt.",
+      "options": [],
+      "correct_answer": "neuer",
+      "accepted_answers": ["neuer"],
+      "explanation": "Im Genitiv Plural ohne Artikel trägt das Adjektiv die Endung -er.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält die richtige Adjektivendung nach „mit einer“?",
+      "options": [
+        "Die Pflegekraft spricht mit einer freundlicher Patientin.",
+        "Die Pflegekraft spricht mit einer freundliche Patientin.",
+        "Die Pflegekraft spricht mit einer freundlichen Patientin.",
+        "Die Pflegekraft spricht mit einer freundliches Patientin."
+      ],
+      "correct_answer": "Die Pflegekraft spricht mit einer freundlichen Patientin.",
+      "accepted_answers": [
+        "Die Pflegekraft spricht mit einer freundlichen Patientin."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „mit“ steht der Dativ. Nach „einer“ erhält das Adjektiv im Dativ Feminin die Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung der beiden Aussagen ist grammatisch korrekt? Der Kurs ist intensiv. Der Kurs dauert sechs Wochen.",
+      "options": [
+        "Der intensiver Kurs dauert sechs Wochen.",
+        "Der intensiven Kurs dauert sechs Wochen.",
+        "Der intensive Kurs dauert sechs Wochen.",
+        "Der intensiv Kurs dauert sechs Wochen."
+      ],
+      "correct_answer": "Der intensive Kurs dauert sechs Wochen.",
+      "accepted_answers": [
+        "Der intensive Kurs dauert sechs Wochen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem bestimmten Artikel „der“ trägt das Adjektiv im Nominativ Maskulin die Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wohnungsbeschreibung enthält in allen drei Sätzen korrekte Adjektivendungen?",
+      "options": [
+        "Die heller Wohnung liegt in einem ruhigen Viertel. Sie hat einen große Balkon. Durch breite Fenstern kommt viel Licht herein.",
+        "Die helle Wohnung liegt in einem ruhigen Viertel. Sie hat einen großen Balkon. Durch breite Fenster kommt viel Licht herein.",
+        "Die hellen Wohnung liegt in einem ruhige Viertel. Sie hat einen großer Balkon. Durch breite Fenster kommt viel Licht herein.",
+        "Die helle Wohnung liegt in einem ruhiger Viertel. Sie hat einen groß Balkon. Durch breiten Fenster kommt viel Licht herein."
+      ],
+      "correct_answer": "Die helle Wohnung liegt in einem ruhigen Viertel. Sie hat einen großen Balkon. Durch breite Fenster kommt viel Licht herein.",
+      "accepted_answers": [
+        "Die helle Wohnung liegt in einem ruhigen Viertel. Sie hat einen großen Balkon. Durch breite Fenster kommt viel Licht herein."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Endungen passen zu „die Wohnung“, „einem ... Viertel“, „einen ... Balkon“ und zum Plural ohne Artikel „breite Fenster“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

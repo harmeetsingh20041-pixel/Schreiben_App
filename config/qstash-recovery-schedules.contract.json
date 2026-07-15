@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "provider": "upstash_qstash",
+  "region": "eu-central-1",
+  "api_base_url": "https://qstash-eu-central-1.upstash.io",
+  "schedule_id_prefix": "schreiben-v1-recovery",
+  "destination_path": "/functions/v1/recover-async-jobs",
+  "cron": "* * * * *",
+  "method": "POST",
+  "content_type": "application/json",
+  "body": "{}",
+  "timeout_seconds": 10,
+  "retries": 2,
+  "retry_delay_expression": "1000 * (1 + retried)",
+  "forwarded_header_name": "x-process-recovery-secret",
+  "secret_environment_name": "PROCESS_RECOVERY_SECRET",
+  "token_environment_name": "QSTASH_TOKEN",
+  "redact_fields": "header[x-process-recovery-secret]",
+  "effective_max_gap_seconds": 30,
+  "baseline_deliveries_per_day": 2880,
+  "free_plan_daily_message_limit": 1000,
+  "accepted_billing_plans": ["pay_as_you_go", "fixed", "enterprise"],
+  "schedules": [
+    {
+      "role": "primary",
+      "id_suffix": "minute-00",
+      "delivery_delay_seconds": 0
+    },
+    {
+      "role": "offset",
+      "id_suffix": "minute-30",
+      "delivery_delay_seconds": 30
+    }
+  ]
+}

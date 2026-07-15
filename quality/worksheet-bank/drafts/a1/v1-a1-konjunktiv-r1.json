@@ -1,0 +1,166 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-konjunktiv-r1",
+    "template_key": "v1-a1-konjunktiv-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Konjunktiv pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Zusatztraining: Höfliche Wünsche und Bitten",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "konjunktiv",
+    "name": "Konjunktiv in höflichen Wendungen"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "konjunktiv",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Auf A1 begegnet der Konjunktiv vor allem in festen höflichen Wendungen wie ich möchte, ich würde gern und könnten Sie.",
+    "key_rule": "Nutze ‚möchte‘ für einen Wunsch und ‚Könnten Sie …?‘ für eine besonders höfliche Bitte.",
+    "correct_examples": [
+      "Ich möchte ein Wasser.",
+      "Würden Sie mir bitte helfen?"
+    ],
+    "common_mistake_warning": "Wenn nach ‚möchte‘ ein weiteres Verb folgt, steht dieses Verb im Infinitiv und nicht in einer konjugierten Form.",
+    "what_to_revise": "Lerne die höflichen Bausteine möchte, würde gern und könnten Sie als feste Wendungen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Bestellung ist höflich und richtig?",
+      "options": [
+        "Ich möchte einen Tee.",
+        "Ich willst einen Tee.",
+        "Ich möchte einen Tee bin."
+      ],
+      "correct_answer": "Ich möchte einen Tee.",
+      "accepted_answers": [
+        "Ich möchte einen Tee."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Ich möchte‘ ist eine häufige höfliche Form für eine Bestellung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Frage ist besonders höflich?",
+      "options": [
+        "Wiederholen du das?",
+        "Könnten Sie das wiederholen?",
+        "Du wiederholst das jetzt?"
+      ],
+      "correct_answer": "Könnten Sie das wiederholen?",
+      "accepted_answers": [
+        "Könnten Sie das wiederholen?"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die Wendung ‚Könnten Sie …?‘ formuliert eine höfliche Bitte.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form drückt einen Wunsch aus?",
+      "options": [
+        "Ich wurde gestern nach Berlin.",
+        "Ich werde gern Berlin gefahren.",
+        "Ich würde gern nach Berlin fahren."
+      ],
+      "correct_answer": "Ich würde gern nach Berlin fahren.",
+      "accepted_answers": [
+        "Ich würde gern nach Berlin fahren."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Würde gern‘ mit Infinitiv beschreibt einen Wunsch.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [möchte | muss | war]. Ergänze höflich: Ich ___ bitte bezahlen.",
+      "options": [],
+      "correct_answer": "möchte",
+      "accepted_answers": [
+        "möchte"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Möchte‘ macht den Wunsch zu bezahlen höflich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Waren | Könnten | Müssen]. Ergänze die Bitte: ___ Sie mir helfen?",
+      "options": [],
+      "correct_answer": "Könnten",
+      "accepted_answers": [
+        "Könnten"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Könnten Sie‘ ist eine feste höfliche Frageform.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wurde | werde | würde]. Ergänze den Wunsch: Ich ___ gern mehr Deutsch sprechen.",
+      "options": [],
+      "correct_answer": "würde",
+      "accepted_answers": [
+        "würde"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die Form ‚würde gern‘ drückt einen persönlichen Wunsch aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha möchte den Dienstplan sehen. Welche höfliche Form ist grammatisch richtig?",
+      "options": [
+        "Ich möchten den Dienstplan sehen.",
+        "Ich möchte den Dienstplan sehe.",
+        "Ich möchte den Dienstplan gesehen.",
+        "Ich möchte den Dienstplan sehen."
+      ],
+      "correct_answer": "Ich möchte den Dienstplan sehen.",
+      "accepted_answers": ["Ich möchte den Dienstplan sehen."],
+      "rubric": null,
+      "explanation": "Nach ‚möchte‘ steht das weitere Verb im Infinitiv ‚sehen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi bittet im Gespräch höflich um langsameres Sprechen. Welche Frage ist richtig?",
+      "options": [
+        "Könnte Sie bitte langsamer sprechen?",
+        "Könnten Sie bitte langsamer sprechen?",
+        "Könnten bitte Sie langsamer spricht?",
+        "Sie könnten bitte langsamer spricht?"
+      ],
+      "correct_answer": "Könnten Sie bitte langsamer sprechen?",
+      "accepted_answers": ["Könnten Sie bitte langsamer sprechen?"],
+      "rubric": null,
+      "explanation": "In der höflichen Frage steht ‚Könnten‘ zuerst und der Infinitiv am Ende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

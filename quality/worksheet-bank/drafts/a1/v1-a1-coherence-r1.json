@@ -1,0 +1,154 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-coherence-r1",
+    "template_key": "v1-a1-coherence-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Coherence pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Klare Reihenfolge in kurzen Texten",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "coherence",
+    "name": "Textzusammenhang"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "coherence",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein kurzer Text ist leicht verständlich, wenn die Sätze logisch geordnet sind und beim selben Thema oder Ablauf bleiben.",
+    "key_rule": "Prüfe bei jedem Satz: Passt er zum Thema, führt er den Ablauf sinnvoll weiter und ist sein Bezug zu den anderen Sätzen klar?",
+    "correct_examples": [
+      "Zuerst öffne ich das Fenster. Danach lüfte ich das Zimmer.",
+      "Ich esse und dann gehe ich los."
+    ],
+    "common_mistake_warning": "Wechsle nicht plötzlich zu einer anderen Person, einem anderen Thema oder einer unlogischen Handlung.",
+    "what_to_revise": "Ordne kurze Tagesabläufe und prüfe, ob jeder Satz zum gemeinsamen Thema passt."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz führt den morgendlichen Ablauf derselben Person logisch fort: ‚Zuerst stehe ich auf.‘?",
+      "options": [
+        "Dann duscht meine Schwester am Abend.",
+        "Danach fährt der Bus zur Arbeit.",
+        "Dann dusche ich."
+      ],
+      "correct_answer": "Dann dusche ich.",
+      "accepted_answers": ["Dann dusche ich."],
+      "answer_contract_version": 1,
+      "explanation": "‚Dann‘ führt den nächsten Schritt eines morgendlichen Ablaufs ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Reihenfolge beschreibt den Start einer Deutschstunde logisch?",
+      "options": [
+        "Zuerst endet der Kurs. Dann beginnt er.",
+        "Zuerst beginnt der Kurs. Dann lernen wir.",
+        "Zuerst gehen alle nach Hause. Dann betreten sie den Kursraum."
+      ],
+      "correct_answer": "Zuerst beginnt der Kurs. Dann lernen wir.",
+      "accepted_answers": ["Zuerst beginnt der Kurs. Dann lernen wir."],
+      "answer_contract_version": 1,
+      "explanation": "Der Kurs muss beginnen, bevor die gemeinsame Lernphase folgt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Schlusssatz passt zu einem Tagesablauf, der morgens beginnt und abends endet?",
+      "options": [
+        "Zum Schluss gehe ich schlafen.",
+        "Zum Schluss fahre ich morgens zur Arbeit.",
+        "Zum Schluss stehe ich früh auf."
+      ],
+      "correct_answer": "Zum Schluss gehe ich schlafen.",
+      "accepted_answers": ["Zum Schluss gehe ich schlafen."],
+      "answer_contract_version": 1,
+      "explanation": "Der Ausdruck ‚zum Schluss‘ kennzeichnet den letzten Schritt eindeutig.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wähle das Wort, das die Handlung in der Küche sinnvoll fortsetzt. Wortbank: [Fahrrad | Frühstück | Bett]. Ergänze: Ich gehe in die Küche. Dort mache ich mein ___.",
+      "options": [],
+      "correct_answer": "Frühstück",
+      "accepted_answers": ["Frühstück"],
+      "answer_contract_version": 1,
+      "explanation": "‚Frühstück‘ setzt das Küchenthema logisch fort; alle drei Wörter könnten grammatisch nach ‚mein‘ stehen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wähle das Wort, das die Tätigkeit im Büro sinnvoll fortsetzt. Wortbank: [Arbeit | Jacke | Suppe]. Ergänze: Am Morgen fahre ich ins Büro. Dort beginne ich meine ___.",
+      "options": [],
+      "correct_answer": "Arbeit",
+      "accepted_answers": ["Arbeit"],
+      "answer_contract_version": 1,
+      "explanation": "Im Büro setzt ‚Arbeit‘ den Zusammenhang logisch fort. ‚Jacke‘ und ‚Suppe‘ passen hier weder zum Verb ‚beginnen‘ noch zum Bürokontext.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Der zweite Satz setzt den Schlafablauf fort. Wortbank: [Büro | Café | Bett]. Ergänze: Am Abend ziehe ich den Schlafanzug an. Danach gehe ich ins ___.",
+      "options": [],
+      "correct_answer": "Bett",
+      "accepted_answers": ["Bett"],
+      "answer_contract_version": 1,
+      "explanation": "Nach dem Anziehen des Schlafanzugs führt ‚ins Bett gehen‘ den Schlafablauf logisch fort; alle drei Nomen passen grammatisch nach ‚ins‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha betritt ein Patientenzimmer. Welche Reihenfolge ist logisch?",
+      "options": [
+        "Zuerst betritt Asha das Zimmer. Zuerst öffnet sie danach die Tür.",
+        "Zuerst betritt Asha das Zimmer. Dann öffnet sie die Tür.",
+        "Dann öffnet Asha die Tür. Zuerst betritt sie das Zimmer.",
+        "Zuerst öffnet Asha die Tür. Dann betritt sie das Zimmer."
+      ],
+      "correct_answer": "Zuerst öffnet Asha die Tür. Dann betritt sie das Zimmer.",
+      "accepted_answers": ["Zuerst öffnet Asha die Tür. Dann betritt sie das Zimmer."],
+      "rubric": null,
+      "explanation": "Ein verständlicher Ablauf nennt zuerst das Öffnen der Tür und danach das Betreten des Zimmers.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Lösung nennt den letzten Schritt klar und hat die richtige Hauptsatzstellung?",
+      "options": [
+        "Zum Schluss räumt Ravi den Arbeitsplatz auf.",
+        "Zum Schluss räumen Ravi den Arbeitsplatz auf.",
+        "Zum Schluss aufräumt Ravi den Arbeitsplatz.",
+        "Zum Schluss Ravi räumt den Arbeitsplatz auf."
+      ],
+      "correct_answer": "Zum Schluss räumt Ravi den Arbeitsplatz auf.",
+      "accepted_answers": ["Zum Schluss räumt Ravi den Arbeitsplatz auf."],
+      "rubric": null,
+      "explanation": "Der Zeitanschluss steht vorn; im Hauptsatz folgt direkt das finite Verb.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

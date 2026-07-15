@@ -1,0 +1,181 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-punctuation-r2",
+    "template_key": "v1-b2-punctuation-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Punctuation accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Zeichensetzung: Komplexe Strukturen gliedern",
+  "level": "B2",
+  "grammar_topic": { "slug": "punctuation", "name": "Zeichensetzung" },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "punctuation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Bei längeren Sätzen zeigen Kommas die Grenzen mehrerer Teilsätze und Einschübe. Doppelpunkt und Gedankenstrich können zusätzlich Ankündigungen oder hervorgehobene Nachträge markieren.",
+    "key_rule": "Bestimme zuerst die Satzstruktur und setze dann jedes notwendige Grenzzeichen; stilistische Zeichen dürfen grammatisch notwendige Kommas nicht ersetzen.",
+    "correct_examples": [
+      "Sie nannte drei Gründe: Zeit, Kosten und Personal.",
+      "Der Termin – darin waren sich alle einig – musste verschoben werden."
+    ],
+    "common_mistake_warning": "Ein Doppelpunkt steht nur, wenn der vorausgehende Satz eine Erläuterung, Aufzählung oder wörtliche Äußerung ankündigt.",
+    "what_to_revise": "Unterscheide obligatorische Kommas, Doppelpunkte bei Ankündigungen und paarige Gedankenstriche bei Einschüben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Version setzt den Doppelpunkt korrekt?",
+      "options": [
+        "Für die Bewerbung fehlen noch zwei Unterlagen: der Lebenslauf und das Zeugnis.",
+        "Für die Bewerbung: fehlen noch zwei Unterlagen der Lebenslauf und das Zeugnis.",
+        "Für die Bewerbung fehlen: noch zwei Unterlagen, der Lebenslauf und das Zeugnis.",
+        "Für: die Bewerbung fehlen noch zwei Unterlagen der Lebenslauf und das Zeugnis."
+      ],
+      "correct_answer": "Für die Bewerbung fehlen noch zwei Unterlagen: der Lebenslauf und das Zeugnis.",
+      "accepted_answers": [
+        "Für die Bewerbung fehlen noch zwei Unterlagen: der Lebenslauf und das Zeugnis."
+      ],
+      "explanation": "Der vollständige Hauptsatz kündigt mit zwei Unterlagen die anschließende Erläuterung an; deshalb passt dort der Doppelpunkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Version markiert den eingeschobenen Kommentar korrekt mit Gedankenstrichen?",
+      "options": [
+        "Die Lösung darüber – bestand Einigkeit – sollte sofort umgesetzt werden.",
+        "Die Lösung – darüber bestand – Einigkeit sollte sofort umgesetzt werden.",
+        "Die Lösung – darüber bestand Einigkeit – sollte sofort umgesetzt werden.",
+        "Die Lösung – darüber bestand Einigkeit sollte sofort umgesetzt werden."
+      ],
+      "correct_answer": "Die Lösung – darüber bestand Einigkeit – sollte sofort umgesetzt werden.",
+      "accepted_answers": [
+        "Die Lösung – darüber bestand Einigkeit – sollte sofort umgesetzt werden."
+      ],
+      "explanation": "Der eingeschobene Kommentar darüber bestand Einigkeit wird als vollständiger Einschub durch zwei Gedankenstriche begrenzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Version trennt alle Teilsätze korrekt?",
+      "options": [
+        "Wenn, die Prüfung abgeschlossen ist informieren wir Sie damit Sie die nächsten Schritte planen können.",
+        "Wenn die Prüfung abgeschlossen ist, informieren wir Sie, damit Sie die nächsten Schritte planen können.",
+        "Wenn die Prüfung abgeschlossen ist informieren wir Sie, damit Sie die nächsten Schritte planen können.",
+        "Wenn die Prüfung abgeschlossen ist, informieren wir Sie damit Sie, die nächsten Schritte planen können."
+      ],
+      "correct_answer": "Wenn die Prüfung abgeschlossen ist, informieren wir Sie, damit Sie die nächsten Schritte planen können.",
+      "accepted_answers": [
+        "Wenn die Prüfung abgeschlossen ist, informieren wir Sie, damit Sie die nächsten Schritte planen können."
+      ],
+      "explanation": "Sowohl der vorangestellte wenn-Satz als auch der nachgestellte damit-Satz werden jeweils vom Hauptsatz durch Komma getrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Welches Satzzeichen fehlt vor Kosten in ‚Die Analyse berücksichtigt drei Faktoren Kosten, Zeit und Personal‘? Antwort: ___ . Wortbank: [Fragezeichen | Doppelpunkt].",
+      "options": [],
+      "correct_answer": "Doppelpunkt",
+      "accepted_answers": ["Doppelpunkt"],
+      "explanation": "Die Wortgruppe drei Faktoren kündigt eine konkretisierende Aufzählung an; der Doppelpunkt verbindet Ankündigung und Aufzählung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Welches Satzzeichen fehlt nach planen in ‚Je genauer wir planen desto sicherer wird die Umsetzung‘? Antwort: ___ . Wortbank: [Komma | Doppelpunkt].",
+      "options": [],
+      "correct_answer": "Komma",
+      "accepted_answers": ["Komma"],
+      "explanation": "Zwischen den beiden Teilen der je-desto-Fügung steht ein Komma, das die korrespondierenden Teilsätze trennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Welches Satzzeichen fehlt vor ohne in ‚Sie verließ den Raum ohne sich zu verabschieden‘? Antwort: ___ . Wortbank: [Doppelpunkt | Komma].",
+      "options": [],
+      "correct_answer": "Komma",
+      "accepted_answers": ["Komma"],
+      "explanation": "Eine mit ohne eingeleitete Infinitivgruppe wird obligatorisch durch ein Komma vom übergeordneten Satz abgetrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Welches Satzzeichen fehlt nach vorlag in ‚Da noch keine Genehmigung vorlag obwohl alle Unterlagen vollständig waren, verzögerte sich der Beginn‘? Antwort: ___ . Wortbank: [Komma | Doppelpunkt].",
+      "options": [],
+      "correct_answer": "Komma",
+      "accepted_answers": ["Komma"],
+      "explanation": "Der in den da-Satz eingeschobene obwohl-Satz beginnt nach vorlag und muss dort mit einem Komma eröffnet werden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Bausteine und setze die notwendigen Kommas: [Sobald / die Freigabe vorliegt / beginnen wir / damit / keine weitere Zeit verloren geht].",
+      "options": [],
+      "correct_answer": "Sobald die Freigabe vorliegt, beginnen wir, damit keine weitere Zeit verloren geht.",
+      "rubric": {
+        "criteria": [
+          "Verwende jeden Baustein genau einmal und beginne mit Sobald.",
+          "Setze ein Komma nach vorliegt und ein weiteres vor damit."
+        ],
+        "sample_answer": "Sobald die Freigabe vorliegt, beginnen wir, damit keine weitere Zeit verloren geht."
+      },
+      "explanation": "Der Hauptsatz wird sowohl vom vorangestellten sobald-Satz als auch vom nachgestellten damit-Satz durch Kommas abgegrenzt.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Markiere den Einschub mit einem Gedankenstrichpaar und setze alle weiteren notwendigen Satzzeichen, ohne Wörter zu verändern: Das Ergebnis darin waren sich alle einig musste genauer geprüft werden weil wichtige Daten fehlten.",
+      "options": [],
+      "correct_answer": "Das Ergebnis – darin waren sich alle einig – musste genauer geprüft werden, weil wichtige Daten fehlten.",
+      "rubric": {
+        "criteria": [
+          "Grenze den Einschub darin waren sich alle einig mit zwei Gedankenstrichen ab.",
+          "Setze ein Komma vor dem weil-Nebensatz und verändere keine Wörter."
+        ],
+        "sample_answer": "Das Ergebnis – darin waren sich alle einig – musste genauer geprüft werden, weil wichtige Daten fehlten."
+      },
+      "explanation": "Die Gedankenstriche kennzeichnen den eingeschobenen Kommentar; das Komma trennt den begründenden weil-Satz ab.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe zwei Sätze über die Planung einer Fortbildung für ein Pflegeteam. Verwende im ersten einen Doppelpunkt vor einer Aufzählung mit drei Punkten und im zweiten ein Gedankenstrichpaar für einen kurzen Kommentar.",
+      "options": [],
+      "correct_answer": "Für die Fortbildung benötigen wir drei Dinge: einen Raum, einen Zeitplan und vollständige Unterlagen. Der erste Entwurf – das bestätigte die Pflegedienstleitung – soll am Freitag vorliegen.",
+      "rubric": {
+        "criteria": [
+          "Schreibe genau zwei grammatisch korrekte Sätze zur Planung einer Fortbildung für ein Pflegeteam.",
+          "Kündige im ersten Satz eine dreiteilige Aufzählung mit Doppelpunkt an.",
+          "Grenze im zweiten Satz einen sinnvollen Kommentar mit zwei Gedankenstrichen ab."
+        ],
+        "sample_answer": "Für die Fortbildung benötigen wir drei Dinge: einen Raum, einen Zeitplan und vollständige Unterlagen. Der erste Entwurf – das bestätigte die Pflegedienstleitung – soll am Freitag vorliegen."
+      },
+      "explanation": "Der Doppelpunkt führt eine angekündigte Liste ein; zwei Gedankenstriche machen den eingeschobenen Kommentar als Einheit sichtbar.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

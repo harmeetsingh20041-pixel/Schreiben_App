@@ -1,0 +1,167 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-passive-voice-r1",
+    "template_key": "v1-a1-passive-voice-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Passive voice pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Zusatztraining: Passiv in Hinweisen erkennen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "passive-voice",
+    "name": "Passiv"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "passive-voice",
+    "stretch-practice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Dieses Zusatztraining hilft dir, häufige Passivformen in Hinweisen und einfachen Abläufen zu verstehen. Konzentriere dich zuerst auf das Erkennen des Musters.",
+    "key_rule": "Erkenne wird oder werden plus Partizip: Die Tür wird geschlossen. Das beschreibt einen Vorgang; ist plus Partizip kann dagegen einen fertigen Zustand beschreiben.",
+    "correct_examples": [
+      "Das Zimmer wird gereinigt.",
+      "Die Gläser werden gespült."
+    ],
+    "common_mistake_warning": "Nach ‚wird‘ oder ‚werden‘ steht in diesem Muster das Partizip, nicht der einfache Infinitiv.",
+    "what_to_revise": "Übe zuerst, häufige Hinweise mit ‚wird geöffnet‘, ‚wird gemacht‘ und ‚wird gereinigt‘ sicher zu erkennen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht im Passiv?",
+      "options": [
+        "Die Tür öffnet Mira jeden Tag.",
+        "Die Tür wird geöffnet.",
+        "Mira öffnet die Tür."
+      ],
+      "correct_answer": "Die Tür wird geöffnet.",
+      "accepted_answers": [
+        "Die Tür wird geöffnet."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Wird geöffnet‘ beschreibt die Handlung im Passiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Passivform passt zum Plural? Die Betten ___.",
+      "options": [
+        "werden gemacht",
+        "wird gemacht",
+        "machen werden"
+      ],
+      "correct_answer": "werden gemacht",
+      "accepted_answers": [
+        "werden gemacht"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Zum Plural ‚die Betten‘ gehört ‚werden‘ mit dem Partizip ‚gemacht‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Hinweis ist grammatisch richtig?",
+      "options": [
+        "Hier werden nicht rauchen.",
+        "Hier wird nicht raucht.",
+        "Hier wird nicht geraucht."
+      ],
+      "correct_answer": "Hier wird nicht geraucht.",
+      "accepted_answers": [
+        "Hier wird nicht geraucht."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Der unpersönliche Hinweis verwendet ‚wird‘ und das Partizip ‚geraucht‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Der Kochvorgang passiert jetzt. Wortbank: [wird | werden | ist]. Ergänze im Vorgangspassiv: Das Essen ___ gekocht.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": [
+        "wird"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Der Satz beschreibt den Kochvorgang. Das einzelne Nomen ‚das Essen‘ verlangt deshalb die Vorgangspassivform ‚wird gekocht‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wurden | werden | wird]. Ergänze im Präsens: Die Hände ___ gewaschen.",
+      "options": [],
+      "correct_answer": "werden",
+      "accepted_answers": [
+        "werden"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Pluralsubjekt ‚die Hände‘ verbindet sich im Präsens mit ‚werden‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [öffnen | öffnet | geöffnet]. Ergänze das Partizip: Die Praxis wird um acht Uhr ___.",
+      "options": [],
+      "correct_answer": "geöffnet",
+      "accepted_answers": [
+        "geöffnet"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚wird‘ steht im Passiv das Partizip ‚geöffnet‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Im Patientenzimmer wird ein Bett vorbereitet. Welche Passivform ist richtig?",
+      "options": [
+        "Das Bett werden gemacht.",
+        "Das Bett wird gemacht.",
+        "Das Bett wird macht.",
+        "Das Bett wird machen."
+      ],
+      "correct_answer": "Das Bett wird gemacht.",
+      "accepted_answers": ["Das Bett wird gemacht."],
+      "rubric": null,
+      "explanation": "Das Vorgangspassiv mit ‚wird‘ benötigt das Partizip ‚gemacht‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ein Raum wird jeden Morgen gereinigt. Welcher Passivsatz ist richtig?",
+      "options": [
+        "Das Zimmer wird jeden Morgen reinigen.",
+        "Das Zimmer werden jeden Morgen gereinigt.",
+        "Das Zimmer wird jeden Morgen gereinigt.",
+        "Das Zimmer jeden Morgen wird gereinigt."
+      ],
+      "correct_answer": "Das Zimmer wird jeden Morgen gereinigt.",
+      "accepted_answers": ["Das Zimmer wird jeden Morgen gereinigt."],
+      "rubric": null,
+      "explanation": "Im Passiv-Hauptsatz steht die Form von ‚werden‘ früh und das Partizip am Ende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

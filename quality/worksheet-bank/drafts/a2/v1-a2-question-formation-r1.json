@@ -1,0 +1,154 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-question-formation-r1",
+    "template_key": "v1-a2-question-formation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Question formation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Fragebildung: Gezielt nachfragen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "question-formation",
+    "name": "Fragebildung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "question-formation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Entscheidungsfragen beginnen mit dem finiten Verb; W-Fragen beginnen mit einem Fragewort und haben das Verb an zweiter Stelle.",
+    "key_rule": "Wähle das Fragewort nach der gesuchten Information: wer, was, wann, wo, warum oder wie.",
+    "correct_examples": ["Kommst du morgen?", "Wann beginnt der Unterricht?"],
+    "common_mistake_warning": "Verwende in einer direkten Frage nicht die Wortstellung eines Aussagesatzes.",
+    "what_to_revise": "Übe Ja-Nein-Fragen und W-Fragen zu Personen, Zeiten, Orten und Gründen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche neutrale Entscheidungsfrage beginnt korrekt mit dem finiten Verb?",
+      "options": [
+        "Hast du heute Zeit?",
+        "Du hast heute Zeit?",
+        "Hast heute du Zeit?",
+        "Heute du hast Zeit?"
+      ],
+      "correct_answer": "Hast du heute Zeit?",
+      "accepted_answers": ["Hast du heute Zeit?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Eine Entscheidungsfrage beginnt mit dem finiten Verb „Hast“, danach folgt das Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Frage verlangt eine Zeitangabe als Antwort?",
+      "options": [
+        "Wo beginnt die Besprechung?",
+        "Wer beginnt die Besprechung?",
+        "Warum die Besprechung beginnt?",
+        "Wann beginnt die Besprechung?"
+      ],
+      "correct_answer": "Wann beginnt die Besprechung?",
+      "accepted_answers": ["Wann beginnt die Besprechung?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Fragewort „wann“ fragt gezielt nach einem Zeitpunkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Wann, Wer, Wo]. Ergänze die Frage nach einem Ort: ___ findet der Kurs statt?",
+      "options": [],
+      "correct_answer": "Wo",
+      "accepted_answers": ["Wo"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Wo“ fragt nach dem Ort, an dem der Kurs stattfindet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Warum, Wie viele, Wohin]. Ergänze die Frage nach einem Grund: ___ lernst du Deutsch?",
+      "options": [],
+      "correct_answer": "Warum",
+      "accepted_answers": ["Warum"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Warum“ leitet eine Frage nach dem Grund ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Können, Kannst, Du kannst]. Ergänze den Frageanfang: ___ du mir helfen?",
+      "options": [],
+      "correct_answer": "Kannst",
+      "accepted_answers": ["Kannst"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Entscheidungsfrage beginnt mit der finiten Form „Kannst“ vor dem Subjekt „du“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Frage ist richtig aufgebaut?",
+      "options": [
+        "Wann beginnt der Frühdienst.",
+        "Wann der Frühdienst beginnen?",
+        "Wann beginnt der Frühdienst?",
+        "Wann der Frühdienst beginnt?"
+      ],
+      "correct_answer": "Wann beginnt der Frühdienst?",
+      "accepted_answers": ["Wann beginnt der Frühdienst?"],
+      "rubric": null,
+      "explanation": "In der direkten W-Frage steht das konjugierte Verb beginnt direkt nach dem Fragewort wann.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Wer, Wo, Wann, Warum]. ___ arbeitet heute auf Station zwei? – Ravi.",
+      "options": [],
+      "correct_answer": "Wer",
+      "accepted_answers": ["Wer"],
+      "rubric": null,
+      "explanation": "Die Antwort nennt eine Person; deshalb beginnt die Frage mit wer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche neutrale standardsprachliche Ja-Nein-Frage folgt dem Muster Verb – Subjekt – Rest?",
+      "options": [
+        "Sie mir können helfen?",
+        "Können Sie mir helfen?",
+        "Sie können mir helfen?",
+        "Können mir Sie helfen?"
+      ],
+      "correct_answer": "Können Sie mir helfen?",
+      "accepted_answers": ["Können Sie mir helfen?"],
+      "rubric": null,
+      "explanation": "In der neutralen standardsprachlichen Ja-Nein-Frage steht können zuerst und das Subjekt Sie direkt danach.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,698 @@
+{
+  "schema_version": 1,
+  "findings": [
+    {
+      "id": "SEC-001",
+      "severity": "P0",
+      "rationale": "Privilege escalation permits unauthorized teacher authority."
+    },
+    {
+      "id": "SEC-002",
+      "severity": "P0",
+      "rationale": "User-controlled metadata must never grant authorization."
+    },
+    {
+      "id": "SEC-003",
+      "severity": "P0",
+      "rationale": "Join-code disclosure can enable unauthorized enrollment attempts."
+    },
+    {
+      "id": "SEC-004",
+      "severity": "P0",
+      "rationale": "Offboarded users retaining access is an authorization failure."
+    },
+    {
+      "id": "SEC-005",
+      "severity": "P2",
+      "rationale": "Misleading invitation UX has a safe V1 enrollment alternative."
+    },
+    {
+      "id": "SEC-006",
+      "severity": "P1",
+      "rationale": "Archived classes can block a student's core workflow."
+    },
+    {
+      "id": "SEC-007",
+      "severity": "P1",
+      "rationale": "Incomplete confirmation can strand newly registered users."
+    },
+    {
+      "id": "SEC-008",
+      "severity": "P1",
+      "rationale": "Missing recovery can permanently block account access."
+    },
+    {
+      "id": "SEC-009",
+      "severity": "P0",
+      "rationale": "Conflicting enrollment decisions can create unauthorized membership."
+    },
+    {
+      "id": "SEC-010",
+      "severity": "P0",
+      "rationale": "Implicit workspace context risks cross-workspace access or mutation."
+    },
+    {
+      "id": "SEC-011",
+      "severity": "P1",
+      "rationale": "Silent caps hide students and enrollment requests from teachers."
+    },
+    {
+      "id": "SEC-012",
+      "severity": "P1",
+      "rationale": "Identity drift can break account lookup and administrative actions."
+    },
+    {
+      "id": "SEC-013",
+      "severity": "P0",
+      "rationale": "A retained code must not restore an offboarded user's access."
+    },
+    {
+      "id": "SEC-014",
+      "severity": "P0",
+      "rationale": "An overexposed Data API can bypass the intended security boundary."
+    },
+    {
+      "id": "SEC-015",
+      "severity": "P1",
+      "rationale": "Replayable worker kicks can amplify privileged global processing cost and availability impact."
+    },
+    {
+      "id": "SEC-016",
+      "severity": "P1",
+      "rationale": "Unbounded join-code attempts enable enrollment abuse and systematic code guessing."
+    },
+    {
+      "id": "SEC-017",
+      "severity": "P0",
+      "rationale": "Direct DML, sequence, or internal-schema access can bypass the reviewed RPC authorization boundary."
+    },
+    {
+      "id": "SEC-018",
+      "severity": "P1",
+      "rationale": "Incorrect join-code response handling can strand or mislead students during core enrollment."
+    },
+    {
+      "id": "SEC-019",
+      "severity": "P1",
+      "rationale": "A protected route must never show fixed demo feedback instead of the student's requested submission."
+    },
+    {
+      "id": "SEC-020",
+      "severity": "P0",
+      "rationale": "Browser-controlled maintenance operations can disrupt database availability and bypass the intended RPC-only boundary."
+    },
+
+    {
+      "id": "WRITE-001",
+      "severity": "P0",
+      "rationale": "Direct writes can bypass feedback-mode authorization and release controls."
+    },
+    {
+      "id": "WRITE-002",
+      "severity": "P0",
+      "rationale": "Private or uncertain feedback must never be exposed to students."
+    },
+    {
+      "id": "WRITE-003",
+      "severity": "P1",
+      "rationale": "Immediate feedback is a core promised workflow."
+    },
+    {
+      "id": "WRITE-004",
+      "severity": "P1",
+      "rationale": "Unretried failures can permanently lose evaluation outcomes."
+    },
+    {
+      "id": "WRITE-005",
+      "severity": "P1",
+      "rationale": "Stale jobs can leave students indefinitely blocked."
+    },
+    {
+      "id": "WRITE-006",
+      "severity": "P1",
+      "rationale": "Timeout mismatch can strand otherwise valid submissions."
+    },
+    {
+      "id": "WRITE-007",
+      "severity": "P0",
+      "rationale": "Partial persistence can expose contradictory or corrupt feedback state."
+    },
+    {
+      "id": "WRITE-008",
+      "severity": "P0",
+      "rationale": "Failed jobs must not leave student-visible private fragments."
+    },
+    {
+      "id": "WRITE-009",
+      "severity": "P1",
+      "rationale": "Text corruption invalidates evaluator accuracy."
+    },
+    {
+      "id": "WRITE-010",
+      "severity": "P1",
+      "rationale": "Whitespace and paragraph corruption invalidates evaluator accuracy."
+    },
+    {
+      "id": "WRITE-011",
+      "severity": "P1",
+      "rationale": "Lost topics break feedback and adaptive practice."
+    },
+    {
+      "id": "WRITE-012",
+      "severity": "P1",
+      "rationale": "Alias collisions can fail otherwise valid evaluations."
+    },
+    {
+      "id": "WRITE-013",
+      "severity": "P1",
+      "rationale": "Incorrect diffs can misteach students."
+    },
+    {
+      "id": "WRITE-014",
+      "severity": "P1",
+      "rationale": "Poison jobs threaten queue reliability for all users."
+    },
+    {
+      "id": "WRITE-015",
+      "severity": "P1",
+      "rationale": "Weak semantic validation can release incorrect educational feedback."
+    },
+    {
+      "id": "WRITE-016",
+      "severity": "P1",
+      "rationale": "Stale open pages can conceal ready feedback or failure states."
+    },
+    {
+      "id": "WRITE-017",
+      "severity": "P2",
+      "rationale": "Incorrect success copy is misleading but does not corrupt data."
+    },
+    {
+      "id": "WRITE-018",
+      "severity": "P1",
+      "rationale": "Post-limit filters can hide required teacher review work."
+    },
+    {
+      "id": "WRITE-019",
+      "severity": "P0",
+      "rationale": "Writing attached to the wrong class is a context and privacy failure."
+    },
+    {
+      "id": "WRITE-020",
+      "severity": "P1",
+      "rationale": "A stranded draft can lose student work."
+    },
+    {
+      "id": "WRITE-021",
+      "severity": "P0",
+      "rationale": "Raw internal errors can disclose sensitive implementation details."
+    },
+    {
+      "id": "WRITE-022",
+      "severity": "P1",
+      "rationale": "Unbounded or post-deadline provider bodies can exhaust worker resources and strand durable jobs."
+    },
+    {
+      "id": "WRITE-023",
+      "severity": "P1",
+      "rationale": "Adversarial corrected text can trigger worst-case diff work and deny evaluator capacity."
+    },
+    {
+      "id": "WRITE-024",
+      "severity": "P1",
+      "rationale": "Ambiguous response envelopes or model-role drift can make untrusted output appear authoritative."
+    },
+    {
+      "id": "WRITE-025",
+      "severity": "P1",
+      "rationale": "Invalid or uncertain first-pass feedback must retry safely and remain private when confidence is unresolved."
+    },
+    {
+      "id": "WRITE-026",
+      "severity": "P0",
+      "rationale": "A queue result alias mismatch makes the core writing submission transaction fail before durable acknowledgement."
+    },
+    {
+      "id": "WRITE-027",
+      "severity": "P1",
+      "rationale": "A capped draft lookup can strand active writing behind an unrecoverable uniqueness conflict."
+    },
+    {
+      "id": "WRITE-028",
+      "severity": "P1",
+      "rationale": "A restore-readiness race can strand valid student text outside revision-safe autosave."
+    },
+    {
+      "id": "WRITE-029",
+      "severity": "P1",
+      "rationale": "Unwanted empty draft rows consume quota and can obstruct reliable draft history."
+    },
+    {
+      "id": "WRITE-030",
+      "severity": "P1",
+      "rationale": "Generic revision-conflict failures prevent safe student recovery from concurrent writing or practice edits."
+    },
+    {
+      "id": "WRITE-031",
+      "severity": "P1",
+      "rationale": "Terminologically false feedback can teach the wrong error concept even when the corrected span itself is accurate."
+    },
+
+    {
+      "id": "PRACTICE-001",
+      "severity": "P1",
+      "rationale": "Recurring weaknesses require a usable active practice path."
+    },
+    {
+      "id": "PRACTICE-002",
+      "severity": "P1",
+      "rationale": "Stale generation can leave practice indefinitely blocked."
+    },
+    {
+      "id": "PRACTICE-003",
+      "severity": "P1",
+      "rationale": "Stale evaluation can leave an attempt indefinitely blocked."
+    },
+    {
+      "id": "PRACTICE-004",
+      "severity": "P1",
+      "rationale": "Partial finalization can corrupt score and review state."
+    },
+    {
+      "id": "PRACTICE-005",
+      "severity": "P1",
+      "rationale": "Rejecting valid answers directly harms educational correctness."
+    },
+    {
+      "id": "PRACTICE-006",
+      "severity": "P1",
+      "rationale": "Exact scoring is unsafe for flexible language answers."
+    },
+    {
+      "id": "PRACTICE-007",
+      "severity": "P0",
+      "rationale": "Destructive re-import can corrupt historical student attempts."
+    },
+    {
+      "id": "PRACTICE-008",
+      "severity": "P0",
+      "rationale": "Partial imports can leave irreconcilable content revisions."
+    },
+    {
+      "id": "PRACTICE-009",
+      "severity": "P1",
+      "rationale": "Lost mappings prevent the promised adaptive workflow."
+    },
+    {
+      "id": "PRACTICE-010",
+      "severity": "P1",
+      "rationale": "Resolved weaknesses must not be immediately reopened by stale evidence."
+    },
+    {
+      "id": "PRACTICE-011",
+      "severity": "P1",
+      "rationale": "Contradictory points and status invalidate student scores."
+    },
+    {
+      "id": "PRACTICE-012",
+      "severity": "P1",
+      "rationale": "Contract mismatch can create unevaluable worksheets."
+    },
+    {
+      "id": "PRACTICE-013",
+      "severity": "P1",
+      "rationale": "A sentinel is not a valid semantic-scoring contract."
+    },
+    {
+      "id": "PRACTICE-014",
+      "severity": "P0",
+      "rationale": "Student personal data must not be sent unnecessarily to providers."
+    },
+    {
+      "id": "PRACTICE-015",
+      "severity": "P1",
+      "rationale": "Unreviewed generated content can expose students to ambiguous work."
+    },
+    {
+      "id": "PRACTICE-016",
+      "severity": "P1",
+      "rationale": "Relabeled fallback content violates CEFR accuracy."
+    },
+    {
+      "id": "PRACTICE-017",
+      "severity": "P1",
+      "rationale": "Refresh must not lose a student's worksheet answers."
+    },
+    {
+      "id": "PRACTICE-018",
+      "severity": "P1",
+      "rationale": "Teacher-support recommendations need an actionable resolution path."
+    },
+    {
+      "id": "PRACTICE-019",
+      "severity": "P2",
+      "rationale": "Broken documentation blocks operators but not the runtime product."
+    },
+    {
+      "id": "PRACTICE-020",
+      "severity": "P2",
+      "rationale": "Stale empty-state copy is misleading but recoverable."
+    },
+    {
+      "id": "PRACTICE-021",
+      "severity": "P1",
+      "rationale": "A displayed but unreachable state breaks the adaptive contract."
+    },
+    {
+      "id": "PRACTICE-022",
+      "severity": "P1",
+      "rationale": "Contradictory generation state can block usable practice."
+    },
+    {
+      "id": "PRACTICE-023",
+      "severity": "P0",
+      "rationale": "Unattributed or unauthorized approval can make unsafe content reusable."
+    },
+    {
+      "id": "PRACTICE-024",
+      "severity": "P1",
+      "rationale": "Answer prompt injection can corrupt educational scores and feedback."
+    },
+    {
+      "id": "PRACTICE-025",
+      "severity": "P1",
+      "rationale": "Unreconciled production content can bypass the qualified worksheet bank."
+    },
+    {
+      "id": "PRACTICE-026",
+      "severity": "P1",
+      "rationale": "A broken adaptive retry chain can strand a student without the required practice assignment."
+    },
+    {
+      "id": "PRACTICE-027",
+      "severity": "P1",
+      "rationale": "Serial AI stages can exhaust one worker deadline and strand otherwise valid worksheet generation."
+    },
+    {
+      "id": "PRACTICE-028",
+      "severity": "P1",
+      "rationale": "A hidden timeout clamp makes the durable worksheet recovery contract ineffective."
+    },
+    {
+      "id": "PRACTICE-029",
+      "severity": "P1",
+      "rationale": "Accounting outside the stage budget can overrun workers and accept provider output after the safe deadline."
+    },
+    {
+      "id": "PRACTICE-030",
+      "severity": "P1",
+      "rationale": "Conflicting checkpoint lock order can deadlock generation and cleanup."
+    },
+    {
+      "id": "PRACTICE-031",
+      "severity": "P1",
+      "rationale": "A missing checkpoint-evidence index can turn cleanup and recovery into a launch-scale availability risk."
+    },
+    {
+      "id": "PRACTICE-032",
+      "severity": "P1",
+      "rationale": "Blocking exact fallback or repair continuations after attempt three can strand a recoverable worksheet."
+    },
+    {
+      "id": "PRACTICE-033",
+      "severity": "P2",
+      "rationale": "Ordinary retry backoff adds avoidable delay to an already-durable worksheet continuation."
+    },
+    {
+      "id": "PRACTICE-034",
+      "severity": "P1",
+      "rationale": "An undersized Gemini critic deadline caused a real paid worksheet path to fail despite a healthy response."
+    },
+    {
+      "id": "PRACTICE-035",
+      "severity": "P1",
+      "rationale": "Factually wrong teaching rules or contradictory task instructions can misteach students even when answer scoring remains structurally valid."
+    },
+    {
+      "id": "PRACTICE-036",
+      "severity": "P1",
+      "rationale": "Lowercasing strict-case choices can reject valid capitalization and spelling practice before students receive material."
+    },
+    {
+      "id": "PRACTICE-037",
+      "severity": "P1",
+      "rationale": "Passing a rejection wrapper instead of its candidate prevents the durable worksheet repair stage from starting."
+    },
+    {
+      "id": "PRACTICE-038",
+      "severity": "P1",
+      "rationale": "Persisting a repair candidate with the wrong attempt identity breaks slot-two recovery and can strand generation."
+    },
+    {
+      "id": "PRACTICE-039",
+      "severity": "P1",
+      "rationale": "A rejected generation with no exact certified fallback leaves the student without the core promised practice material."
+    },
+    {
+      "id": "PRACTICE-040",
+      "severity": "P1",
+      "rationale": "Predictable answer positions undermine the educational value of the launch worksheet bank and let students bypass the target grammar."
+    },
+    {
+      "id": "PRACTICE-041",
+      "severity": "P1",
+      "rationale": "Material backed by a revoked certifier or releaser must not remain available for untouched student practice."
+    },
+    {
+      "id": "PRACTICE-042",
+      "severity": "P1",
+      "rationale": "Queue, authorization, or lock-order races that hide certified material can deny the core promised practice workflow."
+    },
+    {
+      "id": "PRACTICE-043",
+      "severity": "P1",
+      "rationale": "Stale or exhausted adaptive transitions can corrupt mastery state or permanently strand a valid teacher override."
+    },
+    {
+      "id": "PRACTICE-044",
+      "severity": "P1",
+      "rationale": "A contradictory or unscoped critic verdict can falsely reject valid generated material and deny the core practice workflow."
+    },
+    {
+      "id": "PRACTICE-045",
+      "severity": "P1",
+      "rationale": "Skipping safe bank and cache rescue after a returned rejection can leave a student without practice material."
+    },
+
+    {
+      "id": "OPS-001",
+      "severity": "P1",
+      "rationale": "Teachers must complete the core workflow without assistance."
+    },
+    {
+      "id": "OPS-002",
+      "severity": "P1",
+      "rationale": "Viewport-inaccessible controls can block class configuration."
+    },
+    {
+      "id": "OPS-003",
+      "severity": "P1",
+      "rationale": "Unnamed controls block assistive-technology users."
+    },
+    {
+      "id": "OPS-004",
+      "severity": "P1",
+      "rationale": "Slow duplicate fetching threatens the launch performance gates."
+    },
+    {
+      "id": "OPS-005",
+      "severity": "P1",
+      "rationale": "Undocumented build requirements can prevent a reproducible release."
+    },
+    {
+      "id": "OPS-006",
+      "severity": "P1",
+      "rationale": "Missing automated regression protection makes launch unsafe."
+    },
+    {
+      "id": "OPS-007",
+      "severity": "P1",
+      "rationale": "The exposed network extension expands the database attack surface."
+    },
+    {
+      "id": "OPS-008",
+      "severity": "P1",
+      "rationale": "Leaked-password protection is mandatory for launch authentication."
+    },
+    {
+      "id": "OPS-009",
+      "severity": "P0",
+      "rationale": "A teacher default can become a privilege-escalation path."
+    },
+    {
+      "id": "OPS-010",
+      "severity": "P1",
+      "rationale": "Unsafe error formatting can leak details and block recovery."
+    },
+    {
+      "id": "OPS-011",
+      "severity": "P0",
+      "rationale": "Broad cleanup matching can destroy unrelated production data."
+    },
+    {
+      "id": "OPS-012",
+      "severity": "P0",
+      "rationale": "Deploying against the wrong project can corrupt or expose production data."
+    },
+    {
+      "id": "OPS-013",
+      "severity": "P0",
+      "rationale": "Demo or public teacher signup can bypass production controls."
+    },
+    {
+      "id": "OPS-014",
+      "severity": "P1",
+      "rationale": "Unverified monitoring and recovery conceal launch-critical failures."
+    },
+    {
+      "id": "OPS-015",
+      "severity": "P0",
+      "rationale": "Arbitrary monitoring routing can exfiltrate production credentials."
+    },
+    {
+      "id": "OPS-016",
+      "severity": "P1",
+      "rationale": "Obsolete network bootstrap can restore an unsafe production architecture."
+    },
+    {
+      "id": "OPS-017",
+      "severity": "P1",
+      "rationale": "Replayed operational evidence can falsely certify an unsafe release."
+    },
+    {
+      "id": "OPS-018",
+      "severity": "P1",
+      "rationale": "Self-reported finding counts cannot prove release readiness."
+    },
+    {
+      "id": "OPS-019",
+      "severity": "P1",
+      "rationale": "Unmeasured database work can violate launch performance targets."
+    },
+    {
+      "id": "OPS-020",
+      "severity": "P1",
+      "rationale": "Unit tests cannot prove the authenticated cross-role workflow works end to end."
+    },
+    {
+      "id": "OPS-021",
+      "severity": "P1",
+      "rationale": "Launch security requires current independent whole-system review evidence."
+    },
+    {
+      "id": "OPS-022",
+      "severity": "P0",
+      "rationale": "Unapproved minor data handling and external transfer create material privacy risk."
+    },
+    {
+      "id": "OPS-023",
+      "severity": "P2",
+      "rationale": "Authenticated test logs must not persist raw exceptions or request identifiers that can contain private data."
+    },
+    {
+      "id": "OPS-024",
+      "severity": "P2",
+      "rationale": "Broken database gates can hide release drift or fail before validating the intended security boundary."
+    },
+    {
+      "id": "OPS-025",
+      "severity": "P1",
+      "rationale": "Missing class and workspace controls can block core student workflows at common viewport widths."
+    },
+    {
+      "id": "OPS-026",
+      "severity": "P1",
+      "rationale": "A staging-only provider endpoint in production rollback artifacts can restore an unapproved privileged surface."
+    },
+    {
+      "id": "OPS-027",
+      "severity": "P2",
+      "rationale": "Incorrect browser-test discovery can create false failures or silently skip the configuration that a flow requires."
+    },
+    {
+      "id": "OPS-028",
+      "severity": "P2",
+      "rationale": "An unguarded configuration push can break production authentication redirects and recovery links."
+    },
+    {
+      "id": "OPS-029",
+      "severity": "P1",
+      "rationale": "Incorrect rate-limit translation can turn expected quota outcomes into failures or mislead students about unknown errors."
+    },
+    {
+      "id": "OPS-030",
+      "severity": "P1",
+      "rationale": "An unbounded spend RPC can indefinitely occupy writing and worksheet workers."
+    },
+    {
+      "id": "OPS-031",
+      "severity": "P0",
+      "rationale": "A live canary must never mutate arbitrary non-synthetic teacher or student resources."
+    },
+    {
+      "id": "OPS-032",
+      "severity": "P0",
+      "rationale": "Cleanup using a stale queue pointer can delete or retain the wrong durable work item."
+    },
+    {
+      "id": "OPS-033",
+      "severity": "P1",
+      "rationale": "Canary cleanup must not erase real provider spend from global hard-cap accounting."
+    },
+    {
+      "id": "OPS-034",
+      "severity": "P1",
+      "rationale": "A crash without a recovery manifest can leave persistent staging fixtures and invalidate later canaries."
+    },
+    {
+      "id": "OPS-035",
+      "severity": "P1",
+      "rationale": "A cleanup race can leave phantom active jobs after a canary falsely reports success."
+    },
+    {
+      "id": "OPS-036",
+      "severity": "P0",
+      "rationale": "A symlinked manifest parent can redirect writes or cleanup outside the owned workspace."
+    },
+    {
+      "id": "OPS-037",
+      "severity": "P1",
+      "rationale": "Opaque service keys in Bearer authorization can stop every durable AI worker and recovery path."
+    },
+    {
+      "id": "OPS-038",
+      "severity": "P1",
+      "rationale": "Without a verified operator-controlled onboarding journey, legitimate teachers cannot reliably enter V1 and disabled teachers may retain live authority."
+    },
+    {
+      "id": "OPS-039",
+      "severity": "P1",
+      "rationale": "An administrator password compromise or AAL1 session can grant cross-workspace privileged access and high-impact mutations."
+    },
+    {
+      "id": "OPS-040",
+      "severity": "P2",
+      "rationale": "A protected-route hook-order crash can block authenticated teacher navigation even though it does not weaken authorization."
+    },
+    {
+      "id": "OPS-041",
+      "severity": "P1",
+      "rationale": "A terminal job with permanently reserved AI spend can exhaust budgets and block reliable worker or fixture recovery."
+    },
+    {
+      "id": "OPS-042",
+      "severity": "P2",
+      "rationale": "A failed synthetic worksheet cleanup can invalidate repeatability and leave staging fixtures without implying a production data-path failure."
+    }
+  ]
+}

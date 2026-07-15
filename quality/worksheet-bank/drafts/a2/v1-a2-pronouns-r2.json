@@ -1,0 +1,142 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-pronouns-r2",
+    "template_key": "v1-a2-pronouns-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Pronouns accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Pronomen im Kontext: Bezüge sicher übertragen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "pronouns",
+    "name": "Pronomen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "pronouns",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Wenn ein Satz mehrere bekannte Personen oder Dinge enthält, muss jedes Pronomen den richtigen Kasus und einen eindeutigen Bezug behalten.",
+    "key_rule": "Bestimme zuerst Dativ und Akkusativ; stehen beide Objekte als Pronomen, kommt das Akkusativpronomen gewöhnlich vor dem Dativpronomen: Ich zeige es ihr.",
+    "correct_examples": [
+      "Ich schreibe meiner Tante eine Nachricht. Ich schreibe ihr eine Nachricht.",
+      "Ich zeige den Gästen die Fotos. Ich zeige sie ihnen."
+    ],
+    "common_mistake_warning": "Vertausche bei zwei Pronomen weder den Kasus noch die neutrale Reihenfolge von Akkusativ und Dativ.",
+    "what_to_revise": "Ersetze einzelne und doppelte Objekte durch eindeutige Akkusativ- und Dativpronomen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Pronomen: Meine Tante besucht meinen Bruder und mich. Sie besucht ___.",
+      "options": ["uns", "wir", "ihnen", "euch"],
+      "correct_answer": "uns",
+      "accepted_answers": ["uns"],
+      "explanation": "Mein Bruder und ich bilden die erste Person Plural; als Akkusativobjekt lautet das Pronomen uns.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Ich gebe meinem Bruder das Paket. Ich gebe ___ das Paket.",
+      "options": ["er", "sein", "ihm", "ihn"],
+      "correct_answer": "ihm",
+      "accepted_answers": ["ihm"],
+      "explanation": "Der Bruder ist der Empfänger und steht im Dativ; deshalb wird er durch ihm ersetzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Pronomen: Wo sind die Schlüssel? Ich finde ___ nicht.",
+      "options": ["ihnen", "es", "ihr", "sie"],
+      "correct_answer": "sie",
+      "accepted_answers": ["sie"],
+      "explanation": "Die Schlüssel stehen im Plural und sind Akkusativobjekt; das passende Pronomen lautet sie.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [du, dir, dich]. Setze ein: Ich erzähle ___ morgen alles.",
+      "options": [],
+      "correct_answer": "dir",
+      "accepted_answers": ["dir"],
+      "explanation": "Erzählen verbindet die empfangende Person mit dem Dativ; für du lautet diese Form dir.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [mir, ich, mich]. Setze ein: Der Arzt untersucht ___ gründlich.",
+      "options": [],
+      "correct_answer": "mich",
+      "accepted_answers": ["mich"],
+      "explanation": "Untersuchen verlangt ein Akkusativobjekt; für die erste Person Singular lautet es mich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Bedeutung: Das Pronomen bezieht sich auf eine einzelne Frau. Korrigiere den Kasus: Das Geschenk gehört sie.",
+      "options": [],
+      "correct_answer": "Das Geschenk gehört ihr.",
+      "rubric": {
+        "criteria": [
+          "Ersetze sie durch das feminine Dativpronomen ihr.",
+          "Verändere Subjekt und Verb nicht."
+        ],
+        "sample_answer": "Das Geschenk gehört ihr."
+      },
+      "explanation": "Gehören verlangt den Dativ; für eine feminine Bezugsperson lautet das Pronomen ihr.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit Morgen: [Morgen / erklärt / er / uns / den Plan].",
+      "options": [],
+      "correct_answer": "Morgen erklärt er uns den Plan.",
+      "rubric": {
+        "criteria": [
+          "Verwende alle Satzteile genau einmal.",
+          "Setze erklärt an Position zwei und uns vor das nominale Akkusativobjekt."
+        ],
+        "sample_answer": "Morgen erklärt er uns den Plan."
+      },
+      "explanation": "Nach dem Vorfeld Morgen folgt das konjugierte Verb; uns bezeichnet die Empfänger im Dativ.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Ersetze beide Objekte durch Pronomen: Wir schicken den Kindern die Karten.",
+      "options": [],
+      "correct_answer": "Wir schicken sie ihnen.",
+      "rubric": {
+        "criteria": [
+          "Ersetze die Karten durch sie und den Kindern durch ihnen.",
+          "Setze bei zwei Pronomen das Akkusativpronomen vor das Dativpronomen."
+        ],
+        "sample_answer": "Wir schicken sie ihnen."
+      },
+      "explanation": "Wenn beide Objekte Pronomen sind, steht im neutralen Satz das Akkusativpronomen sie vor dem Dativpronomen ihnen.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

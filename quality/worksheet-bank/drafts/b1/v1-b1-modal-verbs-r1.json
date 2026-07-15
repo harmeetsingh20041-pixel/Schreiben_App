@@ -1,0 +1,203 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-modal-verbs-r1",
+    "template_key": "v1-b1-modal-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Modal verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Modalverben: Pflicht, Möglichkeit und Empfehlung",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "modal-verbs",
+    "name": "Modalverben"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "modal-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Modalverben zeigen, ob eine Handlung notwendig, möglich, erlaubt, gewünscht oder empfohlen ist.",
+    "key_rule": "Im Hauptsatz steht das konjugierte Modalverb an Position zwei und der Vollverb-Infinitiv am Satzende.",
+    "correct_examples": [
+      "Die Teilnehmenden dürfen Fragen stellen.",
+      "Du solltest die Angaben noch einmal prüfen."
+    ],
+    "common_mistake_warning": "Nach einem Modalverb steht der Vollverb ohne „zu“ im Infinitiv.",
+    "what_to_revise": "Wiederhole müssen, dürfen, können, sollen, wollen und möchten im Präsens und Präteritum."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt eine verbindliche Pflicht aus?",
+      "options": [
+        "Alle Beschäftigten können die Sicherheitsregeln beachten.",
+        "Alle Beschäftigten möchten die Sicherheitsregeln beachten.",
+        "Alle Beschäftigten müssen die Sicherheitsregeln beachten."
+      ],
+      "correct_answer": "Alle Beschäftigten müssen die Sicherheitsregeln beachten.",
+      "accepted_answers": [
+        "Alle Beschäftigten müssen die Sicherheitsregeln beachten."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Müssen“ kennzeichnet eine notwendige und verbindliche Handlung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Empfehlung ist grammatisch korrekt?",
+      "options": [
+        "Die Pflegekraft sollte den Patienten über die Wartezeit informieren.",
+        "Die Pflegekraft sollte den Patienten über die Wartezeit zu informieren.",
+        "Die Pflegekraft den Patienten sollte über die Wartezeit informieren."
+      ],
+      "correct_answer": "Die Pflegekraft sollte den Patienten über die Wartezeit informieren.",
+      "accepted_answers": [
+        "Die Pflegekraft sollte den Patienten über die Wartezeit informieren."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „sollte“ steht der Infinitiv ohne „zu“ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt eine vergangene Fähigkeit?",
+      "options": [
+        "Nach dem Kurs musste ich das Programm selbstständig bedienen können.",
+        "Nach dem Kurs konnte ich das Programm selbstständig bedienen.",
+        "Nach dem Kurs kann ich das Programm gestern selbstständig bedienen."
+      ],
+      "correct_answer": "Nach dem Kurs konnte ich das Programm selbstständig bedienen.",
+      "accepted_answers": [
+        "Nach dem Kurs konnte ich das Programm selbstständig bedienen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Konnte“ ist das Präteritum von „können“ und bezeichnet hier eine erworbene Fähigkeit.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dürfen, wollen, müssen]. Ergänze die Pflicht: Besucher ___ sich am Empfang anmelden.",
+      "options": [],
+      "correct_answer": "müssen",
+      "accepted_answers": ["müssen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Anmeldung ist vorgeschrieben; deshalb passt „müssen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [durfte, konnte, wollte]. Ergänze die Erlaubnis in der Vergangenheit: Nach der Einweisung ___ sie das Gerät benutzen.",
+      "options": [],
+      "correct_answer": "durfte",
+      "accepted_answers": ["durfte"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Durfte“ drückt eine erteilte Erlaubnis in der Vergangenheit aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wolltest, solltest, musstest]. Ergänze den freundlichen Rat: Du ___ vor dem Gespräch die Unterlagen lesen.",
+      "options": [],
+      "correct_answer": "solltest",
+      "accepted_answers": ["solltest"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Konjunktiv-II-Ausdruck „solltest“ formuliert eine Empfehlung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die Pflegekraft sofort reagieren kann, kann die Pflegekraft sofort reagieren, die Pflegekraft kann sofort reagieren]. Ergänze den dass-Satz: Wichtig ist, dass ___ .",
+      "options": [],
+      "correct_answer": "die Pflegekraft sofort reagieren kann",
+      "accepted_answers": ["die Pflegekraft sofort reagieren kann"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Nebensatz steht der Vollverb vor dem finiten Modalverb am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung hat nach dem Modalverb die richtige Verbgruppe?",
+      "options": [
+        "Die Ärztin muss den Befund mit dem Patienten besprochen.",
+        "Die Ärztin muss den Befund mit dem Patienten besprechen.",
+        "Die Ärztin muss bespricht den Befund mit dem Patienten.",
+        "Die Ärztin muss den Befund mit dem Patienten zu besprechen."
+      ],
+      "correct_answer": "Die Ärztin muss den Befund mit dem Patienten besprechen.",
+      "accepted_answers": [
+        "Die Ärztin muss den Befund mit dem Patienten besprechen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach einem Modalverb steht das Vollverb als reiner Infinitiv ohne „zu“ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche höfliche Empfehlung mit „sollten“ ist korrekt?",
+      "options": [
+        "Sie sollten die Daten vor dem Absenden noch einmal prüfen.",
+        "Sie sollten die Daten vor dem Absenden noch einmal zu prüfen.",
+        "Sie sollten prüfen die Daten vor dem Absenden noch einmal.",
+        "Sie sollte die Daten vor dem Absenden noch einmal geprüft."
+      ],
+      "correct_answer": "Sie sollten die Daten vor dem Absenden noch einmal prüfen.",
+      "accepted_answers": [
+        "Sie sollten die Daten vor dem Absenden noch einmal prüfen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Sollten“ steht als finites Modalverb an Position zwei; „prüfen“ steht ohne „zu“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Büroregeln verwenden alle Modalverben korrekt?",
+      "options": [
+        "Alle müssen aufbewahren Unterlagen sicher. Gespräche dürfen geführt im Pausenraum werden. Bei Telefonaten wir sollten Rücksicht nehmen.",
+        "Alle muss Unterlagen sicher aufbewahren. Gespräche darf im Pausenraum geführt werden. Bei Telefonaten sollten wir Rücksicht zu nehmen.",
+        "Alle müssen Unterlagen sicher aufbewahren. Gespräche dürfen im Pausenraum geführt werden. Bei Telefonaten sollten wir Rücksicht nehmen.",
+        "Alle müssen Unterlagen sicher aufzubewahren. Gespräche dürfen im Pausenraum geführt. Bei Telefonaten sollten wir Rücksicht genommen."
+      ],
+      "correct_answer": "Alle müssen Unterlagen sicher aufbewahren. Gespräche dürfen im Pausenraum geführt werden. Bei Telefonaten sollten wir Rücksicht nehmen.",
+      "accepted_answers": [
+        "Alle müssen Unterlagen sicher aufbewahren. Gespräche dürfen im Pausenraum geführt werden. Bei Telefonaten sollten wir Rücksicht nehmen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Modalverben stimmen mit ihren Subjekten überein; die abhängigen Infinitive stehen ohne „zu“ am Ende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

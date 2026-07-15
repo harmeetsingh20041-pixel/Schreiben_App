@@ -1,0 +1,167 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-genitiv-r1",
+    "template_key": "v1-a1-genitiv-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Genitiv pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Zusatztraining: Besitzformen erkennen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "genitiv",
+    "name": "Genitiv"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "genitiv",
+    "stretch-practice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Auf A1 kannst du Besitz oft mit Namen plus -s oder mit ‚von‘ ausdrücken. Dieses Zusatztraining hilft dir, zusätzlich einfache Genitivformen mit des und der zu erkennen.",
+    "key_rule": "Beginne mit vertrauten Gruppen wie ‚Marias Buch‘. Erkenne danach feste Gruppen wie ‚die Farbe des Autos‘ und ‚das Ende der Straße‘.",
+    "correct_examples": [
+      "Das ist Leas Schlüssel.",
+      "Wir sehen das Dach des Gebäudes."
+    ],
+    "common_mistake_warning": "Nach ‚des‘ erhält ein maskulines oder neutrales Nomen häufig zusätzlich -s oder -es.",
+    "what_to_revise": "Übe zuerst Namen plus -s; nutze die Formen mit des und der als gezieltes Zusatztraining."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form zeigt Besitz mit dem Namen Maria? Das ist ___ Tasche.",
+      "options": [
+        "Maria",
+        "Maria ist",
+        "Marias"
+      ],
+      "correct_answer": "Marias",
+      "accepted_answers": [
+        "Marias"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Bei einem Personennamen zeigt die Endung -s hier, wem die Tasche gehört.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Genitivgruppe mit ‚des‘ ist richtig?",
+      "options": [
+        "die Tür des Hauses",
+        "die Tür dem Haus",
+        "die Tür den Hauses"
+      ],
+      "correct_answer": "die Tür des Hauses",
+      "accepted_answers": [
+        "die Tür des Hauses"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Nomen steht im Genitiv als ‚des Hauses‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form passt: Wir kennen den Namen ___ Stadt.",
+      "options": [
+        "den",
+        "der",
+        "die"
+      ],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Nomen ‚die Stadt‘ erhält im Genitiv den Artikel ‚der‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den | des | dem]. Ergänze: Die Farbe ___ Autos ist blau.",
+      "options": [],
+      "correct_answer": "des",
+      "accepted_answers": [
+        "des"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Nomen ‚Auto‘ steht im Genitiv mit ‚des‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die | den | der]. Ergänze: Am Ende ___ Straße ist ein Park.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Nomen ‚Straße‘ bildet den Genitiv mit ‚der‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [meines | meinem | meinen]. Ergänze: Das ist der Name ___ Bruders.",
+      "options": [],
+      "correct_answer": "meines",
+      "accepted_answers": [
+        "meines"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Der possessive Artikel steht im Genitiv maskulin in der Form ‚meines‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz zeigt, dass der Schlüssel zum Patientenzimmer gehört?",
+      "options": [
+        "Das ist der Schlüssel des Patientenzimmers.",
+        "Das ist der Schlüssel den Patientenzimmers.",
+        "Das ist der Schlüssel des Patientenzimmer.",
+        "Das ist der Schlüssel dem Patientenzimmer."
+      ],
+      "correct_answer": "Das ist der Schlüssel des Patientenzimmers.",
+      "accepted_answers": ["Das ist der Schlüssel des Patientenzimmers."],
+      "rubric": null,
+      "explanation": "Nach ‚des‘ erhält das neutrale Nomen ‚Patientenzimmer‘ die Genitivendung -s.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Genitivgruppe bezeichnet den Dienstplan der Kollegin?",
+      "options": [
+        "Das ist der Dienstplan die Kollegin.",
+        "Das ist der Dienstplan der Kollegin.",
+        "Das ist der Dienstplan den Kollegin.",
+        "Das ist der Dienstplan des Kollegin."
+      ],
+      "correct_answer": "Das ist der Dienstplan der Kollegin.",
+      "accepted_answers": ["Das ist der Dienstplan der Kollegin."],
+      "rubric": null,
+      "explanation": "Die feminine Genitivgruppe lautet ‚der Kollegin‘.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

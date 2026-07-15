@@ -1,0 +1,180 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-infinitive-zu-r1",
+    "template_key": "v1-b1-infinitive-zu-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Infinitive with zu pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Infinitiv mit zu: Absichten und Pläne ausdrücken",
+  "level": "B1",
+  "grammar_topic": { "slug": "infinitive-zu", "name": "Infinitiv mit zu" },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "infinitive-zu",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Infinitivgruppen mit „zu“ ergänzen häufig Verben, Nomen oder Adjektive und können Absichten, Pläne oder Bewertungen ausdrücken.",
+    "key_rule": "Bei einfachen Verben steht „zu“ vor dem Infinitiv; bei trennbaren Verben steht es zwischen Vorsilbe und Verbstamm. Nach Modalverben steht kein „zu“.",
+    "correct_examples": [
+      "Wir planen, den Raum neu zu gestalten.",
+      "Er hat versprochen, morgen zurückzurufen."
+    ],
+    "common_mistake_warning": "Setze „zu“ bei trennbaren Verben nicht vor die Vorsilbe und verwende es nicht nach einem Modalverb.",
+    "what_to_revise": "Übe zu lernen, anzurufen, aufzustehen sowie um ... zu und ohne ... zu."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist korrekt?",
+      "options": [
+        "Ich hoffe, die Prüfung bestehen zu.",
+        "Ich hoffe, die Prüfung zu bestehen.",
+        "Ich hoffe, zu die Prüfung bestehen."
+      ],
+      "correct_answer": "Ich hoffe, die Prüfung zu bestehen.",
+      "accepted_answers": ["Ich hoffe, die Prüfung zu bestehen."],
+      "explanation": "Bei einem einfachen Verb steht „zu“ unmittelbar vor dem Infinitiv „bestehen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form des trennbaren Verbs „aufstehen“ ist richtig?",
+      "options": [
+        "Sie versucht, früher zu aufstehen.",
+        "Sie versucht, früher aufstehen zu.",
+        "Sie versucht, früher aufzustehen."
+      ],
+      "correct_answer": "Sie versucht, früher aufzustehen.",
+      "accepted_answers": ["Sie versucht, früher aufzustehen."],
+      "explanation": "Bei einem trennbaren Verb steht „zu“ zwischen Vorsilbe und Verbstamm: „aufzustehen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet das Modalverb korrekt?",
+      "options": [
+        "Wir müssen heute länger arbeiten.",
+        "Wir müssen heute länger zu arbeiten.",
+        "Wir müssen heute zu länger arbeiten."
+      ],
+      "correct_answer": "Wir müssen heute länger arbeiten.",
+      "accepted_answers": ["Wir müssen heute länger arbeiten."],
+      "explanation": "Nach dem Modalverb „müssen“ steht der reine Infinitiv ohne „zu“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [anzurufen, zu anrufen, anrufen zu]. Ergänze: Sie hat vergessen, ihren Arzt ___.",
+      "options": [],
+      "correct_answer": "anzurufen",
+      "accepted_answers": ["anzurufen"],
+      "explanation": "Beim trennbaren Verb „anrufen“ steht „zu“ zwischen „an“ und „rufen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gelöst zu, zu lösen, lösen zu]. Ergänze: Es ist wichtig, das Problem ruhig ___.",
+      "options": [],
+      "correct_answer": "zu lösen",
+      "accepted_answers": ["zu lösen"],
+      "explanation": "Nach dem Adjektiv „wichtig“ ergänzt eine Infinitivgruppe mit „zu lösen“ die Aussage.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zu kennenlernen, kennenlernen zu, kennenzulernen]. Ergänze mit der zusammengeschriebenen Form: Wir freuen uns darauf, das neue Pflegeteam ___.",
+      "options": [],
+      "correct_answer": "kennenzulernen",
+      "accepted_answers": ["kennenzulernen"],
+      "explanation": "Amtlich sind „kennenzulernen“ und „kennen zu lernen“ möglich; diese Aufgabe verlangt ausdrücklich die zusammengeschriebene Form.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [vergessen zu, zu vergessen, vergessen]. Ergänze: Er schreibt den Termin auf, um ihn nicht ___.",
+      "options": [],
+      "correct_answer": "zu vergessen",
+      "accepted_answers": ["zu vergessen"],
+      "explanation": "Die Konstruktion „um ... zu“ drückt ein Ziel aus; „zu“ steht vor dem einfachen Infinitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet den Infinitiv mit „zu“ beim trennbaren Verb korrekt?",
+      "options": [
+        "Die Pflegekraft versucht, die Übergabe pünktlich zu vorbereiten.",
+        "Die Pflegekraft versucht, die Übergabe pünktlich vorzubereiten.",
+        "Die Pflegekraft versucht, die Übergabe pünktlich vorbereiten zu.",
+        "Die Pflegekraft versucht, die Übergabe pünktlich vor zu bereiten."
+      ],
+      "correct_answer": "Die Pflegekraft versucht, die Übergabe pünktlich vorzubereiten.",
+      "accepted_answers": [
+        "Die Pflegekraft versucht, die Übergabe pünktlich vorzubereiten."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei dem trennbaren Verb „vorbereiten“ steht „zu“ zwischen Vorsilbe und Verbstamm: „vorzubereiten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung mit „um ... zu“ ist korrekt?",
+      "options": [
+        "Ich lerne jeden Tag, meinen Wortschatz um zu erweitern.",
+        "Ich lerne jeden Tag, um meinen Wortschatz erweitern.",
+        "Ich lerne jeden Tag, um ich meinen Wortschatz zu erweitern.",
+        "Ich lerne jeden Tag, um meinen Wortschatz zu erweitern."
+      ],
+      "correct_answer": "Ich lerne jeden Tag, um meinen Wortschatz zu erweitern.",
+      "accepted_answers": [
+        "Ich lerne jeden Tag, um meinen Wortschatz zu erweitern."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei gleichem Subjekt drückt „um ... zu“ ein Ziel aus; der Infinitiv mit „zu“ steht am Ende der Gruppe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Lernplan enthält alle Infinitivkonstruktionen korrekt?",
+      "options": [
+        "Ich habe zu vor, jeden Morgen Wörter wiederholen. Ich versuche Übergaben, zu klarer formulieren. Am Wochenende übe ich, sicherer um zu werden.",
+        "Ich vorhabe, jeden Morgen Wörter zu wiederholen. Ich versuche, zu Übergaben klarer formulieren. Am Wochenende übe ich, um sicherer werden.",
+        "Ich habe vor, jeden Morgen Wörter zu wiederholen. Ich versuche, Übergaben klarer zu formulieren. Am Wochenende übe ich, um sicherer zu werden.",
+        "Ich habe vor, jeden Morgen Wörter wiederholen. Ich versuche, Übergaben klarer formulieren zu. Am Wochenende übe ich, um werde ich sicherer."
+      ],
+      "correct_answer": "Ich habe vor, jeden Morgen Wörter zu wiederholen. Ich versuche, Übergaben klarer zu formulieren. Am Wochenende übe ich, um sicherer zu werden.",
+      "accepted_answers": [
+        "Ich habe vor, jeden Morgen Wörter zu wiederholen. Ich versuche, Übergaben klarer zu formulieren. Am Wochenende übe ich, um sicherer zu werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Vorhaben“ und „versuchen“ stehen mit Infinitivgruppen; das Ziel wird korrekt mit „um ... zu“ formuliert.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

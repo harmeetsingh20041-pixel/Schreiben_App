@@ -1,0 +1,181 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-passive-voice-r2",
+    "template_key": "v1-b2-passive-voice-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Passive voice accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Passiv im Kontext: Vorgang, Zustand und Modalität",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "passive-voice",
+    "name": "Passiv"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "passive-voice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Vorgangspassiv beschreibt eine Handlung, das Zustandspassiv ihr Ergebnis. In komplexeren Sätzen müssen Zeitform, Modalverb und Nebensatzstellung zusammenpassen.",
+    "key_rule": "Vorgang: werden plus Partizip II; Zustand: sein plus Partizip II; Modalpassiv im Nebensatz: ..., weil der Bericht geprüft werden muss.",
+    "correct_examples": [
+      "Die Tür wird um acht Uhr geschlossen.",
+      "Seit acht Uhr ist die Tür geschlossen."
+    ],
+    "common_mistake_warning": "„Ist geschlossen“ und „wird geschlossen“ sind nicht austauschbar: Die erste Form bezeichnet einen Zustand, die zweite einen Vorgang.",
+    "what_to_revise": "Übe den Bedeutungsunterschied zwischen sein- und werden-Passiv sowie die Verbfolge in Nebensätzen mit Modalpassiv."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Der Satz soll den bereits bestehenden Zustand beschreiben. Welche Form passt?",
+      "options": [
+        "Seit gestern wurde der Zugang gesperrt worden.",
+        "Seit gestern ist der Zugang gesperrt.",
+        "Seit gestern wird der Zugang gesperrt."
+      ],
+      "correct_answer": "Seit gestern ist der Zugang gesperrt.",
+      "accepted_answers": ["Seit gestern ist der Zugang gesperrt."],
+      "explanation": "„Ist gesperrt“ bezeichnet das fortbestehende Ergebnis einer früheren Handlung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Nebensatz enthält die korrekte Verbfolge im Modalpassiv?",
+      "options": [
+        "Die Sitzung beginnt später, weil der Raum noch gereinigt werden muss.",
+        "Die Sitzung beginnt später, weil der Raum muss noch gereinigt werden.",
+        "Die Sitzung beginnt später, weil der Raum noch gereinigt muss werden."
+      ],
+      "correct_answer": "Die Sitzung beginnt später, weil der Raum noch gereinigt werden muss.",
+      "accepted_answers": [
+        "Die Sitzung beginnt später, weil der Raum noch gereinigt werden muss."
+      ],
+      "explanation": "Im Nebensatz steht die Gruppe „gereinigt werden muss“ geschlossen am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form beschreibt einen Vorgang in der Vorvergangenheit korrekt?",
+      "options": [
+        "Bevor die Gäste ankamen, wurde der Saal vorbereitet gewesen.",
+        "Bevor die Gäste ankamen, ist der Saal vorbereitet worden.",
+        "Bevor die Gäste ankamen, war der Saal vorbereitet worden."
+      ],
+      "correct_answer": "Bevor die Gäste ankamen, war der Saal vorbereitet worden.",
+      "accepted_answers": [
+        "Bevor die Gäste ankamen, war der Saal vorbereitet worden."
+      ],
+      "explanation": "Das Passiv Plusquamperfekt lautet „war ... vorbereitet worden“ und liegt vor dem Präteritum „ankamen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wird, wurde, ist]. Ergänze ausdrücklich das Zustandspassiv Präsens: Nach der Kontrolle ___ die Anlage wieder eingeschaltet.",
+      "options": [],
+      "correct_answer": "ist",
+      "accepted_answers": ["ist"],
+      "explanation": "„Ist eingeschaltet“ beschreibt den aktuellen Zustand der Anlage nach der Kontrolle.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [worden, geworden, werden]. Ergänze passend: Die Richtlinie zur Pflegedokumentation ist mehrfach überarbeitet ___.",
+      "options": [],
+      "correct_answer": "worden",
+      "accepted_answers": ["worden"],
+      "explanation": "Mehrere Überarbeitungsvorgänge werden mit „ist ... überarbeitet worden“ bezeichnet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sein, werden, worden]. Ergänze den Infinitiv des Modalpassivs: Die Ergebnisse können erst morgen veröffentlicht ___.",
+      "options": [],
+      "correct_answer": "werden",
+      "accepted_answers": ["werden"],
+      "explanation": "Nach dem Partizip „veröffentlicht“ steht beim Modalpassiv der Infinitiv „werden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Im Rückblick auf den tatsächlichen Ablauf: Wortbank: [wäre, war, wurde]. Ergänze passend: Der Vertrag ___ bereits unterzeichnet worden, bevor die Änderung eintraf.",
+      "options": [],
+      "correct_answer": "war",
+      "accepted_answers": ["war"],
+      "explanation": "„War unterzeichnet worden“ markiert den früheren passiven Vorgang im Plusquamperfekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde einen vollständigen Nebensatz aus allen Bausteinen: weil / die vertraulichen Unterlagen / sicher / aufbewahrt / werden müssen",
+      "options": [],
+      "correct_answer": "weil die vertraulichen Unterlagen sicher aufbewahrt werden müssen",
+      "rubric": {
+        "criteria": [
+          "Alle Bausteine werden genau einmal in einem Nebensatz verwendet.",
+          "Das Subjekt folgt auf „weil“; die Gruppe „aufbewahrt werden müssen“ steht korrekt am Ende.",
+          "Kasus, Adverbposition und Kleinschreibung am Beginn des vorgegebenen Nebensatzes sind korrekt."
+        ],
+        "sample_answer": "weil die vertraulichen Unterlagen sicher aufbewahrt werden müssen"
+      },
+      "explanation": "Im eingeleiteten Nebensatz rückt das konjugierte Modalverb hinter Partizip und Passivinfinitiv.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Formuliere so um, dass zuerst der Vorgang und danach sein Ergebnis deutlich wird: Um neun Uhr schloss das Personal alle Eingänge. Seitdem sind sie nicht zugänglich.",
+      "options": [],
+      "correct_answer": "Um neun Uhr wurden alle Eingänge vom Personal geschlossen; seitdem sind sie nicht zugänglich.",
+      "rubric": {
+        "criteria": [
+          "Der erste Teilsatz wird als Vorgangspassiv Präteritum mit „wurden ... geschlossen“ formuliert.",
+          "„Vom Personal“ nennt den Handelnden, und die Zeitangabe bleibt erhalten.",
+          "Der zweite Teilsatz beschreibt mit „sind ... nicht zugänglich“ eindeutig den fortbestehenden Zustand."
+        ],
+        "sample_answer": "Um neun Uhr wurden alle Eingänge vom Personal geschlossen; seitdem sind sie nicht zugänglich."
+      },
+      "explanation": "Die Kombination trennt den abgeschlossenen Schließvorgang von seinem weiterhin geltenden Ergebnis.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe drei zusammenhängende Sätze über eine Sicherheitskontrolle. Verwende je einmal Vorgangspassiv, Zustandspassiv und Modalpassiv und mache die drei Bedeutungen deutlich.",
+      "options": [],
+      "correct_answer": "Am Eingang werden alle Ausweise kontrolliert. Während der Kontrolle ist die Seitentür geschlossen. Große Taschen müssen an der Rezeption abgegeben werden.",
+      "rubric": {
+        "criteria": [
+          "Der Text besteht aus drei logisch zusammenhängenden Sätzen über eine Sicherheitskontrolle.",
+          "Ein Satz enthält korrektes Vorgangspassiv und ein anderer eindeutig korrektes Zustandspassiv.",
+          "Ein Satz enthält korrektes Modalpassiv mit Partizip II plus „werden“; die Bedeutungen passen jeweils zum Kontext."
+        ],
+        "sample_answer": "Am Eingang werden alle Ausweise kontrolliert. Während der Kontrolle ist die Seitentür geschlossen. Große Taschen müssen an der Rezeption abgegeben werden."
+      },
+      "explanation": "Die drei Passivformen unterscheiden Handlung, Ergebniszustand und notwendige Handlung.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

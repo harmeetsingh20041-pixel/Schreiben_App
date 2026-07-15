@@ -1,0 +1,145 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-question-formation-r1",
+    "template_key": "v1-a1-question-formation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Question formation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Fragen bilden: W-Wort oder Verb zuerst",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "question-formation",
+    "name": "Fragebildung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "question-formation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Bei einer W-Frage steht das Fragewort zuerst, dann das konjugierte Verb und danach das Subjekt. Bei einer Ja-Nein-Frage steht das Verb am Anfang.",
+    "key_rule": "W-Frage: Fragewort – Verb – Subjekt. Ja-Nein-Frage: Verb – Subjekt – Rest.",
+    "correct_examples": ["Wo wohnst du?", "Kommst du heute?"],
+    "common_mistake_warning": "In einer Frage steht das Subjekt nicht automatisch an erster Stelle.",
+    "what_to_revise": "Lerne die Fragewörter wer, was, wo, wann und wie."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche W-Frage fragt korrekt nach dem Bahnhof?",
+      "options": [
+        "Wo ist der Bahnhof?",
+        "Wo der Bahnhof ist?",
+        "Ist wo der Bahnhof?"
+      ],
+      "correct_answer": "Wo ist der Bahnhof?",
+      "accepted_answers": ["Wo ist der Bahnhof?"],
+      "explanation": "Nach dem Fragewort ‚Wo‘ folgt das Verb ‚ist‘ und dann das Subjekt ‚der Bahnhof‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche neutrale standardsprachliche Ja-Nein-Frage folgt dem Muster Verb – Subjekt – Rest?",
+      "options": [
+        "Spielst gern du Fußball?",
+        "Spielst du gern Fußball?",
+        "Du gern Fußball spielst?"
+      ],
+      "correct_answer": "Spielst du gern Fußball?",
+      "accepted_answers": ["Spielst du gern Fußball?"],
+      "explanation": "Eine neutrale Ja-Nein-Frage beginnt mit dem konjugierten Verb ‚Spielst‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Mit welcher Frage erfährst du die Uhrzeit des Kurses?",
+      "options": [
+        "Was beginnt der Kurs?",
+        "Wer beginnt der Kurs?",
+        "Wann beginnt der Kurs?"
+      ],
+      "correct_answer": "Wann beginnt der Kurs?",
+      "accepted_answers": ["Wann beginnt der Kurs?"],
+      "explanation": "‚Wann‘ fragt nach einer Zeit und steht vor Verb und Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Was, Wer, Wo]. Setze das passende Fragewort ein: ___ kaufst du Brot? Im Supermarkt.",
+      "options": [],
+      "correct_answer": "Wo",
+      "accepted_answers": ["Wo"],
+      "explanation": "Mit ‚Wo‘ fragt man hier nach dem Ort des Einkaufs.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Wo, Wann, Wie]. Setze das passende Fragewort ein: ___ beginnt der Film? Um acht Uhr.",
+      "options": [],
+      "correct_answer": "Wann",
+      "accepted_answers": ["Wann"],
+      "explanation": "Die Antwort nennt eine Uhrzeit; deshalb passt das Fragewort ‚Wann‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Was, Wo, Wann]. Setze das passende Fragewort ein: ___ lernst du? Deutsch.",
+      "options": [],
+      "correct_answer": "Was",
+      "accepted_answers": ["Was"],
+      "explanation": "‚Was‘ fragt hier nach dem Lerninhalt; die Antwort lautet ‚Deutsch‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha fragt Ravi nach seinem Arbeitsplatz. Welche W-Frage ist richtig?",
+      "options": [
+        "Arbeitest wo du?",
+        "Wo du arbeitest?",
+        "Wo arbeitest du?",
+        "Wo arbeiten du?"
+      ],
+      "correct_answer": "Wo arbeitest du?",
+      "accepted_answers": ["Wo arbeitest du?"],
+      "rubric": null,
+      "explanation": "In einer W-Frage folgt das Verb direkt auf das Fragewort.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi fragt Asha nach ihrem morgigen Dienst. Welche neutrale standardsprachliche Ja-Nein-Frage folgt dem Muster Verb – Subjekt – Rest?",
+      "options": [
+        "Arbeitest du morgen?",
+        "Arbeiten du morgen?",
+        "Du morgen arbeitest?",
+        "Arbeitest morgen du?"
+      ],
+      "correct_answer": "Arbeitest du morgen?",
+      "accepted_answers": ["Arbeitest du morgen?"],
+      "rubric": null,
+      "explanation": "Ohne Fragewort steht das konjugierte Verb am Anfang der Frage.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-conjugation-r1",
+    "template_key": "v1-b1-conjugation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Conjugation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Konjugation: Regelmäßige und starke Präsensformen festigen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "conjugation",
+    "name": "Konjugation"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "conjugation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Die Form des finiten Verbs richtet sich nach Person und Numerus des Subjekts. Bei einigen starken Verben verändert sich in der zweiten und dritten Person Singular zusätzlich der Stammvokal.",
+    "key_rule": "Bestimme zuerst das Subjekt und bilde dann die passende Präsensform. Achte besonders auf Formen wie „du hältst“, „er nimmt“ und „sie empfiehlt“.",
+    "correct_examples": [
+      "Die Beraterin nimmt am Fachgespräch teil.",
+      "Du hältst die vereinbarte Frist ein."
+    ],
+    "common_mistake_warning": "Übertrage die regelmäßige Endung nicht unverändert auf starke Verben; „empfehlen“ wird in der dritten Person Singular zu „empfiehlt“.",
+    "what_to_revise": "Wiederhole Präsensendungen, Stammvokalwechsel und häufige starke Verben in der zweiten und dritten Person Singular."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präsensform von „empfehlen“ passt zum Subjekt? Die Ärztin ___ dem Patienten eine Kontrolluntersuchung.",
+      "options": ["empfiehlt", "empfehlt", "empfehlen"],
+      "correct_answer": "empfiehlt",
+      "accepted_answers": ["empfiehlt"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der dritten Person Singular verändert „empfehlen“ den Stammvokal; die korrekte Form lautet „empfiehlt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält die richtige Präsensform von „einhalten“ für „du“?",
+      "options": [
+        "Du haltet heute die vereinbarte Frist ein.",
+        "Du hält heute die vereinbarte Frist ein.",
+        "Du hältst heute die vereinbarte Frist ein."
+      ],
+      "correct_answer": "Du hältst heute die vereinbarte Frist ein.",
+      "accepted_answers": ["Du hältst heute die vereinbarte Frist ein."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei „du“ lautet die Form von „halten“ mit Stammvokalwechsel und Endung -st: „du hältst“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präsensform von „wissen“ passt zur dritten Person Singular? Die Kundin ___ bereits von der Änderung.",
+      "options": ["wissen","weiß","wisst"],
+      "correct_answer": "weiß",
+      "accepted_answers": ["weiß"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Wissen“ ist unregelmäßig; in der dritten Person Singular lautet die Form „weiß“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Eine einzelne Pflegekraft übernimmt heute eine Aufgabe. Wortbank: [übernimmt, übernehmt, übernehmen]. Ergänze: Die Pflegekraft ___ heute die Frühbesprechung.",
+      "options": [],
+      "correct_answer": "übernimmt",
+      "accepted_answers": ["übernimmt"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Subjekt steht in der dritten Person Singular; „übernehmen“ wird zu „übernimmt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Ein einzelner Teilnehmer wahrt die vereinbarte Frist. Wortbank: [halten, haltet, hält]. Ergänze: Der Teilnehmer ___ die Frist ein.",
+      "options": [],
+      "correct_answer": "hält",
+      "accepted_answers": ["hält"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der dritten Person Singular lautet die Form von „halten“ mit Stammvokalwechsel „hält“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Die angesprochene Person soll die Unterlagen mitnehmen. Wortbank: [bringen, bringst, bringt]. Ergänze: Du ___ die Unterlagen zum Termin mit.",
+      "options": [],
+      "correct_answer": "bringst",
+      "accepted_answers": ["bringst"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Subjekt „du“ verlangt bei „bringen“ die Endung -st: „du bringst“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Zwei Projektleiterinnen führen das Gespräch gemeinsam. Wortbank: [besprechen, bespricht, besprecht]. Ergänze: Die beiden Projektleiterinnen ___ morgen den Zeitplan.",
+      "options": [],
+      "correct_answer": "besprechen",
+      "accepted_answers": ["besprechen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Subjekt ist Plural; die Präsensform der dritten Person Plural lautet „besprechen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zur dritten Person Singular?",
+      "options": [
+        "Die Kursleiterin empfehlt den Teilnehmenden eine Pause.",
+        "Die Kursleiterin empfehlen den Teilnehmenden eine Pause.",
+        "Die Kursleiterin empfiehlt den Teilnehmenden eine Pause.",
+        "Die Kursleiterin empfehle den Teilnehmenden eine Pause."
+      ],
+      "correct_answer": "Die Kursleiterin empfiehlt den Teilnehmenden eine Pause.",
+      "accepted_answers": [
+        "Die Kursleiterin empfiehlt den Teilnehmenden eine Pause."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das starke Verb „empfehlen“ bildet in der dritten Person Singular die Form „empfiehlt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Wie lautet der Satz korrekt mit dem Subjekt „der Kollege“?",
+      "options": [
+        "Der Kollege nimmt am Workshop teil und hält einen Kurzvortrag.",
+        "Der Kollege nehmt am Workshop teil und haltet einen Kurzvortrag.",
+        "Der Kollege nehme am Workshop teil und halte einen Kurzvortrag.",
+        "Der Kollege nehmen am Workshop teil und halten einen Kurzvortrag."
+      ],
+      "correct_answer": "Der Kollege nimmt am Workshop teil und hält einen Kurzvortrag.",
+      "accepted_answers": [
+        "Der Kollege nimmt am Workshop teil und hält einen Kurzvortrag."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beide starken Verben werden an die dritte Person Singular angepasst: „nimmt“ und „hält“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Beschreibung enthält drei zum jeweiligen Subjekt passende Präsensformen?",
+      "options": [
+        "Eine Pflegekraft übernehmen die Frühschicht. Danach misst sie den Blutdruck. Die Ärztin empfehlt eine Pause.",
+        "Eine Pflegekraft übernimmt die Frühschicht. Danach messt sie den Blutdruck. Die Ärztin empfehlen eine Pause.",
+        "Eine Pflegekraft übernehmt die Frühschicht. Danach messen sie den Blutdruck. Die Ärztin empfiehlt eine Pause.",
+        "Eine Pflegekraft übernimmt die Frühschicht. Danach misst sie den Blutdruck. Die Ärztin empfiehlt eine Pause."
+      ],
+      "correct_answer": "Eine Pflegekraft übernimmt die Frühschicht. Danach misst sie den Blutdruck. Die Ärztin empfiehlt eine Pause.",
+      "accepted_answers": [
+        "Eine Pflegekraft übernimmt die Frühschicht. Danach misst sie den Blutdruck. Die Ärztin empfiehlt eine Pause."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zu den Singularsubjekten passen die Formen „übernimmt“, „misst“ und „empfiehlt“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

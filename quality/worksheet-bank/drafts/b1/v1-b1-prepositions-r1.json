@@ -1,0 +1,195 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-prepositions-r1",
+    "template_key": "v1-b1-prepositions-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Prepositions pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Präpositionen: Beziehungen genau ausdrücken",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "prepositions",
+    "name": "Präpositionen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "prepositions",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Präpositionen verbinden Angaben und legen häufig fest, welcher Kasus folgt.",
+    "key_rule": "Feste Präpositionen verlangen einen bestimmten Kasus; Wechselpräpositionen stehen bei Richtung mit Akkusativ und bei Ort mit Dativ.",
+    "correct_examples": [
+      "Wir sprechen über den neuen Ablauf.",
+      "Die Unterlagen liegen auf dem Schreibtisch."
+    ],
+    "common_mistake_warning": "Bei Wechselpräpositionen entscheidet nicht das Verb allein, sondern die Bedeutung Richtung oder Ort.",
+    "what_to_revise": "Wiederhole Präpositionen mit Dativ, Akkusativ und Genitiv sowie Verben mit festen Präpositionen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präposition passt zur Übergabe von Informationen?",
+      "options": [
+        "Die Pflegekraft informiert den Arzt an die Veränderung.",
+        "Die Pflegekraft informiert den Arzt mit die Veränderung.",
+        "Die Pflegekraft informiert den Arzt über die Veränderung."
+      ],
+      "correct_answer": "Die Pflegekraft informiert den Arzt über die Veränderung.",
+      "accepted_answers": [
+        "Die Pflegekraft informiert den Arzt über die Veränderung."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Verb „jemanden informieren“ verbindet den Inhalt mit „über“ und Akkusativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt einen Ort und verwendet deshalb den Dativ?",
+      "options": [
+        "Die Mappe liegt in dem Schrank.",
+        "Die Mappe liegt in den Schrank.",
+        "Die Mappe liegt durch den Schrank."
+      ],
+      "correct_answer": "Die Mappe liegt in dem Schrank.",
+      "accepted_answers": ["Die Mappe liegt in dem Schrank."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Auf die Frage „Wo?“ folgt bei „in“ der Dativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung mit einem Verb ist korrekt?",
+      "options": [
+        "Viele Beschäftigte nehmen über der Fortbildung teil.",
+        "Viele Beschäftigte nehmen an der Fortbildung teil.",
+        "Viele Beschäftigte nehmen bei die Fortbildung teil."
+      ],
+      "correct_answer": "Viele Beschäftigte nehmen an der Fortbildung teil.",
+      "accepted_answers": [
+        "Viele Beschäftigte nehmen an der Fortbildung teil."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Teilnehmen“ wird fest mit „an“ und Dativ verbunden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ohne, mit, trotz]. Ergänze den unerwarteten Gegensatz mit Genitiv: ___ des starken Regens fand die Veranstaltung statt.",
+      "options": [],
+      "correct_answer": "trotz",
+      "accepted_answers": ["trotz"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Trotz“ drückt einen unerwarteten Gegensatz aus und steht standardsprachlich mit Genitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [auf, an, über]. Ergänze die feste Verbindung: Der Patient wartet ___ die Untersuchung.",
+      "options": [],
+      "correct_answer": "auf",
+      "accepted_answers": ["auf"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Warten auf“ verlangt den Akkusativ und bezeichnet das erwartete Ereignis.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [im, ins, am]. Ergänze die Richtung: Wir gehen jetzt ___ Besprechungszimmer.",
+      "options": [],
+      "correct_answer": "ins",
+      "accepted_answers": ["ins"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Bewegung in einen Raum verlangt Akkusativ: „in das“ wird zu „ins“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [über, für, von]. Ergänze: Die Entscheidung hängt ___ den verfügbaren Mitteln ab.",
+      "options": [],
+      "correct_answer": "von",
+      "accepted_answers": ["von"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Abhängen“ wird mit „von“ und Dativ verbunden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet nach „über“ den passenden Kasus?",
+      "options": [
+        "Auf der Station sprechen wir oft über dem neuen Dokumentationsablauf.",
+        "Auf der Station sprechen wir oft über der neue Dokumentationsablauf.",
+        "Auf der Station sprechen wir oft über des neuen Dokumentationsablaufs.",
+        "Auf der Station sprechen wir oft über den neuen Dokumentationsablauf."
+      ],
+      "correct_answer": "Auf der Station sprechen wir oft über den neuen Dokumentationsablauf.",
+      "accepted_answers": ["Auf der Station sprechen wir oft über den neuen Dokumentationsablauf."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beim Sprechen über ein Thema verlangt „über“ hier den Akkusativ: „über den neuen Dokumentationsablauf“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung verwendet die feste Verbindung „sich interessieren für“ korrekt?",
+      "options": [
+        "Ich interessiere mich für das neue Projekt.",
+        "Ich interessiere mich über das neue Projekt.",
+        "Ich interessiere mir an dem neuen Projekt.",
+        "Ich interessiere mich an das neue Projekt."
+      ],
+      "correct_answer": "Ich interessiere mich für das neue Projekt.",
+      "accepted_answers": ["Ich interessiere mich für das neue Projekt."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste Verbindung „sich interessieren für“ verlangt die Präposition „für“ mit Akkusativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schilderung verwendet „teilnehmen an“, „sprechen mit“ und „sich vorbereiten auf“ jeweils korrekt?",
+      "options": [
+        "Ich nehme bei einem Kurs teil. Danach spreche ich über der Dozentin. Ich bereite mich an die Prüfung vor.",
+        "Ich nehme an einem Kurs teil. Danach spreche ich mit der Dozentin. Ich bereite mich auf die Prüfung vor.",
+        "Ich nehme in einem Kurs teil. Danach spreche ich zu der Dozentin. Ich bereite mich für die Prüfung vor.",
+        "Ich nehme an einen Kurs teil. Danach spreche ich mit die Dozentin. Ich bereite mir auf die Prüfung vor."
+      ],
+      "correct_answer": "Ich nehme an einem Kurs teil. Danach spreche ich mit der Dozentin. Ich bereite mich auf die Prüfung vor.",
+      "accepted_answers": ["Ich nehme an einem Kurs teil. Danach spreche ich mit der Dozentin. Ich bereite mich auf die Prüfung vor."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Feste Verb-Präposition-Verbindungen machen Beziehungen zwischen Handlungen und Themen eindeutig.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

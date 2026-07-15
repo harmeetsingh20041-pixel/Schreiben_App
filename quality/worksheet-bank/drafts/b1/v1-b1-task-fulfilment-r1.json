@@ -1,0 +1,197 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-task-fulfilment-r1",
+    "template_key": "v1-b1-task-fulfilment-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Task fulfilment pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Aufgabenerfüllung: Schreibaufträge vollständig bearbeiten",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "task-fulfilment",
+    "name": "Aufgabenerfüllung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "task-fulfilment",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Eine gute Antwort erfüllt Zweck, Empfängerbezug und alle verlangten Inhaltspunkte eines Schreibauftrags.",
+    "key_rule": "Markiere vor dem Schreiben Anlass, Adressat, Textsorte und jeden Pflichtpunkt; prüfe danach, ob alles klar beantwortet ist.",
+    "correct_examples": [
+      "Ich kann am Termin nicht teilnehmen, weil ich arbeiten muss. Wäre Donnerstag als Ersatz möglich?",
+      "Vielen Dank für Ihr Angebot. Vor einer Entscheidung benötige ich noch Angaben zu Dauer und Kosten."
+    ],
+    "common_mistake_warning": "Ein sprachlich korrekter Text erfüllt die Aufgabe nicht, wenn ein geforderter Punkt oder eine konkrete Bitte fehlt.",
+    "what_to_revise": "Wiederhole Anrede, Anlass, Begründung, konkrete Bitte, Abschluss und die Kontrolle anhand der Aufgabenpunkte."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Aufgabe: Informiere die Stationsleitung über einen Schichttausch, nenne den Grund und bitte um Bestätigung. Welche Nachricht erfüllt alles?",
+      "options": [
+        "Guten Tag, ich habe einen Arzttermin und kann nicht kommen.",
+        "Guten Tag, wegen eines Arzttermins tausche ich am Dienstag mit Frau Meier. Bitte bestätigen Sie den Schichttausch.",
+        "Hallo, wir tauschen irgendwann. Viele Grüße."
+      ],
+      "correct_answer": "Guten Tag, wegen eines Arzttermins tausche ich am Dienstag mit Frau Meier. Bitte bestätigen Sie den Schichttausch.",
+      "accepted_answers": [
+        "Guten Tag, wegen eines Arzttermins tausche ich am Dienstag mit Frau Meier. Bitte bestätigen Sie den Schichttausch."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Nachricht nennt den Schichttausch mit Tag und Tauschpartnerin, den Grund sowie die verlangte Bitte um Bestätigung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Aufgabe: Sage einen Kurs ab, begründe die Absage und frage nach einem Ersatztermin. Welche Antwort ist vollständig?",
+      "options": [
+        "Leider kann ich wegen eines beruflichen Termins nicht teilnehmen. Gibt es einen Ersatztermin im nächsten Monat?",
+        "Ich komme nicht zum Kurs. Entschuldigung.",
+        "Wann beginnt der Kurs und wie viel kostet er?"
+      ],
+      "correct_answer": "Leider kann ich wegen eines beruflichen Termins nicht teilnehmen. Gibt es einen Ersatztermin im nächsten Monat?",
+      "accepted_answers": [
+        "Leider kann ich wegen eines beruflichen Termins nicht teilnehmen. Gibt es einen Ersatztermin im nächsten Monat?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Absage, Begründung und Frage nach einer Alternative sind ausdrücklich enthalten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Aufgabe: Bedanke dich für ein Angebot, stelle eine Frage zu den Kosten und nenne deinen gewünschten Starttermin. Welche Antwort passt?",
+      "options": [
+        "Das Angebot ist angekommen. Ich melde mich vielleicht später.",
+        "Was kostet das und warum dauert Ihre Antwort so lange?",
+        "Vielen Dank für Ihr Angebot. Sind in dem Preis alle Materialien enthalten? Ich würde gern am 1. September beginnen."
+      ],
+      "correct_answer": "Vielen Dank für Ihr Angebot. Sind in dem Preis alle Materialien enthalten? Ich würde gern am 1. September beginnen.",
+      "accepted_answers": [
+        "Vielen Dank für Ihr Angebot. Sind in dem Preis alle Materialien enthalten? Ich würde gern am 1. September beginnen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Antwort enthält Dank, konkrete Kostenfrage und eindeutigen Startwunsch.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [obwohl der Termin am Montag ist, weil ich an einer Fortbildung teilnehme, damit ich pünktlich ankomme]. Ergänze den geforderten Grund: Ich kann den Termin nicht wahrnehmen, ___ .",
+      "options": [],
+      "correct_answer": "weil ich an einer Fortbildung teilnehme",
+      "accepted_answers": ["weil ich an einer Fortbildung teilnehme"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der weil-Satz liefert die ausdrücklich verlangte Begründung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Könnten Sie mir bitte einen neuen Termin nennen, Könnten Sie mir den Grund für die Terminänderung nennen, Ich wäre Ihnen für eine Rückmeldung dankbar]. Ergänze die konkrete Bitte des Patienten um einen Ersatztermin: ___?",
+      "options": [],
+      "correct_answer": "Könnten Sie mir bitte einen neuen Termin nennen",
+      "accepted_answers": ["Könnten Sie mir bitte einen neuen Termin nennen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Formulierung nennt klar die gewünschte Handlung und bleibt höflich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Ich erwarte Ihre Antwort noch heute, Bitte beachten Sie den genannten Termin, Vielen Dank für Ihre Unterstützung]. Ergänze einen passenden höflichen Abschluss: ___ .",
+      "options": [],
+      "correct_answer": "Vielen Dank für Ihre Unterstützung",
+      "accepted_answers": ["Vielen Dank für Ihre Unterstützung"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Dank schließt die Bitte höflich und adressatenbezogen ab.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Bitte senden Sie mir das vollständige Kursprogramm, Der Abendkurs beginnt laut Plan um 18 Uhr, Ich interessiere mich besonders für den Abendkurs]. Ergänze den ausdrücklich geforderten Kurswunsch: ___ .",
+      "options": [],
+      "correct_answer": "Ich interessiere mich besonders für den Abendkurs",
+      "accepted_answers": ["Ich interessiere mich besonders für den Abendkurs"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Aussage nennt eindeutig die gewünschte Kursvariante.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Vorhandene Sätze: In der Dokumentation war ein falscher Wert. Ich habe ihn korrigiert. Welche Option übernimmt diese vorhandenen Sätze unverändert und ergänzt sie ausschließlich um die noch fehlende Bitte um Rückmeldung, ohne medizinische Details zu erfinden?",
+      "options": [
+        "In der Dokumentation war ein falscher Wert. Ich habe ihn korrigiert. Könnten Sie mir bitte kurz bestätigen, dass Sie die Korrektur gesehen haben?",
+        "In der Dokumentation war ein falscher Wert. Könnten Sie mir bitte antworten?",
+        "Ich habe die Dokumentation korrigiert und den Blutdruck erneut gemessen. Alles ist jetzt in Ordnung.",
+        "In der Dokumentation war ein falscher Wert. Ich habe ihn korrigiert."
+      ],
+      "correct_answer": "In der Dokumentation war ein falscher Wert. Ich habe ihn korrigiert. Könnten Sie mir bitte kurz bestätigen, dass Sie die Korrektur gesehen haben?",
+      "accepted_answers": ["In der Dokumentation war ein falscher Wert. Ich habe ihn korrigiert. Könnten Sie mir bitte kurz bestätigen, dass Sie die Korrektur gesehen haben?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die ergänzte Bitte schließt den noch fehlenden Pflichtpunkt, ohne die bereits gegebenen Informationen umzuschreiben oder neue Details zu erfinden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche formelle Nachricht deckt alle Stichpunkte ab: verspätete Lieferung – Projekt gefährdet – neuen Liefertermin erfragen?",
+      "options": [
+        "Guten Tag, die Lieferung ist verspätet. Könnten Sie mir bitte den neuen Liefertermin mitteilen?",
+        "Guten Tag, die Lieferung ist verspätet; dadurch ist unser Projekt gefährdet. Wir warten auf Ihre Nachricht.",
+        "Guten Tag, die Lieferung ist verspätet; dadurch ist unser Projekt gefährdet. Könnten Sie mir bitte den neuen Liefertermin mitteilen?",
+        "Hallo, wegen Ihrer verspäteten Lieferung scheitert unser Projekt. Schicken Sie sie sofort!"
+      ],
+      "correct_answer": "Guten Tag, die Lieferung ist verspätet; dadurch ist unser Projekt gefährdet. Könnten Sie mir bitte den neuen Liefertermin mitteilen?",
+      "accepted_answers": ["Guten Tag, die Lieferung ist verspätet; dadurch ist unser Projekt gefährdet. Könnten Sie mir bitte den neuen Liefertermin mitteilen?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Stichpunkte werden zu einer adressatenbezogenen Nachricht mit Problem, Folge und Handlungsbitte ausgebaut.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Nachricht an die Kursleitung nennt einen beruflichen Grund, zwei konkrete Alternativen und eine höfliche Bitte um Bestätigung?",
+      "options": [
+        "Guten Tag, wegen eines Arbeitstermins kann ich am Freitag nicht teilnehmen. Am Montagvormittag hätte ich Zeit. Vielen Dank.",
+        "Guten Tag, mein Dienst verhindert meine Prüfungsteilnahme am Freitag. Montagvormittag oder Mittwochnachmittag wären möglich. Bitte bestätigen Sie einen Termin.",
+        "Hallo, die Prüfung passt nicht. Montag oder Mittwoch geht. Sagen Sie mir Bescheid.",
+        "Guten Tag, ich kann am Freitag nicht teilnehmen. Könnten Sie mir bitte einen anderen Termin nennen?"
+      ],
+      "correct_answer": "Guten Tag, mein Dienst verhindert meine Prüfungsteilnahme am Freitag. Montagvormittag oder Mittwochnachmittag wären möglich. Bitte bestätigen Sie einen Termin.",
+      "accepted_answers": ["Guten Tag, mein Dienst verhindert meine Prüfungsteilnahme am Freitag. Montagvormittag oder Mittwochnachmittag wären möglich. Bitte bestätigen Sie einen Termin."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Diese Auswahlübung prüft, ob alle geforderten Inhaltspunkte erkannt werden; freie Textproduktion muss zusätzlich separat geübt werden.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

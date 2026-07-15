@@ -1,0 +1,186 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-plusquamperfekt-r2",
+    "template_key": "v1-b1-plusquamperfekt-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Plusquamperfekt accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Plusquamperfekt im Kontext: Ursachen und Reihenfolgen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "plusquamperfekt",
+    "name": "Plusquamperfekt"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "plusquamperfekt",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Plusquamperfekt erklärt in Berichten und Erzählungen, welche Handlung bereits abgeschlossen war, bevor eine weitere vergangene Handlung begann.",
+    "key_rule": "Im Hauptsatz steht „hatte“ oder „war“ an Position zwei und das Partizip am Ende; im Nebensatz stehen Partizip und Hilfsverb gemeinsam am Schluss.",
+    "correct_examples": [
+      "Als der Besuch begann, hatten wir den Raum vorbereitet.",
+      "Weil der Schlüssel verschwunden war, warteten wir draußen."
+    ],
+    "common_mistake_warning": "Das Plusquamperfekt ist nur für das frühere der beiden vergangenen Ereignisse nötig; setze nicht automatisch beide Handlungen in diese Zeitform.",
+    "what_to_revise": "Übe Vorzeitigkeit mit nachdem, bevor, als und weil sowie Partizipien trennbarer Verben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet das Plusquamperfekt logisch und grammatisch korrekt?",
+      "options": [
+        "Weil der Server war ausgefallen, konnten wir nicht weiterarbeiten.",
+        "Weil der Server ausgefallen ist, konnten wir nicht weiterarbeiten.",
+        "Weil der Server ausgefallen war, konnten wir nicht weiterarbeiten.",
+        "Weil der Server ausgefallen hatte, konnten wir nicht weiterarbeiten."
+      ],
+      "correct_answer": "Weil der Server ausgefallen war, konnten wir nicht weiterarbeiten.",
+      "accepted_answers": [
+        "Weil der Server ausgefallen war, konnten wir nicht weiterarbeiten."
+      ],
+      "explanation": "Der Ausfall geschah vor der verhinderten Weiterarbeit; „ausfallen“ bildet das Plusquamperfekt mit „war“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Satzfolge zeigt die Vorzeitigkeit korrekt?",
+      "options": [
+        "Sie konnte nicht bezahlen, weil sie ihre Geldbörse vergessen hatte.",
+        "Sie konnte nicht bezahlen, weil sie ihre Geldbörse vergessen war.",
+        "Sie hatte nicht bezahlen können, weil sie ihre Geldbörse vergaß hatte.",
+        "Sie konnte nicht bezahlen, weil hatte sie ihre Geldbörse vergessen."
+      ],
+      "correct_answer": "Sie konnte nicht bezahlen, weil sie ihre Geldbörse vergessen hatte.",
+      "accepted_answers": [
+        "Sie konnte nicht bezahlen, weil sie ihre Geldbörse vergessen hatte."
+      ],
+      "explanation": "Das Vergessen liegt vor dem Bezahlversuch; im weil-Satz steht „vergessen hatte“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den korrekten Satz mit einem trennbaren Verb im Plusquamperfekt.",
+      "options": [
+        "Nachdem die Sitzung angefangen war, wurde die Tür geschlossen.",
+        "Nachdem die Sitzung angefangen hatte, wurde die Tür geschlossen.",
+        "Nachdem die Sitzung geanfangen hatte, wurde die Tür geschlossen.",
+        "Nachdem die Sitzung hatte angefangen, wurde die Tür geschlossen."
+      ],
+      "correct_answer": "Nachdem die Sitzung angefangen hatte, wurde die Tür geschlossen.",
+      "accepted_answers": [
+        "Nachdem die Sitzung angefangen hatte, wurde die Tür geschlossen."
+      ],
+      "explanation": "„Anfangen“ bildet das Partizip „angefangen“ und verwendet im Plusquamperfekt das Hilfsverb „hatte“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hätten, hatten, waren]. Ergänze ausdrücklich im Plusquamperfekt: Vor der Übergabe ___ wir alle offenen Punkte besprochen.",
+      "options": [],
+      "correct_answer": "hatten",
+      "accepted_answers": ["hatten"],
+      "explanation": "„Besprechen“ bildet das Plusquamperfekt im Plural mit „hatten besprochen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [war, hatte, ist]. Ergänze das frühere Ereignis im Plusquamperfekt: Das Kind ___ bereits eingeschlafen, als die Eltern nach Hause kamen.",
+      "options": [],
+      "correct_answer": "war",
+      "accepted_answers": ["war"],
+      "explanation": "„Einschlafen“ bezeichnet eine Zustandsänderung und bildet das Plusquamperfekt mit „war“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [war, wurde, hatte]. Ergänze: Sie ___ das geliehene Buch schon zurückgegeben, bevor die Frist endete.",
+      "options": [],
+      "correct_answer": "hatte",
+      "accepted_answers": ["hatte"],
+      "explanation": "Das transitive Verb „zurückgeben“ bildet das Plusquamperfekt mit „hatte zurückgegeben“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [waren, wurden, hatten]. Ergänze: Als die Ablösung eintraf, ___ die Pflegekräfte bereits mit der Übergabe begonnen.",
+      "options": [],
+      "correct_answer": "hatten",
+      "accepted_answers": ["hatten"],
+      "explanation": "„Beginnen“ verwendet „haben“; im Plusquamperfekt Plural lautet die Form „hatten begonnen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile: [Nachdem / der letzte Zug / abgefahren war / nahm / sie / ein Taxi].",
+      "options": [],
+      "correct_answer": "Nachdem der letzte Zug abgefahren war, nahm sie ein Taxi.",
+      "rubric": {
+        "criteria": [
+          "Alle Satzteile werden genau einmal verwendet.",
+          "Der nachdem-Satz endet mit der Plusquamperfektform „abgefahren war“.",
+          "Nach dem Nebensatz folgt im Hauptsatz direkt das finite Verb „nahm“."
+        ],
+        "sample_answer": "Nachdem der letzte Zug abgefahren war, nahm sie ein Taxi."
+      },
+      "explanation": "Der Nebensatz nennt das frühere Ereignis; der nachgestellte Hauptsatz beginnt wegen der Inversion mit „nahm“.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Verbinde beide Sätze mit „nachdem“ und markiere die Vorzeitigkeit: Der Redakteur überprüfte den Text. Dann schickte er ihn an die Druckerei.",
+      "options": [],
+      "correct_answer": "Nachdem der Redakteur den Text überprüft hatte, schickte er ihn an die Druckerei.",
+      "rubric": {
+        "criteria": [
+          "Die Überprüfung wird in einem nachdem-Satz im Plusquamperfekt ausgedrückt.",
+          "Der Versand bleibt als späteres Ereignis im Präteritum erhalten.",
+          "Pronomen und Zielangabe bleiben eindeutig und vollständig."
+        ],
+        "sample_answer": "Nachdem der Redakteur den Text überprüft hatte, schickte er ihn an die Druckerei."
+      },
+      "explanation": "„Überprüft hatte“ kennzeichnet die abgeschlossene Voraussetzung für den späteren Versand.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe einen kurzen Ablaufbericht aus drei Sätzen über eine verzögerte Teamschulung im Krankenhaus. Verwende mindestens zwei Plusquamperfektformen und eine spätere Handlung im Präteritum.",
+      "options": [],
+      "correct_answer": "Die Stationsleitung hatte den Schulungsraum rechtzeitig reserviert. Kurz vor Beginn war jedoch der Projektor ausgefallen. Deshalb verschob sie die Teamschulung auf den Nachmittag.",
+      "rubric": {
+        "criteria": [
+          "Der Text besteht aus drei logisch verbundenen Sätzen über eine verzögerte Teamschulung im Krankenhaus.",
+          "Mindestens zwei frühere Ereignisse stehen mit korrektem Hilfsverb im Plusquamperfekt.",
+          "Die spätere Verschiebung steht im Präteritum und ergibt sich verständlich aus dem Ablauf."
+        ],
+        "sample_answer": "Die Stationsleitung hatte den Schulungsraum rechtzeitig reserviert. Kurz vor Beginn war jedoch der Projektor ausgefallen. Deshalb verschob sie die Teamschulung auf den Nachmittag."
+      },
+      "explanation": "Die Zeitformen trennen vorbereitende und verursachende Ereignisse von der anschließenden Reaktion.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}
