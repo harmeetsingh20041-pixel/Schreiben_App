@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-negation-r1",
+    "template_key": "v1-b2-negation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Negation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Negation: Reichweite und Kontrast eindeutig markieren",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "negation",
+    "name": "Negation"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "negation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "„Kein“ verneint eine Nominalgruppe ohne bestimmten Artikel, während „nicht“ Verben, Eigenschaften, Präpositionalgruppen oder ganze Aussagen negiert. Die Position von „nicht“ bestimmt seine Reichweite.",
+    "key_rule": "Stelle „nicht“ unmittelbar vor das gezielt verneinte Element; bei Satznegation steht es meist spät, aber vor dem rechten Verbteil.",
+    "correct_examples": [
+      "Nicht jede Rückmeldung enthielt einen Verbesserungsvorschlag.",
+      "Der zusätzliche Schritt war nicht überflüssig."
+    ],
+    "common_mistake_warning": "„Alle nicht“ und „nicht alle“ bedeuten Unterschiedliches: Totale Negation darf nicht mit partieller Negation verwechselt werden.",
+    "what_to_revise": "Übe „kein“ versus „nicht“, partielle Negation, „weder … noch“ und negierte Kontraste."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz bedeutet, dass mindestens ein Vorschlag nicht umgesetzt wurde, ohne alle Vorschläge zu verneinen?",
+      "options": [
+        "Alle Vorschläge wurden umgesetzt.",
+        "Nicht alle Vorschläge wurden umgesetzt.",
+        "Kein Vorschlag wurde umgesetzt."
+      ],
+      "correct_answer": "Nicht alle Vorschläge wurden umgesetzt.",
+      "accepted_answers": [
+        "Nicht alle Vorschläge wurden umgesetzt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Nicht alle“ drückt partielle Negation aus: Mindestens ein Vorschlag blieb unberücksichtigt; ob andere umgesetzt wurden, bleibt offen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form verneint die unbestimmte Nominalgruppe in einer neutralen, nicht kontrastiven Aussage?",
+      "options": [
+        "Für diese Annahme gibt es nicht überzeugenden Beleg.",
+        "Für diese Annahme gibt es kein überzeugenden Beleg.",
+        "Für diese Annahme gibt es keinen überzeugenden Beleg."
+      ],
+      "correct_answer": "Für diese Annahme gibt es keinen überzeugenden Beleg.",
+      "accepted_answers": [
+        "Für diese Annahme gibt es keinen überzeugenden Beleg."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Nominalgruppe würde positiv „einen Beleg“ lauten; ihre neutrale Nominalnegation ist „keinen überzeugenden Beleg“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verneint gezielt den Zeitpunkt „heute“, nicht die Durchführung selbst?",
+      "options": [
+        "Die Besprechung findet nicht heute, sondern morgen statt.",
+        "Die Besprechung findet heute nicht statt und wurde abgesagt.",
+        "Nicht die Besprechung findet heute, sondern morgen statt."
+      ],
+      "correct_answer": "Die Besprechung findet nicht heute, sondern morgen statt.",
+      "accepted_answers": [
+        "Die Besprechung findet nicht heute, sondern morgen statt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Nicht“ steht unmittelbar vor „heute“ und der sondern-Kontrast ersetzt genau diese Zeitangabe durch „morgen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [nicht, keiner, keine]. Ergänze die Nominalnegation: Die Prüfung des Pflegeberichts ergab ___ Hinweise auf einen Dokumentationsfehler.",
+      "options": [],
+      "correct_answer": "keine",
+      "accepted_answers": [
+        "keine"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die pluralische Nominalgruppe „Hinweise“ wird im Akkusativ mit der Negativartikelform „keine“ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [weder, nicht nur, entweder]. Ergänze die zweiteilige Negation: ___ die Leitung noch das Team war über die Änderung informiert.",
+      "options": [],
+      "correct_answer": "Weder",
+      "accepted_answers": [
+        "Weder"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste Verbindung „weder … noch“ schließt beide genannten Gruppen aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [niemals, noch nicht, nicht mehr]. Ergänze den zeitlichen Stand: Die endgültige Entscheidung ist ___ gefallen; die Beratung läuft weiter.",
+      "options": [],
+      "correct_answer": "noch nicht",
+      "accepted_answers": [
+        "noch nicht"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die weiterlaufende Beratung zeigt, dass die Entscheidung bis jetzt aussteht, aber später noch möglich ist.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kein Weg, nicht Weg, keineswegs]. Ergänze die verstärkte Satznegation: Die zusätzliche Kontrolle ist ___ überflüssig.",
+      "options": [],
+      "correct_answer": "keineswegs",
+      "accepted_answers": [
+        "keineswegs"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Keineswegs“ verstärkt die Verneinung der Eigenschaft „überflüssig“ und bedeutet „auf keinen Fall“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung schränkt eindeutig nur den Umfang der Umsetzung ein?",
+      "options": [
+        "Die Maßnahme wurde nicht umgesetzt vollständig, sondern nur teilweise.",
+        "Die Maßnahme wurde vollständig umgesetzt, nicht nur teilweise.",
+        "Die Maßnahme wurde vollständig nicht umgesetzt, sondern nur teilweise.",
+        "Die Maßnahme wurde nicht vollständig, sondern nur teilweise umgesetzt."
+      ],
+      "correct_answer": "Die Maßnahme wurde nicht vollständig, sondern nur teilweise umgesetzt.",
+      "accepted_answers": [
+        "Die Maßnahme wurde nicht vollständig, sondern nur teilweise umgesetzt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Position vor „vollständig“ begrenzt die Negation auf den Umfang und vermeidet eine totale Verneinung der Umsetzung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bedeutet, dass einige, aber nicht zwingend alle Rückmeldungen verspätet eingingen?",
+      "options": [
+        "Nicht alle Rückmeldungen gingen pünktlich ein.",
+        "Nicht Rückmeldungen alle gingen pünktlich ein.",
+        "Alle Rückmeldungen gingen nicht pünktlich ein.",
+        "Keine Rückmeldung ging pünktlich ein."
+      ],
+      "correct_answer": "Nicht alle Rückmeldungen gingen pünktlich ein.",
+      "accepted_answers": [
+        "Nicht alle Rückmeldungen gingen pünktlich ein."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Negation vor dem Quantor „alle“ schränkt dessen Geltung ein und lässt pünktliche Einzelfälle ausdrücklich offen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung negiert den Allquantor partiell: Mindestens eine Person hat nicht beide Module abgeschlossen, ohne eine Aussage über alle anderen zu machen?",
+      "options": [
+        "Nicht die Mitarbeitenden haben beide Module fristgerecht abgeschlossen.",
+        "Nicht alle Mitarbeitenden haben beide Module fristgerecht abgeschlossen.",
+        "Alle Mitarbeitenden haben nicht beide Module fristgerecht abgeschlossen.",
+        "Keine Mitarbeitenden haben beide Module fristgerecht abgeschlossen."
+      ],
+      "correct_answer": "Nicht alle Mitarbeitenden haben beide Module fristgerecht abgeschlossen.",
+      "accepted_answers": [
+        "Nicht alle Mitarbeitenden haben beide Module fristgerecht abgeschlossen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Nicht alle“ nimmt dem Allquantor seine Geltung, ohne die gesamte Gruppe zu verneinen. „Keine“ wäre eine Totalnegation; die übrigen Fassungen verändern oder verwischen den Fokus.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

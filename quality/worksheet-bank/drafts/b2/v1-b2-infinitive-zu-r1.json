@@ -1,0 +1,204 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-infinitive-zu-r1",
+    "template_key": "v1-b2-infinitive-zu-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Infinitive zu pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Infinitivgruppen präzise verwenden",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "infinitive-zu",
+    "name": "Infinitiv mit zu"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "infinitive-zu",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Infinitivgruppen verdichten Aussagen über Absichten, Bewertungen und bereits abgeschlossene Handlungen. Um, ohne und anstatt machen die logische Beziehung ausdrücklich sichtbar.",
+    "key_rule": "Das Bezugswort bestimmt die Form: zu präzisieren, anzupassen oder veröffentlicht zu haben. Bei erweiterten Gruppen sichert das Komma die Lesbarkeit.",
+    "correct_examples": [
+      "Die Kommission beabsichtigt, den Kriterienkatalog grundlegend zu überarbeiten.",
+      "Anstatt vorschnell zu reagieren, prüfte sie sämtliche Einwände."
+    ],
+    "common_mistake_warning": "Setze zu bei trennbaren Verben zwischen die Verbteile und bilde den Perfektinfinitiv mit Partizip II plus zu haben oder zu sein.",
+    "what_to_revise": "Wiederhole Infinitivgruppen nach Verben und Nomen, um-zu-, ohne-zu- und anstatt-zu-Sätze sowie den Perfektinfinitiv."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Infinitivgruppe ergänzt das Planungsverb grammatisch korrekt?",
+      "options": [
+        "Die Klinik plant, das Aufnahmeverfahren zu vereinfacht haben.",
+        "Die Klinik plant, das Aufnahmeverfahren zu vereinfachen.",
+        "Die Klinik plant, das Aufnahmeverfahren vereinfachen zu."
+      ],
+      "correct_answer": "Die Klinik plant, das Aufnahmeverfahren zu vereinfachen.",
+      "accepted_answers": [
+        "Die Klinik plant, das Aufnahmeverfahren zu vereinfachen."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚planen‘ bezeichnet ‚zu vereinfachen‘ die beabsichtigte, noch nicht abgeschlossene Handlung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt den Zweck mit einer korrekt gebildeten um-zu-Gruppe aus?",
+      "options": [
+        "Um Missverständnisse vermeiden zu, dokumentiert das Team jede Änderung.",
+        "Um zu Missverständnisse vermeiden, dokumentiert das Team jede Änderung.",
+        "Um Missverständnisse zu vermeiden, dokumentiert das Team jede Änderung."
+      ],
+      "correct_answer": "Um Missverständnisse zu vermeiden, dokumentiert das Team jede Änderung.",
+      "accepted_answers": [
+        "Um Missverständnisse zu vermeiden, dokumentiert das Team jede Änderung."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die Gruppe ‚um … zu vermeiden‘ nennt eindeutig den Zweck der Dokumentation.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form bezeichnet eine bereits abgeschlossene Handlung vor dem Bedauern?",
+      "options": [
+        "Sie bedauert, die Frist versäumt zu haben.",
+        "Sie bedauert, die Frist zu versäumen haben.",
+        "Sie bedauert, die Frist versäumt haben zu."
+      ],
+      "correct_answer": "Sie bedauert, die Frist versäumt zu haben.",
+      "accepted_answers": [
+        "Sie bedauert, die Frist versäumt zu haben."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Der Perfektinfinitiv ‚versäumt zu haben‘ ordnet das Versäumnis zeitlich vor dem Bedauern ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zu aktualisieren | aktualisiert | aktualisieren zu]. Ergänze die angekündigte Handlung: Die Leitung beschloss, die Richtlinie zeitnah ___.",
+      "options": [],
+      "correct_answer": "zu aktualisieren",
+      "accepted_answers": [
+        "zu aktualisieren"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚beschloss‘ steht die geplante Handlung als Infinitivgruppe mit ‚zu‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zu einführen | eingeführt | einzuführen]. Ergänze das trennbare Verb: Das Unternehmen beabsichtigt, ein neues Meldesystem ___.",
+      "options": [],
+      "correct_answer": "einzuführen",
+      "accepted_answers": [
+        "einzuführen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Beim trennbaren Verb ‚einführen‘ steht ‚zu‘ zwischen Vorsilbe und Verbstamm.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ohne zu Rückfragen stellen | ohne Rückfragen zu stellen | ohne Rückfragen stellen]. Ergänze die unterlassene Begleithandlung: Er unterschrieb den Entwurf, ___.",
+      "options": [],
+      "correct_answer": "ohne Rückfragen zu stellen",
+      "accepted_answers": [
+        "ohne Rückfragen zu stellen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Ohne … zu stellen‘ bezeichnet eine unterlassene Begleithandlung mit demselben Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zu übersehen haben | übersehen haben | übersehen zu haben]. Ergänze den Perfektinfinitiv: Die Verantwortliche räumte ein, das Warnsignal ___.",
+      "options": [],
+      "correct_answer": "übersehen zu haben",
+      "accepted_answers": [
+        "übersehen zu haben"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Übersehen liegt vor dem Einräumen und wird daher mit dem Perfektinfinitiv ausgedrückt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ordnet „zu“ in der Infinitivgruppe mit Modalverb korrekt an?",
+      "options": [
+        "Das Team hofft, den Ablauf bald verbessern zu können.",
+        "Das Team hofft, den Ablauf bald verbessern können zu.",
+        "Das Team hofft, den Ablauf bald zu können verbessern.",
+        "Das Team hofft, den Ablauf bald zu verbessern können."
+      ],
+      "correct_answer": "Das Team hofft, den Ablauf bald verbessern zu können.",
+      "accepted_answers": [
+        "Das Team hofft, den Ablauf bald verbessern zu können."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei einer Infinitivgruppe mit Modalverb lautet die Endgruppe ‚verbessern zu können‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung drückt bei gleichem Subjekt den Zweck korrekt mit „um … zu“ aus?",
+      "options": [
+        "Die Pflegedienstleitung führt kurze Übergaben ein, obwohl sie Informationsverluste vermeidet.",
+        "Die Pflegedienstleitung führt kurze Übergaben ein, um Informationsverluste zu können vermeiden.",
+        "Die Pflegedienstleitung führt kurze Übergaben ein, um vermeidet sie Informationsverluste.",
+        "Die Pflegedienstleitung führt kurze Übergaben ein, um Informationsverluste zu vermeiden."
+      ],
+      "correct_answer": "Die Pflegedienstleitung führt kurze Übergaben ein, um Informationsverluste zu vermeiden.",
+      "accepted_answers": [
+        "Die Pflegedienstleitung führt kurze Übergaben ein, um Informationsverluste zu vermeiden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Da beide Handlungen dasselbe Subjekt haben, kann der Zweck kompakt mit ‚um … zu‘ formuliert werden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet den Passiv-Perfektinfinitiv nach „erklären“ korrekt?",
+      "options": [
+        "Die Pflegefachkraft erklärt, über die Änderung rechtzeitig informiert zu worden sein.",
+        "Die Pflegefachkraft erklärt, über die Änderung rechtzeitig zu informiert worden sein.",
+        "Die Pflegefachkraft erklärt, über die Änderung rechtzeitig informiert worden zu sein.",
+        "Die Pflegefachkraft erklärt, über die Änderung rechtzeitig informiert worden sein zu."
+      ],
+      "correct_answer": "Die Pflegefachkraft erklärt, über die Änderung rechtzeitig informiert worden zu sein.",
+      "accepted_answers": [
+        "Die Pflegefachkraft erklärt, über die Änderung rechtzeitig informiert worden zu sein."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Passiv-Perfektinfinitiv besteht aus Partizip II, „worden“ und „zu sein“: „informiert worden zu sein“. Er bezeichnet hier eine bereits abgeschlossene passive Handlung.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

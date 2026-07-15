@@ -1,0 +1,198 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-task-fulfilment-r1",
+    "template_key": "v1-b2-task-fulfilment-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Task fulfilment pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Aufgabenbezug: Schreibaufträge vollständig erfüllen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "task-fulfilment",
+    "name": "Aufgabenerfüllung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "task-fulfilment",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein Text erfüllt eine Aufgabe nur, wenn er Textsorte, Adressat, Zweck und alle Inhaltspunkte berücksichtigt. Gute Sprache kann fehlende Aufgabenpunkte nicht ersetzen.",
+    "key_rule": "Markiere vor dem Schreiben jedes Arbeitsverb und jeden Inhaltspunkt; ordne anschließend jedem Punkt mindestens eine konkrete Aussage zu.",
+    "correct_examples": [
+      "Ich erläutere zunächst den Anlass und schlage anschließend zwei Lösungen vor.",
+      "Zu jedem geforderten Punkt enthält der Text eine klare Information."
+    ],
+    "common_mistake_warning": "Wiederhole nicht nur das Thema, sondern beantworte die konkrete Frage und führe geforderte Gründe oder Beispiele aus.",
+    "what_to_revise": "Prüfe nach dem Schreiben: Wer liest den Text, was soll er bewirken und ist jeder Auftragspunkt sichtbar beantwortet?"
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Der Auftrag lautet: ‚Schreiben Sie an die Kursleitung, erklären Sie Ihre Abwesenheit und bitten Sie um einen Ersatztermin.‘ Welcher Text erfüllt beide Inhaltspunkte?",
+      "options": [
+        "Ich kann nicht teilnehmen. Vielen Dank für Ihr Verständnis.",
+        "Könnten Sie mir einen Ersatztermin anbieten? Der Kurs beginnt um neun Uhr.",
+        "Wegen eines Arzttermins kann ich nicht teilnehmen. Könnten Sie mir bitte einen Ersatztermin anbieten?",
+        "Der Kurs gefällt mir sehr und die Räume sind modern."
+      ],
+      "correct_answer": "Wegen eines Arzttermins kann ich nicht teilnehmen. Könnten Sie mir bitte einen Ersatztermin anbieten?",
+      "accepted_answers": [
+        "Wegen eines Arzttermins kann ich nicht teilnehmen. Könnten Sie mir bitte einen Ersatztermin anbieten?"
+      ],
+      "explanation": "Die Antwort nennt einen Grund für die Abwesenheit und enthält ausdrücklich die geforderte Bitte um einen Ersatztermin.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Ein Kommentar soll eine Position, zwei Gründe und ein Beispiel enthalten. Welche Gliederung passt vollständig?",
+      "options": [
+        "Position – ein Grund – Schluss ohne Beispiel",
+        "Position – erster Grund – zweiter Grund – konkretes Beispiel",
+        "Beispiel – Überschrift – Wiederholung der Aufgabe",
+        "Erster Grund – Grußformel – neuer Themenwechsel"
+      ],
+      "correct_answer": "Position – erster Grund – zweiter Grund – konkretes Beispiel",
+      "accepted_answers": [
+        "Position – erster Grund – zweiter Grund – konkretes Beispiel"
+      ],
+      "explanation": "Nur diese Gliederung enthält alle vier ausdrücklich geforderten Bestandteile in nachvollziehbarer Reihenfolge.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Einleitung erfüllt den Zweck einer formellen Beschwerde über wiederholte nächtliche Bauarbeiten?",
+      "options": [
+        "Bauarbeiten sind in vielen Städten ein wichtiges Thema.",
+        "Neulich habe ich einen interessanten Artikel über Lärm gelesen.",
+        "Ich schreibe Ihnen, weil Briefe manchmal hilfreich sind.",
+        "Hiermit möchte ich mich über die wiederholten Bauarbeiten während der Nachtruhe beschweren."
+      ],
+      "correct_answer": "Hiermit möchte ich mich über die wiederholten Bauarbeiten während der Nachtruhe beschweren.",
+      "accepted_answers": [
+        "Hiermit möchte ich mich über die wiederholten Bauarbeiten während der Nachtruhe beschweren."
+      ],
+      "explanation": "Der Satz nennt Textzweck, konkreten Beschwerdegegenstand und relevanten Zeitraum unmittelbar und eindeutig.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Ein Auftrag verlangt Meinung, Begründung und Beispiel. Ergänze den fehlenden Bestandteil: Meinung – ___ – Beispiel. Wortbank: [Grußformel | Begründung].",
+      "options": [],
+      "correct_answer": "Begründung",
+      "accepted_answers": [
+        "Begründung"
+      ],
+      "explanation": "Zwischen einer Position und einem veranschaulichenden Beispiel muss die ausdrücklich geforderte Begründung stehen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Der Schreibauftrag richtet sich an die Leitung eines Unternehmens. Ergänze die passende Anredeform: Sehr geehrte Damen und Herren, ich möchte ___ auf ein Problem hinweisen. Wortbank: [Sie | euch].",
+      "options": [],
+      "correct_answer": "Sie",
+      "accepted_answers": [
+        "Sie"
+      ],
+      "explanation": "Die formelle Adressatengruppe verlangt die großgeschriebene Sie-Form im Akkusativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Ergänze das Arbeitsverb, das eine nachvollziehbare Ursache fordert: ___ Sie, warum die Maßnahme notwendig ist. Wortbank: [Nennen | Begründen].",
+      "options": [],
+      "correct_answer": "Begründen",
+      "accepted_answers": [
+        "Begründen"
+      ],
+      "explanation": "Begründen fordert nicht nur eine Meinung, sondern nachvollziehbare Ursachen oder Argumente für die Aussage.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Ein Text soll Vor- und Nachteile abwägen. Ergänze den fehlenden zweiten Teil: Einerseits spart die Lösung Zeit, ___ verursacht sie zusätzliche Kosten. Wortbank: [andererseits | deshalb].",
+      "options": [],
+      "correct_answer": "andererseits",
+      "accepted_answers": [
+        "andererseits"
+      ],
+      "explanation": "Andererseits signalisiert die geforderte Gegenperspektive und ergänzt die mit einerseits begonnene Abwägung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Empfehlung erfüllt den Auftrag vollständig, indem sie Entscheidung und nachvollziehbare Begründung nennt?",
+      "options": [
+        "Ich empfehle das digitale Anmeldeverfahren, weil es Wartezeiten verkürzt.",
+        "Ich empfehle das digitale Anmeldeverfahren, obwohl Wartezeiten kein Thema sind.",
+        "Ich empfehle das digitale Anmeldeverfahren.",
+        "Das digitale Anmeldeverfahren ist eine Möglichkeit, die geprüft wird."
+      ],
+      "correct_answer": "Ich empfehle das digitale Anmeldeverfahren, weil es Wartezeiten verkürzt.",
+      "rubric": null,
+      "explanation": "Eine begründete Empfehlung nennt nicht nur die bevorzugte Lösung, sondern auch einen nachvollziehbaren Vorteil.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Ich empfehle das digitale Anmeldeverfahren, weil es Wartezeiten verkürzt."
+      ]
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche formelle Anfrage nennt sowohl den Defekt seit Montag als auch die gewünschte Mitteilung eines Reparaturtermins bis Freitag?",
+      "options": [
+        "Das Gerät ist seit Montag defekt. Bitte teilen Sie mir spätestens am Freitag mit, wann die Reparatur stattfinden kann.",
+        "Das Gerät ist seit Montag defekt. Bitte reparieren Sie es bald.",
+        "Das Gerät ist seit heute defekt. Bitte teilen Sie mir spätestens am Freitag mit, wann die Reparatur stattfinden kann.",
+        "Das Gerät ist seit Montag defekt. Bitte teilen Sie mir in der kommenden Woche mit, wann die Reparatur stattfinden kann."
+      ],
+      "correct_answer": "Das Gerät ist seit Montag defekt. Bitte teilen Sie mir spätestens am Freitag mit, wann die Reparatur stattfinden kann.",
+      "rubric": null,
+      "explanation": "Die zwei Sätze übertragen Anlass und Rückmeldefrist eindeutig und adressatengerecht in eine formelle Anfrage.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Das Gerät ist seit Montag defekt. Bitte teilen Sie mir spätestens am Freitag mit, wann die Reparatur stattfinden kann."
+      ]
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Schreibauftrag: Verfassen Sie eine formelle Nachricht an die Pflegedienstleitung. Erklären Sie die Verzögerung, beschreiben Sie eine konkrete Folge, schlagen Sie zwei Lösungen vor und bitten Sie um eine Entscheidung. Welche Gliederung erfüllt alle Inhaltspunkte?",
+      "options": [
+        "Überschrift – Grund der Verzögerung – konkrete Auswirkung – zwei Lösungsvorschläge – Dank für die bereits getroffene Entscheidung",
+        "Formelle Anrede – konkrete Auswirkung – Bitte um Verständnis – Bitte um Entscheidung – informelle Grußformel",
+        "Formelle Anrede – Grund der Verzögerung – konkrete Auswirkung auf den Ablauf – zwei umsetzbare Lösungsvorschläge – Bitte um Entscheidung – formelle Grußformel",
+        "Formelle Anrede – allgemeine Entschuldigung – ausführliche Beschreibung der eigenen Stimmung – ein Lösungsvorschlag – formelle Grußformel"
+      ],
+      "correct_answer": "Formelle Anrede – Grund der Verzögerung – konkrete Auswirkung auf den Ablauf – zwei umsetzbare Lösungsvorschläge – Bitte um Entscheidung – formelle Grußformel",
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nur diese Gliederung berücksichtigt Adressat und Textsorte sowie alle vier verlangten Inhalte: Grund, Folge, zwei Lösungen und eine ausdrückliche Bitte um Entscheidung.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Formelle Anrede – Grund der Verzögerung – konkrete Auswirkung auf den Ablauf – zwei umsetzbare Lösungsvorschläge – Bitte um Entscheidung – formelle Grußformel"
+      ]
+    }
+  ]
+}

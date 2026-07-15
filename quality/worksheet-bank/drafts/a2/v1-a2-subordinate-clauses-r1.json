@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-subordinate-clauses-r1",
+    "template_key": "v1-a2-subordinate-clauses-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Subordinate clauses pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Nebensätze: Weil, dass und wenn",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "subordinate-clauses",
+    "name": "Nebensätze"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "subordinate-clauses",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Nebensätze ergänzen einen Hauptsatz mit einem Grund, Inhalt oder einer Bedingung beziehungsweise Zeitangabe.",
+    "key_rule": "Nach weil, dass und wenn steht das finite Verb am Ende des Nebensatzes; Haupt- und Nebensatz werden durch ein Komma getrennt.",
+    "correct_examples": [
+      "Ich bleibe zu Hause, weil ich krank bin.",
+      "Sie sagt, dass der Kurs heute endet."
+    ],
+    "common_mistake_warning": "Lass im Nebensatz das Subjekt stehen und verschiebe nur das finite Verb ans Ende.",
+    "what_to_revise": "Übe Gründe mit weil, Inhalte mit dass und Bedingungen oder Wiederholungen mit wenn."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher weil-Satz hat die richtige Verbposition?",
+      "options": [
+        "Wir warten, weil kommt der Bus später.",
+        "Wir warten, weil der Bus kommt später.",
+        "Wir warten, weil später der Bus kommen.",
+        "Wir warten, weil der Bus später kommt."
+      ],
+      "correct_answer": "Wir warten, weil der Bus später kommt.",
+      "accepted_answers": [
+        "Wir warten, weil der Bus später kommt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im weil-Nebensatz steht das finite Verb „kommt“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher dass-Satz ist korrekt?",
+      "options": [
+        "Ich weiß, dass die Praxis heute geschlossen ist.",
+        "Ich weiß, dass ist die Praxis heute geschlossen.",
+        "Ich weiß, dass die Praxis ist heute geschlossen.",
+        "Ich weiß dass, die Praxis heute geschlossen ist."
+      ],
+      "correct_answer": "Ich weiß, dass die Praxis heute geschlossen ist.",
+      "accepted_answers": [
+        "Ich weiß, dass die Praxis heute geschlossen ist."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der dass-Satz wird durch ein Komma abgetrennt und endet mit dem finiten Verb „ist“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dass, wenn, weil]. Ergänze einen Grund: Ich nehme einen Schirm mit, ___ es regnet.",
+      "options": [],
+      "correct_answer": "weil",
+      "accepted_answers": [
+        "weil"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Nebensatz erklärt den Grund für den Schirm; deshalb passt „weil“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dass, weil, aber]. Ergänze den Inhalt: Sie sagt, ___ sie morgen kommt.",
+      "options": [],
+      "correct_answer": "dass",
+      "accepted_answers": [
+        "dass"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „sagen“ kann ein dass-Satz den Inhalt der Aussage wiedergeben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [deshalb, wenn, denn]. Ergänze eine Bedingung: Ruf mich an, ___ du Hilfe brauchst.",
+      "options": [],
+      "correct_answer": "wenn",
+      "accepted_answers": [
+        "wenn"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Wenn“ leitet hier die Bedingung für den Anruf ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Nebensatz ist richtig? Die Pflegekraft bleibt im Zimmer, ...",
+      "options": [
+        "weil der Patient hat Fieber.",
+        "weil Fieber der Patient hat es.",
+        "weil der Patient Fieber hat.",
+        "weil hat der Patient Fieber."
+      ],
+      "correct_answer": "weil der Patient Fieber hat.",
+      "accepted_answers": [
+        "weil der Patient Fieber hat."
+      ],
+      "rubric": null,
+      "explanation": "Im Nebensatz mit weil steht das konjugierte Verb hat am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gekommen, kam, kommt, kommen]. Ich weiß, dass die Pflegekraft später ___.",
+      "options": [],
+      "correct_answer": "kommt",
+      "accepted_answers": [
+        "kommt"
+      ],
+      "rubric": null,
+      "explanation": "Im dass-Nebensatz steht die konjugierte Präsensform kommt am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält einen richtig gebauten Nebensatz?",
+      "options": [
+        "Wenn du Zeit hast ruf, mich an.",
+        "Wenn du Zeit hast, ruf mich an.",
+        "Wenn hast du Zeit, ruf mich an.",
+        "Wenn du hast Zeit, ruf mich an."
+      ],
+      "correct_answer": "Wenn du Zeit hast, ruf mich an.",
+      "accepted_answers": [
+        "Wenn du Zeit hast, ruf mich an."
+      ],
+      "rubric": null,
+      "explanation": "Im wenn-Nebensatz steht hast am Ende; danach trennt ein Komma den Hauptsatz ab.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

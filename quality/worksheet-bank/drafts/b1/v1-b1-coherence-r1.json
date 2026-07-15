@@ -1,0 +1,201 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-coherence-r1",
+    "template_key": "v1-b1-coherence-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Coherence pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Textzusammenhang: Gedanken nachvollziehbar verbinden",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "coherence",
+    "name": "Textzusammenhang"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "coherence",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein kohärenter Text führt ein Thema weiter, ordnet Informationen logisch und verwendet eindeutige Verweise.",
+    "key_rule": "Jeder Satz sollte an den vorherigen anknüpfen; Zeitangaben, Konnektoren und Pronomen machen die Beziehung sichtbar.",
+    "correct_examples": [
+      "Im ersten Schritt sammelten wir Vorschläge. Später wählten wir die beste Lösung aus.",
+      "Der neue Raum ist heller. Dort können wir konzentrierter arbeiten."
+    ],
+    "common_mistake_warning": "Ein grammatisch richtiger Satz kann den Zusammenhang stören, wenn Thema oder Bezug plötzlich wechselt.",
+    "what_to_revise": "Wiederhole zeitliche Reihenfolge, Ursache und Folge sowie eindeutige Pronomen- und Ortsverweise."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Satzfolge bildet einen klaren Ablauf auf der Station?",
+      "options": [
+        "Danach beginnt die Übergabe. Zuerst klärt die Pflegekraft offene Fragen. Anschließend liest sie den Bericht vor der Übergabe.",
+        "Zuerst liest die Pflegekraft den Bericht. Danach klärt sie offene Fragen. Anschließend beginnt die Übergabe.",
+        "Zuerst liest die Pflegekraft den Bericht. Danach beginnt die Übergabe. Anschließend klärt sie die offenen Fragen vor Beginn der Übergabe."
+      ],
+      "correct_answer": "Zuerst liest die Pflegekraft den Bericht. Danach klärt sie offene Fragen. Anschließend beginnt die Übergabe.",
+      "accepted_answers": [
+        "Zuerst liest die Pflegekraft den Bericht. Danach klärt sie offene Fragen. Anschließend beginnt die Übergabe."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Zeitwörter ordnen drei inhaltlich zusammengehörige Schritte nachvollziehbar.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher zweite Satz knüpft eindeutig an? Der Kopierer ist seit gestern defekt.",
+      "options": [
+        "Deshalb drucken wir die Unterlagen vorübergehend im Nachbarbüro.",
+        "Deshalb ist der Kopierer seit gestern defekt.",
+        "Trotzdem ist der Kopierer wegen des Defekts nicht einsatzbereit."
+      ],
+      "correct_answer": "Deshalb drucken wir die Unterlagen vorübergehend im Nachbarbüro.",
+      "accepted_answers": [
+        "Deshalb drucken wir die Unterlagen vorübergehend im Nachbarbüro."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Deshalb“ stellt eine klare Folge des defekten Kopierers her.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Verweis ist eindeutig? Maria legte den Schlüssel in die Schublade.",
+      "options": [
+        "Dort findet es das Team bei Bedarf.",
+        "Darin findet sie es bei Bedarf.",
+        "Dort findet ihn das Team bei Bedarf."
+      ],
+      "correct_answer": "Dort findet ihn das Team bei Bedarf.",
+      "accepted_answers": ["Dort findet ihn das Team bei Bedarf."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Dort“ verweist auf die Schublade und „ihn“ eindeutig auf den Schlüssel.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Trotzdem, Beispielsweise, Anschließend]. Ergänze die zeitliche Fortsetzung: Zuerst prüfen wir die Daten. ___ senden wir das Formular ab.",
+      "options": [],
+      "correct_answer": "Anschließend",
+      "accepted_answers": ["Anschließend"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Anschließend“ markiert den unmittelbar folgenden Arbeitsschritt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Deshalb, Dagegen, Außerdem]. Ergänze die Folge: Der Patient konnte den Termin nicht wahrnehmen. ___ wurde ein neuer vereinbart.",
+      "options": [],
+      "correct_answer": "Deshalb",
+      "accepted_answers": ["Deshalb"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Deshalb“ verbindet den genannten Grund mit seiner Folge.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Damit, Dort, Danach]. Ergänze den Ortsverweis: Das Team trifft sich im großen Konferenzraum. ___ ist genug Platz für alle.",
+      "options": [],
+      "correct_answer": "Dort",
+      "accepted_answers": ["Dort"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Dort“ verweist eindeutig auf den zuvor genannten Konferenzraum.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Zuerst, Außerdem, Dennoch]. Ergänze einen weiteren Vorteil: Die Software spart Zeit. ___ reduziert sie Übertragungsfehler.",
+      "options": [],
+      "correct_answer": "Außerdem",
+      "accepted_answers": ["Außerdem"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Außerdem“ ergänzt einen zweiten Vorteil zum gleichen Thema.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verbindet Ursache, Handlung und Ergebnis am klarsten?",
+      "options": [
+        "Die Dokumentation war unvollständig. Deshalb ergänzte die Pflegekraft die fehlenden Angaben. Danach war die Dokumentation vollständig.",
+        "Die Dokumentation war unvollständig. Trotzdem ergänzte die Pflegekraft die fehlenden Angaben. Deshalb war die Dokumentation schon vorher vollständig.",
+        "Die Dokumentation war unvollständig. Danach war sie vollständig. Deshalb ergänzte die Pflegekraft später die fehlenden Angaben.",
+        "Die Dokumentation war unvollständig. Deshalb ergänzte die Pflegekraft keine Angaben. Trotzdem blieb sie unvollständig."
+      ],
+      "correct_answer": "Die Dokumentation war unvollständig. Deshalb ergänzte die Pflegekraft die fehlenden Angaben. Danach war die Dokumentation vollständig.",
+      "accepted_answers": [
+        "Die Dokumentation war unvollständig. Deshalb ergänzte die Pflegekraft die fehlenden Angaben. Danach war die Dokumentation vollständig."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Deshalb“ nennt die Folge der unvollständigen Dokumentation; „danach“ markiert das Ergebnis, und der Bezug bleibt eindeutig.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Reihenfolge beschreibt einen nachvollziehbaren Auswahlprozess?",
+      "options": [
+        "Danach entschieden wir uns. Schließlich verglichen wir Angebote. Zuerst legten wir Kriterien fest.",
+        "Schließlich legten wir Kriterien fest. Zuerst entschieden wir uns. Danach verglichen wir Angebote.",
+        "Zuerst verglichen wir Angebote. Danach entschieden wir uns. Schließlich legten wir Kriterien fest.",
+        "Zuerst legten wir Kriterien fest. Danach verglichen wir drei Angebote. Schließlich entschieden wir uns für das passende Angebot."
+      ],
+      "correct_answer": "Zuerst legten wir Kriterien fest. Danach verglichen wir drei Angebote. Schließlich entschieden wir uns für das passende Angebot.",
+      "accepted_answers": [
+        "Zuerst legten wir Kriterien fest. Danach verglichen wir drei Angebote. Schließlich entschieden wir uns für das passende Angebot."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Kriterien müssen vor dem Vergleich feststehen; erst nach dem Vergleich folgt die Entscheidung. Die Konnektoren machen diese Reihenfolge sichtbar.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Absatz ist inhaltlich zusammenhängend und verwendet die Konnektoren logisch?",
+      "options": [
+        "Einige Schritte waren unklar. Zuerst waren alle Fragen beantwortet. Danach erklärte niemand den Ablauf, deshalb probierte das Team ihn aus.",
+        "Zuerst erklärte die Leitung den Ablauf. Danach probierte das Team ihn aus. Einige Schritte waren unklar, deshalb sammelten wir Fragen.",
+        "Zuerst sammelten wir Fragen. Danach war der Ablauf erklärt, deshalb hatte niemand den Ablauf ausprobiert.",
+        "Danach erklärte die Leitung den Ablauf. Zuerst probierte das Team ihn aus. Deshalb waren alle Schritte vorher klar."
+      ],
+      "correct_answer": "Zuerst erklärte die Leitung den Ablauf. Danach probierte das Team ihn aus. Einige Schritte waren unklar, deshalb sammelten wir Fragen.",
+      "accepted_answers": [
+        "Zuerst erklärte die Leitung den Ablauf. Danach probierte das Team ihn aus. Einige Schritte waren unklar, deshalb sammelten wir Fragen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die zeitlichen Konnektoren ordnen Einführung und Erprobung; „deshalb“ verbindet die Unklarheiten mit dem Sammeln von Fragen.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

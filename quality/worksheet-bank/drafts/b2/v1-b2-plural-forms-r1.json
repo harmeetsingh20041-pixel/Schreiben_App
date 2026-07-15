@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-plural-forms-r1",
+    "template_key": "v1-b2-plural-forms-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Plural forms pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Pluralformen: Fachwortschatz korrekt flektieren",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "plural-forms",
+    "name": "Pluralformen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "plural-forms",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Deutsche Pluralformen folgen mehreren Mustern und können Umlaut, Endung oder beides enthalten. Fremdwörter und fachsprachliche Nomen haben teils konkurrierende, aber kontextabhängig standardisierte Formen.",
+    "key_rule": "Lerne den Plural zusammen mit dem Artikel und beachte zusätzlich das Dativ-n, sofern die Pluralform nicht bereits auf -n oder -s endet.",
+    "correct_examples": [
+      "mehrere klinische Beobachtungen",
+      "mit den dokumentierten Fällen"
+    ],
+    "common_mistake_warning": "Eine häufige Pluralendung darf nicht automatisch auf jedes Fremdwort übertragen werden; maßgeblich ist die lexikalisch etablierte Form.",
+    "what_to_revise": "Übe Umlautplurale, Fremdwortplurale, unveränderte Plurale und die Dativ-Plural-Markierung."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Plural von „Risiko“ ist in einem formellen Bericht standardsprachlich?",
+      "options": [
+        "Risikos",
+        "Risika",
+        "Risiken"
+      ],
+      "correct_answer": "Risiken",
+      "accepted_answers": [
+        "Risiken"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Fremdwort „Risiko“ bildet den standardsprachlichen Plural „Risiken“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Dativ-Plural-Gruppe ist vollständig korrekt?",
+      "options": [
+        "mit mehreren neuen Erkenntnisse",
+        "mit mehreren neuen Erkenntnissen",
+        "mit mehrere neue Erkenntnisse"
+      ],
+      "correct_answer": "mit mehreren neuen Erkenntnissen",
+      "accepted_answers": [
+        "mit mehreren neuen Erkenntnissen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Dativ Plural erhalten Begleiter und Adjektiv passende Endungen; „Erkenntnisse“ bekommt zusätzlich ein -n.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet den Plural von „Status“ korrekt?",
+      "options": [
+        "Die aktuellen Status der Anträge sind im Portal sichtbar.",
+        "Die aktuellen Staten der Anträge sind im Portal sichtbar.",
+        "Die aktuellen Statusse der Anträge sind im Portal sichtbar."
+      ],
+      "correct_answer": "Die aktuellen Status der Anträge sind im Portal sichtbar.",
+      "accepted_answers": [
+        "Die aktuellen Status der Anträge sind im Portal sichtbar."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Status“ bleibt im Schriftbild im Plural unverändert; gesprochen unterscheidet sich die Vokallänge.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Kriterien, Kriteriums, Kriterias]. Ergänze den Plural: Für die Bewertung gelten transparente ___.",
+      "options": [],
+      "correct_answer": "Kriterien",
+      "accepted_answers": [
+        "Kriterien"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Fremdwort „Kriterium“ bildet den Plural auf -ien: „Kriterien“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Befunden, Befunds, Befunde]. Ergänze den Nominativ Plural: Die auffälligen ___ wurden sofort ärztlich beurteilt.",
+      "options": [],
+      "correct_answer": "Befunde",
+      "accepted_answers": [
+        "Befunde"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Nominativ Plural von „Befund“ lautet mit der Endung -e „Befunde“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Prozessens, Prozessen, Prozesse]. Ergänze den Dativ Plural: Die Auswertung beruht auf standardisierten ___.",
+      "options": [],
+      "correct_answer": "Prozessen",
+      "accepted_answers": [
+        "Prozessen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „auf“ steht hier der Dativ; der Plural „Prozesse“ erhält zusätzlich das Dativ-n.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Fachkrafts, Fachkräfte, Fachkräften]. Ergänze den Akkusativ Plural: Die Klinik sucht dringend international erfahrene ___.",
+      "options": [],
+      "correct_answer": "Fachkräfte",
+      "accepted_answers": [
+        "Fachkräfte"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Als direktes Objekt steht der Plural „Fachkräfte“ im Akkusativ ohne zusätzliches Dativ-n.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält die korrekte Pluralform von „Diagnose“?",
+      "options": [
+        "Im Abschlussbericht wurden mehrere seltene Diagnoses miteinander verglichen.",
+        "Im Abschlussbericht wurden mehrere seltene Diagnosen miteinander verglichen.",
+        "Im Abschlussbericht wurden mehrere seltene Diagnosisen miteinander verglichen.",
+        "Im Abschlussbericht wurden mehrere seltene Diagnosenen miteinander verglichen."
+      ],
+      "correct_answer": "Im Abschlussbericht wurden mehrere seltene Diagnosen miteinander verglichen.",
+      "accepted_answers": [
+        "Im Abschlussbericht wurden mehrere seltene Diagnosen miteinander verglichen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Fremdwort „Diagnose“ bildet den Plural ohne zusätzliche Silbe als „Diagnosen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung setzt Nominalgruppen und Verb vollständig in den Plural?",
+      "options": [
+        "Die neuen Analyseverfahrens liefert verlässliche Messwerte.",
+        "Die neuen Analyseverfahren liefern einen verlässlichen Messwert.",
+        "Die neue Analyseverfahren liefern verlässliche Messwerte.",
+        "Die neuen Analyseverfahren liefern verlässliche Messwerte."
+      ],
+      "correct_answer": "Die neuen Analyseverfahren liefern verlässliche Messwerte.",
+      "accepted_answers": [
+        "Die neuen Analyseverfahren liefern verlässliche Messwerte."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Satz verbindet einen endungslosen Plural bei „Verfahren“ mit dem Umlautplural „Messwerte“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet in dem Auswertungsbericht alle Pluralformen einschließlich der Dativmarkierung korrekt?",
+      "options": [
+        "Mehrere Kriterien wurden festgelegt und anschließend mit den zuständigen Ärztinnen sowie den beteiligten Teams besprochen.",
+        "Mehrere Kriteriums wurden festgelegt und anschließend mit den zuständigen Ärztinnen sowie den beteiligten Teams besprochen.",
+        "Mehrere Kriterien wurden festgelegt und anschließend mit den zuständigen Ärztinnenen sowie den beteiligten Teams besprochen.",
+        "Mehrere Kriterien wurden festgelegt und anschließend mit den zuständigen Ärztinnen sowie den beteiligten Teamsen besprochen."
+      ],
+      "correct_answer": "Mehrere Kriterien wurden festgelegt und anschließend mit den zuständigen Ärztinnen sowie den beteiligten Teams besprochen.",
+      "accepted_answers": [
+        "Mehrere Kriterien wurden festgelegt und anschließend mit den zuständigen Ärztinnen sowie den beteiligten Teams besprochen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Kriterium“ bildet den Plural „Kriterien“. „Ärztinnen“ endet bereits auf -n und „Teams“ auf -s; deshalb erhalten beide Formen im Dativ Plural kein zusätzliches -n.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

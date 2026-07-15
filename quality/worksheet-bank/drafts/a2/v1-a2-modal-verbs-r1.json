@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-modal-verbs-r1",
+    "template_key": "v1-a2-modal-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Modal verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Modalverben: Fähigkeit, Pflicht und Erlaubnis",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "modal-verbs",
+    "name": "Modalverben"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "modal-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Modalverben verändern die Bedeutung einer Handlung, zum Beispiel als Fähigkeit, Pflicht, Wunsch, Rat oder Erlaubnis.",
+    "key_rule": "Das konjugierte Modalverb steht im Hauptsatz an Position zwei; der andere Infinitiv steht ohne „zu“ am Ende.",
+    "correct_examples": [
+      "Ich kann morgen kommen.",
+      "Wir müssen die Regeln beachten."
+    ],
+    "common_mistake_warning": "Konjugiere nur das Modalverb und setze den Vollverbinfinitiv ans Satzende.",
+    "what_to_revise": "Übe können, müssen, dürfen, sollen, wollen und möchten in Alltagssituationen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt eine Erlaubnis korrekt aus?",
+      "options": [
+        "Du darfst heute früher gehen.",
+        "Du darf heute früher gehen.",
+        "Du darfst heute früher gehst.",
+        "Du heute früher darfst gehen."
+      ],
+      "correct_answer": "Du darfst heute früher gehen.",
+      "accepted_answers": [
+        "Du darfst heute früher gehen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Dürfen“ wird zu „darfst“ konjugiert; der Infinitiv „gehen“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz formuliert eine notwendige Pflicht?",
+      "options": [
+        "Wir dürfen die Dokumente nicht prüfen.",
+        "Wir müssen die Dokumente prüfen.",
+        "Wir können die Dokumente vielleicht prüfen.",
+        "Wir möchten die Dokumente gern prüfen."
+      ],
+      "correct_answer": "Wir müssen die Dokumente prüfen.",
+      "accepted_answers": [
+        "Wir müssen die Dokumente prüfen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Müssen“ bezeichnet hier eine notwendige Pflicht und bildet die Klammer mit „prüfen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kann, kannst, können]. Ergänze: Ich ___ den Termin verschieben.",
+      "options": [],
+      "correct_answer": "kann",
+      "accepted_answers": [
+        "kann"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zur ersten Person Singular gehört die Modalverbform „kann“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [müssen, muss, müsst]. Ergänze: Ihr ___ pünktlich sein.",
+      "options": [],
+      "correct_answer": "müsst",
+      "accepted_answers": [
+        "müsst"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Subjekt „ihr“ verlangt die Form „müsst“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [geholfen, helfen, hilft]. Ergänze den Infinitiv: Soll ich dir ___?",
+      "options": [],
+      "correct_answer": "helfen",
+      "accepted_answers": [
+        "helfen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem konjugierten Modalverb „Soll“ steht der Vollverbinfinitiv „helfen“ ohne „zu“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Modalverb: Die Pflegekraft ___ die Werte dokumentieren.",
+      "options": [
+        "müssen",
+        "musst",
+        "müsst",
+        "muss"
+      ],
+      "correct_answer": "muss",
+      "accepted_answers": [
+        "muss"
+      ],
+      "rubric": null,
+      "explanation": "Zum singularischen Subjekt die Pflegekraft gehört die Form muss; dokumentieren bleibt im Infinitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kannst, können, kann, könnt]. Wir ___ morgen früher beginnen.",
+      "options": [],
+      "correct_answer": "können",
+      "accepted_answers": [
+        "können"
+      ],
+      "rubric": null,
+      "explanation": "Zum Subjekt wir gehört die Modalverbform können; beginnen steht als Infinitiv am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet dürfen richtig?",
+      "options": [
+        "Du dürfen hier nicht rauchen.",
+        "Du darfst hier nicht geraucht.",
+        "Du darfst hier nicht rauchen.",
+        "Du darf hier nicht rauchst."
+      ],
+      "correct_answer": "Du darfst hier nicht rauchen.",
+      "accepted_answers": [
+        "Du darfst hier nicht rauchen."
+      ],
+      "rubric": null,
+      "explanation": "Zum Subjekt du gehört darfst; das zweite Verb rauchen steht im Infinitiv am Satzende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

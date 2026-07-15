@@ -1,31 +1,45 @@
-import { getSupabaseClient } from "@/lib/supabaseClient";
+import {
+  callApiRpc,
+  type ApiKeysetCursor,
+  type ApiPage,
+  parseApiArray,
+  parseApiPage,
+  parseApiRecord,
+} from "@/services/apiFacade";
 import type { WorkspaceLevel } from "@/lib/workspaceData";
-import type { Database } from "@/types/supabase";
+import {
+  parseTeacherWeakTopics,
+  type TeacherWeakTopic,
+} from "@/services/teacherReadModelService";
+import { PublicAppError } from "@/lib/appError";
 
-type BatchRow = Database["public"]["Tables"]["batches"]["Row"];
-type BatchStudentRow = Database["public"]["Tables"]["batch_students"]["Row"];
-type BatchJoinRequestRow = Database["public"]["Tables"]["batch_join_requests"]["Row"];
-type InvitationRow = Database["public"]["Tables"]["student_invitations"]["Row"];
-type ProfileRow = Database["public"]["Tables"]["profiles"]["Row"];
-type WorkspaceMemberRow = Database["public"]["Tables"]["workspace_members"]["Row"];
+const ROSTER_PAGE_SIZE = 100;
+const JOIN_REQUEST_PAGE_SIZE = 100;
+const UUID_PATTERN =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
-const STUDENT_QUERY_LIMITS = {
-  myAssignments: 20,
-  workspaceStudents: 60,
-  workspaceBatches: 100,
-  workspaceAssignments: 300,
-  workspaceSubmissionStats: 300,
-  invitations: 50,
-  joinRequests: 50,
-  myJoinRequests: 20,
-} as const;
+export interface WorkspaceStudentCursor {
+  created_at: string;
+  id: string;
+}
 
-function requireClient() {
-  const client = getSupabaseClient();
-  if (!client) {
-    throw new Error("Supabase is not configured. Demo mode is still available.");
-  }
-  return client;
+export interface JoinRequestCursor {
+  requested_at: string;
+  id: string;
+}
+
+export interface WorkspaceStudentPage extends Omit<
+  ApiPage<WorkspaceStudent>,
+  "next_cursor"
+> {
+  next_cursor: WorkspaceStudentCursor | null;
+}
+
+export interface BatchJoinRequestPage extends Omit<
+  ApiPage<BatchJoinRequest>,
+  "next_cursor"
+> {
+  next_cursor: JoinRequestCursor | null;
 }
 
 export interface StudentBatchAssignment {
@@ -44,20 +58,15 @@ export interface WorkspaceStudent {
   batches: StudentBatchAssignment[];
   total_submissions: number;
   last_active: string;
+  weak_topics: TeacherWeakTopic[];
 }
 
-export interface StudentInvitation {
-  id: string;
-  workspace_id: string;
-  batch_id: string | null;
-  email: string;
-  status: "pending" | "accepted" | "cancelled" | "expired";
-  accepted_by: string | null;
-  accepted_at: string | null;
-  expires_at: string | null;
-  created_at: string;
-  batch_name: string | null;
-  batch_level: WorkspaceLevel | null;
+interface WorkspaceStudentApiRow extends Omit<
+  WorkspaceStudent,
+  "last_active" | "weak_topics"
+> {
+  last_active_at: string | null;
+  weak_topics: unknown;
 }
 
 export interface BatchJoinRequest {
@@ -75,14 +84,23 @@ export interface BatchJoinRequest {
   batch_level: WorkspaceLevel;
 }
 
+export function getProminentJoinRequest(
+  requests: readonly BatchJoinRequest[],
+): BatchJoinRequest | undefined {
+  return requests.find(
+    (request) =>
+      request.status !== "cancelled" && request.status !== "rejected",
+  );
+}
+
 export interface JoinBatchResult {
   request_id: string;
   workspace_id: string;
   batch_id: string;
   batch_name: string;
   level: WorkspaceLevel;
-  status: BatchJoinRequest["status"];
-  requires_approval: boolean;
+  status: "pending" | "approved";
+  requires_approval: true;
 }
 
 function formatActivity(value: string | null) {
@@ -94,327 +112,282 @@ function formatActivity(value: string | null) {
   });
 }
 
-function mapBatchAssignments(
-  assignments: BatchStudentRow[],
-  batches: Pick<BatchRow, "id" | "name" | "level">[],
-): StudentBatchAssignment[] {
-  const batchMap = new Map(batches.map((batch) => [batch.id, batch]));
-  return assignments
-    .map((assignment) => {
-      const batch = batchMap.get(assignment.batch_id);
-      if (!batch) return null;
-      return {
-        id: assignment.id,
-        workspace_id: assignment.workspace_id,
-        batch_id: assignment.batch_id,
-        batch_name: batch.name,
-        level: batch.level as WorkspaceLevel,
-      };
-    })
-    .filter((assignment): assignment is StudentBatchAssignment => Boolean(assignment));
-}
-
-export async function listMyBatchAssignments(studentId: string): Promise<StudentBatchAssignment[]> {
-  const client = requireClient();
-  const { data: assignments, error: assignmentsError } = await client
-    .from("batch_students")
-    .select("*")
-    .eq("student_id", studentId)
-    .limit(STUDENT_QUERY_LIMITS.myAssignments);
-
-  if (assignmentsError) throw assignmentsError;
-
-  const batchIds = Array.from(new Set((assignments ?? []).map((assignment) => assignment.batch_id)));
-  if (batchIds.length === 0) return [];
-
-  const { data: batches, error: batchesError } = await client
-    .from("batches")
-    .select("id, name, level")
-    .in("id", batchIds);
-
-  if (batchesError) throw batchesError;
-  return mapBatchAssignments(
-    (assignments ?? []) as BatchStudentRow[],
-    (batches ?? []) as Pick<BatchRow, "id" | "name" | "level">[],
-  );
-}
-
-export async function listWorkspaceStudents(workspaceId: string): Promise<WorkspaceStudent[]> {
-  const client = requireClient();
-  const [
-    { data: memberships, error: membershipsError },
-    { data: batches, error: batchesError },
-  ] = await Promise.all([
-    client
-      .from("workspace_members")
-      .select("id, workspace_id, user_id, role, profiles!workspace_members_user_id_fkey(id, full_name, email)")
-      .eq("workspace_id", workspaceId)
-      .eq("role", "student")
-      .order("created_at", { ascending: false })
-      .limit(STUDENT_QUERY_LIMITS.workspaceStudents),
-    client
-      .from("batches")
-      .select("*")
-      .eq("workspace_id", workspaceId)
-      .limit(STUDENT_QUERY_LIMITS.workspaceBatches),
-  ]);
-
-  if (membershipsError) throw membershipsError;
-  if (batchesError) throw batchesError;
-
-  const memberRows = (memberships ?? []) as (WorkspaceMemberRow & { profiles: ProfileRow | null })[];
-  const studentIds = memberRows.map((membership) => membership.user_id);
-
-  const [
-    { data: assignments, error: assignmentsError },
-    { data: submissions, error: submissionsError },
-  ] = studentIds.length === 0
-    ? [
-        { data: [], error: null },
-        { data: [], error: null },
-      ]
-    : await Promise.all([
-        client
-          .from("batch_students")
-          .select("*")
-          .eq("workspace_id", workspaceId)
-          .in("student_id", studentIds)
-          .limit(STUDENT_QUERY_LIMITS.workspaceAssignments),
-        client
-          .from("submissions")
-          .select("student_id, created_at")
-          .eq("workspace_id", workspaceId)
-          .in("student_id", studentIds)
-          .order("created_at", { ascending: false })
-          .limit(STUDENT_QUERY_LIMITS.workspaceSubmissionStats),
-      ]);
-
-  if (assignmentsError) throw assignmentsError;
-  if (submissionsError) throw submissionsError;
-
-  const batchMap = new Map(
-    ((batches ?? []) as BatchRow[]).map((batch) => [batch.id, batch]),
-  );
-
-  const assignmentsByStudent = new Map<string, BatchStudentRow[]>();
-  for (const assignment of (assignments ?? []) as BatchStudentRow[]) {
-    const current = assignmentsByStudent.get(assignment.student_id) ?? [];
-    current.push(assignment);
-    assignmentsByStudent.set(assignment.student_id, current);
+function parseWorkspaceStudentPage(
+  value: unknown,
+  workspaceId: string,
+): WorkspaceStudentPage {
+  const page = parseApiPage<WorkspaceStudentApiRow>(value, "Students");
+  const next = page.next_cursor;
+  if (
+    next &&
+    (typeof next.created_at !== "string" || typeof next.id !== "string")
+  ) {
+    parseApiPage(null, "Students");
   }
-
-  const statsByStudent = new Map<string, { count: number; latest: string | null }>();
-  for (const submission of submissions ?? []) {
-    const current = statsByStudent.get(submission.student_id) ?? {
-      count: 0,
-      latest: null,
-    };
-    current.count += 1;
-    if (!current.latest || submission.created_at > current.latest) {
-      current.latest = submission.created_at;
-    }
-    statsByStudent.set(submission.student_id, current);
-  }
-
-  return memberRows.map((member) => {
-    const profile = member.profiles;
-    const studentAssignments = (assignmentsByStudent.get(member.user_id) ?? [])
-      .map((assignment) => {
-        const batch = batchMap.get(assignment.batch_id);
-        if (!batch) return null;
-        return {
-          id: assignment.id,
-          workspace_id: assignment.workspace_id,
-          batch_id: assignment.batch_id,
-          batch_name: batch.name,
-          level: batch.level as WorkspaceLevel,
-        };
-      })
-      .filter((assignment): assignment is StudentBatchAssignment => Boolean(assignment));
-    const stats = statsByStudent.get(member.user_id);
-
-    return {
-      id: member.user_id,
-      name: profile?.full_name || profile?.email || "Unnamed student",
-      email: profile?.email || "",
-      membership_id: member.id,
-      batches: studentAssignments,
-      total_submissions: stats?.count ?? 0,
-      last_active: formatActivity(stats?.latest ?? null),
-    };
-  });
-}
-
-export async function listStudentInvitations(workspaceId: string): Promise<StudentInvitation[]> {
-  const client = requireClient();
-  const [
-    { data: invitations, error: invitationsError },
-    { data: batches, error: batchesError },
-  ] = await Promise.all([
-    client
-      .from("student_invitations")
-      .select("*")
-      .eq("workspace_id", workspaceId)
-      .order("created_at", { ascending: false })
-      .limit(STUDENT_QUERY_LIMITS.invitations),
-    client
-      .from("batches")
-      .select("id, name, level")
-      .eq("workspace_id", workspaceId)
-      .limit(STUDENT_QUERY_LIMITS.workspaceBatches),
-  ]);
-
-  if (invitationsError) throw invitationsError;
-  if (batchesError) throw batchesError;
-
-  const batchMap = new Map(
-    ((batches ?? []) as Pick<BatchRow, "id" | "name" | "level">[]).map((batch) => [
-      batch.id,
-      batch,
-    ]),
-  );
-
-  return ((invitations ?? []) as InvitationRow[]).map((invitation) => {
-    const batch = invitation.batch_id ? batchMap.get(invitation.batch_id) : null;
-    return {
-      id: invitation.id,
-      workspace_id: invitation.workspace_id,
-      batch_id: invitation.batch_id,
-      email: invitation.email,
-      status: invitation.status as StudentInvitation["status"],
-      accepted_by: invitation.accepted_by,
-      accepted_at: invitation.accepted_at,
-      expires_at: invitation.expires_at,
-      created_at: invitation.created_at,
-      batch_name: batch?.name ?? null,
-      batch_level: (batch?.level as WorkspaceLevel | undefined) ?? null,
-    };
-  });
-}
-
-function mapJoinRequests(
-  requests: BatchJoinRequestRow[],
-  batches: Pick<BatchRow, "id" | "name" | "level">[],
-): BatchJoinRequest[] {
-  const batchMap = new Map(batches.map((batch) => [batch.id, batch]));
-
-  return requests.map((request) => {
-    const batch = batchMap.get(request.batch_id);
-
-    return {
-      id: request.id,
-      workspace_id: request.workspace_id,
-      batch_id: request.batch_id,
-      student_id: request.student_id,
-      status: request.status as BatchJoinRequest["status"],
-      requested_at: request.requested_at,
-      decided_at: request.decided_at,
-      decided_by: request.decided_by,
-      student_name: request.student_name || request.student_email,
-      student_email: request.student_email,
-      batch_name: batch?.name || "Unknown batch",
-      batch_level: (batch?.level as WorkspaceLevel | undefined) ?? "A1",
-    };
-  });
-}
-
-export async function listBatchJoinRequests(workspaceId: string): Promise<BatchJoinRequest[]> {
-  const client = requireClient();
-  const { data: requests, error: requestsError } = await client
-    .from("batch_join_requests")
-    .select("*")
-    .eq("workspace_id", workspaceId)
-    .order("requested_at", { ascending: false })
-    .limit(STUDENT_QUERY_LIMITS.joinRequests);
-
-  if (requestsError) throw requestsError;
-
-  const requestRows = (requests ?? []) as BatchJoinRequestRow[];
-  if (requestRows.length === 0) return [];
-
-  const batchIds = Array.from(new Set(requestRows.map((request) => request.batch_id)));
-
-  const { data: batches, error: batchesError } = await client
-    .from("batches")
-    .select("id, name, level")
-    .in("id", batchIds);
-
-  if (batchesError) throw batchesError;
-
-  return mapJoinRequests(
-    requestRows,
-    (batches ?? []) as Pick<BatchRow, "id" | "name" | "level">[],
-  );
-}
-
-export async function listMyBatchJoinRequests(studentId: string): Promise<BatchJoinRequest[]> {
-  const client = requireClient();
-  const { data: requests, error: requestsError } = await client
-    .from("batch_join_requests")
-    .select("*")
-    .eq("student_id", studentId)
-    .order("requested_at", { ascending: false })
-    .limit(STUDENT_QUERY_LIMITS.myJoinRequests);
-
-  if (requestsError) throw requestsError;
-
-  const requestRows = (requests ?? []) as BatchJoinRequestRow[];
-  if (requestRows.length === 0) return [];
-
-  const batchIds = Array.from(new Set(requestRows.map((request) => request.batch_id)));
-  const { data: batches, error: batchesError } = await client
-    .from("batches")
-    .select("id, name, level")
-    .in("id", batchIds);
-
-  if (batchesError) throw batchesError;
-
-  return mapJoinRequests(
-    requestRows,
-    (batches ?? []) as Pick<BatchRow, "id" | "name" | "level">[],
-  );
-}
-
-export async function inviteStudentByEmail(email: string, batchId?: string | null) {
-  const client = requireClient();
-  const { error } = await client.rpc("invite_student_by_email", {
-    target_email: email,
-    target_batch_id: batchId || undefined,
-  });
-
-  if (error) throw error;
-}
-
-export async function requestJoinBatchByCode(joinCode: string): Promise<JoinBatchResult> {
-  const client = requireClient();
-  const { data, error } = await client
-    .rpc("request_join_batch_by_code", { join_code: joinCode })
-    .single();
-
-  if (error) throw error;
   return {
-    ...data,
-    level: data.level as WorkspaceLevel,
-    status: data.status as BatchJoinRequest["status"],
+    ...page,
+    items: page.items.map((student) => ({
+      id: student.id,
+      name: student.name,
+      email: student.email,
+      membership_id: student.membership_id,
+      batches: student.batches,
+      total_submissions: student.total_submissions,
+      last_active: formatActivity(student.last_active_at),
+      weak_topics: parseTeacherWeakTopics(
+        student.weak_topics,
+        { workspaceId, studentId: student.id, maxItems: 3 },
+        "Students",
+      ),
+    })),
+    next_cursor: next ? { created_at: next.created_at!, id: next.id } : null,
   };
 }
 
-export async function approveBatchJoinRequest(requestId: string) {
-  const client = requireClient();
-  const { error } = await client.rpc("approve_batch_join_request", {
-    request_id: requestId,
-  });
+export async function listWorkspaceStudentsFilteredPage(input: {
+  workspaceId: string;
+  search?: string;
+  batchId?: string | null;
+  level?: WorkspaceLevel | null;
+  pageSize?: number;
+  cursor?: WorkspaceStudentCursor | null;
+}): Promise<WorkspaceStudentPage> {
+  const value = await callApiRpc<unknown>(
+    "list_workspace_students_filtered_page",
+    {
+      target_workspace_id: input.workspaceId,
+      search_query: input.search?.trim() ?? "",
+      target_batch_id: input.batchId ?? null,
+      target_level: input.level ?? null,
+      requested_page_size: input.pageSize ?? 25,
+      cursor_created_at: input.cursor?.created_at ?? null,
+      cursor_membership_id: input.cursor?.id ?? null,
+    },
+    "Students could not be loaded. Please try again.",
+  );
+  return parseWorkspaceStudentPage(value, input.workspaceId);
+}
 
-  if (error) throw error;
+export async function listMyBatchAssignments(
+  studentId: string,
+): Promise<StudentBatchAssignment[]> {
+  const value = await callApiRpc<unknown>(
+    "list_my_batch_assignments",
+    { target_student_id: studentId },
+    "Your active classes could not be loaded. Please try again.",
+  );
+  return parseApiArray<StudentBatchAssignment>(value, "Your active classes");
+}
+
+export async function listWorkspaceStudents(
+  workspaceId: string,
+): Promise<WorkspaceStudent[]> {
+  const students: WorkspaceStudent[] = [];
+  let cursor: { created_at: string; id: string } | null = null;
+
+  do {
+    const page = await listWorkspaceStudentsFilteredPage({
+      workspaceId,
+      pageSize: ROSTER_PAGE_SIZE,
+      cursor,
+    });
+    students.push(...page.items);
+
+    if (!page.has_more) break;
+    const next: ApiKeysetCursor | null = page.next_cursor;
+    if (
+      !next ||
+      typeof next.created_at !== "string" ||
+      typeof next.id !== "string" ||
+      (cursor?.created_at === next.created_at && cursor.id === next.id)
+    ) {
+      parseApiPage(null, "Students");
+    }
+    cursor = { created_at: next!.created_at!, id: next!.id };
+  } while (cursor);
+
+  return students;
+}
+
+export async function getWorkspaceStudentCount(
+  workspaceId: string,
+): Promise<number> {
+  return (
+    await listWorkspaceStudentsFilteredPage({
+      workspaceId,
+      pageSize: 1,
+    })
+  ).total_count;
+}
+
+export async function listWorkspaceJoinRequestsFilteredPage(input: {
+  workspaceId: string;
+  status?: BatchJoinRequest["status"] | "all";
+  search?: string;
+  batchId?: string | null;
+  pageSize?: number;
+  cursor?: JoinRequestCursor | null;
+}): Promise<BatchJoinRequestPage> {
+  const value = await callApiRpc<unknown>(
+    "list_workspace_join_requests_filtered_page",
+    {
+      target_workspace_id: input.workspaceId,
+      target_status: input.status ?? "pending",
+      search_query: input.search?.trim() ?? "",
+      target_batch_id: input.batchId ?? null,
+      requested_page_size: input.pageSize ?? 25,
+      cursor_requested_at: input.cursor?.requested_at ?? null,
+      cursor_request_id: input.cursor?.id ?? null,
+    },
+    "Join requests could not be loaded. Please try again.",
+  );
+  const page = parseApiPage<BatchJoinRequest>(value, "Join requests");
+  const next = page.next_cursor;
+  if (
+    next &&
+    (typeof next.requested_at !== "string" || typeof next.id !== "string")
+  ) {
+    parseApiPage(null, "Join requests");
+  }
+  return {
+    ...page,
+    next_cursor: next
+      ? { requested_at: next.requested_at!, id: next.id }
+      : null,
+  };
+}
+
+export async function listBatchJoinRequests(
+  workspaceId: string,
+): Promise<BatchJoinRequest[]> {
+  const requests: BatchJoinRequest[] = [];
+  let cursor: { requested_at: string; id: string } | null = null;
+
+  do {
+    const page = await listWorkspaceJoinRequestsFilteredPage({
+      workspaceId,
+      status: "all",
+      pageSize: JOIN_REQUEST_PAGE_SIZE,
+      cursor,
+    });
+    requests.push(...page.items);
+    if (!page.has_more) break;
+
+    const next: ApiKeysetCursor | null = page.next_cursor;
+    if (
+      !next ||
+      typeof next.requested_at !== "string" ||
+      typeof next.id !== "string" ||
+      (cursor?.requested_at === next.requested_at && cursor.id === next.id)
+    ) {
+      parseApiPage(null, "Join requests");
+    }
+    cursor = { requested_at: next!.requested_at!, id: next!.id };
+  } while (cursor);
+
+  return requests;
+}
+
+export async function listMyBatchJoinRequests(
+  studentId: string,
+): Promise<BatchJoinRequest[]> {
+  const value = await callApiRpc<unknown>(
+    "list_my_batch_join_requests",
+    { target_student_id: studentId },
+    "Your join requests could not be loaded. Please try again.",
+  );
+  return parseApiArray<BatchJoinRequest>(value, "Your join requests");
+}
+
+export function parseJoinBatchResult(value: unknown): JoinBatchResult {
+  const rows = parseApiArray<unknown>(value, "Class join request");
+  if (rows.length === 0) {
+    throw new PublicAppError(
+      "data_not_found",
+      "This class code is invalid, inactive, or no longer available.",
+    );
+  }
+  if (rows.length !== 1) {
+    parseApiArray(null, "Class join request");
+  }
+  const result = parseApiRecord<Record<string, unknown>>(
+    rows[0],
+    "Class join request",
+  );
+  if (
+    typeof result.request_id !== "string" ||
+    !UUID_PATTERN.test(result.request_id) ||
+    typeof result.workspace_id !== "string" ||
+    !UUID_PATTERN.test(result.workspace_id) ||
+    typeof result.batch_id !== "string" ||
+    !UUID_PATTERN.test(result.batch_id) ||
+    typeof result.batch_name !== "string" ||
+    result.batch_name.trim().length === 0 ||
+    result.batch_name.length > 160 ||
+    typeof result.level !== "string" ||
+    !["A1", "A2", "B1", "B2"].includes(result.level) ||
+    typeof result.status !== "string" ||
+    !["pending", "approved"].includes(result.status) ||
+    result.requires_approval !== true
+  ) {
+    parseApiRecord(null, "Class join request");
+  }
+  return result as unknown as JoinBatchResult;
+}
+
+export async function requestJoinBatchByCode(
+  joinCode: string,
+): Promise<JoinBatchResult> {
+  const value = await callApiRpc<unknown>(
+    "request_batch_join",
+    { code: joinCode },
+    "The class code could not be submitted. Check it and try again.",
+  );
+  return parseJoinBatchResult(value);
+}
+
+export async function approveBatchJoinRequest(requestId: string) {
+  const value = await callApiRpc<unknown>(
+    "decide_batch_join",
+    { join_request_id: requestId, decision: "approved" },
+    "The join request could not be approved. Please refresh and try again.",
+  );
+  const rows = parseApiArray<{ request_id: string; status: string }>(
+    value,
+    "Join approval",
+  );
+  if (rows[0]?.request_id !== requestId || rows[0]?.status !== "approved") {
+    parseApiArray(null, "Join approval");
+  }
 }
 
 export async function rejectBatchJoinRequest(requestId: string) {
-  const client = requireClient();
-  const { error } = await client.rpc("reject_batch_join_request", {
-    request_id: requestId,
-  });
+  const value = await callApiRpc<unknown>(
+    "decide_batch_join",
+    { join_request_id: requestId, decision: "rejected" },
+    "The join request could not be rejected. Please refresh and try again.",
+  );
+  const rows = parseApiArray<{ request_id: string; status: string }>(
+    value,
+    "Join rejection",
+  );
+  if (rows[0]?.request_id !== requestId || rows[0]?.status !== "rejected") {
+    parseApiArray(null, "Join rejection");
+  }
+}
 
-  if (error) throw error;
+export async function offboardStudent(studentId: string, workspaceId: string) {
+  const value = await callApiRpc<unknown>(
+    "offboard_student",
+    { student_id: studentId, workspace_id: workspaceId },
+    "The student could not be removed. Please refresh and try again.",
+  );
+  const rows = parseApiArray<unknown>(value, "Student removal");
+  return parseApiRecord<{
+    removed_batch_assignments: number;
+    cancelled_join_requests: number;
+    membership_removed: boolean;
+  }>(rows[0], "Student removal");
 }
 
 export async function assignStudentToBatch(
@@ -422,22 +395,88 @@ export async function assignStudentToBatch(
   studentId: string,
   batchId: string,
 ) {
-  const client = requireClient();
-  const { error } = await client.from("batch_students").insert({
-    workspace_id: workspaceId,
-    student_id: studentId,
-    batch_id: batchId,
-  });
-
-  if (error && error.code !== "23505") throw error;
+  const value = await callApiRpc<unknown>(
+    "assign_student_to_batch",
+    {
+      target_workspace_id: workspaceId,
+      target_student_id: studentId,
+      target_batch_id: batchId,
+    },
+    "The student could not be assigned to this class. Please try again.",
+  );
+  const rows = parseApiArray<{ assignment_id: string }>(
+    value,
+    "Class assignment",
+  );
+  if (!rows[0]?.assignment_id) parseApiArray(null, "Class assignment");
 }
 
-export async function removeStudentBatchAssignment(assignmentId: string) {
-  const client = requireClient();
-  const { error } = await client
-    .from("batch_students")
-    .delete()
-    .eq("id", assignmentId);
+export async function removeStudentBatchAssignment(
+  workspaceId: string,
+  assignmentId: string,
+) {
+  const value = await callApiRpc<unknown>(
+    "remove_student_batch_assignment",
+    {
+      target_workspace_id: workspaceId,
+      target_assignment_id: assignmentId,
+    },
+    "The class assignment could not be removed. Please try again.",
+  );
+  const rows = parseApiArray<{ assignment_id: string; removed: boolean }>(
+    value,
+    "Class assignment removal",
+  );
+  if (rows[0]?.assignment_id !== assignmentId || rows[0]?.removed !== true) {
+    parseApiArray(null, "Class assignment removal");
+  }
+}
 
-  if (error) throw error;
+export interface ClassTransferResult {
+  action_id: string;
+  workspace_id: string;
+  student_id: string;
+  source_assignment_id: string;
+  source_batch_id: string;
+  target_assignment_id: string;
+  target_batch_id: string;
+  target_created: boolean;
+  source_removed: true;
+}
+
+export async function transferStudentClass(
+  workspaceId: string,
+  studentId: string,
+  sourceAssignmentId: string,
+  targetBatchId: string,
+): Promise<ClassTransferResult> {
+  const value = await callApiRpc<unknown>(
+    "transfer_student_class",
+    {
+      target_workspace_id: workspaceId,
+      target_student_id: studentId,
+      source_assignment_id: sourceAssignmentId,
+      target_batch_id: targetBatchId,
+    },
+    "The student could not be transferred between classes. No partial change was saved.",
+  );
+  const result = parseApiRecord<Record<string, unknown>>(
+    value,
+    "Class transfer",
+  );
+  if (
+    result.schema_version !== 1 ||
+    result.workspace_id !== workspaceId ||
+    result.student_id !== studentId ||
+    result.source_assignment_id !== sourceAssignmentId ||
+    result.target_batch_id !== targetBatchId ||
+    typeof result.action_id !== "string" ||
+    typeof result.source_batch_id !== "string" ||
+    typeof result.target_assignment_id !== "string" ||
+    typeof result.target_created !== "boolean" ||
+    result.source_removed !== true
+  ) {
+    parseApiRecord(null, "Class transfer");
+  }
+  return result as unknown as ClassTransferResult;
 }

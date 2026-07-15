@@ -1,0 +1,137 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-conjunctions-r1",
+    "template_key": "v1-a1-conjunctions-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Conjunctions pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Und, aber, oder und denn",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "conjunctions",
+    "name": "Konjunktionen"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "conjunctions",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Einfache Konjunktionen verbinden Wörter oder Hauptsätze. Und ergänzt, aber zeigt einen Gegensatz, oder nennt eine Wahl und denn gibt einen Grund.",
+    "key_rule": "Nach und, aber, oder und denn bleibt die normale Wortfolge des Hauptsatzes erhalten.",
+    "correct_examples": [
+      "Ich arbeite und Mira lernt.",
+      "Er kommt nicht, denn er ist krank."
+    ],
+    "common_mistake_warning": "Verwechsle einen Gegensatz nicht mit einer Ergänzung: Vor ‚aber‘ und ‚denn‘ steht ein Komma, vor ‚und‘ und ‚oder‘ normalerweise nicht.",
+    "what_to_revise": "Übe die Bedeutungen Ergänzung, Gegensatz, Wahl und Grund mit je einem Satz."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Konjunktion ergänzt zwei Dinge? Ich kaufe Brot ___ Milch.",
+      "options": ["aber","denn","und"],
+      "correct_answer": "und",
+      "accepted_answers": ["und"],
+      "answer_contract_version": 1,
+      "explanation": "‚Und‘ verbindet zwei Dinge, die gemeinsam gekauft werden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Konjunktion zeigt einen Gegensatz? Ich bin müde, ___ ich arbeite weiter.",
+      "options": ["aber", "oder", "denn"],
+      "correct_answer": "aber",
+      "accepted_answers": ["aber"],
+      "answer_contract_version": 1,
+      "explanation": "Müdigkeit und Weiterarbeiten stehen in einem klaren Gegensatz.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Konjunktion nennt eine Wahl? Möchtest du Tee ___ Kaffee?",
+      "options": ["denn","oder","und"],
+      "correct_answer": "oder",
+      "accepted_answers": ["oder"],
+      "answer_contract_version": 1,
+      "explanation": "‚Oder‘ stellt zwei Möglichkeiten zur Auswahl.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [aber | oder | und]. Ravi spricht beide Sprachen. Ergänze: Ravi spricht Hindi ___ Deutsch.",
+      "options": [],
+      "correct_answer": "und",
+      "accepted_answers": ["und"],
+      "answer_contract_version": 1,
+      "explanation": "‚Und‘ fügt die zweite Sprache zur ersten hinzu.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [und | aber | denn]. Zeige den Gegensatz. Ergänze: Das Zimmer ist klein, ___ es ist schön.",
+      "options": [],
+      "correct_answer": "aber",
+      "accepted_answers": ["aber"],
+      "answer_contract_version": 1,
+      "explanation": "‚Aber‘ verbindet hier zwei unterschiedlich bewertete Eigenschaften.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [denn | oder | aber]. Ergänze: Ich bleibe zu Hause, ___ ich bin krank.",
+      "options": [],
+      "correct_answer": "denn",
+      "accepted_answers": ["denn"],
+      "answer_contract_version": 1,
+      "explanation": "‚Denn‘ leitet den Grund für das Zuhausebleiben ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha braucht im Dienst zwei Dinge. Welche Konjunktion ergänzt den Satz richtig? Asha braucht Handschuhe ___ eine Maske.",
+      "options": ["aber", "denn", "und", "oder"],
+      "correct_answer": "und",
+      "accepted_answers": ["und"],
+      "rubric": null,
+      "explanation": "Zwei gemeinsam benötigte Dinge werden mit ‚und‘ verbunden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi ist müde und arbeitet trotzdem weiter. Welcher Satz drückt diesen Gegensatz richtig aus?",
+      "options": [
+        "Ravi ist müde, denn er arbeitet weiter.",
+        "Ravi ist müde, oder er arbeitet weiter.",
+        "Ravi ist müde, und er macht eine Pause.",
+        "Ravi ist müde, aber er arbeitet weiter."
+      ],
+      "correct_answer": "Ravi ist müde, aber er arbeitet weiter.",
+      "accepted_answers": ["Ravi ist müde, aber er arbeitet weiter."],
+      "rubric": null,
+      "explanation": "‚Aber‘ verbindet hier zwei gegensätzliche Aussagen.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

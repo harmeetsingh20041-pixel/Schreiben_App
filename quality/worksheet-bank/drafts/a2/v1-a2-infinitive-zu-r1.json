@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-infinitive-zu-r1",
+    "template_key": "v1-a2-infinitive-zu-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Infinitive zu pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Infinitiv mit zu: Pläne und Versuche",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "infinitive-zu",
+    "name": "Infinitiv mit zu"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "infinitive-zu",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Eine Infinitivgruppe mit „zu“ ergänzt häufig Verben wie versuchen, planen, hoffen oder vergessen.",
+    "key_rule": "Bei einfachen Verben steht „zu“ vor dem Infinitiv; bei trennbaren Verben steht es zwischen Vorsilbe und Verbstamm.",
+    "correct_examples": [
+      "Wir hoffen, bald eine Antwort zu bekommen.",
+      "Sie versucht, früher loszufahren."
+    ],
+    "common_mistake_warning": "Setze „zu“ bei trennbaren Verben nicht vor die ganze Verbform.",
+    "what_to_revise": "Übe zu lernen, zu kommen sowie aufzustehen, anzurufen und mitzubringen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz bildet den Infinitiv mit „zu“ korrekt?",
+      "options": [
+        "Ich versuche, jeden Tag gesprochen zu.",
+        "Ich versuche, jeden Tag Deutsch zu sprechen.",
+        "Ich versuche, jeden Tag Deutsch sprechen.",
+        "Ich versuche, jeden Tag zu Deutsch sprechen."
+      ],
+      "correct_answer": "Ich versuche, jeden Tag Deutsch zu sprechen.",
+      "accepted_answers": [
+        "Ich versuche, jeden Tag Deutsch zu sprechen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „versuchen“ steht die Infinitivgruppe mit „zu“ direkt vor dem einfachen Infinitiv „sprechen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form des trennbaren Verbs „aufstehen“ ist korrekt?",
+      "options": [
+        "Er plant, morgen früh zu aufstehen.",
+        "Er plant, morgen früh aufstehen zu.",
+        "Er plant, morgen früh aufzustand.",
+        "Er plant, morgen früh aufzustehen."
+      ],
+      "correct_answer": "Er plant, morgen früh aufzustehen.",
+      "accepted_answers": [
+        "Er plant, morgen früh aufzustehen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei „aufstehen“ steht „zu“ zwischen der Vorsilbe „auf“ und dem Verbstamm: „aufzustehen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gelernt, zu lernen, lernen zu]. Ergänze: Es ist wichtig, regelmäßig ___.",
+      "options": [],
+      "correct_answer": "zu lernen",
+      "accepted_answers": [
+        "zu lernen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beim einfachen Verb „lernen“ steht „zu“ vor dem Infinitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [abzuschließen, zu abschließen, abgeschlossen]. Ergänze: Sie hat vergessen, die Tür ___.",
+      "options": [],
+      "correct_answer": "abzuschließen",
+      "accepted_answers": [
+        "abzuschließen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beim trennbaren Verb „abschließen“ steht „zu“ zwischen Vorsilbe und Stamm.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zu ankommen, angekommen, anzukommen]. Ergänze: Wir hoffen, pünktlich ___.",
+      "options": [],
+      "correct_answer": "anzukommen",
+      "accepted_answers": [
+        "anzukommen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der trennbare Infinitiv von „ankommen“ mit „zu“ lautet „anzukommen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Ergänzung: Die Pflegekraft versucht, ruhig zu ___.",
+      "options": [
+        "sprechen",
+        "spricht",
+        "gesprochen",
+        "sprach"
+      ],
+      "correct_answer": "sprechen",
+      "accepted_answers": [
+        "sprechen"
+      ],
+      "rubric": null,
+      "explanation": "Nach versucht folgt hier die Infinitivgruppe mit zu und dem Infinitiv sprechen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zu prüfen, prüfen, geprüft, prüft]. Wir planen, den Termin morgen ___.",
+      "options": [],
+      "correct_answer": "zu prüfen",
+      "accepted_answers": [
+        "zu prüfen"
+      ],
+      "rubric": null,
+      "explanation": "Nach planen steht die Infinitivgruppe mit zu: den Termin morgen zu prüfen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält eine richtige Infinitivgruppe mit zu?",
+      "options": [
+        "Mina beginnt, zu den Bericht lesen.",
+        "Mina beginnt, den Bericht liest.",
+        "Mina beginnt, den Bericht zu lesen.",
+        "Mina beginnt, den Bericht lesen zu."
+      ],
+      "correct_answer": "Mina beginnt, den Bericht zu lesen.",
+      "accepted_answers": [
+        "Mina beginnt, den Bericht zu lesen."
+      ],
+      "rubric": null,
+      "explanation": "Die Infinitivgruppe endet mit zu lesen; der Akkusativ den Bericht bleibt davor.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

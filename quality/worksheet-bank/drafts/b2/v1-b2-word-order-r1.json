@@ -1,0 +1,198 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-word-order-r1",
+    "template_key": "v1-b2-word-order-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Word order pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Wortstellung: Komplexe Sätze kontrollieren",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "word-order",
+    "name": "Wortstellung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "word-order",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Im deutschen Hauptsatz steht das finite Verb auf Position zwei, auch wenn ein anderes Satzglied als das Subjekt am Anfang steht. Im Nebensatz steht der finite Verbteil grundsätzlich am Ende.",
+    "key_rule": "Bestimme zuerst Vorfeld, finite Verbform und Satzklammer; ordne danach Subjekt, Pronomen und Ergänzungen im Mittelfeld.",
+    "correct_examples": [
+      "Nach der Sitzung hat die Leitung den Plan geändert.",
+      "Wir wissen, dass die Leitung den Plan geändert hat."
+    ],
+    "common_mistake_warning": "Ein langes Vorfeld zählt trotzdem als nur eine Position; danach folgt sofort das finite Verb.",
+    "what_to_revise": "Markiere in Haupt- und Nebensätzen die beiden Teile der Verbklammer und prüfe die Stellung des finiten Verbs."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante hat nach dem vorangestellten Zeitglied die korrekte Verbzweitstellung?",
+      "options": [
+        "Nach der ausführlichen Besprechung änderte die Leitung den Zeitplan.",
+        "Nach der ausführlichen Besprechung die Leitung änderte den Zeitplan.",
+        "Nach der ausführlichen Besprechung die Leitung den Zeitplan änderte.",
+        "Nach der ausführlichen Besprechung änderte den Zeitplan die Leitung ihn."
+      ],
+      "correct_answer": "Nach der ausführlichen Besprechung änderte die Leitung den Zeitplan.",
+      "accepted_answers": [
+        "Nach der ausführlichen Besprechung änderte die Leitung den Zeitplan."
+      ],
+      "explanation": "Das gesamte Zeitglied besetzt das Vorfeld; deshalb folgt das finite Verb änderte unmittelbar auf Position zwei.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortstellung ist im dass-Nebensatz korrekt?",
+      "options": [
+        "Wir hoffen, dass die Aufgabe das Team kann rechtzeitig abschließen.",
+        "Wir hoffen, dass das Team die Aufgabe rechtzeitig abschließen kann.",
+        "Wir hoffen, dass kann das Team die Aufgabe rechtzeitig abschließen.",
+        "Wir hoffen, dass das Team kann die Aufgabe rechtzeitig abschließen."
+      ],
+      "correct_answer": "Wir hoffen, dass das Team die Aufgabe rechtzeitig abschließen kann.",
+      "accepted_answers": [
+        "Wir hoffen, dass das Team die Aufgabe rechtzeitig abschließen kann."
+      ],
+      "explanation": "Im dass-Nebensatz steht der Modalverbkomplex abschließen kann am Ende, wobei die finite Form kann zuletzt steht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante ordnet zwei unbetonte Pronomen im Mittelfeld standardsprachlich?",
+      "options": [
+        "Die Kollegin hat mir gestern es erklärt.",
+        "Die Kollegin es hat mir gestern erklärt.",
+        "Die Kollegin hat gestern erklärt es mir.",
+        "Die Kollegin hat es mir gestern erklärt."
+      ],
+      "correct_answer": "Die Kollegin hat es mir gestern erklärt.",
+      "accepted_answers": [
+        "Die Kollegin hat es mir gestern erklärt."
+      ],
+      "explanation": "Bei zwei unbetonten Pronomen steht das Akkusativpronomen es typischerweise vor dem Dativpronomen mir.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Setze die passende Agensangabe ins Mittelfeld ein: Am Ende der Testphase wurde der gesamte Ablauf der Pflegeübergabe ___ neu bewertet. Wortbank: [von der Projektgruppe | für die Projektgruppe].",
+      "options": [],
+      "correct_answer": "von der Projektgruppe",
+      "accepted_answers": [
+        "von der Projektgruppe"
+      ],
+      "explanation": "Das Vorfeld ist durch die Zeitangabe besetzt; wurde eröffnet die Passivklammer, und von der Projektgruppe benennt im Mittelfeld das Agens.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Ergänze das finite Verb an Position zwei: Unter diesen Bedingungen ___ sich der Vorschlag kaum umsetzen. Wortbank: [gelassen | lässt].",
+      "options": [],
+      "correct_answer": "lässt",
+      "accepted_answers": [
+        "lässt"
+      ],
+      "explanation": "Unter diesen Bedingungen besetzt das Vorfeld; die finite Verbform lässt muss deshalb unmittelbar danach stehen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Setze den Verbkomplex im Konjunktiv I ans Ende des Nebensatzes: Sie fragte, ob der Termin noch ___ . Wortbank: [könne verschoben werden | verschoben werden könne].",
+      "options": [],
+      "correct_answer": "verschoben werden könne",
+      "accepted_answers": [
+        "verschoben werden könne"
+      ],
+      "explanation": "Im indirekten Fragesatz mit ob steht der gesamte Verbkomplex am Ende; die finite Konjunktivform könne bildet den Abschluss.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Ergänze die rechte Satzklammer im Futur II: Die Arbeitsgruppe wird den Entwurf bis Freitag ___ . Wortbank: [überarbeitet haben | haben überarbeitet].",
+      "options": [],
+      "correct_answer": "überarbeitet haben",
+      "accepted_answers": [
+        "überarbeitet haben"
+      ],
+      "explanation": "Im Futur II eröffnet wird die Satzklammer; die nicht finiten Teile überarbeitet haben stehen gemeinsam am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung wahrt nach der vorangestellten Kausalangabe die Verbzweitstellung?",
+      "options": [
+        "Wegen der kurzfristigen Änderung mussten anpassen die Teilnehmenden ihre Pläne.",
+        "Wegen der kurzfristigen Änderung die Teilnehmenden mussten ihre Pläne anpassen.",
+        "Wegen der kurzfristigen Änderung mussten die Teilnehmenden ihre Pläne anpassen.",
+        "Wegen der kurzfristigen Änderung die Teilnehmenden ihre Pläne anpassen mussten."
+      ],
+      "correct_answer": "Wegen der kurzfristigen Änderung mussten die Teilnehmenden ihre Pläne anpassen.",
+      "rubric": null,
+      "explanation": "Das Kausalglied besetzt Position eins; im Hauptsatz folgt das finite Verb mussten auf Position zwei vor dem Subjekt.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Wegen der kurzfristigen Änderung mussten die Teilnehmenden ihre Pläne anpassen."
+      ]
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung beginnt mit „Nach der Prüfung“ und erhält die korrekte Satzklammer?",
+      "options": [
+        "Nach der Prüfung die Leitung wird den Beschluss veröffentlichen.",
+        "Nach der Prüfung wird veröffentlichen die Leitung den Beschluss.",
+        "Nach der Prüfung wird die Leitung den Beschluss veröffentlichen.",
+        "Nach der Prüfung die Leitung den Beschluss veröffentlichen wird."
+      ],
+      "correct_answer": "Nach der Prüfung wird die Leitung den Beschluss veröffentlichen.",
+      "rubric": null,
+      "explanation": "Nach dem vorangestellten Zeitglied folgt die finite Verbform wird; der Infinitiv veröffentlichen schließt die Satzklammer.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Nach der Prüfung wird die Leitung den Beschluss veröffentlichen."
+      ]
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung stellt im weil-Satz das unbetonte Dativpronomen vor das nominale Akkusativobjekt und den vollständigen Verbkomplex ans Ende?",
+      "options": [
+        "Der neue Kollege konnte sich rechtzeitig vorbereiten, weil ihm die Leitung hatte den überarbeiteten Ablaufplan bereits am Vortag geschickt.",
+        "Der neue Kollege konnte sich rechtzeitig vorbereiten, weil die Leitung den überarbeiteten Ablaufplan ihm bereits am Vortag hatte geschickt.",
+        "Der neue Kollege konnte sich rechtzeitig vorbereiten, weil die Leitung ihm hatte geschickt den überarbeiteten Ablaufplan bereits am Vortag.",
+        "Der neue Kollege konnte sich rechtzeitig vorbereiten, weil die Leitung ihm den überarbeiteten Ablaufplan bereits am Vortag geschickt hatte."
+      ],
+      "correct_answer": "Der neue Kollege konnte sich rechtzeitig vorbereiten, weil die Leitung ihm den überarbeiteten Ablaufplan bereits am Vortag geschickt hatte.",
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das unbetonte Pronomen „ihm“ steht vor dem nominalen Akkusativobjekt „den überarbeiteten Ablaufplan“. Im weil-Satz schließt „geschickt hatte“ den Satz ab.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Der neue Kollege konnte sich rechtzeitig vorbereiten, weil die Leitung ihm den überarbeiteten Ablaufplan bereits am Vortag geschickt hatte."
+      ]
+    }
+  ]
+}

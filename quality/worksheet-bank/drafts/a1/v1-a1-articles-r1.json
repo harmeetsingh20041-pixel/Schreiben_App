@@ -1,0 +1,133 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-articles-r1",
+    "template_key": "v1-a1-articles-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Articles pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Artikel: Grundformen 1",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "articles",
+    "name": "Artikel"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "articles",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Deutsche Artikel zeigen, ob ein Nomen maskulin, feminin, neutral oder im Plural ist. Der Artikel muss zum Nomen passen.",
+    "key_rule": "Im Nominativ lauten die bestimmten Artikel der, die, das und im Plural die. Die unbestimmten Artikel lauten ein, eine und ein.",
+    "correct_examples": ["Der Tisch ist neu.", "Das ist eine Lampe."],
+    "common_mistake_warning": "Wähle den Artikel nicht nur nach der Bedeutung. Lerne jedes Nomen zusammen mit seinem Artikel.",
+    "what_to_revise": "Wiederhole: der Tisch, die Lampe, das Buch und die Bücher."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den bestimmten Artikel im Nominativ für das maskuline Nomen Stuhl: ___ Stuhl ist bequem.",
+      "options": ["Ein", "Der", "Die", "Das"],
+      "correct_answer": "Der",
+      "accepted_answers": ["Der"],
+      "explanation": "Stuhl ist maskulin. Deshalb lautet der bestimmte Artikel im Nominativ der.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den bestimmten Artikel im Nominativ für das feminine Nomen Lampe: ___ Lampe ist hell.",
+      "options": ["Den", "Der", "Die", "Das"],
+      "correct_answer": "Die",
+      "accepted_answers": ["Die"],
+      "explanation": "Lampe ist feminin. Deshalb lautet der bestimmte Artikel im Nominativ die.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den unbestimmten Artikel im Nominativ für das neutrale Nomen Buch: Das ist ___ Buch.",
+      "options": ["ein", "eine", "einen", "einem"],
+      "correct_answer": "ein",
+      "accepted_answers": ["ein"],
+      "explanation": "Buch ist neutral. Deshalb lautet der unbestimmte Artikel im Nominativ ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: bestimmter Artikel im Nominativ für das neutrale Nomen Medikament. Wortbank: [Das | Der | Die]. Ergänze: ___ Medikament ist für Frau Keller.",
+      "options": [],
+      "correct_answer": "Das",
+      "accepted_answers": ["Das"],
+      "explanation": "Medikament ist neutral. Deshalb lautet der bestimmte Artikel im Nominativ das.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: unbestimmter Artikel im Nominativ für das feminine Nomen Tasche. Wortbank: [ein | einen | eine]. Ergänze: Das ist ___ Tasche.",
+      "options": [],
+      "correct_answer": "eine",
+      "accepted_answers": ["eine"],
+      "explanation": "Tasche ist feminin. Deshalb lautet der unbestimmte Artikel im Nominativ eine.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: bestimmter Artikel im Nominativ für das Nomen Bücher im Plural. Wortbank: [Das | Die | Der]. Ergänze: ___ Bücher liegen auf dem Tisch.",
+      "options": [],
+      "correct_answer": "Die",
+      "accepted_answers": ["Die"],
+      "explanation": "Der bestimmte Artikel für Nomen im Plural lautet im Nominativ die.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Lösung verwendet den passenden bestimmten Artikel vor ‚Pflegekraft‘?",
+      "options": [
+        "Das Pflegekraft beginnt den Dienst.",
+        "Den Pflegekraft beginnt den Dienst.",
+        "Der Pflegekraft beginnt den Dienst.",
+        "Die Pflegekraft beginnt den Dienst."
+      ],
+      "correct_answer": "Die Pflegekraft beginnt den Dienst.",
+      "accepted_answers": ["Die Pflegekraft beginnt den Dienst."],
+      "rubric": null,
+      "explanation": "‚Pflegekraft‘ ist feminin. Deshalb braucht das Nomen im Nominativ den bestimmten Artikel ‚die‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi sieht ein Patientenzimmer. Welche Lösung verwendet den richtigen unbestimmten Artikel?",
+      "options": [
+        "Das ein Patientenzimmer ist.",
+        "Das ist ein Patientenzimmer.",
+        "Das ist eine Patientenzimmer.",
+        "Das ist einen Patientenzimmer."
+      ],
+      "correct_answer": "Das ist ein Patientenzimmer.",
+      "accepted_answers": ["Das ist ein Patientenzimmer."],
+      "rubric": null,
+      "explanation": "Im Aussagesatz steht ‚ist‘ nach ‚Das‘. Das neutrale Nomen ‚Patientenzimmer‘ bekommt den Artikel ‚ein‘.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

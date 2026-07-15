@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-future-tense-r1",
+    "template_key": "v1-a2-future-tense-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Future tense pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Futur I: Pläne und Vorhersagen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "future-tense",
+    "name": "Futur I"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "future-tense",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Futur I kann Pläne, Absichten oder Vorhersagen für die Zukunft ausdrücken.",
+    "key_rule": "Die konjugierte Form von werden steht an Position zwei; der Vollverbinfinitiv steht am Satzende.",
+    "correct_examples": [
+      "Wir werden nächste Woche umziehen.",
+      "Es wird morgen wahrscheinlich regnen."
+    ],
+    "common_mistake_warning": "Konjugiere nicht zusätzlich den Vollverbinfinitiv am Satzende.",
+    "what_to_revise": "Übe werde, wirst, wird und werden mit einem Infinitiv sowie einer klaren Zukunftsangabe."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht korrekt im Futur I?",
+      "options": [
+        "Ich werde morgen früher kommen.",
+        "Ich werde morgen früher komme.",
+        "Ich morgen werde früher kommen.",
+        "Ich werde morgen früher gekommen."
+      ],
+      "correct_answer": "Ich werde morgen früher kommen.",
+      "accepted_answers": [
+        "Ich werde morgen früher kommen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Werde“ ist konjugiert und der Vollverbinfinitiv „kommen“ steht am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form von „werden“ passt zu „du“?",
+      "options": [
+        "Du wirst den Kurs bald beendet.",
+        "Du wirst den Kurs bald beenden.",
+        "Du wird den Kurs bald beenden.",
+        "Du werden den Kurs bald beenden."
+      ],
+      "correct_answer": "Du wirst den Kurs bald beenden.",
+      "accepted_answers": [
+        "Du wirst den Kurs bald beenden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zur zweiten Person Singular gehört „wirst“; „beenden“ bleibt als Infinitiv am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werden, wird, wirst]. Ergänze: Der Unterricht ___ um zehn Uhr enden.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": [
+        "wird"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Singularsubjekt „Der Unterricht“ verlangt die Form „wird“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [arbeiten, arbeitet, gearbeitet]. Ergänze den Infinitiv: Nächste Woche werden wir wieder im Büro ___.",
+      "options": [],
+      "correct_answer": "arbeiten",
+      "accepted_answers": [
+        "arbeiten"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Futur I steht der Vollverbinfinitiv „arbeiten“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wird, werden, werde]. Ergänze: Ich ___ später zurückrufen.",
+      "options": [],
+      "correct_answer": "werde",
+      "accepted_answers": [
+        "werde"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zur ersten Person Singular gehört die Futurform „werde“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Verbform: Die Pflegekraft wird morgen den Dienstplan ___.",
+      "options": [
+        "prüft",
+        "geprüft",
+        "prüfte",
+        "prüfen"
+      ],
+      "correct_answer": "prüfen",
+      "accepted_answers": [
+        "prüfen"
+      ],
+      "rubric": null,
+      "explanation": "Im Futur I steht nach der Form von werden der Infinitiv prüfen am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werden, wird, wirst, werde]. Wir ___ die Übergabe pünktlich beginnen.",
+      "options": [],
+      "correct_answer": "werden",
+      "accepted_answers": [
+        "werden"
+      ],
+      "rubric": null,
+      "explanation": "Zum Subjekt wir gehört die Form werden; der Infinitiv beginnen steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht im Futur I?",
+      "options": [
+        "Im August hat der Kurs begonnen.",
+        "Im August begann der Kurs.",
+        "Im August wird der Kurs beginnen.",
+        "Im August beginnt der Kurs."
+      ],
+      "correct_answer": "Im August wird der Kurs beginnen.",
+      "accepted_answers": [
+        "Im August wird der Kurs beginnen."
+      ],
+      "rubric": null,
+      "explanation": "Futur I besteht aus einer Form von werden und dem Infinitiv am Satzende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

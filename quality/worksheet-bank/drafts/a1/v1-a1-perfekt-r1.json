@@ -1,0 +1,166 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-perfekt-r1",
+    "template_key": "v1-a1-perfekt-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Perfekt pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Über Vergangenes im Perfekt sprechen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "perfekt",
+    "name": "Perfekt"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "perfekt",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Perfekt wird beim Sprechen oft für Vergangenes verwendet. Es besteht aus haben oder sein und einem Partizip.",
+    "key_rule": "Nutze meist haben; bei Bewegung und Zustandswechsel oft sein. Das Partizip steht am Satzende.",
+    "correct_examples": [
+      "Wir haben lange gelernt.",
+      "Anita ist früh gekommen."
+    ],
+    "common_mistake_warning": "Vergiss das Hilfsverb nicht und konjugiere das Partizip am Satzende nicht noch einmal.",
+    "what_to_revise": "Übe häufige Partizipien und die Wahl zwischen haben und sein."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht richtig im Perfekt?",
+      "options": [
+        "Ich habe Deutsch gelernt.",
+        "Ich bin Deutsch gelernt.",
+        "Ich habe Deutsch lernen."
+      ],
+      "correct_answer": "Ich habe Deutsch gelernt.",
+      "accepted_answers": [
+        "Ich habe Deutsch gelernt."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Lernen‘ bildet das Perfekt mit ‚haben‘ und dem Partizip ‚gelernt‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form passt zu einer Bewegung? Ravi ___ nach Hause gefahren.",
+      "options": [
+        "hat",
+        "wird",
+        "ist"
+      ],
+      "correct_answer": "ist",
+      "accepted_answers": [
+        "ist"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Bewegungsverb ‚fahren‘ bildet diese Perfektform mit ‚sein‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Partizip ist richtig? Sie hat ihre Mutter ___.",
+      "options": [
+        "angeruft",
+        "angerufen",
+        "anrufen"
+      ],
+      "correct_answer": "angerufen",
+      "accepted_answers": [
+        "angerufen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Partizip von ‚anrufen‘ lautet ‚angerufen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kauft | gekauft | kaufen]. Ergänze: Wir haben Brot ___.",
+      "options": [],
+      "correct_answer": "gekauft",
+      "accepted_answers": [
+        "gekauft"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚haben‘ steht hier das Partizip ‚gekauft‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gegangen | gehen | gegangt]. Ergänze: Mira ist zur Arbeit ___.",
+      "options": [],
+      "correct_answer": "gegangen",
+      "accepted_answers": [
+        "gegangen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Partizip von ‚gehen‘ lautet ‚gegangen‘ und steht mit ‚ist‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [machen | gemachen | gemacht]. Ergänze: Ich habe die Aufgabe ___.",
+      "options": [],
+      "correct_answer": "gemacht",
+      "accepted_answers": [
+        "gemacht"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das regelmäßige Partizip von ‚machen‘ lautet ‚gemacht‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha erzählt von ihrem gestrigen Dienst. Welcher Perfektsatz ist richtig?",
+      "options": [
+        "Asha ist gestern in der Klinik gearbeitet.",
+        "Asha hat gestern in der Klinik gearbeiten.",
+        "Asha hat gestern in der Klinik arbeiten.",
+        "Asha hat gestern in der Klinik gearbeitet."
+      ],
+      "correct_answer": "Asha hat gestern in der Klinik gearbeitet.",
+      "accepted_answers": ["Asha hat gestern in der Klinik gearbeitet."],
+      "rubric": null,
+      "explanation": "Im Perfekt benötigt ‚hat‘ am Satzende das Partizip ‚gearbeitet‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Das Team hat am Morgen ein Zimmer vorbereitet. Welcher Perfektsatz ist richtig?",
+      "options": [
+        "Am Morgen haben wir das Zimmer vorbereitet.",
+        "Am Morgen wir haben das Zimmer vorbereitet.",
+        "Am Morgen haben wir das Zimmer vorbereiten.",
+        "Am Morgen hat wir das Zimmer vorbereitet."
+      ],
+      "correct_answer": "Am Morgen haben wir das Zimmer vorbereitet.",
+      "accepted_answers": ["Am Morgen haben wir das Zimmer vorbereitet."],
+      "rubric": null,
+      "explanation": "Im Perfekt-Hauptsatz steht das Hilfsverb an Position zwei und das Partizip am Ende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

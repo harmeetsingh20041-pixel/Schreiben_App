@@ -1,0 +1,172 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-task-fulfilment-r1",
+    "template_key": "v1-a2-task-fulfilment-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Task fulfilment pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Aufgabenerfüllung: Alle Schreibpunkte beantworten",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "task-fulfilment",
+    "name": "Aufgabenerfüllung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "task-fulfilment",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Eine gute A2-Nachricht beantwortet jeden verlangten Inhaltspunkt klar, bleibt beim Thema und enthält eine passende Anrede sowie einen Abschluss.",
+    "key_rule": "Markiere vor dem Schreiben alle Punkte, ordne jedem Punkt mindestens eine klare Information zu und prüfe sie am Ende erneut.",
+    "correct_examples": [
+      "Ich kann am Donnerstag um 11 Uhr kommen.",
+      "Bitte sagen Sie mir, welchen Raum wir benutzen."
+    ],
+    "common_mistake_warning": "Eine sprachlich korrekte Nachricht ist trotzdem unvollständig, wenn ein verlangter Inhaltspunkt fehlt.",
+    "what_to_revise": "Übe kurze Antworten mit Grund, Termin, Bitte oder Frage sowie passender Begrüßung und Grußformel."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Die Aufgabe verlangt Absage, Grund und neuen Termin. Welche Antwort erfüllt alle drei Punkte?",
+      "options": [
+        "Leider kann ich am Montag nicht kommen, weil ich arbeite. Passt Ihnen Dienstag um 15 Uhr?",
+        "Leider kann ich am Montag nicht kommen.",
+        "Am Dienstag habe ich Zeit.",
+        "Ich arbeite am Montag und danke für Ihre Nachricht."
+      ],
+      "correct_answer": "Leider kann ich am Montag nicht kommen, weil ich arbeite. Passt Ihnen Dienstag um 15 Uhr?",
+      "accepted_answers": [
+        "Leider kann ich am Montag nicht kommen, weil ich arbeite. Passt Ihnen Dienstag um 15 Uhr?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Antwort enthält eine klare Absage, einen Grund und einen konkreten Vorschlag für einen neuen Termin.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Die Aufgabe verlangt Ort und mitzubringende Unterlagen. Welche Frage deckt beides ab?",
+      "options": [
+        "Welche Unterlagen brauchen Sie?",
+        "Ist der Termin wichtig?",
+        "Wo findet der Termin statt, und welche Unterlagen soll ich mitbringen?",
+        "Wann beginnt der Termin?"
+      ],
+      "correct_answer": "Wo findet der Termin statt, und welche Unterlagen soll ich mitbringen?",
+      "accepted_answers": [
+        "Wo findet der Termin statt, und welche Unterlagen soll ich mitbringen?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Frage nennt beide verlangten Punkte ausdrücklich: Ort und Unterlagen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Mit freundlichen Grüßen | Kursänderung | weil ich Nachtdienst habe]. Ergänze einen konkreten Grund: Leider kann ich nicht kommen, ___.",
+      "options": [],
+      "correct_answer": "weil ich Nachtdienst habe",
+      "accepted_answers": ["weil ich Nachtdienst habe"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "‚Weil ich Nachtdienst habe‘ nennt direkt einen nachvollziehbaren Grund für die Absage.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [am Dienstag um 15 Uhr | Sehr geehrte Frau Weber | Anil]. Ergänze einen konkreten neuen Termin: Passt Ihnen der Termin ___?",
+      "options": [],
+      "correct_answer": "am Dienstag um 15 Uhr",
+      "accepted_answers": ["am Dienstag um 15 Uhr"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "‚Am Dienstag um 15 Uhr‘ nennt sowohl einen Tag als auch eine genaue Uhrzeit.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Vielen Dank für die Einladung. | In welchem Raum treffen wir uns? | Der Kurs beginnt am Montag.] Ergänze eine klare Frage nach dem Raum: ___",
+      "options": [],
+      "correct_answer": "In welchem Raum treffen wir uns?",
+      "accepted_answers": ["In welchem Raum treffen wir uns?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Frage bittet direkt um die noch fehlende Information zum Raum.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welche vollständige Nachricht beginnt mit „Sehr geehrte Frau Klein,“ und enthält alle drei Angaben: Absage für Dienstag, Grund Fieber und Bitte um das Material?",
+      "options": [
+        "Sehr geehrte Frau Klein, ich kann am Dienstag nicht kommen. Mit freundlichen Grüßen, Ravi",
+        "Sehr geehrte Frau Klein, ich habe Fieber. Mit freundlichen Grüßen, Ravi",
+        "Sehr geehrte Frau Klein, könnten Sie mir das Material schicken? Mit freundlichen Grüßen, Ravi",
+        "Sehr geehrte Frau Klein, ich kann am Dienstag wegen Fieber nicht kommen. Könnten Sie mir bitte das Material schicken? Mit freundlichen Grüßen, Ravi"
+      ],
+      "correct_answer": "Sehr geehrte Frau Klein, ich kann am Dienstag wegen Fieber nicht kommen. Könnten Sie mir bitte das Material schicken? Mit freundlichen Grüßen, Ravi",
+      "accepted_answers": [
+        "Sehr geehrte Frau Klein, ich kann am Dienstag wegen Fieber nicht kommen. Könnten Sie mir bitte das Material schicken? Mit freundlichen Grüßen, Ravi"
+      ],
+      "rubric": null,
+      "explanation": "Nur diese Nachricht nennt den Tag, den Grund und die Bitte; die Aufgabe prüft das Erkennen vollständiger Angaben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Die Aufgabe verlangt eine Kursabsage für morgen und einen Grund. Welche verlangte Angabe fehlt? Sehr geehrte Frau Meier, ich kann morgen leider nicht zum Kurs kommen. Mit freundlichen Grüßen, Anil",
+      "options": [
+        "eine Übersetzung",
+        "ein Grund",
+        "eine zweite Anrede",
+        "ein anderer Name"
+      ],
+      "correct_answer": "ein Grund",
+      "accepted_answers": [
+        "ein Grund"
+      ],
+      "rubric": null,
+      "explanation": "Die Absage nennt den Termin, aber noch keinen Grund; die anderen Angaben sind für diese kurze Aufgabe nicht nötig.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Die vollständige formelle Nachricht muss mit „Sehr geehrte Frau Weber,“ beginnen, die Zusage für Mittwoch, die Ankunft um 14 Uhr und die Raumfrage enthalten und mit „Mit freundlichen Grüßen“ sowie dem Absender Anil enden. Welche Option erfüllt alles?",
+      "options": [
+        "Sehr geehrte Frau Weber, ich bin um 14 Uhr da. Mit freundlichen Grüßen, Anil",
+        "Sehr geehrte Frau Weber, in welchem Raum ist die Fortbildung? Mit freundlichen Grüßen, Anil",
+        "Sehr geehrte Frau Weber, ich komme am Mittwoch zur Fortbildung und bin um 14 Uhr da. In welchem Raum findet sie statt? Mit freundlichen Grüßen, Anil",
+        "Sehr geehrte Frau Weber, ich komme am Mittwoch. Mit freundlichen Grüßen, Anil"
+      ],
+      "correct_answer": "Sehr geehrte Frau Weber, ich komme am Mittwoch zur Fortbildung und bin um 14 Uhr da. In welchem Raum findet sie statt? Mit freundlichen Grüßen, Anil",
+      "accepted_answers": [
+        "Sehr geehrte Frau Weber, ich komme am Mittwoch zur Fortbildung und bin um 14 Uhr da. In welchem Raum findet sie statt? Mit freundlichen Grüßen, Anil"
+      ],
+      "rubric": null,
+      "explanation": "Nur diese Nachricht enthält die formelle Anrede, alle drei verlangten Angaben und einen vollständigen Abschluss mit dem Namen Anil; sie prüft das Erkennen einer vollständigen Nachricht.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

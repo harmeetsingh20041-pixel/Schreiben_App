@@ -1,0 +1,331 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schreiben.invalid/schemas/reviewed-evaluator-case-v2.json",
+  "title": "Schreiben V1 reviewed evaluator case",
+  "description": "Exact release-evidence shape. This schema is a template only and contains no case content or approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "release_id",
+    "level",
+    "input_text",
+    "decision_sha256",
+    "output_sha256",
+    "evaluator_version",
+    "flash_model",
+    "pro_model",
+    "primary_category",
+    "case_tags",
+    "expected_disposition",
+    "actual_disposition",
+    "hold_reason_code",
+    "hold_variant",
+    "student_visible_before_release",
+    "adversarial_instruction_resisted",
+    "structural_valid",
+    "do_not_overcorrect_agrees",
+    "correction_agrees",
+    "explanation_agrees",
+    "topic_mapping_agrees",
+    "level_fit_agrees",
+    "reviewer"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(A1|A2|B1|B2)-EVAL-(00[1-9]|0[1-9][0-9]|1[0-4][0-9]|150)$"
+    },
+    "release_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{6,127}$"
+    },
+    "level": {
+      "enum": ["A1", "A2", "B1", "B2"]
+    },
+    "input_text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 12000
+    },
+    "decision_sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "output_sha256": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evaluator_version": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{2,127}$"
+    },
+    "flash_model": {
+      "const": "deepseek-v4-flash"
+    },
+    "pro_model": {
+      "const": "deepseek-v4-pro"
+    },
+    "primary_category": {
+      "enum": [
+        "do_not_overcorrect",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "decimal",
+        "time",
+        "abbreviation",
+        "paragraph_boundary",
+        "offset",
+        "repeated_word",
+        "missing_space",
+        "long_sentence",
+        "topic_mapping",
+        "level_fit",
+        "prompt_injection",
+        "expected_hold"
+      ]
+    },
+    "case_tags": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "decimal",
+          "time",
+          "abbreviation",
+          "paragraph_boundary",
+          "offset",
+          "whitespace",
+          "repeated_word",
+          "missing_space",
+          "long_sentence",
+          "do_not_overcorrect",
+          "prompt_injection",
+          "topic_mapping",
+          "level_fit",
+          "expected_hold"
+        ]
+      }
+    },
+    "expected_disposition": {
+      "enum": ["accepted_feedback", "system_hold"]
+    },
+    "actual_disposition": {
+      "enum": ["accepted_feedback", "system_hold"]
+    },
+    "hold_reason_code": {
+      "oneOf": [
+        {
+          "enum": [
+            "generator_not_configured",
+            "generator_authentication_failed",
+            "generator_not_primary",
+            "generator_invalid",
+            "critic_not_configured",
+            "critic_authentication_failed",
+            "critic_invalid",
+            "critic_hash_mismatch",
+            "critic_disagreed",
+            "critic_uncertain",
+            "adjudicator_not_configured",
+            "adjudicator_authentication_failed",
+            "adjudicator_invalid",
+            "adjudicator_hash_mismatch",
+            "adjudicator_unresolved",
+            "final_critic_not_configured",
+            "final_critic_authentication_failed",
+            "final_critic_invalid",
+            "final_critic_hash_mismatch",
+            "final_critic_disagreed",
+            "final_critic_uncertain"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "hold_variant": {
+      "oneOf": [
+        {
+          "enum": [
+            "invalid_structure",
+            "offset_or_original_mismatch",
+            "unmapped_topic",
+            "unresolved_model_disagreement",
+            "adjudicator_insufficient_evidence"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "student_visible_before_release": {
+      "const": false
+    },
+    "adversarial_instruction_resisted": {
+      "type": "boolean"
+    },
+    "structural_valid": {
+      "type": "boolean"
+    },
+    "do_not_overcorrect_agrees": {
+      "type": ["boolean", "null"]
+    },
+    "correction_agrees": {
+      "type": ["boolean", "null"]
+    },
+    "explanation_agrees": {
+      "type": ["boolean", "null"]
+    },
+    "topic_mapping_agrees": {
+      "type": "boolean"
+    },
+    "level_fit_agrees": {
+      "type": "boolean"
+    },
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewer_id", "qualification", "reviewed_at"],
+      "properties": {
+        "reviewer_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{6,127}$"
+        },
+        "qualification": {
+          "type": "string",
+          "minLength": 8
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "title": "Accepted feedback evidence",
+      "properties": {
+        "expected_disposition": {
+          "const": "accepted_feedback"
+        },
+        "actual_disposition": {
+          "const": "accepted_feedback"
+        },
+        "primary_category": {
+          "enum": [
+            "do_not_overcorrect",
+            "correction_accuracy",
+            "explanation_accuracy",
+            "decimal",
+            "time",
+            "abbreviation",
+            "paragraph_boundary",
+            "offset",
+            "repeated_word",
+            "missing_space",
+            "long_sentence",
+            "topic_mapping",
+            "level_fit",
+            "prompt_injection"
+          ]
+        },
+        "output_sha256": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        },
+        "hold_reason_code": {
+          "type": "null"
+        },
+        "hold_variant": {
+          "type": "null"
+        },
+        "do_not_overcorrect_agrees": {
+          "type": "boolean"
+        },
+        "correction_agrees": {
+          "type": "boolean"
+        },
+        "explanation_agrees": {
+          "type": "boolean"
+        }
+      }
+    },
+    {
+      "title": "Private system-hold evidence",
+      "properties": {
+        "expected_disposition": {
+          "const": "system_hold"
+        },
+        "actual_disposition": {
+          "const": "system_hold"
+        },
+        "primary_category": {
+          "const": "expected_hold"
+        },
+        "case_tags": {
+          "contains": {
+            "const": "expected_hold"
+          }
+        },
+        "output_sha256": {
+          "type": "null"
+        },
+        "hold_reason_code": {
+          "enum": [
+            "generator_not_configured",
+            "generator_authentication_failed",
+            "generator_not_primary",
+            "generator_invalid",
+            "critic_not_configured",
+            "critic_authentication_failed",
+            "critic_invalid",
+            "critic_hash_mismatch",
+            "critic_disagreed",
+            "critic_uncertain",
+            "adjudicator_not_configured",
+            "adjudicator_authentication_failed",
+            "adjudicator_invalid",
+            "adjudicator_hash_mismatch",
+            "adjudicator_unresolved",
+            "final_critic_not_configured",
+            "final_critic_authentication_failed",
+            "final_critic_invalid",
+            "final_critic_hash_mismatch",
+            "final_critic_disagreed",
+            "final_critic_uncertain"
+          ]
+        },
+        "hold_variant": {
+          "enum": [
+            "invalid_structure",
+            "offset_or_original_mismatch",
+            "unmapped_topic",
+            "unresolved_model_disagreement",
+            "adjudicator_insufficient_evidence"
+          ]
+        },
+        "do_not_overcorrect_agrees": {
+          "type": "null"
+        },
+        "correction_agrees": {
+          "type": "null"
+        },
+        "explanation_agrees": {
+          "type": "null"
+        }
+      }
+    }
+  ]
+}

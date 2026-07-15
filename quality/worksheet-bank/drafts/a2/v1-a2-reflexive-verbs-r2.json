@@ -1,0 +1,142 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-reflexive-verbs-r2",
+    "template_key": "v1-a2-reflexive-verbs-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Reflexive verbs accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Reflexive Verben: Akkusativ oder Dativ",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "reflexive-verbs",
+    "name": "Reflexive Verben"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "reflexive-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "In neuen Personen und Satzmustern muss erkennbar bleiben, ob das Reflexivpronomen im Akkusativ oder neben einem eigenen Akkusativobjekt im Dativ steht.",
+    "key_rule": "Ohne eigenes Akkusativobjekt steht meist Akkusativ; bei Körperteilen oder Sachen steht häufig Dativ: sich erholen, aber sich die Zähne putzen.",
+    "correct_examples": [
+      "Nach dem Sport fühlen wir uns müde.",
+      "Ich kann mir den Namen gut merken."
+    ],
+    "common_mistake_warning": "Ein zusätzliches Akkusativobjekt wie die Zähne oder den Namen kann den reflexiven Dativ verlangen.",
+    "what_to_revise": "Übertrage reflexive Sätze in andere Personen und begründe die Wahl zwischen Akkusativ und Dativ."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Pronomen: Ich wasche ___ vor dem Essen die Hände.",
+      "options": ["mir", "mich", "dir", "sich"],
+      "correct_answer": "mir",
+      "accepted_answers": ["mir"],
+      "explanation": "Weil die Hände das Akkusativobjekt sind, steht das reflexive Pronomen für ich im Dativ: mir.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Sie freut ___ auf die Reise.",
+      "options": ["ihnen","sich","ihr","sie"],
+      "correct_answer": "sich",
+      "accepted_answers": ["sich"],
+      "explanation": "Sich freuen wird ohne weiteres Akkusativobjekt reflexiv mit sich verwendet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Pronomen: Du putzt ___ jeden Morgen die Zähne.",
+      "options": ["dich","mir","euch","dir"],
+      "correct_answer": "dir",
+      "accepted_answers": ["dir"],
+      "explanation": "Die Zähne sind das Akkusativobjekt; das reflexive Pronomen zu du steht deshalb im Dativ dir.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [euch, sich, uns]. Setze ein: Wir fühlen ___ nach der Pause besser.",
+      "options": [],
+      "correct_answer": "uns",
+      "accepted_answers": ["uns"],
+      "explanation": "Das Reflexivpronomen zu wir lautet uns; die feste Verbindung heißt sich besser fühlen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Er selbst entwickelt Interesse an Fotografie; er begeistert keine andere Person dafür. Wortbank: [ihn, sich, ihm]. Setze ein: Er interessiert ___ seit Kurzem für Fotografie.",
+      "options": [],
+      "correct_answer": "sich",
+      "accepted_answers": ["sich"],
+      "explanation": "Das Verb sich interessieren verlangt beim Subjekt er das Reflexivpronomen sich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere den Kasus des Reflexivpronomens: Ich kann mich den Namen nicht merken.",
+      "options": [],
+      "correct_answer": "Ich kann mir den Namen nicht merken.",
+      "rubric": {
+        "criteria": [
+          "Ersetze mich durch das Dativpronomen mir.",
+          "Lass den Namen als Akkusativobjekt und den übrigen Satz unverändert."
+        ],
+        "sample_answer": "Ich kann mir den Namen nicht merken."
+      },
+      "explanation": "Bei sich etwas merken ist die Sache das Akkusativobjekt; das reflexive Pronomen steht im Dativ.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit Vor dem Schlafen: [Vor dem Schlafen / putzt / sie / sich / die Zähne].",
+      "options": [],
+      "correct_answer": "Vor dem Schlafen putzt sie sich die Zähne.",
+      "rubric": {
+        "criteria": [
+          "Verwende alle Satzteile genau einmal.",
+          "Setze putzt an Position zwei und sich vor das nominale Akkusativobjekt."
+        ],
+        "sample_answer": "Vor dem Schlafen putzt sie sich die Zähne."
+      },
+      "explanation": "Die Zähne sind das Akkusativobjekt; sich steht als reflexives Dativpronomen davor.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Setze den Satz in die zweite Person Plural: Du erholst dich am Wochenende.",
+      "options": [],
+      "correct_answer": "Ihr erholt euch am Wochenende.",
+      "rubric": {
+        "criteria": [
+          "Ersetze du durch ihr und dich durch euch.",
+          "Passe erholst zu erholt an und behalte die Zeitangabe."
+        ],
+        "sample_answer": "Ihr erholt euch am Wochenende."
+      },
+      "explanation": "Zum Subjekt ihr gehört die Verbform erholt und das Reflexivpronomen euch.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

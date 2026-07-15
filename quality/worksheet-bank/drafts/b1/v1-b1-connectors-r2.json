@@ -1,0 +1,186 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-connectors-r2",
+    "template_key": "v1-b1-connectors-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Connectors accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Konnektoren im Text: Beziehungen präzise markieren",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "connectors",
+    "name": "Konnektoren"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "connectors",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "In längeren Texten helfen Konnektoren, Bedingungen, Folgen, Einschränkungen und parallele Informationen eindeutig zu kennzeichnen.",
+    "key_rule": "Unterordnende Konnektoren wie falls, während und sodass schicken das Verb ans Ende. Stehen Konnektoradverbien wie dennoch im Vorfeld, folgt direkt das finite Verb; im Mittelfeld bleibt die Verbzweitstellung erhalten.",
+    "correct_examples": [
+      "Die Besprechung dauerte länger, sodass wir den Bus verpassten.",
+      "Der Termin war ungünstig; dennoch nahmen viele teil."
+    ],
+    "common_mistake_warning": "Konnektoren mit ähnlicher Bedeutung sind grammatisch nicht austauschbar: „obwohl“ leitet einen Nebensatz ein, „dennoch“ einen Hauptsatz.",
+    "what_to_revise": "Übe sodass, falls, während, dennoch sowie mehrteilige Verbindungen wie entweder ... oder."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verbindet Ursache und Folge korrekt mit „sodass“?",
+      "options": [
+        "Die Nachfrage stieg, deshalb zusätzliche Termine angeboten wurden.",
+        "Die Nachfrage stieg, sodass zusätzliche Termine wurden angeboten.",
+        "Die Nachfrage stieg, sodass zusätzliche Termine angeboten wurden.",
+        "Die Nachfrage stieg, sodass wurden zusätzliche Termine angeboten."
+      ],
+      "correct_answer": "Die Nachfrage stieg, sodass zusätzliche Termine angeboten wurden.",
+      "accepted_answers": [
+        "Die Nachfrage stieg, sodass zusätzliche Termine angeboten wurden."
+      ],
+      "explanation": "„Sodass“ leitet einen Folgesatz ein; die vollständige Passivgruppe „angeboten wurden“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet „dennoch“ mit korrekter Wortstellung?",
+      "options": [
+        "Der Dienst auf der Station begann ungewöhnlich früh; dennoch kamen alle pünktlich an.",
+        "Der Dienst auf der Station begann ungewöhnlich früh; dennoch alle kamen pünktlich an.",
+        "Der Dienst auf der Station begann ungewöhnlich früh, dennoch alle pünktlich ankamen.",
+        "Der Dienst auf der Station begann ungewöhnlich früh; dennoch dass alle pünktlich ankamen."
+      ],
+      "correct_answer": "Der Dienst auf der Station begann ungewöhnlich früh; dennoch kamen alle pünktlich an.",
+      "accepted_answers": [
+        "Der Dienst auf der Station begann ungewöhnlich früh; dennoch kamen alle pünktlich an."
+      ],
+      "explanation": "Als Konnektoradverb steht „dennoch“ im Vorfeld; das finite Verb „kamen“ folgt direkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche mehrteilige Verbindung ist vollständig und korrekt?",
+      "options": [
+        "Wir können weder online teilnehmen oder auch vor Ort kommen.",
+        "Wir können entweder online teilnehmen oder vor Ort kommen.",
+        "Wir können entweder online teilnehmen noch vor Ort kommen.",
+        "Wir können sowohl online teilnehmen oder vor Ort kommen."
+      ],
+      "correct_answer": "Wir können entweder online teilnehmen oder vor Ort kommen.",
+      "accepted_answers": [
+        "Wir können entweder online teilnehmen oder vor Ort kommen."
+      ],
+      "explanation": "Die zweiteilige Verbindung lautet vollständig „entweder ... oder“ und verbindet zwei Alternativen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Deshalb, Außerdem, Dennoch]. Ergänze den unerwarteten Gegensatz: Die Vorbereitung war knapp. ___ verlief die Veranstaltung ohne Probleme.",
+      "options": [],
+      "correct_answer": "Dennoch",
+      "accepted_answers": ["Dennoch"],
+      "explanation": "Der problemlose Verlauf widerspricht der Erwartung nach knapper Vorbereitung; „Dennoch“ markiert diesen Gegensatz.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [obwohl, sodass, falls]. Verwende die zusammengeschriebene Form und ergänze den Folgekonnektor: Der Raum war zu klein, ___ einige Gäste stehen mussten.",
+      "options": [],
+      "correct_answer": "sodass",
+      "accepted_answers": ["sodass"],
+      "explanation": "Das Stehenmüssen ist die Folge des zu kleinen Raums. „Sodass“ und „so dass“ sind amtlich korrekt; diese Aufgabe verlangt ausdrücklich die zusammengeschriebene Form.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Während, Denn, Deshalb]. Ergänze den zeitgleichen Gegensatz: ___ das erste Team schnell vorankam, brauchte das zweite mehr Zeit.",
+      "options": [],
+      "correct_answer": "Während",
+      "accepted_answers": ["Während"],
+      "explanation": "„Während“ stellt hier zwei gleichzeitig beobachtete, gegensätzliche Entwicklungen gegenüber und verlangt Verbendstellung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Obwohl, Dennoch, Falls]. Ergänze die Bedingung: ___ Sie weitere Fragen zum Dienstplan haben, melden Sie sich bitte bei der Teamleitung.",
+      "options": [],
+      "correct_answer": "Falls",
+      "accepted_answers": ["Falls"],
+      "explanation": "„Falls“ leitet eine mögliche Bedingung ein; das finite Verb „haben“ steht am Ende des Nebensatzes.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit „Deshalb“: [Deshalb / wurde / der Termin / auf Montag / verschoben].",
+      "options": [],
+      "correct_answer": "Deshalb wurde der Termin auf Montag verschoben.",
+      "rubric": {
+        "criteria": [
+          "Alle Satzteile werden genau einmal verwendet.",
+          "Das finite Verb „wurde“ folgt direkt auf „Deshalb“.",
+          "Das Partizip „verschoben“ steht am Satzende."
+        ],
+        "sample_answer": "Deshalb wurde der Termin auf Montag verschoben."
+      },
+      "explanation": "„Deshalb“ besetzt das Vorfeld und löst die Inversion von Verb und Subjekt aus.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Verbinde die Aussagen mit „obwohl“ und behalte den Gegensatz: Die Aufgabe war schwierig. Alle Teilnehmenden waren rechtzeitig fertig.",
+      "options": [],
+      "correct_answer": "Obwohl die Aufgabe schwierig war, waren alle Teilnehmenden rechtzeitig fertig.",
+      "rubric": {
+        "criteria": [
+          "„Obwohl“ leitet einen korrekten Nebensatz mit „war“ am Ende ein; der Nebensatz kann vor oder nach dem Hauptsatz stehen.",
+          "Bei vorangestelltem obwohl-Satz steht „waren“ direkt nach dem Komma; bei nachgestelltem obwohl-Satz bleibt im Hauptsatz die Verbzweitstellung erhalten.",
+          "Schwierigkeit, Teilnehmende und rechtzeitiger Abschluss bleiben erhalten."
+        ],
+        "sample_answer": "Obwohl die Aufgabe schwierig war, waren alle Teilnehmenden rechtzeitig fertig."
+      },
+      "explanation": "„Obwohl“ markiert die Schwierigkeit als nicht wirksamen Gegengrund; der Hauptsatz zeigt den unerwartet rechtzeitigen Abschluss.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Verfasse drei zusammenhängende Sätze über die Schichtübergabe im Team. Verwende einen Konnektor für einen Grund, einen für einen Gegensatz und einen für eine zusätzliche Information; beachte jeweils die passende Wortstellung.",
+      "options": [],
+      "correct_answer": "Die Schichtübergabe ist hilfreich, weil wichtige Informationen übersichtlich gesammelt werden. Sie dauert etwas länger; dennoch bleibt genug Zeit für Fragen. Außerdem kann das Team offene Punkte sofort klären.",
+      "rubric": {
+        "criteria": [
+          "Der Text besteht aus drei zusammenhängenden Sätzen über die Schichtübergabe im Team.",
+          "Grund, Gegensatz und zusätzliche Information werden mit drei passenden Konnektoren ausgedrückt.",
+          "Nebensatz- und Hauptsatzkonnektoren stehen jeweils mit der grammatisch richtigen Wortstellung."
+        ],
+        "sample_answer": "Die Schichtübergabe ist hilfreich, weil wichtige Informationen übersichtlich gesammelt werden. Sie dauert etwas länger; dennoch bleibt genug Zeit für Fragen. Außerdem kann das Team offene Punkte sofort klären."
+      },
+      "explanation": "Verschiedene Konnektoren strukturieren eine kurze Einschätzung und machen die Beziehungen zwischen den Aussagen deutlich.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

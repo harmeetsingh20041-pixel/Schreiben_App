@@ -1,0 +1,189 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-pronouns-r1",
+    "template_key": "v1-b1-pronouns-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Pronouns pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Pronomen: Bezüge klar und Fälle korrekt markieren",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "pronouns",
+    "name": "Pronomen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "pronouns",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Pronomen ersetzen bereits bekannte Nomen und vermeiden Wiederholungen. Ihre Form richtet sich nach Person, Numerus, Genus und Kasus im neuen Satz.",
+    "key_rule": "Bestimme zuerst, worauf das Pronomen verweist, und dann seine Funktion: „er/sie/es“ im Nominativ, „ihn/sie/es“ im Akkusativ und „ihm/ihr“ im Dativ.",
+    "correct_examples": [
+      "Der Bericht ist fertig. Ich schicke ihn heute ab.",
+      "Frau Weber braucht Hilfe. Wir erklären ihr den Ablauf."
+    ],
+    "common_mistake_warning": "Übernimm nicht den Kasus der ursprünglichen Nomengruppe; entscheidend ist die Funktion des Pronomens im neuen Satz.",
+    "what_to_revise": "Wiederhole Personalpronomen in Nominativ, Akkusativ und Dativ sowie eindeutige Bezüge zwischen Nomen und Pronomen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Pronomen ersetzt das maskuline Akkusativobjekt eindeutig? Der Arzt liest den Befund und bespricht ___ anschließend mit der Patientin.",
+      "options": ["ihn", "ihm", "er"],
+      "correct_answer": "ihn",
+      "accepted_answers": ["ihn"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Der Befund“ ist maskulin und im zweiten Teilsatz direktes Objekt; das passende Akkusativpronomen lautet „ihn“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Pronomenfolge ersetzt zuerst „den Medikamentenplan“ und danach „der Patientin“? Die Pflegekraft erklärt der Patientin den Medikamentenplan.",
+      "options": [
+        "Die Pflegekraft erklärt er ihr.",
+        "Die Pflegekraft erklärt ihn ihr.",
+        "Die Pflegekraft erklärt ihm sie."
+      ],
+      "correct_answer": "Die Pflegekraft erklärt ihn ihr.",
+      "accepted_answers": ["Die Pflegekraft erklärt ihn ihr."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Den Medikamentenplan“ wird zu „ihn“ im Akkusativ und „der Patientin“ zu „ihr“ im Dativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält einen eindeutigen Bezug auf „die neue Kollegin“?",
+      "options": [
+        "Die neue Kollegin beginnt heute. Die Teamleiterin begrüßt ihr am Eingang.",
+        "Die neue Kollegin beginnt heute. Die Teamleiterin begrüßt ihn am Eingang.",
+        "Die neue Kollegin beginnt heute. Die Teamleiterin begrüßt sie am Eingang."
+      ],
+      "correct_answer": "Die neue Kollegin beginnt heute. Die Teamleiterin begrüßt sie am Eingang.",
+      "accepted_answers": [
+        "Die neue Kollegin beginnt heute. Die Teamleiterin begrüßt sie am Eingang."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Nomen wird als Akkusativobjekt durch „sie“ ersetzt; der Bezug bleibt eindeutig.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Das Pronomen verweist als Dativobjekt auf die bereits genannte Dozentin. Wortbank: [ihnen, ihr, sie]. Ergänze: Der Teilnehmer gibt ___ die Unterlagen.",
+      "options": [],
+      "correct_answer": "ihr",
+      "accepted_answers": ["ihr"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Personalpronomen im Dativ Singular lautet „ihr“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Das Pronomen verweist als Akkusativobjekt auf das neutrale Formular. Wortbank: [ihm, er, es]. Ergänze: Das Formular ist vollständig; die Abteilungsleitung unterschreibt ___ jetzt.",
+      "options": [],
+      "correct_answer": "es",
+      "accepted_answers": ["es"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Für ein neutrales Nomen lautet das Personalpronomen im Akkusativ „es“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Das Pronomen verweist im Dativ Plural auf mehrere bereits genannte Kunden. Wortbank: [ihnen, sie, euch]. Ergänze: Die Projektleiterin erklärt ___ die nächsten Schritte.",
+      "options": [],
+      "correct_answer": "ihnen",
+      "accepted_answers": ["ihnen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Personalpronomen im Dativ Plural der dritten Person lautet „ihnen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Das Pronomen verweist als Akkusativobjekt auf den bereits genannten Vertrag. Wortbank: [ihn, ihm, er]. Ergänze: Der Vertrag liegt vor; die Juristin prüft ___ heute.",
+      "options": [],
+      "correct_answer": "ihn",
+      "accepted_answers": ["ihn"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das maskuline Akkusativpronomen zu „der Vertrag“ lautet „ihn“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung korrigiert das falsche Pronomen und die Reihenfolge der beiden Pronomen?",
+      "options": [
+        "Die Projektleiterin erklärt der neuen Kollegin den Vertrag. Sie erklärt sie ihm ausführlich.",
+        "Die Projektleiterin erklärt der neuen Kollegin den Vertrag. Sie erklärt ihr ihn ausführlich.",
+        "Die Projektleiterin erklärt der neuen Kollegin den Vertrag. Sie erklärt ihn ihr ausführlich.",
+        "Die Projektleiterin erklärt der neuen Kollegin den Vertrag. Sie erklärt ihm sie ausführlich."
+      ],
+      "correct_answer": "Die Projektleiterin erklärt der neuen Kollegin den Vertrag. Sie erklärt ihn ihr ausführlich.",
+      "accepted_answers": ["Die Projektleiterin erklärt der neuen Kollegin den Vertrag. Sie erklärt ihn ihr ausführlich."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Vertrag wird zu „ihn“, die Kollegin zu „ihr“. Bei zwei Pronomen steht das Akkusativpronomen normalerweise vor dem Dativpronomen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Die Kursleiterin ruft die Teilnehmenden an. Welche Fortsetzung vermeidet die Wiederholungen mit eindeutigen Pronomen?",
+      "options": [
+        "Danach sendet sie ihn den Terminplan.",
+        "Danach sendet ihnen sie den Terminplan.",
+        "Danach sendet ihr sie den Terminplan.",
+        "Danach sendet sie ihnen den Terminplan."
+      ],
+      "correct_answer": "Danach sendet sie ihnen den Terminplan.",
+      "accepted_answers": ["Danach sendet sie ihnen den Terminplan."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Pronomen „sie“ und „ihnen“ nehmen eindeutige, bereits eingeführte Bezugswörter auf.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche kurze Schilderung greift Pflegefachkraft, Arzt und Bericht mit eindeutigen Akkusativ- und Dativpronomen auf?",
+      "options": [
+        "Eine Pflegefachkraft gibt dem Arzt den Bericht. Er liest ihn und stellt ihr eine Frage. Danach erklärt sie ihm die Änderung.",
+        "Eine Pflegefachkraft gibt dem Arzt den Bericht. Er liest sie und stellt ihm eine Frage. Danach erklärt er ihr die Änderung.",
+        "Eine Pflegefachkraft gibt dem Arzt den Bericht. Er liest ihr und stellt ihn eine Frage. Danach erklärt sie ihn die Änderung.",
+        "Eine Pflegefachkraft gibt dem Arzt den Bericht. Er liest ihm und stellt sie eine Frage. Danach erklärt ihr ihm die Änderung."
+      ],
+      "correct_answer": "Eine Pflegefachkraft gibt dem Arzt den Bericht. Er liest ihn und stellt ihr eine Frage. Danach erklärt sie ihm die Änderung.",
+      "accepted_answers": ["Eine Pflegefachkraft gibt dem Arzt den Bericht. Er liest ihn und stellt ihr eine Frage. Danach erklärt sie ihm die Änderung."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Pronomen vermeiden Wiederholungen, müssen aber in Kasus und Bezug eindeutig zu den zuvor genannten Nomen passen.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

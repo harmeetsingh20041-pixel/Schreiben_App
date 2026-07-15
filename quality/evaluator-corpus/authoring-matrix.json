@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "matrix_id": "schreiben-v1-evaluator-corpus-authoring-v1",
+  "artifact_kind": "draft_authoring_plan",
+  "authoring_status": "not_started",
+  "required_counts": {
+    "total_slots": 600,
+    "slots_per_level": 150,
+    "primary_category_count": 15,
+    "slots_per_category_per_level": 10,
+    "reviewed_feedback_slots_per_level": 140,
+    "reviewed_hold_slots_per_level": 10
+  },
+  "slot_identity_contract": {
+    "case_id_pattern": "^(A1|A2|B1|B2)-EVAL-[0-9]{3}$",
+    "case_number_width": 3,
+    "first_case_number": 1,
+    "last_case_number": 150,
+    "allocation_template_id": "balanced-150-v1"
+  },
+  "acceptance_targets": {
+    "structural_validity_rate": 1,
+    "do_not_overcorrect_agreement_minimum": 0.99,
+    "correction_agreement_minimum": 0.98,
+    "explanation_agreement_minimum": 0.98,
+    "topic_mapping_agreement": 1,
+    "level_fit_agreement": 1,
+    "minimum_reviewed_hold_slots_per_level": 10
+  },
+  "current_release_contract": {
+    "target_artifact": "reviewed-cases.jsonl",
+    "coverage_tags": [
+      "decimal",
+      "time",
+      "abbreviation",
+      "paragraph_boundary",
+      "offset",
+      "whitespace",
+      "repeated_word",
+      "missing_space",
+      "long_sentence",
+      "do_not_overcorrect",
+      "prompt_injection",
+      "topic_mapping",
+      "level_fit",
+      "expected_hold"
+    ],
+    "agreement_fields": [
+      "structural_valid",
+      "do_not_overcorrect_agrees",
+      "correction_agrees",
+      "explanation_agrees",
+      "adversarial_instruction_resisted",
+      "topic_mapping_agrees",
+      "level_fit_agrees"
+    ],
+    "allocation_evidence_fields": ["primary_category", "case_tags"],
+    "terminal_evidence_fields": [
+      "expected_disposition",
+      "actual_disposition",
+      "decision_sha256",
+      "hold_reason_code",
+      "hold_variant",
+      "student_visible_before_release"
+    ]
+  },
+  "non_evidence_declaration": {
+    "contains_input_text": false,
+    "contains_expected_or_actual_output": false,
+    "contains_output_hashes": false,
+    "contains_reviewer_attestations": false,
+    "contains_approvals": false,
+    "counts_as_launch_evidence": false,
+    "may_be_used_as_release_corpus": false
+  },
+  "category_definitions": [
+    {
+      "category_id": "do_not_overcorrect",
+      "slots_per_level": 10,
+      "planned_case_tags": ["do_not_overcorrect", "offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "do_not_overcorrect",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "offset_fidelity",
+        "level_fit"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "correction_accuracy",
+      "slots_per_level": 10,
+      "planned_case_tags": ["offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "offset_fidelity",
+        "topic_mapping",
+        "level_fit"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "explanation_accuracy",
+      "slots_per_level": 10,
+      "planned_case_tags": ["offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "offset_fidelity",
+        "topic_mapping",
+        "level_fit"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "decimal",
+      "slots_per_level": 10,
+      "planned_case_tags": ["decimal", "offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "format_fidelity",
+        "offset_fidelity",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "level_fit"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "time",
+      "slots_per_level": 10,
+      "planned_case_tags": ["time", "offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "format_fidelity",
+        "offset_fidelity",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "level_fit"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "abbreviation",
+      "slots_per_level": 10,
+      "planned_case_tags": ["abbreviation", "offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "format_fidelity",
+        "offset_fidelity",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "level_fit"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "paragraph_boundary",
+      "slots_per_level": 10,
+      "planned_case_tags": ["paragraph_boundary", "whitespace", "offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "paragraph_fidelity",
+        "whitespace_fidelity",
+        "offset_fidelity",
+        "correction_accuracy",
+        "explanation_accuracy"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "offset",
+      "slots_per_level": 10,
+      "planned_case_tags": ["offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "offset_fidelity",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "topic_mapping"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "repeated_word",
+      "slots_per_level": 10,
+      "planned_case_tags": ["repeated_word", "offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "offset_fidelity",
+        "do_not_overcorrect"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "missing_space",
+      "slots_per_level": 10,
+      "planned_case_tags": ["missing_space", "whitespace", "offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "whitespace_fidelity",
+        "offset_fidelity",
+        "correction_accuracy",
+        "explanation_accuracy"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "long_sentence",
+      "slots_per_level": 10,
+      "planned_case_tags": ["long_sentence", "offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "offset_fidelity",
+        "do_not_overcorrect",
+        "level_fit"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "topic_mapping",
+      "slots_per_level": 10,
+      "planned_case_tags": ["topic_mapping", "offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "offset_fidelity",
+        "topic_mapping",
+        "level_fit"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "level_fit",
+      "slots_per_level": 10,
+      "planned_case_tags": ["level_fit", "do_not_overcorrect", "offset"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "do_not_overcorrect",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "topic_mapping",
+        "level_fit"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "prompt_injection",
+      "slots_per_level": 10,
+      "planned_case_tags": ["prompt_injection"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "adversarial_resistance",
+        "correction_accuracy",
+        "explanation_accuracy",
+        "level_fit"
+      ],
+      "expected_pipeline_disposition": "accepted_feedback",
+      "evidence_stream": "reviewed_feedback_case",
+      "requires_release_contract_extension": false
+    },
+    {
+      "category_id": "expected_hold",
+      "slots_per_level": 10,
+      "planned_case_tags": ["expected_hold"],
+      "required_review_dimensions": [
+        "structural_validity",
+        "adversarial_resistance",
+        "offset_fidelity",
+        "topic_mapping",
+        "hold_behavior"
+      ],
+      "expected_pipeline_disposition": "system_hold",
+      "evidence_stream": "reviewed_hold_case",
+      "requires_release_contract_extension": false
+    }
+  ],
+  "special_allocations": {
+    "topic_mapping_topics_by_level": {
+      "A1": [
+        "articles",
+        "nominativ",
+        "akkusativ",
+        "conjugation",
+        "subject-verb-agreement",
+        "verb-position",
+        "question-formation",
+        "negation",
+        "modal-verbs",
+        "prepositions"
+      ],
+      "A2": [
+        "dativ",
+        "adjective-endings",
+        "pronouns",
+        "plural-forms",
+        "separable-verbs",
+        "reflexive-verbs",
+        "prepositions",
+        "conjunctions",
+        "perfekt",
+        "word-order"
+      ],
+      "B1": [
+        "genitiv",
+        "adjective-endings",
+        "subordinate-clauses",
+        "relative-clauses",
+        "infinitive-zu",
+        "praeteritum",
+        "plusquamperfekt",
+        "future-tense",
+        "passive-voice",
+        "connectors"
+      ],
+      "B2": [
+        "konjunktiv",
+        "passive-voice",
+        "relative-clauses",
+        "subordinate-clauses",
+        "connectors",
+        "coherence",
+        "register",
+        "punctuation",
+        "task-fulfilment",
+        "word-order"
+      ]
+    },
+    "expected_hold_variants": [
+      {
+        "variant_id": "invalid_structure",
+        "slots_per_level": 2
+      },
+      {
+        "variant_id": "offset_or_original_mismatch",
+        "slots_per_level": 2
+      },
+      {
+        "variant_id": "unmapped_topic",
+        "slots_per_level": 2
+      },
+      {
+        "variant_id": "unresolved_model_disagreement",
+        "slots_per_level": 2
+      },
+      {
+        "variant_id": "adjudicator_insufficient_evidence",
+        "slots_per_level": 2
+      }
+    ]
+  },
+  "allocation_template": {
+    "template_id": "balanced-150-v1",
+    "blocks": [
+      {
+        "category_id": "do_not_overcorrect",
+        "first_case_number": 1,
+        "last_case_number": 10,
+        "slot_count": 10
+      },
+      {
+        "category_id": "correction_accuracy",
+        "first_case_number": 11,
+        "last_case_number": 20,
+        "slot_count": 10
+      },
+      {
+        "category_id": "explanation_accuracy",
+        "first_case_number": 21,
+        "last_case_number": 30,
+        "slot_count": 10
+      },
+      {
+        "category_id": "decimal",
+        "first_case_number": 31,
+        "last_case_number": 40,
+        "slot_count": 10
+      },
+      {
+        "category_id": "time",
+        "first_case_number": 41,
+        "last_case_number": 50,
+        "slot_count": 10
+      },
+      {
+        "category_id": "abbreviation",
+        "first_case_number": 51,
+        "last_case_number": 60,
+        "slot_count": 10
+      },
+      {
+        "category_id": "paragraph_boundary",
+        "first_case_number": 61,
+        "last_case_number": 70,
+        "slot_count": 10
+      },
+      {
+        "category_id": "offset",
+        "first_case_number": 71,
+        "last_case_number": 80,
+        "slot_count": 10
+      },
+      {
+        "category_id": "repeated_word",
+        "first_case_number": 81,
+        "last_case_number": 90,
+        "slot_count": 10
+      },
+      {
+        "category_id": "missing_space",
+        "first_case_number": 91,
+        "last_case_number": 100,
+        "slot_count": 10
+      },
+      {
+        "category_id": "long_sentence",
+        "first_case_number": 101,
+        "last_case_number": 110,
+        "slot_count": 10
+      },
+      {
+        "category_id": "topic_mapping",
+        "first_case_number": 111,
+        "last_case_number": 120,
+        "slot_count": 10
+      },
+      {
+        "category_id": "level_fit",
+        "first_case_number": 121,
+        "last_case_number": 130,
+        "slot_count": 10
+      },
+      {
+        "category_id": "prompt_injection",
+        "first_case_number": 131,
+        "last_case_number": 140,
+        "slot_count": 10
+      },
+      {
+        "category_id": "expected_hold",
+        "first_case_number": 141,
+        "last_case_number": 150,
+        "slot_count": 10
+      }
+    ]
+  },
+  "level_allocations": [
+    {
+      "level": "A1",
+      "case_id_prefix": "A1-EVAL",
+      "allocation_template_id": "balanced-150-v1",
+      "slot_count": 150
+    },
+    {
+      "level": "A2",
+      "case_id_prefix": "A2-EVAL",
+      "allocation_template_id": "balanced-150-v1",
+      "slot_count": 150
+    },
+    {
+      "level": "B1",
+      "case_id_prefix": "B1-EVAL",
+      "allocation_template_id": "balanced-150-v1",
+      "slot_count": 150
+    },
+    {
+      "level": "B2",
+      "case_id_prefix": "B2-EVAL",
+      "allocation_template_id": "balanced-150-v1",
+      "slot_count": 150
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-subordinate-clauses-r2",
+    "template_key": "v1-b2-subordinate-clauses-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Subordinate clauses accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Komplexe Nebensätze: Bedingung, Mittel und Vergleich",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "subordinate-clauses",
+    "name": "Nebensätze"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "subordinate-clauses",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Fortgeschrittene Nebensätze unterscheiden Bedingungen, Mittel, fehlende Begleitumstände und irreale Vergleiche. Konjunktionen wie „sofern“, „indem“, „ohne dass“ und „als ob“ machen diese Beziehungen präzise.",
+    "key_rule": "Wähle die Konjunktion nach der logischen Beziehung und setze die vollständige Verbgruppe ans Ende des Nebensatzes.",
+    "correct_examples": [
+      "Sofern das Wetter stabil bleibt, findet die Übung draußen statt.",
+      "Das Team verringerte Rückfragen, indem es die Informationen klarer strukturierte."
+    ],
+    "common_mistake_warning": "„Indem“ nennt ein Mittel, nicht nur Gleichzeitigkeit; nach „als ob“ steht bei einem irrealen Vergleich gewöhnlich der Konjunktiv II.",
+    "what_to_revise": "Übe sofern, indem, ohne dass und als ob sowie mehrteilige Verbgruppen am Nebensatzende."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz formuliert eine Bedingung mit „sofern“ korrekt?",
+      "options": [
+        "Die Vereinbarung tritt in Kraft, sofern alle Beteiligten zustimmen.",
+        "Die Vereinbarung tritt in Kraft, sofern stimmen alle Beteiligten zu.",
+        "Die Vereinbarung tritt in Kraft sofern alle Beteiligten zustimmen."
+      ],
+      "correct_answer": "Die Vereinbarung tritt in Kraft, sofern alle Beteiligten zustimmen.",
+      "accepted_answers": [
+        "Die Vereinbarung tritt in Kraft, sofern alle Beteiligten zustimmen."
+      ],
+      "explanation": "„Sofern“ leitet die notwendige Bedingung ein; das trennbare Verb steht als „zustimmen“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Nebensatz beschreibt eindeutig das Mittel zur Lösung?",
+      "options": [
+        "Sie löste das Problem, indem ordnete sie die Daten neu.",
+        "Sie löste das Problem, indem sie die Daten neu ordnete.",
+        "Sie löste das Problem, obwohl sie die Daten neu ordnete."
+      ],
+      "correct_answer": "Sie löste das Problem, indem sie die Daten neu ordnete.",
+      "accepted_answers": [
+        "Sie löste das Problem, indem sie die Daten neu ordnete."
+      ],
+      "explanation": "Das Neuordnen der Daten ist die Methode; nach „indem“ steht „ordnete“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form beschreibt einen irrealen Eindruck mit „als ob“ korrekt?",
+      "options": [
+        "Er spricht, als ob er weiß alle Einzelheiten bereits.",
+        "Er spricht, als ob er alle Einzelheiten bereits weißt.",
+        "Er spricht, als ob er alle Einzelheiten bereits wüsste."
+      ],
+      "correct_answer": "Er spricht, als ob er alle Einzelheiten bereits wüsste.",
+      "accepted_answers": [
+        "Er spricht, als ob er alle Einzelheiten bereits wüsste."
+      ],
+      "explanation": "Der nur scheinbare Wissensstand wird mit „als ob“ und dem Konjunktiv II „wüsste“ ausgedrückt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Die Zustimmung aller Personen ist eine zwingende Voraussetzung. Wortbank: [sofern, obwohl, indem]. Ergänze die Bedingungskonjunktion: Die Daten dürfen verwendet werden, ___ alle Personen zugestimmt haben.",
+      "options": [],
+      "correct_answer": "sofern",
+      "accepted_answers": ["sofern"],
+      "explanation": "Die Zustimmung ist eine Voraussetzung für die Verwendung; deshalb passt „sofern“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Die Automatisierung war das Mittel zur Kostensenkung. Wortbank: [obwohl, indem, während]. Ergänze passend: Das Team senkte die Kosten, ___ es Abläufe automatisierte.",
+      "options": [],
+      "correct_answer": "indem",
+      "accepted_answers": ["indem"],
+      "explanation": "Die Automatisierung ist das Mittel zur Kostensenkung und wird mit „indem“ eingeführt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Die Betroffenen erfuhren erst nach der Änderung davon. Wortbank: [damit, weil, ohne dass]. Ergänze passend: Die Richtlinie wurde geändert, ___ die Betroffenen vorher informiert wurden.",
+      "options": [],
+      "correct_answer": "ohne dass",
+      "accepted_answers": ["ohne dass"],
+      "explanation": "„Ohne dass“ zeigt, dass die erwartbare vorherige Information nicht stattfand.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Tatsächlich ist die Entscheidung noch offen. Wortbank: [als ob, sobald, während]. Ergänze passend: Sie reagiert, ___ die Entscheidung bereits endgültig wäre.",
+      "options": [],
+      "correct_answer": "als ob",
+      "accepted_answers": ["als ob"],
+      "explanation": "Der Vergleich wird als nicht real gekennzeichnet; deshalb steht „als ob“ mit „wäre“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde einen vollständigen Satz aus allen Bausteinen: die Prüfung kann beginnen / sofern / sämtliche Unterlagen / vollständig eingereicht worden sind",
+      "options": [],
+      "correct_answer": "Die Prüfung kann beginnen, sofern sämtliche Unterlagen vollständig eingereicht worden sind.",
+      "rubric": {
+        "criteria": [
+          "Alle Bausteine werden genau einmal verwendet und bilden Haupt- plus Bedingungsnebensatz.",
+          "Vor „sofern“ steht ein Komma, und die vollständige Passiv-Perfekt-Gruppe „eingereicht worden sind“ steht am Ende.",
+          "Großschreibung und Satzzeichen ergeben einen vollständigen korrekten Satz."
+        ],
+        "sample_answer": "Die Prüfung kann beginnen, sofern sämtliche Unterlagen vollständig eingereicht worden sind."
+      },
+      "explanation": "Der sofern-Satz nennt die Voraussetzung und bündelt die mehrteilige Verbform am Ende.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Verbinde die Aussagen mit „ohne dass“ und erhalte die Zeitform: Die Leitung änderte den Ablauf. Sie informierte das Team vorher nicht.",
+      "options": [],
+      "correct_answer": "Die Leitung änderte den Ablauf, ohne dass sie das Team vorher informierte.",
+      "rubric": {
+        "criteria": [
+          "Die erste Aussage bleibt als Hauptsatz im Präteritum vollständig erhalten.",
+          "Der zweite Inhalt wird mit „ohne dass“ als nicht eingetretener Begleitumstand formuliert.",
+          "„Informierte“ steht am Ende des Nebensatzes; Pronomen, Objekt und Zeitangabe bleiben korrekt."
+        ],
+        "sample_answer": "Die Leitung änderte den Ablauf, ohne dass sie das Team vorher informierte."
+      },
+      "explanation": "„Ohne dass“ verbindet die Handlung mit einer ausdrücklich fehlenden vorherigen Information.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe drei zusammenhängende Sätze über die Verbesserung der Schichtübergabe auf einer Pflegestation. Verwende je einen Nebensatz mit „sofern“, „indem“ und „ohne dass“ in passender Bedeutung.",
+      "options": [],
+      "correct_answer": "Der neue Übergabeablauf wird eingeführt, sofern alle beteiligten Pflegekräfte geschult sind. Das Team spart Zeit, indem es wiederkehrende Angaben in einer einheitlichen Struktur dokumentiert. Die Änderung darf jedoch nicht erfolgen, ohne dass die Beschäftigten vorher informiert werden.",
+      "rubric": {
+        "criteria": [
+          "Der Text besteht aus drei logisch verbundenen Sätzen über die Verbesserung der Schichtübergabe auf einer Pflegestation.",
+          "„Sofern“ bezeichnet eine Bedingung, „indem“ ein Mittel und „ohne dass“ einen fehlenden oder auszuschließenden Begleitumstand.",
+          "Alle drei Nebensätze haben korrekte Kommasetzung und vollständige Verbendstellung."
+        ],
+        "sample_answer": "Der neue Übergabeablauf wird eingeführt, sofern alle beteiligten Pflegekräfte geschult sind. Das Team spart Zeit, indem es wiederkehrende Angaben in einer einheitlichen Struktur dokumentiert. Die Änderung darf jedoch nicht erfolgen, ohne dass die Beschäftigten vorher informiert werden."
+      },
+      "explanation": "Die drei Nebensatzarten strukturieren Voraussetzung, Methode und notwendige Absicherung des Ablaufs.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

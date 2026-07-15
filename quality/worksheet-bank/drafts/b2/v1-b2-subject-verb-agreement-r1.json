@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-subject-verb-agreement-r1",
+    "template_key": "v1-b2-subject-verb-agreement-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Subject verb agreement pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Kongruenz: Komplexe Subjekte mit dem Verb abstimmen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "subject-verb-agreement",
+    "name": "Subjekt-Verb-Kongruenz"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "subject-verb-agreement",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das finite Verb richtet sich nach Person und Numerus des grammatischen Subjekts, nicht nach einem näher stehenden Attribut. Koordinierte Subjekte sind meist pluralisch, während Wörter wie „jede“, „niemand“ oder „eine Reihe“ einen singularischen Kern haben.",
+    "key_rule": "Bestimme den Kopf der Subjektgruppe und blende eingeschobene Genitiv- oder Präpositionalattribute aus; erst danach wählst du die finite Verbform.",
+    "correct_examples": [
+      "Die Zahl der offenen Anträge sinkt langsam.",
+      "Sowohl die Theorie als auch die praktische Übung sind prüfungsrelevant."
+    ],
+    "common_mistake_warning": "Ein Pluralwort innerhalb eines Attributs darf das Verb nicht fälschlich in den Plural ziehen, wenn der Subjektkern Singular ist.",
+    "what_to_revise": "Übe komplexe Nominalgruppen, koordinierte Subjekte, Indefinitpronomen und Mengenangaben als Subjekt."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz stimmt das Verb mit dem Subjektkern „Qualität“ ab?",
+      "options": [
+        "Die Qualität der eingereichten Nachweise entsprechen den Anforderungen.",
+        "Die Qualität der eingereichten Nachweise entsprecht den Anforderungen.",
+        "Die Qualität der eingereichten Nachweise entspricht den Anforderungen."
+      ],
+      "correct_answer": "Die Qualität der eingereichten Nachweise entspricht den Anforderungen.",
+      "accepted_answers": [
+        "Die Qualität der eingereichten Nachweise entspricht den Anforderungen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der singularische Kern „Qualität“ bestimmt die Verbform „entspricht“; „der Nachweise“ ist nur ein Genitivattribut.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zu dem mit „sowohl … als auch“ koordinierten Subjekt?",
+      "options": [
+        "Sowohl die Stationsleitung als auch die Praxisanleiter seid anwesend.",
+        "Sowohl die Stationsleitung als auch die Praxisanleiter sind anwesend.",
+        "Sowohl die Stationsleitung als auch die Praxisanleiter ist anwesend."
+      ],
+      "correct_answer": "Sowohl die Stationsleitung als auch die Praxisanleiter sind anwesend.",
+      "accepted_answers": [
+        "Sowohl die Stationsleitung als auch die Praxisanleiter sind anwesend."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zwei mit „sowohl … als auch“ verbundene Subjekte bilden gemeinsam einen Plural und verlangen „sind“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz behandelt „jede“ korrekt als singularischen Subjektkern?",
+      "options": [
+        "Jede der vorgeschlagenen Maßnahmen wird einzeln bewertet.",
+        "Jede der vorgeschlagenen Maßnahmen werden einzeln bewertet.",
+        "Jede der vorgeschlagenen Maßnahmen werdet einzeln bewertet."
+      ],
+      "correct_answer": "Jede der vorgeschlagenen Maßnahmen wird einzeln bewertet.",
+      "accepted_answers": [
+        "Jede der vorgeschlagenen Maßnahmen wird einzeln bewertet."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Indefinitpronomen „jede“ steht im Singular; die nachfolgende Genitivgruppe ändert die Kongruenz nicht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [liegen, liegst, liegt]. Ergänze nach dem Subjektkern: Eine Zusammenfassung der wichtigsten Ergebnisse ___ dem Protokoll bei.",
+      "options": [],
+      "correct_answer": "liegt",
+      "accepted_answers": [
+        "liegt"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Kern „eine Zusammenfassung“ ist Singular; deshalb lautet die finite Form „liegt“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wurdest, wurden, wurde]. Ergänze nach zwei koordinierten Subjekten: Der Ablauf und die Zuständigkeiten ___ verbindlich festgelegt.",
+      "options": [],
+      "correct_answer": "wurden",
+      "accepted_answers": [
+        "wurden"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Verbindung zweier verschiedener Subjekte mit „und“ verlangt die Pluralform „wurden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hat, haben, habt]. Ergänze nach dem Indefinitpronomen: Niemand aus den beteiligten Teams ___ der Änderung widersprochen.",
+      "options": [],
+      "correct_answer": "hat",
+      "accepted_answers": [
+        "hat"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Niemand“ ist grammatisch Singular; die Pluralgruppe nach „aus“ beeinflusst die Verbform nicht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ist, sind, seid]. Ergänze die Kongruenz: Mehr als eine Rückmeldung ___ wegen einer fehlenden Angabe unvollständig.",
+      "options": [],
+      "correct_answer": "ist",
+      "accepted_answers": [
+        "ist"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Konstruktion „mehr als eine“ wird mit einem singularischen Nomen und einem Verb im Singular verbunden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung stimmt das Verb mit dem singularischen Subjektkern „Umfang“ ab?",
+      "options": [
+        "Der Umfang der erforderlichen Anpassungen wurde zunächst unterschätzt.",
+        "Der Umfang der erforderlichen Anpassungen war zunächst unterschätzten.",
+        "Der Umfang der erforderlichen Anpassungen werden zunächst unterschätzt.",
+        "Der Umfang der erforderlichen Anpassungen wurden zunächst unterschätzt."
+      ],
+      "correct_answer": "Der Umfang der erforderlichen Anpassungen wurde zunächst unterschätzt.",
+      "accepted_answers": [
+        "Der Umfang der erforderlichen Anpassungen wurde zunächst unterschätzt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nicht der nahe Plural „Anpassungen“, sondern der Subjektkern „Umfang“ steuert die singularische Form „wurde“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung stimmt das Verb mit dem koordinierten Subjekt im Plural ab?",
+      "options": [
+        "Die theoretische Einführung sowie die praktische Übung wäre verpflichtend.",
+        "Die theoretische Einführung und die praktische Übung ist verpflichtend.",
+        "Die theoretische Einführung und die praktische Übung seid verpflichtend.",
+        "Die theoretische Einführung und die praktische Übung sind verpflichtend."
+      ],
+      "correct_answer": "Die theoretische Einführung und die praktische Übung sind verpflichtend.",
+      "accepted_answers": [
+        "Die theoretische Einführung und die praktische Übung sind verpflichtend."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Durch die Koordination entsteht ein pluralisches Subjekt, zu dem die Form „sind“ gehört.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung stimmt beide finiten Verben mit ihrem jeweiligen Subjekt ab, obwohl die Subjektgruppen zusätzliche Pluralangaben enthalten?",
+      "options": [
+        "Die Anzahl der Fälle, in denen zusätzliche Kontrollen erforderlich ist, sind im letzten Quartal deutlich gesunken.",
+        "Die Anzahl der Fälle, in denen zusätzliche Kontrollen erforderlich waren, ist im letzten Quartal deutlich gesunken.",
+        "Die Anzahl der Fälle, in denen zusätzliche Kontrollen erforderlich war, ist im letzten Quartal deutlich gesunken.",
+        "Die Anzahl der Fälle, in denen zusätzliche Kontrollen erforderlich waren, sind im letzten Quartal deutlich gesunken."
+      ],
+      "correct_answer": "Die Anzahl der Fälle, in denen zusätzliche Kontrollen erforderlich waren, ist im letzten Quartal deutlich gesunken.",
+      "accepted_answers": [
+        "Die Anzahl der Fälle, in denen zusätzliche Kontrollen erforderlich waren, ist im letzten Quartal deutlich gesunken."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Relativsatz steuert das pluralische Subjekt „zusätzliche Kontrollen“ die Form „waren“. Im Hauptsatz verlangt der singularische Kern „Anzahl“ dagegen „ist gesunken“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

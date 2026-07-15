@@ -1,0 +1,147 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-conjunctions-r2",
+    "template_key": "v1-a2-conjunctions-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Conjunctions accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Konjunktionen im Kontext: Gegensatz und Bedingung",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "conjunctions",
+    "name": "Konjunktionen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "conjunctions",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Konjunktionen verbinden Wörter und Sätze. Einige lassen die normale Wortstellung, andere schicken das konjugierte Verb ans Ende.",
+    "key_rule": "Nach weil, dass, wenn und obwohl steht das Verb am Ende des Nebensatzes; nach aber, denn, oder und sondern bleibt es im Hauptsatz an Position zwei.",
+    "correct_examples": [
+      "Ich bleibe zu Hause, weil ich krank bin.",
+      "Sie kommt, aber sie bleibt nicht lange."
+    ],
+    "common_mistake_warning": "Setze das Verb nach einer unterordnenden Konjunktion nicht direkt hinter das Subjekt.",
+    "what_to_revise": "Vergleiche denn mit weil und aber mit obwohl."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die Konjunktion, die einen unerwarteten Gegensatz ausdrückt: ___ es regnet, gehen wir spazieren.",
+      "options": ["Denn","Oder","Obwohl","Weil"],
+      "correct_answer": "Obwohl",
+      "accepted_answers": ["Obwohl"],
+      "explanation": "Obwohl drückt einen Gegensatz aus; das Verb regnet steht im Nebensatz am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Konjunktion: ___ ich Zeit habe, besuche ich meine Großeltern.",
+      "options": ["Denn","Wenn","Dass","Aber"],
+      "correct_answer": "Wenn",
+      "accepted_answers": ["Wenn"],
+      "explanation": "Wenn leitet hier eine Bedingung ein; habe steht am Ende des Nebensatzes.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den grammatisch richtigen Satz mit denn.",
+      "options": [
+        "Er geht früh, denn muss er arbeiten.",
+        "Er geht früh, denn er arbeiten muss.",
+        "Er geht denn früh, er muss arbeiten.",
+        "Er geht früh, denn er muss arbeiten."
+      ],
+      "correct_answer": "Er geht früh, denn er muss arbeiten.",
+      "accepted_answers": ["Er geht früh, denn er muss arbeiten."],
+      "explanation": "Denn verbindet zwei Hauptsätze; im zweiten Satz steht muss regulär an Position zwei.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Die Kontrolle geschieht vor dem Verlassen. Wortbank: [denn, bevor, obwohl]. Setze ein: Ich kontrolliere die Tür, ___ ich das Haus verlasse.",
+      "options": [],
+      "correct_answer": "bevor",
+      "accepted_answers": ["bevor"],
+      "explanation": "Bevor ordnet zwei Handlungen zeitlich; verlasse steht am Ende des Nebensatzes.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sondern, weil, wenn]. Setze ein: Er fährt nicht mit dem Auto, ___ mit dem Fahrrad.",
+      "options": [],
+      "correct_answer": "sondern",
+      "accepted_answers": ["sondern"],
+      "explanation": "Nach einer Verneinung stellt sondern die richtige Alternative gegenüber.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere die Wortstellung: Ich bleibe zu Hause, obwohl ich bin gesund.",
+      "options": [],
+      "correct_answer": "Ich bleibe zu Hause, obwohl ich gesund bin.",
+      "rubric": {
+        "criteria": [
+          "Setze bin an das Ende des obwohl-Satzes.",
+          "Lass Hauptsatz, Adjektiv und Konjunktion unverändert."
+        ],
+        "sample_answer": "Ich bleibe zu Hause, obwohl ich gesund bin."
+      },
+      "explanation": "Obwohl leitet einen Nebensatz ein; deshalb steht das konjugierte Verb bin am Ende.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit Wenn: [Wenn / der Kurs / endet / fahren / wir / nach Hause].",
+      "options": [],
+      "correct_answer": "Wenn der Kurs endet, fahren wir nach Hause.",
+      "rubric": {
+        "criteria": [
+          "Verwende alle Satzteile genau einmal.",
+          "Setze endet ans Ende des wenn-Satzes und fahren direkt nach dem Komma."
+        ],
+        "sample_answer": "Wenn der Kurs endet, fahren wir nach Hause."
+      },
+      "explanation": "Der vorangestellte Nebensatz besetzt das Vorfeld; im Hauptsatz folgt deshalb sofort das Verb fahren.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Verbinde beide Aussagen mit obwohl: Sie hat wenig Zeit. Sie hilft uns.",
+      "options": [],
+      "correct_answer": "Obwohl sie wenig Zeit hat, hilft sie uns.",
+      "rubric": {
+        "criteria": [
+          "Verwende „obwohl“ und setze „hat“ ans Ende des Nebensatzes.",
+          "Übernimm beide Aussagen; der obwohl-Satz darf vor oder nach dem Hauptsatz stehen, wenn Wortstellung und Komma stimmen."
+        ],
+        "sample_answer": "Obwohl sie wenig Zeit hat, hilft sie uns."
+      },
+      "explanation": "Obwohl markiert den Gegensatz. Der Nebensatz kann vorangestellt oder nachgestellt werden, wenn Verbposition und Komma stimmen.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

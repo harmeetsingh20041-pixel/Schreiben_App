@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-genitiv-r1",
+    "template_key": "v1-b2-genitiv-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Genitiv pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Genitiv: Zugehörigkeit und formelle Bezüge ausdrücken",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "genitiv",
+    "name": "Genitiv"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "genitiv",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Genitiv drückt Zugehörigkeit aus und folgt in formellen Texten häufig Präpositionen wie „während“, „innerhalb“ oder „angesichts“. Maskuline und neutrale Nomen erhalten dabei meist ein zusätzliches -s oder -es.",
+    "key_rule": "Markiere die gesamte abhängige Nominalgruppe im Genitiv und kontrolliere Artikel, Adjektivendung sowie die Endung des Bezugsnomens gemeinsam.",
+    "correct_examples": [
+      "Die Ergebnisse der unabhängigen Untersuchung wurden veröffentlicht.",
+      "Während der Sitzung wurde die Maßnahme ausführlich bewertet."
+    ],
+    "common_mistake_warning": "Bei langen Genitivgruppen darf die Kasusmarkierung nicht nur am Artikel erscheinen; auch Adjektive und viele maskuline oder neutrale Nomen tragen ein Signal.",
+    "what_to_revise": "Übe Genitivattribute, Genitivpräpositionen, schwache Maskulina und mehrteilige Nominalgruppen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Genitivgruppe ist vollständig korrekt?",
+      "options": [
+        "die Auswertung des neu entwickelte Verfahren",
+        "die Auswertung des neu entwickelten Verfahrens",
+        "die Auswertung dem neu entwickelten Verfahren"
+      ],
+      "correct_answer": "die Auswertung des neu entwickelten Verfahrens",
+      "accepted_answers": [
+        "die Auswertung des neu entwickelten Verfahrens"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Nomen steht mit „des“, der schwachen Adjektivendung -en und der Genitivendung in „Verfahrens“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet „angesichts“ in einem formellen Kontext korrekt?",
+      "options": [
+        "Angesichts die zunehmende Belastung wurde der Dienstplan angepasst.",
+        "Angesichts den zunehmenden Belastung wurde der Dienstplan angepasst.",
+        "Angesichts der zunehmenden Belastung wurde der Dienstplan angepasst."
+      ],
+      "correct_answer": "Angesichts der zunehmenden Belastung wurde der Dienstplan angepasst.",
+      "accepted_answers": [
+        "Angesichts der zunehmenden Belastung wurde der Dienstplan angepasst."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Präposition „angesichts“ verlangt standardsprachlich den Genitiv; feminin Singular lautet die Form „der … Belastung“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form berücksichtigt beim schwachen Maskulinum „Patient“ den Genitiv korrekt?",
+      "options": [
+        "die Einwilligung des gut informierten Patienten",
+        "die Einwilligung des gut informierten Patient",
+        "die Einwilligung dem gut informierten Patienten"
+      ],
+      "correct_answer": "die Einwilligung des gut informierten Patienten",
+      "accepted_answers": [
+        "die Einwilligung des gut informierten Patienten"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Patient“ gehört zur n-Deklination und erhält im Genitiv Singular die Endung -en: „des Patienten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dessen, deren, denen]. Ergänze den Genitivbezug zum maskulinen Nomen: Der Bericht, ___ Ergebnisse morgen vorgestellt werden, liegt bereits vor.",
+      "options": [],
+      "correct_answer": "dessen",
+      "accepted_answers": [
+        "dessen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Genitiv-Relativpronomen richtet sich nach dem maskulinen Bezugswort „Bericht“ und lautet „dessen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einem, einen, eines]. Ergänze nach „innerhalb“: Die Rückmeldung muss innerhalb ___ festgelegten Zeitraums erfolgen.",
+      "options": [],
+      "correct_answer": "eines",
+      "accepted_answers": [
+        "eines"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Innerhalb“ verlangt den Genitiv; die maskuline Gruppe lautet „eines festgelegten Zeitraums“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den, der, die]. Ergänze das Genitivattribut: Die Umsetzung ___ vereinbarten Maßnahmen wird monatlich überprüft.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die pluralischen Maßnahmen stehen als abhängiges Attribut im Genitiv und erhalten den Artikel „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ihrem kritischen Zustand, ihren kritischen Zustand, ihres kritischen Zustands]. Ergänze die Genitivgruppe: Die technische Anlage bedarf wegen ___ einer engmaschigen Kontrolle.",
+      "options": [],
+      "correct_answer": "ihres kritischen Zustands",
+      "accepted_answers": [
+        "ihres kritischen Zustands"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „wegen“ steht die vollständige Genitivgruppe „ihres kritischen Zustands“; „bedürfen“ regiert zusätzlich die Genitivgruppe „einer engmaschigen Kontrolle“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält nach „während“ die vollständig korrekte Genitivgruppe?",
+      "options": [
+        "Während des ausführlichen Gespräch wurden mehrere offene Fragen geklärt.",
+        "Während dem ausführlichen Gesprächs wurden mehrere offene Fragen geklärt.",
+        "Während des ausführliche Gesprächs wurden mehrere offene Fragen geklärt.",
+        "Während des ausführlichen Gesprächs wurden mehrere offene Fragen geklärt."
+      ],
+      "correct_answer": "Während des ausführlichen Gesprächs wurden mehrere offene Fragen geklärt.",
+      "accepted_answers": [
+        "Während des ausführlichen Gesprächs wurden mehrere offene Fragen geklärt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „während“ lautet die Genitivgruppe bei neutralem Nomen „des ausführlichen Gesprächs“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ersetzt den von-Ausdruck durch ein korrektes Genitivattribut?",
+      "options": [
+        "Die Ergebnisse der externen Qualitätsprüfung führten zu konkreten Änderungen.",
+        "Die Ergebnisse von der externen Qualitätsprüfung führten zu konkreten Änderungen.",
+        "Die Ergebnisse der externe Qualitätsprüfung führten zu konkreten Änderungen.",
+        "Die Ergebnisse des externen Qualitätsprüfung führten zu konkreten Änderungen."
+      ],
+      "correct_answer": "Die Ergebnisse der externen Qualitätsprüfung führten zu konkreten Änderungen.",
+      "accepted_answers": [
+        "Die Ergebnisse der externen Qualitätsprüfung führten zu konkreten Änderungen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Genitivattribut „der externen Qualitätsprüfung“ drückt denselben Zugehörigkeitsbezug kompakter aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet nach der formellen Präposition „ungeachtet“ die gesamte erweiterte Genitivgruppe korrekt?",
+      "options": [
+        "Ungeachtet der von mehreren Teams geäußerte Bedenken hält die Leitung an der Einführung fest.",
+        "Ungeachtet die von mehreren Teams geäußerten Bedenken hält die Leitung an der Einführung fest.",
+        "Ungeachtet der von mehreren Teams geäußerten Bedenken hält die Leitung an der Einführung fest.",
+        "Ungeachtet den von mehreren Teams geäußerten Bedenken hält die Leitung an der Einführung fest."
+      ],
+      "correct_answer": "Ungeachtet der von mehreren Teams geäußerten Bedenken hält die Leitung an der Einführung fest.",
+      "accepted_answers": [
+        "Ungeachtet der von mehreren Teams geäußerten Bedenken hält die Leitung an der Einführung fest."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Ungeachtet“ regiert in der Standardsprache den Genitiv. Im Genitiv Plural lautet die erweiterte Gruppe „der von mehreren Teams geäußerten Bedenken“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-passive-voice-r2",
+    "template_key": "v1-b1-passive-voice-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Passive voice accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Passiv im Kontext: Meldungen und Vorschriften",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "passive-voice",
+    "name": "Passiv"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "passive-voice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Vorgangspassiv kann in verschiedenen Zeitformen und zusammen mit Modalverben stehen. Dadurch lassen sich Meldungen, Regeln und abgeschlossene Vorgänge sachlich darstellen.",
+    "key_rule": "Im Präteritum heißt es „wurde/wurden + Partizip II“, mit Modalverb „Modalverb + Partizip II + werden“ und im Perfekt „ist/sind + Partizip II + worden“.",
+    "correct_examples": [
+      "Die Räume wurden am Morgen kontrolliert.",
+      "Die Unterlagen müssen vollständig abgegeben werden."
+    ],
+    "common_mistake_warning": "Im Passivperfekt steht „worden“, nicht „geworden“: „Die Tür ist geöffnet worden.“",
+    "what_to_revise": "Vergleiche Präsens-, Präteritum- und Perfektpassiv sowie die Verbgruppe nach Modalverben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht korrekt im Präteritumpassiv?",
+      "options": [
+        "Die Software ist gestern aktualisiert wurde.",
+        "Die Software wurde gestern aktualisiert.",
+        "Die Software war gestern aktualisiert worden wird.",
+        "Die Software wurde gestern aktualisieren."
+      ],
+      "correct_answer": "Die Software wurde gestern aktualisiert.",
+      "accepted_answers": ["Die Software wurde gestern aktualisiert."],
+      "explanation": "Das Präteritumpassiv im Singular besteht aus „wurde“ und dem Partizip II „aktualisiert“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbgruppe mit einem Modalverb ist korrekt?",
+      "options": [
+        "muss vollständig ausgefüllt wird",
+        "wird vollständig ausfüllen müssen worden",
+        "muss vollständig werden ausgefüllt",
+        "muss vollständig ausgefüllt werden"
+      ],
+      "correct_answer": "muss vollständig ausgefüllt werden",
+      "accepted_answers": ["muss vollständig ausgefüllt werden"],
+      "explanation": "Nach dem finiten Modalverb steht die Passivgruppe „ausgefüllt werden“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet „durch“ für eine Ursache oder Kraft korrekt?",
+      "options": [
+        "Mehrere Dächer beschädigten durch den Sturm.",
+        "Mehrere Dächer sind durch der Sturm beschädigen worden.",
+        "Mehrere Dächer wurden durch den Sturm beschädigt.",
+        "Mehrere Dächer wurden von den Sturm beschädigt."
+      ],
+      "correct_answer": "Mehrere Dächer wurden durch den Sturm beschädigt.",
+      "accepted_answers": ["Mehrere Dächer wurden durch den Sturm beschädigt."],
+      "explanation": "Eine nicht handelnde Ursache wird mit „durch“ plus Akkusativ ausgedrückt; das Passiv steht im Präteritum.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wurde, werden, wurden]. Ergänze: Die Fenster ___ nach dem Unwetter ausgetauscht.",
+      "options": [],
+      "correct_answer": "wurden",
+      "accepted_answers": ["wurden"],
+      "explanation": "Das Pluralsubjekt „die Fenster“ verlangt im Präteritumpassiv „wurden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [muss, wird, hat]. Ergänze die Verpflichtung: Die Dokumentation der Übergabe ___ vor Schichtende abgeschlossen werden.",
+      "options": [],
+      "correct_answer": "muss",
+      "accepted_answers": ["muss"],
+      "explanation": "Die Verpflichtung wird mit dem Modalverb „muss“ und der Passivgruppe „abgeschlossen werden“ formuliert.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werden, worden, geworden]. Ergänze: Das Problem ist inzwischen gelöst ___.",
+      "options": [],
+      "correct_answer": "worden",
+      "accepted_answers": ["worden"],
+      "explanation": "Das Perfekt des Vorgangspassivs endet mit „worden“: „ist gelöst worden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wird, ist, hat]. Ergänze ausdrücklich das Vorgangspassiv: Die neue Dienstregel ___ morgen offiziell bekannt gegeben.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": ["wird"],
+      "explanation": "Das ausdrücklich verlangte Vorgangspassiv lautet „wird ... bekannt gegeben“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit „Nach der Übergabe“: [Nach der Übergabe / wird / der Dienstplan / per Nachricht / bestätigt].",
+      "options": [],
+      "correct_answer": "Nach der Übergabe wird der Dienstplan per Nachricht bestätigt.",
+      "rubric": {
+        "criteria": [
+          "Alle Satzteile werden genau einmal verwendet.",
+          "„Wird“ steht nach dem Vorfeld an Position zwei.",
+          "Das Partizip „bestätigt“ schließt die Passivklammer ab."
+        ],
+        "sample_answer": "Nach der Übergabe wird der Dienstplan per Nachricht bestätigt."
+      },
+      "explanation": "Auch bei vorangestellter Zeitangabe bilden „wird“ und „bestätigt“ die korrekte Passivklammer.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Forme den Aktivsatz ins Präteritumpassiv um und behalte handelnde Person und Mittel: Die Feuerwehr löschte den Brand mit Wasser.",
+      "options": [],
+      "correct_answer": "Der Brand wurde von der Feuerwehr mit Wasser gelöscht.",
+      "rubric": {
+        "criteria": [
+          "„Der Brand“ wird zum Subjekt des Passivsatzes.",
+          "Das Präteritumpassiv wird mit „wurde ... gelöscht“ gebildet.",
+          "Feuerwehr und Mittel bleiben als „von der Feuerwehr“ und „mit Wasser“ erhalten."
+        ],
+        "sample_answer": "Der Brand wurde von der Feuerwehr mit Wasser gelöscht."
+      },
+      "explanation": "Der frühere Handelnde wird zur von-Gruppe; das frühere Objekt steht als Passivsubjekt im Nominativ.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Verfasse eine sachliche Meldung aus drei Sätzen über die Einarbeitung einer neuen Pflegekraft. Verwende ein Präteritumpassiv, ein Passivperfekt und eine Passivform mit Modalverb.",
+      "options": [],
+      "correct_answer": "Am Montag wurde eine neue Pflegekraft im Team begrüßt. Der Dienstplan ist bereits besprochen worden. Die nächste Schulung muss bis Ende der Woche geplant werden.",
+      "rubric": {
+        "criteria": [
+          "Die drei Sätze bilden eine verständliche Meldung über die Einarbeitung einer neuen Pflegekraft.",
+          "Je eine korrekte Form des Präteritumpassivs und des Passivperfekts wird verwendet.",
+          "Ein Modalverb steht mit der vollständigen Passivgruppe „Partizip II + werden“."
+        ],
+        "sample_answer": "Am Montag wurde eine neue Pflegekraft im Team begrüßt. Der Dienstplan ist bereits besprochen worden. Die nächste Schulung muss bis Ende der Woche geplant werden."
+      },
+      "explanation": "Die Aufgabe verbindet drei Passivformen, die in Meldungen und Vorschriften häufig vorkommen.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

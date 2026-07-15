@@ -1,123 +1,103 @@
 # Phase 6C Scheduled Feedback Processing
 
-Phase 6C makes automatic delayed feedback work without the student keeping the website open. Supabase Cron calls the existing `process-due-feedback` Edge Function on a trusted server-side schedule.
+Scheduled feedback no longer depends on an outbound database request. Writing
+evaluation is queued immediately and prepared privately. At the due time, one
+secret-free database Cron command atomically releases only feedback that is
+eligible for release.
 
-## Production Schedule
+## Current production design
 
-- Cron job: `process-due-feedback-every-5-minutes`
-- Frequency: every 5 minutes (`*/5 * * * *`)
-- Function: `https://vzcgalzspdehmnvqczfw.supabase.co/functions/v1/process-due-feedback?limit=3`
-- Batch size: maximum 3 submissions per scheduled invocation
-- Secret header: `x-process-feedback-secret`
+Migrations `20260710191319_install_queue_recovery_cron.sql` and
+`20260712010300_phase_12v_ai_spend_reservation_reconciliation.sql` install five
+30-second jobs as part of normal migration replay:
 
-The Edge Function still filters for due rows only:
+- `reconcile-writing-jobs-every-30-seconds`
+- `reconcile-worksheet-generation-every-30-seconds`
+- `reconcile-worksheet-evaluation-every-30-seconds`
+- `reconcile-ai-spend-reservations-every-30-seconds`
+- `release-due-feedback-every-30-seconds`
 
-- `status = submitted`
-- `feedback_mode in (immediate, automatic_delayed)`
-- `feedback_scheduled_at <= now()`
-
-Already checked submissions are not selected again.
-
-## Extensions
-
-The scheduler uses:
-
-- `pg_cron` for recurring database-side scheduling
-- `pg_net` for the HTTP request to the Edge Function
-- Supabase Vault for the scheduler secret
-
-The migration `20260705100305_phase_6c_scheduled_feedback_processing.sql` enables only `pg_cron` and `pg_net`. It does not store URLs, headers, or secret values.
-
-## Secret Storage
-
-Keep one process secret:
-
-```bash
-PROCESS_FEEDBACK_SECRET
-```
-
-The same value must exist in two places:
-
-- Supabase Edge Function secrets as `PROCESS_FEEDBACK_SECRET`
-- Supabase Vault as `process_due_feedback_secret`
-
-Do not store the value in source control, docs, `.env.local`, migrations, shell history, or frontend code. If the current secret cannot be retrieved safely, rotate it by generating a new random value locally, setting it as the Edge Function secret, and writing that same value into Vault without printing it.
-
-## Setup SQL
-
-The secret-free scheduler setup lives at:
-
-```text
-supabase/setup/phase_6c_schedule_due_feedback.sql
-```
-
-It is safe to rerun. It:
-
-- checks that Vault contains `process_due_feedback_secret`
-- unschedules any existing job named `process-due-feedback-every-5-minutes`
-- schedules the five-minute cron job again
-
-To disable the scheduler:
+The release job executes only:
 
 ```sql
-select cron.unschedule('process-due-feedback-every-5-minutes');
+select app_private.release_due_feedback_internal(100);
 ```
 
-To list scheduled jobs:
+The reconciliation jobs likewise execute fixed `app_private` SQL functions.
+The AI-spend job executes only:
 
 ```sql
-select jobid, jobname, schedule, active
+select app_private.reconcile_expired_ai_spend_reservations_internal(100, null);
+```
+
+They contain no URL, request header, or production secret. The final launch
+preflight verifies each job's exact command, 30-second cadence, database, and
+execution role.
+
+Immediate Edge kicks remain the primary processing path. Configure the two
+project-bound EU QStash schedules specified in
+[`QSTASH_RECOVERY_SCHEDULER.md`](./QSTASH_RECOVERY_SCHEDULER.md). Both trigger
+every minute; the second delivery is delayed by 30 seconds. Each posts an empty
+JSON object to `/functions/v1/recover-async-jobs` with the redacted forwarded
+`x-process-recovery-secret` header. The request contains no student writing or
+worksheet answers. In addition to reconciling and waking the three queues,
+each authenticated recovery cycle invokes the same bounded, row-locked
+scheduled-release and expired AI-spend reservation sweeps as database Cron. A
+heartbeat is recorded only after queue recovery and both independent sweeps
+succeed. Production preflight rejects the Free plan, missing or drifted
+schedule readback, a missing or stale live recovery heartbeat, and any
+validated scheduled feedback still overdue after 60 seconds.
+
+## Retired setup entry point
+
+`supabase/setup/phase_6c_schedule_due_feedback.sql` is intentionally a
+fail-closed sentinel. Running it raises an error and changes nothing. Do not
+replace migration replay with that setup file, do not create a Vault copy of a
+feedback-processing secret, and do not install a database HTTP extension.
+
+The complete migration history removes `pg_net`; production preflight must
+independently prove that it remains absent. A clean production project is
+configured only by replaying the checked-in migrations and by configuring the
+external recovery scheduler described above.
+
+## Verification
+
+Inspect the current schedules:
+
+```sql
+select jobid, jobname, schedule, command, database, username, active
 from cron.job
-order by jobid;
+where jobname in (
+  'reconcile-writing-jobs-every-30-seconds',
+  'reconcile-worksheet-generation-every-30-seconds',
+  'reconcile-worksheet-evaluation-every-30-seconds',
+  'reconcile-ai-spend-reservations-every-30-seconds',
+  'release-due-feedback-every-30-seconds'
+)
+order by jobname;
 ```
 
-To inspect recent runs:
+Inspect recent database runs:
 
 ```sql
-select jobid, job_pid, database, username, command, status, return_message, start_time, end_time
+select jobid, status, return_message, start_time, end_time
 from cron.job_run_details
 order by start_time desc
 limit 20;
 ```
 
-To inspect recent HTTP responses from `pg_net`:
+Then run the read-only production preflight. It must prove all five commands, a
+fresh external queue, release, and AI-spend recovery heartbeat, zero validated
+releases overdue beyond 60 seconds, healthy queues, and absence of the retired
+network extension before launch.
 
-```sql
-select id, status_code, content, created
-from net._http_response
-order by created desc
-limit 20;
-```
+## Release semantics and time zones
 
-## Timezone Behavior
+`feedback_scheduled_at` is a `timestamptz` compared with server-side `now()`.
+Release therefore does not depend on the teacher's or student's browser time
+zone. A draft that is partial, invalid, uncertain, failed, or awaiting teacher
+review remains held even when its scheduled time has passed.
 
-Scheduling uses Postgres/server timestamps. `feedback_scheduled_at` is stored as `timestamptz` and compared with server-side `now()`, so processing does not depend on the student or teacher browser timezone. This is important for teachers in Germany and students in India.
-
-The UI may show relative labels like "Due in 42 minutes" or "Feedback ready", but backend due checks remain UTC-safe.
-
-## Student Wording
-
-Student-facing UI should continue to use neutral wording:
-
-- Feedback is being prepared.
-- Feedback ready.
-- Check back later.
-- Waiting for review.
-- Line-by-line feedback.
-
-Do not show "AI", "DeepSeek", "model", or "automatic AI correction" in student-facing screens.
-
-## Cost And Safety
-
-- The scheduled due processor handles at most 3 submissions per invocation. The Edge Function still caps ad hoc requests at 5.
-- Checked submissions are filtered out before processing.
-- `prepare-writing-feedback` atomically marks a submission as `checking`, which prevents duplicate processing during overlapping invocations.
-- Keep batch defaults conservative: `teacher_review_only`, 15 to 180 minutes.
-- Do not lower production delays globally without a launch decision.
-- Monitor Edge Function logs, `cron.job_run_details`, and `net._http_response` after enabling the job.
-
-## Known Limitations
-
-- There is no notification bell or read/unread feedback notification table yet.
-- Phase 6C does not add timer/exam mode, OCR/photo upload, admin tools, or daily usage limits.
-- Production monitoring and cost dashboards are still future work.
+Student-facing wording stays provider-neutral: feedback is being prepared,
+ready, scheduled, held, or waiting for review. Provider names, internal model
+states, database errors, and queue details are never student-facing.

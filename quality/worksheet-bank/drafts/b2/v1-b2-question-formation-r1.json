@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-question-formation-r1",
+    "template_key": "v1-b2-question-formation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Question formation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Fragebildung: Präzise direkt und indirekt nachfragen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "question-formation",
+    "name": "Fragebildung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "question-formation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Direkte Entscheidungsfragen beginnen mit dem finiten Verb, direkte Ergänzungsfragen mit einem Fragewort. Indirekte Fragen werden mit „ob“ oder einem Fragewort eingeleitet und haben Verbendstellung.",
+    "key_rule": "Entscheide zuerst, welche Information fehlt; wähle dann Fragewort oder „ob“ und passe die Verbstellung an direkte oder indirekte Form an.",
+    "correct_examples": [
+      "Weshalb wurde diese Empfehlung geändert?",
+      "Könnten Sie mir sagen, ob die Frist verlängert wurde?"
+    ],
+    "common_mistake_warning": "Eine indirekte Frage behält nicht die Verb-Erst- oder Verb-Zweitstellung der direkten Frage.",
+    "what_to_revise": "Übe Präpositionalfragen, Entscheidungsfragen, indirekte Fragen und höfliche Frageeinleitungen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche direkte Frage passt zur Verbindung „sich auf etwas beziehen“?",
+      "options": [
+        "Woran bezieht sich die neue Regelung?",
+        "Auf was die neue Regelung bezieht sich?",
+        "Worauf bezieht sich die neue Regelung?"
+      ],
+      "correct_answer": "Worauf bezieht sich die neue Regelung?",
+      "accepted_answers": [
+        "Worauf bezieht sich die neue Regelung?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Für eine Sache verbindet „worauf“ die verlangte Präposition „auf“ mit dem Frageelement; das finite Verb folgt direkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche indirekte Entscheidungsfrage ist korrekt?",
+      "options": [
+        "Die Mitarbeitenden möchten wissen, ob die Schulung verpflichtend ist.",
+        "Die Mitarbeitenden möchten wissen, ist die Schulung verpflichtend.",
+        "Die Mitarbeitenden möchten wissen, ob ist die Schulung verpflichtend."
+      ],
+      "correct_answer": "Die Mitarbeitenden möchten wissen, ob die Schulung verpflichtend ist.",
+      "accepted_answers": [
+        "Die Mitarbeitenden möchten wissen, ob die Schulung verpflichtend ist."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Ob“ leitet eine indirekte Entscheidungsfrage ein; die finite Form „ist“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung ist eine höfliche, grammatisch vollständige Informationsfrage?",
+      "options": [
+        "Könnten Sie erläutern, die Anträge nach welchen Kriterien bewertet werden?",
+        "Könnten Sie erläutern, nach welchen Kriterien die Anträge bewertet werden?",
+        "Könnten Sie erläutern, nach welchen Kriterien werden die Anträge bewertet?"
+      ],
+      "correct_answer": "Könnten Sie erläutern, nach welchen Kriterien die Anträge bewertet werden?",
+      "accepted_answers": [
+        "Könnten Sie erläutern, nach welchen Kriterien die Anträge bewertet werden?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach der höflichen Einleitung folgt eine indirekte Frage mit Fragegruppe am Anfang und finitem Verb am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ob, warum, wann]. Ergänze eine indirekte Entscheidungsfrage: Bitte teilen Sie uns mit, ___ eine nachträgliche Anmeldung möglich ist.",
+      "options": [],
+      "correct_answer": "ob",
+      "accepted_answers": [
+        "ob"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Gefragt wird nach Ja oder Nein; deshalb leitet „ob“ die indirekte Entscheidungsfrage ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wovon, womit, worüber]. Ergänze die Frage zur Verbindung „mit etwas rechnen“: ___ müssen wir während der Umstellung der Pflegedokumentation rechnen?",
+      "options": [],
+      "correct_answer": "Womit",
+      "accepted_answers": [
+        "Womit"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Verbverbindung verlangt „mit“; für eine Sache lautet das passende Frageadverb „womit“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die Frist endet, endet die Frist, endet]. Ergänze die Verbendstellung: Wissen Sie, wann die Frist ___?",
+      "options": [],
+      "correct_answer": "endet",
+      "accepted_answers": [
+        "endet"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Fragewort „wann“ leitet eine indirekte Frage ein; nach dem Subjekt steht die finite Form am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wen, wem, wer]. Ergänze die Frage nach der zuständigen Person als Subjekt: ___ genehmigt die endgültige Fassung?",
+      "options": [],
+      "correct_answer": "Wer",
+      "accepted_answers": [
+        "Wer"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die gesuchte Person führt die Handlung aus und wird als Nominativsubjekt mit „wer“ erfragt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält eine korrekt eingeleitete indirekte Frage mit Verbendstellung?",
+      "options": [
+        "Können Sie mir sagen, wann beginnt die nächste Fortbildung?",
+        "Können Sie mir sagen, wann die nächste Fortbildung beginnen?",
+        "Können Sie mir sagen, beginnt wann die nächste Fortbildung?",
+        "Können Sie mir sagen, wann die nächste Fortbildung beginnt?"
+      ],
+      "correct_answer": "Können Sie mir sagen, wann die nächste Fortbildung beginnt?",
+      "accepted_answers": [
+        "Können Sie mir sagen, wann die nächste Fortbildung beginnt?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im indirekten Fragesatz steht „beginnt“ am Ende und nicht wie in einer direkten Frage vor dem Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung gibt die direkte Frage als sachliche indirekte Ergänzungsfrage wieder?",
+      "options": [
+        "Die Prüfungskommission möchte wissen, welche praktischen Erfahrungen Sie bisher gesammelt haben.",
+        "Die Prüfungskommission möchte wissen, ob welche praktischen Erfahrungen Sie bisher gesammelt haben.",
+        "Die Prüfungskommission möchte wissen, welche praktischen Erfahrungen Sie haben bisher gesammelt.",
+        "Die Prüfungskommission möchte wissen, welche praktischen Erfahrungen haben Sie bisher gesammelt."
+      ],
+      "correct_answer": "Die Prüfungskommission möchte wissen, welche praktischen Erfahrungen Sie bisher gesammelt haben.",
+      "accepted_answers": [
+        "Die Prüfungskommission möchte wissen, welche praktischen Erfahrungen Sie bisher gesammelt haben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Ergänzungsfrage bleibt durch „welche“ markiert, aber der Perfektkomplex rückt im indirekten Fragesatz ans Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Sie möchten in einer formellen Besprechung indirekt danach fragen, auf welcher Grundlage eine Entscheidung beruht. Welche Frage ist standardsprachlich korrekt?",
+      "options": [
+        "Könnten Sie mir erläutern, auf was diese Entscheidung beruht sie?",
+        "Könnten Sie mir erläutern, woran diese Entscheidung basiert?",
+        "Könnten Sie mir erläutern, worauf diese Entscheidung beruht?",
+        "Könnten Sie mir erläutern, worauf beruht diese Entscheidung?"
+      ],
+      "correct_answer": "Könnten Sie mir erläutern, worauf diese Entscheidung beruht?",
+      "accepted_answers": [
+        "Könnten Sie mir erläutern, worauf diese Entscheidung beruht?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste Verbindung lautet „auf etwas beruhen“, daher steht das Frageadverb „worauf“. In der indirekten Frage steht das finite Verb „beruht“ am Ende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

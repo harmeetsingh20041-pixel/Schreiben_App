@@ -1,0 +1,5131 @@
+{
+  "schema_version": 2,
+  "matrix_id": "schreiben-v1-launch-worksheet-authoring-v2",
+  "artifact_kind": "draft_authoring_plan",
+  "closed_topic_contract_version": "phase-11a-v1",
+  "required_counts": {
+    "total_slots": 184,
+    "foundation_slots": 144,
+    "second_revision_slots": 40,
+    "slots_per_level": 46,
+    "foundation_slots_per_level": 36,
+    "second_revision_slots_per_level": 10,
+    "distinct_topics_per_level": 36
+  },
+  "phase_12h_contract": {
+    "template_key_pattern": "^[a-z0-9][a-z0-9._-]{5,119}$",
+    "allowed_levels": [
+      "A1",
+      "A2",
+      "B1",
+      "B2"
+    ],
+    "allowed_difficulties": [
+      "easy",
+      "medium",
+      "hard"
+    ],
+    "allowed_question_types": [
+      "multiple_choice",
+      "fill_blank",
+      "sentence_correction",
+      "word_order",
+      "transformation",
+      "rewrite_sentence",
+      "mini_writing"
+    ],
+    "allowed_evaluation_modes": [
+      "local_exact",
+      "open_evaluation"
+    ],
+    "answer_contract_version": 1,
+    "maximum_open_evaluation_questions": 3
+  },
+  "non_evidence_declaration": {
+    "contains_worksheet_questions": false,
+    "contains_answers_or_rubrics": false,
+    "contains_human_approvals": false,
+    "counts_as_launch_approval_evidence": false,
+    "may_be_imported_directly": false
+  },
+  "slots": [
+    {
+      "slot_id": "A1-articles-r1",
+      "template_key": "v1-a1-articles-r1",
+      "level": "A1",
+      "topic_slug": "articles",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Articles pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-articles-r2",
+      "template_key": "v1-a1-articles-r2",
+      "level": "A1",
+      "topic_slug": "articles",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Articles accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 2,
+        "fill_blank": 3,
+        "sentence_correction": 1,
+        "word_order": 2
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-nominativ-r1",
+      "template_key": "v1-a1-nominativ-r1",
+      "level": "A1",
+      "topic_slug": "nominativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Nominativ pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-nominativ-r2",
+      "template_key": "v1-a1-nominativ-r2",
+      "level": "A1",
+      "topic_slug": "nominativ",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Nominativ accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 2,
+        "fill_blank": 3,
+        "sentence_correction": 1,
+        "word_order": 2
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-akkusativ-r1",
+      "template_key": "v1-a1-akkusativ-r1",
+      "level": "A1",
+      "topic_slug": "akkusativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Akkusativ pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-akkusativ-r2",
+      "template_key": "v1-a1-akkusativ-r2",
+      "level": "A1",
+      "topic_slug": "akkusativ",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Akkusativ accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 2,
+        "fill_blank": 3,
+        "sentence_correction": 1,
+        "word_order": 2
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-dativ-r1",
+      "template_key": "v1-a1-dativ-r1",
+      "level": "A1",
+      "topic_slug": "dativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Dativ pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-genitiv-r1",
+      "template_key": "v1-a1-genitiv-r1",
+      "level": "A1",
+      "topic_slug": "genitiv",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Genitiv pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-adjective-endings-r1",
+      "template_key": "v1-a1-adjective-endings-r1",
+      "level": "A1",
+      "topic_slug": "adjective-endings",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Adjective endings pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-pronouns-r1",
+      "template_key": "v1-a1-pronouns-r1",
+      "level": "A1",
+      "topic_slug": "pronouns",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Pronouns pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-plural-forms-r1",
+      "template_key": "v1-a1-plural-forms-r1",
+      "level": "A1",
+      "topic_slug": "plural-forms",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Plural forms pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-conjugation-r1",
+      "template_key": "v1-a1-conjugation-r1",
+      "level": "A1",
+      "topic_slug": "conjugation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Conjugation pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-conjugation-r2",
+      "template_key": "v1-a1-conjugation-r2",
+      "level": "A1",
+      "topic_slug": "conjugation",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Conjugation accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 2,
+        "fill_blank": 3,
+        "sentence_correction": 1,
+        "word_order": 2
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-subject-verb-agreement-r1",
+      "template_key": "v1-a1-subject-verb-agreement-r1",
+      "level": "A1",
+      "topic_slug": "subject-verb-agreement",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Subject-verb agreement pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-subject-verb-agreement-r2",
+      "template_key": "v1-a1-subject-verb-agreement-r2",
+      "level": "A1",
+      "topic_slug": "subject-verb-agreement",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Subject-verb agreement accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 2,
+        "fill_blank": 3,
+        "sentence_correction": 1,
+        "word_order": 2
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-verb-position-r1",
+      "template_key": "v1-a1-verb-position-r1",
+      "level": "A1",
+      "topic_slug": "verb-position",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Verb position pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-verb-position-r2",
+      "template_key": "v1-a1-verb-position-r2",
+      "level": "A1",
+      "topic_slug": "verb-position",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Verb position accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 2,
+        "fill_blank": 3,
+        "sentence_correction": 1,
+        "word_order": 2
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-word-order-r1",
+      "template_key": "v1-a1-word-order-r1",
+      "level": "A1",
+      "topic_slug": "word-order",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Word order pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-sentence-structure-r1",
+      "template_key": "v1-a1-sentence-structure-r1",
+      "level": "A1",
+      "topic_slug": "sentence-structure",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Sentence structure pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-question-formation-r1",
+      "template_key": "v1-a1-question-formation-r1",
+      "level": "A1",
+      "topic_slug": "question-formation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Question formation pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-question-formation-r2",
+      "template_key": "v1-a1-question-formation-r2",
+      "level": "A1",
+      "topic_slug": "question-formation",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Question formation accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 2,
+        "fill_blank": 3,
+        "sentence_correction": 1,
+        "word_order": 2
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-negation-r1",
+      "template_key": "v1-a1-negation-r1",
+      "level": "A1",
+      "topic_slug": "negation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Negation pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-negation-r2",
+      "template_key": "v1-a1-negation-r2",
+      "level": "A1",
+      "topic_slug": "negation",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Negation accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 2,
+        "fill_blank": 3,
+        "sentence_correction": 1,
+        "word_order": 2
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-modal-verbs-r1",
+      "template_key": "v1-a1-modal-verbs-r1",
+      "level": "A1",
+      "topic_slug": "modal-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Modal verbs pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-modal-verbs-r2",
+      "template_key": "v1-a1-modal-verbs-r2",
+      "level": "A1",
+      "topic_slug": "modal-verbs",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Modal verbs accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 2,
+        "fill_blank": 3,
+        "sentence_correction": 1,
+        "word_order": 2
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-separable-verbs-r1",
+      "template_key": "v1-a1-separable-verbs-r1",
+      "level": "A1",
+      "topic_slug": "separable-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Separable verbs pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-reflexive-verbs-r1",
+      "template_key": "v1-a1-reflexive-verbs-r1",
+      "level": "A1",
+      "topic_slug": "reflexive-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Reflexive verbs pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-prepositions-r1",
+      "template_key": "v1-a1-prepositions-r1",
+      "level": "A1",
+      "topic_slug": "prepositions",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Prepositions pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-prepositions-r2",
+      "template_key": "v1-a1-prepositions-r2",
+      "level": "A1",
+      "topic_slug": "prepositions",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Prepositions accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 2,
+        "fill_blank": 3,
+        "sentence_correction": 1,
+        "word_order": 2
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-conjunctions-r1",
+      "template_key": "v1-a1-conjunctions-r1",
+      "level": "A1",
+      "topic_slug": "conjunctions",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Conjunctions pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-connectors-r1",
+      "template_key": "v1-a1-connectors-r1",
+      "level": "A1",
+      "topic_slug": "connectors",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Connectors pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-subordinate-clauses-r1",
+      "template_key": "v1-a1-subordinate-clauses-r1",
+      "level": "A1",
+      "topic_slug": "subordinate-clauses",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Subordinate clauses pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-relative-clauses-r1",
+      "template_key": "v1-a1-relative-clauses-r1",
+      "level": "A1",
+      "topic_slug": "relative-clauses",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Relative clauses pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-infinitive-zu-r1",
+      "template_key": "v1-a1-infinitive-zu-r1",
+      "level": "A1",
+      "topic_slug": "infinitive-zu",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Infinitive zu pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-perfekt-r1",
+      "template_key": "v1-a1-perfekt-r1",
+      "level": "A1",
+      "topic_slug": "perfekt",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Perfekt pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-praeteritum-r1",
+      "template_key": "v1-a1-praeteritum-r1",
+      "level": "A1",
+      "topic_slug": "praeteritum",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Praeteritum pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-plusquamperfekt-r1",
+      "template_key": "v1-a1-plusquamperfekt-r1",
+      "level": "A1",
+      "topic_slug": "plusquamperfekt",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Plusquamperfekt pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-future-tense-r1",
+      "template_key": "v1-a1-future-tense-r1",
+      "level": "A1",
+      "topic_slug": "future-tense",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Future tense pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-passive-voice-r1",
+      "template_key": "v1-a1-passive-voice-r1",
+      "level": "A1",
+      "topic_slug": "passive-voice",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Passive voice pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-konjunktiv-r1",
+      "template_key": "v1-a1-konjunktiv-r1",
+      "level": "A1",
+      "topic_slug": "konjunktiv",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Konjunktiv pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-spelling-r1",
+      "template_key": "v1-a1-spelling-r1",
+      "level": "A1",
+      "topic_slug": "spelling",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Spelling pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-capitalization-r1",
+      "template_key": "v1-a1-capitalization-r1",
+      "level": "A1",
+      "topic_slug": "capitalization",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Capitalization pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-punctuation-r1",
+      "template_key": "v1-a1-punctuation-r1",
+      "level": "A1",
+      "topic_slug": "punctuation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Punctuation pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-register-r1",
+      "template_key": "v1-a1-register-r1",
+      "level": "A1",
+      "topic_slug": "register",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Register pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-coherence-r1",
+      "template_key": "v1-a1-coherence-r1",
+      "level": "A1",
+      "topic_slug": "coherence",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Coherence pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A1-task-fulfilment-r1",
+      "template_key": "v1-a1-task-fulfilment-r1",
+      "level": "A1",
+      "topic_slug": "task-fulfilment",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Task fulfilment pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-articles-r1",
+      "template_key": "v1-a2-articles-r1",
+      "level": "A2",
+      "topic_slug": "articles",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Articles pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-nominativ-r1",
+      "template_key": "v1-a2-nominativ-r1",
+      "level": "A2",
+      "topic_slug": "nominativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Nominativ pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-akkusativ-r1",
+      "template_key": "v1-a2-akkusativ-r1",
+      "level": "A2",
+      "topic_slug": "akkusativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Akkusativ pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-dativ-r1",
+      "template_key": "v1-a2-dativ-r1",
+      "level": "A2",
+      "topic_slug": "dativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Dativ pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-dativ-r2",
+      "template_key": "v1-a2-dativ-r2",
+      "level": "A2",
+      "topic_slug": "dativ",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Dativ accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 2,
+        "sentence_correction": 1,
+        "word_order": 1,
+        "transformation": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-genitiv-r1",
+      "template_key": "v1-a2-genitiv-r1",
+      "level": "A2",
+      "topic_slug": "genitiv",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Genitiv pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-adjective-endings-r1",
+      "template_key": "v1-a2-adjective-endings-r1",
+      "level": "A2",
+      "topic_slug": "adjective-endings",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Adjective endings pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-adjective-endings-r2",
+      "template_key": "v1-a2-adjective-endings-r2",
+      "level": "A2",
+      "topic_slug": "adjective-endings",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Adjective endings accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 2,
+        "sentence_correction": 1,
+        "word_order": 1,
+        "transformation": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-pronouns-r1",
+      "template_key": "v1-a2-pronouns-r1",
+      "level": "A2",
+      "topic_slug": "pronouns",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Pronouns pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-pronouns-r2",
+      "template_key": "v1-a2-pronouns-r2",
+      "level": "A2",
+      "topic_slug": "pronouns",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Pronouns accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 2,
+        "sentence_correction": 1,
+        "word_order": 1,
+        "transformation": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-plural-forms-r1",
+      "template_key": "v1-a2-plural-forms-r1",
+      "level": "A2",
+      "topic_slug": "plural-forms",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Plural forms pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-plural-forms-r2",
+      "template_key": "v1-a2-plural-forms-r2",
+      "level": "A2",
+      "topic_slug": "plural-forms",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Plural forms accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 2,
+        "sentence_correction": 1,
+        "word_order": 1,
+        "transformation": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-conjugation-r1",
+      "template_key": "v1-a2-conjugation-r1",
+      "level": "A2",
+      "topic_slug": "conjugation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Conjugation pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-subject-verb-agreement-r1",
+      "template_key": "v1-a2-subject-verb-agreement-r1",
+      "level": "A2",
+      "topic_slug": "subject-verb-agreement",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Subject verb agreement pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-verb-position-r1",
+      "template_key": "v1-a2-verb-position-r1",
+      "level": "A2",
+      "topic_slug": "verb-position",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Verb position pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-word-order-r1",
+      "template_key": "v1-a2-word-order-r1",
+      "level": "A2",
+      "topic_slug": "word-order",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Word order pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-word-order-r2",
+      "template_key": "v1-a2-word-order-r2",
+      "level": "A2",
+      "topic_slug": "word-order",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Word order accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 2,
+        "sentence_correction": 1,
+        "word_order": 1,
+        "transformation": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-sentence-structure-r1",
+      "template_key": "v1-a2-sentence-structure-r1",
+      "level": "A2",
+      "topic_slug": "sentence-structure",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Sentence structure pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-question-formation-r1",
+      "template_key": "v1-a2-question-formation-r1",
+      "level": "A2",
+      "topic_slug": "question-formation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Question formation pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-negation-r1",
+      "template_key": "v1-a2-negation-r1",
+      "level": "A2",
+      "topic_slug": "negation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Negation pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-modal-verbs-r1",
+      "template_key": "v1-a2-modal-verbs-r1",
+      "level": "A2",
+      "topic_slug": "modal-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Modal verbs pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-separable-verbs-r1",
+      "template_key": "v1-a2-separable-verbs-r1",
+      "level": "A2",
+      "topic_slug": "separable-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Separable verbs pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-separable-verbs-r2",
+      "template_key": "v1-a2-separable-verbs-r2",
+      "level": "A2",
+      "topic_slug": "separable-verbs",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Separable verbs accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 2,
+        "sentence_correction": 1,
+        "word_order": 1,
+        "transformation": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-reflexive-verbs-r1",
+      "template_key": "v1-a2-reflexive-verbs-r1",
+      "level": "A2",
+      "topic_slug": "reflexive-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Reflexive verbs pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-reflexive-verbs-r2",
+      "template_key": "v1-a2-reflexive-verbs-r2",
+      "level": "A2",
+      "topic_slug": "reflexive-verbs",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Reflexive verbs accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 2,
+        "sentence_correction": 1,
+        "word_order": 1,
+        "transformation": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-prepositions-r1",
+      "template_key": "v1-a2-prepositions-r1",
+      "level": "A2",
+      "topic_slug": "prepositions",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Prepositions pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-prepositions-r2",
+      "template_key": "v1-a2-prepositions-r2",
+      "level": "A2",
+      "topic_slug": "prepositions",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Prepositions accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 2,
+        "sentence_correction": 1,
+        "word_order": 1,
+        "transformation": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-conjunctions-r1",
+      "template_key": "v1-a2-conjunctions-r1",
+      "level": "A2",
+      "topic_slug": "conjunctions",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Conjunctions pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-conjunctions-r2",
+      "template_key": "v1-a2-conjunctions-r2",
+      "level": "A2",
+      "topic_slug": "conjunctions",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Conjunctions accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 2,
+        "sentence_correction": 1,
+        "word_order": 1,
+        "transformation": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-connectors-r1",
+      "template_key": "v1-a2-connectors-r1",
+      "level": "A2",
+      "topic_slug": "connectors",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Connectors pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-subordinate-clauses-r1",
+      "template_key": "v1-a2-subordinate-clauses-r1",
+      "level": "A2",
+      "topic_slug": "subordinate-clauses",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Subordinate clauses pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-relative-clauses-r1",
+      "template_key": "v1-a2-relative-clauses-r1",
+      "level": "A2",
+      "topic_slug": "relative-clauses",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Relative clauses pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-infinitive-zu-r1",
+      "template_key": "v1-a2-infinitive-zu-r1",
+      "level": "A2",
+      "topic_slug": "infinitive-zu",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Infinitive zu pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-perfekt-r1",
+      "template_key": "v1-a2-perfekt-r1",
+      "level": "A2",
+      "topic_slug": "perfekt",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Perfekt pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-perfekt-r2",
+      "template_key": "v1-a2-perfekt-r2",
+      "level": "A2",
+      "topic_slug": "perfekt",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Perfekt accurately in varied sentence contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 2,
+        "sentence_correction": 1,
+        "word_order": 1,
+        "transformation": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-praeteritum-r1",
+      "template_key": "v1-a2-praeteritum-r1",
+      "level": "A2",
+      "topic_slug": "praeteritum",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Praeteritum pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-plusquamperfekt-r1",
+      "template_key": "v1-a2-plusquamperfekt-r1",
+      "level": "A2",
+      "topic_slug": "plusquamperfekt",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Plusquamperfekt pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-future-tense-r1",
+      "template_key": "v1-a2-future-tense-r1",
+      "level": "A2",
+      "topic_slug": "future-tense",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Future tense pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-passive-voice-r1",
+      "template_key": "v1-a2-passive-voice-r1",
+      "level": "A2",
+      "topic_slug": "passive-voice",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Passive voice pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-konjunktiv-r1",
+      "template_key": "v1-a2-konjunktiv-r1",
+      "level": "A2",
+      "topic_slug": "konjunktiv",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Konjunktiv pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-spelling-r1",
+      "template_key": "v1-a2-spelling-r1",
+      "level": "A2",
+      "topic_slug": "spelling",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Spelling pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-capitalization-r1",
+      "template_key": "v1-a2-capitalization-r1",
+      "level": "A2",
+      "topic_slug": "capitalization",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Capitalization pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-punctuation-r1",
+      "template_key": "v1-a2-punctuation-r1",
+      "level": "A2",
+      "topic_slug": "punctuation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Punctuation pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-register-r1",
+      "template_key": "v1-a2-register-r1",
+      "level": "A2",
+      "topic_slug": "register",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Register pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-coherence-r1",
+      "template_key": "v1-a2-coherence-r1",
+      "level": "A2",
+      "topic_slug": "coherence",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Coherence pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 4,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "A2-task-fulfilment-r1",
+      "template_key": "v1-a2-task-fulfilment-r1",
+      "level": "A2",
+      "topic_slug": "task-fulfilment",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Task fulfilment pattern in constrained contexts.",
+      "difficulty": "easy",
+      "planned_question_count": 8,
+      "question_type_plan": {
+        "multiple_choice": 5,
+        "fill_blank": 3
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-articles-r1",
+      "template_key": "v1-b1-articles-r1",
+      "level": "B1",
+      "topic_slug": "articles",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Articles pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-nominativ-r1",
+      "template_key": "v1-b1-nominativ-r1",
+      "level": "B1",
+      "topic_slug": "nominativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Nominativ pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-akkusativ-r1",
+      "template_key": "v1-b1-akkusativ-r1",
+      "level": "B1",
+      "topic_slug": "akkusativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Akkusativ pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-dativ-r1",
+      "template_key": "v1-b1-dativ-r1",
+      "level": "B1",
+      "topic_slug": "dativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Dativ pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-genitiv-r1",
+      "template_key": "v1-b1-genitiv-r1",
+      "level": "B1",
+      "topic_slug": "genitiv",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Genitiv pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-genitiv-r2",
+      "template_key": "v1-b1-genitiv-r2",
+      "level": "B1",
+      "topic_slug": "genitiv",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Genitiv accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-adjective-endings-r1",
+      "template_key": "v1-b1-adjective-endings-r1",
+      "level": "B1",
+      "topic_slug": "adjective-endings",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Adjective endings pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-adjective-endings-r2",
+      "template_key": "v1-b1-adjective-endings-r2",
+      "level": "B1",
+      "topic_slug": "adjective-endings",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Adjective endings accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-pronouns-r1",
+      "template_key": "v1-b1-pronouns-r1",
+      "level": "B1",
+      "topic_slug": "pronouns",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Pronouns pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-plural-forms-r1",
+      "template_key": "v1-b1-plural-forms-r1",
+      "level": "B1",
+      "topic_slug": "plural-forms",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Plural forms pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-conjugation-r1",
+      "template_key": "v1-b1-conjugation-r1",
+      "level": "B1",
+      "topic_slug": "conjugation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Conjugation pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-subject-verb-agreement-r1",
+      "template_key": "v1-b1-subject-verb-agreement-r1",
+      "level": "B1",
+      "topic_slug": "subject-verb-agreement",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Subject verb agreement pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-verb-position-r1",
+      "template_key": "v1-b1-verb-position-r1",
+      "level": "B1",
+      "topic_slug": "verb-position",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Verb position pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-word-order-r1",
+      "template_key": "v1-b1-word-order-r1",
+      "level": "B1",
+      "topic_slug": "word-order",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Word order pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-sentence-structure-r1",
+      "template_key": "v1-b1-sentence-structure-r1",
+      "level": "B1",
+      "topic_slug": "sentence-structure",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Sentence structure pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-question-formation-r1",
+      "template_key": "v1-b1-question-formation-r1",
+      "level": "B1",
+      "topic_slug": "question-formation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Question formation pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-negation-r1",
+      "template_key": "v1-b1-negation-r1",
+      "level": "B1",
+      "topic_slug": "negation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Negation pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-modal-verbs-r1",
+      "template_key": "v1-b1-modal-verbs-r1",
+      "level": "B1",
+      "topic_slug": "modal-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Modal verbs pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-separable-verbs-r1",
+      "template_key": "v1-b1-separable-verbs-r1",
+      "level": "B1",
+      "topic_slug": "separable-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Separable verbs pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-reflexive-verbs-r1",
+      "template_key": "v1-b1-reflexive-verbs-r1",
+      "level": "B1",
+      "topic_slug": "reflexive-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Reflexive verbs pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-prepositions-r1",
+      "template_key": "v1-b1-prepositions-r1",
+      "level": "B1",
+      "topic_slug": "prepositions",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Prepositions pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-conjunctions-r1",
+      "template_key": "v1-b1-conjunctions-r1",
+      "level": "B1",
+      "topic_slug": "conjunctions",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Conjunctions pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-connectors-r1",
+      "template_key": "v1-b1-connectors-r1",
+      "level": "B1",
+      "topic_slug": "connectors",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Connectors pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-connectors-r2",
+      "template_key": "v1-b1-connectors-r2",
+      "level": "B1",
+      "topic_slug": "connectors",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Connectors accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-subordinate-clauses-r1",
+      "template_key": "v1-b1-subordinate-clauses-r1",
+      "level": "B1",
+      "topic_slug": "subordinate-clauses",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Subordinate clauses pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-subordinate-clauses-r2",
+      "template_key": "v1-b1-subordinate-clauses-r2",
+      "level": "B1",
+      "topic_slug": "subordinate-clauses",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Subordinate clauses accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-relative-clauses-r1",
+      "template_key": "v1-b1-relative-clauses-r1",
+      "level": "B1",
+      "topic_slug": "relative-clauses",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Relative clauses pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-relative-clauses-r2",
+      "template_key": "v1-b1-relative-clauses-r2",
+      "level": "B1",
+      "topic_slug": "relative-clauses",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Relative clauses accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-infinitive-zu-r1",
+      "template_key": "v1-b1-infinitive-zu-r1",
+      "level": "B1",
+      "topic_slug": "infinitive-zu",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Infinitive with zu pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-infinitive-zu-r2",
+      "template_key": "v1-b1-infinitive-zu-r2",
+      "level": "B1",
+      "topic_slug": "infinitive-zu",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Infinitive with zu accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-perfekt-r1",
+      "template_key": "v1-b1-perfekt-r1",
+      "level": "B1",
+      "topic_slug": "perfekt",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Perfekt pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-praeteritum-r1",
+      "template_key": "v1-b1-praeteritum-r1",
+      "level": "B1",
+      "topic_slug": "praeteritum",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Präteritum pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-praeteritum-r2",
+      "template_key": "v1-b1-praeteritum-r2",
+      "level": "B1",
+      "topic_slug": "praeteritum",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Präteritum accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-plusquamperfekt-r1",
+      "template_key": "v1-b1-plusquamperfekt-r1",
+      "level": "B1",
+      "topic_slug": "plusquamperfekt",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Plusquamperfekt pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-plusquamperfekt-r2",
+      "template_key": "v1-b1-plusquamperfekt-r2",
+      "level": "B1",
+      "topic_slug": "plusquamperfekt",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Plusquamperfekt accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-future-tense-r1",
+      "template_key": "v1-b1-future-tense-r1",
+      "level": "B1",
+      "topic_slug": "future-tense",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Future tense pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-future-tense-r2",
+      "template_key": "v1-b1-future-tense-r2",
+      "level": "B1",
+      "topic_slug": "future-tense",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Future tense accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-passive-voice-r1",
+      "template_key": "v1-b1-passive-voice-r1",
+      "level": "B1",
+      "topic_slug": "passive-voice",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Passive voice pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-passive-voice-r2",
+      "template_key": "v1-b1-passive-voice-r2",
+      "level": "B1",
+      "topic_slug": "passive-voice",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Passive voice accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-konjunktiv-r1",
+      "template_key": "v1-b1-konjunktiv-r1",
+      "level": "B1",
+      "topic_slug": "konjunktiv",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Konjunktiv pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-spelling-r1",
+      "template_key": "v1-b1-spelling-r1",
+      "level": "B1",
+      "topic_slug": "spelling",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Spelling pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-capitalization-r1",
+      "template_key": "v1-b1-capitalization-r1",
+      "level": "B1",
+      "topic_slug": "capitalization",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Capitalization pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-punctuation-r1",
+      "template_key": "v1-b1-punctuation-r1",
+      "level": "B1",
+      "topic_slug": "punctuation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Punctuation pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-register-r1",
+      "template_key": "v1-b1-register-r1",
+      "level": "B1",
+      "topic_slug": "register",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Register pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-coherence-r1",
+      "template_key": "v1-b1-coherence-r1",
+      "level": "B1",
+      "topic_slug": "coherence",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Coherence pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B1-task-fulfilment-r1",
+      "template_key": "v1-b1-task-fulfilment-r1",
+      "level": "B1",
+      "topic_slug": "task-fulfilment",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Task fulfilment pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-articles-r1",
+      "template_key": "v1-b2-articles-r1",
+      "level": "B2",
+      "topic_slug": "articles",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Articles pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-nominativ-r1",
+      "template_key": "v1-b2-nominativ-r1",
+      "level": "B2",
+      "topic_slug": "nominativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Nominativ pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-akkusativ-r1",
+      "template_key": "v1-b2-akkusativ-r1",
+      "level": "B2",
+      "topic_slug": "akkusativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Akkusativ pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-dativ-r1",
+      "template_key": "v1-b2-dativ-r1",
+      "level": "B2",
+      "topic_slug": "dativ",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Dativ pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-genitiv-r1",
+      "template_key": "v1-b2-genitiv-r1",
+      "level": "B2",
+      "topic_slug": "genitiv",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Genitiv pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-adjective-endings-r1",
+      "template_key": "v1-b2-adjective-endings-r1",
+      "level": "B2",
+      "topic_slug": "adjective-endings",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Adjective endings pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-pronouns-r1",
+      "template_key": "v1-b2-pronouns-r1",
+      "level": "B2",
+      "topic_slug": "pronouns",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Pronouns pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-plural-forms-r1",
+      "template_key": "v1-b2-plural-forms-r1",
+      "level": "B2",
+      "topic_slug": "plural-forms",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Plural forms pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-conjugation-r1",
+      "template_key": "v1-b2-conjugation-r1",
+      "level": "B2",
+      "topic_slug": "conjugation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Conjugation pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-subject-verb-agreement-r1",
+      "template_key": "v1-b2-subject-verb-agreement-r1",
+      "level": "B2",
+      "topic_slug": "subject-verb-agreement",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Subject verb agreement pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-verb-position-r1",
+      "template_key": "v1-b2-verb-position-r1",
+      "level": "B2",
+      "topic_slug": "verb-position",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Verb position pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-word-order-r1",
+      "template_key": "v1-b2-word-order-r1",
+      "level": "B2",
+      "topic_slug": "word-order",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Word order pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-word-order-r2",
+      "template_key": "v1-b2-word-order-r2",
+      "level": "B2",
+      "topic_slug": "word-order",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Word order accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-sentence-structure-r1",
+      "template_key": "v1-b2-sentence-structure-r1",
+      "level": "B2",
+      "topic_slug": "sentence-structure",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Sentence structure pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-question-formation-r1",
+      "template_key": "v1-b2-question-formation-r1",
+      "level": "B2",
+      "topic_slug": "question-formation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Question formation pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-negation-r1",
+      "template_key": "v1-b2-negation-r1",
+      "level": "B2",
+      "topic_slug": "negation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Negation pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-modal-verbs-r1",
+      "template_key": "v1-b2-modal-verbs-r1",
+      "level": "B2",
+      "topic_slug": "modal-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Modal verbs pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-separable-verbs-r1",
+      "template_key": "v1-b2-separable-verbs-r1",
+      "level": "B2",
+      "topic_slug": "separable-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Separable verbs pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-reflexive-verbs-r1",
+      "template_key": "v1-b2-reflexive-verbs-r1",
+      "level": "B2",
+      "topic_slug": "reflexive-verbs",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Reflexive verbs pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-prepositions-r1",
+      "template_key": "v1-b2-prepositions-r1",
+      "level": "B2",
+      "topic_slug": "prepositions",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Prepositions pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-conjunctions-r1",
+      "template_key": "v1-b2-conjunctions-r1",
+      "level": "B2",
+      "topic_slug": "conjunctions",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Conjunctions pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-connectors-r1",
+      "template_key": "v1-b2-connectors-r1",
+      "level": "B2",
+      "topic_slug": "connectors",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Connectors pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-connectors-r2",
+      "template_key": "v1-b2-connectors-r2",
+      "level": "B2",
+      "topic_slug": "connectors",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Connectors accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-subordinate-clauses-r1",
+      "template_key": "v1-b2-subordinate-clauses-r1",
+      "level": "B2",
+      "topic_slug": "subordinate-clauses",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Subordinate clauses pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-subordinate-clauses-r2",
+      "template_key": "v1-b2-subordinate-clauses-r2",
+      "level": "B2",
+      "topic_slug": "subordinate-clauses",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Subordinate clauses accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-relative-clauses-r1",
+      "template_key": "v1-b2-relative-clauses-r1",
+      "level": "B2",
+      "topic_slug": "relative-clauses",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Relative clauses pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-relative-clauses-r2",
+      "template_key": "v1-b2-relative-clauses-r2",
+      "level": "B2",
+      "topic_slug": "relative-clauses",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Relative clauses accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-infinitive-zu-r1",
+      "template_key": "v1-b2-infinitive-zu-r1",
+      "level": "B2",
+      "topic_slug": "infinitive-zu",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Infinitive zu pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-perfekt-r1",
+      "template_key": "v1-b2-perfekt-r1",
+      "level": "B2",
+      "topic_slug": "perfekt",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Perfekt pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-praeteritum-r1",
+      "template_key": "v1-b2-praeteritum-r1",
+      "level": "B2",
+      "topic_slug": "praeteritum",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Praeteritum pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-plusquamperfekt-r1",
+      "template_key": "v1-b2-plusquamperfekt-r1",
+      "level": "B2",
+      "topic_slug": "plusquamperfekt",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Plusquamperfekt pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-future-tense-r1",
+      "template_key": "v1-b2-future-tense-r1",
+      "level": "B2",
+      "topic_slug": "future-tense",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Future tense pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-passive-voice-r1",
+      "template_key": "v1-b2-passive-voice-r1",
+      "level": "B2",
+      "topic_slug": "passive-voice",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Passive voice pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-passive-voice-r2",
+      "template_key": "v1-b2-passive-voice-r2",
+      "level": "B2",
+      "topic_slug": "passive-voice",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Passive voice accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-konjunktiv-r1",
+      "template_key": "v1-b2-konjunktiv-r1",
+      "level": "B2",
+      "topic_slug": "konjunktiv",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Konjunktiv pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-konjunktiv-r2",
+      "template_key": "v1-b2-konjunktiv-r2",
+      "level": "B2",
+      "topic_slug": "konjunktiv",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Konjunktiv accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-spelling-r1",
+      "template_key": "v1-b2-spelling-r1",
+      "level": "B2",
+      "topic_slug": "spelling",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Spelling pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-capitalization-r1",
+      "template_key": "v1-b2-capitalization-r1",
+      "level": "B2",
+      "topic_slug": "capitalization",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Capitalization pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-punctuation-r1",
+      "template_key": "v1-b2-punctuation-r1",
+      "level": "B2",
+      "topic_slug": "punctuation",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Punctuation pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-punctuation-r2",
+      "template_key": "v1-b2-punctuation-r2",
+      "level": "B2",
+      "topic_slug": "punctuation",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Punctuation accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-register-r1",
+      "template_key": "v1-b2-register-r1",
+      "level": "B2",
+      "topic_slug": "register",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Register pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-register-r2",
+      "template_key": "v1-b2-register-r2",
+      "level": "B2",
+      "topic_slug": "register",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Register accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-coherence-r1",
+      "template_key": "v1-b2-coherence-r1",
+      "level": "B2",
+      "topic_slug": "coherence",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Coherence pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-coherence-r2",
+      "template_key": "v1-b2-coherence-r2",
+      "level": "B2",
+      "topic_slug": "coherence",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Coherence accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-task-fulfilment-r1",
+      "template_key": "v1-b2-task-fulfilment-r1",
+      "level": "B2",
+      "topic_slug": "task-fulfilment",
+      "revision_number": 1,
+      "revision_objective_id": "controlled-recognition-and-application",
+      "revision_objective_category": "controlled_application",
+      "revision_objective": "Recognize and apply the core Task fulfilment pattern in constrained contexts.",
+      "difficulty": "medium",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 6,
+        "fill_blank": 4
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    },
+    {
+      "slot_id": "B2-task-fulfilment-r2",
+      "template_key": "v1-b2-task-fulfilment-r2",
+      "level": "B2",
+      "topic_slug": "task-fulfilment",
+      "revision_number": 2,
+      "revision_objective_id": "transfer-error-repair-and-production",
+      "revision_objective_category": "transfer_and_repair",
+      "revision_objective": "Repair and transfer Task fulfilment accurately in varied sentence contexts.",
+      "difficulty": "hard",
+      "planned_question_count": 10,
+      "question_type_plan": {
+        "multiple_choice": 3,
+        "fill_blank": 4,
+        "word_order": 1,
+        "rewrite_sentence": 1,
+        "mini_writing": 1
+      },
+      "evaluation_mode_plan": {
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "import_contract": {
+        "source": "manual_import",
+        "visibility_before_certification": "private",
+        "answer_contract_version": 1,
+        "max_open_evaluation_questions": 3
+      },
+      "authoring_status": "not_started"
+    }
+  ]
+}

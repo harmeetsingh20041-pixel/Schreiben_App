@@ -1,0 +1,166 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-dativ-r1",
+    "template_key": "v1-a1-dativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Dativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Dativ in häufigen Wendungen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "dativ",
+    "name": "Dativ"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "dativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Dativ steht oft nach mit, bei und zu. Häufige Formen sind dem, der, einem und einer.",
+    "key_rule": "Lerne Präposition und Form zusammen: mit dem Bus, bei der Arbeit und zu einer Freundin.",
+    "correct_examples": [
+      "Er fährt mit einem Taxi.",
+      "Sie ist bei ihrer Schwester."
+    ],
+    "common_mistake_warning": "Nach ‚mit‘ steht nicht der Akkusativ; verwende bei maskulinen und neutralen Nomen ‚dem‘.",
+    "what_to_revise": "Übe die Dativartikel dem, der, einem und einer mit vertrauten Nomen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist richtig? Ich fahre mit ___ Bus.",
+      "options": [
+        "dem",
+        "den",
+        "der"
+      ],
+      "correct_answer": "dem",
+      "accepted_answers": [
+        "dem"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚mit‘ steht ‚der Bus‘ im Dativ als ‚dem Bus‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist richtig? Sie spricht mit ___ Kollegin.",
+      "options": [
+        "die",
+        "den",
+        "der"
+      ],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Nomen ‚die Kollegin‘ erhält im Dativ den Artikel ‚der‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortgruppe verwendet den Dativ nach ‚bei‘ richtig?",
+      "options": [
+        "bei ein Arzt",
+        "bei einem Arzt",
+        "bei einen Arzt"
+      ],
+      "correct_answer": "bei einem Arzt",
+      "accepted_answers": [
+        "bei einem Arzt"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚bei‘ steht der Dativ; maskulin lautet die Form ‚einem Arzt‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den | das | dem]. Ergänze: Ravi kommt mit ___ Fahrrad.",
+      "options": [],
+      "correct_answer": "dem",
+      "accepted_answers": [
+        "dem"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Nomen ‚Fahrrad‘ steht nach ‚mit‘ im Dativ mit ‚dem‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [der | die | den]. Ergänze: Ich bin bei ___ Arbeit.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Die Arbeit‘ wird nach ‚bei‘ zur Dativgruppe ‚bei der Arbeit‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einem | einer | eine]. Ergänze: Wir gehen zu ___ Freundin.",
+      "options": [],
+      "correct_answer": "einer",
+      "accepted_answers": [
+        "einer"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚zu‘ steht das feminine Nomen im Dativ mit ‚einer‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha fährt zur Klinik. Welche Dativgruppe nach ‚mit‘ ist richtig?",
+      "options": [
+        "Asha fährt mit den Bus zur Klinik.",
+        "Asha fährt mit der Bus zur Klinik.",
+        "Asha fährt mit dem Bus zur Klinik.",
+        "Asha fährt mit das Bus zur Klinik."
+      ],
+      "correct_answer": "Asha fährt mit dem Bus zur Klinik.",
+      "accepted_answers": ["Asha fährt mit dem Bus zur Klinik."],
+      "rubric": null,
+      "explanation": "‚Mit‘ verlangt den Dativ; deshalb heißt es ‚mit dem Bus‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi bespricht den Dienstplan mit einer Kollegin. Welcher Satz ist richtig?",
+      "options": [
+        "Ravi spricht mit eine Kollegin über den Dienstplan.",
+        "Ravi spricht mit einer Kollegin über den Dienstplan.",
+        "Ravi spricht mit einen Kollegin über den Dienstplan.",
+        "Ravi spricht mit einem Kollegin über den Dienstplan."
+      ],
+      "correct_answer": "Ravi spricht mit einer Kollegin über den Dienstplan.",
+      "accepted_answers": ["Ravi spricht mit einer Kollegin über den Dienstplan."],
+      "rubric": null,
+      "explanation": "Nach ‚mit‘ steht die feminine Gruppe ‚einer Kollegin‘ im Dativ.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

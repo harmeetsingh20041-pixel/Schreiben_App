@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-akkusativ-r1",
+    "template_key": "v1-b2-akkusativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Akkusativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Akkusativ: Komplexe Objekte und Ergänzungen beherrschen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "akkusativ",
+    "name": "Akkusativ"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "akkusativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Akkusativ markiert direkte Objekte, steht nach bestimmten Präpositionen und erscheint bei Verben wie „nennen“ zusätzlich als prädikative Ergänzung. Auch ein Korrelat-es kann eine nachfolgende Aussage vorwegnehmen.",
+    "key_rule": "Bestimme zuerst die Rektion des Verbs oder der Präposition; prüfe dann Artikel, Pronomen und Adjektive innerhalb der gesamten Akkusativgruppe.",
+    "correct_examples": [
+      "Die Fachgruppe nannte den Entwurf den wichtigsten Fortschritt des Jahres.",
+      "Wir halten es für sinnvoll, die Abläufe regelmäßig zu prüfen."
+    ],
+    "common_mistake_warning": "Bei vorangestellten Objekten oder langen Nominalgruppen bleibt der Akkusativ erhalten, auch wenn die Wortstellung das Subjekt weniger sichtbar macht.",
+    "what_to_revise": "Übe Akkusativpronomen, Wechselpräpositionen mit Richtung, feste Verbverbindungen und doppelte Akkusativergänzungen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet nach „nennen“ beide Akkusativergänzungen korrekt?",
+      "options": [
+        "Die Gutachter nannten den Plan einen realistischen Kompromiss.",
+        "Die Gutachter nannten dem Plan einen realistischen Kompromiss.",
+        "Die Gutachter nannten den Plan einem realistischen Kompromiss."
+      ],
+      "correct_answer": "Die Gutachter nannten den Plan einen realistischen Kompromiss.",
+      "accepted_answers": [
+        "Die Gutachter nannten den Plan einen realistischen Kompromiss."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Nennen“ verbindet das direkte Objekt „den Plan“ mit der ebenfalls akkusativischen Benennung „einen … Kompromiss“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung verwendet ein korrektes vorausweisendes Korrelat vor dem dass-Satz?",
+      "options": [
+        "Die Leitung bedauert ihm, dass die Schulung ausfallen muss.",
+        "Die Leitung bedauert ihn, dass die Schulung ausfallen muss.",
+        "Die Leitung bedauert es, dass die Schulung ausfallen muss."
+      ],
+      "correct_answer": "Die Leitung bedauert es, dass die Schulung ausfallen muss.",
+      "accepted_answers": [
+        "Die Leitung bedauert es, dass die Schulung ausfallen muss."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Korrelat „es“ kann die Akkusativstelle besetzen und auf den nachfolgenden Inhaltssatz vorausweisen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt mit einer Wechselpräposition eine gerichtete Bewegung?",
+      "options": [
+        "Die Pflegekraft legte den Unterlagen in den abschließbaren Schrank.",
+        "Die Pflegekraft legte die Unterlagen in den abschließbaren Schrank.",
+        "Die Pflegekraft legte die Unterlagen in dem abschließbaren Schrank."
+      ],
+      "correct_answer": "Die Pflegekraft legte die Unterlagen in den abschließbaren Schrank.",
+      "accepted_answers": [
+        "Die Pflegekraft legte die Unterlagen in den abschließbaren Schrank."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Zielrichtung „wohin?“ verlangt nach „in“ den Akkusativ; auch „die Unterlagen“ ist korrektes direktes Objekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [jemand, jemanden, jemandem]. Ergänze die Verbverbindung: Wir müssen ___ davon überzeugen, den Vorfall vollständig zu dokumentieren.",
+      "options": [],
+      "correct_answer": "jemanden",
+      "accepted_answers": [
+        "jemanden"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Konstruktion lautet „jemanden von etwas überzeugen“ und verlangt für die Person den Akkusativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den gesamten, dem gesamten, der gesamte]. Ergänze das direkte Objekt: Die Arbeitsgruppe überprüfte ___ Ablauf auf vermeidbare Risiken.",
+      "options": [],
+      "correct_answer": "den gesamten",
+      "accepted_answers": [
+        "den gesamten"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Überprüfen“ verlangt ein direktes Objekt; der maskuline Akkusativ lautet „den gesamten Ablauf“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ihm, er, es]. Ergänze das vorausweisende Pronomen: Die Kommission hält ___ für erforderlich, dass alle Nachweise erneut geprüft werden.",
+      "options": [],
+      "correct_answer": "es",
+      "accepted_answers": [
+        "es"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In „etwas für erforderlich halten“ nimmt „es“ die Akkusativstelle ein und verweist auf den dass-Satz.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einen, einem, ein]. Ergänze die prädikative Akkusativergänzung: Viele Beschäftigte empfinden den neuen Dienstplan als ___ unnötigen Belastungsfaktor.",
+      "options": [],
+      "correct_answer": "einen",
+      "accepted_answers": [
+        "einen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „als“ stimmt die Benennung hier mit dem Akkusativobjekt überein; maskulin lautet die Form „einen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet bei „jemanden bitten“ den korrekten Kasus für die angesprochene Person?",
+      "options": [
+        "Die Koordinatorin bat der neue Kollege, den Bericht gegenzulesen.",
+        "Die Koordinatorin bat des neuen Kollegen, den Bericht gegenzulesen.",
+        "Die Koordinatorin bat den neuen Kollegen, den Bericht gegenzulesen.",
+        "Die Koordinatorin bat dem neuen Kollegen, den Bericht gegenzulesen."
+      ],
+      "correct_answer": "Die Koordinatorin bat den neuen Kollegen, den Bericht gegenzulesen.",
+      "accepted_answers": [
+        "Die Koordinatorin bat den neuen Kollegen, den Bericht gegenzulesen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Jemanden um etwas bitten“ beziehungsweise „jemanden bitten, etwas zu tun“ verlangt die Person im Akkusativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verbindet die Bewertung korrekt mit dem Akkusativkorrelat „es“ und einem dass-Satz?",
+      "options": [
+        "Die Leitung begrüßt es, dass nehmen immer mehr Mitarbeitende an der Fortbildung teil.",
+        "Die Leitung begrüßt es, dass immer mehr Mitarbeitende an der Fortbildung teilnehmen.",
+        "Die Leitung begrüßt, dass immer mehr Mitarbeitende an der Fortbildung teilnehmen.",
+        "Die Leitung begrüßt ihm, dass immer mehr Mitarbeitende an der Fortbildung teilnehmen."
+      ],
+      "correct_answer": "Die Leitung begrüßt es, dass immer mehr Mitarbeitende an der Fortbildung teilnehmen.",
+      "accepted_answers": [
+        "Die Leitung begrüßt es, dass immer mehr Mitarbeitende an der Fortbildung teilnehmen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Akkusativpronomen besetzt die Objektstelle von „begrüßen“, während der dass-Satz den bewerteten Sachverhalt ausführt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung realisiert die Konstruktion „jemanden für etwas halten“ mit zwei korrekten Akkusativgruppen?",
+      "options": [
+        "Die Kommission hält den kurzfristig vorgeschlagenen Maßnahmenkatalog für einen praktikablen Kompromiss.",
+        "Die Kommission hält dem kurzfristig vorgeschlagenen Maßnahmenkatalog für einen praktikablen Kompromiss.",
+        "Die Kommission hält den kurzfristig vorgeschlagenen Maßnahmenkatalog für einem praktikablen Kompromiss.",
+        "Die Kommission hält der kurzfristig vorgeschlagene Maßnahmenkatalog für einen praktikablen Kompromiss."
+      ],
+      "correct_answer": "Die Kommission hält den kurzfristig vorgeschlagenen Maßnahmenkatalog für einen praktikablen Kompromiss.",
+      "accepted_answers": [
+        "Die Kommission hält den kurzfristig vorgeschlagenen Maßnahmenkatalog für einen praktikablen Kompromiss."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Jemanden für etwas halten“ verlangt sowohl beim Objekt als auch bei der Ergänzung mit „für“ den Akkusativ: „den Maßnahmenkatalog“ und „einen Kompromiss“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

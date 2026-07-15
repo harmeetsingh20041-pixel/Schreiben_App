@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-prepositions-r1",
+    "template_key": "v1-b2-prepositions-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Prepositions pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Präpositionen: Rektion und Bedeutungsnuancen präzisieren",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "prepositions",
+    "name": "Präpositionen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "prepositions",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Präpositionen legen Kasus und semantische Beziehung fest. In formellen Texten verdichten komplexe Formen wie „hinsichtlich“, „infolge“ oder „im Hinblick auf“ Ursache, Bezug und Perspektive.",
+    "key_rule": "Lerne Präposition und Kasus als Einheit und prüfe, ob die gewählte Form tatsächlich Ort, Richtung, Ursache, Bezug oder Gegensatz ausdrückt.",
+    "correct_examples": [
+      "Trotz erheblicher Belastung blieb das Team handlungsfähig.",
+      "Die Unterlagen liegen auf einem geschützten Server."
+    ],
+    "common_mistake_warning": "Bedeutungsähnliche Präpositionen sind nicht beliebig austauschbar; außerdem kann eine Wechselpräposition je nach Ort oder Richtung den Kasus ändern.",
+    "what_to_revise": "Übe Genitiv- und Dativpräpositionen, mehrteilige Präpositionen, Wechselpräpositionen und feste Präpositionalergänzungen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form verwendet „infolge“ mit der standardsprachlichen Kasusrektion korrekt?",
+      "options": [
+        "Infolge eines technischen Defekts musste die Untersuchung abgebrochen werden.",
+        "Infolge einem technischen Defekt musste die Untersuchung abgebrochen werden.",
+        "Infolge einen technischen Defekt musste die Untersuchung abgebrochen werden."
+      ],
+      "correct_answer": "Infolge eines technischen Defekts musste die Untersuchung abgebrochen werden.",
+      "accepted_answers": [
+        "Infolge eines technischen Defekts musste die Untersuchung abgebrochen werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Infolge“ drückt eine Ursache aus und verlangt standardsprachlich den Genitiv „eines technischen Defekts“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präpositionalgruppe bedeutet „bezogen auf die Umsetzbarkeit“ und ist korrekt flektiert?",
+      "options": [
+        "in Hinblick für die praktische Umsetzbarkeit",
+        "im Hinblick auf die praktische Umsetzbarkeit",
+        "im Hinblick an der praktischen Umsetzbarkeit"
+      ],
+      "correct_answer": "im Hinblick auf die praktische Umsetzbarkeit",
+      "accepted_answers": [
+        "im Hinblick auf die praktische Umsetzbarkeit"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste mehrteilige Präposition lautet „im Hinblick auf“ und regiert anschließend den Akkusativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz unterscheidet Zielrichtung und Ort mit der Wechselpräposition „in“ korrekt?",
+      "options": [
+        "Die Pflegekraft legt die Akte in dem Schrank; später liegt sie in den Schrank.",
+        "Die Pflegekraft legt der Akte in den Schrank; später liegt sie in dem Schrank.",
+        "Die Pflegekraft legt die Akte in den Schrank; später liegt sie in dem Schrank."
+      ],
+      "correct_answer": "Die Pflegekraft legt die Akte in den Schrank; später liegt sie in dem Schrank.",
+      "accepted_answers": [
+        "Die Pflegekraft legt die Akte in den Schrank; später liegt sie in dem Schrank."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die gerichtete Ablage verlangt Akkusativ, die anschließende Lage Dativ; zugleich bleibt „die Akte“ korrektes Akkusativobjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hinsichtlich, entgegen, gegenüber]. Ergänze den neutralen Themenbezug: ___ der geplanten Umstellung bestehen noch mehrere Rückfragen.",
+      "options": [],
+      "correct_answer": "Hinsichtlich",
+      "accepted_answers": [
+        "Hinsichtlich"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Hinsichtlich“ bedeutet „in Bezug auf“ und verlangt hier den Genitiv der geplanten Umstellung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [entlang, innerhalb, außerhalb]. Ergänze die spätestens einzuhaltende Frist: Die fehlenden Unterlagen müssen ___ eines Monats nachgereicht werden.",
+      "options": [],
+      "correct_answer": "innerhalb",
+      "accepted_answers": [
+        "innerhalb"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Innerhalb“ bezeichnet die spätestens einzuhaltende zeitliche Grenze und wird mit dem Genitiv „eines Monats“ verbunden.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [trotz, durch, gegenüber]. Ergänze die Dativpräposition: ___ den Teilnehmenden wurde die Entscheidung ausführlich begründet.",
+      "options": [],
+      "correct_answer": "Gegenüber",
+      "accepted_answers": [
+        "Gegenüber"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Gegenüber“ bezeichnet die adressierte Bezugsgruppe und verlangt den Dativ Plural „den Teilnehmenden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [über, an, mit]. Ergänze die feste Verbpräposition: Mehrere Beschäftigte beschwerten sich ___ die kurzfristige Dienstplanänderung.",
+      "options": [],
+      "correct_answer": "über",
+      "accepted_answers": [
+        "über"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste Verbindung lautet „sich über etwas beschweren“ und verlangt „über“ plus Akkusativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet die standardsprachliche Verbindung „in Bezug auf“ mit Akkusativ?",
+      "options": [
+        "In Bezug zu die Patientensicherheit sind weitere Kontrollen notwendig.",
+        "In Bezug auf der Patientensicherheit sind weitere Kontrollen notwendig.",
+        "In Bezug auf die Patientensicherheit sind weitere Kontrollen notwendig.",
+        "Im Bezug auf der Patientensicherheit sind weitere Kontrollen notwendig."
+      ],
+      "correct_answer": "In Bezug auf die Patientensicherheit sind weitere Kontrollen notwendig.",
+      "accepted_answers": [
+        "In Bezug auf die Patientensicherheit sind weitere Kontrollen notwendig."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die standardsprachliche Verbindung lautet „in Bezug auf“ und regiert die nachfolgende Akkusativgruppe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verdichtet die Ursache korrekt mit der Genitivpräposition „aufgrund“?",
+      "options": [
+        "Aufgrund fehlenden wichtigen Nachweisen verzögerte sich die Anerkennung.",
+        "Aufgrund fehlender wichtige Nachweise verzögerte sich die Anerkennung.",
+        "Aufgrund von fehlender wichtigen Nachweisen verzögerte sich die Anerkennung.",
+        "Aufgrund fehlender wichtiger Nachweise verzögerte sich die Anerkennung."
+      ],
+      "correct_answer": "Aufgrund fehlender wichtiger Nachweise verzögerte sich die Anerkennung.",
+      "accepted_answers": [
+        "Aufgrund fehlender wichtiger Nachweise verzögerte sich die Anerkennung."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Genitivpräposition verdichtet den kausalen Nebensatz zu einer präzisen formellen Angabe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Die Untersuchung wurde durch einen Geräteausfall verursacht; die bereits abgeschlossenen Vorbereitungen standen der Verschiebung als Gegenargument gegenüber. Welche formelle Fassung drückt beide Beziehungen mit korrekter Rektion aus?",
+      "options": [
+        "Aufgrund des Geräteausfalls wurde die Untersuchung trotz der bereits abgeschlossenen Vorbereitungen verschoben.",
+        "Aufgrund dem Geräteausfall wurde die Untersuchung trotz den bereits abgeschlossenen Vorbereitungen verschoben.",
+        "Trotz des Geräteausfalls wurde die Untersuchung infolge der bereits abgeschlossenen Vorbereitungen verschoben.",
+        "Im Hinblick des Geräteausfalls wurde die Untersuchung aufgrund den bereits abgeschlossenen Vorbereitungen verschoben."
+      ],
+      "correct_answer": "Aufgrund des Geräteausfalls wurde die Untersuchung trotz der bereits abgeschlossenen Vorbereitungen verschoben.",
+      "accepted_answers": [
+        "Aufgrund des Geräteausfalls wurde die Untersuchung trotz der bereits abgeschlossenen Vorbereitungen verschoben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Aufgrund des Geräteausfalls“ bezeichnet die Ursache. „Trotz der bereits abgeschlossenen Vorbereitungen“ markiert den Gegensatz; beide Präpositionen stehen hier standardsprachlich mit dem Genitiv.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

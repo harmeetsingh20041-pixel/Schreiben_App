@@ -1,0 +1,159 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-word-order-r2",
+    "template_key": "v1-a2-word-order-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Word order accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Wortstellung im Kontext: Haupt- und Nebensatz",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "word-order",
+    "name": "Wortstellung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "word-order",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Bei längeren A2-Sätzen müssen Verbposition, Objektfolge und Angaben auch nach Umstellungen oder in eingebetteten Nebensätzen zusammenpassen.",
+    "key_rule": "Im Hauptsatz bleibt das finite Verb auf Position zwei; im Nebensatz steht es am Ende. Ohne besondere Betonung steht Dativ meist vor Akkusativ und Zeit vor Art und Ort.",
+    "correct_examples": [
+      "Am Dienstag gibt der Trainer den Teilnehmenden neue Unterlagen.",
+      "Sie erklärt, dass die Besprechung später beginnt."
+    ],
+    "common_mistake_warning": "Nach einem vorangestellten Nebensatz folgt im Hauptsatz sofort das finite Verb; im Nebensatz selbst bleibt es am Ende.",
+    "what_to_revise": "Repariere Nebensatzstellung und übe die neutrale Reihenfolge von Dativ, Akkusativ sowie Zeit-, Art- und Ortsangaben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den Satz mit korrekter Wortstellung nach weil.",
+      "options": [
+        "Ich bleibe zu Hause, weil muss ich heute arbeiten.",
+        "Ich bleibe zu Hause, weil ich heute muss arbeiten.",
+        "Ich bleibe zu Hause, weil ich heute arbeiten muss.",
+        "Ich bleibe zu Hause, weil ich muss heute arbeiten."
+      ],
+      "correct_answer": "Ich bleibe zu Hause, weil ich heute arbeiten muss.",
+      "accepted_answers": [
+        "Ich bleibe zu Hause, weil ich heute arbeiten muss."
+      ],
+      "explanation": "Im Nebensatz steht der Infinitiv vor dem konjugierten Modalverb am Satzende: arbeiten muss.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die neutrale Reihenfolge der beiden nominalen Objekte ohne besondere Betonung.",
+      "options": [
+        "Ich gebe meiner Schwester das Buch.",
+        "Ich gebe meine Schwester das Buch.",
+        "Meiner Schwester das Buch ich gebe.",
+        "Ich meiner Schwester gebe das Buch."
+      ],
+      "correct_answer": "Ich gebe meiner Schwester das Buch.",
+      "accepted_answers": ["Ich gebe meiner Schwester das Buch."],
+      "explanation": "Bei zwei nominalen Objekten steht in der neutralen Reihenfolge das Dativobjekt vor dem Akkusativobjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den Satz mit einer üblichen Reihenfolge der Angaben.",
+      "options": [
+        "Wir mit dem Zug morgen fahren nach München.",
+        "Wir nach München fahren morgen mit dem Zug.",
+        "Morgen mit dem Zug nach München wir fahren.",
+        "Wir fahren morgen mit dem Zug nach München."
+      ],
+      "correct_answer": "Wir fahren morgen mit dem Zug nach München.",
+      "accepted_answers": ["Wir fahren morgen mit dem Zug nach München."],
+      "explanation": "Im Hauptsatz steht fahren an Position zwei; die Angaben folgen verständlich als Zeit, Art und Ziel.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [haben, ist, hat]. Setze ein: Er kommt nicht mit, weil er heute keine Zeit ___.",
+      "options": [],
+      "correct_answer": "hat",
+      "accepted_answers": ["hat"],
+      "explanation": "Im weil-Satz steht die konjugierte Verbform hat am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [schicke, ich, dir]. Setze ein: Morgen ___ ich dir die Unterlagen.",
+      "options": [],
+      "correct_answer": "schicke",
+      "accepted_answers": ["schicke"],
+      "explanation": "Nach dem Vorfeld Morgen folgt direkt das konjugierte Verb schicke.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere die Wortstellung im Nebensatz: Wenn ich habe Zeit, rufe ich dich an.",
+      "options": [],
+      "correct_answer": "Wenn ich Zeit habe, rufe ich dich an.",
+      "rubric": {
+        "criteria": [
+          "Setze habe an das Ende des wenn-Satzes.",
+          "Behalte im Hauptsatz die Verbzweitstellung und die Vorsilbe an am Ende."
+        ],
+        "sample_answer": "Wenn ich Zeit habe, rufe ich dich an."
+      },
+      "explanation": "Im Nebensatz mit wenn steht habe am Ende; der folgende Hauptsatz beginnt nach dem Komma mit rufe.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit Obwohl: [Obwohl / der Bus / spät kommt / erreichen / wir / den Zug].",
+      "options": [],
+      "correct_answer": "Obwohl der Bus spät kommt, erreichen wir den Zug.",
+      "rubric": {
+        "criteria": [
+          "Verwende alle Satzteile genau einmal.",
+          "Setze kommt ans Ende des obwohl-Satzes und erreichen direkt nach dem Komma."
+        ],
+        "sample_answer": "Obwohl der Bus spät kommt, erreichen wir den Zug."
+      },
+      "explanation": "Der vorangestellte Nebensatz besetzt das Vorfeld; deshalb beginnt der Hauptsatz mit dem Verb erreichen.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Bette den Satz mit dass nach Ich weiß ein: Er kommt heute später.",
+      "options": [],
+      "correct_answer": "Ich weiß, dass er heute später kommt.",
+      "rubric": {
+        "criteria": [
+          "Beginne mit Ich weiß, dass.",
+          "Setze kommt ans Ende des dass-Satzes und übernimm heute später."
+        ],
+        "sample_answer": "Ich weiß, dass er heute später kommt."
+      },
+      "explanation": "Dass leitet einen Nebensatz ein; das konjugierte Verb kommt steht deshalb am Ende.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

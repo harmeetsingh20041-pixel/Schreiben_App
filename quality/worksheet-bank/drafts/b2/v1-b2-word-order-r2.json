@@ -1,0 +1,181 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-word-order-r2",
+    "template_key": "v1-b2-word-order-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Word order accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Wortstellung: Fokus und Satzklammer gestalten",
+  "level": "B2",
+  "grammar_topic": { "slug": "word-order", "name": "Wortstellung" },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "word-order",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Wortstellung steuert neben Grammatik auch Informationsfokus. Vorfeld und Nachfeld können Wichtiges hervorheben, während die Satzklammer selbst bei langen Mittelfeldern stabil bleibt.",
+    "key_rule": "Verschiebe vollständige Satzglieder gezielt, aber halte Verbzweitstellung, Nebensatzendstellung und zusammengehörige Verbteile unverändert ein.",
+    "correct_examples": [
+      "Nur unter dieser Voraussetzung kann der Plan gelingen.",
+      "Dass der Plan gelingen kann, bezweifelt inzwischen niemand mehr."
+    ],
+    "common_mistake_warning": "Mehrere Wörter im Vorfeld sind erlaubt, wenn sie gemeinsam ein einziges Satzglied bilden.",
+    "what_to_revise": "Prüfe bei Umstellungen, welches Element fokussiert wird und ob die Satzklammer weiterhin vollständig ist."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante fokussiert die Bedingung und hält die Verbzweitstellung ein?",
+      "options": [
+        "Nur mit zusätzlicher Finanzierung umsetzen lässt sich das Vorhaben.",
+        "Nur mit zusätzlicher Finanzierung lässt sich das Vorhaben umsetzen.",
+        "Nur mit zusätzlicher Finanzierung sich das Vorhaben lässt umsetzen.",
+        "Nur mit zusätzlicher Finanzierung das Vorhaben lässt sich umsetzen."
+      ],
+      "correct_answer": "Nur mit zusätzlicher Finanzierung lässt sich das Vorhaben umsetzen.",
+      "accepted_answers": [
+        "Nur mit zusätzlicher Finanzierung lässt sich das Vorhaben umsetzen."
+      ],
+      "explanation": "Das fokussierte Präpositionalglied steht im Vorfeld; darauf folgt die finite Form lässt, während umsetzen die Satzklammer schließt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante hat im Nebensatz mit Passiv und Modalverb die korrekte Endstellung?",
+      "options": [
+        "Es ist unklar, ob der Antrag heute noch bearbeitet werden kann.",
+        "Es ist unklar, ob kann der Antrag heute noch bearbeitet werden.",
+        "Es ist unklar, ob der Antrag kann heute noch bearbeitet werden.",
+        "Es ist unklar, ob bearbeitet der Antrag heute noch werden kann."
+      ],
+      "correct_answer": "Es ist unklar, ob der Antrag heute noch bearbeitet werden kann.",
+      "accepted_answers": [
+        "Es ist unklar, ob der Antrag heute noch bearbeitet werden kann."
+      ],
+      "explanation": "Im ob-Nebensatz steht der mehrteilige Verbkomplex bearbeitet werden kann geschlossen am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Version stellt den dass-Satz als vollständiges Vorfeld vor das finite Verb?",
+      "options": [
+        "Dass die Nachfrage steigt, die Verantwortlichen überrascht nicht.",
+        "Dass steigt die Nachfrage, überrascht die Verantwortlichen nicht.",
+        "Dass die Nachfrage steigt, nicht überrascht die Verantwortlichen.",
+        "Dass die Nachfrage steigt, überrascht die Verantwortlichen nicht."
+      ],
+      "correct_answer": "Dass die Nachfrage steigt, überrascht die Verantwortlichen nicht.",
+      "accepted_answers": [
+        "Dass die Nachfrage steigt, überrascht die Verantwortlichen nicht."
+      ],
+      "explanation": "Der gesamte dass-Satz besetzt das Vorfeld; danach folgt das finite Verb überrascht auf Position zwei des Hauptsatzes.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Ergänze die finite Form direkt nach dem fokussierten Vorfeld: Erst nach mehreren Rückfragen ___ die Ursache eindeutig geklärt werden. Wortbank: [gekonnt | konnte].",
+      "options": [],
+      "correct_answer": "konnte",
+      "accepted_answers": ["konnte"],
+      "explanation": "Das fokussierte Zeitglied besetzt das Vorfeld; die finite Form konnte folgt auf Position zwei vor dem Passivrest.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Setze den vollständigen Verbkomplex im Konjunktiv I ans Ende: Die Leitung erklärte, dass die Frist nicht noch einmal ___ . Wortbank: [verlängert werden könne | könne verlängert werden].",
+      "options": [],
+      "correct_answer": "verlängert werden könne",
+      "accepted_answers": ["verlängert werden könne"],
+      "explanation": "Im dass-Nebensatz bildet der Passivkomplex mit der finiten Konjunktivform könne den Satzabschluss.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [es uns | uns es | ihm uns]. Ergänze beide unbetonten Pronomen in standardsprachlicher Reihenfolge: Die Fachkraft hat ___ ausführlich erklärt.",
+      "options": [],
+      "correct_answer": "es uns",
+      "accepted_answers": ["es uns"],
+      "explanation": "Wenn beide Ergänzungen Pronomen sind, steht das unbetonte Akkusativpronomen „es“ üblicherweise vor dem Dativpronomen „uns“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Setze die rechte Satzklammer mit dem Infinitiv Perfekt ein: Bis dahin dürfte die Arbeitsgruppe alle offenen Fragen ___ . Wortbank: [haben geklärt | geklärt haben].",
+      "options": [],
+      "correct_answer": "geklärt haben",
+      "accepted_answers": ["geklärt haben"],
+      "explanation": "Dürfte eröffnet die Verbklammer; der Infinitiv-Perfekt-Komplex geklärt haben steht am Ende des Hauptsatzes.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Bausteine und beginne mit Dass: [Dass / die Umsetzung / mehr Zeit erfordert / hatte / das Team / von Anfang an / berücksichtigt].",
+      "options": [],
+      "correct_answer": "Dass die Umsetzung mehr Zeit erfordert, hatte das Team von Anfang an berücksichtigt.",
+      "rubric": {
+        "criteria": [
+          "Beginne mit dem vollständigen dass-Satz und verwende jeden Baustein genau einmal.",
+          "Setze hatte direkt nach dem vorangestellten Nebensatz und berücksichtigt ans Ende."
+        ],
+        "sample_answer": "Dass die Umsetzung mehr Zeit erfordert, hatte das Team von Anfang an berücksichtigt."
+      },
+      "explanation": "Der Objektsatz bildet das gesamte Vorfeld; hatte steht im Hauptsatz auf Position zwei und berücksichtigt schließt die Verbklammer.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Rücke die Einschränkung ins Vorfeld und erhalte die Aussage: Der Vorschlag lässt sich nur mit Zustimmung aller Beteiligten umsetzen.",
+      "options": [],
+      "correct_answer": "Nur mit Zustimmung aller Beteiligten lässt sich der Vorschlag umsetzen.",
+      "rubric": {
+        "criteria": [
+          "Beginne mit Nur mit Zustimmung aller Beteiligten.",
+          "Setze lässt auf Position zwei und bewahre die ursprüngliche Bedingung und Aussage."
+        ],
+        "sample_answer": "Nur mit Zustimmung aller Beteiligten lässt sich der Vorschlag umsetzen."
+      },
+      "explanation": "Die Vorfeldstellung hebt die notwendige Zustimmung hervor, während die Verbzweitstellung mit lässt erhalten bleibt.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe drei Sätze über eine verzögerte Dienstplanentscheidung auf einer Pflegestation. Beginne Satz eins mit Erst nach der zweiten Sitzung, verwende in Satz zwei einen ob-Nebensatz mit Modalverb und stelle in Satz drei ein dass-Satzglied ins Vorfeld.",
+      "options": [],
+      "correct_answer": "Erst nach der zweiten Sitzung traf das Pflegeteam eine vorläufige Entscheidung zum Dienstplan. Es blieb offen, ob alle Schichten zuverlässig besetzt werden könnten. Dass weitere Rückmeldungen nötig waren, bezweifelte jedoch niemand.",
+      "rubric": {
+        "criteria": [
+          "Schreibe genau drei inhaltlich verbundene, grammatisch korrekte Sätze.",
+          "Halte Verbzweitstellung nach Erst nach der zweiten Sitzung und Verbendstellung im ob-Satz ein.",
+          "Beginne Satz drei mit einem vollständigen dass-Satz und setze danach das finite Hauptsatzverb."
+        ],
+        "sample_answer": "Erst nach der zweiten Sitzung traf das Pflegeteam eine vorläufige Entscheidung zum Dienstplan. Es blieb offen, ob alle Schichten zuverlässig besetzt werden könnten. Dass weitere Rückmeldungen nötig waren, bezweifelte jedoch niemand."
+      },
+      "explanation": "Der Mustertext verbindet drei anspruchsvolle Wortstellungsmuster mit einem klaren, zusammenhängenden Inhalt.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

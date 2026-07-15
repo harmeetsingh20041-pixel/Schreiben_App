@@ -1,0 +1,137 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-spelling-r1",
+    "template_key": "v1-a1-spelling-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Spelling pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Häufige Wörter richtig schreiben",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "spelling",
+    "name": "Rechtschreibung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "spelling",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Gute Rechtschreibung macht kurze Nachrichten verständlich. Häufige Alltagswörter sollte man als vollständiges Wortbild lernen.",
+    "key_rule": "Sprich das Wort langsam, achte auf Doppelkonsonanten und Umlaute und vergleiche es danach mit der bekannten Form.",
+    "correct_examples": [
+      "Bitte buchstabieren Sie Ihren Namen.",
+      "Der Unterricht beginnt pünktlich."
+    ],
+    "common_mistake_warning": "Ein langer oder kurzer Laut zeigt nicht immer sicher, ob ein Buchstabe doppelt steht.",
+    "what_to_revise": "Sammle häufige Wörter aus Kurs, Arbeit und Alltag in einer persönlichen Wortliste."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schreibweise des Sprachnamens ist richtig?",
+      "options": ["Deutch", "Doitsch", "Deutsch"],
+      "correct_answer": "Deutsch",
+      "accepted_answers": ["Deutsch"],
+      "answer_contract_version": 1,
+      "explanation": "Der Sprachname wird ‚Deutsch‘ mit der Buchstabenfolge -tsch geschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schreibweise ist richtig?",
+      "options": ["Krankenhaus", "Krankhenhaus", "Krankenhauß"],
+      "correct_answer": "Krankenhaus",
+      "accepted_answers": ["Krankenhaus"],
+      "answer_contract_version": 1,
+      "explanation": "Das Wort besteht aus ‚Kranken‘ und ‚Haus‘ und endet mit einfachem s.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wie schreibt man die erste Mahlzeit am Tag?",
+      "options": ["Frühstük", "Frühstück", "Frustück"],
+      "correct_answer": "Frühstück",
+      "accepted_answers": ["Frühstück"],
+      "answer_contract_version": 1,
+      "explanation": "‚Frühstück‘ enthält ü nach ‚Fr‘ und ck am Wortende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [heise | hieße | heiße]. Ergänze die Präsensform von ‚heißen‘: Ich ___ Anita.",
+      "options": [],
+      "correct_answer": "heiße",
+      "accepted_answers": ["heiße"],
+      "answer_contract_version": 1,
+      "explanation": "Die Präsensform ‚heiße‘ wird mit ß geschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Entscholdigung | Entschuldigung | Entschuldigun]. Ergänze: ___, wo ist der Bahnhof?",
+      "options": [],
+      "correct_answer": "Entschuldigung",
+      "accepted_answers": ["Entschuldigung"],
+      "answer_contract_version": 1,
+      "explanation": "Die vollständige höfliche Form lautet ‚Entschuldigung‘ mit der Endung -ung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Adresse | Adrese | Adress]. Ergänze: Bitte schreiben Sie Ihre ___.",
+      "options": [],
+      "correct_answer": "Adresse",
+      "accepted_answers": ["Adresse"],
+      "answer_contract_version": 1,
+      "explanation": "‚Adresse‘ wird mit doppeltem s und einem e am Ende geschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha stellt sich am neuen Arbeitsplatz vor. Welche Schreibweise ist richtig?",
+      "options": [
+        "Ich kome aus Indien.",
+        "Ich komme aus Indien.",
+        "Ich komme aus Indiën.",
+        "Ich komme aus Indiien."
+      ],
+      "correct_answer": "Ich komme aus Indien.",
+      "accepted_answers": ["Ich komme aus Indien."],
+      "rubric": null,
+      "explanation": "Die Form ‚komme‘ von ‚kommen‘ wird in der ersten Person mit mm geschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi trägt seine Kontaktdaten in ein Formular ein. Welche Schreibweise des Nomens ist richtig?",
+      "options": ["Addresse","Adrese","Adress","Adresse"],
+      "correct_answer": "Adresse",
+      "accepted_answers": ["Adresse"],
+      "rubric": null,
+      "explanation": "Das Nomen wird mit doppeltem s und einem e am Ende als ‚Adresse‘ geschrieben.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

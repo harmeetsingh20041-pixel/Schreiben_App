@@ -1,0 +1,152 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-passive-voice-r1",
+    "template_key": "v1-a2-passive-voice-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Passive voice pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Passiv: Abläufe ohne handelnde Person",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "passive-voice",
+    "name": "Passiv"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "passive-voice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Vorgangspassiv beschreibt, was mit einer Sache oder Person geschieht, wenn die Handlung wichtiger als die handelnde Person ist.",
+    "key_rule": "Im Präsens besteht das Passiv aus einer konjugierten Form von werden und dem Partizip II am Satzende.",
+    "correct_examples": [
+      "Die Tür wird um acht Uhr geöffnet.",
+      "Die Formulare werden heute geprüft."
+    ],
+    "common_mistake_warning": "Verwechsle „wird geöffnet“ als Vorgang nicht mit „ist geöffnet“ als Zustand.",
+    "what_to_revise": "Übe wird und werden mit häufigen Partizipien in einfachen Arbeitsabläufen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt einen Vorgang im Präsenspassiv?",
+      "options": [
+        "Der Raum jeden Morgen gereinigt wird.",
+        "Der Raum wird jeden Morgen gereinigt.",
+        "Der Raum ist jeden Morgen reinigen.",
+        "Der Raum wird jeden Morgen reinigen."
+      ],
+      "correct_answer": "Der Raum wird jeden Morgen gereinigt.",
+      "accepted_answers": ["Der Raum wird jeden Morgen gereinigt."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Wird … gereinigt“ beschreibt den regelmäßig ausgeführten Vorgang im Präsenspassiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Passivform passt zu einem Pluralsubjekt?",
+      "options": [
+        "Die Medikamente wird kontrolliert.",
+        "Die Medikamente werden kontrollieren.",
+        "Die Medikamente sind kontrollieren.",
+        "Die Medikamente werden kontrolliert."
+      ],
+      "correct_answer": "Die Medikamente werden kontrolliert.",
+      "accepted_answers": ["Die Medikamente werden kontrolliert."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Pluralsubjekt verlangt „werden“ und das Partizip „kontrolliert“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ist, wird, werden]. Ergänze das Vorgangspassiv im Präsens: Die Rechnung ___ heute bezahlt.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": ["wird"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Singularsubjekt „Die Rechnung“ bildet das Präsenspassiv mit „wird“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werden, wird, wurden]. Ergänze das Vorgangspassiv im Präsens: Die Zimmer ___ täglich gelüftet.",
+      "options": [],
+      "correct_answer": "werden",
+      "accepted_answers": ["werden"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Pluralsubjekt „Die Zimmer“ verlangt im Präsens die Form „werden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [vorbereiten, vorbereitetet, vorbereitet]. Ergänze das Partizip: Das Essen wird in der Küche ___.",
+      "options": [],
+      "correct_answer": "vorbereitet",
+      "accepted_answers": ["vorbereitet"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Passiv benötigt das Partizip II „vorbereitet“ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die Form des Vorgangspassivs im Präsens: Der Termin ___ gerade per E-Mail bestätigt.",
+      "options": ["ist", "hat", "wird", "werden"],
+      "correct_answer": "wird",
+      "accepted_answers": ["wird"],
+      "rubric": null,
+      "explanation": "Das Vorgangspassiv im Präsens besteht hier aus wird und dem Partizip bestätigt; ist bestätigt würde einen Zustand beschreiben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [worden, werden, wird, wurde]. Die Werte ___ jeden Morgen dokumentiert.",
+      "options": [],
+      "correct_answer": "werden",
+      "accepted_answers": ["werden"],
+      "rubric": null,
+      "explanation": "Das Pluralsubjekt die Werte verlangt im Präsenspassiv werden; dokumentiert ist das Partizip.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den Satz im Präsenspassiv; lasse die handelnde Person weg.",
+      "options": [
+        "Das Zimmer wird gereinigt.",
+        "Die Pflegekraft reinigt das Zimmer.",
+        "Die Reinigung ist im Zimmer.",
+        "Das Zimmer hat eine Reinigung."
+      ],
+      "correct_answer": "Das Zimmer wird gereinigt.",
+      "accepted_answers": ["Das Zimmer wird gereinigt."],
+      "rubric": null,
+      "explanation": "Wird gereinigt ist eine Passivform aus werden und Partizip II.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

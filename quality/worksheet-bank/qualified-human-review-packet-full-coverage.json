@@ -1,0 +1,2415 @@
+{
+  "schema_version": 1,
+  "packet_id": "schreiben-v1-worksheet-qualified-human-review-full-coverage-1",
+  "artifact_kind": "qualified_human_review_packet_manifest",
+  "coverage_kind": "all_current_draft_worksheets",
+  "status": "awaiting_qualified_human_review",
+  "launch_evidence_eligible": false,
+  "deployment_eligible": false,
+  "required_distribution": {
+    "total_worksheets": 184,
+    "worksheets_per_level": {
+      "A1": 46,
+      "A2": 46,
+      "B1": 46,
+      "B2": 46
+    },
+    "distinct_topics_per_level": 36,
+    "foundation_revisions_per_level": 36,
+    "priority_second_revisions_per_level": 10
+  },
+  "worksheets": [
+    {
+      "template_key": "v1-a1-articles-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-articles-r1.json",
+      "current_sha256": "14b25db5e25c71720f630474561b10b525e8c461169224e3f012f8f738c9e50b",
+      "level": "A1",
+      "topic_slug": "articles",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-articles-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-articles-r2.json",
+      "current_sha256": "de8b249669e8b9cee35cb7a98f0d8766810d58ded76023ec405df4dfe0637b85",
+      "level": "A1",
+      "topic_slug": "articles",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-nominativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-nominativ-r1.json",
+      "current_sha256": "d99b983463fbdf2082481d228c148f74c7990fc9d16fe3652bd92bad16c2e13a",
+      "level": "A1",
+      "topic_slug": "nominativ",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-nominativ-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-nominativ-r2.json",
+      "current_sha256": "a5d9c52aa87dee04cd4dd762f93773c62597e669c3230dc6f2ed2c21533154fd",
+      "level": "A1",
+      "topic_slug": "nominativ",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-akkusativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-akkusativ-r1.json",
+      "current_sha256": "ab1351be40454f1095159105b1be2a9dfc82e183f34bf637b344e6c571fb4c6e",
+      "level": "A1",
+      "topic_slug": "akkusativ",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-akkusativ-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-akkusativ-r2.json",
+      "current_sha256": "56621f3aa8de690578855e9d8ca41314b6510f0254372c0a4887f5f1e28ba785",
+      "level": "A1",
+      "topic_slug": "akkusativ",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-dativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-dativ-r1.json",
+      "current_sha256": "e1dc34e027cc44689148fcc65a2fe9e81fff66c376868bb8a370453f36143087",
+      "level": "A1",
+      "topic_slug": "dativ",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-genitiv-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-genitiv-r1.json",
+      "current_sha256": "1144487403ba300160984abee2204cf88a0d685503d90aa02ddd7788dba1e8ae",
+      "level": "A1",
+      "topic_slug": "genitiv",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-adjective-endings-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-adjective-endings-r1.json",
+      "current_sha256": "3119cb384c88e4497d45e79f9646d4e1322b4706a3c3802cd6c0e699947e7268",
+      "level": "A1",
+      "topic_slug": "adjective-endings",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-pronouns-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-pronouns-r1.json",
+      "current_sha256": "317aecd5eb50f14c65afc2a5cb16c78a709c807c2a1ee0f1c33c3b1bf31685ba",
+      "level": "A1",
+      "topic_slug": "pronouns",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-plural-forms-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-plural-forms-r1.json",
+      "current_sha256": "d05e845b3533cefc4480adefbef908275c67e1e92fef73d4ea1c3582f9905d30",
+      "level": "A1",
+      "topic_slug": "plural-forms",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-conjugation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-conjugation-r1.json",
+      "current_sha256": "7f07c439e58a6db73b0779f1a8c041fbb68275114869656ebf72e0d3e42329dd",
+      "level": "A1",
+      "topic_slug": "conjugation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-conjugation-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-conjugation-r2.json",
+      "current_sha256": "8dbdc353920ea57712fa2c9b2be09a1d49853f840670857d80721d4d949741ff",
+      "level": "A1",
+      "topic_slug": "conjugation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-subject-verb-agreement-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-subject-verb-agreement-r1.json",
+      "current_sha256": "e9ef9ba673f894bf4169a032252bf8166f813aaff378e06342614e1d5ed33b90",
+      "level": "A1",
+      "topic_slug": "subject-verb-agreement",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-subject-verb-agreement-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-subject-verb-agreement-r2.json",
+      "current_sha256": "f520f69bee013acf95fea80c14b79da72d7166e7df42463a8a1f271ac5003a39",
+      "level": "A1",
+      "topic_slug": "subject-verb-agreement",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-verb-position-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-verb-position-r1.json",
+      "current_sha256": "16d7c3c3e84fbdcbffa6e1087c724b8dfe32e4e69abec3adcd1d5a1a117133ab",
+      "level": "A1",
+      "topic_slug": "verb-position",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-verb-position-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-verb-position-r2.json",
+      "current_sha256": "f561b53f589c827bc28553d2a4dc2cfff6c7358129e5f7615642dc13970f4c05",
+      "level": "A1",
+      "topic_slug": "verb-position",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-word-order-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-word-order-r1.json",
+      "current_sha256": "c02cede76e5cc0dee83528386e00dbb87d5e79d82047e8c473720852f0cb54f6",
+      "level": "A1",
+      "topic_slug": "word-order",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-sentence-structure-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-sentence-structure-r1.json",
+      "current_sha256": "8d411bd097615bd4d6c2fe417b29d2d36bc308d546e88f39a41eaeba5d3192a1",
+      "level": "A1",
+      "topic_slug": "sentence-structure",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-question-formation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-question-formation-r1.json",
+      "current_sha256": "d762b347fa01d5fa464b353e3329889e7f274903497d08da179b1f9cf3349357",
+      "level": "A1",
+      "topic_slug": "question-formation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-question-formation-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-question-formation-r2.json",
+      "current_sha256": "d0ca22569a669df41eaca1a5a77291890898f5ef057411beaa1874f74d14aa03",
+      "level": "A1",
+      "topic_slug": "question-formation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-negation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-negation-r1.json",
+      "current_sha256": "dac85aa0410b3a41df0d30e3f3dfe5c8981c428939ca0fe7bd8247419ace5537",
+      "level": "A1",
+      "topic_slug": "negation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-negation-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-negation-r2.json",
+      "current_sha256": "5af31b5da8cf291811d5b77a27c6b95e55a1f12bd806ba4580f91498ffe093c8",
+      "level": "A1",
+      "topic_slug": "negation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-modal-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-modal-verbs-r1.json",
+      "current_sha256": "ed095f6fdedf5ff05f8ef4d7d6a6696d0ce52697e85c9e94001e605d3246f632",
+      "level": "A1",
+      "topic_slug": "modal-verbs",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-modal-verbs-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-modal-verbs-r2.json",
+      "current_sha256": "2b927153fbcce37fbeb1be9b57d75d8f8d24b6862af0b981dc8625aa5d395c4c",
+      "level": "A1",
+      "topic_slug": "modal-verbs",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-separable-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-separable-verbs-r1.json",
+      "current_sha256": "795e5324eba67e6b66f1b0b04d1efc2a29d48df675b3b8a1aa5f1a00a6add243",
+      "level": "A1",
+      "topic_slug": "separable-verbs",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-reflexive-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-reflexive-verbs-r1.json",
+      "current_sha256": "480ae3d4fa696849d7151760eed246757fb05e22b74ca840a956cf2c7d6d1bf8",
+      "level": "A1",
+      "topic_slug": "reflexive-verbs",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-prepositions-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-prepositions-r1.json",
+      "current_sha256": "700d1ded65e3467103e3a5b24c73127537737c624a210d3f2d3abb32855f2be6",
+      "level": "A1",
+      "topic_slug": "prepositions",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-prepositions-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-prepositions-r2.json",
+      "current_sha256": "795b9dddb76a4f09cb472d61789b3b23b7e8fc1447579bfa00546a103fc48123",
+      "level": "A1",
+      "topic_slug": "prepositions",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-conjunctions-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-conjunctions-r1.json",
+      "current_sha256": "3383a48ed6f32527352ef70f0c24534a52397cf70e10c7a0d6eb311040e0aafc",
+      "level": "A1",
+      "topic_slug": "conjunctions",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-connectors-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-connectors-r1.json",
+      "current_sha256": "54b26a4fb95a5741fb80de722b49c6bb9d2fa453a82eeb19dffac0355b193d95",
+      "level": "A1",
+      "topic_slug": "connectors",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-subordinate-clauses-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-subordinate-clauses-r1.json",
+      "current_sha256": "d30b7682b3fb34d70044d2cba8c65a31e4d1ed285191370835a809fa27e71bf4",
+      "level": "A1",
+      "topic_slug": "subordinate-clauses",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-relative-clauses-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-relative-clauses-r1.json",
+      "current_sha256": "cf42a9738fd7a43029d37546f1410a41ccba1432f8e2fa3967b538e64f3aa3f6",
+      "level": "A1",
+      "topic_slug": "relative-clauses",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-infinitive-zu-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-infinitive-zu-r1.json",
+      "current_sha256": "b1eaeb282b39881ca9e5121892e67cac6774137811c5b988456a95cd9be66204",
+      "level": "A1",
+      "topic_slug": "infinitive-zu",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-perfekt-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-perfekt-r1.json",
+      "current_sha256": "81505c4fc0bac60f56e88df633e8f46663587901e98ecc8b57b80f6ead804e48",
+      "level": "A1",
+      "topic_slug": "perfekt",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-praeteritum-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-praeteritum-r1.json",
+      "current_sha256": "47fbfe49c922b60faf7bd37614839ebe56c0a87ccc34bf8ebd89895f351c1c29",
+      "level": "A1",
+      "topic_slug": "praeteritum",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-plusquamperfekt-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-plusquamperfekt-r1.json",
+      "current_sha256": "3bd51b7deca7d07e3195528ddf8733f88073c619b6ecc61fc80ccd5d8d5ddb68",
+      "level": "A1",
+      "topic_slug": "plusquamperfekt",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-future-tense-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-future-tense-r1.json",
+      "current_sha256": "d06ac91b96e889219940d6546e963843bfcea8e62c46181bdaca0cdd4e36c8ee",
+      "level": "A1",
+      "topic_slug": "future-tense",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-passive-voice-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-passive-voice-r1.json",
+      "current_sha256": "a10f8511e1a24120ef36173a90166c5aa115ef9eb3ac907238488813beadb022",
+      "level": "A1",
+      "topic_slug": "passive-voice",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-konjunktiv-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-konjunktiv-r1.json",
+      "current_sha256": "dc19ca1e4870784b0058919800992aca5a2225752dd625a4b5fb110dbdf2dcc1",
+      "level": "A1",
+      "topic_slug": "konjunktiv",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-spelling-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-spelling-r1.json",
+      "current_sha256": "dac01c3bcce2ae14882aaadbed16ec8f2487be1bb737f74ad7310fca9e885fd8",
+      "level": "A1",
+      "topic_slug": "spelling",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-capitalization-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-capitalization-r1.json",
+      "current_sha256": "46801077329f660b7d783d122dc736757df0850999f1bf9387a9908515d9a0d9",
+      "level": "A1",
+      "topic_slug": "capitalization",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-punctuation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-punctuation-r1.json",
+      "current_sha256": "fbac2b367ad94013a4021538c714f3816b6a36ef02bfe3aa725c3203a99698ef",
+      "level": "A1",
+      "topic_slug": "punctuation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-register-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-register-r1.json",
+      "current_sha256": "0e0096bf505b73016760769f7d2e9221976906e95bc7fbaa4bc72366451ef7af",
+      "level": "A1",
+      "topic_slug": "register",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-coherence-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-coherence-r1.json",
+      "current_sha256": "1dc241e9c3e1818551a42840b891a44789bf95510b7d324cd79f3b7d6df8e1b2",
+      "level": "A1",
+      "topic_slug": "coherence",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a1-task-fulfilment-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a1/v1-a1-task-fulfilment-r1.json",
+      "current_sha256": "ddd0d9025a7afa224d6020334cd26cb71008c1113647a9cc266d26a5c697b1a9",
+      "level": "A1",
+      "topic_slug": "task-fulfilment",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-articles-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-articles-r1.json",
+      "current_sha256": "250092baa6dfb62c2eeda75350eecbb8eda815a644490070b4ae351d9b688f08",
+      "level": "A2",
+      "topic_slug": "articles",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-nominativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-nominativ-r1.json",
+      "current_sha256": "c79b4943be1640db304724fc7fe8aed3e7cbbaed198d35ce37c03106adbd7fba",
+      "level": "A2",
+      "topic_slug": "nominativ",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-akkusativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-akkusativ-r1.json",
+      "current_sha256": "b6c9c1f5a3796ce150efe9257043dfb79a70fe8ab222256bb70c979fe39d2d0f",
+      "level": "A2",
+      "topic_slug": "akkusativ",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-dativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-dativ-r1.json",
+      "current_sha256": "dca2fc2541434bda0195dd8cefdb1c7914b256b92d638b8a41122be0745b8e7b",
+      "level": "A2",
+      "topic_slug": "dativ",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-dativ-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-dativ-r2.json",
+      "current_sha256": "e5c8c864bac5f7d27ec8009fa34944ecbdf596552802e9adf3152fe4368fafb7",
+      "level": "A2",
+      "topic_slug": "dativ",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-genitiv-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-genitiv-r1.json",
+      "current_sha256": "55cfe56492e14b6ed09e87266d8f4371b1526c4e1683bd93340dc177c895af58",
+      "level": "A2",
+      "topic_slug": "genitiv",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-adjective-endings-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-adjective-endings-r1.json",
+      "current_sha256": "26e5d3707c9038459c15ea303c4a051d6b38d9f28a9575e766865fd2e8d39b01",
+      "level": "A2",
+      "topic_slug": "adjective-endings",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-adjective-endings-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-adjective-endings-r2.json",
+      "current_sha256": "900130de077bd67db9638c071b8260ecbf348ffd3e29d0b3828d16f0fd169b29",
+      "level": "A2",
+      "topic_slug": "adjective-endings",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-pronouns-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-pronouns-r1.json",
+      "current_sha256": "45642611b059ab3e4424ab8a6b5586dc1395c73cca49ccb8cdf2a4d6f6c8a1c2",
+      "level": "A2",
+      "topic_slug": "pronouns",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-pronouns-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-pronouns-r2.json",
+      "current_sha256": "d5ed26cfc05412ef0bcac31826c5b536aa4717ae13598ea5c4ea4d91b53869fd",
+      "level": "A2",
+      "topic_slug": "pronouns",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-plural-forms-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-plural-forms-r1.json",
+      "current_sha256": "45ce74ab5a4f6074e92df79849cc22bd72cc3c22ce81124726f6a9810cf87f77",
+      "level": "A2",
+      "topic_slug": "plural-forms",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-plural-forms-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-plural-forms-r2.json",
+      "current_sha256": "05a7d467444e785dfaac702bf39bf05116e5125ec922480ec3d5f219f214066e",
+      "level": "A2",
+      "topic_slug": "plural-forms",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-conjugation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-conjugation-r1.json",
+      "current_sha256": "8d8143ab523d87194cb2ec1a5735cee573a7e359706e9aafce20024a89ebbd9b",
+      "level": "A2",
+      "topic_slug": "conjugation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-subject-verb-agreement-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-subject-verb-agreement-r1.json",
+      "current_sha256": "a8f7607f54f59800ae3ed056aaa7982c88b874f031b9ed901b68bcd7cc7a0495",
+      "level": "A2",
+      "topic_slug": "subject-verb-agreement",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-verb-position-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-verb-position-r1.json",
+      "current_sha256": "1a2d6e361ed3af0a21357fb5a9587a536c8b94677f6db707fcd27c9e8f8537b1",
+      "level": "A2",
+      "topic_slug": "verb-position",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-word-order-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-word-order-r1.json",
+      "current_sha256": "c8d60ac8ac8b92c655fb45347f2691346c7a080a230788f05db9c857ae9e01c8",
+      "level": "A2",
+      "topic_slug": "word-order",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-word-order-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-word-order-r2.json",
+      "current_sha256": "e4931a0ba11e8c95d6271a0ec86be1c733875b71c3695dafe77ddb7a503daac3",
+      "level": "A2",
+      "topic_slug": "word-order",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-sentence-structure-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-sentence-structure-r1.json",
+      "current_sha256": "42af8f72ed7d2112b3c75d8defe90b36fed4359bbc3ac0334f52eaf0a9dde7e5",
+      "level": "A2",
+      "topic_slug": "sentence-structure",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-question-formation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-question-formation-r1.json",
+      "current_sha256": "a9525fe30e1baed1ea677735f005b9baecf0b451dc47c7449fdad6be1c422459",
+      "level": "A2",
+      "topic_slug": "question-formation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-negation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-negation-r1.json",
+      "current_sha256": "cc6d2f48ee8a3f01221349ee0ba27e04b2719f982ad58168551f457067f7d72d",
+      "level": "A2",
+      "topic_slug": "negation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-modal-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-modal-verbs-r1.json",
+      "current_sha256": "f74a6f5aa389f0d04b592165376db81023f504e669673ab8186455bea3de6473",
+      "level": "A2",
+      "topic_slug": "modal-verbs",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-separable-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-separable-verbs-r1.json",
+      "current_sha256": "9689b32376ee07cd82711f1564781120d0aaf6db5dd6606ee8199ea38d36e293",
+      "level": "A2",
+      "topic_slug": "separable-verbs",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-separable-verbs-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-separable-verbs-r2.json",
+      "current_sha256": "4c5fd2c7f0ce8f92ee776691d581ec028a93a0bdfbf3f59dfe4be1ca849bfcbc",
+      "level": "A2",
+      "topic_slug": "separable-verbs",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-reflexive-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-reflexive-verbs-r1.json",
+      "current_sha256": "1936973a456dfb4c58b0a4d0c095ef3966587d560097cd4d86100104e79468b8",
+      "level": "A2",
+      "topic_slug": "reflexive-verbs",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-reflexive-verbs-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-reflexive-verbs-r2.json",
+      "current_sha256": "0ee0fb19271c78f149fbe6d37a3d64212e51ac3ee25b0c5557a9436f4f3851a9",
+      "level": "A2",
+      "topic_slug": "reflexive-verbs",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-prepositions-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-prepositions-r1.json",
+      "current_sha256": "3a4974f9a1b693867d672f068a19b6e4ffe9c4a72c34fc02b548eb4628ec6ff6",
+      "level": "A2",
+      "topic_slug": "prepositions",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-prepositions-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-prepositions-r2.json",
+      "current_sha256": "4fc1bc78135122be7c7472722d35d541d386df7a2c570dbbfcaf31d372270032",
+      "level": "A2",
+      "topic_slug": "prepositions",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-conjunctions-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-conjunctions-r1.json",
+      "current_sha256": "f29d8d552b5a1f728ceae174ea884503a8e13339ab21d4ef935865677545a7df",
+      "level": "A2",
+      "topic_slug": "conjunctions",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-conjunctions-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-conjunctions-r2.json",
+      "current_sha256": "d84520a8c95b28bdf8cdf6aa295ccb5a1eec0d1ecd5c40d29793c7904002489c",
+      "level": "A2",
+      "topic_slug": "conjunctions",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-connectors-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-connectors-r1.json",
+      "current_sha256": "b81f2e2119d5e7b2a73941a43563a350e090de1f5b756a8854834e7155a156ae",
+      "level": "A2",
+      "topic_slug": "connectors",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-subordinate-clauses-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-subordinate-clauses-r1.json",
+      "current_sha256": "56cb9d9773ccbe98b6f4a168a3e3aa7ad6fa9214c60ceb40ca299a66e65008b6",
+      "level": "A2",
+      "topic_slug": "subordinate-clauses",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-relative-clauses-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-relative-clauses-r1.json",
+      "current_sha256": "a8929db921378e3dc835ddd6a519510273f0f7ae44594b512d33616b8b8737cf",
+      "level": "A2",
+      "topic_slug": "relative-clauses",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-infinitive-zu-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-infinitive-zu-r1.json",
+      "current_sha256": "44dcfc24f68070cb1ae78aa56591d436f4182a418fc91a93b0b7504da4d4579d",
+      "level": "A2",
+      "topic_slug": "infinitive-zu",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-perfekt-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-perfekt-r1.json",
+      "current_sha256": "f36bf27ded33c56b780d9b996f05b70a569b12a818119ba2c9b4fbcbf93a9a8d",
+      "level": "A2",
+      "topic_slug": "perfekt",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-perfekt-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-perfekt-r2.json",
+      "current_sha256": "189e939f183331941b4ed0a5cf209bc80145db3723a2c36c611a9d7941a81abb",
+      "level": "A2",
+      "topic_slug": "perfekt",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 5,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-praeteritum-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-praeteritum-r1.json",
+      "current_sha256": "bc96c28b8b4efb39dac0354552c625e05423a1e0d7b1cc6dc04ad1bb06455563",
+      "level": "A2",
+      "topic_slug": "praeteritum",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-plusquamperfekt-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-plusquamperfekt-r1.json",
+      "current_sha256": "264de285038d9fac5d27cd7b5286a666ef91eb91691939811233e57da460bb8c",
+      "level": "A2",
+      "topic_slug": "plusquamperfekt",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-future-tense-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-future-tense-r1.json",
+      "current_sha256": "2be5ef642610ac92f9ab7646dae503b2e3dd1c90d652df56e9e10a0e74383b31",
+      "level": "A2",
+      "topic_slug": "future-tense",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-passive-voice-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-passive-voice-r1.json",
+      "current_sha256": "af923f17afcc13dfc5bc822914aeb7c319b9e7d1e3fcf2e21ec09d786b8c6dec",
+      "level": "A2",
+      "topic_slug": "passive-voice",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-konjunktiv-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-konjunktiv-r1.json",
+      "current_sha256": "2024fd9de1c5096ddfbcf59ea6c7f4f7ce24413aeb835ce1107fac62e7177977",
+      "level": "A2",
+      "topic_slug": "konjunktiv",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-spelling-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-spelling-r1.json",
+      "current_sha256": "1f64968be314df78e777db22f6e1a72f71bef4d54e5ae6a73bcf4b448350f72f",
+      "level": "A2",
+      "topic_slug": "spelling",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-capitalization-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-capitalization-r1.json",
+      "current_sha256": "8b5cffa8f150ad4652aba5c25bfd5cd3e263b6b8a542e0184fa93a03ffa39ba1",
+      "level": "A2",
+      "topic_slug": "capitalization",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-punctuation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-punctuation-r1.json",
+      "current_sha256": "124976855107e5d79f5d3db78f800a1472f0bcb7c34cc4d2473c73235eff0912",
+      "level": "A2",
+      "topic_slug": "punctuation",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-register-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-register-r1.json",
+      "current_sha256": "6ac05668ec165a362f6ca2607ea96b011ca03d6a76288288fca8fa8f14a1e58b",
+      "level": "A2",
+      "topic_slug": "register",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-coherence-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-coherence-r1.json",
+      "current_sha256": "2a840c0b8bd140e4794a3571b92f2fa9d86e4a9f4c04ee6dc73285d40067567b",
+      "level": "A2",
+      "topic_slug": "coherence",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-a2-task-fulfilment-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/a2/v1-a2-task-fulfilment-r1.json",
+      "current_sha256": "ad64058429f68d008bae09960787939da42126d8164a7339984182fa02eaa63d",
+      "level": "A2",
+      "topic_slug": "task-fulfilment",
+      "question_counts": {
+        "total": 8,
+        "local_exact": 8,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-articles-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-articles-r1.json",
+      "current_sha256": "01177a9429b464ef473922e253caca7fe03de88bc42d19e07f260a9d693e3deb",
+      "level": "B1",
+      "topic_slug": "articles",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-nominativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-nominativ-r1.json",
+      "current_sha256": "e99e10430d5dbf46c1a8bcd1333c76aeb06a4f18b5dd9dc56afaf2d9e553b489",
+      "level": "B1",
+      "topic_slug": "nominativ",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-akkusativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-akkusativ-r1.json",
+      "current_sha256": "4cd08887df2b377d4a9b7142b6e83086c5c6a8ac452bbe52d4b537203b8bbf04",
+      "level": "B1",
+      "topic_slug": "akkusativ",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-dativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-dativ-r1.json",
+      "current_sha256": "d594e17ce11666e18559728c8387d26c265c17227dbb8c452292d614375b72d4",
+      "level": "B1",
+      "topic_slug": "dativ",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-genitiv-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-genitiv-r1.json",
+      "current_sha256": "1aa7d3a441a8105244018d712eecf784b15e0b72676831c13b28b6dfef315126",
+      "level": "B1",
+      "topic_slug": "genitiv",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-genitiv-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-genitiv-r2.json",
+      "current_sha256": "a1800c62d11fc711dc915dac1b276d646711bfec764fc91632e9ce11b7f8c69c",
+      "level": "B1",
+      "topic_slug": "genitiv",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-adjective-endings-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-adjective-endings-r1.json",
+      "current_sha256": "05597089e9fe981047a9826d192b41913d861659668c5904fd106c282095dd92",
+      "level": "B1",
+      "topic_slug": "adjective-endings",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-adjective-endings-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-adjective-endings-r2.json",
+      "current_sha256": "5c4e40f5f12dfccefff15b1dc83d468ffbe8ba74820516c4aa6367884cb26248",
+      "level": "B1",
+      "topic_slug": "adjective-endings",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-pronouns-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-pronouns-r1.json",
+      "current_sha256": "89f3e055a4078dbe4cd69c7c602426a1f507abbadbcb09a792fd895cd54abcde",
+      "level": "B1",
+      "topic_slug": "pronouns",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-plural-forms-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-plural-forms-r1.json",
+      "current_sha256": "fe412e4a176b7081676197fddcbec4dd8c2a410660f50716527840f87c126458",
+      "level": "B1",
+      "topic_slug": "plural-forms",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-conjugation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-conjugation-r1.json",
+      "current_sha256": "2233a7a5e3080b549b8a7b83a779bb7da0debce0c9982a54d4c32da937035235",
+      "level": "B1",
+      "topic_slug": "conjugation",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-subject-verb-agreement-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-subject-verb-agreement-r1.json",
+      "current_sha256": "92797f932f2174de27f6894556e09e6cb6305da18ca370b0c882027f44f7e39d",
+      "level": "B1",
+      "topic_slug": "subject-verb-agreement",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-verb-position-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-verb-position-r1.json",
+      "current_sha256": "f91c132854af7a873db1544d8241035cdfc119630aa495a46ce01b5aabb38c9b",
+      "level": "B1",
+      "topic_slug": "verb-position",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-word-order-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-word-order-r1.json",
+      "current_sha256": "b9c00616bc77578be0e58f2f6aa0cfe713904a63b6123ae8884041b0cafca853",
+      "level": "B1",
+      "topic_slug": "word-order",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-sentence-structure-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-sentence-structure-r1.json",
+      "current_sha256": "ce37f062235d3bfb8db83be6494bb9e5c1b85e055221e2a6aa8646764e408439",
+      "level": "B1",
+      "topic_slug": "sentence-structure",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-question-formation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-question-formation-r1.json",
+      "current_sha256": "c01acec774ee5c0b0b8ca338bc4e421f954140eda1761a4251df435065e55122",
+      "level": "B1",
+      "topic_slug": "question-formation",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-negation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-negation-r1.json",
+      "current_sha256": "5f2dcc382eeb80bbb2f4dcb8f3667d8582d0dc820f1f7daac245d7b1bc8b9e82",
+      "level": "B1",
+      "topic_slug": "negation",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-modal-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-modal-verbs-r1.json",
+      "current_sha256": "968f50b0792fa1e89c188b8680ac991e3326ad6b3b6a1650f386e583e769b97d",
+      "level": "B1",
+      "topic_slug": "modal-verbs",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-separable-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-separable-verbs-r1.json",
+      "current_sha256": "4cb17550e113772c3838d1502bd7a06f3e6fded88e6451efc45a4cecb760d85c",
+      "level": "B1",
+      "topic_slug": "separable-verbs",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-reflexive-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-reflexive-verbs-r1.json",
+      "current_sha256": "434b3aeb4182e0b69ce0bf0e6fd93fa369c23e730f4a215e76bc4196c4459d17",
+      "level": "B1",
+      "topic_slug": "reflexive-verbs",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-prepositions-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-prepositions-r1.json",
+      "current_sha256": "15b94e2cfc690bb0f21b9f8484463194870a327b5dacd64046c8ae6f6a9235ba",
+      "level": "B1",
+      "topic_slug": "prepositions",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-conjunctions-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-conjunctions-r1.json",
+      "current_sha256": "dce0175bdced421b4bc39a3adafe46fbf32a2f8689e53e45b2527c8d0809dd5d",
+      "level": "B1",
+      "topic_slug": "conjunctions",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-connectors-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-connectors-r1.json",
+      "current_sha256": "abe869cc2ef34df2b91103e2073834c60f39dd0ea465dd7f1b5a9f7d533be2fc",
+      "level": "B1",
+      "topic_slug": "connectors",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-connectors-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-connectors-r2.json",
+      "current_sha256": "0fc07a51362836f23df7a40981b8be197e9b6ea46527e062d20a9e59805569c0",
+      "level": "B1",
+      "topic_slug": "connectors",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-subordinate-clauses-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-subordinate-clauses-r1.json",
+      "current_sha256": "d2f269b4e78842c096790fcc46bd4d9fd67bc722fa63403d2a6361723d207dbe",
+      "level": "B1",
+      "topic_slug": "subordinate-clauses",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-subordinate-clauses-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-subordinate-clauses-r2.json",
+      "current_sha256": "f62390583586a3c3f7387671488f3985fa391f5b7100da40a870d1f4b727830d",
+      "level": "B1",
+      "topic_slug": "subordinate-clauses",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-relative-clauses-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-relative-clauses-r1.json",
+      "current_sha256": "a0d439245fa1b53bee09099357a0ebeceb424b9e918f5281bf6d2b2166b37fa8",
+      "level": "B1",
+      "topic_slug": "relative-clauses",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-relative-clauses-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-relative-clauses-r2.json",
+      "current_sha256": "89f410eb6533010001b922129ae41ab022d6c7701bead79c797edc201b84dcb6",
+      "level": "B1",
+      "topic_slug": "relative-clauses",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-infinitive-zu-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-infinitive-zu-r1.json",
+      "current_sha256": "94c860f61df748bca00fe1623dd07f93dd2e9a56eb540215e5054744fb517029",
+      "level": "B1",
+      "topic_slug": "infinitive-zu",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-infinitive-zu-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-infinitive-zu-r2.json",
+      "current_sha256": "be5446f226d489257f3bafeaec6a319983e81e04f056efe0fe2e5a7e026835f5",
+      "level": "B1",
+      "topic_slug": "infinitive-zu",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-perfekt-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-perfekt-r1.json",
+      "current_sha256": "ede505d9214bdbc9d0f24b15d82becb239ecf3446548bff62f8e7a2453966414",
+      "level": "B1",
+      "topic_slug": "perfekt",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-praeteritum-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-praeteritum-r1.json",
+      "current_sha256": "54a72119b7eff82d06c10fe0b4d7d21ffe2946656ec4cee8f19ddad0382bc35d",
+      "level": "B1",
+      "topic_slug": "praeteritum",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-praeteritum-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-praeteritum-r2.json",
+      "current_sha256": "af464862a3c66642ce90f902aaf5ffdedc117d29a8de67b08d0e30209936e5f2",
+      "level": "B1",
+      "topic_slug": "praeteritum",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-plusquamperfekt-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-plusquamperfekt-r1.json",
+      "current_sha256": "ae1610c5ec3d2cee6b0d26dd95a3c3b545fa1fd3675ab3a89e25d9bc696d879e",
+      "level": "B1",
+      "topic_slug": "plusquamperfekt",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-plusquamperfekt-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-plusquamperfekt-r2.json",
+      "current_sha256": "a7df26fefd8063c24586c2eca948b98859961761c3b98927d3a42d46b0fd9f74",
+      "level": "B1",
+      "topic_slug": "plusquamperfekt",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-future-tense-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-future-tense-r1.json",
+      "current_sha256": "92090b048f9456174bebb5e58a4fb49f115ceee65d81820ed277dc83cefedec6",
+      "level": "B1",
+      "topic_slug": "future-tense",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-future-tense-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-future-tense-r2.json",
+      "current_sha256": "509737e6045c4f0f25b4e7d3313d41c8714d3fe43ccd0183251d98fadf70b6c2",
+      "level": "B1",
+      "topic_slug": "future-tense",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-passive-voice-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-passive-voice-r1.json",
+      "current_sha256": "57bb3df215bb1c7f4732adb165ffa86d088da07219724f204097fcdcb7d453c1",
+      "level": "B1",
+      "topic_slug": "passive-voice",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-passive-voice-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-passive-voice-r2.json",
+      "current_sha256": "e0f086263bff7ebb2d4a28640b6bb30797e8332b1136b2ca36188388c3519dd3",
+      "level": "B1",
+      "topic_slug": "passive-voice",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-konjunktiv-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-konjunktiv-r1.json",
+      "current_sha256": "3a65c0503e7ccd9cd57f9c5279238f1b44c95746d3da4f7b78765c4e88f728e0",
+      "level": "B1",
+      "topic_slug": "konjunktiv",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-spelling-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-spelling-r1.json",
+      "current_sha256": "e7bdcab5539c26522e9c8125139747e77bfd4814ae40796615768b6f478d6d34",
+      "level": "B1",
+      "topic_slug": "spelling",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-capitalization-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-capitalization-r1.json",
+      "current_sha256": "7ed7d6595f887ac81d7cc79fbfe65a3da033a15619e77dd98747d941c35d1f9f",
+      "level": "B1",
+      "topic_slug": "capitalization",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-punctuation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-punctuation-r1.json",
+      "current_sha256": "074db5f6134d39cfb2a69fa750509e53c6581f3a6ef880a7b04274a16c83ffaa",
+      "level": "B1",
+      "topic_slug": "punctuation",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-register-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-register-r1.json",
+      "current_sha256": "26efcb53792e8de7722bb36a981dfb099a83d8023b3410f810abcfebcb72c5e5",
+      "level": "B1",
+      "topic_slug": "register",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-coherence-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-coherence-r1.json",
+      "current_sha256": "f8f4546d9b0f6c97b3f2ab46dd3ace797f0833909f637ecbc358ea2f44727d98",
+      "level": "B1",
+      "topic_slug": "coherence",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b1-task-fulfilment-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b1/v1-b1-task-fulfilment-r1.json",
+      "current_sha256": "83ad5af140ff8e6618e8752fb32804c6c08b5d1d042651bdde386c107776d78b",
+      "level": "B1",
+      "topic_slug": "task-fulfilment",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-articles-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-articles-r1.json",
+      "current_sha256": "414bd6a6e593a8f994abece059eb9c63f9aa02cf86b2ff84ccfe92789afc1d5a",
+      "level": "B2",
+      "topic_slug": "articles",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-nominativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-nominativ-r1.json",
+      "current_sha256": "7c73eb588c65e10748369619faa245e6761c7c0e63239a123f50cf4d2c4dc6a4",
+      "level": "B2",
+      "topic_slug": "nominativ",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-akkusativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-akkusativ-r1.json",
+      "current_sha256": "c7360f0f522e266d50e7ecacc0cbb0b5c852db6ee670b85d98bb41ddc517c2dd",
+      "level": "B2",
+      "topic_slug": "akkusativ",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-dativ-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-dativ-r1.json",
+      "current_sha256": "256860472ae8f46e73c83ea5d36febfb83fa637fbe47f084275181b7b99699a2",
+      "level": "B2",
+      "topic_slug": "dativ",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-genitiv-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-genitiv-r1.json",
+      "current_sha256": "af5bd9fa6b834fc41e437558b3213b8766b3a4aad0b409ff15153b36ff3cf44b",
+      "level": "B2",
+      "topic_slug": "genitiv",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-adjective-endings-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-adjective-endings-r1.json",
+      "current_sha256": "c8684a8e7f9e2797ec5bd316ae10cdb13d3aa88fc6bfa1eba88ed5e6b068e243",
+      "level": "B2",
+      "topic_slug": "adjective-endings",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-pronouns-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-pronouns-r1.json",
+      "current_sha256": "52a1f27db625bb5247f0dbe3676bcaba30900cf9eb834d228a06d4957f0b3058",
+      "level": "B2",
+      "topic_slug": "pronouns",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-plural-forms-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-plural-forms-r1.json",
+      "current_sha256": "42087ef4636b3e478a641de8671702d5022f83c5ed6a3177f9196dc9c5555c7e",
+      "level": "B2",
+      "topic_slug": "plural-forms",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-conjugation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-conjugation-r1.json",
+      "current_sha256": "97c5dd46a7093ec908cb52e8b67b7a0e73ffdb5df108169ed1fd765c46fce227",
+      "level": "B2",
+      "topic_slug": "conjugation",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-subject-verb-agreement-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-subject-verb-agreement-r1.json",
+      "current_sha256": "5c370efd934758ed1a35bf5a0767aca87a014b6490824622c9a1d2e25c4ecf4f",
+      "level": "B2",
+      "topic_slug": "subject-verb-agreement",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-verb-position-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-verb-position-r1.json",
+      "current_sha256": "ee7b3c5489095991e77392441fdb008514d0c34731942bce16635bab046a00b5",
+      "level": "B2",
+      "topic_slug": "verb-position",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-word-order-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-word-order-r1.json",
+      "current_sha256": "f76ddb39766b6e1cf8d41421f82124c018a34fbcb0f91e42a68a01a4ac5bf875",
+      "level": "B2",
+      "topic_slug": "word-order",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-word-order-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-word-order-r2.json",
+      "current_sha256": "6b48e4a53458364d07aec880c2aaa191af5ad0eed19a62c22b88cc993c5cc2dc",
+      "level": "B2",
+      "topic_slug": "word-order",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-sentence-structure-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-sentence-structure-r1.json",
+      "current_sha256": "551a4dc08f2ace710bdfe40cade4bdb7713c3f18a6d83481b0cb4a04085ff939",
+      "level": "B2",
+      "topic_slug": "sentence-structure",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-question-formation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-question-formation-r1.json",
+      "current_sha256": "0141503fd7002eff6ed827d60b4515be893b99136eabd064f355e411f9872f93",
+      "level": "B2",
+      "topic_slug": "question-formation",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-negation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-negation-r1.json",
+      "current_sha256": "1730c41fa9d2484204298efbbf3db0a00f43455bfe36b3c982402a99f7603b87",
+      "level": "B2",
+      "topic_slug": "negation",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-modal-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-modal-verbs-r1.json",
+      "current_sha256": "3d7bdac4a1b4bdf7587be9d3ba31d575c88488ec6974fdfa59b370cb47709640",
+      "level": "B2",
+      "topic_slug": "modal-verbs",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-separable-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-separable-verbs-r1.json",
+      "current_sha256": "d13f48f5018f136aa64dd5a401223bd65cbadf0db3079453f19e0cf70e066b5e",
+      "level": "B2",
+      "topic_slug": "separable-verbs",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-reflexive-verbs-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-reflexive-verbs-r1.json",
+      "current_sha256": "482a7027f8b359601473488b1f36a288fcbf1013d2633d56bbf4196c9eff87c4",
+      "level": "B2",
+      "topic_slug": "reflexive-verbs",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-prepositions-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-prepositions-r1.json",
+      "current_sha256": "b75881dcdf1529fd3530b0d642dfee68e85a939827b1d9562fdbd7aeb72435e0",
+      "level": "B2",
+      "topic_slug": "prepositions",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-conjunctions-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-conjunctions-r1.json",
+      "current_sha256": "b9c1df88e1a242d7bf639a300362cce0b4083451b76ee2a8c8d00dd637071fcc",
+      "level": "B2",
+      "topic_slug": "conjunctions",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-connectors-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-connectors-r1.json",
+      "current_sha256": "f3234fbcb5e9911a5a06e0b7691a4c8154ab31848ad7fff8c07c07826ef5c271",
+      "level": "B2",
+      "topic_slug": "connectors",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-connectors-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-connectors-r2.json",
+      "current_sha256": "710549a7793db40d2cb714cc49c3b80280e2ceb452a263f186c5455dce1cda44",
+      "level": "B2",
+      "topic_slug": "connectors",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-subordinate-clauses-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-subordinate-clauses-r1.json",
+      "current_sha256": "2e26ed4d435aa2a3f5f8e410a40871deca0fc508425d222150995021168507a8",
+      "level": "B2",
+      "topic_slug": "subordinate-clauses",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-subordinate-clauses-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-subordinate-clauses-r2.json",
+      "current_sha256": "ff32d8c6a5822010766cbccec33e8cade57f6a5a9ae8f754dbc88330dc5647bc",
+      "level": "B2",
+      "topic_slug": "subordinate-clauses",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-relative-clauses-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-relative-clauses-r1.json",
+      "current_sha256": "ee5c22d114355734930452be359e05b6b93c2bb86ceab76b890a951ac1c1c876",
+      "level": "B2",
+      "topic_slug": "relative-clauses",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-relative-clauses-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-relative-clauses-r2.json",
+      "current_sha256": "2902e2b666ed7f5ac984dde5f8a057d63e9643770cb28a6af726471e089aadab",
+      "level": "B2",
+      "topic_slug": "relative-clauses",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-infinitive-zu-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-infinitive-zu-r1.json",
+      "current_sha256": "93f1af83c4e8dbb72b2bfbcb7e3d289f9b6b0a0a58d47cad1eaac1c7bdae5634",
+      "level": "B2",
+      "topic_slug": "infinitive-zu",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-perfekt-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-perfekt-r1.json",
+      "current_sha256": "ffbdd7043ff89b62b24cdfc0008740e1d3fcb554c76993592cd10d3102af1c85",
+      "level": "B2",
+      "topic_slug": "perfekt",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-praeteritum-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-praeteritum-r1.json",
+      "current_sha256": "025b324e2bc12bae9a24c53022d2ace88ed375f8edc076cc0af70fbe38db6d8b",
+      "level": "B2",
+      "topic_slug": "praeteritum",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-plusquamperfekt-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-plusquamperfekt-r1.json",
+      "current_sha256": "65017e8e9f3b3045397bcae392b7c1277265cb280025956f453312eba6a5b633",
+      "level": "B2",
+      "topic_slug": "plusquamperfekt",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-future-tense-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-future-tense-r1.json",
+      "current_sha256": "90e56376025a61e99e945b75be3ef0f0fd277bdaa81b2992f5c674c22bc62f85",
+      "level": "B2",
+      "topic_slug": "future-tense",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-passive-voice-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-passive-voice-r1.json",
+      "current_sha256": "0359c29d07cb3a9da694cad566578c1700570fbcf40a2e9d3e588dec4454577a",
+      "level": "B2",
+      "topic_slug": "passive-voice",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-passive-voice-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-passive-voice-r2.json",
+      "current_sha256": "1e1f41d8abb632c75a6ac54b84c657dc84854249cc58dab70c341c44f1899fe2",
+      "level": "B2",
+      "topic_slug": "passive-voice",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-konjunktiv-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-konjunktiv-r1.json",
+      "current_sha256": "0a4d101df87eda4529cccfb948e5f1e7ec90c24ca1e8f1e512bbde8406949ed6",
+      "level": "B2",
+      "topic_slug": "konjunktiv",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-konjunktiv-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-konjunktiv-r2.json",
+      "current_sha256": "baf2e1434cc2c9d27917e073bf5317d30b41cb669fe4014bb4f3e433eb4389cf",
+      "level": "B2",
+      "topic_slug": "konjunktiv",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-spelling-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-spelling-r1.json",
+      "current_sha256": "90f8868ca9d072cade915ec6ac22a10e16404fb6e3cf83fca7f40596dc080878",
+      "level": "B2",
+      "topic_slug": "spelling",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-capitalization-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-capitalization-r1.json",
+      "current_sha256": "44e2fb797de699cd38c5f7b95da9298f455a24843692ea2a9451455730f9d875",
+      "level": "B2",
+      "topic_slug": "capitalization",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-punctuation-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-punctuation-r1.json",
+      "current_sha256": "23bdde9eebe67a9f8fc83b4efb130d4d5c38ac4c04c743e2415863682e6f2700",
+      "level": "B2",
+      "topic_slug": "punctuation",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-punctuation-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-punctuation-r2.json",
+      "current_sha256": "adefbebe51bda2ecdf37732d08f8b74eb415e6ec518a1c94a07f38c2a7ffc426",
+      "level": "B2",
+      "topic_slug": "punctuation",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-register-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-register-r1.json",
+      "current_sha256": "9c2443edceae4e67a412e0107fb27b3fe217385a3303209d0336094a573cea13",
+      "level": "B2",
+      "topic_slug": "register",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-register-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-register-r2.json",
+      "current_sha256": "05e8b85058a8117de73ec37186fc1ac6210df42b53a39be18bfbe3d8f408f09f",
+      "level": "B2",
+      "topic_slug": "register",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-coherence-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-coherence-r1.json",
+      "current_sha256": "2c5fa50846c8aab6f205580aeb6d4ac4782a17f38cdc45542b51ed0b6da64cc3",
+      "level": "B2",
+      "topic_slug": "coherence",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-coherence-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-coherence-r2.json",
+      "current_sha256": "44ff624e665beb849e0408c3704407d2108600b921e49a623a1e5becef3e6e10",
+      "level": "B2",
+      "topic_slug": "coherence",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-task-fulfilment-r1",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-task-fulfilment-r1.json",
+      "current_sha256": "600cd95f0d2fa96569b07c6bcf0f0479dcaf95a2bf5858ecf597c18cc638f552",
+      "level": "B2",
+      "topic_slug": "task-fulfilment",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 10,
+        "open_evaluation": 0
+      },
+      "review_status": "awaiting_qualified_human_review"
+    },
+    {
+      "template_key": "v1-b2-task-fulfilment-r2",
+      "current_file_path": "quality/worksheet-bank/drafts/b2/v1-b2-task-fulfilment-r2.json",
+      "current_sha256": "c9463c1a463d61f3a2912568f8663935b67e0158028d1a3317632748ff295ea8",
+      "level": "B2",
+      "topic_slug": "task-fulfilment",
+      "question_counts": {
+        "total": 10,
+        "local_exact": 7,
+        "open_evaluation": 3
+      },
+      "review_status": "awaiting_qualified_human_review"
+    }
+  ]
+}

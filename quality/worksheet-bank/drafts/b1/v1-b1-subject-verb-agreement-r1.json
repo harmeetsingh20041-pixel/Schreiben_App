@@ -1,0 +1,183 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-subject-verb-agreement-r1",
+    "template_key": "v1-b1-subject-verb-agreement-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Subject verb agreement pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Subjekt und Verb: Kongruenz bei erweiterten Gruppen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "subject-verb-agreement",
+    "name": "Subjekt-Verb-Kongruenz"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "subject-verb-agreement",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das finite Verb stimmt mit dem Subjekt in Person und Numerus überein. Bei erweiterten Subjektgruppen ist das Kernwort entscheidend, nicht das nächststehende Nomen.",
+    "key_rule": "Ein Subjekt im Singular verlangt ein Verb im Singular. Mehrere mit „und“ verbundene Subjekte verlangen in der Regel den Plural.",
+    "correct_examples": [
+      "Die Liste mit allen Terminen liegt auf dem Tisch.",
+      "Der Leiter und seine Vertreterin planen gemeinsam."
+    ],
+    "common_mistake_warning": "Passe das Verb nicht automatisch an das Nomen direkt vor dem Verb an; suche zuerst den Kern des vollständigen Subjekts.",
+    "what_to_revise": "Wiederhole Singular- und Pluralformen sowie die Kongruenz bei erweiterten und koordinierten Subjekten."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform stimmt mit dem koordinierten Subjekt überein? Die Pflegekraft und der Arzt ___ den weiteren Ablauf.",
+      "options": ["besprechen", "bespricht", "besprecht"],
+      "correct_answer": "besprechen",
+      "accepted_answers": ["besprechen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zwei mit „und“ verbundene Personen bilden ein Pluralsubjekt; deshalb lautet das Verb „besprechen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zum Kern des Subjekts „jede“? Jede der Teilnehmerinnen ___ eine Teilnahmebestätigung.",
+      "options": ["erhaltet","erhält","erhalten"],
+      "correct_answer": "erhält",
+      "accepted_answers": ["erhält"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Kern „jede“ steht im Singular; die Pluralgruppe „der Teilnehmerinnen“ ändert die Kongruenz nicht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz hat eine korrekte Subjekt-Verb-Kongruenz?",
+      "options": [
+        "Die Liste der offenen Anträge liegen im Büro.",
+        "Die Liste der offenen Anträge liegst im Büro.",
+        "Die Liste der offenen Anträge liegt im Büro."
+      ],
+      "correct_answer": "Die Liste der offenen Anträge liegt im Büro.",
+      "accepted_answers": ["Die Liste der offenen Anträge liegt im Büro."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Kernwort des Subjekts ist das singularische Nomen „Liste“; deshalb steht das Verb als „liegt“ im Singular.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Das Team wird als eine organisatorische Einheit bezeichnet. Wortbank: [arbeitet, arbeiten, arbeitest]. Ergänze: Das Team ___ heute an einem neuen Konzept.",
+      "options": [],
+      "correct_answer": "arbeitet",
+      "accepted_answers": ["arbeitet"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Das Team“ ist grammatisch Singular und verlangt die Verbform „arbeitet“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Mehrere Pflegekräfte nehmen gemeinsam an der Übergabe teil. Wortbank: [nehmt, nehmen, nimmt]. Ergänze: Mehrere Pflegekräfte ___ an der Übergabe teil.",
+      "options": [],
+      "correct_answer": "nehmen",
+      "accepted_answers": ["nehmen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Subjekt „mehrere Pflegekräfte“ steht im Plural; deshalb lautet das Verb „nehmen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Der Ordner ist das singularische Kernwort; die Verträge sind nur eine Ergänzung. Wortbank: [liegen, liegst, liegt]. Ergänze: Der Ordner mit den Verträgen ___ im Regal.",
+      "options": [],
+      "correct_answer": "liegt",
+      "accepted_answers": ["liegt"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Subjektkernwort „Ordner“ steht im Singular; die Präpositionalgruppe „mit den Verträgen“ beeinflusst die Verbform nicht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Zwei mit „und“ verbundene Personen nehmen gemeinsam am Gespräch teil. Wortbank: [nimmt, nehmt, nehmen]. Ergänze: Der Leiter und die Vertreterin ___ am Gespräch teil.",
+      "options": [],
+      "correct_answer": "nehmen",
+      "accepted_answers": ["nehmen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Verbindung mit „und“ nennt zwei Subjekte; zusammen verlangen sie die Pluralform „nehmen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung richtet das Verb nach dem singularischen Kernwort „Liste“?",
+      "options": [
+        "Die Liste mit den neuen Terminen liegt auf dem Schreibtisch.",
+        "Die Liste mit den neuen Terminen liegst auf dem Schreibtisch.",
+        "Die Liste mit den neuen Terminen liegen auf den Schreibtisch.",
+        "Die Liste mit den neuen Terminen liegen auf dem Schreibtisch."
+      ],
+      "correct_answer": "Die Liste mit den neuen Terminen liegt auf dem Schreibtisch.",
+      "accepted_answers": ["Die Liste mit den neuen Terminen liegt auf dem Schreibtisch."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Kernwort „Liste“ ist Singular und bestimmt die Verbform; „Terminen“ gehört nur zur Präpositionalgruppe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung verwendet für das koordinierte Subjekt die richtige Verbform?",
+      "options": [
+        "Der Kursleiter und die Assistentin arbeitet heute im Büro.",
+        "Der Kursleiter mit der Assistentin arbeiten heute im Büro.",
+        "Der Kursleiter und die Assistentin arbeiten heute im Büro.",
+        "Der Kursleiter und die Assistentin arbeitest heute im Büro."
+      ],
+      "correct_answer": "Der Kursleiter und die Assistentin arbeiten heute im Büro.",
+      "accepted_answers": ["Der Kursleiter und die Assistentin arbeiten heute im Büro."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das koordinierte Subjekt bezeichnet zwei Personen und verlangt deshalb die Verbform im Plural.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schilderung enthält korrekte Kongruenz bei Singularsubjekt, koordiniertem Subjekt und erweitertem Singularsubjekt?",
+      "options": [
+        "Die Stationsleitung verteilen die Aufgaben. Eine Pflegekraft und ein Arzt übernehmen die Aufnahme. Die Liste mit den Zuständigkeiten hängt im Dienstzimmer.",
+        "Die Stationsleitung verteilt die Aufgaben. Eine Pflegekraft und ein Arzt übernehmen die Aufnahme. Die Liste mit den Zuständigkeiten hängt im Dienstzimmer.",
+        "Die Stationsleitung verteilen die Aufgaben. Eine Pflegekraft und ein Arzt übernimmt die Aufnahme. Die Liste mit den Zuständigkeiten hängen im Dienstzimmer.",
+        "Die Stationsleitung verteilt die Aufgaben. Eine Pflegekraft und ein Arzt übernimmt die Aufnahme. Die Liste mit den Zuständigkeiten hängen im Dienstzimmer."
+      ],
+      "correct_answer": "Die Stationsleitung verteilt die Aufgaben. Eine Pflegekraft und ein Arzt übernehmen die Aufnahme. Die Liste mit den Zuständigkeiten hängt im Dienstzimmer.",
+      "accepted_answers": ["Die Stationsleitung verteilt die Aufgaben. Eine Pflegekraft und ein Arzt übernehmen die Aufnahme. Die Liste mit den Zuständigkeiten hängt im Dienstzimmer."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die drei Sätze zeigen Kongruenz mit einem Singularsubjekt, einem koordinierten Pluralsubjekt und einem erweiterten Singularsubjekt.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

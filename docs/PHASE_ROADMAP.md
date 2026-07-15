@@ -204,45 +204,38 @@ Will implement later:
 - feedback-ready alerts
 - delayed feedback mode integration
 
-## Phase 6B: Feedback Timing Modes
+## Phase 6B: Feedback Timing Modes (Historical Milestone)
 
-Goal: Let teachers control when students receive feedback without requiring students to keep the website open.
+Phase 6B and Phase 6C are historical milestones, not current operator
+instructions. Phase 6B introduced immediate, scheduled, and teacher-review
+feedback semantics plus server-side `timestamptz` release times. Phase 6C first
+proved that due work could continue after every browser closed.
 
-Phase 6B implements:
+An early Phase 6C implementation used `pg_net`, a Vault-held scheduler secret,
+and a five-minute database-to-Edge HTTP wake-up. That implementation is retired
+and must not be recreated. Its value is historical: it established the
+timezone, idempotency, and background-processing requirements that the durable
+queue architecture now satisfies.
 
-- batch-level feedback timing setting: immediate feedback, automatic delayed feedback, or teacher review only
-- randomized per-submission scheduled feedback time for automatic delayed batches
-- server-side due-feedback Edge Function for immediate and automatic delayed submissions
-- student-facing states that say feedback is being prepared or to check back later
-- teacher review-only remains the safest default for existing and new batches
+## Current V1 Supersession
 
-Operational note:
+The launch architecture replaces the historical Phase 6B/6C processor with:
 
-- Background processing is active only after `process-due-feedback` is invoked by Supabase cron or another trusted scheduler.
-- The scheduler must provide a secret header stored outside frontend code.
-- See `docs/PHASE_6B_FEEDBACK_TIMING.md` for setup notes.
+- transactional submission and `pgmq` writing-evaluation enqueue;
+- immediate authenticated Edge kicks with bounded retry and lease recovery;
+- private feedback drafts separated from student-visible release state;
+- fixed private SQL reconciliation commands installed by
+  `20260710191319_install_queue_recovery_cron.sql`;
+- `release-due-feedback-every-30-seconds` for scheduled release; and
+- two one-minute EU QStash `/functions/v1/recover-async-jobs` schedules, offset
+  by a 30-second delivery delay, whose exact readback and fresh live heartbeat
+  are mandatory in production preflight.
 
-Will not implement in Phase 6B: notification bell/read-unread system, OCR/photo upload, timer/exam mode, admin panel, or daily launch limits.
-
-## Phase 6C: Scheduled Feedback Processing
-
-Goal: Run due feedback preparation from Supabase server-side scheduling so immediate and automatic delayed feedback continue even when students close the website.
-
-Phase 6C implements:
-
-- Supabase `pg_cron` plus `pg_net` scheduled invocation of `process-due-feedback`
-- Vault-backed storage for the scheduler copy of `PROCESS_FEEDBACK_SECRET`
-- a production-like `process-due-feedback-every-5-minutes` job
-- secret-free setup SQL for safely recreating or disabling the job
-- documentation for monitoring, timezone behavior, and cost limits
-
-Operational note:
-
-- The scheduler uses server-side `timestamptz` comparisons and does not rely on browser timezone.
-- The scheduled due processor uses a small limit of 3 submissions per run; the Edge Function still caps ad hoc requests at 5.
-- See `docs/PHASE_6C_SCHEDULED_FEEDBACK.md` for setup and rollback notes.
-
-Will not implement in Phase 6C: notification bell/read-unread system, OCR/photo upload, timer/exam mode, admin panel, daily launch limits, or feedback prompt changes.
+The database jobs contain no URL, request header, or secret. Do not use this
+roadmap to configure production. Current operating instructions live in
+[`PHASE_6C_SCHEDULED_FEEDBACK.md`](./PHASE_6C_SCHEDULED_FEEDBACK.md),
+[`V1_LAUNCH_RUNBOOK.md`](./V1_LAUNCH_RUNBOOK.md), and
+[`PRODUCTION_PREFLIGHT.md`](./PRODUCTION_PREFLIGHT.md).
 
 ## Future Admin Panel
 

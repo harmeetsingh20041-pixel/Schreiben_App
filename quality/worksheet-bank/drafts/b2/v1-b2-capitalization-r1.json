@@ -1,0 +1,214 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-capitalization-r1",
+    "template_key": "v1-b2-capitalization-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Capitalization pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Groß- und Kleinschreibung: Nominalisierungen erkennen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "capitalization",
+    "name": "Groß- und Kleinschreibung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "capitalization",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Neben Nomen werden auch substantivierte Verben und Adjektive großgeschrieben. In formellen Nachrichten gilt das außerdem für die Anredepronomen Sie, Ihnen und Ihr.",
+    "key_rule": "Achte auf Artikel, Präposition plus Artikel und unbestimmte Begleiter wie „etwas“ oder „nichts“; sie können eine Nominalisierung anzeigen.",
+    "correct_examples": [
+      "Nach dem Auswerten der Daten folgt die Besprechung.",
+      "Wir senden Ihnen morgen Ihre Unterlagen."
+    ],
+    "common_mistake_warning": "Nicht jedes Adjektiv nach „etwas“ ist automatisch Teil einer festen Wendung; prüfe, ob es im Satz wie ein Nomen verwendet wird.",
+    "what_to_revise": "Wiederhole Nominalisierungssignale, feste substantivierte Wendungen und die Großschreibung formeller Anredepronomen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist vollständig korrekt groß- und kleingeschrieben?",
+      "options": [
+        "Beim lesen der Hinweise vermeiden wir Fehler.",
+        "Beim Ausfüllen des Formulars ist Sorgfalt wichtig.",
+        "Beim ausfüllen des Antrags ist Sorgfalt wichtig.",
+        "Beim Prüfen des formulars ist Genauigkeit wichtig."
+      ],
+      "correct_answer": "Beim Ausfüllen des Formulars ist Sorgfalt wichtig.",
+      "accepted_answers": [
+        "Beim Ausfüllen des Formulars ist Sorgfalt wichtig."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Beim“ enthält einen Artikel und nominalisiert „Ausfüllen“; auch das Nomen „Formular“ wird großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung schreibt die formelle Anrede an die direkt angesprochene Person vollständig korrekt?",
+      "options": [
+        "Wir wünschen Ihnen für Ihren Start alles Gute.",
+        "Wir senden ihnen morgen die Unterlagen.",
+        "Bitte teilen sie uns ihre Entscheidung mit.",
+        "Wir danken ihnen für die schnelle Antwort."
+      ],
+      "correct_answer": "Wir wünschen Ihnen für Ihren Start alles Gute.",
+      "accepted_answers": [
+        "Wir wünschen Ihnen für Ihren Start alles Gute."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der formellen Anrede werden „Ihnen“ und „Ihren“ großgeschrieben; in „alles Gute“ wird das substantivierte Adjektiv großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche feste Wendung ist korrekt geschrieben?",
+      "options": [
+        "Das wichtigste steht am Anfang.",
+        "Wir haben nichts neues erfahren.",
+        "Im Allgemeinen ist die Regel verständlich.",
+        "Im einzelnen sind die Schritte nachvollziehbar."
+      ],
+      "correct_answer": "Im Allgemeinen ist die Regel verständlich.",
+      "accepted_answers": [
+        "Im Allgemeinen ist die Regel verständlich."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der festen Wendung „im Allgemeinen“ ist das Adjektiv substantiviert und wird großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Schrift, geschrieben, Schreiben]. Setze den Infinitiv „schreiben“ als Nominalisierung ein: Beim ___ längerer Pflegeberichte hilft eine klare Gliederung.",
+      "options": [],
+      "correct_answer": "Schreiben",
+      "accepted_answers": [
+        "Schreiben"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Verschmelzung „beim“ macht den Infinitiv zum Nomen; deshalb beginnt „Schreiben“ groß.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Neuerung, Neues, Neuigkeit]. Ergänze die substantivierte Form: Die Fortbildung vermittelt den Teilnehmenden etwas ___.",
+      "options": [],
+      "correct_answer": "Neues",
+      "accepted_answers": [
+        "Neues"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „etwas“ wird das substantivierte Adjektiv „Neues“ großgeschrieben und stark dekliniert.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Allgemeinen, Allgemeinheit, allgemein]. Ergänze die feste Wendung: Im ___ stimmen die Rückmeldungen überein.",
+      "options": [],
+      "correct_answer": "Allgemeinen",
+      "accepted_answers": [
+        "Allgemeinen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Im Allgemeinen“ ist eine feste substantivierte Wendung; die Form steht großgeschrieben im Dativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Ihnen, Ihr, Sie]. Ergänze die formelle Anrede: Auf Wunsch senden wir ___ die vollständige Dokumentation.",
+      "options": [],
+      "correct_answer": "Ihnen",
+      "accepted_answers": [
+        "Ihnen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Dativpronomen der formellen Anrede lautet „Ihnen“ und wird immer großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz schreibt einen nominalisierten Infinitiv und eine nominalisierte Form vollständig korrekt?",
+      "options": [
+        "Beim kontrollieren der Auswertung fällt das Wichtigste sofort auf.",
+        "Beim Prüfen der Auswertung fällt etwas neues sofort auf.",
+        "Beim vergleichen der Daten fällt das wesentliche sofort auf.",
+        "Beim Lesen der Auswertung fällt das Wichtigste sofort auf."
+      ],
+      "correct_answer": "Beim Lesen der Auswertung fällt das Wichtigste sofort auf.",
+      "accepted_answers": [
+        "Beim Lesen der Auswertung fällt das Wichtigste sofort auf."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Beim“ nominalisiert den Infinitiv, und „das“ nominalisiert den Superlativ; beide Formen werden großgeschrieben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält nach „durch“ den korrekt geschriebenen nominalisierten Infinitiv „Üben“?",
+      "options": [
+        "Durch regelmäßiges Üben verbessert man sich.",
+        "Durch regelmäßiges trainieren verbessert man sich.",
+        "Durch konsequente Übung verbessert man sich.",
+        "Durch regelmäßige Üben verbessert man sich."
+      ],
+      "correct_answer": "Durch regelmäßiges Üben verbessert man sich.",
+      "accepted_answers": [
+        "Durch regelmäßiges Üben verbessert man sich."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Umformulierung macht aus dem Verb „üben“ nach der Präposition „durch“ ein großgeschriebenes Nomen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung beachtet die Groß- und Kleinschreibung vollständig?",
+      "options": [
+        "Ein sorgfältiges abwägen der Risiken erleichtert die gemeinsame Entscheidung.",
+        "Das Abwägen der Risiken ermöglicht ein gemeinsames entscheiden im Team.",
+        "Das Sorgfältige Prüfen der Risiken erleichtert eine gemeinsame Entscheidung.",
+        "Das sorgfältige Abwägen der Risiken erleichtert das gemeinsame Entscheiden."
+      ],
+      "correct_answer": "Das sorgfältige Abwägen der Risiken erleichtert das gemeinsame Entscheiden.",
+      "accepted_answers": [
+        "Das sorgfältige Abwägen der Risiken erleichtert das gemeinsame Entscheiden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Abwägen“ und „Entscheiden“ sind durch Artikel beziehungsweise attributives Adjektiv nominalisiert und werden großgeschrieben; „sorgfältige“ und „gemeinsame“ bleiben als Attribute klein.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

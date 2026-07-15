@@ -1,0 +1,186 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-future-tense-r1",
+    "template_key": "v1-b1-future-tense-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Future tense pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Futur I: Pläne und Vorhersagen formulieren",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "future-tense",
+    "name": "Futur I"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "future-tense",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Futur I beschreibt Pläne, Versprechen und Vorhersagen. Im Alltag kann bei einer klaren Zeitangabe auch das Präsens Zukunft ausdrücken.",
+    "key_rule": "Bilde das Futur I mit einer konjugierten Form von „werden“ an Position zwei und dem Infinitiv am Satzende.",
+    "correct_examples": [
+      "Am Dienstag werde ich meine Unterlagen abholen.",
+      "Im Winter wird die Nachfrage wahrscheinlich steigen."
+    ],
+    "common_mistake_warning": "Konjugiere nur „werden“; das bedeutungstragende Verb bleibt als Infinitiv am Ende.",
+    "what_to_revise": "Wiederhole werde, wirst, wird, werden und werdet sowie die Satzklammer im Hauptsatz."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht korrekt im Futur I?",
+      "options": [
+        "Morgen werden ich den Bericht abgeben.",
+        "Morgen werde ich den Bericht abgeben.",
+        "Morgen ich werde den Bericht abgeben.",
+        "Morgen werde ich den Bericht abgebe."
+      ],
+      "correct_answer": "Morgen werde ich den Bericht abgeben.",
+      "accepted_answers": ["Morgen werde ich den Bericht abgeben."],
+      "explanation": "„Werde“ steht nach dem Vorfeld an Position zwei; der Infinitiv „abgeben“ schließt den Satz ab.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Vorhersage ist grammatisch korrekt?",
+      "options": [
+        "Am Abend wird es wahrscheinlich regnet.",
+        "Am Abend werden es wahrscheinlich regnen.",
+        "Am Abend wird es wahrscheinlich regnen.",
+        "Am Abend es wird wahrscheinlich regnen."
+      ],
+      "correct_answer": "Am Abend wird es wahrscheinlich regnen.",
+      "accepted_answers": ["Am Abend wird es wahrscheinlich regnen."],
+      "explanation": "Zum unpersönlichen Subjekt „es“ gehört „wird“; „regnen“ bleibt im Infinitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das korrekt formulierte Versprechen.",
+      "options": [
+        "Wir wird Ihnen morgen antworten.",
+        "Wir werden Ihnen morgen geantwortet.",
+        "Wir Ihnen morgen werden antworten.",
+        "Wir werden Ihnen morgen antworten."
+      ],
+      "correct_answer": "Wir werden Ihnen morgen antworten.",
+      "accepted_answers": ["Wir werden Ihnen morgen antworten."],
+      "explanation": "Für „wir“ lautet die Form „werden“, und der Infinitiv „antworten“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werden, wird, wurden]. Ergänze: Nächste Woche ___ wir die neue Pflegestation besichtigen.",
+      "options": [],
+      "correct_answer": "werden",
+      "accepted_answers": ["werden"],
+      "explanation": "Das Subjekt „wir“ verlangt im Futur I die Form „werden“; „besichtigen“ bleibt am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [würdest, wurdest, wirst]. Ergänze die Frage ausdrücklich im Futur I: Wann ___ du die Aufgabe beenden?",
+      "options": [],
+      "correct_answer": "wirst",
+      "accepted_answers": ["wirst"],
+      "explanation": "In der W-Frage steht die finite Form „wirst“ vor dem Subjekt „du“; „beenden“ bleibt am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ist, wird, werden]. Ergänze: Die Lieferung ___ voraussichtlich am Freitag eintreffen.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": ["wird"],
+      "explanation": "Das feminine Singularsubjekt „die Lieferung“ verlangt „wird“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wurdet, werdet, werden]. Ergänze: Ihr ___ bald mehr Verantwortung übernehmen.",
+      "options": [],
+      "correct_answer": "werdet",
+      "accepted_answers": ["werdet"],
+      "explanation": "Für das Subjekt „ihr“ lautet die Futur-Hilfsform „werdet“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung steht korrekt im Futur I?",
+      "options": [
+        "Die neue Pflegekraft wird ab Montag auf der Station arbeiten.",
+        "Die neue Pflegekraft werden ab Montag auf der Station arbeiten.",
+        "Die neue Pflegekraft wird arbeiten ab Montag auf der Station wird.",
+        "Die neue Pflegekraft wird ab Montag auf der Station arbeitet."
+      ],
+      "correct_answer": "Die neue Pflegekraft wird ab Montag auf der Station arbeiten.",
+      "accepted_answers": [
+        "Die neue Pflegekraft wird ab Montag auf der Station arbeiten."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Futur I besteht aus einer konjugierten Form von „werden“ und dem Infinitiv am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Vorhersage ist korrekt im Futur I formuliert?",
+      "options": [
+        "Wegen der Fortbildung das Team wird morgen später beginnen.",
+        "Wegen der Fortbildung wird das Team morgen später begonnen.",
+        "Wegen der Fortbildung werden das Team morgen später beginnen.",
+        "Wegen der Fortbildung wird das Team morgen später beginnen."
+      ],
+      "correct_answer": "Wegen der Fortbildung wird das Team morgen später beginnen.",
+      "accepted_answers": [
+        "Wegen der Fortbildung wird das Team morgen später beginnen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Singularsubjekt „das Team“ verlangt „wird“; der Infinitiv „beginnen“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Planung enthält drei korrekte Futur-I-Formen?",
+      "options": [
+        "Nächste Woche wird das Team den Ablauf getestet. Die Leitung werden die Ergebnisse auswerten. Danach wir werden Verbesserungen besprechen.",
+        "Nächste Woche das Team wird den Ablauf testen. Die Leitung wird auswerten die Ergebnisse. Danach werden wir besprochen Verbesserungen.",
+        "Nächste Woche wird das Team den Ablauf testen. Die Leitung wird die Ergebnisse auswerten. Danach werden wir Verbesserungen besprechen.",
+        "Nächste Woche werden das Team den Ablauf testen. Die Leitung wird die Ergebnisse ausgewertet. Danach wird wir Verbesserungen besprechen."
+      ],
+      "correct_answer": "Nächste Woche wird das Team den Ablauf testen. Die Leitung wird die Ergebnisse auswerten. Danach werden wir Verbesserungen besprechen.",
+      "accepted_answers": [
+        "Nächste Woche wird das Team den Ablauf testen. Die Leitung wird die Ergebnisse auswerten. Danach werden wir Verbesserungen besprechen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Jeder Satz enthält die passende Form von „werden“ an Position zwei und einen Infinitiv am Satzende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

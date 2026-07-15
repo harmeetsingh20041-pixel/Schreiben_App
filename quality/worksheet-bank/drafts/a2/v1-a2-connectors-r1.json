@@ -1,0 +1,163 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-connectors-r1",
+    "template_key": "v1-a2-connectors-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Connectors pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Konnektoren: Aussagen logisch verbinden",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "connectors",
+    "name": "Konnektoren"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "connectors",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Konnektoren verbinden Aussagen und zeigen Addition, Gegensatz, Alternative, Grund oder Folge.",
+    "key_rule": "Und, aber, oder und denn verbinden Hauptsätze ohne Verbendstellung; deshalb kann im zweiten Hauptsatz das Vorfeld besetzen und wird dann vom Verb gefolgt.",
+    "correct_examples": [
+      "Ich bin müde, aber ich lerne noch.",
+      "Der Bus fiel aus; deshalb nahm ich ein Taxi."
+    ],
+    "common_mistake_warning": "Achte darauf, ob nach dem Konnektor normale Hauptsatzstellung oder Inversion folgt.",
+    "what_to_revise": "Vergleiche und, aber, oder, denn und deshalb nach Bedeutung und Wortstellung."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt mit einem passenden Konnektor einen Gegensatz aus?",
+      "options": [
+        "Der Weg war lang, aber wir kamen pünktlich an.",
+        "Der Weg war lang, deshalb wir kamen pünktlich an.",
+        "Der Weg war lang, denn er führte durch viele Dörfer.",
+        "Der Weg war lang, oder wir kamen pünktlich an."
+      ],
+      "correct_answer": "Der Weg war lang, aber wir kamen pünktlich an.",
+      "accepted_answers": ["Der Weg war lang, aber wir kamen pünktlich an."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Aber“ verbindet die lange Strecke mit dem unerwartet pünktlichen Ankommen als Gegensatz.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Folgesatz mit „deshalb“ hat die richtige Wortstellung?",
+      "options": [
+        "Es regnete; deshalb wir blieben zu Hause.",
+        "Es regnete, deshalb zu Hause wir blieben.",
+        "Es regnete; deshalb wir zu Hause bleiben.",
+        "Es regnete; deshalb blieben wir zu Hause."
+      ],
+      "correct_answer": "Es regnete; deshalb blieben wir zu Hause.",
+      "accepted_answers": ["Es regnete; deshalb blieben wir zu Hause."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Steht „deshalb“ im Vorfeld, folgt direkt das finite Verb „blieben“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [aber, und, oder]. Ergänze den Gegensatz: Der Kurs ist anstrengend, ___ er ist sehr hilfreich.",
+      "options": [],
+      "correct_answer": "aber",
+      "accepted_answers": ["aber"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die zweite Aussage bildet einen positiven Gegensatz zur Anstrengung; deshalb passt „aber“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [deshalb, trotzdem, denn]. Ergänze den Grund mit Hauptsatzstellung: Ich gehe früh schlafen, ___ ich bin müde.",
+      "options": [],
+      "correct_answer": "denn",
+      "accepted_answers": ["denn"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Denn“ nennt einen Grund und lässt im zweiten Hauptsatz das Subjekt vor dem Verb.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [aber, deshalb, oder]. Ergänze die Folge: Der Zug hatte Verspätung; ___ kam ich später an.",
+      "options": [],
+      "correct_answer": "deshalb",
+      "accepted_answers": ["deshalb"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das spätere Ankommen ist die Folge; nach „deshalb“ steht das finite Verb „kam“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Verbposition: Die Station war voll; deshalb ___ wir länger.",
+      "options": [
+        "länger arbeiteten",
+        "gearbeitet",
+        "arbeiteten",
+        "wir arbeiteten"
+      ],
+      "correct_answer": "arbeiteten",
+      "accepted_answers": [
+        "arbeiteten"
+      ],
+      "rubric": null,
+      "explanation": "Nach deshalb steht im Hauptsatz direkt das konjugierte Verb: deshalb arbeiteten wir länger.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [weil, oder, danach, trotzdem]. Ergänze die zeitliche Folge: Zuerst prüft die Pflegekraft die Werte; ___ dokumentiert sie diese.",
+      "options": [],
+      "correct_answer": "danach",
+      "accepted_answers": [
+        "danach"
+      ],
+      "rubric": null,
+      "explanation": "Danach verbindet die beiden Handlungen als zeitliche Reihenfolge nach zuerst.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung zeigt eine Folge?",
+      "options": [
+        "Der Bus fuhr nicht. Weil gingen wir zu Fuß.",
+        "Der Bus fuhr nicht. Deshalb gingen wir zu Fuß.",
+        "Der Bus fuhr nicht. Obwohl gingen wir zu Fuß.",
+        "Der Bus fuhr nicht. Oder gingen wir zu Fuß."
+      ],
+      "correct_answer": "Der Bus fuhr nicht. Deshalb gingen wir zu Fuß.",
+      "accepted_answers": [
+        "Der Bus fuhr nicht. Deshalb gingen wir zu Fuß."
+      ],
+      "rubric": null,
+      "explanation": "Deshalb nennt im zweiten Satz die Folge des ausgefallenen Busses.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

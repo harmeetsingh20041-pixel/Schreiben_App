@@ -1,0 +1,195 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-word-order-r1",
+    "template_key": "v1-b1-word-order-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Word order pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Wortstellung: Informationen klar anordnen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "word-order",
+    "name": "Wortstellung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "word-order",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Die Wortstellung zeigt, welche Information wichtig ist, und hält auch längere Sätze verständlich.",
+    "key_rule": "Im Hauptsatz steht das finite Verb an Position zwei; im Mittelfeld ist die neutrale Reihenfolge meist Zeit vor Art und Ort.",
+    "correct_examples": [
+      "Am Freitag bespricht das Team gemeinsam die Ergebnisse.",
+      "Wahrscheinlich kommt der Techniker am Nachmittag."
+    ],
+    "common_mistake_warning": "Wenn ein anderes Satzglied vorne steht, darf das Subjekt nicht zusätzlich vor dem finiten Verb stehen.",
+    "what_to_revise": "Wiederhole Verbzweitstellung, Mittelfeld und die Reihenfolge Zeit–Art–Ort."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortstellung passt zu einer sachlichen Übergabe auf der Station?",
+      "options": [
+        "Nach der Übergabe dokumentiert die Pflegekraft die neuen Werte sorgfältig.",
+        "Nach der Übergabe die Pflegekraft dokumentiert die neuen Werte sorgfältig.",
+        "Nach der Übergabe dokumentiert sorgfältig die neuen Werte die Pflegekraft."
+      ],
+      "correct_answer": "Nach der Übergabe dokumentiert die Pflegekraft die neuen Werte sorgfältig.",
+      "accepted_answers": [
+        "Nach der Übergabe dokumentiert die Pflegekraft die neuen Werte sorgfältig."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem vorangestellten Zeitglied steht das finite Verb direkt an zweiter Position.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ordnet Zeit, Art und Ort neutral?",
+      "options": [
+        "Wir fahren mit dem Bus zum Sprachkurs morgen.",
+        "Wir morgen fahren zum Sprachkurs mit dem Bus.",
+        "Wir fahren morgen mit dem Bus zum Sprachkurs."
+      ],
+      "correct_answer": "Wir fahren morgen mit dem Bus zum Sprachkurs.",
+      "accepted_answers": ["Wir fahren morgen mit dem Bus zum Sprachkurs."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die neutrale Reihenfolge im Mittelfeld lautet hier Zeit, Art und Ort.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz setzt das Adverb korrekt ins Vorfeld?",
+      "options": [
+        "Das Team wahrscheinlich heute erhält die Entscheidung.",
+        "Wahrscheinlich erhält das Team heute die Entscheidung.",
+        "Wahrscheinlich das Team erhält heute die Entscheidung."
+      ],
+      "correct_answer": "Wahrscheinlich erhält das Team heute die Entscheidung.",
+      "accepted_answers": [
+        "Wahrscheinlich erhält das Team heute die Entscheidung."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Besetzt das Adverb das Vorfeld, folgt das finite Verb und danach das Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [im Besprechungsraum heute, heute der Besprechungsraum, heute im Besprechungsraum]. Setze die neutrale Reihenfolge Zeit vor Ort ein: Die Fortbildung findet ___ statt.",
+      "options": [],
+      "correct_answer": "heute im Besprechungsraum",
+      "accepted_answers": ["heute im Besprechungsraum"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Zeitadverb steht in der neutralen Reihenfolge vor der Ortsangabe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die Dozentin den Ablauf erklärt hat, den Ablauf erklärt die Dozentin hat, erklärt hat die Dozentin den Ablauf]. Ergänze den Nebensatz in neutraler Reihenfolge mit Subjekt vor Objekt: Sie weiß, dass ___ .",
+      "options": [],
+      "correct_answer": "die Dozentin den Ablauf erklärt hat",
+      "accepted_answers": ["die Dozentin den Ablauf erklärt hat"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im dass-Satz steht das Subjekt vor den Ergänzungen und das finite Verb am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [nach Berlin morgen mit dem Zug, morgen mit dem Zug nach Berlin, mit dem Zug morgen nach Berlin]. Setze die neutrale Reihenfolge Zeit vor Art und Ort ein: Ich fahre ___ .",
+      "options": [],
+      "correct_answer": "morgen mit dem Zug nach Berlin",
+      "accepted_answers": ["morgen mit dem Zug nach Berlin"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Zeitangabe steht vor der Angabe der Art und Weise und der Ortsangabe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dem Patienten den Ablauf, den Ablauf dem Patienten, der Patientin der Ablauf]. Ergänze mit zwei nominalen Objekten in neutraler Reihenfolge Dativ vor Akkusativ: Die Ärztin erklärt ___ .",
+      "options": [],
+      "correct_answer": "dem Patienten den Ablauf",
+      "accepted_answers": ["dem Patienten den Ablauf"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei zwei nominalen Objekten steht der Dativ in neutraler Reihenfolge vor dem Akkusativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung hat nach der Zeitangabe die richtige Verbzweitstellung?",
+      "options": [
+        "Nach der Untersuchung die Pflegekraft informiert sofort die Angehörigen.",
+        "Nach der Untersuchung informiert sofort die Angehörigen die Pflegekraft.",
+        "Nach der Untersuchung informiert die Pflegekraft sofort die Angehörigen.",
+        "Nach der Untersuchung die Pflegekraft sofort die Angehörigen informiert."
+      ],
+      "correct_answer": "Nach der Untersuchung informiert die Pflegekraft sofort die Angehörigen.",
+      "accepted_answers": ["Nach der Untersuchung informiert die Pflegekraft sofort die Angehörigen."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das vorangestellte Zeitglied besetzt Position eins; deshalb folgt das finite Verb unmittelbar danach.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Umformung beginnt mit „Am Monatsende“ und erhält Verbzweitstellung und Satzklammer?",
+      "options": [
+        "Am Monatsende zahlt das Unternehmen den Beschäftigten pünktlich den Bonus aus.",
+        "Am Monatsende zahlt aus das Unternehmen den Beschäftigten pünktlich den Bonus.",
+        "Am Monatsende das Unternehmen den Beschäftigten pünktlich den Bonus auszahlt.",
+        "Am Monatsende das Unternehmen zahlt den Beschäftigten pünktlich den Bonus aus."
+      ],
+      "correct_answer": "Am Monatsende zahlt das Unternehmen den Beschäftigten pünktlich den Bonus aus.",
+      "accepted_answers": ["Am Monatsende zahlt das Unternehmen den Beschäftigten pünktlich den Bonus aus."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem neuen Vorfeld wird das Subjekt hinter das finite Verb verschoben; die Satzklammer bleibt erhalten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schilderung beginnt jeden Satz mit einer anderen Zeitangabe und hält danach die Verbzweitstellung ein?",
+      "options": [
+        "Am Morgen ich plane die Aufgaben. Nach der Pause bespreche ich offene Fragen. Gegen Feierabend ich kontrolliere die Termine.",
+        "Am Morgen plane ich die Aufgaben. Nach der Pause ich bespreche offene Fragen. Gegen Feierabend kontrolliere ich die Termine.",
+        "Am Morgen ich plane die Aufgaben. Nach der Pause ich bespreche offene Fragen. Gegen Feierabend ich kontrolliere die Termine.",
+        "Am Morgen plane ich die Aufgaben. Nach der Pause bespreche ich offene Fragen. Gegen Feierabend kontrolliere ich die Termine."
+      ],
+      "correct_answer": "Am Morgen plane ich die Aufgaben. Nach der Pause bespreche ich offene Fragen. Gegen Feierabend kontrolliere ich die Termine.",
+      "accepted_answers": ["Am Morgen plane ich die Aufgaben. Nach der Pause bespreche ich offene Fragen. Gegen Feierabend kontrolliere ich die Termine."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Verschiedene Zeitangaben im Vorfeld strukturieren den Ablauf, ohne die Verbzweitstellung zu verändern.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

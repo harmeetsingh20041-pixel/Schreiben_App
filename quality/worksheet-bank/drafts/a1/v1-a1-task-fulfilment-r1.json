@@ -1,0 +1,154 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-task-fulfilment-r1",
+    "template_key": "v1-a1-task-fulfilment-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Task fulfilment pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Alle Punkte einer kurzen Aufgabe beantworten",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "task-fulfilment",
+    "name": "Aufgabenerfüllung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "task-fulfilment",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Eine gute A1-Antwort nennt alle verlangten Informationen klar und knapp. Jedes Stichwort der Aufgabe braucht eine passende Aussage.",
+    "key_rule": "Markiere vor dem Schreiben die verlangten Punkte und prüfe danach: Habe ich zu jedem Punkt etwas geschrieben?",
+    "correct_examples": [
+      "Ich heiße Neha und wohne in Mumbai.",
+      "Der Termin ist am Dienstag um zehn Uhr."
+    ],
+    "common_mistake_warning": "Eine grammatisch richtige Antwort ist trotzdem unvollständig, wenn ein verlangter Punkt fehlt.",
+    "what_to_revise": "Übe kurze Antworten zu Name, Wohnort, Termin, Grund und Einladung."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Aufgabe: Nenne deinen Namen und deinen Wohnort. Welche Antwort erfüllt beide Punkte?",
+      "options": [
+        "Chennai ist eine große Stadt.",
+        "Ich heiße Arun und wohne in Chennai.",
+        "Ich heiße Arun."
+      ],
+      "correct_answer": "Ich heiße Arun und wohne in Chennai.",
+      "accepted_answers": ["Ich heiße Arun und wohne in Chennai."],
+      "answer_contract_version": 1,
+      "explanation": "Nur diese Antwort nennt sowohl den Namen als auch den Wohnort.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Aufgabe: Nenne Zeit und Ort des Treffens. Welche Antwort ist vollständig?",
+      "options": [
+        "Wir treffen uns im Café.",
+        "Am Montag habe ich Zeit.",
+        "Wir treffen uns am Montag um zehn Uhr im Café."
+      ],
+      "correct_answer": "Wir treffen uns am Montag um zehn Uhr im Café.",
+      "accepted_answers": ["Wir treffen uns am Montag um zehn Uhr im Café."],
+      "answer_contract_version": 1,
+      "explanation": "Die Antwort enthält sowohl eine genaue Zeit als auch einen Treffpunkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Aufgabe: Lehne die Einladung ab und nenne einen Grund. Welche Antwort passt?",
+      "options": [
+        "Leider kann ich nicht kommen. Ich muss arbeiten.",
+        "Leider kann ich nicht kommen.",
+        "Ich muss arbeiten."
+      ],
+      "correct_answer": "Leider kann ich nicht kommen. Ich muss arbeiten.",
+      "accepted_answers": ["Leider kann ich nicht kommen. Ich muss arbeiten."],
+      "answer_contract_version": 1,
+      "explanation": "Der erste kurze Satz sagt ab; der zweite kurze Satz nennt den verlangten Grund.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wohne | heiße | komme]. Aufgabe: Nenne deinen Wohnort. Ergänze: Ich ___ in Pune.",
+      "options": [],
+      "correct_answer": "wohne",
+      "accepted_answers": ["wohne"],
+      "answer_contract_version": 1,
+      "explanation": "‚Ich wohne in Pune‘ beantwortet direkt die Frage nach dem Wohnort.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [mit dem Bus | sehr gern | am Montag]. Aufgabe: Nenne einen Termin. Ergänze: Wir treffen uns ___.",
+      "options": [],
+      "correct_answer": "am Montag",
+      "accepted_answers": ["am Montag"],
+      "answer_contract_version": 1,
+      "explanation": "‚Am Montag‘ nennt den verlangten Termin und keine Art der Anreise.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Vielleicht später. | Sehr gern. | Leider nicht.] Aufgabe: Sage freundlich und eindeutig zu. Kommst du? ___",
+      "options": [],
+      "correct_answer": "Sehr gern.",
+      "accepted_answers": ["Sehr gern."],
+      "answer_contract_version": 1,
+      "explanation": "‚Sehr gern.‘ sagt freundlich und eindeutig zu; die anderen Antworten sind keine klare Zusage.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Aufgabe: Stelle dich mit Name, Herkunft und Beruf vor. Welche Antwort erfüllt alle drei Punkte?",
+      "options": [
+        "Ich komme aus Indien und bin Pflegekraft.",
+        "Ich heiße Asha, komme aus Indien und bin Pflegekraft.",
+        "Ich heiße Asha und lerne heute Deutsch.",
+        "Ich heiße Asha."
+      ],
+      "correct_answer": "Ich heiße Asha, komme aus Indien und bin Pflegekraft.",
+      "accepted_answers": ["Ich heiße Asha, komme aus Indien und bin Pflegekraft."],
+      "rubric": null,
+      "explanation": "Nur diese Antwort nennt ausdrücklich den Namen, die Herkunft und den Beruf. Sie prüft hier das Erkennen einer vollständigen Antwort.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Aufgabe: Sage einen Termin ab, nenne deinen Dienst als Grund und biete Freitag als neuen Termin an. Welche Antwort erfüllt alles?",
+      "options": [
+        "Am Donnerstag kann ich leider nicht, weil ich Dienst habe.",
+        "Am Freitag habe ich Dienst. Bis bald.",
+        "Am Donnerstag kann ich leider nicht, weil ich Dienst habe. Am Freitag habe ich Zeit.",
+        "Am Donnerstag kann ich leider nicht."
+      ],
+      "correct_answer": "Am Donnerstag kann ich leider nicht, weil ich Dienst habe. Am Freitag habe ich Zeit.",
+      "accepted_answers": ["Am Donnerstag kann ich leider nicht, weil ich Dienst habe. Am Freitag habe ich Zeit."],
+      "rubric": null,
+      "explanation": "Die Antwort enthält eine Absage, den Grund ‚Dienst‘ und Freitag als konkreten Ersatztermin. Sie prüft hier das Erkennen einer vollständigen Antwort.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

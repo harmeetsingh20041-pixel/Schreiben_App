@@ -1,0 +1,142 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-perfekt-r1",
+    "template_key": "v1-a2-perfekt-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Perfekt pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Perfekt: Hilfsverb und Partizip",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "perfekt",
+    "name": "Perfekt"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "perfekt",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Perfekt beschreibt vergangene Ereignisse und besteht aus einer Form von haben oder sein sowie einem Partizip am Satzende.",
+    "key_rule": "Die meisten Verben bilden das Perfekt mit haben; Verben der Ortsveränderung und Zustandsänderung häufig mit sein.",
+    "correct_examples": [
+      "Wir haben viel gelernt.",
+      "Sie ist nach Berlin gefahren."
+    ],
+    "common_mistake_warning": "Setze das Partizip im Hauptsatz ans Ende und wähle das passende Hilfsverb.",
+    "what_to_revise": "Übe regelmäßige, unregelmäßige und trennbare Partizipformen sowie haben und sein."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die korrekte Perfektform von machen.",
+      "options": [
+        "Ich die Aufgabe gemacht habe.",
+        "Ich habe die Aufgabe gemacht.",
+        "Ich bin die Aufgabe gemacht.",
+        "Ich habe die Aufgabe gemachen."
+      ],
+      "correct_answer": "Ich habe die Aufgabe gemacht.",
+      "accepted_answers": ["Ich habe die Aufgabe gemacht."],
+      "explanation": "Machen bildet das Perfekt mit haben und dem regelmäßigen Partizip gemacht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die korrekte Perfektform von fahren.",
+      "options": [
+        "Sie ist nach Hause gefahren.",
+        "Sie hat nach Hause gefahren.",
+        "Sie ist nach Hause gefahrt.",
+        "Sie nach Hause ist gefahren."
+      ],
+      "correct_answer": "Sie ist nach Hause gefahren.",
+      "accepted_answers": ["Sie ist nach Hause gefahren."],
+      "explanation": "Die Ortsveränderung fahren bildet das Perfekt hier mit sein und dem Partizip gefahren.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gespielt, spielen, spielte]. Setze die passende Form von spielen ein: Die Kinder haben im Garten ___.",
+      "options": [],
+      "correct_answer": "gespielt",
+      "accepted_answers": ["gespielt"],
+      "explanation": "Das regelmäßige Verb spielen bildet das Partizip mit ge- und -t: gespielt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ging, gegangen, gehen]. Setze die passende Form von gehen ein: Wir sind gestern ins Kino ___.",
+      "options": [],
+      "correct_answer": "gegangen",
+      "accepted_answers": ["gegangen"],
+      "explanation": "Gehen bildet das Perfekt mit sein und dem unregelmäßigen Partizip gegangen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sehen, sah, gesehen]. Setze die passende Form von sehen ein: Ich habe den neuen Film schon ___.",
+      "options": [],
+      "correct_answer": "gesehen",
+      "accepted_answers": ["gesehen"],
+      "explanation": "Sehen bildet das Perfekt mit haben und dem unregelmäßigen Partizip gesehen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Partizip: Die Pflegekraft hat die Werte ___.",
+      "options": ["notieren", "notierte", "notiertet", "notiert"],
+      "correct_answer": "notiert",
+      "accepted_answers": ["notiert"],
+      "rubric": null,
+      "explanation": "Das Perfekt von notieren wird mit hat und dem Partizip notiert gebildet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [war, wird, ist, hat]. Ravi ___ heute früh angekommen.",
+      "options": [],
+      "correct_answer": "ist",
+      "accepted_answers": ["ist"],
+      "rubric": null,
+      "explanation": "Das Verb ankommen bildet das Perfekt mit sein: Ravi ist angekommen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht im Perfekt?",
+      "options": [
+        "Wir beendeten die Übergabe.",
+        "Wir werden die Übergabe beenden.",
+        "Wir haben die Übergabe beendet.",
+        "Wir beenden die Übergabe."
+      ],
+      "correct_answer": "Wir haben die Übergabe beendet.",
+      "accepted_answers": ["Wir haben die Übergabe beendet."],
+      "rubric": null,
+      "explanation": "Haben plus Partizip II beendet bildet hier das Perfekt.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

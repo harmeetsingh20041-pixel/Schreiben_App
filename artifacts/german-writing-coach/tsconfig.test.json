@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "tests/setup.ts",
+    "tests/unit/**/*",
+    "vitest.config.ts",
+    "../../config/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist", "tests/e2e"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"]
+  }
+}

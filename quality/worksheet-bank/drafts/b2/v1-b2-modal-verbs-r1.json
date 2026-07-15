@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-modal-verbs-r1",
+    "template_key": "v1-b2-modal-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Modal verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Modalverben: Verpflichtung, Einschätzung und Distanz ausdrücken",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "modal-verbs",
+    "name": "Modalverben"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "modal-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Modalverben drücken nicht nur Fähigkeit, Erlaubnis oder Pflicht aus. In subjektiver Verwendung können sie auch Wahrscheinlichkeit, Schlussfolgerung und wiedergegebene Behauptung kennzeichnen.",
+    "key_rule": "Entscheide anhand des Kontexts, ob das Modalverb eine Handlung steuert oder die Einschätzung des Sprechers markiert; im Nebensatz steht das finite Modalverb am Ende des Verbkomplexes.",
+    "correct_examples": [
+      "Die Ursache könnte inzwischen behoben sein.",
+      "Der Bericht soll bereits an die Behörde übermittelt worden sein."
+    ],
+    "common_mistake_warning": "„Müssen“ bezeichnet in einer Schlussfolgerung keine äußere Pflicht; die Bedeutung ergibt sich aus Infinitiv und Kontext.",
+    "what_to_revise": "Übe objektive und subjektive Modalität, Passiv mit Modalverb und den Ersatzinfinitiv in mehrteiligen Verbformen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt eine gut begründete Vermutung statt einer Pflicht aus?",
+      "options": [
+        "Die technische Störung dürfte inzwischen behoben sein.",
+        "Die technische Störung muss bis morgen behoben werden.",
+        "Die technische Störung darf nur von der IT behoben werden."
+      ],
+      "correct_answer": "Die technische Störung dürfte inzwischen behoben sein.",
+      "accepted_answers": [
+        "Die technische Störung dürfte inzwischen behoben sein."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Konjunktiv „dürfte“ markiert eine wahrscheinliche Einschätzung; „behoben sein“ beschreibt dabei den vermuteten erreichten Zustand.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung kennzeichnet eine fremde, nicht bestätigte Behauptung?",
+      "options": [
+        "Der Anbieter kann die Sicherheitslücke technisch schließen.",
+        "Der Anbieter soll die Sicherheitslücke bereits geschlossen haben.",
+        "Der Anbieter muss die Sicherheitslücke bis Freitag schließen."
+      ],
+      "correct_answer": "Der Anbieter soll die Sicherheitslücke bereits geschlossen haben.",
+      "accepted_answers": [
+        "Der Anbieter soll die Sicherheitslücke bereits geschlossen haben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Subjektives „sollen“ zeigt, dass die Information aus einer fremden Quelle stammt und nicht als eigene Gewissheit präsentiert wird.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Nebensatz ordnet Passivinfinitiv und Modalverb korrekt?",
+      "options": [
+        "Es ist klar, dass müssen alle Einträge überprüft werden.",
+        "Es ist klar, dass alle Einträge müssen überprüft werden.",
+        "Es ist klar, dass alle Einträge überprüft werden müssen."
+      ],
+      "correct_answer": "Es ist klar, dass alle Einträge überprüft werden müssen.",
+      "accepted_answers": [
+        "Es ist klar, dass alle Einträge überprüft werden müssen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im dass-Satz steht der Verbkomplex am Ende; der Passivinfinitiv „überprüft werden“ geht dem finiten Modalverb voraus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [müssen, können, dürfen]. Ergänze die zwingende Vorschrift: Vertrauliche Unterlagen ___ in einem verschlossenen Schrank aufbewahrt werden.",
+      "options": [],
+      "correct_answer": "müssen",
+      "accepted_answers": [
+        "müssen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das pluralische Subjekt und die verbindliche Vorgabe verlangen „müssen“; „können“ oder „dürfen“ wären inhaltlich schwächer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wollte, dürfte, musste]. Ergänze die vorsichtige Prognose: Nach den bisherigen Messwerten ___ der Energieverbrauch deutlich sinken.",
+      "options": [],
+      "correct_answer": "dürfte",
+      "accepted_answers": [
+        "dürfte"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Dürfte“ markiert hier eine aufgrund von Daten wahrscheinliche, aber nicht sichere zukünftige Entwicklung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [soll, kann, muss]. Ergänze die mit sehr hoher Gewissheit formulierte logische Schlussfolgerung: Das Büro ist dunkel, die Tür ist verschlossen und laut Anwesenheitsliste haben alle Teilnehmenden das Gebäude verlassen; die Besprechung ___ bereits beendet sein.",
+      "options": [],
+      "correct_answer": "muss",
+      "accepted_answers": [
+        "muss"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die mehreren eindeutigen Hinweise stützen eine Schlussfolgerung mit sehr hoher Gewissheit; dafür steht das subjektiv verwendete „muss“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wäre früher reagieren, hätte früher reagieren müssen, musste früher reagiert haben]. Ergänze die rückblickende Kritik: Die Projektleitung ___, um die Verzögerung zu vermeiden.",
+      "options": [],
+      "correct_answer": "hätte früher reagieren müssen",
+      "accepted_answers": [
+        "hätte früher reagieren müssen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Konjunktiv II der Vergangenheit mit Ersatzinfinitiv drückt eine nicht erfüllte Verpflichtung rückblickend aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung stellt das finite Modalverb im dass-Nebensatz korrekt ans Ende des Passivkomplexes?",
+      "options": [
+        "Die Leitung betont, dass die Dokumentation vollständig müssen überprüft werden.",
+        "Die Leitung betont, dass die Dokumentation vollständig überprüft werden muss.",
+        "Die Leitung betont, dass die Dokumentation muss vollständig überprüft werden.",
+        "Die Leitung betont, dass muss die Dokumentation vollständig überprüft werden."
+      ],
+      "correct_answer": "Die Leitung betont, dass die Dokumentation vollständig überprüft werden muss.",
+      "accepted_answers": [
+        "Die Leitung betont, dass die Dokumentation vollständig überprüft werden muss."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im eingeleiteten Nebensatz schließt das finite Modalverb den Passivinfinitiv-Komplex ab.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung formuliert die Vorschrift als korrektes Passiv mit „müssen“?",
+      "options": [
+        "Vor jeder Freigabe müssen sämtliche Angaben kontrolliert geworden.",
+        "Vor jeder Freigabe sämtliche Angaben müssen kontrolliert werden.",
+        "Vor jeder Freigabe müssen die Verantwortlichen sämtliche Angaben kontrollieren.",
+        "Vor jeder Freigabe müssen sämtliche Angaben kontrolliert werden."
+      ],
+      "correct_answer": "Vor jeder Freigabe müssen sämtliche Angaben kontrolliert werden.",
+      "accepted_answers": [
+        "Vor jeder Freigabe müssen sämtliche Angaben kontrolliert werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Modalpassiv rückt die verpflichtende Handlung in den Vordergrund, ohne eine handelnde Person nennen zu müssen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung drückt eine aus den Protokollen abgeleitete, sehr sichere Schlussfolgerung über die Vergangenheit aus?",
+      "options": [
+        "Den Protokollen zufolge kann die Störung bereits vor Schichtbeginn aufgetreten sein.",
+        "Den Protokollen zufolge dürfte die Störung bereits vor Schichtbeginn aufgetreten sein.",
+        "Den Protokollen zufolge muss die Störung bereits vor Schichtbeginn aufgetreten sein.",
+        "Den Protokollen zufolge soll die Störung bereits vor Schichtbeginn aufgetreten sein."
+      ],
+      "correct_answer": "Den Protokollen zufolge muss die Störung bereits vor Schichtbeginn aufgetreten sein.",
+      "accepted_answers": [
+        "Den Protokollen zufolge muss die Störung bereits vor Schichtbeginn aufgetreten sein."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Subjektiv gebraucht kennzeichnet „muss … aufgetreten sein“ eine nahezu sichere Schlussfolgerung. „Soll“ verweist auf fremde Aussagen, „kann“ auf Möglichkeit und „dürfte“ auf Wahrscheinlichkeit.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

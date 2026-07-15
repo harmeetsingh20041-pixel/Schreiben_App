@@ -1,0 +1,167 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-subordinate-clauses-r1",
+    "template_key": "v1-a1-subordinate-clauses-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Subordinate clauses pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Zusatztraining: Sätze mit weil, dass und wenn erkennen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "subordinate-clauses",
+    "name": "Einfache Nebensätze"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "subordinate-clauses",
+    "stretch-practice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Auf A1 kannst du viele Inhalte mit kurzen Hauptsätzen ausdrücken. Dieses Zusatztraining hilft dir, häufige Sätze mit weil, dass und wenn zu verstehen.",
+    "key_rule": "Erkenne weil, dass oder wenn als Signal: Das konjugierte Verb steht in diesem Satzteil am Ende.",
+    "correct_examples": [
+      "Ich bleibe hier, weil der Bus spät kommt.",
+      "Sie sagt, dass der Kurs heute beginnt."
+    ],
+    "common_mistake_warning": "Übernimm nach weil, dass oder wenn nicht einfach die normale Hauptsatzstellung.",
+    "what_to_revise": "Unterstreiche zuerst das Signalwort und das Verb am Ende; lange freie Nebensätze sind hier noch nicht das Ziel."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher weil-Satz hat das Verb am Ende?",
+      "options": [
+        "Ich bleibe zu Hause, weil ich krank bin.",
+        "Ich bleibe zu Hause, weil bin ich krank.",
+        "Ich bleibe zu Hause, weil ich bin krank."
+      ],
+      "correct_answer": "Ich bleibe zu Hause, weil ich krank bin.",
+      "accepted_answers": [
+        "Ich bleibe zu Hause, weil ich krank bin."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Im weil-Nebensatz steht die finite Form ‚bin‘ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher dass-Satz ist richtig?",
+      "options": [
+        "Mira sagt, dass sie kommt heute ist.",
+        "Mira sagt, dass sie heute kommt.",
+        "Mira sagt, dass kommt sie heute."
+      ],
+      "correct_answer": "Mira sagt, dass sie heute kommt.",
+      "accepted_answers": [
+        "Mira sagt, dass sie heute kommt."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Im dass-Nebensatz steht das finite Verb ‚kommt‘ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher wenn-Satz ist richtig?",
+      "options": [
+        "Ich rufe dich an, wenn habe ich Zeit.",
+        "Ich rufe dich an, wenn ich habe Zeit.",
+        "Ich rufe dich an, wenn ich Zeit habe."
+      ],
+      "correct_answer": "Ich rufe dich an, wenn ich Zeit habe.",
+      "accepted_answers": [
+        "Ich rufe dich an, wenn ich Zeit habe."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Im wenn-Nebensatz schließt die finite Form ‚habe‘ den Satzteil ab.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [bin | ist | sind]. Ergänze das Verb am Ende: Ich gehe schlafen, weil ich müde ___.",
+      "options": [],
+      "correct_answer": "bin",
+      "accepted_answers": [
+        "bin"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Zum Subjekt ‚ich‘ gehört ‚bin‘, und im weil-Satz steht es am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [komme | kommen | kommt]. Ergänze: Wir wissen, dass Ravi später ___.",
+      "options": [],
+      "correct_answer": "kommt",
+      "accepted_answers": [
+        "kommt"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Zum Subjekt ‚Ravi‘ gehört ‚kommt‘; der dass-Satz endet damit.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [haben | habe | hat]. Ergänze: Ich lerne, wenn ich Zeit ___.",
+      "options": [],
+      "correct_answer": "habe",
+      "accepted_answers": [
+        "habe"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die Form ‚habe‘ passt zu ‚ich‘ und steht im wenn-Satz am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha kann nicht zum Kurs kommen. Welcher weil-Satz hat das Verb am Ende?",
+      "options": [
+        "Asha kommt nicht, weil sie krank bin.",
+        "Asha kommt nicht, weil sie krank ist.",
+        "Asha kommt nicht, weil sie ist krank.",
+        "Asha kommt nicht, weil ist sie krank."
+      ],
+      "correct_answer": "Asha kommt nicht, weil sie krank ist.",
+      "accepted_answers": ["Asha kommt nicht, weil sie krank ist."],
+      "rubric": null,
+      "explanation": "Im Nebensatz mit ‚weil‘ steht das finite Verb ‚ist‘ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi freut sich über Ashas ersten Arbeitstag. Welcher dass-Satz ist richtig?",
+      "options": [
+        "Ravi freut sich, dass beginnt Asha heute.",
+        "Ravi freut sich, dass Asha beginnt heute.",
+        "Ravi freut sich, dass Asha heute beginnen.",
+        "Ravi freut sich, dass Asha heute beginnt."
+      ],
+      "correct_answer": "Ravi freut sich, dass Asha heute beginnt.",
+      "accepted_answers": ["Ravi freut sich, dass Asha heute beginnt."],
+      "rubric": null,
+      "explanation": "Der dass-Nebensatz folgt auf das Komma und endet mit dem finiten Verb.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

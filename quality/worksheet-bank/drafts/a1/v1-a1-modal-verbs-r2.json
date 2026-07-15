@@ -1,0 +1,153 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-modal-verbs-r2",
+    "template_key": "v1-a1-modal-verbs-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Modal verbs accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Modalverben im Alltag: Plan, Pflicht und Wunsch",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "modal-verbs",
+    "name": "Modalverben"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "modal-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Modalverben verändern die Aussage: können nennt eine Fähigkeit, müssen eine Pflicht und möchten einen Wunsch. Der Infinitiv am Ende trägt die eigentliche Handlung.",
+    "key_rule": "Wähle das Modalverb nach der Bedeutung, konjugiere es passend zum Subjekt und setze den Handlungsinfinitiv ans Ende.",
+    "correct_examples": [
+      "Die Gäste möchten Kaffee trinken.",
+      "Mein Bruder muss den Bus nehmen."
+    ],
+    "common_mistake_warning": "Die Bedeutung kann grammatisch richtig, aber inhaltlich falsch sein; beachte deshalb den Kontext.",
+    "what_to_revise": "Unterscheide Fähigkeit, Pflicht und Wunsch und übe die Satzklammer."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Der Kontext nennt eine Pflicht. Welcher Satz passt und ist korrekt?",
+      "options": [
+        "Mein Bruder müssen um sieben Uhr aufstehen.",
+        "Mein Bruder muss um sieben Uhr aufstehen.",
+        "Mein Bruder kann um sieben Uhr aufstehen."
+      ],
+      "correct_answer": "Mein Bruder muss um sieben Uhr aufstehen.",
+      "accepted_answers": ["Mein Bruder muss um sieben Uhr aufstehen."],
+      "explanation": "‚Muss‘ drückt die genannte Pflicht aus und passt zu ‚mein Bruder‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt einen gemeinsamen Wunsch der Kolleginnen?",
+      "options": [
+        "Die Kolleginnen möchten zusammen essen.",
+        "Die Kolleginnen möchte zusammen essen.",
+        "Die Kolleginnen müssen zusammen essen."
+      ],
+      "correct_answer": "Die Kolleginnen möchten zusammen essen.",
+      "accepted_answers": ["Die Kolleginnen möchten zusammen essen."],
+      "explanation": "Das Pluralsubjekt braucht ‚möchten‘ und der Infinitiv ‚essen‘ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [muss, möchte, kann]. Der Kontext nennt eine Fähigkeit. Setze ein: Das Kind ___ schon lesen.",
+      "options": [],
+      "correct_answer": "kann",
+      "accepted_answers": ["kann"],
+      "explanation": "Eine vorhandene Fähigkeit wird mit ‚kann‘ ausgedrückt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [möchtest, musst, kannst]. Der Kontext nennt eine Pflicht. Setze ein: Du ___ deinen Ausweis mitbringen.",
+      "options": [],
+      "correct_answer": "musst",
+      "accepted_answers": ["musst"],
+      "explanation": "Die Pflicht wird mit der zu ‚du‘ passenden Form ‚musst‘ ausgedrückt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [möchte, kann, muss]. Der Kontext nennt Annas Wunsch. Setze ein: Anna ___ heute Suppe essen.",
+      "options": [],
+      "correct_answer": "möchte",
+      "accepted_answers": ["möchte"],
+      "explanation": "Der ausdrücklich genannte Wunsch verlangt die Form ‚möchte‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere die Modalverbform: Wir muss morgen früh arbeiten.",
+      "options": [],
+      "correct_answer": "Wir müssen morgen früh arbeiten.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Das Modalverb wird passend zu ‚wir‘ als ‚müssen‘ formuliert.",
+          "Der Infinitiv ‚arbeiten‘ bleibt am Satzende und alle Angaben bleiben erhalten."
+        ],
+        "sample_answer": "Wir müssen morgen früh arbeiten."
+      },
+      "explanation": "Zum Subjekt ‚wir‘ gehört ‚müssen‘; das Handlungsverb bleibt im Infinitiv.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz über eine Fähigkeit, der mit ‚Ihr‘ beginnt: gut / ihr / könnt / tanzen",
+      "options": [],
+      "correct_answer": "Ihr könnt gut tanzen.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "‚Könnt‘ steht passend zu ‚ihr‘ auf Position 2 und ‚tanzen‘ am Ende.",
+          "Das Adverb ‚gut‘ wird sinnvoll vor dem Infinitiv verwendet."
+        ],
+        "sample_answer": "Ihr könnt gut tanzen."
+      },
+      "explanation": "Das konjugierte Modalverb und der Infinitiv bilden eine Satzklammer.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz über einen Wunsch, der mit ‚Sie‘ beginnt: am Wochenende / möchte / sie / ausschlafen",
+      "options": [],
+      "correct_answer": "Sie möchte am Wochenende ausschlafen.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "‚Möchte‘ steht nach dem Subjekt und der Infinitiv ‚ausschlafen‘ am Ende.",
+          "Die Zeitangabe wird vollständig und grammatisch sinnvoll eingesetzt."
+        ],
+        "sample_answer": "Sie möchte am Wochenende ausschlafen."
+      },
+      "explanation": "Der Wunsch steht im Modalverb; die gewünschte Handlung erscheint als Infinitiv am Ende.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

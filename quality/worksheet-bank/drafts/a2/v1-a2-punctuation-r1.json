@@ -1,0 +1,163 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-punctuation-r1",
+    "template_key": "v1-a2-punctuation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Punctuation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Zeichensetzung: Punkt, Fragezeichen und Komma",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "punctuation",
+    "name": "Zeichensetzung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "punctuation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Satzzeichen zeigen, wo eine Aussage endet, ob etwas gefragt wird und welche Satzteile zusammengehören.",
+    "key_rule": "Aussagen enden mit einem Punkt, direkte Fragen mit einem Fragezeichen; vor weil, dass und wenn steht ein Komma. Ein Doppelpunkt kann eine angekündigte Aufzählung einleiten.",
+    "correct_examples": [
+      "Ich komme später, weil der Bus ausfällt.",
+      "Wir brauchen drei Angaben: Name, Datum und Uhrzeit."
+    ],
+    "common_mistake_warning": "Setze das Komma vor den Nebensatzkonnektor und nicht erst vor das Verb am Ende.",
+    "what_to_revise": "Übe Punkt und Fragezeichen am Satzende, Kommas zwischen Haupt- und Nebensätzen sowie den Doppelpunkt vor einer angekündigten Aufzählung."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist vollständig und korrekt gesetzt?",
+      "options": [
+        "Ich bleibe zu Hause, weil ich krank bin.",
+        "Ich bleibe zu Hause weil, ich krank bin.",
+        "Ich bleibe, zu Hause weil ich krank bin.",
+        "Ich bleibe zu Hause weil ich krank bin,"
+      ],
+      "correct_answer": "Ich bleibe zu Hause, weil ich krank bin.",
+      "accepted_answers": ["Ich bleibe zu Hause, weil ich krank bin."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Komma steht zwischen Hauptsatz und dem mit „weil“ eingeleiteten Nebensatz; am Ende steht ein Punkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche direkte Frage hat das richtige Satzschlusszeichen?",
+      "options": [
+        "Kommst, du morgen?",
+        "Kommst du morgen,",
+        "Kommst du morgen?",
+        "Kommst du morgen."
+      ],
+      "correct_answer": "Kommst du morgen?",
+      "accepted_answers": ["Kommst du morgen?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Eine direkte Frage endet mit einem Fragezeichen und benötigt hier kein Komma.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [:; .; ?]. Setze das fehlende Satzzeichen ein: Die Pflegekraft dokumentiert drei Angaben ___ Name, Datum und Uhrzeit.",
+      "options": [],
+      "correct_answer": ":",
+      "accepted_answers": [":"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Doppelpunkt leitet hier die angekündigte Aufzählung der drei Angaben ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [.; :; ?]. Setze das fehlende Satzzeichen ein: Wann beginnt die Übergabe ___",
+      "options": [],
+      "correct_answer": "?",
+      "accepted_answers": ["?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die direkte W-Frage endet mit einem Fragezeichen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [?; .; :]. Setze das fehlende Satzzeichen ein: Die Übergabe beginnt um sieben Uhr ___",
+      "options": [],
+      "correct_answer": ".",
+      "accepted_answers": ["."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Ein neutraler Aussagesatz endet mit einem Punkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist richtig gesetzt?",
+      "options": [
+        "Die Pflegekraft sagt dass, der Arzt später kommt.",
+        "Die Pflegekraft sagt dass der Arzt, später kommt.",
+        "Die Pflegekraft sagt; dass der Arzt später kommt.",
+        "Die Pflegekraft sagt, dass der Arzt später kommt."
+      ],
+      "correct_answer": "Die Pflegekraft sagt, dass der Arzt später kommt.",
+      "accepted_answers": [
+        "Die Pflegekraft sagt, dass der Arzt später kommt."
+      ],
+      "rubric": null,
+      "explanation": "Vor dem Nebensatz mit dass steht ein Komma; der Aussagesatz endet mit einem Punkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Punkt, Fragezeichen, Doppelpunkt, Komma]. Vor weil steht in diesem Satz ein ___: Ich bleibe, weil ich müde bin.",
+      "options": [],
+      "correct_answer": "Komma",
+      "accepted_answers": [
+        "Komma"
+      ],
+      "rubric": null,
+      "explanation": "Ein Nebensatz mit weil wird durch ein Komma vom Hauptsatz getrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche direkte Frage hat das richtige Satzzeichen?",
+      "options": [
+        "Wann beginnt der Dienst!",
+        "Wann beginnt der Dienst?",
+        "Wann beginnt der Dienst.",
+        "Wann beginnt der Dienst,"
+      ],
+      "correct_answer": "Wann beginnt der Dienst?",
+      "accepted_answers": [
+        "Wann beginnt der Dienst?"
+      ],
+      "rubric": null,
+      "explanation": "Eine direkte Frage endet mit einem Fragezeichen.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

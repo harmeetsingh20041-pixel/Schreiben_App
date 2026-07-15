@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "minimum_server_version_num": 170000,
+  "required_frontend_environment": [
+    "PORT",
+    "BASE_PATH",
+    "VITE_SUPABASE_URL",
+    "VITE_SUPABASE_ANON_KEY",
+    "VITE_ENABLE_DEMO_MODE",
+    "VITE_ENABLE_PUBLIC_TEACHER_SIGNUP",
+    "VITE_ENABLE_PUBLIC_STUDENT_SIGNUP",
+    "VITE_SENTRY_DSN",
+    "VITE_SENTRY_ENVIRONMENT",
+    "VITE_APP_RELEASE",
+    "VITE_SENTRY_ENABLE_REPLAY",
+    "SENTRY_UPLOAD_SOURCE_MAPS"
+  ],
+  "required_collector_environment": [
+    "LOCAL_SUPABASE_DB_URL",
+    "SUPABASE_ACCESS_TOKEN",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "PRODUCTION_PROJECT_REF",
+    "SENTRY_AUTH_TOKEN",
+    "SENTRY_API_BASE_URL",
+    "SENTRY_ORG",
+    "SENTRY_PROJECT",
+    "PRODUCTION_PREFLIGHT_EXPECTATIONS_JSON",
+    "PRODUCTION_OPERATIONS_EVIDENCE_JSON"
+  ],
+  "required_edge_secret_names": [
+    "DEEPSEEK_API_KEY",
+    "GEMINI_API_KEY",
+    "GEMINI_ALLOW_PRIMARY_AUTH_FAILOVER",
+    "PROCESS_FEEDBACK_SECRET",
+    "PROCESS_WRITING_JOBS_SECRET",
+    "PROCESS_WORKSHEET_JOBS_SECRET",
+    "PROCESS_WORKSHEET_ANSWER_JOBS_SECRET",
+    "PROCESS_RECOVERY_SECRET"
+  ],
+  "required_edge_functions": [
+    "prepare-writing-feedback",
+    "process-due-feedback",
+    "generate-practice-worksheet",
+    "evaluate-practice-attempt",
+    "kick-writing-jobs",
+    "process-writing-jobs",
+    "process-worksheet-generation-jobs",
+    "process-worksheet-answer-jobs",
+    "recover-async-jobs"
+  ],
+  "required_edge_function_verify_jwt": {
+    "prepare-writing-feedback": false,
+    "process-due-feedback": false,
+    "generate-practice-worksheet": false,
+    "evaluate-practice-attempt": false,
+    "kick-writing-jobs": false,
+    "process-writing-jobs": false,
+    "process-worksheet-generation-jobs": false,
+    "process-worksheet-answer-jobs": false,
+    "recover-async-jobs": false
+  },
+  "required_reconciliation_cron_jobs": [
+    "reconcile-writing-jobs-every-30-seconds",
+    "reconcile-worksheet-generation-every-30-seconds",
+    "reconcile-worksheet-evaluation-every-30-seconds",
+    "reconcile-ai-spend-reservations-every-30-seconds",
+    "drain-practice-cycle-transitions-every-30-seconds"
+  ],
+  "required_release_cron_job": "release-due-feedback-every-30-seconds",
+  "required_realtime_tables": [
+    "submission_status_events",
+    "practice_assignment_status_events",
+    "practice_attempt_status_events"
+  ],
+  "required_healthy_services": ["auth", "db", "rest", "realtime"],
+  "required_auth_security": {
+    "jwt_expiry_seconds": 600,
+    "totp_enrollment_enabled": true,
+    "totp_verification_enabled": true,
+    "minimum_verified_totp_factors_per_platform_admin": 2
+  },
+  "required_external_scheduler": {
+    "provider": "upstash_qstash",
+    "region": "eu-central-1",
+    "schedule_id_prefix": "schreiben-v1-recovery",
+    "schedule_id_suffixes": ["minute-00", "minute-30"],
+    "destination_path": "/functions/v1/recover-async-jobs",
+    "cron": "* * * * *",
+    "delivery_delays_seconds": [0, 30],
+    "effective_max_gap_seconds": 30,
+    "method": "POST",
+    "body_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "timeout_seconds": 10,
+    "retries": 2,
+    "retry_delay_expression": "1000 * (1 + retried)",
+    "forwarded_header_name": "x-process-recovery-secret",
+    "baseline_deliveries_per_day": 2880,
+    "free_plan_daily_message_limit": 1000,
+    "accepted_billing_plans": ["pay_as_you_go", "fixed", "enterprise"],
+    "contract_sha256": "ab5662265933439e8eea84964d0c39c2752bab962aa4b426ec753cfd521c6c25"
+  },
+  "required_monitoring_alerts": [
+    "queue_age",
+    "job_retries",
+    "dead_letters",
+    "provider_latency",
+    "held_feedback",
+    "worksheet_rejection",
+    "auth_failures",
+    "frontend_errors"
+  ],
+  "maximum_heartbeat_age_seconds": 90,
+  "maximum_completed_backup_age_hours": 36,
+  "maximum_restore_drill_age_days": 90,
+  "maximum_scheduler_test_age_hours": 24,
+  "maximum_rollback_evidence_age_hours": 168,
+  "maximum_monitoring_evidence_age_hours": 168,
+  "maximum_provider_canary_age_hours": 24,
+  "maximum_data_governance_verification_age_hours": 168
+}

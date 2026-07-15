@@ -1,0 +1,154 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-word-order-r1",
+    "template_key": "v1-a1-word-order-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Word order pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Wortstellung im Hauptsatz",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "word-order",
+    "name": "Wortstellung"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "word-order",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Die Wortstellung zeigt, wie Satzteile zusammengehören. Im deutschen Hauptsatz steht das finite Verb an zweiter Stelle.",
+    "key_rule": "Beginnt der Satz mit dem Subjekt, folgt das Verb; beginnt er mit einer Zeitangabe, folgt ebenfalls sofort das Verb.",
+    "correct_examples": [
+      "Ich fahre heute mit dem Bus.",
+      "Nachmittags besucht Mira ihre Freundin."
+    ],
+    "common_mistake_warning": "Setze nach einer vorangestellten Zeitangabe nicht zuerst das Subjekt und dann das Verb.",
+    "what_to_revise": "Baue kurze Hauptsätze einmal mit dem Subjekt und einmal mit einer Zeitangabe am Anfang."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortstellung ist im Aussagesatz richtig?",
+      "options": [
+        "Ravi heute im Krankenhaus arbeitet.",
+        "Arbeitet heute Ravi im Krankenhaus.",
+        "Ravi arbeitet heute im Krankenhaus."
+      ],
+      "correct_answer": "Ravi arbeitet heute im Krankenhaus.",
+      "accepted_answers": ["Ravi arbeitet heute im Krankenhaus."],
+      "answer_contract_version": 1,
+      "explanation": "Nach dem Subjekt ‚Ravi‘ steht das finite Verb ‚arbeitet‘ an zweiter Stelle.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortstellung ist mit ‚Heute‘ am Anfang richtig?",
+      "options": [
+        "Heute lerne ich Deutsch.",
+        "Heute ich lerne Deutsch.",
+        "Heute Deutsch ich lerne."
+      ],
+      "correct_answer": "Heute lerne ich Deutsch.",
+      "accepted_answers": ["Heute lerne ich Deutsch."],
+      "answer_contract_version": 1,
+      "explanation": "Steht ‚Heute‘ zuerst, folgt direkt das finite Verb ‚lerne‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Reihenfolge bildet eine korrekte Ja-Nein-Frage?",
+      "options": [
+        "Morgen du kommst?",
+        "Kommst du morgen?",
+        "Du morgen kommst?"
+      ],
+      "correct_answer": "Kommst du morgen?",
+      "accepted_answers": ["Kommst du morgen?"],
+      "answer_contract_version": 1,
+      "explanation": "In der neutralen Ja-Nein-Frage steht das finite Verb ‚Kommst‘ zuerst.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Ravi | heute | arbeitet]. Ergänze Position zwei: Am Montag ___ Ravi im Krankenhaus.",
+      "options": [],
+      "correct_answer": "arbeitet",
+      "accepted_answers": ["arbeitet"],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚Am Montag‘ muss das finite Verb ‚arbeitet‘ folgen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [fahre | ich | Bus]. Ergänze Position zwei: Morgen ___ ich mit dem Bus.",
+      "options": [],
+      "correct_answer": "fahre",
+      "accepted_answers": ["fahre"],
+      "answer_contract_version": 1,
+      "explanation": "Die Zeitangabe steht zuerst; deshalb folgt das finite Verb ‚fahre‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Mira | trinkt | Kaffee]. Ergänze das finite Verb: Mira ___ am Morgen Kaffee.",
+      "options": [],
+      "correct_answer": "trinkt",
+      "accepted_answers": ["trinkt"],
+      "answer_contract_version": 1,
+      "explanation": "Nach dem Subjekt ‚Mira‘ steht an zweiter Stelle die finite Form ‚trinkt‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Welche neutrale standardsprachliche Wortstellung beginnt mit ‚Am Morgen‘ und setzt das Subjekt direkt nach das finite Verb?",
+      "options": [
+        "Am Morgen beginnt Asha ihren Dienst.",
+        "Am Morgen beginnen Asha ihren Dienst.",
+        "Am Morgen Asha beginnt ihren Dienst.",
+        "Am Morgen beginnt ihren Dienst Asha."
+      ],
+      "correct_answer": "Am Morgen beginnt Asha ihren Dienst.",
+      "accepted_answers": ["Am Morgen beginnt Asha ihren Dienst."],
+      "rubric": null,
+      "explanation": "Die vorangestellte Zeitangabe wird im Hauptsatz direkt vom finiten Verb gefolgt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi geht nach dem Deutschkurs zur Arbeit. Welche Wortstellung ist richtig?",
+      "options": [
+        "Nach dem Deutschkurs Ravi geht zur Arbeit.",
+        "Nach dem Deutschkurs geht Ravi zur Arbeit.",
+        "Nach dem Deutschkurs gehen Ravi zur Arbeit.",
+        "Nach dem Deutschkurs zur Arbeit Ravi geht."
+      ],
+      "correct_answer": "Nach dem Deutschkurs geht Ravi zur Arbeit.",
+      "accepted_answers": ["Nach dem Deutschkurs geht Ravi zur Arbeit."],
+      "rubric": null,
+      "explanation": "Wenn die Zeitangabe zuerst steht, folgt das finite Verb direkt danach.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

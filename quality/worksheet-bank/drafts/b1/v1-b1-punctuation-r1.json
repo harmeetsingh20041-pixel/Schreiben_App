@@ -1,0 +1,195 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-punctuation-r1",
+    "template_key": "v1-b1-punctuation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Punctuation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Zeichensetzung: Informationen übersichtlich gliedern",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "punctuation",
+    "name": "Zeichensetzung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "punctuation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Satzzeichen zeigen, welche Satzteile zusammengehören, und verhindern Missverständnisse in längeren Texten.",
+    "key_rule": "Nebensätze werden durch Kommas abgetrennt; ein Doppelpunkt kündigt eine Erklärung oder Aufzählung an.",
+    "correct_examples": [
+      "Wenn die Lieferung eintrifft, prüfen wir den Inhalt.",
+      "Für den Kurs brauchen Sie drei Dinge: Zeit, Ruhe und Schreibmaterial."
+    ],
+    "common_mistake_warning": "Zwischen gleichrangigen Satzteilen mit „und“ steht meist kein Komma, vor einem Nebensatz aber schon.",
+    "what_to_revise": "Wiederhole Kommas bei Nebensätzen, Aufzählungen und Infinitivgruppen sowie Doppelpunkt und Anführungszeichen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz aus einer Pflegeübergabe ist korrekt gegliedert?",
+      "options": [
+        "Die Pflegekraft berichtet, dass die Nacht ruhig war.",
+        "Die Pflegekraft berichtet dass, die Nacht ruhig war.",
+        "Die Pflegekraft, berichtet dass die Nacht ruhig war."
+      ],
+      "correct_answer": "Die Pflegekraft berichtet, dass die Nacht ruhig war.",
+      "accepted_answers": [
+        "Die Pflegekraft berichtet, dass die Nacht ruhig war."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Vor dem mit „dass“ eingeleiteten Nebensatz steht ein Komma.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Aufzählung ist richtig gesetzt?",
+      "options": [
+        "Wir benötigen, Papier, Stifte und einen Ordner.",
+        "Wir benötigen Papier, Stifte und einen Ordner.",
+        "Wir benötigen Papier Stifte, und einen Ordner."
+      ],
+      "correct_answer": "Wir benötigen Papier, Stifte und einen Ordner.",
+      "accepted_answers": ["Wir benötigen Papier, Stifte und einen Ordner."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die ersten Aufzählungsglieder werden durch Komma getrennt; vor dem abschließenden „und“ steht keines.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz kündigt eine Erklärung korrekt an?",
+      "options": [
+        "Die Ursache: war eindeutig das Kabel war beschädigt.",
+        "Die Ursache war eindeutig, das Kabel: war beschädigt.",
+        "Die Ursache war eindeutig: Das Kabel war beschädigt."
+      ],
+      "correct_answer": "Die Ursache war eindeutig: Das Kabel war beschädigt.",
+      "accepted_answers": [
+        "Die Ursache war eindeutig: Das Kabel war beschädigt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Doppelpunkt steht nach dem vollständigen Ankündigungssatz und leitet die Erklärung ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Punkt, Doppelpunkt, Komma]. Im Satz „Obwohl der Bus verspätet war kamen wir pünktlich an“ fehlt ein ___ . Trage den Namen ein.",
+      "options": [],
+      "correct_answer": "Komma",
+      "accepted_answers": ["Komma"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der vorangestellte obwohl-Satz wird mit einem Komma vom Hauptsatz getrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Fragezeichen, Doppelpunkt, Komma]. Im Satz „Der Patient braucht drei Dinge Ruhe, Wasser und Zeit“ fehlt nach „Dinge“ ein ___ . Trage den Namen ein.",
+      "options": [],
+      "correct_answer": "Doppelpunkt",
+      "accepted_answers": ["Doppelpunkt"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach der Ankündigung einer Aufzählung steht ein Doppelpunkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Komma, Ausrufezeichen, Bindestrich]. Im Satz „Wir treffen uns früher um die Aufgabe gemeinsam vorzubereiten“ fehlt vor „um“ ein ___ . Trage den Namen ein.",
+      "options": [],
+      "correct_answer": "Komma",
+      "accepted_answers": ["Komma"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die mit „um“ eingeleitete Infinitivgruppe wird durch ein Komma abgetrennt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Klammern, Schrägstriche, Anführungszeichen]. Im folgenden Satz fehlen Zeichen um die wörtliche Aussage: Die Leiterin sagte: Wir beginnen pünktlich. Trage den Namen ein: ___ .",
+      "options": [],
+      "correct_answer": "Anführungszeichen",
+      "accepted_answers": ["Anführungszeichen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Eine wörtlich wiedergegebene Aussage wird durch Anführungszeichen markiert.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung setzt Doppelpunkt und Komma vollständig korrekt?",
+      "options": [
+        "Für die Dokumentation gilt, wenn etwas unklar ist: fragt die Pflegekraft sofort nach.",
+        "Für die Dokumentation gilt: Wenn etwas unklar ist fragt die Pflegekraft sofort nach.",
+        "Für die Dokumentation gilt; wenn etwas unklar ist, fragt die Pflegekraft sofort nach.",
+        "Für die Dokumentation gilt: Wenn etwas unklar ist, fragt die Pflegekraft sofort nach."
+      ],
+      "correct_answer": "Für die Dokumentation gilt: Wenn etwas unklar ist, fragt die Pflegekraft sofort nach.",
+      "accepted_answers": ["Für die Dokumentation gilt: Wenn etwas unklar ist, fragt die Pflegekraft sofort nach."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Doppelpunkt und Komma gliedern Ankündigung, Bedingung und Hauptaussage eindeutig.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung mit „obwohl“ ist grammatisch und hinsichtlich der Zeichensetzung korrekt?",
+      "options": [
+        "Obwohl die Frist war kurz, das Team beendete die Aufgabe rechtzeitig.",
+        "Obwohl die Frist kurz war beendete das Team, die Aufgabe rechtzeitig.",
+        "Obwohl die Frist kurz war, beendete das Team die Aufgabe rechtzeitig.",
+        "Obwohl, die Frist kurz war, beendete das Team die Aufgabe rechtzeitig."
+      ],
+      "correct_answer": "Obwohl die Frist kurz war, beendete das Team die Aufgabe rechtzeitig.",
+      "accepted_answers": ["Obwohl die Frist kurz war, beendete das Team die Aufgabe rechtzeitig."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Komma markiert die Grenze zwischen dem vorangestellten Nebensatz und dem Hauptsatz.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche organisatorische Nachricht verwendet einen Doppelpunkt vor der Liste, ein Komma vor dem Nebensatz und ein Fragezeichen korrekt?",
+      "options": [
+        "Bitte bringen Sie Folgendes mit, Notizbuch, Stift und Ausweis. Informieren Sie mich falls Sie später kommen. Können Sie den Termin kurz bestätigen.",
+        "Bitte bringen Sie Folgendes mit: Notizbuch, Stift und Ausweis. Informieren Sie mich, falls Sie später kommen. Können Sie den Termin kurz bestätigen?",
+        "Bitte bringen Sie Folgendes mit; Notizbuch, Stift und Ausweis. Informieren Sie mich falls, Sie später kommen. Können Sie den Termin kurz bestätigen?",
+        "Bitte bringen Sie Folgendes mit: Notizbuch, Stift und Ausweis? Informieren Sie mich, falls Sie später kommen? Können Sie den Termin kurz bestätigen."
+      ],
+      "correct_answer": "Bitte bringen Sie Folgendes mit: Notizbuch, Stift und Ausweis. Informieren Sie mich, falls Sie später kommen. Können Sie den Termin kurz bestätigen?",
+      "accepted_answers": ["Bitte bringen Sie Folgendes mit: Notizbuch, Stift und Ausweis. Informieren Sie mich, falls Sie später kommen. Können Sie den Termin kurz bestätigen?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Unterschiedliche Satzzeichen strukturieren Liste, Bedingung und Rückfrage in einer kurzen Nachricht.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

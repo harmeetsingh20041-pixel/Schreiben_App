@@ -134,13 +134,13 @@
   --secondary-foreground: 169 100% 18%;
 
   --muted: 40 15% 92%;
-  --muted-foreground: 60 5% 45%;
+  --muted-foreground: 60 5% 38%;
 
   /* Terracotta Accent */
   --accent: 14 65% 57%; /* #D96C4A */
   --accent-foreground: 0 0% 100%;
 
-  --destructive: 0 70% 50%;
+  --destructive: 0 70% 44%;
   --destructive-foreground: 0 0% 100%;
 
   --input: 40 20% 88%;
@@ -275,6 +275,17 @@
   h1, h2, h3, h4, h5, h6, .font-serif {
     font-family: var(--font-serif);
     font-weight: 500;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

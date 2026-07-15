@@ -1,0 +1,166 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-pronouns-r1",
+    "template_key": "v1-a1-pronouns-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Pronouns pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Pronomen für Personen und Dinge",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "pronouns",
+    "name": "Pronomen"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "pronouns",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Pronomen ersetzen bereits bekannte Personen oder Dinge. So vermeidet man Wiederholungen in kurzen Sätzen.",
+    "key_rule": "Wähle das Pronomen nach Person, Genus und Satzfunktion: Anna kommt – sie kommt; das Buch liegt hier – es liegt hier; ich sehe Paul – ich sehe ihn.",
+    "correct_examples": [
+      "Mira arbeitet. Sie ist müde.",
+      "Der Stift ist neu. Er schreibt gut."
+    ],
+    "common_mistake_warning": "Nutze nicht automatisch ‚er‘ für jede Person oder jedes Nomen.",
+    "what_to_revise": "Wiederhole ich, du, er, sie, es, wir und ihr sowie häufige Formen wie ihn und mir."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Pronomen ersetzt ‚Anita‘? Anita lernt Deutsch. ___ lernt jeden Tag.",
+      "options": [
+        "Er",
+        "Es",
+        "Sie"
+      ],
+      "correct_answer": "Sie",
+      "accepted_answers": [
+        "Sie"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Der weibliche Personenname wird hier durch ‚sie‘ ersetzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Pronomen ersetzt ‚das Buch‘? Das Buch ist neu. ___ liegt hier.",
+      "options": [
+        "Es",
+        "Sie",
+        "Ihn"
+      ],
+      "correct_answer": "Es",
+      "accepted_answers": [
+        "Es"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Nomen ‚das Buch‘ wird im Nominativ durch ‚es‘ ersetzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Pronomen passt? Ich sehe Paul. Ich sehe ___.",
+      "options": [
+        "ihm",
+        "ihn",
+        "er"
+      ],
+      "correct_answer": "ihn",
+      "accepted_answers": [
+        "ihn"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Als direktes Objekt wird die männliche Person durch ‚ihn‘ ersetzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Unser | Wir | Uns]. Ergänze das Subjekt: Ravi und ich lernen. ___ üben zusammen.",
+      "options": [],
+      "correct_answer": "Wir",
+      "accepted_answers": [
+        "Wir"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Ravi und ich‘ werden als Subjekt durch ‚wir‘ ersetzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ihr | ihnen | sie]. Ergänze das direkte Objekt: Ich sehe Lea. Ich sehe ___.",
+      "options": [],
+      "correct_answer": "sie",
+      "accepted_answers": [
+        "sie"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die weibliche Person wird als direktes Objekt durch ‚sie‘ ersetzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [mir | mich | mein]. Ergänze: Der Lehrer hilft ___.",
+      "options": [],
+      "correct_answer": "mir",
+      "accepted_answers": [
+        "mir"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Verb ‚helfen‘ steht mit dem Dativpronomen ‚mir‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Das ist Asha, eine neue Kollegin aus Jaipur. Welches Pronomen passt im zweiten Satz?",
+      "options": [
+        "Das ist Asha. Er arbeitet heute.",
+        "Das ist Asha. Es arbeitet heute.",
+        "Das ist Asha. Sie arbeitet heute.",
+        "Das ist Asha. Ihr arbeitet heute."
+      ],
+      "correct_answer": "Das ist Asha. Sie arbeitet heute.",
+      "accepted_answers": ["Das ist Asha. Sie arbeitet heute."],
+      "rubric": null,
+      "explanation": "Der Name ‚Asha‘ wird im Folgesatz durch das Pronomen ‚sie‘ aufgenommen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi besucht Frau Meier im Patientenzimmer. Welches Objektpronomen ersetzt ‚Frau Meier‘?",
+      "options": [
+        "Ravi besucht sie im Patientenzimmer.",
+        "Ravi besucht ihnen im Patientenzimmer.",
+        "Ravi besucht er im Patientenzimmer.",
+        "Ravi besucht ihr im Patientenzimmer."
+      ],
+      "correct_answer": "Ravi besucht sie im Patientenzimmer.",
+      "accepted_answers": ["Ravi besucht sie im Patientenzimmer."],
+      "rubric": null,
+      "explanation": "Das Akkusativpronomen ‚sie‘ ersetzt hier die feminine Person ‚Frau Meier‘.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

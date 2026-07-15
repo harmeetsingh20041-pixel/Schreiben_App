@@ -1,33 +1,51 @@
-export function getDiffWords(original: string, corrected: string): { type: "added" | "removed" | "unchanged", text: string }[] {
-  // A simple word differ for mock purposes. 
-  // In a real app, use a robust library like 'diff' or the backend provides explicit spans.
-  const origWords = original.split(/\s+/);
-  const corrWords = corrected.split(/\s+/);
-  
-  const result: { type: "added" | "removed" | "unchanged", text: string }[] = [];
-  
-  let i = 0;
-  let j = 0;
-  
-  while (i < origWords.length || j < corrWords.length) {
-    if (i < origWords.length && j < corrWords.length && origWords[i] === corrWords[j]) {
-      result.push({ type: "unchanged", text: origWords[i] });
-      i++;
-      j++;
-    } else if (i < origWords.length && !corrWords.includes(origWords[i])) {
-      result.push({ type: "removed", text: origWords[i] });
-      i++;
-    } else if (j < corrWords.length && !origWords.includes(corrWords[j])) {
-      result.push({ type: "added", text: corrWords[j] });
-      j++;
-    } else {
-      // rough fallback
-      result.push({ type: "removed", text: origWords[i] });
-      result.push({ type: "added", text: corrWords[j] });
-      i++;
-      j++;
-    }
+import { diffArrays } from "diff";
+import {
+  sequenceDiffExceedsBudget,
+  sharedSequenceBounds,
+} from "@/utils/boundedDiff";
+
+export type DiffWord = {
+  type: "added" | "removed" | "unchanged";
+  text: string;
+};
+
+function tokenize(value: string) {
+  return value.match(/\s+|[\p{L}\p{M}\p{N}]+|[^\s\p{L}\p{M}\p{N}]+/gu) ?? [];
+}
+
+function linearDiff(original: string, corrected: string): DiffWord[] {
+  const originalCharacters = Array.from(original);
+  const correctedCharacters = Array.from(corrected);
+  const { prefixLength, leftEnd, rightEnd } = sharedSequenceBounds(
+    originalCharacters,
+    correctedCharacters,
+  );
+  const chunks: DiffWord[] = [];
+  const prefix = originalCharacters.slice(0, prefixLength).join("");
+  const removed = originalCharacters.slice(prefixLength, leftEnd).join("");
+  const added = correctedCharacters.slice(prefixLength, rightEnd).join("");
+  const suffix = originalCharacters.slice(leftEnd).join("");
+  if (prefix) chunks.push({ type: "unchanged", text: prefix });
+  if (removed) chunks.push({ type: "removed", text: removed });
+  if (added) chunks.push({ type: "added", text: added });
+  if (suffix) chunks.push({ type: "unchanged", text: suffix });
+  return chunks;
+}
+
+export function getDiffWords(original: string, corrected: string): DiffWord[] {
+  const originalTokens = tokenize(original);
+  const correctedTokens = tokenize(corrected);
+  if (sequenceDiffExceedsBudget(originalTokens.length, correctedTokens.length)) {
+    return linearDiff(original, corrected);
   }
-  
-  return result;
+
+  return diffArrays(originalTokens, correctedTokens).flatMap((change) => {
+    const type: DiffWord["type"] = change.added
+      ? "added"
+      : change.removed
+      ? "removed"
+      : "unchanged";
+    const text = change.value.join("");
+    return text ? [{ type, text }] : [];
+  });
 }

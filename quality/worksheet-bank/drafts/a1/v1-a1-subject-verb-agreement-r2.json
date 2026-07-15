@@ -1,0 +1,153 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-subject-verb-agreement-r2",
+    "template_key": "v1-a1-subject-verb-agreement-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Subject-verb agreement accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Subjekt und Verb im Alltag",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "subject-verb-agreement",
+    "name": "Subjekt-Verb-Kongruenz"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "subject-verb-agreement",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Auch ein langes Subjekt bestimmt die Verbform. Zwei Personen mit ‚und‘ sind Plural; ein einzelnes Nomen bleibt Singular. Das höfliche ‚Sie‘ verwendet die Pluralform.",
+    "key_rule": "Finde den Kern des Subjekts: eine Person oder Sache = Singular, mehrere = Plural, höfliches Sie = Pluralform.",
+    "correct_examples": [
+      "Der Bus kommt um acht Uhr.",
+      "Meine Freundin und ich gehen zum Kurs."
+    ],
+    "common_mistake_warning": "Das Wort direkt vor dem Verb ist nicht immer das Subjekt; lies den ganzen Satz.",
+    "what_to_revise": "Übe Nomen im Singular und Plural, Subjekte mit ‚und‘ sowie das höfliche ‚Sie‘."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbform passt zu ‚meine Eltern‘?",
+      "options": [
+        "Meine Eltern wohnen in Bonn.",
+        "Meine Eltern wohnt in Bonn.",
+        "Meine Eltern wohnst in Bonn."
+      ],
+      "correct_answer": "Meine Eltern wohnen in Bonn.",
+      "accepted_answers": ["Meine Eltern wohnen in Bonn."],
+      "explanation": "‚Meine Eltern‘ ist Plural und verlangt die Verbform ‚wohnen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verbindet zwei Personen mit der passenden Verbform?",
+      "options": [
+        "Der Lehrer und die Schülerin sprichst Deutsch.",
+        "Der Lehrer und die Schülerin sprechen Deutsch.",
+        "Der Lehrer und die Schülerin spricht Deutsch."
+      ],
+      "correct_answer": "Der Lehrer und die Schülerin sprechen Deutsch.",
+      "accepted_answers": ["Der Lehrer und die Schülerin sprechen Deutsch."],
+      "explanation": "Zwei Personen mit ‚und‘ bilden ein Pluralsubjekt; deshalb passt ‚sprechen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [arbeite, arbeitet, arbeiten]. Setze die passende Verbform ein: Paul und seine Schwester ___ heute zu Hause.",
+      "options": [],
+      "correct_answer": "arbeiten",
+      "accepted_answers": ["arbeiten"],
+      "explanation": "‚Paul und seine Schwester‘ sind zwei Personen und brauchen die Pluralform ‚arbeiten‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [öffnet, öffnen, öffnest]. Setze die passende Verbform ein: Der Supermarkt ___ um acht Uhr.",
+      "options": [],
+      "correct_answer": "öffnet",
+      "accepted_answers": ["öffnet"],
+      "explanation": "‚Der Supermarkt‘ ist Singular; deshalb lautet die Verbform ‚öffnet‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hat, haben, habt]. Setze die passende Verbform ein: Frau Klein, Sie ___ morgen Zeit.",
+      "options": [],
+      "correct_answer": "haben",
+      "accepted_answers": ["haben"],
+      "explanation": "Das höfliche ‚Sie‘ verwendet bei ‚haben‘ die Form ‚haben‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere die Verbform: Der Arzt und die Pflegekraft arbeitet heute.",
+      "options": [],
+      "correct_answer": "Der Arzt und die Pflegekraft arbeiten heute.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Die Singularform ‚arbeitet‘ wird passend zum Pluralsubjekt in ‚arbeiten‘ geändert.",
+          "Das vollständige Subjekt und die Zeitangabe bleiben korrekt erhalten."
+        ],
+        "sample_answer": "Der Arzt und die Pflegekraft arbeiten heute."
+      },
+      "explanation": "‚Der Arzt und die Pflegekraft‘ bezeichnet zwei Personen und verlangt die Pluralform ‚arbeiten‘.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz, der mit ‚Das neue Handy‘ beginnt: das neue Handy / gut / funktioniert",
+      "options": [],
+      "correct_answer": "Das neue Handy funktioniert gut.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Der Satz beginnt mit dem einzelnen Subjekt ‚Das neue Handy‘ und verwendet ‚funktioniert‘.",
+          "Alle vorgegebenen Satzteile werden genau einmal in der richtigen Satzstruktur verwendet."
+        ],
+        "sample_answer": "Das neue Handy funktioniert gut."
+      },
+      "explanation": "Der Kern des Subjekts ist das einzelne Handy; deshalb steht ‚funktioniert‘.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz, der mit ‚Am Wochenende‘ beginnt: am Wochenende / meine Freunde / besuchen / das Museum",
+      "options": [],
+      "correct_answer": "Am Wochenende besuchen meine Freunde das Museum.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Der Satz beginnt mit ‚Am Wochenende‘ und das Pluralsubjekt ‚meine Freunde‘ verwendet die Form ‚besuchen‘.",
+          "Alle Satzteile einschließlich ‚das Museum‘ werden genau einmal in einer grammatischen Reihenfolge verwendet."
+        ],
+        "sample_answer": "Am Wochenende besuchen meine Freunde das Museum."
+      },
+      "explanation": "Das Pluralsubjekt ‚meine Freunde‘ verlangt die Verbform ‚besuchen‘.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

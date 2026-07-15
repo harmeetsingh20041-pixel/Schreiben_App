@@ -2,7 +2,7 @@
 
 ## What This App Is
 
-Schreiben App / German Writing Coach is a standalone German writing correction tool for A1/A2 learners. The current product is a polished frontend demo with student and teacher flows, mock data, mock role selection, mock AI correction output, and a practice center. The immediate product direction is to preserve the approved frontend while replacing demo behavior with real authentication, storage, AI correction, grammar tracking, and teacher/admin workflows phase by phase.
+Schreiben App / German Writing Coach is a standalone German writing and adaptive-practice tool for A1-B2 learners. V1 uses real Supabase authentication, server-managed workspace roles, persisted classes and submissions, durable writing evaluation, teacher-controlled feedback release, and persisted practice worksheets. The old showcase login, local role selection, and mock protected-data routes are not part of V1.
 
 The app should remain independent for now. It may later be merged into a larger Physics Wallah-related learning platform, but current architecture should not assume that merge.
 
@@ -14,53 +14,34 @@ The app should remain independent for now. It may later be merged into a larger 
 
 ## Student Flow
 
-Current frontend flow:
-
-1. Student chooses demo login from `src/pages/login.tsx`.
-2. Role is saved in localStorage by `src/lib/auth.tsx`.
-3. Student reaches `/student/dashboard`.
-4. Student chooses `/student/questions` for predefined prompts or free writing.
-5. Student writes text in `/student/write`.
-6. `src/services/aiCorrectionService.ts` returns `MOCK_AI_RESPONSE` after a delay.
-7. Student is routed to `/student/result/:id`.
-8. Feedback is rendered through `src/components/submission-review.tsx`.
-9. History and practice are driven by `src/data/mockData.ts`.
-
-Future real flow:
+Current V1 flow:
 
 1. Student authenticates through Supabase Auth.
-2. Student profile and workspace membership determine access.
-3. Student sees assigned batches/questions from Supabase.
-4. Student submits writing through a server-side endpoint.
-5. Server validates input limits and authorization.
-6. Server calls DeepSeek V4 Flash with a protected API key.
-7. Server validates strict AI JSON output.
-8. Server saves submission, line feedback, grammar topics, stats, and teacher-visible data.
-9. Student sees persisted feedback and unlocked practice tests.
+2. Server-controlled profile and workspace membership determine access.
+3. Student requests a class with its private join code and waits for teacher approval.
+4. Student explicitly selects a class, then chooses an assigned prompt or free writing.
+5. Writing is autosaved and submitted through the versioned API facade.
+6. A durable worker validates and evaluates the exact original text.
+7. Feedback is released immediately, at the scheduled time, or after teacher review according to the class mode.
+8. Only released feedback appears in student history and confirmed weakness statistics.
+9. Adaptive practice reuses an approved worksheet or generates and validates a new one when needed.
 
 ## Teacher Flow
 
-Current frontend flow:
+Current V1 flow:
 
-1. Teacher chooses demo login from `src/pages/login.tsx`.
-2. Teacher reaches `/teacher/dashboard`.
-3. Teacher views mock dashboard, batches, students, questions, and submissions.
-4. Teacher question changes are local React state only.
-5. Teacher notes in `SubmissionReview` are local UI state only and are not persisted.
-
-Future real flow:
-
-1. Teacher authenticates through Supabase Auth.
-2. Teacher role and workspace membership determine authorization.
-3. Teacher manages only their workspace's batches, students, questions, submissions, and notes.
-4. Teacher sees grammar weakness trends by student and batch.
-5. Teacher can review/edit generated practice tests in later phases.
+1. Teacher authenticates through Supabase Auth and receives the role allowed by the active workspace membership.
+2. Teacher creates a class, chooses its feedback mode, and shares its private join code.
+3. Teacher approves or rejects each exact enrollment request.
+4. Teacher manages only their workspace's classes, students, writing tasks, submissions, feedback drafts, and practice support actions.
+5. Teacher-review and uncertain feedback stays private until an authorized teacher edits and releases it.
+6. Teacher sees confirmed grammar weakness trends and can review, override, reassign, or resolve practice support with an audit trail.
 
 ## No-Overcorrection Philosophy
 
-The core correction rule is: do not overcorrect A1/A2 writing.
+The core correction rule is: do not overcorrect A1-B2 writing.
 
-The AI should not rewrite simple correct German into advanced German. Simple, natural, correct A1/A2 sentences should stay unchanged and be marked as `correct` or `acceptable_a1_a2`. Corrections should target real mistakes only, including:
+The evaluator should not rewrite simple correct German into more advanced German. Natural, correct sentences that fit the learner's declared A1-B2 level should stay unchanged. Corrections should target real mistakes only, including:
 
 - article mistakes
 - case mistakes
@@ -130,4 +111,3 @@ Primary roles:
 - `platform_admin`
 - `teacher`
 - `student`
-

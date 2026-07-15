@@ -1,0 +1,204 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-praeteritum-r1",
+    "template_key": "v1-b2-praeteritum-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Praeteritum pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Präteritum in Berichten und Erzählungen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "praeteritum",
+    "name": "Präteritum"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "praeteritum",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Präteritum ist die zentrale Erzählzeit schriftlicher Berichte. Starke, schwache und gemischte Verben bilden es unterschiedlich und müssen zum sachlichen Stil passen.",
+    "key_rule": "Achte auf den Stammwechsel starker Verben und auf die Endung -te schwacher Verben: blieb, führte, veranlasste und durfte.",
+    "correct_examples": [
+      "Die Analyse zeigte ein unerwartet eindeutiges Ergebnis.",
+      "Danach erläuterte die Verantwortliche das weitere Vorgehen."
+    ],
+    "common_mistake_warning": "Bilde starke Verben nicht regelmäßig mit -te und vermische in einem sachlichen Bericht nicht grundlos Präteritum und Perfekt.",
+    "what_to_revise": "Wiederhole häufige starke Formen, gemischte Verben, Modalverben und die konsequente Zeitführung im Bericht."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präteritumform des starken Verbs ‚ergeben‘ ist korrekt?",
+      "options": [
+        "Die Untersuchung hat keinen eindeutigen Zusammenhang ergeben.",
+        "Die Untersuchung ergab keinen eindeutigen Zusammenhang.",
+        "Die Untersuchung ergebte keinen eindeutigen Zusammenhang."
+      ],
+      "correct_answer": "Die Untersuchung ergab keinen eindeutigen Zusammenhang.",
+      "accepted_answers": [
+        "Die Untersuchung ergab keinen eindeutigen Zusammenhang."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die starke Präteritumform von ‚ergeben‘ lautet ‚ergab‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet das Präteritum von ‚lassen‘ korrekt?",
+      "options": [
+        "Die Leitung ließ den Ablauf extern prüfen.",
+        "Die Leitung lasste den Ablauf extern prüfen.",
+        "Die Leitung geließ den Ablauf extern prüfen."
+      ],
+      "correct_answer": "Die Leitung ließ den Ablauf extern prüfen.",
+      "accepted_answers": [
+        "Die Leitung ließ den Ablauf extern prüfen."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das starke Verb ‚lassen‘ bildet im Präteritum die Form ‚ließ‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form passt in einen konsequenten schriftlichen Bericht im Präteritum?",
+      "options": [
+        "Niemand weiß, wie lange die Störung gedauert hat.",
+        "Niemand gewusste, wie lange die Störung dauern wurde.",
+        "Niemand wusste, wie lange die Störung dauern würde."
+      ],
+      "correct_answer": "Niemand wusste, wie lange die Störung dauern würde.",
+      "accepted_answers": [
+        "Niemand wusste, wie lange die Störung dauern würde."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Wusste‘ führt den Bericht im Präteritum fort; ‚würde‘ markiert die damalige Zukunftsperspektive.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [nahm | nehmte | genommen]. Ergänze die starke Präteritumform: Die Arbeitsgruppe ___ den Vorschlag einstimmig an.",
+      "options": [],
+      "correct_answer": "nahm",
+      "accepted_answers": [
+        "nahm"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das starke Verb ‚annehmen‘ bildet die Präteritumklammer ‚nahm … an‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ziehte | gezogen | zog]. Ergänze die starke Präteritumform: Die Ärztin ___ aus den Werten einen eindeutigen Schluss.",
+      "options": [],
+      "correct_answer": "zog",
+      "accepted_answers": [
+        "zog"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die starke Präteritumform von ‚ziehen‘ lautet in der dritten Person ‚zog‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [bestanden | bestand | bestehte]. Ergänze die starke Präteritumform: Das Problem ___ bereits seit mehreren Wochen.",
+      "options": [],
+      "correct_answer": "bestand",
+      "accepted_answers": [
+        "bestand"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das starke Verb ‚bestehen‘ bildet im Präteritum die Form ‚bestand‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gemusst | musste | müsste]. Ergänze ausdrücklich das Präteritum: Das Team ___ den Zeitplan mehrfach anpassen.",
+      "options": [],
+      "correct_answer": "musste",
+      "accepted_answers": [
+        "musste"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Musste‘ ist die Präteritumform des Modalverbs ‚müssen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält die korrekte Präteritumform von „entscheiden“?",
+      "options": [
+        "Die Leitung entscheidet nach der Beratung gegen den ursprünglichen Plan.",
+        "Die Leitung entschied nach der Beratung gegen den ursprünglichen Plan.",
+        "Die Leitung entscheid nach der Beratung gegen den ursprünglichen Plan.",
+        "Die Leitung entschiedete nach der Beratung gegen den ursprünglichen Plan."
+      ],
+      "correct_answer": "Die Leitung entschied nach der Beratung gegen den ursprünglichen Plan.",
+      "accepted_answers": [
+        "Die Leitung entschied nach der Beratung gegen den ursprünglichen Plan."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das starke Verb ‚entscheiden‘ bildet das Präteritum mit Stammwechsel als ‚entschied‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung gibt den Bericht vollständig und kompakt im Präteritum wieder?",
+      "options": [
+        "Die Fachgruppe hat alle Unterlagen geprüft und gab anschließend eine Empfehlung ab.",
+        "Die Fachgruppe prüfte alle Unterlagen und hat anschließend eine Empfehlung abgegeben.",
+        "Die Fachgruppe prüfte alle Unterlagen und gebte anschließend eine Empfehlung ab.",
+        "Die Fachgruppe prüfte alle Unterlagen und gab anschließend eine Empfehlung ab."
+      ],
+      "correct_answer": "Die Fachgruppe prüfte alle Unterlagen und gab anschließend eine Empfehlung ab.",
+      "accepted_answers": [
+        "Die Fachgruppe prüfte alle Unterlagen und gab anschließend eine Empfehlung ab."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der schriftliche Bericht wird durch die beiden Präteritumformen kompakter, ohne seinen Inhalt zu verändern.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung hält einen schriftlichen Ereignisbericht konsequent im Präteritum und bildet alle Verbformen korrekt?",
+      "options": [
+        "Die Pflegefachkraft bemerkte die Störung, unterbrach die Messung und veranlasste eine technische Kontrolle.",
+        "Die Pflegefachkraft bemerktete die Störung, unterbrach die Messung und veranlasste eine technische Kontrolle.",
+        "Die Pflegefachkraft bemerkte die Störung, hat die Messung unterbrochen und veranlasste eine technische Kontrolle.",
+        "Die Pflegefachkraft bemerkte die Störung, unterbrecht die Messung und veranlasste eine technische Kontrolle."
+      ],
+      "correct_answer": "Die Pflegefachkraft bemerkte die Störung, unterbrach die Messung und veranlasste eine technische Kontrolle.",
+      "accepted_answers": [
+        "Die Pflegefachkraft bemerkte die Störung, unterbrach die Messung und veranlasste eine technische Kontrolle."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Bemerkte“ und „veranlasste“ sind korrekte schwache Präteritumformen; das starke Verb „unterbrechen“ lautet im Präteritum „unterbrach“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

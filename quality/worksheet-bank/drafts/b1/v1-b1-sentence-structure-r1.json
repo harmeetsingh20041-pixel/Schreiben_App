@@ -1,0 +1,197 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-sentence-structure-r1",
+    "template_key": "v1-b1-sentence-structure-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Sentence structure pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Satzbau: Haupt- und Nebensätze verbinden",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "sentence-structure",
+    "name": "Satzbau"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "sentence-structure",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein klarer Satzbau verbindet Hauptsätze, Nebensätze und Satzklammern zu gut verständlichen Aussagen.",
+    "key_rule": "Im Hauptsatz steht das finite Verb an zweiter Stelle, im eingeleiteten Nebensatz am Ende; beide Teile werden mit Komma verbunden.",
+    "correct_examples": [
+      "Wir beginnen, sobald alle Teilnehmenden angekommen sind.",
+      "Die Besprechung hat wegen der Störung später angefangen."
+    ],
+    "common_mistake_warning": "Lange Sätze werden unverständlich, wenn Satzklammer oder Nebensatzgrenze nicht erkennbar sind.",
+    "what_to_revise": "Wiederhole Hauptsatz, Nebensatz, Satzklammer und die Stellung von Ergänzungen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ist vollständig und klar gebaut?",
+      "options": [
+        "Weil der Termin verschoben wurde, informiert das Büro alle Beteiligten.",
+        "Weil der Termin verschoben wurde und das Büro alle Beteiligten.",
+        "Der Termin weil verschoben wurde, das Büro informiert alle Beteiligten."
+      ],
+      "correct_answer": "Weil der Termin verschoben wurde, informiert das Büro alle Beteiligten.",
+      "accepted_answers": [
+        "Weil der Termin verschoben wurde, informiert das Büro alle Beteiligten."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Nebensatz ist vollständig und der folgende Hauptsatz beginnt mit dem finiten Verb.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält eine korrekte Satzklammer?",
+      "options": [
+        "Die Pflegekraft hat gelesen den Bericht vor der Übergabe sorgfältig.",
+        "Die Pflegekraft den Bericht hat vor der Übergabe sorgfältig gelesen.",
+        "Die Pflegekraft hat den Bericht vor der Übergabe sorgfältig gelesen."
+      ],
+      "correct_answer": "Die Pflegekraft hat den Bericht vor der Übergabe sorgfältig gelesen.",
+      "accepted_answers": [
+        "Die Pflegekraft hat den Bericht vor der Übergabe sorgfältig gelesen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Hilfsverb und das Partizip bilden eine Klammer um das Mittelfeld.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung vermeidet einen unvollständigen Satz?",
+      "options": [
+        "Die Aufgabe schwierig war, obwohl das Team rechtzeitig.",
+        "Obwohl die Aufgabe schwierig war, löste das Team sie rechtzeitig.",
+        "Obwohl die Aufgabe schwierig war. Und rechtzeitig."
+      ],
+      "correct_answer": "Obwohl die Aufgabe schwierig war, löste das Team sie rechtzeitig.",
+      "accepted_answers": [
+        "Obwohl die Aufgabe schwierig war, löste das Team sie rechtzeitig."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nebensatz und Hauptsatz enthalten jeweils ein Subjekt und ein finites Verb.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [der Kurs hatte begonnen, hatte der Kurs begonnen, der Kurs begonnen hatte]. Ergänze den Nebensatz: Nachdem ___, diskutierten wir die Ziele.",
+      "options": [],
+      "correct_answer": "der Kurs begonnen hatte",
+      "accepted_answers": ["der Kurs begonnen hatte"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Plusquamperfekt im nachdem-Satz zeigt die frühere Handlung; das finite Hilfsverb steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [vorgestellt morgen wird, wird morgen vorgestellt, morgen vorgestellt wird]. Ergänze den Hauptsatz: Das neue Konzept ___ .",
+      "options": [],
+      "correct_answer": "wird morgen vorgestellt",
+      "accepted_answers": ["wird morgen vorgestellt"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Hauptsatz bilden „wird“ und „vorgestellt“ eine Satzklammer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [weil die Software ausgefallen ist, weil ist die Software ausgefallen, die Software weil ausgefallen ist]. Ergänze: Wir arbeiten mit Papier, ___ .",
+      "options": [],
+      "correct_answer": "weil die Software ausgefallen ist",
+      "accepted_answers": ["weil die Software ausgefallen ist"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der weil-Satz besitzt Subjekt und Prädikat; das finite Verb steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kann die Patientin heute entlassen werden, die Patientin heute entlassen werden kann, heute die Patientin kann entlassen werden]. Ergänze den dass-Satz: Der Arzt bestätigt, dass ___ .",
+      "options": [],
+      "correct_answer": "die Patientin heute entlassen werden kann",
+      "accepted_answers": ["die Patientin heute entlassen werden kann"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Nebensatz steht die gesamte Verbgruppe am Ende, zuletzt das finite Modalverb.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verbindet den obwohl-Satz korrekt mit dem Hauptsatz?",
+      "options": [
+        "Obwohl die Station heute sehr voll ist. Organisieren die Pflegekräfte die Aufgaben ruhig.",
+        "Obwohl die Station heute sehr voll ist, organisieren die Pflegekräfte die Aufgaben ruhig.",
+        "Obwohl die Station heute sehr voll ist, die Pflegekräfte organisieren die Aufgaben ruhig.",
+        "Obwohl ist die Station heute sehr voll, organisieren die Pflegekräfte die Aufgaben ruhig."
+      ],
+      "correct_answer": "Obwohl die Station heute sehr voll ist, organisieren die Pflegekräfte die Aufgaben ruhig.",
+      "accepted_answers": ["Obwohl die Station heute sehr voll ist, organisieren die Pflegekräfte die Aufgaben ruhig."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Ein vorangestellter Nebensatz und der zugehörige Hauptsatz bilden gemeinsam einen vollständigen Satz.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung mit „sobald“ ist vollständig korrekt?",
+      "options": [
+        "Sobald trifft die Lieferung ein, wir prüfen sofort den Inhalt.",
+        "Sobald die Lieferung eintrifft, wir prüfen sofort den Inhalt.",
+        "Sobald die Lieferung trifft ein, prüfen wir sofort den Inhalt.",
+        "Sobald die Lieferung eintrifft, prüfen wir sofort den Inhalt."
+      ],
+      "correct_answer": "Sobald die Lieferung eintrifft, prüfen wir sofort den Inhalt.",
+      "accepted_answers": ["Sobald die Lieferung eintrifft, prüfen wir sofort den Inhalt."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der sobald-Satz nennt den Zeitpunkt; der nachfolgende Hauptsatz beginnt mit dem finiten Verb.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schilderung enthält eine vollständige Satzklammer und einen korrekt gebauten Nebensatz?",
+      "options": [
+        "Ich die Unterlagen gründlich gelesen habe. Weil einige Begriffe neu waren schrieb ich Fragen auf. Am Kurstag werde besprechen ich sie.",
+        "Ich habe die Unterlagen gründlich gelesen. Weil waren einige Begriffe neu, ich schrieb Fragen auf. Am Kurstag ich werde sie besprechen.",
+        "Ich habe die Unterlagen gründlich gelesen. Weil einige Begriffe neu waren, schrieb ich Fragen auf. Am Kurstag werde ich sie besprechen.",
+        "Ich habe gründlich gelesen die Unterlagen. Weil einige Begriffe waren neu, schrieb ich Fragen auf. Am Kurstag ich werde sie besprechen."
+      ],
+      "correct_answer": "Ich habe die Unterlagen gründlich gelesen. Weil einige Begriffe neu waren, schrieb ich Fragen auf. Am Kurstag werde ich sie besprechen.",
+      "accepted_answers": ["Ich habe die Unterlagen gründlich gelesen. Weil einige Begriffe neu waren, schrieb ich Fragen auf. Am Kurstag werde ich sie besprechen."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Abwechslungsreiche, vollständige Satzmuster machen einen kurzen Bericht klar und zusammenhängend.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

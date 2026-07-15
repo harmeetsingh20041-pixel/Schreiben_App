@@ -1,0 +1,145 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-akkusativ-r1",
+    "template_key": "v1-a1-akkusativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Akkusativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Akkusativ: Das direkte Objekt erkennen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "akkusativ",
+    "name": "Akkusativ"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "akkusativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das direkte Objekt beantwortet oft die Frage ‚Wen oder was?‘. Im Akkusativ ändern sich bei maskulinen Nomen der und ein zu den und einen.",
+    "key_rule": "Maskulin: den/einen. Feminin: die/eine. Neutrum: das/ein. Plural: die.",
+    "correct_examples": ["Ich sehe den Hund.", "Sie kauft eine Tasche."],
+    "common_mistake_warning": "Nur der maskuline Artikel zeigt im Akkusativ deutlich die Endung -en.",
+    "what_to_revise": "Frage bei Verben wie sehen, kaufen, brauchen oder haben nach ‚wen oder was?‘."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den richtigen bestimmten Artikel für das maskuline Objekt ‚Arzt‘.",
+      "options": [
+        "Die Pflegekraft ruft dem Arzt.",
+        "Die Pflegekraft ruft den Arzt.",
+        "Die Pflegekraft ruft der Arzt."
+      ],
+      "correct_answer": "Die Pflegekraft ruft den Arzt.",
+      "accepted_answers": ["Die Pflegekraft ruft den Arzt."],
+      "explanation": "‚Arzt‘ ist das maskuline direkte Objekt; deshalb steht der Akkusativartikel ‚den‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet das feminine Akkusativobjekt ‚Jacke‘ korrekt?",
+      "options": [
+        "Er kauft eine Jacke.",
+        "Er kauft einen Jacke.",
+        "Er kauft einer Jacke."
+      ],
+      "correct_answer": "Er kauft eine Jacke.",
+      "accepted_answers": ["Er kauft eine Jacke."],
+      "explanation": "Bei dem femininen Akkusativobjekt ‚Jacke‘ bleibt der unbestimmte Artikel ‚eine‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz hat den richtigen Artikel vor dem neutralen Objekt ‚Buch‘?",
+      "options": [
+        "Wir lesen den Buch.",
+        "Wir lesen die Buch.",
+        "Wir lesen das Buch."
+      ],
+      "correct_answer": "Wir lesen das Buch.",
+      "accepted_answers": ["Wir lesen das Buch."],
+      "explanation": "‚Buch‘ ist neutral; der bestimmte Artikel bleibt im Akkusativ ‚das‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einen, ein, eine]. Setze den passenden Artikel ein: Ich brauche ___ Stift.",
+      "options": [],
+      "correct_answer": "einen",
+      "accepted_answers": ["einen"],
+      "explanation": "‚Stift‘ ist maskulin und direktes Objekt; deshalb steht ‚einen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [das, die, den]. Setze den passenden Artikel ein: Er besucht ___ Oma.",
+      "options": [],
+      "correct_answer": "die",
+      "accepted_answers": ["die"],
+      "explanation": "‚Oma‘ ist feminin; der bestimmte Akkusativartikel lautet ‚die‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [eine, ein, einen]. Setze den passenden Artikel ein: Wir essen ___ Apfel.",
+      "options": [],
+      "correct_answer": "einen",
+      "accepted_answers": ["einen"],
+      "explanation": "‚Apfel‘ ist ein maskulines direktes Objekt und braucht die Form ‚einen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi plant einen Arztbesuch und braucht dafür einen freien Zeitpunkt. Welche Lösung verwendet vor dem maskulinen Akkusativobjekt Termin den richtigen Artikel?",
+      "options": [
+        "Ravi braucht eine Termin.",
+        "Ravi braucht ein Termin.",
+        "Ravi braucht einen Termin.",
+        "Ravi braucht einem Termin."
+      ],
+      "correct_answer": "Ravi braucht einen Termin.",
+      "accepted_answers": ["Ravi braucht einen Termin."],
+      "rubric": null,
+      "explanation": "Nach ‚brauchen‘ steht ‚Termin‘ als maskulines Akkusativobjekt mit ‚einen‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Das Team prüft heute den Dienstplan. Welche Lösung verwendet das Akkusativobjekt richtig?",
+      "options": [
+        "Wir prüfen heute den Dienstplan.",
+        "Wir heute prüfen den Dienstplan.",
+        "Wir prüfen heute der Dienstplan.",
+        "Wir prüft heute den Dienstplan."
+      ],
+      "correct_answer": "Wir prüfen heute den Dienstplan.",
+      "accepted_answers": ["Wir prüfen heute den Dienstplan."],
+      "rubric": null,
+      "explanation": "Das Verb ‚prüfen‘ hat hier das direkte Objekt ‚den Dienstplan‘.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

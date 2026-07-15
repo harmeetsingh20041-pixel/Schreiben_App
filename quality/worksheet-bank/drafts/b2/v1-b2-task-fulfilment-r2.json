@@ -1,0 +1,182 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-task-fulfilment-r2",
+    "template_key": "v1-b2-task-fulfilment-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Task fulfilment accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Aufgabenbezug: Komplexe Schreibziele umsetzen",
+  "level": "B2",
+  "grammar_topic": { "slug": "task-fulfilment", "name": "Aufgabenerfüllung" },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "task-fulfilment",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Komplexe Schreibaufträge kombinieren häufig mehrere Handlungen: informieren, bewerten, begründen und eine Lösung vorschlagen. Der Text muss diese Funktionen gewichten und verbinden.",
+    "key_rule": "Plane für jeden Auftragspunkt eine überprüfbare Aussage und sichere am Ende, dass Textsorte, Ton und gewünschte Wirkung zusammenpassen.",
+    "correct_examples": [
+      "Nach der Problembeschreibung bewerte ich die Folgen und formuliere einen umsetzbaren Vorschlag.",
+      "Meine Schlussfolgerung beantwortet die Leitfrage des Auftrags."
+    ],
+    "common_mistake_warning": "Ein ausführlicher Nebenpunkt darf keinen zentralen Auftragspunkt verdrängen.",
+    "what_to_revise": "Nutze eine Checkliste aus Adressat, Anlass, Position, Gründen, Beispielen, Lösung und gewünschter Reaktion."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Sie schreiben der Pflegedienstleitung: Erläutern Sie, wodurch kurzfristige Dienstplanänderungen Probleme verursachen, nennen Sie eine konkrete Folge, bewerten Sie ein festes wöchentliches Änderungsfenster und bitten Sie bis Freitag um eine Entscheidung. Welche Gliederung erfüllt alle vier Schreibhandlungen?",
+      "options": [
+        "Problem mit Ursache – zwei Folgen – Entscheidungsbitte mit Frist – Dank",
+        "Problem mit Ursache – konkrete Folge – Bewertung des Änderungsfensters anhand eines Kriteriums – Entscheidungsbitte mit Frist",
+        "Problem mit Ursache – konkrete Folge – Beschreibung des Änderungsfensters – Bitte um Prüfung bis Freitag",
+        "Problem – Bewertung des Änderungsfensters – Alternativvorschlag – Entscheidungsbitte mit Frist"
+      ],
+      "correct_answer": "Problem mit Ursache – konkrete Folge – Bewertung des Änderungsfensters anhand eines Kriteriums – Entscheidungsbitte mit Frist",
+      "accepted_answers": [
+        "Problem mit Ursache – konkrete Folge – Bewertung des Änderungsfensters anhand eines Kriteriums – Entscheidungsbitte mit Frist"
+      ],
+      "explanation": "Nur diese Gliederung erläutert das Problem, nennt eine konkrete Folge, enthält eine echte Bewertung statt einer bloßen Beschreibung und schließt mit der verlangten Entscheidung samt Frist.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Eine E-Mail an den Softwareanbieter soll melden, dass freigegebene Dienstplanänderungen in der Teamansicht fehlen, die Auswirkung erklären sowie eine Sofortmaßnahme und eine dauerhafte Lösung vorschlagen. Welche Ergänzung deckt die beiden geforderten Maßnahmen vollständig ab, ohne Schuld zuzuweisen?",
+      "options": [
+        "Künftig sollte eine automatische Synchronisationsprüfung eingerichtet werden, damit der Fehler nicht erneut auftritt.",
+        "Vorläufig könnten Änderungen vielleicht noch einmal weitergegeben werden; über eine dauerhafte Lösung ließe sich später sprechen.",
+        "Bis zur Behebung sollten Änderungen zusätzlich per E-Mail bestätigt werden; dauerhaft ist eine automatische Synchronisationsprüfung mit Fehlermeldung nötig.",
+        "Bitte beheben Sie den Fehler möglichst bald und erklären Sie, wie er entstehen konnte."
+      ],
+      "correct_answer": "Bis zur Behebung sollten Änderungen zusätzlich per E-Mail bestätigt werden; dauerhaft ist eine automatische Synchronisationsprüfung mit Fehlermeldung nötig.",
+      "accepted_answers": [
+        "Bis zur Behebung sollten Änderungen zusätzlich per E-Mail bestätigt werden; dauerhaft ist eine automatische Synchronisationsprüfung mit Fehlermeldung nötig."
+      ],
+      "explanation": "Die Passage trennt eine sofort einsetzbare Übergangslösung klar von einer strukturellen technischen Lösung. Beide Maßnahmen sind konkret, und keine Formulierung weist einer Person oder Abteilung Schuld zu.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Eine E-Mail mit höchstens 180 Wörtern soll ein wiederkehrendes Informationsproblem beschreiben, eine konkrete Auswirkung nennen, zwei Benachrichtigungskanäle vergleichen und einen Kanal begründet empfehlen. Der Entwurf hat 225 Wörter. Welche Kürzung wahrt den Auftrag am besten?",
+      "options": [
+        "Streiche den Vergleich und nenne nur den bevorzugten Kanal.",
+        "Streiche die konkrete Auswirkung und behalte dafür den ausführlichen historischen Hintergrund.",
+        "Kürze Empfehlung und Begründung auf einen Halbsatz und ergänze dafür ein zweites Beispiel.",
+        "Kürze den historischen Hintergrund von 80 auf 25 Wörter; behalte Problem, Auswirkung, Vergleich sowie Empfehlung mit Begründung vollständig bei."
+      ],
+      "correct_answer": "Kürze den historischen Hintergrund von 80 auf 25 Wörter; behalte Problem, Auswirkung, Vergleich sowie Empfehlung mit Begründung vollständig bei.",
+      "accepted_answers": [
+        "Kürze den historischen Hintergrund von 80 auf 25 Wörter; behalte Problem, Auswirkung, Vergleich sowie Empfehlung mit Begründung vollständig bei."
+      ],
+      "explanation": "Der historische Hintergrund ist kein eigener Auftragspunkt und kann verdichtet werden. Die vier ausdrücklich verlangten Funktionen bleiben dagegen vollständig erhalten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Ergänze den Marker, der nach einem Vergleich eine abgewogene Gesamtposition ankündigt: Beide Kanäle erreichen das Team schnell. ___ halte ich die zentrale Plattform für geeigneter, weil Änderungen dort nachvollziehbar bleiben. Wortbank: [Insgesamt | Beispielsweise | Ungeachtet dessen].",
+      "options": [],
+      "correct_answer": "Insgesamt",
+      "accepted_answers": ["Insgesamt"],
+      "explanation": "„Insgesamt“ kennzeichnet das Ergebnis einer Abwägung. „Beispielsweise“ würde ein Beispiel einleiten; „ungeachtet dessen“ signalisiert einen Gegensatz statt einer gewichteten Schlussfolgerung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Kennzeichne die geforderte vorläufige Sofortmaßnahme im Gegensatz zur dauerhaften Lösung: ___ sollte jede freigegebene Dienstplanänderung zusätzlich per E-Mail bestätigt werden; langfristig ist eine automatische Synchronisationsprüfung vorgesehen. Wortbank: [Unabhängig von der Störung | Bis zur technischen Behebung | Nach Abschluss der Umstellung].",
+      "options": [],
+      "correct_answer": "Bis zur technischen Behebung",
+      "accepted_answers": ["Bis zur technischen Behebung"],
+      "explanation": "Die Zeitangabe begrenzt die zusätzliche Bestätigung auf die Übergangsphase bis zur technischen Lösung. Dadurch bleiben Sofortmaßnahme und dauerhafte Maßnahme klar unterscheidbar.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Ergänze den Marker für die ausdrücklich geforderte konkrete Folge: Die Änderung erreichte das Team erst nach Dienstbeginn; ___ mussten zwei Dienste neu abgestimmt werden. Wortbank: [ungeachtet dessen | im Vergleich dazu | infolgedessen].",
+      "options": [],
+      "correct_answer": "infolgedessen",
+      "accepted_answers": ["infolgedessen"],
+      "explanation": "„Infolgedessen“ stellt die notwendige Ursache-Folge-Beziehung her. Die anderen Ausdrücke würden einen Gegensatz beziehungsweise einen Vergleich signalisieren.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Der Auftrag verlangt eine endgültige Zu- oder Absage. Ergänze die planungsfähige Bitte: Ich bitte Sie daher um eine ___ Entscheidung bis zum 15. September, damit das Verfahren im Oktober getestet werden kann. Wortbank: [abschließende | grundsätzliche | vorläufige].",
+      "options": [],
+      "correct_answer": "abschließende",
+      "accepted_answers": ["abschließende"],
+      "explanation": "Eine „abschließende Entscheidung“ liefert die verlangte endgültige Zu- oder Absage. Eine grundsätzliche oder vorläufige Aussage könnte wichtige Einzelheiten weiterhin offenlassen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Bausteine zu einer klaren Schlussfolgerung und beginne mit Aus diesen Gründen: [Aus diesen Gründen / halte ich / eine sechsmonatige Testphase / für die sinnvollste Lösung].",
+      "options": [],
+      "correct_answer": "Aus diesen Gründen halte ich eine sechsmonatige Testphase für die sinnvollste Lösung.",
+      "rubric": {
+        "criteria": [
+          "Beginne mit Aus diesen Gründen und verwende jeden Baustein genau einmal.",
+          "Setze halte auf Position zwei und formuliere eine eindeutige Schlussfolgerung."
+        ],
+        "sample_answer": "Aus diesen Gründen halte ich eine sechsmonatige Testphase für die sinnvollste Lösung."
+      },
+      "explanation": "Die vorangestellte Begründungsverweisung bindet die Position an den vorausgehenden Text; das finite Verb bleibt auf Position zwei.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Der Auftrag verlangt Problem, Folge und konkrete Bitte. Überarbeite: Im Gemeinschaftsraum ist es abends laut. Das ist nicht gut. Machen Sie etwas.",
+      "options": [],
+      "correct_answer": "Im Gemeinschaftsraum ist es abends häufig laut, sodass die Nachtruhe gestört wird. Ich bitte Sie, die Ruhezeiten deutlich auszuhängen und ihre Einhaltung zu prüfen.",
+      "rubric": {
+        "criteria": [
+          "Erhalte das abendliche Lärmproblem und benenne eine konkrete Folge.",
+          "Formuliere eine respektvolle Bitte mit mindestens einer umsetzbaren Maßnahme.",
+          "Verwende eine formelle, grammatisch korrekte Sprache."
+        ],
+        "sample_answer": "Im Gemeinschaftsraum ist es abends häufig laut, sodass die Nachtruhe gestört wird. Ich bitte Sie, die Ruhezeiten deutlich auszuhängen und ihre Einhaltung zu prüfen."
+      },
+      "explanation": "Die Überarbeitung ersetzt die vage Bewertung durch eine konkrete Folge und die unbestimmte Aufforderung durch überprüfbare Maßnahmen.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Verfasse vier Sätze für einen Vorschlag an die Pflegedienstleitung: Beschreibe regelmäßig verspätete Schichtübergaben, nenne zwei unterschiedliche Folgen und schlage eine konkrete Maßnahme mit Zeitrahmen vor.",
+      "options": [],
+      "correct_answer": "Die Schichtübergaben auf unserer Station beginnen regelmäßig verspätet. Dadurch fehlen dem Frühdienst wichtige Informationen zu Beginn der Versorgung. Außerdem verschieben sich die ersten geplanten Pflegemaßnahmen. Ab dem kommenden Monat sollte für jede Übergabe ein verbindliches fünfzehnminütiges Zeitfenster eingeplant werden.",
+      "rubric": {
+        "criteria": [
+          "Schreibe genau vier sachliche, grammatisch korrekte Sätze.",
+          "Beschreibe das Problem und nenne zwei klar unterscheidbare Folgen.",
+          "Schlage eine konkrete Maßnahme mit einem eindeutigen Zeitrahmen vor."
+        ],
+        "sample_answer": "Die Schichtübergaben auf unserer Station beginnen regelmäßig verspätet. Dadurch fehlen dem Frühdienst wichtige Informationen zu Beginn der Versorgung. Außerdem verschieben sich die ersten geplanten Pflegemaßnahmen. Ab dem kommenden Monat sollte für jede Übergabe ein verbindliches fünfzehnminütiges Zeitfenster eingeplant werden."
+      },
+      "explanation": "Der Mustertext deckt Problem, zwei Folgen sowie eine messbare Maßnahme mit Termin vollständig und adressatengerecht ab.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-connectors-r2",
+    "template_key": "v1-b2-connectors-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Connectors accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Anspruchsvolle Konnektoren: Abwägung und Argumentation",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "connectors",
+    "name": "Konnektoren"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "connectors",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Formelle Argumentationen nutzen ein- und zweiteilige Konnektoren, um abzuwägen, zu verstärken oder Schlussfolgerungen zu ziehen. Dazu gehören „einerseits ... andererseits“, „nicht nur ... sondern auch“, „zwar ... jedoch“ und „folglich“.",
+    "key_rule": "Achte bei zweiteiligen Verbindungen auf die vollständige Paarung und bei Konnektoradverbien im Vorfeld auf die Inversion von Verb und Subjekt.",
+    "correct_examples": [
+      "Zwar erhöht die Regel die Planungssicherheit, jedoch begrenzt sie spontane Änderungen.",
+      "Die Nachfrage ist stark gestiegen; folglich erweitert das Team die Kapazität."
+    ],
+    "common_mistake_warning": "Vermische feste Paare nicht und setze nach „sondern auch“ kein zusätzliches „aber“.",
+    "what_to_revise": "Übe zweiteilige Konnektoren, formelle Folgerungen und klare Gegenüberstellungen zwischen Argumenten."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form verwendet das zweiteilige Paar zur ausgewogenen Gegenüberstellung korrekt?",
+      "options": [
+        "Einerseits spart die Lösung Zeit, dennoch andererseits verursacht sie hohe Kosten.",
+        "Einerseits die Lösung spart Zeit, andererseits sie verursacht hohe Kosten.",
+        "Einerseits spart die Lösung Zeit, andererseits verursacht sie hohe Kosten."
+      ],
+      "correct_answer": "Einerseits spart die Lösung Zeit, andererseits verursacht sie hohe Kosten.",
+      "accepted_answers": [
+        "Einerseits spart die Lösung Zeit, andererseits verursacht sie hohe Kosten."
+      ],
+      "explanation": "Das feste Paar stellt zwei Seiten gegenüber; nach beiden Konnektoren steht das Verb vor dem Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung verstärkt zwei Vorteile mit dem korrekten Konnektorpaar?",
+      "options": [
+        "Die Maßnahme senkt sowohl die Kosten, sondern auch die Qualität verbessert sie.",
+        "Die Maßnahme senkt nicht nur die Kosten, sondern verbessert auch die Qualität.",
+        "Die Maßnahme senkt nicht nur die Kosten, aber auch verbessert die Qualität."
+      ],
+      "correct_answer": "Die Maßnahme senkt nicht nur die Kosten, sondern verbessert auch die Qualität.",
+      "accepted_answers": [
+        "Die Maßnahme senkt nicht nur die Kosten, sondern verbessert auch die Qualität."
+      ],
+      "explanation": "„Nicht nur ... sondern auch“ verbindet zwei gleichgerichtete positive Aussagen und ist vollständig gepaart.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schlussfolgerung ist formell und syntaktisch korrekt formuliert?",
+      "options": [
+        "Die Daten sind unvollständig; folglich ist keine belastbare Bewertung möglich.",
+        "Die Daten sind unvollständig; folglich keine belastbare Bewertung ist möglich.",
+        "Die Daten sind unvollständig; hingegen ist keine belastbare Bewertung möglich."
+      ],
+      "correct_answer": "Die Daten sind unvollständig; folglich ist keine belastbare Bewertung möglich.",
+      "accepted_answers": [
+        "Die Daten sind unvollständig; folglich ist keine belastbare Bewertung möglich."
+      ],
+      "explanation": "„Folglich“ kennzeichnet die logische Konsequenz; das Verb „ist“ folgt direkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zwar, folglich, einerseits]. Ergänze die erste Hälfte des bereits durch „andererseits“ vervollständigten Paares: ___ bietet die Umstellung Chancen, andererseits bindet sie viele Ressourcen.",
+      "options": [],
+      "correct_answer": "Einerseits",
+      "accepted_answers": ["Einerseits"],
+      "explanation": "„Einerseits ... andererseits“ ist das feste Paar für eine ausgewogene Gegenüberstellung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [und außerdem, sondern auch, aber auch]. Ergänze ausdrücklich das feste Paar „nicht nur ...“: Die Schulung für Pflegefachkräfte vermittelt nicht nur Fachwissen, ___ praktische Strategien.",
+      "options": [],
+      "correct_answer": "sondern auch",
+      "accepted_answers": ["sondern auch"],
+      "explanation": "Die zweite Hälfte des festen Paares lautet „sondern auch“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [folglich, hingegen, darüber hinaus]. Setze den formellen Konnektor für die ausdrücklich logische Schlussfolgerung ein: Zwei Pflichtangaben fehlen; ___ ist der Antrag noch nicht vollständig.",
+      "options": [],
+      "correct_answer": "folglich",
+      "accepted_answers": ["folglich"],
+      "explanation": "Die Unvollständigkeit folgt unmittelbar aus den fehlenden Pflichtangaben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [infolgedessen, zudem, hingegen]. Setze den Konnektor für den ausdrücklich direkten Vergleich ein: Modell A benötigt viel Speicher; Modell B arbeitet ___ besonders ressourcensparend.",
+      "options": [],
+      "correct_answer": "hingegen",
+      "accepted_answers": ["hingegen"],
+      "explanation": "„Hingegen“ stellt den hohen Speicherbedarf von Modell A der Ressourcensparsamkeit von Modell B gegenüber.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde aus allen Bausteinen einen vollständigen Satz mit dem Paar „zwar ... jedoch“: die Methode / zwar / ist / aufwendig / liefert / jedoch / sehr genaue Ergebnisse / sie",
+      "options": [],
+      "correct_answer": "Die Methode ist zwar aufwendig, sie liefert jedoch sehr genaue Ergebnisse.",
+      "rubric": {
+        "criteria": [
+          "Alle Bausteine werden genau einmal verwendet und bilden zwei vollständige Hauptsätze.",
+          "„Zwar“ steht im ersten und „jedoch“ im zweiten Teilsatz, sodass der Gegensatz klar wird.",
+          "Verbposition, Komma, Großschreibung und Adjektivendung sind korrekt."
+        ],
+        "sample_answer": "Die Methode ist zwar aufwendig, sie liefert jedoch sehr genaue Ergebnisse."
+      },
+      "explanation": "„Zwar ... jedoch“ räumt einen Nachteil ein und stellt ihm anschließend einen Vorteil gegenüber.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Formuliere die beiden Aussagen mit „einerseits ... andererseits“ als ausgewogene Abwägung: Homeoffice reduziert Pendelzeiten. Der persönliche Austausch im Team wird schwieriger.",
+      "options": [],
+      "correct_answer": "Einerseits reduziert Homeoffice die Pendelzeiten, andererseits wird der persönliche Austausch im Team schwieriger.",
+      "rubric": {
+        "criteria": [
+          "Beide Originalaussagen bleiben inhaltlich vollständig erhalten.",
+          "Das Paar „einerseits ... andererseits“ kennzeichnet die Abwägung ohne zusätzliche Wertung.",
+          "Nach beiden vorangestellten Konnektoren steht das konjugierte Verb vor dem Subjekt; das Komma ist korrekt gesetzt."
+        ],
+        "sample_answer": "Einerseits reduziert Homeoffice die Pendelzeiten, andererseits wird der persönliche Austausch im Team schwieriger."
+      },
+      "explanation": "Das zweiteilige Paar stellt Vorteil und Nachteil symmetrisch gegenüber.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe einen kurzen argumentativen Absatz mit vier Sätzen zur Einführung flexibler Arbeitszeiten. Verwende „einerseits ... andererseits“, „darüber hinaus“ und „folglich“ jeweils logisch passend.",
+      "options": [],
+      "correct_answer": "Einerseits ermöglichen flexible Arbeitszeiten eine bessere Vereinbarkeit von Beruf und Privatleben, andererseits erschweren sie gemeinsame Termine. Darüber hinaus benötigen Teams klare Absprachen darüber, wann alle erreichbar sein müssen. Eine verbindliche Kernzeit löst einen Teil dieser Probleme. Folglich sollte das Modell Flexibilität mit gemeinsamen Zeitfenstern verbinden.",
+      "rubric": {
+        "criteria": [
+          "Der Absatz behandelt in vier inhaltlich verbundenen Sätzen flexible Arbeitszeiten und enthält eine erkennbare Schlussfolgerung.",
+          "„Einerseits ... andererseits“ wägt zwei Seiten ab, und „darüber hinaus“ ergänzt ein weiteres Argument.",
+          "„Folglich“ leitet eine logisch aus den vorherigen Aussagen ableitbare Schlussfolgerung ein; Wortstellung und Zeichensetzung sind korrekt."
+        ],
+        "sample_answer": "Einerseits ermöglichen flexible Arbeitszeiten eine bessere Vereinbarkeit von Beruf und Privatleben, andererseits erschweren sie gemeinsame Termine. Darüber hinaus benötigen Teams klare Absprachen darüber, wann alle erreichbar sein müssen. Eine verbindliche Kernzeit löst einen Teil dieser Probleme. Folglich sollte das Modell Flexibilität mit gemeinsamen Zeitfenstern verbinden."
+      },
+      "explanation": "Die Konnektoren strukturieren eine ausgewogene Position, ein Zusatzargument und eine daraus folgende Empfehlung.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-pronouns-r1",
+    "template_key": "v1-b2-pronouns-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Pronouns pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Pronomen: Eindeutige Bezüge in Fachtexten herstellen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "pronouns",
+    "name": "Pronomen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "pronouns",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Pronomen vermeiden Wiederholungen, müssen aber in Genus, Numerus und Kasus zu ihrem Bezug passen. Bei mehreren möglichen Referenten sichern Demonstrativ- oder Pronominaladverbien die Eindeutigkeit.",
+    "key_rule": "Wähle ein Pronomen erst, nachdem Bezugswort und Satzfunktion eindeutig bestimmt sind; für Sachen mit Präposition stehen häufig Formen wie „damit“, „daran“ oder „davon“.",
+    "correct_examples": [
+      "Die neue Software wurde getestet; mit ihr lassen sich Berichte schneller erstellen.",
+      "Der Termin wurde verschoben. Darüber informierte die Leitung alle Beteiligten."
+    ],
+    "common_mistake_warning": "„Es“ kann grammatisch passen und trotzdem unklar sein, wenn im vorherigen Satz mehrere neutrale Bezugsgrößen vorkommen.",
+    "what_to_revise": "Übe Personal-, Demonstrativ-, Indefinit- und Pronominaladverbien sowie eindeutige anaphorische Bezüge."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Pronomen nimmt „die neue Dokumentationssoftware“ nach „mit“ korrekt wieder auf?",
+      "options": [
+        "Mit sie können Berichte schneller erstellt werden.",
+        "Mit ihr können Berichte schneller erstellt werden.",
+        "Mit ihm können Berichte schneller erstellt werden."
+      ],
+      "correct_answer": "Mit ihr können Berichte schneller erstellt werden.",
+      "accepted_answers": [
+        "Mit ihr können Berichte schneller erstellt werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Bezugswort wird nach der Dativpräposition „mit“ durch „ihr“ ersetzt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fortsetzung verweist eindeutig auf den gesamten vorherigen Sachverhalt „Die Schulung wurde kurzfristig abgesagt“?",
+      "options": [
+        "Darin wurden alle Teilnehmenden sofort informiert.",
+        "Damit wurden alle Teilnehmenden sofort informiert.",
+        "Darüber wurden alle Teilnehmenden sofort informiert."
+      ],
+      "correct_answer": "Darüber wurden alle Teilnehmenden sofort informiert.",
+      "accepted_answers": [
+        "Darüber wurden alle Teilnehmenden sofort informiert."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Jemanden über etwas informieren“ verlangt „über“; das Pronominaladverb „darüber“ greift den Sachverhalt auf.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet ein Demonstrativpronomen, sodass eindeutig der Arzt den Befund erläutert?",
+      "options": [
+        "Die Stationsleitung sprach mit dem Arzt; dieser erläuterte den Befund.",
+        "Die Stationsleitung sprach mit dem Arzt; sie erläuterte den Befund.",
+        "Die Stationsleitung sprach mit dem Arzt; es erläuterte den Befund."
+      ],
+      "correct_answer": "Die Stationsleitung sprach mit dem Arzt; dieser erläuterte den Befund.",
+      "accepted_answers": [
+        "Die Stationsleitung sprach mit dem Arzt; dieser erläuterte den Befund."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das maskuline Demonstrativpronomen „dieser“ verweist eindeutig auf den zuletzt genannten Arzt; „sie“ würde die Stationsleitung bezeichnen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dessen, denen, deren]. Ergänze den Bezug zu „die Fachkräfte“: Die Fachkräfte, mit ___ wir zusammenarbeiten, verfügen über viel Erfahrung.",
+      "options": [],
+      "correct_answer": "denen",
+      "accepted_answers": [
+        "denen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „mit“ steht das Relativpronomen im Dativ Plural und lautet „denen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [daran, darauf, davon]. Ergänze die feste Verbindung „an etwas denken“: Bitte denken Sie ___, die Einwilligung rechtzeitig einzuholen.",
+      "options": [],
+      "correct_answer": "daran",
+      "accepted_answers": [
+        "daran"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Pronominaladverb „daran“ vertritt die Ergänzung mit „an“ und verweist voraus auf die Infinitivgruppe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [niemandem, niemand, niemanden]. Ergänze das Akkusativobjekt: Die Änderung darf ___ benachteiligen.",
+      "options": [],
+      "correct_answer": "niemanden",
+      "accepted_answers": [
+        "niemanden"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Benachteiligen“ verlangt ein direktes Akkusativobjekt; das Indefinitpronomen lautet „niemanden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [denen, welcher, welchem]. Ergänze den natürlichen pronominalen Bezug im Dativ: Es liegen zwei Empfehlungen vor, von ___ nur eine finanzierbar ist.",
+      "options": [],
+      "correct_answer": "denen",
+      "accepted_answers": [
+        "denen"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „von“ steht der Dativ Plural; der natürliche Rückbezug auf „zwei Empfehlungen“ lautet „denen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung macht eindeutig, dass die Ärztin den Befund erklärt hatte?",
+      "options": [
+        "Nachdem die Ärztin den Befund erklärt hatte, sprach die Pflegekraft mit sie.",
+        "Nachdem die Ärztin den Befund erklärt hatte, sprach die Pflegekraft mit ihr.",
+        "Die Pflegekraft sprach mit der Ärztin, nachdem sie den Befund erklärt hatte.",
+        "Nachdem die Pflegekraft den Befund erklärt hatte, sprach sie mit der Ärztin."
+      ],
+      "correct_answer": "Nachdem die Ärztin den Befund erklärt hatte, sprach die Pflegekraft mit ihr.",
+      "accepted_answers": [
+        "Nachdem die Ärztin den Befund erklärt hatte, sprach die Pflegekraft mit ihr."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die explizite Nennung im Nebensatz und „ihr“ nach „mit“ beseitigen die Mehrdeutigkeit des ursprünglichen „sie“. Ebenfalls eindeutig wäre etwa: „Die Pflegekraft sprach mit der Ärztin, nachdem Letztere den Befund erklärt hatte.“",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung vermeidet die Wiederholung von „zu der neuen Regelung“ mit dem passenden Pronominaladverb?",
+      "options": [
+        "Die Arbeitsgruppe diskutierte über die neue Regelung. Viele Beschäftigte hatten damit Fragen.",
+        "Die Arbeitsgruppe diskutierte über die neue Regelung. Viele Beschäftigte hatten darüber Fragen.",
+        "Die Arbeitsgruppe diskutierte über die neue Regelung. Viele Beschäftigte hatten dazu Fragen.",
+        "Die Arbeitsgruppe diskutierte über die neue Regelung. Viele Beschäftigte hatten daran Fragen."
+      ],
+      "correct_answer": "Die Arbeitsgruppe diskutierte über die neue Regelung. Viele Beschäftigte hatten dazu Fragen.",
+      "accepted_answers": [
+        "Die Arbeitsgruppe diskutierte über die neue Regelung. Viele Beschäftigte hatten dazu Fragen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Dazu“ ersetzt die Präpositionalgruppe mit „zu“ und stellt einen knappen, eindeutigen Rückbezug her.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Die Leitung änderte das Übergabeverfahren. Welche Fortsetzung nimmt diese Änderung mit den von „mit etwas rechnen“ und „sich zu etwas äußern“ verlangten Pronominaladverbien auf?",
+      "options": [
+        "Damit hatten viele Beschäftigte gerechnet; dazu äußerten sie sich dennoch kritisch.",
+        "Daran hatten viele Beschäftigte gerechnet; damit äußerten sie sich dennoch kritisch.",
+        "Dazu hatten viele Beschäftigte gerechnet; darüber äußerten sie sich dennoch kritisch.",
+        "Davon hatten viele Beschäftigte gerechnet; daran äußerten sie sich dennoch kritisch."
+      ],
+      "correct_answer": "Damit hatten viele Beschäftigte gerechnet; dazu äußerten sie sich dennoch kritisch.",
+      "accepted_answers": [
+        "Damit hatten viele Beschäftigte gerechnet; dazu äußerten sie sich dennoch kritisch."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Mit etwas rechnen“ wird durch „damit rechnen“ aufgenommen; zur Verbindung „sich zu etwas äußern“ gehört dagegen „sich dazu äußern“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

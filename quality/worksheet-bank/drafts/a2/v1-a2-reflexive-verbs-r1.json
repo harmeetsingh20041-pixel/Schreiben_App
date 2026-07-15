@@ -1,0 +1,143 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-reflexive-verbs-r1",
+    "template_key": "v1-a2-reflexive-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Reflexive verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Reflexive Verben: Pronomen passend wählen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "reflexive-verbs",
+    "name": "Reflexive Verben"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "reflexive-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Reflexive Verben beziehen sich auf das Subjekt. Im Akkusativ stehen mich, dich, sich, uns und euch; im Dativ mir, dir, sich, uns und euch.",
+    "key_rule": "Ohne weiteres Akkusativobjekt steht meist das Akkusativpronomen; bei Körperteilen oder einer Sache steht häufig der reflexive Dativ.",
+    "correct_examples": [
+      "Ich freue mich auf das Wochenende.",
+      "Du putzt dir die Zähne."
+    ],
+    "common_mistake_warning": "Das reflexive Pronomen muss zur Person des Subjekts passen.",
+    "what_to_revise": "Vergleiche ich freue mich, wir freuen uns und ich wasche mir die Hände."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Reflexivpronomen: Ich freue ___ auf den Urlaub.",
+      "options": ["sich", "mich", "mir", "dich"],
+      "correct_answer": "mich",
+      "accepted_answers": ["mich"],
+      "explanation": "Das Verb sich freuen steht hier reflexiv im Akkusativ; für ich lautet das Pronomen mich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Du beeilst ___ am Morgen.",
+      "options": ["mich", "euch", "dich", "dir"],
+      "correct_answer": "dich",
+      "accepted_answers": ["dich"],
+      "explanation": "Das Reflexivpronomen muss zum Subjekt du passen; im Akkusativ lautet es dich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Er wäscht seinen eigenen Körper, nicht eine andere Person. Wortbank: [ihn, sich, ihm]. Setze ein: Er wäscht ___ vor dem Frühstück.",
+      "options": [],
+      "correct_answer": "sich",
+      "accepted_answers": ["sich"],
+      "explanation": "Beim Subjekt er lautet das reflexive Akkusativpronomen sich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [uns, euch, sich]. Setze das Reflexivpronomen ein: Vor dem Frühdienst bereiten wir ___ auf die Übergabe vor.",
+      "options": [],
+      "correct_answer": "uns",
+      "accepted_answers": ["uns"],
+      "explanation": "Das Verb sich auf etwas vorbereiten wird reflexiv gebraucht; zur ersten Person Plural wir gehört uns.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [uns, dich, euch]. Setze ein: Ihr interessiert ___ für Musik.",
+      "options": [],
+      "correct_answer": "euch",
+      "accepted_answers": ["euch"],
+      "explanation": "Zum Subjekt ihr gehört das Reflexivpronomen euch.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das passende Reflexivpronomen: Die Pflegekraft bereitet ___ auf die Übergabe vor.",
+      "options": [
+        "uns",
+        "mich",
+        "dich",
+        "sich"
+      ],
+      "correct_answer": "sich",
+      "accepted_answers": [
+        "sich"
+      ],
+      "rubric": null,
+      "explanation": "Zum Subjekt die Pflegekraft in der dritten Person Singular gehört das Reflexivpronomen sich.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [uns, euch, sich, mich]. Wir erinnern ___ an den Termin.",
+      "options": [],
+      "correct_answer": "uns",
+      "accepted_answers": [
+        "uns"
+      ],
+      "rubric": null,
+      "explanation": "Zum Subjekt wir gehört das Reflexivpronomen uns.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet das reflexive Verb richtig?",
+      "options": [
+        "Ich entspanne mich nach der Arbeit.",
+        "Ich entspanne sich nach der Arbeit.",
+        "Ich mich entspanne nach der Arbeit.",
+        "Ich entspannst mich nach der Arbeit."
+      ],
+      "correct_answer": "Ich entspanne mich nach der Arbeit.",
+      "accepted_answers": [
+        "Ich entspanne mich nach der Arbeit."
+      ],
+      "rubric": null,
+      "explanation": "Zum Subjekt ich gehört mich; im Hauptsatz steht entspanne an zweiter Position.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

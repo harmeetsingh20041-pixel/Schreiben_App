@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-verb-position-r1",
+    "template_key": "v1-b2-verb-position-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Verb position pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Verbstellung: Satzklammer und Nebensatzfelder ordnen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "verb-position",
+    "name": "Verbstellung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "verb-position",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Im Aussagesatz steht das finite Verb an zweiter Stelle, während infinite Verbteile die rechte Satzklammer bilden. In eingeleiteten Nebensätzen steht der gesamte Verbkomplex am Ende.",
+    "key_rule": "Zähle im Hauptsatz Satzglieder statt Wörter und halte im Nebensatz alle Ergänzungen vor dem abschließenden finiten Verbkomplex.",
+    "correct_examples": [
+      "Nach der Besprechung hat das Team den Ablauf vollständig überarbeitet.",
+      "Obwohl mehrere Fragen offen geblieben waren, wurde der Plan freigegeben."
+    ],
+    "common_mistake_warning": "Ein langes Vorfeld besetzt trotzdem nur eine Position; das finite Verb muss unmittelbar danach folgen.",
+    "what_to_revise": "Übe Verbzweitstellung, Satzklammern, Nebensatzendstellung und die Position mehrteiliger Verbformen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Hauptsatz wahrt nach einem langen Vorfeld die Verbzweitstellung?",
+      "options": [
+        "Nach Abschluss der ausführlichen Risikoanalyse der Ablauf wurde angepasst.",
+        "Nach Abschluss wurde der ausführlichen Risikoanalyse der Ablauf angepasst.",
+        "Nach Abschluss der ausführlichen Risikoanalyse wurde der Ablauf angepasst."
+      ],
+      "correct_answer": "Nach Abschluss der ausführlichen Risikoanalyse wurde der Ablauf angepasst.",
+      "accepted_answers": [
+        "Nach Abschluss der ausführlichen Risikoanalyse wurde der Ablauf angepasst."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die gesamte Präpositionalgruppe bildet das Vorfeld; direkt danach steht das finite Verb „wurde“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Variante ordnet den Verbkomplex im weil-Satz korrekt?",
+      "options": [
+        "Die Schulung wurde verschoben, weil die Referentin kurzfristig erkrankt war.",
+        "Die Schulung wurde verschoben, weil war die Referentin kurzfristig erkrankt.",
+        "Die Schulung wurde verschoben, weil die Referentin war kurzfristig erkrankt."
+      ],
+      "correct_answer": "Die Schulung wurde verschoben, weil die Referentin kurzfristig erkrankt war.",
+      "accepted_answers": [
+        "Die Schulung wurde verschoben, weil die Referentin kurzfristig erkrankt war."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im eingeleiteten Nebensatz steht die finite Form „war“ nach Partizip und übrigen Satzgliedern am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz bildet die Satzklammer mit dem trennbaren Verb korrekt?",
+      "options": [
+        "Die Projektgruppe wertet aus die Rückmeldungen nächste Woche.",
+        "Die Projektgruppe wertet die Rückmeldungen nächste Woche aus.",
+        "Die Projektgruppe auswertet die Rückmeldungen nächste Woche."
+      ],
+      "correct_answer": "Die Projektgruppe wertet die Rückmeldungen nächste Woche aus.",
+      "accepted_answers": [
+        "Die Projektgruppe wertet die Rückmeldungen nächste Woche aus."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Hauptsatz steht „wertet“ auf Position zwei; der abgetrennte Präfixteil „aus“ schließt die Satzklammer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sorgfältig, hat, die Leitung]. Ergänze Position zwei: Nach mehreren Rückfragen ___ die Leitung den Entwurf freigegeben.",
+      "options": [],
+      "correct_answer": "hat",
+      "accepted_answers": [
+        "hat"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die vorangestellte Präpositionalgruppe besetzt das Vorfeld; das finite Hilfsverb muss unmittelbar danach folgen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [muss werden, werden, werden muss]. Ergänze den Nebensatz: Es ist unklar, wann das Tablet für die Pflegedokumentation auf der Station ersetzt ___.",
+      "options": [],
+      "correct_answer": "werden muss",
+      "accepted_answers": [
+        "werden muss"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im indirekten Fragesatz steht der mehrteilige Verbkomplex am Ende, mit dem finiten Modalverb ganz rechts.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [vor, stellt vor, vorgestellt]. Ergänze die rechte Satzklammer: Die Arbeitsgruppe stellt morgen ihre überarbeiteten Empfehlungen ___.",
+      "options": [],
+      "correct_answer": "vor",
+      "accepted_answers": [
+        "vor"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beim trennbaren Verb „vorstellen“ schließt der Präfixteil „vor“ im Hauptsatz die Satzklammer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sind geprüft worden, worden geprüft sind, geprüft worden sind]. Ergänze den Relativsatz: Die Nachweise, die bereits vollständig ___, müssen nicht erneut eingereicht werden.",
+      "options": [],
+      "correct_answer": "geprüft worden sind",
+      "accepted_answers": [
+        "geprüft worden sind"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Relativsatz steht der Perfekt-Passiv-Komplex am Ende; die finite Form „sind“ bildet den Abschluss.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ordnet den Verbkomplex im obwohl-Nebensatz korrekt an?",
+      "options": [
+        "Obwohl hatte das Team alle Unterlagen vorbereitet, verzögerte sich die Prüfung.",
+        "Obwohl das Team alle Unterlagen vorbereitet hatte, verzögerte sich die Prüfung.",
+        "Obwohl das Team hatte alle Unterlagen vorbereitet, verzögerte sich die Prüfung.",
+        "Obwohl das Team alle Unterlagen hatte vorbereitet, verzögerte sich die Prüfung."
+      ],
+      "correct_answer": "Obwohl das Team alle Unterlagen vorbereitet hatte, verzögerte sich die Prüfung.",
+      "accepted_answers": [
+        "Obwohl das Team alle Unterlagen vorbereitet hatte, verzögerte sich die Prüfung."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Subjunktion „obwohl“ leitet einen Nebensatz mit abschließendem Verbkomplex ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung beginnt mit der Zeitangabe und erhält Verbzweitstellung sowie Satzklammer?",
+      "options": [
+        "Nach der nächsten Sitzung die Leitung wird die endgültige Entscheidung bekannt geben.",
+        "Nach der nächsten Sitzung wird die Leitung bekannt die endgültige Entscheidung geben.",
+        "Nach der nächsten Sitzung wird die Leitung die endgültige Entscheidung bekannt geben.",
+        "Nach der nächsten Sitzung die Leitung die endgültige Entscheidung bekannt geben wird."
+      ],
+      "correct_answer": "Nach der nächsten Sitzung wird die Leitung die endgültige Entscheidung bekannt geben.",
+      "accepted_answers": [
+        "Nach der nächsten Sitzung wird die Leitung die endgültige Entscheidung bekannt geben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Vorfeldwechsel verschiebt das Subjekt hinter das finite Verb, während der Infinitiv die rechte Satzklammer bildet. Sowohl „bekannt geben“ als auch „bekanntgeben“ ist normgerecht.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ordnet den mehrteiligen Verbkomplex mit Modalverb und Passiv im dass-Satz nach der standardsprachlichen Ersatzinfinitiv-Regel?",
+      "options": [
+        "Die Leitung bestätigte, dass die Unterlagen bis Freitag vollständig hätten geprüft werden müssen.",
+        "Die Leitung bestätigte, dass die Unterlagen bis Freitag vollständig geprüft werden müssen hätten.",
+        "Die Leitung bestätigte, dass hätten die Unterlagen bis Freitag vollständig geprüft werden müssen.",
+        "Die Leitung bestätigte, dass die Unterlagen hätten bis Freitag vollständig müssen geprüft werden."
+      ],
+      "correct_answer": "Die Leitung bestätigte, dass die Unterlagen bis Freitag vollständig hätten geprüft werden müssen.",
+      "accepted_answers": [
+        "Die Leitung bestätigte, dass die Unterlagen bis Freitag vollständig hätten geprüft werden müssen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Beim Ersatzinfinitiv steht das finite Hilfsverb im eingeleiteten Nebensatz vor der Infinitivgruppe: „hätten geprüft werden müssen“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

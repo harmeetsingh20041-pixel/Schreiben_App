@@ -1,0 +1,195 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-question-formation-r1",
+    "template_key": "v1-b1-question-formation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Question formation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Fragebildung: Präzise nachfragen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "question-formation",
+    "name": "Fragebildung"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "question-formation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Direkte und indirekte Fragen helfen, Informationen höflich und eindeutig zu erfragen.",
+    "key_rule": "In W-Fragen folgt das finite Verb auf das Fragewort; in indirekten Fragen steht das finite Verb am Ende.",
+    "correct_examples": [
+      "Wie lange dauert die Fortbildung?",
+      "Könnten Sie mir sagen, wo der Eingang ist?"
+    ],
+    "common_mistake_warning": "Eine indirekte Frage übernimmt nicht die Verbzweitstellung der direkten Frage.",
+    "what_to_revise": "Wiederhole W-Fragen, Ja-Nein-Fragen und indirekte Fragen mit ob."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche direkte Frage ist korrekt formuliert?",
+      "options": [
+        "Wann die Besprechung beginnt morgen?",
+        "Wann beginnt morgen die Besprechung?",
+        "Wann morgen beginnt die Besprechung?"
+      ],
+      "correct_answer": "Wann beginnt morgen die Besprechung?",
+      "accepted_answers": ["Wann beginnt morgen die Besprechung?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der direkten W-Frage steht das finite Verb unmittelbar nach dem Fragewort.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche indirekte Frage passt bei der Patientenaufnahme?",
+      "options": [
+        "Können Sie mir sagen, welche Medikamente nehmen Sie regelmäßig ein?",
+        "Können Sie mir sagen, nehmen welche Medikamente Sie regelmäßig ein?",
+        "Können Sie mir sagen, welche Medikamente Sie regelmäßig einnehmen?"
+      ],
+      "correct_answer": "Können Sie mir sagen, welche Medikamente Sie regelmäßig einnehmen?",
+      "accepted_answers": [
+        "Können Sie mir sagen, welche Medikamente Sie regelmäßig einnehmen?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im indirekten Fragesatz steht das finite Verb „einnehmen“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ja-Nein-Frage erkundigt sich korrekt nach einer Möglichkeit?",
+      "options": [
+        "Könnten wir den Termin auf Donnerstag verschieben?",
+        "Könnten wir den Termin auf Donnerstag verschiebt?",
+        "Den Termin könnten auf Donnerstag wir verschieben?"
+      ],
+      "correct_answer": "Könnten wir den Termin auf Donnerstag verschieben?",
+      "accepted_answers": [
+        "Könnten wir den Termin auf Donnerstag verschieben?"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Eine direkte Ja-Nein-Frage beginnt mit dem finiten Verb.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Wann, Wohin, Warum]. Ergänze die Frage nach dem Grund: ___ wurde der Kurs abgesagt?",
+      "options": [],
+      "correct_answer": "Warum",
+      "accepted_answers": ["Warum"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Fragewort „Warum“ verlangt als Antwort einen Grund.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ob, wann, warum]. Ergänze die indirekte Ja-Nein-Frage: Wissen Sie, ___ die Apotheke noch geöffnet ist?",
+      "options": [],
+      "correct_answer": "ob",
+      "accepted_answers": ["ob"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Eine indirekte Frage ohne Fragewort wird mit „ob“ eingeleitet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Seit wann, Wie oft, Wie lange]. Frage nach der Häufigkeit: ___ kontrolliert die Pflegekraft die Infusion?",
+      "options": [],
+      "correct_answer": "Wie oft",
+      "accepted_answers": ["Wie oft"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Wie oft“ erfragt, wie häufig eine Handlung stattfindet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den Dienst wer übernimmt, wer den Dienst übernimmt, wer übernimmt den Dienst]. Ergänze: Ist schon bekannt, ___?",
+      "options": [],
+      "correct_answer": "wer den Dienst übernimmt",
+      "accepted_answers": ["wer den Dienst übernimmt"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der indirekten W-Frage steht das finite Verb am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche indirekte Frage hat die richtige Wortstellung?",
+      "options": [
+        "Können Sie mir sagen, wann beginnt nächste die Schicht?",
+        "Können Sie mir sagen, wann beginnt die nächste Schicht?",
+        "Können Sie mir sagen, wann die nächste Schicht beginnt?",
+        "Können Sie mir sagen, beginnt wann die nächste Schicht?"
+      ],
+      "correct_answer": "Können Sie mir sagen, wann die nächste Schicht beginnt?",
+      "accepted_answers": ["Können Sie mir sagen, wann die nächste Schicht beginnt?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Indirekte W-Fragen haben Nebensatzwortstellung, auch wenn der gesamte Satz eine Frage ist.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche höfliche indirekte Frage entspricht „Wo kann ich das Formular abgeben?“?",
+      "options": [
+        "Könnten Sie mir sagen, wo ich das Formular abgeben kann?",
+        "Könnten Sie mir sagen, kann ich wo das Formular abgeben?",
+        "Könnten Sie mir sagen, wo kann ich das Formular abgeben?",
+        "Könnten Sie mir sagen, wo das Formular kann ich abgeben?"
+      ],
+      "correct_answer": "Könnten Sie mir sagen, wo ich das Formular abgeben kann?",
+      "accepted_answers": ["Könnten Sie mir sagen, wo ich das Formular abgeben kann?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die höfliche Einleitung macht aus der direkten Frage einen Nebensatz mit Verbendstellung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Gruppe enthält genau eine korrekte W-Frage, eine korrekte Ja-Nein-Frage und eine höfliche indirekte Frage?",
+      "options": [
+        "Wo ich finde den Arbeitsplan? Gibt heute es eine Einführung? Können Sie mir sagen, an wen kann ich mich wenden?",
+        "Wo finde ich den Arbeitsplan. Gibt es heute eine Einführung. Können Sie mir sagen, an wen ich mich wenden kann.",
+        "Wo den Arbeitsplan finde ich? Es gibt heute eine Einführung? Können Sie mir sagen, an wen ich mich kann wenden?",
+        "Wo finde ich den Arbeitsplan? Gibt es heute eine Einführung? Können Sie mir sagen, an wen ich mich wenden kann?"
+      ],
+      "correct_answer": "Wo finde ich den Arbeitsplan? Gibt es heute eine Einführung? Können Sie mir sagen, an wen ich mich wenden kann?",
+      "accepted_answers": ["Wo finde ich den Arbeitsplan? Gibt es heute eine Einführung? Können Sie mir sagen, an wen ich mich wenden kann?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Unterschiedliche Frageformen ermöglichen am Arbeitsplatz präzise und höfliche Nachfragen.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

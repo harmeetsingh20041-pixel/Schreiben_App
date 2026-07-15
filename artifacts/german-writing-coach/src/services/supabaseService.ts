@@ -1,7 +1,7 @@
 import { getSupabaseClient, isSupabaseConfigured } from "@/lib/supabaseClient";
 
-// Phase 2 foundation only. The approved demo UI still uses mock data.
-// Real auth/data integration starts in Phase 3/4.
+// Lightweight status helper retained for environment diagnostics. Protected
+// V1 application flows require the real configured client.
 
 export function getSupabaseStatus() {
   return {

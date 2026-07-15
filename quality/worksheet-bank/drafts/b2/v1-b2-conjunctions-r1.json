@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-conjunctions-r1",
+    "template_key": "v1-b2-conjunctions-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Conjunctions pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Konjunktionen: Logische Beziehungen differenziert verknüpfen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "conjunctions",
+    "name": "Konjunktionen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "conjunctions",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Konjunktionen verbinden gleichrangige oder untergeordnete Strukturen und markieren Beziehungen wie Bedingung, Gegensatz, Mittel oder Vergleich. Zweiteilige Formen müssen syntaktisch parallel aufgebaut sein.",
+    "key_rule": "Wähle die Konjunktion nach der logischen Beziehung und kontrolliere anschließend, ob sie Hauptsatzstellung, Nebensatzstellung oder eine parallele Paarstruktur verlangt.",
+    "correct_examples": [
+      "Obgleich die Frist knapp war, wurde der Bericht sorgfältig geprüft.",
+      "Die Änderung betrifft nicht nur die Technik, sondern auch die Organisation."
+    ],
+    "common_mistake_warning": "Nach einer unterordnenden Konjunktion darf die Hauptsatzstellung nicht beibehalten werden; in der Standardsprache kombiniert man einen konzessiven obwohl-Satz im zugehörigen Hauptsatz nicht zusätzlich mit „aber“.",
+    "what_to_revise": "Übe konditionale, konzessive und modale Nebensätze sowie zweiteilige Konjunktionen mit parallelem Aufbau."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Konjunktion drückt aus, durch welches Mittel die Fehlerzahl sinkt?",
+      "options": [
+        "Die Fehlerzahl sinkt, sofern jeder Schritt digital bestätigt wird.",
+        "Die Fehlerzahl sinkt, indem jeder Schritt digital bestätigt wird.",
+        "Die Fehlerzahl sinkt, obwohl jeder Schritt digital bestätigt wird."
+      ],
+      "correct_answer": "Die Fehlerzahl sinkt, indem jeder Schritt digital bestätigt wird.",
+      "accepted_answers": [
+        "Die Fehlerzahl sinkt, indem jeder Schritt digital bestätigt wird."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Indem“ leitet einen Modalsatz ein und nennt das Mittel, mit dem die geringere Fehlerzahl erreicht wird.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet die zweiteilige Konjunktion parallel und vollständig?",
+      "options": [
+        "Die Fortbildung vermittelt sowohl theoretisches Wissen als auch praktische Handlungssicherheit.",
+        "Die Fortbildung vermittelt sowohl theoretisches Wissen und praktische Handlungssicherheit.",
+        "Die Fortbildung sowohl vermittelt theoretisches Wissen als auch praktisch handeln."
+      ],
+      "correct_answer": "Die Fortbildung vermittelt sowohl theoretisches Wissen als auch praktische Handlungssicherheit.",
+      "accepted_answers": [
+        "Die Fortbildung vermittelt sowohl theoretisches Wissen als auch praktische Handlungssicherheit."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Sowohl … als auch“ verbindet zwei parallel gebaute Akkusativobjekte und hebt beide gleichermaßen hervor.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verknüpfung markiert eine Voraussetzung, ohne sie als sichere Tatsache darzustellen?",
+      "options": [
+        "Obwohl die Finanzierung gesichert ist, beginnt das Projekt im Herbst.",
+        "Indem die Finanzierung gesichert ist, beginnt das Projekt im Herbst.",
+        "Sofern die Finanzierung gesichert ist, beginnt das Projekt im Herbst."
+      ],
+      "correct_answer": "Sofern die Finanzierung gesichert ist, beginnt das Projekt im Herbst.",
+      "accepted_answers": [
+        "Sofern die Finanzierung gesichert ist, beginnt das Projekt im Herbst."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Sofern“ führt eine Bedingung ein, von deren Erfüllung der Projektbeginn abhängt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [indem, sodass, während]. Ergänze den Gegensatz: ___ die erste Lösung kostengünstig ist, bietet die zweite deutlich mehr Sicherheit.",
+      "options": [],
+      "correct_answer": "Während",
+      "accepted_answers": [
+        "Während"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Während“ kann zwei gleichzeitig betrachtete Sachverhalte kontrastieren und leitet hier einen Nebensatz ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Weder, Entweder, Sowohl]. Ergänze die Alternative: ___ wird der Termin verschoben, oder die Besprechung findet digital statt.",
+      "options": [],
+      "correct_answer": "Entweder",
+      "accepted_answers": [
+        "Entweder"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die zweiteilige Konjunktion „entweder … oder“ stellt zwei alternative Möglichkeiten gegenüber.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Je, Obwohl, Falls]. Ergänze die proportionale Verbindung: ___ klarer die Zuständigkeiten geregelt sind, desto seltener entstehen Rückfragen.",
+      "options": [],
+      "correct_answer": "Je",
+      "accepted_answers": [
+        "Je"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Je … desto“ verbindet zwei Entwicklungen proportional miteinander.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [als ob, damit, nachdem]. Ergänze den irrealen Vergleich: Der Anbieter reagiert, ___ das Problem völlig überraschend aufgetreten wäre.",
+      "options": [],
+      "correct_answer": "als ob",
+      "accepted_answers": [
+        "als ob"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Als ob“ leitet einen irrealen Vergleich ein; der Konjunktiv „wäre“ signalisiert Distanz zur dargestellten Annahme.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung markiert den Gegensatz ohne unnötige Doppelmarkierung und mit korrekter Satzstellung?",
+      "options": [
+        "Obwohl die Vorbereitung war gründlich, traten technische Probleme auf.",
+        "Obwohl die Vorbereitung gründlich war, aber technische Probleme traten auf.",
+        "Obwohl die Vorbereitung gründlich war, aber traten technische Probleme auf.",
+        "Obwohl die Vorbereitung gründlich war, traten technische Probleme auf."
+      ],
+      "correct_answer": "Obwohl die Vorbereitung gründlich war, traten technische Probleme auf.",
+      "accepted_answers": [
+        "Obwohl die Vorbereitung gründlich war, traten technische Probleme auf."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Obwohl“ markiert den Gegensatz bereits; ein zusätzliches „aber“ im zugehörigen Hauptsatz ist hier redundant.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung kennzeichnet die digitale Checkliste mit „indem“ eindeutig als Methode der Verbesserung?",
+      "options": [
+        "Die Klinik verbessert die Übergaben, indem eine verbindliche digitale Checkliste sie einführt.",
+        "Die Klinik verbessert die Übergaben, indem sie eine verbindliche digitale Checkliste einführt.",
+        "Die Klinik verbessert die Übergaben, obwohl sie eine verbindliche digitale Checkliste einführt.",
+        "Die Klinik verbessert die Übergaben, indem führt sie eine verbindliche digitale Checkliste ein."
+      ],
+      "correct_answer": "Die Klinik verbessert die Übergaben, indem sie eine verbindliche digitale Checkliste einführt.",
+      "accepted_answers": [
+        "Die Klinik verbessert die Übergaben, indem sie eine verbindliche digitale Checkliste einführt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der indem-Satz benennt die Einführung der Checkliste als konkretes Mittel zur Verbesserung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung drückt einen eingeräumten Gegensatz mit einer unterordnenden Konjunktion grammatisch korrekt aus?",
+      "options": [
+        "Obwohl die Pilotphase verkürzt wurde, konnten alle Prüfschritte abgeschlossen werden.",
+        "Obwohl die Pilotphase wurde verkürzt, konnten alle Prüfschritte abgeschlossen werden.",
+        "Trotzdem die Pilotphase verkürzt wurde, konnten alle Prüfschritte abgeschlossen werden.",
+        "Obwohl die Pilotphase verkürzt wurde, aber konnten alle Prüfschritte abgeschlossen werden."
+      ],
+      "correct_answer": "Obwohl die Pilotphase verkürzt wurde, konnten alle Prüfschritte abgeschlossen werden.",
+      "accepted_answers": [
+        "Obwohl die Pilotphase verkürzt wurde, konnten alle Prüfschritte abgeschlossen werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Obwohl“ leitet einen konzessiven Nebensatz ein und stellt dessen finite Verbform ans Ende. Im Hauptsatz ist kein zusätzliches „aber“ erforderlich.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

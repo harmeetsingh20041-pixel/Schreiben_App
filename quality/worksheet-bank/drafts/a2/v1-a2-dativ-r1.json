@@ -1,0 +1,143 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-dativ-r1",
+    "template_key": "v1-a2-dativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Dativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Dativ: Empfänger und feste Präpositionen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "dativ",
+    "name": "Dativ"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "dativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Dativ bezeichnet oft eine empfangende Person und steht nach Präpositionen wie mit, bei, nach, seit, von und zu.",
+    "key_rule": "Im Dativ heißen die bestimmten Artikel dem, der und den. Bei Nomen im Plural kommt meistens zusätzlich ein -n an das Nomen.",
+    "correct_examples": [
+      "Ich helfe dem Nachbarn.",
+      "Wir fahren mit den Freunden."
+    ],
+    "common_mistake_warning": "Verwechsle dem im Dativ nicht mit den im Akkusativ; achte auf Präposition und Satzfunktion.",
+    "what_to_revise": "Wiederhole dem Mann, der Frau, dem Kind und den Kindern."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den passenden Artikel: Ich fahre mit ___ Bus zur Arbeit.",
+      "options": ["den","der","das","dem"],
+      "correct_answer": "dem",
+      "accepted_answers": ["dem"],
+      "explanation": "Die Präposition mit verlangt den Dativ; Bus ist maskulin, daher heißt es mit dem Bus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Die Kundin dankt ___ Verkäuferin.",
+      "options": ["dem","der","die","den"],
+      "correct_answer": "der",
+      "accepted_answers": ["der"],
+      "explanation": "Danken steht mit dem Dativ; Verkäuferin ist feminin, deshalb lautet die Form der Verkäuferin.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [der, dem, den]. Setze ein: Wir sprechen mit ___ Lehrer.",
+      "options": [],
+      "correct_answer": "dem",
+      "accepted_answers": ["dem"],
+      "explanation": "Mit verlangt den Dativ, und beim maskulinen Nomen Lehrer steht der Artikel dem.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einer, einen, einem]. Setze ein: Er wohnt bei ___ Freundin.",
+      "options": [],
+      "correct_answer": "einer",
+      "accepted_answers": ["einer"],
+      "explanation": "Bei verlangt den Dativ; bei einem femininen Nomen lautet der unbestimmte Artikel einer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [der, dem, den]. Setze ein: Die Kinder spielen mit ___ Bällen.",
+      "options": [],
+      "correct_answer": "den",
+      "accepted_answers": ["den"],
+      "explanation": "Im Dativ Plural steht der Artikel den; die Pluralform Bälle erhält zusätzlich ein -n: Bällen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Die Pflegekraft hilft ___ neuen Kollegen.",
+      "options": [
+        "dem",
+        "des",
+        "der",
+        "den"
+      ],
+      "correct_answer": "dem",
+      "accepted_answers": [
+        "dem"
+      ],
+      "rubric": null,
+      "explanation": "Das Verb helfen verlangt den Dativ; bei einem maskulinen Nomen lautet der Artikel dem.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dem, der, die, den]. Wir geben ___ Patientin das Formular.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "rubric": null,
+      "explanation": "Die Person, die das Formular bekommt, steht im Dativ; feminin Singular lautet der Artikel der.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den richtigen Artikel für eine Position: Die Unterlagen liegen neben ___ Telefon.",
+      "options": [
+        "das",
+        "den",
+        "dem",
+        "der"
+      ],
+      "correct_answer": "dem",
+      "accepted_answers": [
+        "dem"
+      ],
+      "rubric": null,
+      "explanation": "Liegen beschreibt eine Position; deshalb steht neben mit dem Dativ. Telefon ist neutral, daher heißt es neben dem Telefon.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

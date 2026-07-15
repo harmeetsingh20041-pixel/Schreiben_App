@@ -1,0 +1,195 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-verb-position-r1",
+    "template_key": "v1-b1-verb-position-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Verb position pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Verbposition: Hauptsätze, Fragen und Nebensätze ordnen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "verb-position",
+    "name": "Verbposition"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "verb-position",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Im deutschen Aussagesatz steht das finite Verb an Position zwei. In einer Entscheidungsfrage steht es an Position eins, während es im eingeleiteten Nebensatz am Ende steht.",
+    "key_rule": "Wenn ein Hauptsatz mit einer Zeit- oder Ortsangabe beginnt, folgt direkt das finite Verb und erst danach das Subjekt. Bei mehrteiligen Verbformen steht im Nebensatz die gesamte Verbgruppe am Ende.",
+    "correct_examples": [
+      "Nach dem Seminar beantwortet der Dozent alle Fragen.",
+      "Wir warten, weil der Bus noch nicht angekommen ist."
+    ],
+    "common_mistake_warning": "Setze im Hauptsatz nach einem vorangestellten Satzglied nicht zuerst das Subjekt; das finite Verb muss weiterhin an zweiter Position stehen.",
+    "what_to_revise": "Wiederhole Verbzweitstellung, Inversion, Verberststellung in Entscheidungsfragen und die Verbendstellung im Nebensatz."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Der Aussagesatz soll mit „Nach der Übergabe“ beginnen; das finite Verb muss an Position zwei und das Subjekt danach stehen. Welcher Satz erfüllt alle Bedingungen?",
+      "options": [
+        "Nach der Übergabe die Pflegekraft dokumentiert alle Änderungen.",
+        "Nach der Übergabe alle Änderungen die Pflegekraft dokumentiert.",
+        "Nach der Übergabe dokumentiert die Pflegekraft alle Änderungen."
+      ],
+      "correct_answer": "Nach der Übergabe dokumentiert die Pflegekraft alle Änderungen.",
+      "accepted_answers": [
+        "Nach der Übergabe dokumentiert die Pflegekraft alle Änderungen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Zeitangabe besetzt das Vorfeld; direkt danach steht das finite Verb „dokumentiert“ und anschließend das Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Der Aussagesatz soll mit „Heute“ beginnen und das finite Verb an Position zwei enthalten. Welcher Satz ist korrekt?",
+      "options": [
+        "Heute prüft der Sachbearbeiter den Antrag.",
+        "Heute der Sachbearbeiter prüft den Antrag.",
+        "Heute den Antrag der Sachbearbeiter prüft."
+      ],
+      "correct_answer": "Heute prüft der Sachbearbeiter den Antrag.",
+      "accepted_answers": ["Heute prüft der Sachbearbeiter den Antrag."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem vorangestellten Zeitadverb „heute“ folgt an Position zwei das finite Verb „prüft“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher weil-Nebensatz hat die vollständige mehrteilige Verbform am Ende?",
+      "options": [
+        "Die Sitzung beginnt später, weil die Leiterin muss den Vertrag noch prüfen.",
+        "Die Sitzung beginnt später, weil die Leiterin den Vertrag noch prüfen muss.",
+        "Die Sitzung beginnt später, weil muss die Leiterin den Vertrag noch prüfen."
+      ],
+      "correct_answer": "Die Sitzung beginnt später, weil die Leiterin den Vertrag noch prüfen muss.",
+      "accepted_answers": [
+        "Die Sitzung beginnt später, weil die Leiterin den Vertrag noch prüfen muss."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im eingeleiteten Nebensatz steht die Verbgruppe „prüfen muss“ am Ende; der Infinitiv steht vor dem finiten Modalverb.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Die Zeitangabe besetzt das Vorfeld; direkt danach folgt das finite Verb. Wortbank: [beginnt, der Kurs beginnt, beginnen]. Ergänze: Morgen ___ der Kurs bereits um acht Uhr.",
+      "options": [],
+      "correct_answer": "beginnt",
+      "accepted_answers": ["beginnt"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Morgen“ steht im Vorfeld; das finite Verb „beginnt“ folgt an Position zwei vor dem Subjekt „der Kurs“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Der Prüfbedarf ist der Grund; im weil-Satz steht die gesamte Verbgruppe am Ende. Wortbank: [noch muss prüfen, noch einmal prüfen muss, muss noch einmal prüfen]. Ergänze: Die Besprechung dauert länger, weil die Ärztin den Befund ___.",
+      "options": [],
+      "correct_answer": "noch einmal prüfen muss",
+      "accepted_answers": ["noch einmal prüfen muss"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im weil-Nebensatz steht die Verbgruppe am Ende; bei einem Modalverb steht der Infinitiv „prüfen“ vor „muss“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Die Zeitangabe besetzt das Vorfeld und das Subjekt folgt dem finiten Verb. Wortbank: [die Teilnehmenden stellen, stellen die Teilnehmenden, stellen]. Ergänze: Nach dem Seminar ___ die Teilnehmenden ihre Fragen.",
+      "options": [],
+      "correct_answer": "stellen",
+      "accepted_answers": ["stellen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach der vorangestellten Zeitangabe steht „stellen“ an Position zwei; das bereits angegebene Subjekt folgt direkt danach.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Es handelt sich um eine Entscheidungsfrage; das finite Verb steht vor dem Subjekt. Wortbank: [Nimmst, Du nimmst, Morgen nimmst]. Ergänze: ___ du morgen am Termin teil?",
+      "options": [],
+      "correct_answer": "Nimmst",
+      "accepted_answers": ["Nimmst"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In einer Entscheidungsfrage steht das finite Verb „nimmst“ an Position eins vor dem Subjekt „du“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung hat nach dem vorangestellten Nebensatz die korrekte Verbposition?",
+      "options": [
+        "Obwohl der Termin verschoben wurde, die Sitzung pünktlich beginnt.",
+        "Obwohl der Termin wurde verschoben, beginnt die Sitzung pünktlich.",
+        "Obwohl der Termin verschoben wurde, die Sitzung beginnt pünktlich.",
+        "Obwohl der Termin verschoben wurde, beginnt die Sitzung pünktlich."
+      ],
+      "correct_answer": "Obwohl der Termin verschoben wurde, beginnt die Sitzung pünktlich.",
+      "accepted_answers": ["Obwohl der Termin verschoben wurde, beginnt die Sitzung pünktlich."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der gesamte Nebensatz besetzt das Vorfeld des Hauptsatzes; deshalb folgt das finite Verb „beginnt“ unmittelbar danach.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Umformung beginnt mit „Nach der Prüfung“ und bewahrt die Verbzweitstellung?",
+      "options": [
+        "Nach der Prüfung die Sachbearbeiterin versendet den Bescheid.",
+        "Nach der Prüfung die Sachbearbeiterin den Bescheid versendet.",
+        "Nach der Prüfung versendet die Sachbearbeiterin den Bescheid.",
+        "Nach der Prüfung wird versendet die Sachbearbeiterin den Bescheid."
+      ],
+      "correct_answer": "Nach der Prüfung versendet die Sachbearbeiterin den Bescheid.",
+      "accepted_answers": ["Nach der Prüfung versendet die Sachbearbeiterin den Bescheid."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Wenn die Zeitangabe im Vorfeld steht, bleibt das finite Verb an Position zwei und das Subjekt folgt danach.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Gruppe zeigt nacheinander Verbzweitstellung nach einer Zeitangabe, Verbendstellung im weil-Satz und Verberststellung in einer Entscheidungsfrage?",
+      "options": [
+        "Nach der Frühschicht beginnt die Übergabe. Sie dauert länger, weil die Pflegekraft einen Vorfall erklären muss. Hat die Ärztin den Bericht gelesen?",
+        "Nach der Frühschicht die Übergabe beginnt. Sie dauert länger, weil muss die Pflegekraft einen Vorfall erklären. Die Ärztin hat den Bericht gelesen?",
+        "Nach der Frühschicht beginnt die Übergabe. Sie dauert länger, weil die Pflegekraft muss einen Vorfall erklären. Die Ärztin hat den Bericht gelesen?",
+        "Nach der Frühschicht die Übergabe beginnt. Sie dauert länger, weil die Pflegekraft einen Vorfall erklären muss. Hat die Ärztin den Bericht gelesen?"
+      ],
+      "correct_answer": "Nach der Frühschicht beginnt die Übergabe. Sie dauert länger, weil die Pflegekraft einen Vorfall erklären muss. Hat die Ärztin den Bericht gelesen?",
+      "accepted_answers": ["Nach der Frühschicht beginnt die Übergabe. Sie dauert länger, weil die Pflegekraft einen Vorfall erklären muss. Hat die Ärztin den Bericht gelesen?"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die drei Satztypen zeigen Verbzweitstellung nach einem Vorfeldelement, Verbendstellung im Nebensatz und Verberststellung in der Frage.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

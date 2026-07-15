@@ -1,0 +1,184 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-plusquamperfekt-r1",
+    "template_key": "v1-b1-plusquamperfekt-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Plusquamperfekt pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Plusquamperfekt: Frühere Ereignisse einordnen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "plusquamperfekt",
+    "name": "Plusquamperfekt"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "plusquamperfekt",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Plusquamperfekt bezeichnet ein Ereignis, das vor einem anderen Ereignis in der Vergangenheit abgeschlossen war.",
+    "key_rule": "Bilde es mit „hatte“ oder „war“ im Präteritum und dem Partizip II. Verben der Bewegung und Zustandsänderung verwenden meist „war“.",
+    "correct_examples": [
+      "Bevor sich die Tür öffnete, hatten wir alles vorbereitet.",
+      "Er war schon eingeschlafen, als das Telefon klingelte."
+    ],
+    "common_mistake_warning": "Verwende im Plusquamperfekt nicht „hat“ oder „ist“; das Hilfsverb muss selbst im Präteritum stehen.",
+    "what_to_revise": "Wiederhole die Wahl zwischen haben und sein sowie die Stellung des Partizips in Haupt- und Nebensätzen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz ordnet zwei vergangene Ereignisse korrekt?",
+      "options": [
+        "Nachdem der Kurs hatte geendet, gingen alle nach Hause.",
+        "Nachdem der Kurs geendet war, gingen alle nach Hause.",
+        "Nachdem der Kurs geendet hatte, gingen alle nach Hause.",
+        "Nachdem der Kurs geendet hat, gingen alle nach Hause."
+      ],
+      "correct_answer": "Nachdem der Kurs geendet hatte, gingen alle nach Hause.",
+      "accepted_answers": [
+        "Nachdem der Kurs geendet hatte, gingen alle nach Hause."
+      ],
+      "explanation": "„Enden“ bildet das Plusquamperfekt mit „hatte“; im Nebensatz steht das Hilfsverb am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form von „abreisen“ ist im Plusquamperfekt korrekt?",
+      "options": [
+        "war abreisen",
+        "war abgereist",
+        "hatte abgereist",
+        "ist abgereist"
+      ],
+      "correct_answer": "war abgereist",
+      "accepted_answers": ["war abgereist"],
+      "explanation": "Das Bewegungsverb „abreisen“ bildet das Plusquamperfekt mit „war“ und dem Partizip „abgereist“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den Satz, der den früher abgeschlossenen Vorgang ausdrücklich im Plusquamperfekt formuliert.",
+      "options": [
+        "Wir hatten alles vorbereitet, bevor die Gäste eintrafen.",
+        "Wir haben alles vorbereitet, bevor die Gäste eintrafen.",
+        "Wir waren alles vorbereitet, bevor die Gäste eintrafen.",
+        "Wir hatten alles vorbereiten, bevor die Gäste eintrafen."
+      ],
+      "correct_answer": "Wir hatten alles vorbereitet, bevor die Gäste eintrafen.",
+      "accepted_answers": [
+        "Wir hatten alles vorbereitet, bevor die Gäste eintrafen."
+      ],
+      "explanation": "Die Vorbereitung war vor dem Eintreffen beendet und steht deshalb im Plusquamperfekt „hatten vorbereitet“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wäre, hatte, hat]. Ergänze ausdrücklich im Plusquamperfekt: Vor der Übergabe ___ ich den Dienstplan bereits gelesen.",
+      "options": [],
+      "correct_answer": "hatte",
+      "accepted_answers": ["hatte"],
+      "explanation": "„Lesen“ bildet das Plusquamperfekt mit „hatte“ und dem Partizip „gelesen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hatte, ist, war]. Ergänze das frühere Ereignis im Plusquamperfekt: Als wir ankamen, ___ der Bus schon abgefahren.",
+      "options": [],
+      "correct_answer": "war",
+      "accepted_answers": ["war"],
+      "explanation": "„Abfahren“ verwendet „sein“; das frühere Ereignis lautet im Plusquamperfekt „war abgefahren“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hatten, waren, haben]. Ergänze ausdrücklich im Plusquamperfekt: Sie ___ das Hotel schon im Januar gebucht.",
+      "options": [],
+      "correct_answer": "hatten",
+      "accepted_answers": ["hatten"],
+      "explanation": "„Buchen“ bildet das Plusquamperfekt im Plural mit „hatten gebucht“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hatte, war, wurde]. Ergänze: Die Veranstaltung ___ bereits stattgefunden, als ich davon erfuhr.",
+      "options": [],
+      "correct_answer": "hatte",
+      "accepted_answers": ["hatte"],
+      "explanation": "Das Verb „stattfinden“ bildet das Plusquamperfekt mit „hatte stattgefunden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet beim früheren Ereignis das passende Plusquamperfekt?",
+      "options": [
+        "Nachdem die Pflegekraft auf der Station angekommen hatte, begann die Übergabe.",
+        "Nachdem die Pflegekraft auf der Station ankam, hatte die Übergabe begonnen.",
+        "Nachdem die Pflegekraft auf der Station angekommen ist, begann die Übergabe.",
+        "Nachdem die Pflegekraft auf der Station angekommen war, begann die Übergabe."
+      ],
+      "correct_answer": "Nachdem die Pflegekraft auf der Station angekommen war, begann die Übergabe.",
+      "accepted_answers": ["Nachdem die Pflegekraft auf der Station angekommen war, begann die Übergabe."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Ankommen“ ist ein Bewegungsverb und bildet das Plusquamperfekt mit „sein“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung zeigt eindeutig, dass die Arbeit vor dem Nachhausegehen beendet war?",
+      "options": [
+        "Nachdem ich die Arbeit beendet hatte, ging ich nach Hause.",
+        "Nachdem ich hatte die Arbeit beendet, ging ich nach Hause.",
+        "Nachdem ich die Arbeit beendete, war ich nach Hause gegangen.",
+        "Nachdem ich die Arbeit beendet habe, ging ich nach Hause."
+      ],
+      "correct_answer": "Nachdem ich die Arbeit beendet hatte, ging ich nach Hause.",
+      "accepted_answers": ["Nachdem ich die Arbeit beendet hatte, ging ich nach Hause."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Plusquamperfekt „beendet hatte“ macht deutlich, dass die Arbeit vor dem Nachhausegehen abgeschlossen war.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche kurze Schilderung verwendet zwei passende Plusquamperfektformen für frühere Ereignisse und danach Präteritum für den verspäteten Schichtbeginn?",
+      "options": [
+        "Ich habe den Dienstplan geprüft. Der Bus war abgefahren. Deshalb komme ich zu spät.",
+        "Ich hatte den Dienstplan geprüft. Der Bus war bereits abgefahren. Deshalb kam ich zu spät.",
+        "Ich prüfte den Dienstplan. Der Bus fuhr ab. Deshalb war ich zu spät gekommen.",
+        "Ich hatte den Dienstplan geprüft. Der Bus hatte abgefahren. Deshalb kam ich zu spät."
+      ],
+      "correct_answer": "Ich hatte den Dienstplan geprüft. Der Bus war bereits abgefahren. Deshalb kam ich zu spät.",
+      "accepted_answers": ["Ich hatte den Dienstplan geprüft. Der Bus war bereits abgefahren. Deshalb kam ich zu spät."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Kombination aus Plusquamperfekt und Präteritum stellt Vorzeitigkeit und anschließende Handlung klar dar.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

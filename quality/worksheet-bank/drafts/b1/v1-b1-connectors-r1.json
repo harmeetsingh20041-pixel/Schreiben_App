@@ -1,0 +1,188 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-connectors-r1",
+    "template_key": "v1-b1-connectors-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Connectors pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Konnektoren: Gründe, Folgen und Gegensätze verbinden",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "connectors",
+    "name": "Konnektoren"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "connectors",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Konnektoren zeigen die Beziehung zwischen Aussagen. Sie können einen Grund, eine Folge, einen Gegensatz oder eine zusätzliche Information ausdrücken.",
+    "key_rule": "Nach weil und obwohl steht das Verb am Nebensatzende. Stehen deshalb, trotzdem oder außerdem im Vorfeld am Anfang eines Hauptsatzes, folgt direkt das finite Verb; im Mittelfeld bleibt die Verbzweitstellung erhalten. Denn verändert die Hauptsatzstellung nicht.",
+    "correct_examples": [
+      "Wir verschoben den Ausflug, weil das Wetter schlecht war.",
+      "Die Aufgabe war schwierig; trotzdem lösten wir sie."
+    ],
+    "common_mistake_warning": "Wähle den Konnektor nicht nur nach seiner Bedeutung, sondern prüfe auch, welche Wortstellung er verlangt.",
+    "what_to_revise": "Vergleiche weil und denn, obwohl und trotzdem sowie die Inversion nach deshalb und außerdem."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verbindet einen Gegensatz korrekt?",
+      "options": [
+        "Es regnete; trotzdem wir gingen spazieren.",
+        "Es regnete, obwohl gingen wir spazieren.",
+        "Es regnete; deshalb gingen wir nicht spazieren.",
+        "Es regnete; trotzdem gingen wir spazieren."
+      ],
+      "correct_answer": "Es regnete; trotzdem gingen wir spazieren.",
+      "accepted_answers": ["Es regnete; trotzdem gingen wir spazieren."],
+      "explanation": "„Trotzdem“ drückt einen unerwarteten Gegensatz aus und wird im zweiten Hauptsatz direkt vom finiten Verb gefolgt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher weil-Satz hat die richtige Wortstellung?",
+      "options": [
+        "Wir konnten die Dokumentation nicht abschließen, weil das System fiel aus.",
+        "Wir konnten die Dokumentation nicht abschließen, weil aus das System fiel.",
+        "Wir konnten die Dokumentation nicht abschließen, weil das System ausfiel.",
+        "Wir konnten die Dokumentation nicht abschließen, weil fiel das System aus."
+      ],
+      "correct_answer": "Wir konnten die Dokumentation nicht abschließen, weil das System ausfiel.",
+      "accepted_answers": [
+        "Wir konnten die Dokumentation nicht abschließen, weil das System ausfiel."
+      ],
+      "explanation": "Nach „weil“ steht das finite trennbare Verb als geschlossene Form „ausfiel“ am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz mit „denn“ ist korrekt?",
+      "options": [
+        "Ich gehe früh schlafen, denn ich bin sehr müde.",
+        "Ich gehe früh schlafen, denn bin ich sehr müde.",
+        "Ich gehe früh schlafen, denn ich sehr müde bin.",
+        "Ich gehe früh schlafen, denn weil ich müde."
+      ],
+      "correct_answer": "Ich gehe früh schlafen, denn ich bin sehr müde.",
+      "accepted_answers": ["Ich gehe früh schlafen, denn ich bin sehr müde."],
+      "explanation": "„Denn“ verbindet zwei Hauptsätze; im zweiten Satz bleibt das Subjekt vor dem finiten Verb.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Deshalb, Außerdem, Trotzdem]. Ergänze den Gegensatz: Er war müde. ___ arbeitete er weiter.",
+      "options": [],
+      "correct_answer": "Trotzdem",
+      "accepted_answers": ["Trotzdem"],
+      "explanation": "Die Weiterarbeit widerspricht der Erwartung, die sich aus der Müdigkeit ergibt; deshalb passt „Trotzdem“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [denn, deshalb, obwohl]. Ergänze die Folge: Der Bus hatte Verspätung; ___ kamen wir zu spät.",
+      "options": [],
+      "correct_answer": "deshalb",
+      "accepted_answers": ["deshalb"],
+      "explanation": "Das Zuspätkommen ist die Folge der Verspätung; nach „deshalb“ folgt direkt „kamen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [weil, trotzdem, außerdem]. Ergänze den Grund: Wir blieben drinnen, ___ es stark regnete.",
+      "options": [],
+      "correct_answer": "weil",
+      "accepted_answers": ["weil"],
+      "explanation": "„Weil“ leitet den Grund ein und verlangt das finite Verb „regnete“ am Nebensatzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Außerdem, Obwohl, Deshalb]. Ergänze die zusätzliche Information: Die berufsbezogene Fortbildung ist praxisnah. ___ bietet sie flexible Termine.",
+      "options": [],
+      "correct_answer": "Außerdem",
+      "accepted_answers": ["Außerdem"],
+      "explanation": "„Außerdem“ fügt einen weiteren Vorteil hinzu und wird direkt vom finiten Verb „bietet“ gefolgt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt eine Ursache und ihre Folge logisch aus?",
+      "options": [
+        "Der Bus fiel aus. Trotzdem kam ich zu spät.",
+        "Der Bus fiel aus. Deshalb kam ich zu spät.",
+        "Der Bus fiel aus. Außerdem kam ich deswegen pünktlich.",
+        "Der Bus fiel aus. Zuerst war die Verspätung eine Ursache."
+      ],
+      "correct_answer": "Der Bus fiel aus. Deshalb kam ich zu spät.",
+      "accepted_answers": [
+        "Der Bus fiel aus. Deshalb kam ich zu spät."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Deshalb“ leitet die Folge einer zuvor genannten Ursache ein. „Trotzdem“ würde einen unerwarteten Gegensatz ausdrücken.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Abfolge ist zeitlich klar und logisch?",
+      "options": [
+        "Zuerst erhielt die Pflegekraft die Informationen. Danach dokumentierte sie die Übergabe. Schließlich prüfte sie die Angaben.",
+        "Danach erhielt die Pflegekraft die Informationen. Schließlich dokumentierte sie zuerst die Übergabe.",
+        "Zuerst prüfte die Pflegekraft noch unbekannte Angaben. Schließlich erhielt sie sie. Danach dokumentierte sie vorher.",
+        "Schließlich prüfte die Pflegekraft die Angaben. Zuerst dokumentierte sie die Übergabe. Danach erhielt sie die Informationen."
+      ],
+      "correct_answer": "Zuerst erhielt die Pflegekraft die Informationen. Danach dokumentierte sie die Übergabe. Schließlich prüfte sie die Angaben.",
+      "accepted_answers": [
+        "Zuerst erhielt die Pflegekraft die Informationen. Danach dokumentierte sie die Übergabe. Schließlich prüfte sie die Angaben."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Zuerst“, „danach“ und „schließlich“ ordnen die drei Arbeitsschritte in einer nachvollziehbaren Reihenfolge.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Absatz verwendet die Konnektoren passend?",
+      "options": [
+        "Die Station war voll. Zuerst konnten alle Aufgaben erledigt werden. Trotzdem half eine Kollegin aus, weil deshalb niemand Zeit hatte.",
+        "Die Station war voll. Trotzdem blieb das Team ruhig. Außerdem half eine Kollegin aus. Deshalb konnten alle Aufgaben erledigt werden.",
+        "Die Station war voll. Deshalb blieb das Team trotzdem ohne Grund ruhig. Schließlich half niemand aus. Außerdem blieben Aufgaben offen und wurden erledigt.",
+        "Die Station war voll. Außerdem war dies ein Gegensatz. Trotzdem kam keine Hilfe, deshalb waren alle Aufgaben nicht offen."
+      ],
+      "correct_answer": "Die Station war voll. Trotzdem blieb das Team ruhig. Außerdem half eine Kollegin aus. Deshalb konnten alle Aufgaben erledigt werden.",
+      "accepted_answers": [
+        "Die Station war voll. Trotzdem blieb das Team ruhig. Außerdem half eine Kollegin aus. Deshalb konnten alle Aufgaben erledigt werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Trotzdem“ markiert den Gegensatz, „außerdem“ ergänzt Hilfe und „deshalb“ nennt das positive Ergebnis.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

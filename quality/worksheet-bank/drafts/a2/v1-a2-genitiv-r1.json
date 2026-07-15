@@ -1,0 +1,174 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-genitiv-r1",
+    "template_key": "v1-a2-genitiv-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Genitiv pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Zusatztraining: Zugehörigkeit mit Genitiv erkennen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "genitiv",
+    "name": "Genitiv"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "genitiv",
+    "stretch-practice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Auf A2 kannst du Zugehörigkeit oft mit ‚von‘ ausdrücken. Dieses Zusatztraining hilft dir, zusätzlich häufige Genitivgruppen in Texten zu erkennen.",
+    "key_rule": "Erkenne des mit oft -s oder -es bei maskulinen und neutralen Nomen; bei femininen Nomen und im Plural steht häufig der.",
+    "correct_examples": [
+      "Das ist das Büro des Arztes.",
+      "Die Tasche der Kollegin ist blau."
+    ],
+    "common_mistake_warning": "Verwechsle „der“ in einer Genitivgruppe nicht automatisch mit einem maskulinen Artikel.",
+    "what_to_revise": "Vergleiche zuerst eine Form mit ‚von‘ und dieselbe Aussage mit des oder der."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Genitivgruppe drückt die Zugehörigkeit zu einem einzelnen Zimmer korrekt aus?",
+      "options": [
+        "die Tür des Zimmers",
+        "die Tür dem Zimmer",
+        "die Tür den Zimmers",
+        "die Tür der Zimmer"
+      ],
+      "correct_answer": "die Tür des Zimmers",
+      "accepted_answers": [
+        "die Tür des Zimmers"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Nomen „Zimmer“ steht mit „des“ und der Endung „-s“ im Genitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist bei einer weiblichen Person korrekt?",
+      "options": [
+        "der Ausweis des Kollegin",
+        "der Ausweis der Kollegin",
+        "der Ausweis die Kollegin",
+        "der Ausweis den Kollegin"
+      ],
+      "correct_answer": "der Ausweis der Kollegin",
+      "accepted_answers": [
+        "der Ausweis der Kollegin"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei femininen Nomen lautet der Genitivartikel „der“; das Nomen erhält keine zusätzliche Endung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den, des, dem]. Ergänze die Zugehörigkeit: Das Ende ___ Kurses ist um 16 Uhr.",
+      "options": [],
+      "correct_answer": "des",
+      "accepted_answers": [
+        "des"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Kurs“ ist maskulin; die Genitivgruppe lautet „des Kurses“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [der, die, den]. Ergänze: Die Jacke ___ Patientin hängt hier.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Nomen „Patientin“ steht im Genitiv mit dem Artikel „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [der, dem, des]. Ergänze: Wir kennen die Öffnungszeiten ___ Cafés.",
+      "options": [],
+      "correct_answer": "des",
+      "accepted_answers": [
+        "des"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Nomen „Café“ steht hier im Genitiv mit „des“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den richtigen Genitivartikel: Das ist der Schlüssel ___ Stationszimmers.",
+      "options": [
+        "den",
+        "der",
+        "die",
+        "des"
+      ],
+      "correct_answer": "des",
+      "accepted_answers": [
+        "des"
+      ],
+      "rubric": null,
+      "explanation": "Stationszimmer ist neutral; im Genitiv Singular steht des und das Nomen erhält -s.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [des, den, der, die]. Die Telefonnummer ___ Praxis steht auf der Karte.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "rubric": null,
+      "explanation": "Praxis ist feminin; der bestimmte Artikel lautet im Genitiv Singular der.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung verwendet den Genitiv richtig?",
+      "options": [
+        "Die Farbe dem Auto ist dunkel.",
+        "Die Farbe den Autos ist dunkel.",
+        "Die Farbe des Autos ist dunkel.",
+        "Die Farbe der Auto ist dunkel."
+      ],
+      "correct_answer": "Die Farbe des Autos ist dunkel.",
+      "accepted_answers": [
+        "Die Farbe des Autos ist dunkel."
+      ],
+      "rubric": null,
+      "explanation": "Das neutrale Nomen Auto steht im Genitiv als des Autos.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

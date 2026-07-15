@@ -117,7 +117,10 @@ Deleting this workspace does not delete the two real Auth users or profiles.
 
 ## Proposed Cleanup SQL
 
-Run only after explicit approval.
+Historical cleanup instructions below are retained as an audit record only.
+They must not be executed. V1 now uses the explicit-ID, always-rollback manifest
+in `docs/V1_CLEANUP_DRY_RUN.sql`; a separately reviewed change must be created
+after its dry-run output is approved.
 
 ```sql
 begin;
@@ -188,14 +191,16 @@ where id in (
 )
 order by full_name;
 
--- Change COMMIT to ROLLBACK for a dry run.
-commit;
+-- Historical example only. Production execution is intentionally disabled.
+rollback;
 ```
 
 ## Rollback Notes
 
-- Before `commit`, use `rollback` to cancel.
-- After `commit`, rollback requires restoring from a Supabase backup or recreating a fresh test workspace manually.
+- The mandatory manifest dry run always rolls back and never contains broad
+  name/title matching.
+- Any later mutation requires explicit IDs, an approved dry-run artifact, a
+  backup/recovery decision, and a separately reviewed script.
 - The 47 global A2 tasks are not touched by the proposed cleanup.
 - The scheduled feedback cron job is not touched by the proposed cleanup.
 
@@ -203,11 +208,16 @@ commit;
 
 - Clean test data before real student onboarding.
 - Do not mix real production users/classes with development E2E data.
-- Keep scheduled feedback cron active only when expected. Disable with:
-
-```sql
-select cron.unschedule('process-due-feedback-every-5-minutes');
-```
+- Do not manually unschedule individual V1 jobs as part of data cleanup. The
+  expected release job is `release-due-feedback-every-30-seconds`, installed
+  together with the three queue reconciliation jobs by migration
+  `20260710191319_install_queue_recovery_cron.sql`. Phase 12V additionally
+  installs `reconcile-ai-spend-reservations-every-30-seconds`; cleanup must not
+  unschedule it.
+- If background processing must be paused during an incident, follow the
+  reviewed procedure in `docs/V1_LAUNCH_RUNBOOK.md` and verify the complete
+  scheduler state afterward. Do not recreate or manage the retired five-minute
+  database HTTP scheduler.
 
 - The default Supabase email sender should not be used at scale.
 - Configure custom SMTP before production usage grows.

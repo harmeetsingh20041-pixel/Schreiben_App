@@ -1,0 +1,181 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-register-r2",
+    "template_key": "v1-b2-register-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Register accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Register: Ton und Stil sicher übertragen",
+  "level": "B2",
+  "grammar_topic": { "slug": "register", "name": "Register" },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "register",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Registerwechsel bedeutet mehr als einzelne Wörter zu ersetzen. Auch Satzbau, Höflichkeit, Grad der Distanz und Informationsdichte müssen zur neuen Situation passen.",
+    "key_rule": "Übertrage die Aussage vollständig, aber passe alle sprachlichen Signale konsequent an Adressat und Textsorte an.",
+    "correct_examples": [
+      "Leider kann ich den vereinbarten Termin nicht wahrnehmen.",
+      "Tut mir leid, ich schaffe unseren Termin nicht."
+    ],
+    "common_mistake_warning": "Übertriebener Nominalstil kann ebenso unpassend sein wie Umgangssprache; formell bedeutet vor allem klar, respektvoll und präzise.",
+    "what_to_revise": "Achte auf Modalverben, Konjunktivformen, Anredepronomen und wertende Umgangssprache."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Für einen internen Qualitätsbericht soll festgehalten werden: Zu Schichtbeginn fehlten die Zugriffsrechte für die digitale Dokumentation; ab 8.30 Uhr war der Zugriff möglich. Welche Fassung ist sachlich, präzise und frei von Schuldzuweisungen?",
+      "options": [
+        "Bei der digitalen Dokumentation gab es zu Schichtbeginn gewisse Schwierigkeiten, die später behoben wurden.",
+        "Die Dokumentation war bis 8.30 Uhr unmöglich, obwohl die Zugriffsrechte eigentlich längst hätten vorliegen müssen.",
+        "Da die erforderlichen Zugriffsrechte zu Schichtbeginn noch nicht freigeschaltet waren, konnte die digitale Dokumentation erst ab 8.30 Uhr erfolgen.",
+        "Weil die IT die Freischaltung versäumt hatte, musste das Team leider bis 8.30 Uhr warten."
+      ],
+      "correct_answer": "Da die erforderlichen Zugriffsrechte zu Schichtbeginn noch nicht freigeschaltet waren, konnte die digitale Dokumentation erst ab 8.30 Uhr erfolgen.",
+      "accepted_answers": [
+        "Da die erforderlichen Zugriffsrechte zu Schichtbeginn noch nicht freigeschaltet waren, konnte die digitale Dokumentation erst ab 8.30 Uhr erfolgen."
+      ],
+      "explanation": "Die Fassung dokumentiert Ursache und Zeitpunkt genau, ohne eine Person oder Abteilung verantwortlich zu machen. Die anderen Varianten weisen Schuld zu, bleiben zu vage oder enthalten eine wertende Unterstellung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Ein Softwaredienstleister hat einen wiederholt gemeldeten Fehler noch nicht behoben. Welche Formulierung verbindet diplomatische Bestimmtheit mit einer überprüfbaren Frist und einer gewünschten Rückmeldung?",
+      "options": [
+        "Wir möchten Sie nochmals freundlich darauf hinweisen, dass der bekannte Fehler weiterhin besteht.",
+        "Bitte sorgen Sie umgehend dafür, dass der Fehler endlich verschwindet.",
+        "Könnten Sie vielleicht prüfen, ob sich der Fehler bis Mittwoch beheben ließe?",
+        "Da der gemeldete Fehler weiterhin auftritt, bitten wir Sie, ihn bis Mittwoch zu beheben und uns die Einhaltung dieser Frist kurz zu bestätigen."
+      ],
+      "correct_answer": "Da der gemeldete Fehler weiterhin auftritt, bitten wir Sie, ihn bis Mittwoch zu beheben und uns die Einhaltung dieser Frist kurz zu bestätigen.",
+      "accepted_answers": [
+        "Da der gemeldete Fehler weiterhin auftritt, bitten wir Sie, ihn bis Mittwoch zu beheben und uns die Einhaltung dieser Frist kurz zu bestätigen."
+      ],
+      "explanation": "Die Formulierung benennt den fortbestehenden Sachverhalt, die erwartete Handlung, eine konkrete Frist und die gewünschte Bestätigung. Sie bleibt respektvoll und vermeidet sowohl Vorwürfe als auch übermäßige Zurückhaltung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Eine interne Auswertung zeigt lediglich, dass kürzere Übergaben zeitlich mit mehr nachträglichen Rückfragen zusammenfallen; ein ursächlicher Zusammenhang ist nicht belegt. Welche Formulierung passt zu einem vorsichtigen Bericht?",
+      "options": [
+        "Die Auswertung deutet darauf hin, dass kürzere Übergabezeiten mit einer höheren Zahl nachträglicher Rückfragen zusammenhängen könnten.",
+        "Die verkürzten Übergaben verursachen nachweislich mehr Rückfragen.",
+        "Offenbar führen kürzere Übergaben meistens zu unnötigen Rückfragen.",
+        "Zwischen der Übergabedauer und den Rückfragen ist möglicherweise vielleicht ein Zusammenhang vorhanden."
+      ],
+      "correct_answer": "Die Auswertung deutet darauf hin, dass kürzere Übergabezeiten mit einer höheren Zahl nachträglicher Rückfragen zusammenhängen könnten.",
+      "accepted_answers": [
+        "Die Auswertung deutet darauf hin, dass kürzere Übergabezeiten mit einer höheren Zahl nachträglicher Rückfragen zusammenhängen könnten."
+      ],
+      "explanation": "Die Kombination aus „deutet darauf hin“, „zusammenhängen“ und „könnten“ gibt die begrenzte Aussagekraft präzise wieder. Sie behauptet keine Kausalität und vermeidet unbeholfenes doppeltes Abschwächen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Verwende ausdrücklich den Konjunktiv I, um die noch nicht unabhängig bestätigte Aussage des Dienstleisters wiederzugeben: Nach Angaben des Dienstleisters ___ die Störung inzwischen behoben. Wortbank: [ist | sei | wäre].",
+      "options": [],
+      "correct_answer": "sei",
+      "accepted_answers": ["sei"],
+      "explanation": "Der Konjunktiv I „sei“ kennzeichnet die Aussage als wiedergegebene Information des Dienstleisters. Der Bericht wahrt dadurch sachliche Distanz, ohne die Aussage als falsch darzustellen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Ergänze die sachlich abwägende Einschränkung: Der Vorschlag reduziert den Abstimmungsaufwand; ___ bleibt offen, wie kurzfristige Vertretungen organisiert werden. Wortbank: [allerdings | folglich | beispielsweise].",
+      "options": [],
+      "correct_answer": "allerdings",
+      "accepted_answers": ["allerdings"],
+      "explanation": "„Allerdings“ erkennt den genannten Vorteil an und führt anschließend eine noch ungeklärte Einschränkung ein. „Folglich“ würde eine logische Folge behaupten, „beispielsweise“ ein Beispiel ankündigen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Ergänze in einem internen Bericht die sachliche, personenneutrale Ursachenangabe: Die Freigabe des Dienstplans verzögerte sich ___. Wortbank: [wegen des Versäumnisses einzelner Mitarbeitender | zu unserem großen Ärger | aufgrund noch ausstehender Rückmeldungen].",
+      "options": [],
+      "correct_answer": "aufgrund noch ausstehender Rückmeldungen",
+      "accepted_answers": ["aufgrund noch ausstehender Rückmeldungen"],
+      "explanation": "Die gewählte Formulierung benennt den sachlichen Grund, ohne einzelnen Personen ein Versäumnis zuzuschreiben oder eine emotionale Reaktion in den Bericht aufzunehmen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Für die Planung ist eine eindeutige Zu- oder Absage erforderlich. Ergänze die bestimmte, aber höfliche Bitte: Bitte teilen Sie uns bis Freitag ___ mit, ob Sie an der Fortbildung teilnehmen. Wortbank: [vorsorglich | verbindlich | nach Möglichkeit].",
+      "options": [],
+      "correct_answer": "verbindlich",
+      "accepted_answers": ["verbindlich"],
+      "explanation": "„Verbindlich“ macht deutlich, dass bis Freitag eine planungsfähige Antwort benötigt wird. „Nach Möglichkeit“ schwächt die Frist ab; „vorsorglich“ bezeichnet nicht die erforderliche Verbindlichkeit.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne die Bausteine zu einer formellen Bitte und beginne mit Ich: [Ich / wäre Ihnen dankbar / wenn Sie / die Angaben / bis Montag / prüfen könnten].",
+      "options": [],
+      "correct_answer": "Ich wäre Ihnen dankbar, wenn Sie die Angaben bis Montag prüfen könnten.",
+      "rubric": {
+        "criteria": [
+          "Beginne mit Ich und verwende jeden Baustein genau einmal.",
+          "Setze ein Komma vor dem wenn-Satz und könnten an dessen Ende."
+        ],
+        "sample_answer": "Ich wäre Ihnen dankbar, wenn Sie die Angaben bis Montag prüfen könnten."
+      },
+      "explanation": "Die Wendung wäre Ihnen dankbar ist höflich; der wenn-Nebensatz wird durch Komma abgetrennt und endet mit könnten.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Formuliere die persönliche Nachricht als formelle Terminabsage an eine Kursleitung: Tut mir leid, ich schaffe es morgen nicht. Können wir das verschieben?",
+      "options": [],
+      "correct_answer": "Leider kann ich den morgigen Termin nicht wahrnehmen. Wäre es möglich, einen Ersatztermin zu vereinbaren?",
+      "rubric": {
+        "criteria": [
+          "Übertrage Absage und Bitte um Verschiebung vollständig in ein formelles Register.",
+          "Verwende eine respektvolle, grammatisch korrekte formelle Formulierung ohne Umgangssprache; eine konsequente Sie-Form oder eine höfliche unpersönliche Konstruktion sind beide zulässig."
+        ],
+        "sample_answer": "Leider kann ich den morgigen Termin nicht wahrnehmen. Wäre es möglich, einen Ersatztermin zu vereinbaren?"
+      },
+      "explanation": "Nicht wahrnehmen und Ersatztermin vereinbaren sind präzise formelle Ausdrücke; die indirekte Frage wirkt höflich.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Verfasse drei Sätze für einen sachlichen Bericht über eine verspätete Lieferung: Nenne die Verspätung, ihre Auswirkung auf den Zeitplan und die vereinbarte Lösung. Vermeide Wertungen.",
+      "options": [],
+      "correct_answer": "Die Lieferung traf zwei Tage nach dem vereinbarten Termin ein. Dadurch verschob sich der Beginn der Montage. Mit dem Lieferanten wurde eine kostenfreie Expresslieferung der fehlenden Teile vereinbart.",
+      "rubric": {
+        "criteria": [
+          "Schreibe genau drei vollständige Sätze in neutralem, sachlichem Register.",
+          "Nenne Verspätung, Auswirkung auf den Zeitplan und vereinbarte Lösung.",
+          "Vermeide emotionale Wertungen und umgangssprachliche Ausdrücke."
+        ],
+        "sample_answer": "Die Lieferung traf zwei Tage nach dem vereinbarten Termin ein. Dadurch verschob sich der Beginn der Montage. Mit dem Lieferanten wurde eine kostenfreie Expresslieferung der fehlenden Teile vereinbart."
+      },
+      "explanation": "Der Mustertext berichtet chronologisch, benennt die Folge und dokumentiert die Lösung ohne Schuldzuweisung oder emotionale Bewertung.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

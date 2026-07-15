@@ -1,0 +1,198 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-coherence-r1",
+    "template_key": "v1-b2-coherence-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Coherence pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Kohärenz: Gedankengänge klar verknüpfen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "coherence",
+    "name": "Kohärenz"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "coherence",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Ein kohärenter Text entwickelt einen nachvollziehbaren Gedankengang. Verweise, passende Konnektoren und eine klare Themenführung zeigen, wie Sätze und Absätze zusammenhängen.",
+    "key_rule": "Jeder Satz sollte eine erkennbare Funktion im Gedankengang haben; Verweise und Konnektoren müssen seine Beziehung zum umgebenden Kontext präzise markieren.",
+    "correct_examples": [
+      "Viele Beschäftigte arbeiten flexibel. Dieses Modell erleichtert ihnen die Planung.",
+      "Die Maßnahme ist teuer. Dennoch kann sie sich langfristig lohnen."
+    ],
+    "common_mistake_warning": "Vermeide unklare Pronomen und Konnektoren, deren logische Bedeutung nicht zum Zusammenhang passt.",
+    "what_to_revise": "Prüfe bei jedem Satz: Worauf verweist er, und welche logische Beziehung stellt er her?"
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher zweite Satz knüpft eindeutig an: ‚Die Stadt hat neue Radwege gebaut.‘?",
+      "options": [
+        "Sie findet das möglicherweise interessant.",
+        "Gestern wurde ein neuer Bericht veröffentlicht.",
+        "Trotzdem ist das Wetter wechselhaft.",
+        "Diese Maßnahme soll den Autoverkehr verringern."
+      ],
+      "correct_answer": "Diese Maßnahme soll den Autoverkehr verringern.",
+      "accepted_answers": [
+        "Diese Maßnahme soll den Autoverkehr verringern."
+      ],
+      "explanation": "Diese Maßnahme verweist eindeutig auf den Bau der Radwege und erklärt dessen beabsichtigte Wirkung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Konnektor markiert ausdrücklich den Gegensatz? Die Anschaffung ist zunächst teuer. ___ sinken dadurch langfristig die Betriebskosten.",
+      "options": [
+        "Beispielsweise",
+        "Dennoch",
+        "Deshalb",
+        "Außerdem"
+      ],
+      "correct_answer": "Dennoch",
+      "accepted_answers": [
+        "Dennoch"
+      ],
+      "explanation": "Zwischen den hohen Anfangskosten und den späteren Einsparungen besteht ein Gegensatz; dennoch markiert ihn passend.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Reihenfolge ergibt den schlüssigsten Mini-Absatz? (A) Dadurch nahm die Nutzung deutlich zu. (B) Die Bibliothek verlängerte ihre Öffnungszeiten. (C) Dieser Anstieg zeigte sich besonders bei Berufstätigen, die nun häufiger am Abend kamen.",
+      "options": [
+        "B – A – C",
+        "A – C – B",
+        "C – B – A",
+        "B – C – A"
+      ],
+      "correct_answer": "B – A – C",
+      "accepted_answers": [
+        "B – A – C"
+      ],
+      "explanation": "Zuerst steht die Maßnahme, dann ihre allgemeine Folge und zuletzt die Konkretisierung für eine bestimmte Gruppe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Setze den eindeutigen Rückverweis ein: Das Unternehmen führte eine Vier-Tage-Woche ein. ___ wurde nach sechs Monaten ausgewertet. Wortbank: [Dieser Arbeitsweg | Dieses Arbeitszeitmodell].",
+      "options": [],
+      "correct_answer": "Dieses Arbeitszeitmodell",
+      "accepted_answers": [
+        "Dieses Arbeitszeitmodell"
+      ],
+      "explanation": "Dieses Arbeitszeitmodell benennt den zuvor eingeführten Gegenstand eindeutig und vermeidet einen unklaren Pronomenbezug.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Setze den passenden Folgekonnektor ein: Die Nachfrage stieg stark. ___ erweiterte der Anbieter sein Sortiment. Wortbank: [Folglich | Trotzdem].",
+      "options": [],
+      "correct_answer": "Folglich",
+      "accepted_answers": [
+        "Folglich"
+      ],
+      "explanation": "Folglich kennzeichnet die Sortimentserweiterung eindeutig als Folge der gestiegenen Nachfrage.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Ergänze die eindeutige Wiederaufnahme des Kernthemas: Digitale Sprechstunden sparen Wege. ___ kann besonders in ländlichen Regionen nützlich sein. Wortbank: [Dieser Arbeitsweg | Dieses Angebot].",
+      "options": [],
+      "correct_answer": "Dieses Angebot",
+      "accepted_answers": [
+        "Dieses Angebot"
+      ],
+      "explanation": "Dieses Angebot greift die digitalen Sprechstunden als Ganzes auf und führt das Thema ohne Mehrdeutigkeit fort.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Setze den passenden Gegensatzmarker ein: Einerseits schafft die Regel Klarheit, ___ schränkt sie die Flexibilität ein. Wortbank: [andererseits | deshalb].",
+      "options": [],
+      "correct_answer": "andererseits",
+      "accepted_answers": [
+        "andererseits"
+      ],
+      "explanation": "Einerseits und andererseits bilden ein festes Paar, das zwei gegensätzliche Seiten ausgewogen verbindet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung macht eindeutig, dass das neue Konzept noch nicht ausgereift war?",
+      "options": [
+        "Die Leitung stellte dem Team das neue Konzept vor, obwohl es noch nicht ausgereift waren.",
+        "Die Leitung stellte dem Team das neue Konzept vor, obwohl diese noch nicht ausgereift waren.",
+        "Die Leitung stellte dem Team das neue Konzept vor, obwohl dieses noch nicht ausgereift war.",
+        "Die Leitung stellte dem Team das neue Konzept vor, obwohl sie noch nicht ausgereift war."
+      ],
+      "correct_answer": "Die Leitung stellte dem Team das neue Konzept vor, obwohl dieses noch nicht ausgereift war.",
+      "rubric": null,
+      "explanation": "Dieses bezieht sich eindeutig auf das neutrale Singularwort Konzept; sie und waren erzeugten einen widersprüchlichen Bezug.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Die Leitung stellte dem Team das neue Konzept vor, obwohl dieses noch nicht ausgereift war."
+      ]
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung kennzeichnet die Beschwerden eindeutig als Folge der schlechten Dämmung und wahrt die Verbzweitstellung?",
+      "options": [
+        "Der Proberaum ist schlecht gedämmt. Deshalb häufig die Nachbarn beschweren sich.",
+        "Der Proberaum ist schlecht gedämmt. Deshalb die Nachbarn beschweren sich häufig.",
+        "Der Proberaum ist schlecht gedämmt. Deshalb beschweren sich die Nachbarn häufig.",
+        "Der Proberaum ist schlecht gedämmt. Trotzdem beschweren sich die Nachbarn häufig."
+      ],
+      "correct_answer": "Der Proberaum ist schlecht gedämmt. Deshalb beschweren sich die Nachbarn häufig.",
+      "rubric": null,
+      "explanation": "Deshalb macht die Ursache-Folge-Beziehung explizit und sorgt im folgenden Hauptsatz für die Verbzweitstellung.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Der Proberaum ist schlecht gedämmt. Deshalb beschweren sich die Nachbarn häufig."
+      ]
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz schließt die Lücke so, dass Ursache, Maßnahme und Ergebnis kohärent verknüpft sind? In den Übergabeprotokollen fehlten wiederholt wichtige Angaben. ___. Seitdem ist die Zahl unvollständiger Einträge deutlich gesunken.",
+      "options": [
+        "Daraufhin führte die Leitung eine verbindliche Checkliste ein.",
+        "Dennoch waren sämtliche Protokolle bereits vollständig.",
+        "Im Gegensatz dazu blieb die Dokumentation unverändert.",
+        "Außerdem wurden die Checklisten vor Auftreten des Problems abgeschafft."
+      ],
+      "correct_answer": "Daraufhin führte die Leitung eine verbindliche Checkliste ein.",
+      "rubric": null,
+      "explanation": "„Daraufhin“ leitet eine Reaktion auf die zuvor genannte Ursache ein; die eingeführte Checkliste erklärt anschließend schlüssig den Rückgang unvollständiger Einträge.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Daraufhin führte die Leitung eine verbindliche Checkliste ein."
+      ],
+      "answer_contract_version": 1
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-articles-r2",
+    "template_key": "v1-a1-articles-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Articles accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Artikel: Anwenden und Korrigieren 2",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "articles",
+    "name": "Artikel"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "articles",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Artikel passen zum grammatischen Geschlecht, zu Einzahl oder Mehrzahl und zur Aufgabe des Nomens im Satz. Bei einem maskulinen Akkusativobjekt ändert sich der Artikel sichtbar.",
+    "key_rule": "Bei einem maskulinen Akkusativobjekt wird der zu den und ein zu einen. Feminine und neutrale Formen bleiben gleich; der bestimmte Pluralartikel bleibt die.",
+    "correct_examples": ["Ich sehe den Hund.", "Mia kauft ein Brot."],
+    "common_mistake_warning": "Verwende vor einem maskulinen Akkusativobjekt nicht der oder ein.",
+    "what_to_revise": "Vergleiche: der Hund und den Hund sowie ein Apfel und einen Apfel."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den unbestimmten Artikel im Akkusativ für das maskuline Nomen Apfel: Ich kaufe ___ Apfel.",
+      "options": ["einem","einen","ein","eine"],
+      "correct_answer": "einen",
+      "accepted_answers": ["einen"],
+      "explanation": "Apfel ist ein maskulines Akkusativobjekt. Deshalb wird ein zu einen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den bestimmten Artikel im Akkusativ für das Nomen Kinder im Plural: Wir sehen ___ Kinder im Park.",
+      "options": ["der","das","den","die"],
+      "correct_answer": "die",
+      "accepted_answers": ["die"],
+      "explanation": "Der bestimmte Artikel für Nomen im Plural lautet auch im Akkusativ die.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: bestimmter Artikel im Akkusativ für das maskuline Nomen Schlüssel. Wortbank: [der | dem | den]. Ergänze: Ich brauche ___ Schlüssel.",
+      "options": [],
+      "correct_answer": "den",
+      "accepted_answers": ["den"],
+      "explanation": "Schlüssel ist maskulin und das Akkusativobjekt. Deshalb wird der zu den.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: unbestimmter Artikel im Nominativ für das maskuline Nomen Mann. Wortbank: [einem | ein | einen]. Ergänze: Vor dem Haus steht ___ Mann.",
+      "options": [],
+      "correct_answer": "ein",
+      "accepted_answers": ["ein"],
+      "explanation": "Mann ist das Subjekt von steht. Deshalb lautet der unbestimmte Artikel im Nominativ ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: unbestimmter Artikel im Akkusativ für das neutrale Nomen Ticket. Wortbank: [ein | einen | eine]. Ergänze: Mia kauft ___ Ticket.",
+      "options": [],
+      "correct_answer": "ein",
+      "accepted_answers": ["ein"],
+      "explanation": "Der unbestimmte Artikel für das neutrale Nomen ‚Ticket‘ bleibt im Akkusativ ‚ein‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere den Artikel in diesem Satz: Wir besuchen ein Freundin.",
+      "options": [],
+      "correct_answer": "Wir besuchen eine Freundin.",
+      "rubric": {
+        "criteria": [
+          "Ersetze ein durch den femininen Artikel eine.",
+          "Lass das Verb und die Bedeutung unverändert und bilde einen grammatisch richtigen Satz."
+        ],
+        "sample_answer": "Wir besuchen eine Freundin."
+      },
+      "explanation": "Freundin ist feminin. Der unbestimmte Artikel lautet im Nominativ und im Akkusativ eine.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Beginne mit Paul und ordne alle Satzteile: [Paul / bestellt / am Morgen / einen Kaffee].",
+      "options": [],
+      "correct_answer": "Paul bestellt am Morgen einen Kaffee.",
+      "rubric": {
+        "criteria": [
+          "Beginne mit Paul und verwende jeden vorgegebenen Satzteil genau einmal.",
+          "Setze das konjugierte Verb bestellt auf Position zwei.",
+          "Behalte einen Kaffee als maskuline Wortgruppe im Akkusativ bei."
+        ],
+        "sample_answer": "Paul bestellt am Morgen einen Kaffee."
+      },
+      "explanation": "Wenn Paul am Anfang steht, kommt bestellt auf Position zwei. Kaffee ist maskulin und bekommt als Akkusativobjekt einen.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Beginne mit Am Abend und ordne alle Satzteile: [Am Abend / liest / Lea / die Zeitung].",
+      "options": [],
+      "correct_answer": "Am Abend liest Lea die Zeitung.",
+      "rubric": {
+        "criteria": [
+          "Beginne mit Am Abend und verwende jeden vorgegebenen Satzteil genau einmal.",
+          "Setze liest auf Position zwei und Lea direkt hinter das Verb.",
+          "Behalte die Zeitung als feminine Wortgruppe im Akkusativ bei."
+        ],
+        "sample_answer": "Am Abend liest Lea die Zeitung."
+      },
+      "explanation": "Nach der Zeitangabe am Anfang steht das Verb auf Position zwei. Der feminine Artikel bleibt im Akkusativ die.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

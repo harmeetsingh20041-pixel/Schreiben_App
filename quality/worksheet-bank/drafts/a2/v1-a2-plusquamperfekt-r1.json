@@ -1,0 +1,174 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-plusquamperfekt-r1",
+    "template_key": "v1-a2-plusquamperfekt-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Plusquamperfekt pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Zusatztraining: Ein früheres Ereignis erkennen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "plusquamperfekt",
+    "name": "Plusquamperfekt"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "plusquamperfekt",
+    "stretch-practice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Auf A2 erzählst du Vergangenes meistens im Perfekt oder mit häufigen Präteritumformen. Dieses Zusatztraining hilft dir, ein noch früheres Ereignis zu erkennen.",
+    "key_rule": "Achte auf hatte oder war zusammen mit einem Partizip: Diese Form markiert eine Handlung vor einem anderen vergangenen Ereignis.",
+    "correct_examples": [
+      "Ich hatte schon gegessen, bevor der Kurs begann.",
+      "Der Bus war bereits abgefahren, als wir ankamen."
+    ],
+    "common_mistake_warning": "Verwechsle ‚hatte gemacht‘ nicht mit dem normalen Perfekt ‚hat gemacht‘.",
+    "what_to_revise": "Erkenne zuerst ‚hatte gemacht‘ und ‚war gegangen‘ in klaren Folgen aus zwei vergangenen Ereignissen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz markiert das frühere Ereignis im Plusquamperfekt?",
+      "options": [
+        "Sie hat die E-Mail gelesen, bevor sie antwortete.",
+        "Sie hatte die E-Mail lesen, bevor sie antwortete.",
+        "Sie war die E-Mail gelesen, bevor sie antwortete.",
+        "Sie hatte die E-Mail gelesen, bevor sie antwortete."
+      ],
+      "correct_answer": "Sie hatte die E-Mail gelesen, bevor sie antwortete.",
+      "accepted_answers": [
+        "Sie hatte die E-Mail gelesen, bevor sie antwortete."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Hatte gelesen“ zeigt, dass das Lesen vor dem Antworten abgeschlossen war.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Plusquamperfektform ist bei einer Ortsveränderung korrekt?",
+      "options": [
+        "Der Zug ist schon abgefahren, als wir kamen.",
+        "Der Zug war schon abgefahren, als wir kamen.",
+        "Der Zug hatte schon abgefahren, als wir kamen.",
+        "Der Zug war schon abfahren, als wir kamen."
+      ],
+      "correct_answer": "Der Zug war schon abgefahren, als wir kamen.",
+      "accepted_answers": [
+        "Der Zug war schon abgefahren, als wir kamen."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Abfahren“ bildet das Plusquamperfekt der Ortsveränderung mit „war“ und „abgefahren“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hatte, hat, war]. Ergänze im Plusquamperfekt: Ich ___ den Bericht schon geschrieben, bevor die Sitzung begann.",
+      "options": [],
+      "correct_answer": "hatte",
+      "accepted_answers": [
+        "hatte"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Schreiben“ bildet die Vorvergangenheit hier mit „hatte“ und dem Partizip „geschrieben“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ist, war, hatte]. Ergänze im Plusquamperfekt: Sie ___ bereits angekommen, als ich anrief.",
+      "options": [],
+      "correct_answer": "war",
+      "accepted_answers": [
+        "war"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Ankommen“ bildet das Plusquamperfekt mit „war“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [machen, machte, gemacht]. Ergänze das Partizip: Wir hatten die Aufgabe schon ___.",
+      "options": [],
+      "correct_answer": "gemacht",
+      "accepted_answers": [
+        "gemacht"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „hatten“ steht für das Plusquamperfekt das Partizip II „gemacht“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle das richtige Partizip: Bevor der Dienst begann, hatte Ravi die Liste ___.",
+      "options": [
+        "geprüft",
+        "prüfen",
+        "prüfte",
+        "geprüfen"
+      ],
+      "correct_answer": "geprüft",
+      "accepted_answers": [
+        "geprüft"
+      ],
+      "rubric": null,
+      "explanation": "Das Plusquamperfekt wird hier mit hatte und dem Partizip geprüft gebildet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wurde, war, hatte, ist]. Als die Pflegekraft kam, ___ der Patient schon eingeschlafen.",
+      "options": [],
+      "correct_answer": "war",
+      "accepted_answers": [
+        "war"
+      ],
+      "rubric": null,
+      "explanation": "Einschlafen bildet das Plusquamperfekt mit sein: Der Patient war eingeschlafen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz zeigt mit hatte plus Partizip ein Ereignis vor einem zweiten Ereignis?",
+      "options": [
+        "Ich aß, bevor ich zur Arbeit gehe.",
+        "Ich werde essen, bevor ich zur Arbeit gehe.",
+        "Ich hatte gegessen, bevor ich zur Arbeit ging.",
+        "Ich esse, bevor ich zur Arbeit gehe."
+      ],
+      "correct_answer": "Ich hatte gegessen, bevor ich zur Arbeit ging.",
+      "accepted_answers": [
+        "Ich hatte gegessen, bevor ich zur Arbeit ging."
+      ],
+      "rubric": null,
+      "explanation": "Hatte gegessen kennzeichnet das Ereignis, das vor dem späteren Gang zur Arbeit abgeschlossen war.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

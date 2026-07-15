@@ -1,0 +1,211 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-adjective-endings-r1",
+    "template_key": "v1-b2-adjective-endings-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Adjective endings pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Adjektivendungen: Erweiterte Nominalgruppen kontrollieren",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "adjective-endings",
+    "name": "Adjektivendungen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "adjective-endings",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Die Adjektivendung zeigt Genus, Numerus und Kasus, soweit der vorangehende Artikel diese Informationen nicht bereits eindeutig markiert. In den hier geübten parallel aufgebauten Attributgruppen folgen koordinierte Adjektive demselben Deklinationsmuster.",
+    "key_rule": "Bestimme Artikeltyp und Kasus vor der Endung: nach bestimmtem Artikel meist schwach, nach unbestimmtem Artikel gemischt und ohne Artikel stark.",
+    "correct_examples": [
+      "mit einem sorgfältig dokumentierten Befund",
+      "aktuelle wissenschaftliche Erkenntnisse"
+    ],
+    "common_mistake_warning": "Adverbien vor einem Adjektiv, etwa „besonders“ oder „fachlich“, werden nicht dekliniert; nur das attributive Adjektiv erhält die Endung.",
+    "what_to_revise": "Übe starke, schwache und gemischte Deklination in langen Fachausdrücken und nach Mengenwörtern."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche erweiterte Nominalgruppe ist nach dem bestimmten Artikel korrekt?",
+      "options": [
+        "die neu eingeführte verbindliche Standards",
+        "die neuen eingeführten verbindlicher Standards",
+        "die neu eingeführten verbindlichen Standards"
+      ],
+      "correct_answer": "die neu eingeführten verbindlichen Standards",
+      "accepted_answers": [
+        "die neu eingeführten verbindlichen Standards"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im Nominativ Plural tragen beide attributiven Adjektive nach „die“ die schwache Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist ohne Artikel im Genitiv Plural korrekt?",
+      "options": [
+        "aufgrund fehlende verlässliche Daten",
+        "aufgrund fehlender verlässlicher Daten",
+        "aufgrund fehlenden verlässlichen Daten"
+      ],
+      "correct_answer": "aufgrund fehlender verlässlicher Daten",
+      "accepted_answers": [
+        "aufgrund fehlender verlässlicher Daten"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Ohne Artikel markieren beide Adjektive den Genitiv Plural stark mit der Endung -er.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form unterscheidet das nicht deklinierte Gradadverb vom attributiven Adjektiv korrekt?",
+      "options": [
+        "eine besonders anspruchsvolle Aufgabe",
+        "eine besondere anspruchsvolle Aufgabe",
+        "eine besonders anspruchsvoller Aufgabe"
+      ],
+      "correct_answer": "eine besonders anspruchsvolle Aufgabe",
+      "accepted_answers": [
+        "eine besonders anspruchsvolle Aufgabe"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Besonders“ bestimmt den Grad und bleibt unverändert; nur „anspruchsvoll“ erhält die gemischte feminine Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [umfassender, umfassende, umfassenden]. Ergänze nach dem bestimmten Artikel: Die Ergebnisse der ___ externen Prüfung liegen vor.",
+      "options": [],
+      "correct_answer": "umfassenden",
+      "accepted_answers": [
+        "umfassenden"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „der“ steht das Adjektiv im femininen Genitiv Singular schwach mit der Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [verbindliche, verbindlicher, verbindlichen]. Verwende in formeller Standardsprache ausdrücklich den Genitiv und ergänze ohne Artikel: Trotz ___ Vorgaben blieb ein Entscheidungsspielraum bestehen.",
+      "options": [],
+      "correct_answer": "verbindlicher",
+      "accepted_answers": [
+        "verbindlicher"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In der ausdrücklich verlangten Genitivform übernimmt das Adjektiv ohne Artikel die starke Pluralmarkierung -er.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [geeignetes, geeigneten, geeigneter]. Ergänze nach „kein“: Es stand kein ___ Ersatzgerät zur Verfügung.",
+      "options": [],
+      "correct_answer": "geeignetes",
+      "accepted_answers": [
+        "geeignetes"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Kein“ verhält sich wie ein unbestimmter Artikel; im Nominativ Singular Neutrum trägt das Adjektiv die gemischte Endung -es.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [qualifizierten, qualifizierte, qualifiziertem]. Ergänze die Dativgruppe: Die Klinik arbeitet mit mehreren international ___ Fachkräften zusammen.",
+      "options": [],
+      "correct_answer": "qualifizierten",
+      "accepted_answers": [
+        "qualifizierten"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „mehreren“ steht das attributive Adjektiv im Dativ Plural mit -en; „international“ bleibt als adverbiale Bestimmung unverändert.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält nach „mit“ die vollständig korrekte Dativgruppe?",
+      "options": [
+        "Mit einem neu entwickelten digitalen Verfahren konnten viele Fehler vermieden werden.",
+        "Mit ein neu entwickeltes digitales Verfahren konnten viele Fehler vermieden werden.",
+        "Mit einem neu entwickelte digitale Verfahren konnten viele Fehler vermieden werden.",
+        "Mit einem neu entwickelten digitales Verfahren konnten viele Fehler vermieden werden."
+      ],
+      "correct_answer": "Mit einem neu entwickelten digitalen Verfahren konnten viele Fehler vermieden werden.",
+      "accepted_answers": [
+        "Mit einem neu entwickelten digitalen Verfahren konnten viele Fehler vermieden werden."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „mit“ lautet die Dativgruppe bei neutralem Nomen „einem neu entwickelten digitalen Verfahren“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung ersetzt den Relativsatz durch zwei korrekt deklinierte attributive Adjektive?",
+      "options": [
+        "Die neu eingeführte verbindliche Maßnahmen werden monatlich überprüft.",
+        "Die neu eingeführte verbindlichen Maßnahmen werden monatlich überprüft.",
+        "Die neue eingeführten verbindliche Maßnahmen werden monatlich überprüft.",
+        "Die neu eingeführten verbindlichen Maßnahmen werden monatlich überprüft."
+      ],
+      "correct_answer": "Die neu eingeführten verbindlichen Maßnahmen werden monatlich überprüft.",
+      "accepted_answers": [
+        "Die neu eingeführten verbindlichen Maßnahmen werden monatlich überprüft."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Relativinformationen werden als parallele Attribute integriert; beide erhalten im Nominativ Plural die Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält eine vollständig korrekt deklinierte erweiterte Nominalgruppe?",
+      "options": [
+        "Die Auswertung beruht auf die von mehreren Stationen erhobenen verlässlichen Daten.",
+        "Die Auswertung beruht auf den von mehreren Stationen erhobenen verlässliche Daten.",
+        "Die Auswertung beruht auf den von mehreren Stationen erhobenen verlässlichen Daten.",
+        "Die Auswertung beruht auf den von mehreren Stationen erhobene verlässliche Daten."
+      ],
+      "correct_answer": "Die Auswertung beruht auf den von mehreren Stationen erhobenen verlässlichen Daten.",
+      "accepted_answers": [
+        "Die Auswertung beruht auf den von mehreren Stationen erhobenen verlässlichen Daten."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „auf etwas beruhen“ steht der Dativ. Im Dativ Plural erhalten sowohl das erweiterte Partizip als auch das zweite Adjektiv nach „den“ die Endung -en.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

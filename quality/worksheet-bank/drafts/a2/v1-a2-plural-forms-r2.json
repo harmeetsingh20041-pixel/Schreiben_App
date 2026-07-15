@@ -1,0 +1,152 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-plural-forms-r2",
+    "template_key": "v1-a2-plural-forms-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Plural forms accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Pluralformen im Alltag: Besonderheiten anwenden",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "plural-forms",
+    "name": "Pluralformen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "plural-forms",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Beim Übertragen eines Satzes in den Plural ändern sich nicht nur Nomen, sondern oft auch Umlaut, Artikel, Dativendung und Verbform.",
+    "key_rule": "Lerne unregelmäßige und fremde Plurale als Einheit und passe den ganzen Satz an: das Thema – die Themen, das Praktikum – die Praktika.",
+    "correct_examples": [
+      "Die Patientinnen warten im Flur.",
+      "Die Männer geben den Gästen Geschenke."
+    ],
+    "common_mistake_warning": "Übertrage nicht nur das erste Nomen; Subjekt, Empfänger, Objekt und Verb können gleichzeitig neue Formen brauchen.",
+    "what_to_revise": "Übe unregelmäßige Plurale, Fremdwörter und vollständige Satztransformationen einschließlich Dativ Plural."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Pluralform des Nomens Museum.",
+      "options": ["die Museümer", "die Museen", "die Museums", "die Museume"],
+      "correct_answer": "die Museen",
+      "accepted_answers": ["die Museen"],
+      "explanation": "Museum gehört zu den Fremdwörtern auf -um; im Plural lautet die Form Museen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Pluralform des Nomens Ärztin.",
+      "options": [
+        "die Ärztinnen",
+        "die Ärztinen",
+        "die Ärzte",
+        "die Arztinnen"
+      ],
+      "correct_answer": "die Ärztinnen",
+      "accepted_answers": ["die Ärztinnen"],
+      "explanation": "Berufsbezeichnungen auf -in verdoppeln im Plural das n und erhalten -en: Ärztinnen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Pluralform des Nomens Rhythmus.",
+      "options": [
+        "die Rhythmuse",
+        "die Rhythmenen",
+        "die Rhythmen",
+        "die Rhythmusse"
+      ],
+      "correct_answer": "die Rhythmen",
+      "accepted_answers": ["die Rhythmen"],
+      "explanation": "Das Fremdwort Rhythmus verliert im Plural die Endung -us; die Form lautet Rhythmen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Setze die richtige Form von Zentrum ein: In dieser Stadt gibt es zwei ___.",
+      "options": [],
+      "correct_answer": "Zentren",
+      "accepted_answers": ["Zentren"],
+      "explanation": "Das Fremdwort Zentrum verliert im Plural die Endung -um; die Form lautet Zentren.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Setze die richtige Form von Datum ein: Bitte vergleichen Sie die beiden ___.",
+      "options": [],
+      "correct_answer": "Daten",
+      "accepted_answers": ["Daten"],
+      "explanation": "Das Nomen Datum hat im Deutschen die Pluralform Daten.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere nur die falsche Pluralform: Die Pflegekraft verteilt die Medikaments.",
+      "options": [],
+      "correct_answer": "Die Pflegekraft verteilt die Medikamente.",
+      "rubric": {
+        "criteria": [
+          "Ersetze Medikaments durch die korrekte Pluralform Medikamente.",
+          "Lass alle anderen Satzteile unverändert."
+        ],
+        "sample_answer": "Die Pflegekraft verteilt die Medikamente."
+      },
+      "explanation": "Der Plural von Medikament lautet Medikamente, nicht Medikaments.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und setze Tablette in den Plural: [Im Schrank / liegen / viele / Tablette].",
+      "options": [],
+      "correct_answer": "Im Schrank liegen viele Tabletten.",
+      "rubric": {
+        "criteria": [
+          "Verwende alle vorgegebenen Satzteile genau einmal und passe Tablette an.",
+          "Bilde die Pluralform Tabletten und setze liegen an Position zwei."
+        ],
+        "sample_answer": "Im Schrank liegen viele Tabletten."
+      },
+      "explanation": "Feminine Nomen auf -e bilden den Plural häufig mit -n: Tabletten.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "transformation",
+      "prompt": "Setze Mutter, Kind und Buch in den Plural und passe den Satz an: Die Mutter kauft dem Kind ein Buch.",
+      "options": [],
+      "correct_answer": "Die Mütter kaufen den Kindern Bücher.",
+      "rubric": {
+        "criteria": [
+          "Bilde die Pluralformen Mütter, Kindern und Bücher korrekt.",
+          "Passe kauft an das plurale Subjekt an und verwende den Dativ Plural den Kindern."
+        ],
+        "sample_answer": "Die Mütter kaufen den Kindern Bücher."
+      },
+      "explanation": "Die Pluralformen lauten Mütter, Kinder und Bücher; im Dativ wird aus Kinder den Kindern.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

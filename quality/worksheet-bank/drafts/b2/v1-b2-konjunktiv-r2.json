@@ -1,0 +1,183 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-konjunktiv-r2",
+    "template_key": "v1-b2-konjunktiv-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Konjunktiv accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Konjunktiv I: Aussagen distanziert wiedergeben",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "konjunktiv",
+    "name": "Konjunktiv"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "konjunktiv",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Konjunktiv I kennzeichnet indirekte Rede und schafft Distanz zur wiedergegebenen Aussage. Ist eine Form mit dem Indikativ identisch, verwendet man häufig eine eindeutige Ersatzform des Konjunktiv II.",
+    "key_rule": "Passe Person und Zahl an die indirekte Rede an: er habe, sie sei, es werde; nutze bei formaler Gleichheit eine eindeutige Ersatzform wie sie hätten.",
+    "correct_examples": [
+      "Der Zeuge berichtet, er habe den Raum bereits verlassen.",
+      "Die Beschäftigten erklären, die Umstellung verlaufe planmäßig."
+    ],
+    "common_mistake_warning": "Übernimm Personalpronomen nicht mechanisch aus dem Zitat und verwende eine Konjunktiv-II-Ersatzform nur, wenn sie die indirekte Rede eindeutig macht.",
+    "what_to_revise": "Wiederhole die Konjunktiv-I-Formen von sein, haben und werden sowie die Anpassung von Pronomen und Zeitangaben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche neutrale indirekte Wiedergabe der Aussage „Ich habe den Bericht geprüft“ verwendet den eindeutigen Konjunktiv I?",
+      "options": [
+        "Die Sprecherin sagt, sie habe den Bericht geprüft.",
+        "Die Sprecherin sagt, sie hätte den Bericht geprüft.",
+        "Die Sprecherin sagt, ich habe den Bericht geprüft."
+      ],
+      "correct_answer": "Die Sprecherin sagt, sie habe den Bericht geprüft.",
+      "accepted_answers": [
+        "Die Sprecherin sagt, sie habe den Bericht geprüft."
+      ],
+      "explanation": "„Habe“ ist hier die eindeutige, neutrale Konjunktiv-I-Form. Eine Konjunktiv-II-Ersatzform wie „hätte“ ist nicht nötig, weil „habe“ bereits klar vom Indikativ „hat“ abweicht; „ich“ wird zu „sie“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz gibt die Aussage mehrerer Fachleute im Konjunktiv I korrekt wieder?",
+      "options": [
+        "Die Fachleute erklären, die Ergebnisse wären vorläufig gewesen.",
+        "Die Fachleute erklären, die Ergebnisse seien vorläufig.",
+        "Die Fachleute erklären, die Ergebnisse sei vorläufig."
+      ],
+      "correct_answer": "Die Fachleute erklären, die Ergebnisse seien vorläufig.",
+      "accepted_answers": [
+        "Die Fachleute erklären, die Ergebnisse seien vorläufig."
+      ],
+      "explanation": "Zum pluralischen Subjekt „die Ergebnisse“ gehört im Konjunktiv I die Form „seien“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form gibt eine für Freitag angekündigte Veröffentlichung im Vorgangspassiv und im Konjunktiv I korrekt wieder?",
+      "options": [
+        "Der Minister kündigt an, der Bericht würde am Freitag veröffentlicht.",
+        "Der Minister kündigt an, der Bericht werde am Freitag veröffentlichen.",
+        "Der Minister kündigt an, der Bericht werde am Freitag veröffentlicht."
+      ],
+      "correct_answer": "Der Minister kündigt an, der Bericht werde am Freitag veröffentlicht.",
+      "accepted_answers": [
+        "Der Minister kündigt an, der Bericht werde am Freitag veröffentlicht."
+      ],
+      "explanation": "„Werde veröffentlicht“ ist der Konjunktiv I des Vorgangspassivs; die Zeitangabe „am Freitag“ stellt den Zukunftsbezug her.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [habe, hätte, hat]. Setze ausdrücklich den Konjunktiv I ein: Der Zeuge sagt, er ___ nichts Ungewöhnliches gesehen.",
+      "options": [],
+      "correct_answer": "habe",
+      "accepted_answers": ["habe"],
+      "explanation": "Die Form „habe“ markiert die Aussage des Zeugen als indirekte Rede.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [seien, wäre, sei]. Ergänze die Konjunktiv-I-Form passend zum Singular: Die Pflegewissenschaftlerin betont, die Methode der strukturierten Übergabe ___ zuverlässig.",
+      "options": [],
+      "correct_answer": "sei",
+      "accepted_answers": ["sei"],
+      "explanation": "Das singularische Subjekt „die Methode“ verlangt die Form „sei“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sind, seien, wären]. Setze ausdrücklich den Konjunktiv I ein: Die Beteiligten erklären, sie ___ rechtzeitig informiert worden.",
+      "options": [],
+      "correct_answer": "seien",
+      "accepted_answers": ["seien"],
+      "explanation": "„Seien informiert worden“ bildet das Passiv Perfekt in der indirekten Rede.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [würde, wird, werde]. Ergänze die eindeutige Konjunktiv-I-Form: Die Leitung teilt mit, die Frist ___ um eine Woche verlängert.",
+      "options": [],
+      "correct_answer": "werde",
+      "accepted_answers": ["werde"],
+      "explanation": "„Werde verlängert“ gibt die Mitteilung im Konjunktiv I und im Passiv wieder.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde einen vollständigen Satz in indirekter Rede aus allen Bausteinen: laut dem Bericht / die Nachfrage / im letzten Quartal / deutlich gestiegen / sei",
+      "options": [],
+      "correct_answer": "Laut dem Bericht sei die Nachfrage im letzten Quartal deutlich gestiegen.",
+      "rubric": {
+        "criteria": [
+          "Alle Bausteine werden in einem vollständigen Satz verwendet.",
+          "Die Konjunktiv-I-Form „sei“ steht mit „gestiegen“ an grammatisch korrekter Position.",
+          "Die Präpositional- und Zeitangabe sind sinnvoll angeordnet; Großschreibung und Satzzeichen stimmen."
+        ],
+        "sample_answer": "Laut dem Bericht sei die Nachfrage im letzten Quartal deutlich gestiegen."
+      },
+      "explanation": "Die Form „sei gestiegen“ kennzeichnet die berichtete Information, ohne sie als eigene Tatsache zu bestätigen.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Gib das Zitat ohne „dass“ in indirekter Rede wieder: Die Verantwortlichen erklärten: „Wir haben alle Risiken berücksichtigt.“",
+      "options": [],
+      "correct_answer": "Die Verantwortlichen erklärten, sie hätten alle Risiken berücksichtigt.",
+      "rubric": {
+        "criteria": [
+          "„Wir“ wird aus Erzählerperspektive korrekt zu „sie“ angepasst.",
+          "Die eindeutige Ersatzform „hätten“ wird verwendet, weil „sie haben“ mit dem Indikativ identisch wäre.",
+          "Inhalt, Perfektbedeutung und vollständige Zeichensetzung bleiben erhalten."
+        ],
+        "sample_answer": "Die Verantwortlichen erklärten, sie hätten alle Risiken berücksichtigt."
+      },
+      "explanation": "Bei der Pluralform schafft „hätten“ als Konjunktiv-II-Ersatzform die nötige Distanz zur Originalaussage.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Fasse in drei Sätzen indirekt zusammen: Eine Projektleiterin sagt, dass der Zeitplan realistisch ist, das Team alle Tests abgeschlossen hat und die neue Version nächste Woche veröffentlicht wird. Verwende mindestens zwei eindeutige Konjunktivformen.",
+      "options": [],
+      "correct_answer": "Die Projektleiterin erklärt, der Zeitplan sei realistisch. Das Team habe alle Tests abgeschlossen. Die neue Version werde in der folgenden Woche veröffentlicht.",
+      "rubric": {
+        "criteria": [
+          "Alle drei Informationen werden in genau drei inhaltlich korrekten Sätzen wiedergegeben.",
+          "Mindestens zwei eindeutige Konjunktivformen wie „sei“, „habe“ oder „werde“ markieren die indirekte Rede.",
+          "Pronomen, Zeitbezug, Passivform und Wortstellung sind korrekt angepasst."
+        ],
+        "sample_answer": "Die Projektleiterin erklärt, der Zeitplan sei realistisch. Das Team habe alle Tests abgeschlossen. Die neue Version werde in der folgenden Woche veröffentlicht."
+      },
+      "explanation": "Die drei Konjunktiv-I-Formen geben die fremden Aussagen präzise und distanziert wieder.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

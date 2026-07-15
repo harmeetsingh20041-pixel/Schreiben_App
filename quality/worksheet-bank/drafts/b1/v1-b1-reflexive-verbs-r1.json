@@ -1,0 +1,193 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-reflexive-verbs-r1",
+    "template_key": "v1-b1-reflexive-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Reflexive verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Reflexive Verben: Handlungen und Beziehungen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "reflexive-verbs",
+    "name": "Reflexive Verben"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "reflexive-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Reflexive Verben beziehen eine Handlung auf das Subjekt und verlangen je nach Verb ein Akkusativ- oder Dativpronomen.",
+    "key_rule": "Das Reflexivpronomen richtet sich nach Person und Numerus; bei einem zusätzlichen Akkusativobjekt steht es häufig im Dativ.",
+    "correct_examples": [
+      "Ich interessiere mich für die Weiterbildung.",
+      "Wir merken uns die neue Regel."
+    ],
+    "common_mistake_warning": "Nicht jedes Reflexivpronomen lautet „sich“; bei ich, du, wir und ihr ändern sich die Formen.",
+    "what_to_revise": "Wiederhole sich erinnern an, sich kümmern um, sich vorbereiten auf und sich etwas merken."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet das passende Reflexivpronomen?",
+      "options": [
+        "Die Pflegekraft bereitet mich auf das Gespräch vor.",
+        "Die Pflegekraft bereitet sich auf das Gespräch vor.",
+        "Die Pflegekraft bereitet ihr auf das Gespräch vor."
+      ],
+      "correct_answer": "Die Pflegekraft bereitet sich auf das Gespräch vor.",
+      "accepted_answers": [
+        "Die Pflegekraft bereitet sich auf das Gespräch vor."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei einem Subjekt in der dritten Person Singular lautet das Reflexivpronomen „sich“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz enthält ein Dativ-Reflexivpronomen?",
+      "options": [
+        "Ich merke mich die Zugangsdaten.",
+        "Ich mir merke die Zugangsdaten.",
+        "Ich merke mir die Zugangsdaten."
+      ],
+      "correct_answer": "Ich merke mir die Zugangsdaten.",
+      "accepted_answers": ["Ich merke mir die Zugangsdaten."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Neben dem Akkusativobjekt „die Zugangsdaten“ steht das Reflexivpronomen im Dativ: „mir“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präposition gehört zum reflexiven Verb?",
+      "options": [
+        "Wir freuen uns auf den nächsten Kurstag.",
+        "Wir freuen uns an dem nächsten Kurstag.",
+        "Wir freuen uns für den nächsten Kurstag."
+      ],
+      "correct_answer": "Wir freuen uns auf den nächsten Kurstag.",
+      "accepted_answers": ["Wir freuen uns auf den nächsten Kurstag."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Sich freuen auf“ bezieht sich auf ein zukünftiges Ereignis.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [mir, sich, mich]. Ergänze: Ich erkundige ___ nach den Teilnahmebedingungen.",
+      "options": [],
+      "correct_answer": "mich",
+      "accepted_answers": ["mich"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Sich erkundigen“ verlangt hier das Akkusativpronomen der ersten Person Singular.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [uns, euch, sich]. Ergänze: Vor der Nachtschicht ruhen wir ___ ausreichend aus.",
+      "options": [],
+      "correct_answer": "uns",
+      "accepted_answers": ["uns"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Reflexivpronomen zu „wir“ lautet im Akkusativ „uns“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sich, mir, mich]. Ergänze mit Dativ: Ich notiere ___ die wichtigsten Termine.",
+      "options": [],
+      "correct_answer": "mir",
+      "accepted_answers": ["mir"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Neben dem Akkusativobjekt steht das Reflexivpronomen der ersten Person im Dativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sich um die Anfrage kümmert, um die Anfrage sich kümmert, kümmert sich um die Anfrage]. Ergänze: Gut ist, dass er ___ .",
+      "options": [],
+      "correct_answer": "sich um die Anfrage kümmert",
+      "accepted_answers": ["sich um die Anfrage kümmert"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Im dass-Satz steht das finite Verb am Ende; das Reflexivpronomen folgt hier dem Subjekt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet die feste Verbindung „sich erinnern an“ korrekt?",
+      "options": [
+        "Der Patient erinnert sich nicht mehr an den Namen des Medikaments.",
+        "Der Patient erinnert sich nicht mehr auf den Namen des Medikaments.",
+        "Der Patient erinnert ihm nicht mehr an den Namen des Medikaments.",
+        "Der Patient erinnert sich nicht mehr für den Namen des Medikaments."
+      ],
+      "correct_answer": "Der Patient erinnert sich nicht mehr an den Namen des Medikaments.",
+      "accepted_answers": ["Der Patient erinnert sich nicht mehr an den Namen des Medikaments."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste reflexive Verbindung lautet „sich an etwas erinnern“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Formulierung gibt den Ärger der Kundin mit „sich beschweren über“ korrekt wieder?",
+      "options": [
+        "Die Kundin beschwert ihr über die lange Wartezeit.",
+        "Die Kundin beschwert sich für die lange Wartezeit.",
+        "Die Kundin beschwert sich über die lange Wartezeit.",
+        "Die Kundin sich beschwert über der langen Wartezeit."
+      ],
+      "correct_answer": "Die Kundin beschwert sich über die lange Wartezeit.",
+      "accepted_answers": ["Die Kundin beschwert sich über die lange Wartezeit."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die feste Verbindung „sich beschweren über“ drückt den Ärger über einen Sachverhalt aus.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Schilderung verwendet „sich vorstellen“, „sich gewöhnen an“ und „sich austauschen mit“ korrekt?",
+      "options": [
+        "Ich stelle mich das Team vor. Ich gewöhne mir an den Abläufen. Ich tausche mir mit Kolleginnen aus.",
+        "Ich stelle dem Team mich vor. Ich gewöhne an die Abläufe mich. Ich tausche mit Kolleginnen mich aus.",
+        "Ich stelle mir dem Team vor. Ich gewöhne mich mit die Abläufe. Ich tausche mich zu Kolleginnen aus.",
+        "Ich stelle mich dem Team vor. Ich gewöhne mich an die Abläufe. Ich tausche mich mit Kolleginnen aus."
+      ],
+      "correct_answer": "Ich stelle mich dem Team vor. Ich gewöhne mich an die Abläufe. Ich tausche mich mit Kolleginnen aus.",
+      "accepted_answers": ["Ich stelle mich dem Team vor. Ich gewöhne mich an die Abläufe. Ich tausche mich mit Kolleginnen aus."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Reflexive Verben beschreiben persönliche Handlungen und soziale Prozesse am neuen Arbeitsplatz.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-adjective-endings-r2",
+    "template_key": "v1-b1-adjective-endings-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Adjective endings accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Adjektivendungen im anspruchsvollen Kontext",
+  "level": "B1",
+  "grammar_topic": { "slug": "adjective-endings", "name": "Adjektivendungen" },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "adjective-endings",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "In längeren Nominalgruppen müssen mehrere Adjektive dieselben Kasus-, Genus- und Numerusmerkmale tragen. Artikelwörter bestimmen dabei, ob starke oder schwache Endungen nötig sind.",
+    "key_rule": "Analysiere die gesamte Nominalgruppe: Präposition oder Verb bestimmen den Kasus, das Nomen bestimmt Genus und Numerus, und das Artikelwort beeinflusst die Adjektivendung.",
+    "correct_examples": [
+      "trotz sorgfältiger Planung",
+      "mit klar formulierten Hinweisen"
+    ],
+    "common_mistake_warning": "Übertrage die Endung nicht vom Artikel direkt auf das Adjektiv; nach einem Nullartikel muss das Adjektiv oft selbst den Kasus markieren.",
+    "what_to_revise": "Übe besonders starke Endungen ohne Artikel, gemischte Endungen nach kein- und mein-Wörtern sowie schwache Endungen nach dieser-, jeder- und welcher-Wörtern."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist korrekt? ___ blieb das Ergebnis unsicher.",
+      "options": [
+        "Trotz intensivem Vorbereitung",
+        "Trotz intensiver Vorbereitung",
+        "Trotz intensive Vorbereitung",
+        "Trotz intensiven Vorbereitung"
+      ],
+      "correct_answer": "Trotz intensiver Vorbereitung",
+      "accepted_answers": ["Trotz intensiver Vorbereitung"],
+      "explanation": "Nach „trotz“ steht der Genitiv; ohne Artikel erhält das Adjektiv vor dem femininen Nomen die Endung -er.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortgruppe ist korrekt? Das Restaurant wirbt ___.",
+      "options": [
+        "mit frisches zubereitetem Essen",
+        "mit frisch zubereiteten Essen",
+        "mit frische zubereitetes Essen",
+        "mit frisch zubereitetem Essen"
+      ],
+      "correct_answer": "mit frisch zubereitetem Essen",
+      "accepted_answers": ["mit frisch zubereitetem Essen"],
+      "explanation": "„Frisch“ beschreibt hier das Partizip adverbial und bleibt unverändert; „zubereitet“ trägt im Dativ Neutrum ohne Artikel -em.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ergänzung passt? Das Krankenhaus sucht ___.",
+      "options": [
+        "vieler engagierte Pflegekräfte",
+        "viele engagierter Pflegekräfte",
+        "viele engagierte Pflegekräfte",
+        "viele engagierten Pflegekräfte"
+      ],
+      "correct_answer": "viele engagierte Pflegekräfte",
+      "accepted_answers": ["viele engagierte Pflegekräfte"],
+      "explanation": "Nach „viele“ erhält das Adjektiv im Akkusativ Plural die Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ausgearbeiteter, ausgearbeitete, ausgearbeiteten]. Ergänze: Ein sorgfältig ___ Dienstplan erleichtert die Zusammenarbeit.",
+      "options": [],
+      "correct_answer": "ausgearbeiteter",
+      "accepted_answers": ["ausgearbeiteter"],
+      "explanation": "Nach „ein“ zeigt das Adjektiv im Nominativ Maskulin die Endung -er.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gezielte, gezielten, gezielter]. Ergänze: Die Wirkung ___ Maßnahmen wird regelmäßig geprüft.",
+      "options": [],
+      "correct_answer": "gezielter",
+      "accepted_answers": ["gezielter"],
+      "explanation": "Im Genitiv Plural ohne Artikel trägt das Adjektiv die Endung -er.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hohen, hoher, hohe]. Ergänze: Das Gerät überzeugt mit ___ technischer Qualität.",
+      "options": [],
+      "correct_answer": "hoher",
+      "accepted_answers": ["hoher"],
+      "explanation": "„Mit“ verlangt den Dativ; ohne Artikel endet das Adjektiv vor einem femininen Nomen auf -er.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [überzeugenden, überzeugende, überzeugender]. Ergänze: Der Vorschlag enthält keine ___ Argumente.",
+      "options": [],
+      "correct_answer": "überzeugenden",
+      "accepted_answers": ["überzeugenden"],
+      "explanation": "Nach „keine“ erhält das Adjektiv im Akkusativ Plural die Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit „Trotz“: [Trotz / schwieriger Bedingungen / erzielte / das erfahrene Team / gute Ergebnisse].",
+      "options": [],
+      "correct_answer": "Trotz schwieriger Bedingungen erzielte das erfahrene Team gute Ergebnisse.",
+      "rubric": {
+        "criteria": [
+          "Alle Satzteile werden genau einmal verwendet.",
+          "„schwieriger“ steht korrekt im Genitiv Plural und „erfahrene“ im Nominativ Neutrum.",
+          "Das finite Verb „erzielte“ steht nach der vorangestellten Genitivgruppe an Position zwei."
+        ],
+        "sample_answer": "Trotz schwieriger Bedingungen erzielte das erfahrene Team gute Ergebnisse."
+      },
+      "explanation": "Der Satz verbindet starke Adjektivflexion ohne Artikel mit schwacher Flexion nach einem bestimmten Artikel.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Verbinde beide Aussagen zu einem Satz und verwende „technisch anspruchsvoll“ attributiv: Die Lösung ist technisch anspruchsvoll. Sie wurde schnell umgesetzt.",
+      "options": [],
+      "correct_answer": "Die technisch anspruchsvolle Lösung wurde schnell umgesetzt.",
+      "rubric": {
+        "criteria": [
+          "Die beiden Aussagen werden ohne Bedeutungsverlust zu einem Satz verbunden.",
+          "„technisch“ bleibt adverbial unverändert; „anspruchsvoll“ erhält nach „die“ die Endung -e.",
+          "Das Passiv und die Zeitangabe bleiben erhalten."
+        ],
+        "sample_answer": "Die technisch anspruchsvolle Lösung wurde schnell umgesetzt."
+      },
+      "explanation": "Nur das direkt vor dem Nomen stehende Adjektiv „anspruchsvoll“ wird flektiert.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Formuliere in drei Sätzen eine sachliche Empfehlung für einen berufsbezogenen Deutschkurs. Verwende mindestens vier attributive Adjektive: mindestens eines nach einem bestimmten Artikel, eines nach einem unbestimmten Artikel und eines ohne Artikel.",
+      "options": [],
+      "correct_answer": "Der praxisnahe Deutschkurs bietet verständliche Erklärungen. Mit abwechslungsreichen Übungen können die Teilnehmenden eine neue Strategie erproben. Deshalb empfehle ich ihn allen interessierten Pflegekräften.",
+      "rubric": {
+        "criteria": [
+          "Der Text besteht aus drei sachlich verbundenen Empfehlungssätzen.",
+          "Mindestens vier attributive Adjektive werden korrekt flektiert.",
+          "Mindestens je ein attributives Adjektiv steht nach einem bestimmten Artikel, nach einem unbestimmten Artikel und ohne Artikel."
+        ],
+        "sample_answer": "Der praxisnahe Deutschkurs bietet verständliche Erklärungen. Mit abwechslungsreichen Übungen können die Teilnehmenden eine neue Strategie erproben. Deshalb empfehle ich ihn allen interessierten Pflegekräften."
+      },
+      "explanation": "Die produktive Aufgabe prüft, ob Adjektivendungen auch in verschiedenen Nominalgruppen sicher übertragen werden.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

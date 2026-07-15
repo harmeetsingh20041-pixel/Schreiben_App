@@ -1,0 +1,183 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-relative-clauses-r2",
+    "template_key": "v1-b2-relative-clauses-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Relative clauses accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Komplexe Relativsätze: Genitiv, Präpositionen und Bezug",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "relative-clauses",
+    "name": "Relativsätze"
+  },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "relative-clauses",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Komplexe Relativsätze können Besitzverhältnisse, Präpositionalbezüge und unbestimmte Bezugswörter ausdrücken. Dafür braucht man unter anderem dessen, deren, Präposition plus Relativpronomen oder „was“.",
+    "key_rule": "„Dessen“ bezieht sich auf maskuline oder neutrale, „deren“ auf feminine oder pluralische Bezugswörter; nach „alles“, „nichts“ und substantivierten Superlativen steht meist „was“.",
+    "correct_examples": [
+      "Das Unternehmen, dessen Strategie wir analysieren, wächst schnell.",
+      "Das Wichtigste, was wir gelernt haben, steht im Bericht."
+    ],
+    "common_mistake_warning": "Das Genus von „dessen“ oder „deren“ richtet sich nach dem Bezugswort, nicht nach dem folgenden Nomen.",
+    "what_to_revise": "Übe Genitivpronomen, feste Präpositionen vor Relativpronomen und den Gebrauch von „was“ nach unbestimmten Bezugswörtern."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt das Besitzverhältnis mit einem Genitiv-Relativpronomen korrekt aus?",
+      "options": [
+        "Der Autor, dessen neuen Roman ausgezeichnet wurde, hält eine Lesung.",
+        "Der Autor, dessen neuer Roman ausgezeichnet wurde, hält eine Lesung.",
+        "Der Autor, deren neuer Roman ausgezeichnet wurde, hält eine Lesung."
+      ],
+      "correct_answer": "Der Autor, dessen neuer Roman ausgezeichnet wurde, hält eine Lesung.",
+      "accepted_answers": [
+        "Der Autor, dessen neuer Roman ausgezeichnet wurde, hält eine Lesung."
+      ],
+      "explanation": "Zum maskulinen Bezugswort „Autor“ gehört „dessen“; „Roman“ ist Subjekt des Relativsatzes und steht im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist nach dem unbestimmten Bezugswort „alles“ standardsprachlich korrekt?",
+      "options": [
+        "Alles, was im Protokoll festgehalten wurde, ist verbindlich.",
+        "Alles, das im Protokoll festgehalten wurde, ist verbindlich.",
+        "Alles, dessen im Protokoll festgehalten wurde, ist verbindlich."
+      ],
+      "correct_answer": "Alles, was im Protokoll festgehalten wurde, ist verbindlich.",
+      "accepted_answers": [
+        "Alles, was im Protokoll festgehalten wurde, ist verbindlich."
+      ],
+      "explanation": "Nach „alles“ leitet „was“ den Relativsatz ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Relativsatz übernimmt die feste Verbindung „sich auf etwas verlassen“ korrekt?",
+      "options": [
+        "Das sind die Daten, an denen wir uns bei der Planung verlassen.",
+        "Das sind die Daten, worauf wir uns bei der Planung verlassen sie.",
+        "Das sind die Daten, auf die wir uns bei der Planung verlassen."
+      ],
+      "correct_answer": "Das sind die Daten, auf die wir uns bei der Planung verlassen.",
+      "accepted_answers": [
+        "Das sind die Daten, auf die wir uns bei der Planung verlassen."
+      ],
+      "explanation": "Die Verbindung lautet „sich auf etwas verlassen“; für das pluralische Bezugswort steht „auf die“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [an dem, an den, an der]. Ergänze die feste Verbindung „an etwas arbeiten“ passend zu „der Bericht“: Der Bericht, ___ wir seit Wochen arbeiten, ist fast fertig.",
+      "options": [],
+      "correct_answer": "an dem",
+      "accepted_answers": ["an dem"],
+      "explanation": "„Arbeiten an“ verlangt den Dativ; für „der Bericht“ lautet die Form „an dem“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [denen, deren, dessen]. Ergänze das Genitivpronomen passend zum pluralischen Bezugswort: Die Unternehmen, ___ Standorte geprüft wurden, erhalten einen Bericht.",
+      "options": [],
+      "correct_answer": "deren",
+      "accepted_answers": ["deren"],
+      "explanation": "Die Standorte gehören zu mehreren Unternehmen; beim pluralischen Bezugswort steht „deren“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [das, welches, was]. Setze die standardsprachliche Form nach „nichts“ ein: Es gibt nichts, ___ gegen diese Lösung spricht.",
+      "options": [],
+      "correct_answer": "was",
+      "accepted_answers": ["was"],
+      "explanation": "Nach dem unbestimmten Pronomen „nichts“ wird der Relativsatz mit „was“ eingeleitet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [mit der, womit, mit dem]. Ergänze das Relativadverb mit Bezug auf den ganzen vorherigen Sachverhalt: Die Finanzierung wurde zugesagt, ___ niemand gerechnet hatte.",
+      "options": [],
+      "correct_answer": "womit",
+      "accepted_answers": ["womit"],
+      "explanation": "„Womit“ nimmt den gesamten Sachverhalt der zugesagten Finanzierung auf und verbindet ihn mit „rechnen mit“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde einen vollständigen Satz aus allen Bausteinen: die Studie / deren Ergebnisse / international diskutiert werden / erscheint nächste Woche",
+      "options": [],
+      "correct_answer": "Die Studie, deren Ergebnisse international diskutiert werden, erscheint nächste Woche.",
+      "rubric": {
+        "criteria": [
+          "Alle Bausteine werden genau einmal verwendet und „die Studie“ ist das Bezugswort.",
+          "Der Relativsatz verwendet das feminine Genitivpronomen „deren“ und endet mit „diskutiert werden“.",
+          "Der Hauptsatz wird nach dem eingeschobenen Relativsatz mit „erscheint nächste Woche“ korrekt fortgesetzt."
+        ],
+        "sample_answer": "Die Studie, deren Ergebnisse international diskutiert werden, erscheint nächste Woche."
+      },
+      "explanation": "„Deren“ zeigt, dass die Ergebnisse zur Studie gehören; der eingeschobene Relativsatz wird von zwei Kommas begrenzt.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Verbinde beide Sätze zu einem Satz mit Genitiv-Relativsatz: Wir beraten ein Unternehmen. Die internationale Strategie des Unternehmens wird neu ausgerichtet.",
+      "options": [],
+      "correct_answer": "Wir beraten ein Unternehmen, dessen internationale Strategie neu ausgerichtet wird.",
+      "rubric": {
+        "criteria": [
+          "„Ein Unternehmen“ bleibt Bezugswort, und die Wiederholung „des Unternehmens“ wird vermieden.",
+          "Das neutrale Genitivpronomen „dessen“ steht unmittelbar vor „internationale Strategie“.",
+          "Der Relativsatz behält das Passiv und endet korrekt mit „neu ausgerichtet wird“."
+        ],
+        "sample_answer": "Wir beraten ein Unternehmen, dessen internationale Strategie neu ausgerichtet wird."
+      },
+      "explanation": "Das neutrale Bezugswort verlangt „dessen“, das das Besitzverhältnis zur Strategie ausdrückt.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe drei zusammenhängende Sätze über ein Forschungsprojekt. Verwende einen Relativsatz mit „dessen“ oder „deren“, einen mit Präposition plus Relativpronomen und einen Bezug mit „was“.",
+      "options": [],
+      "correct_answer": "Das Projekt, dessen erste Ergebnisse veröffentlicht wurden, untersucht nachhaltige Mobilität. Die Methode, mit der das Team arbeitet, verbindet Interviews und Messdaten. Das ist genau das, was die Untersuchung besonders aussagekräftig macht.",
+      "rubric": {
+        "criteria": [
+          "Der Text besteht aus drei inhaltlich zusammenhängenden Sätzen über ein Forschungsprojekt.",
+          "Ein korrekter Genitiv-Relativsatz und ein Relativsatz mit passender Präposition sind enthalten.",
+          "Ein weiterer Bezug verwendet „was“ nach einem dafür geeigneten Bezugswort; Kommas und Verbendstellung sind überall korrekt."
+        ],
+        "sample_answer": "Das Projekt, dessen erste Ergebnisse veröffentlicht wurden, untersucht nachhaltige Mobilität. Die Methode, mit der das Team arbeitet, verbindet Interviews und Messdaten. Das ist genau das, was die Untersuchung besonders aussagekräftig macht."
+      },
+      "explanation": "Die drei Konstruktionen präzisieren Besitz, Mittel und einen unbestimmten Sachverhalt auf unterschiedliche Weise.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

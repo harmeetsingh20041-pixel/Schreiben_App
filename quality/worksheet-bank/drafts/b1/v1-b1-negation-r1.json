@@ -1,0 +1,197 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-negation-r1",
+    "template_key": "v1-b1-negation-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Negation pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Negation: Aussagen gezielt verneinen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "negation",
+    "name": "Negation"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "negation",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Mit „nicht“, „kein“ und negativen Pronomen kann man eine ganze Aussage oder nur einen Teil davon verneinen.",
+    "key_rule": "„Kein“ verneint ein Nomen ohne bestimmten Artikel; „nicht“ steht vor dem gezielt verneinten Teil oder weit hinten bei der Satznegation.",
+    "correct_examples": [
+      "Wir haben heute keine Besprechung.",
+      "Sie arbeitet nicht am Freitag, sondern am Samstag."
+    ],
+    "common_mistake_warning": "Die Stellung von „nicht“ verändert den Fokus und darf deshalb nicht beliebig gewählt werden.",
+    "what_to_revise": "Wiederhole kein, nicht, niemand, nichts sowie die fokussierte Negation mit sondern."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Aussage verneint nur den Zeitpunkt „heute“?",
+      "options": [
+        "Die Lieferung nicht kommt heute, sondern morgen.",
+        "Nicht die Lieferung kommt heute, sondern morgen.",
+        "Die Lieferung kommt nicht heute, sondern morgen."
+      ],
+      "correct_answer": "Die Lieferung kommt nicht heute, sondern morgen.",
+      "accepted_answers": ["Die Lieferung kommt nicht heute, sondern morgen."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Direkt vor „heute“ verneint „nicht“ gezielt den Zeitpunkt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Negation passt zu einem unbestimmten Nomen?",
+      "options": [
+        "Die Patientin hat keine Allergie angegeben.",
+        "Die Patientin hat nicht Allergie angegeben.",
+        "Die Patientin hat eine nicht Allergie angegeben."
+      ],
+      "correct_answer": "Die Patientin hat keine Allergie angegeben.",
+      "accepted_answers": ["Die Patientin hat keine Allergie angegeben."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Nomen „Allergie“ ohne bestimmten Artikel wird mit „keine“ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verneint die gesamte Handlung neutral?",
+      "options": [
+        "Nicht ich habe den Vertrag noch unterschrieben.",
+        "Ich habe den Vertrag noch nicht unterschrieben.",
+        "Ich habe nicht den Vertrag noch unterschrieben."
+      ],
+      "correct_answer": "Ich habe den Vertrag noch nicht unterschrieben.",
+      "accepted_answers": ["Ich habe den Vertrag noch nicht unterschrieben."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Bei der Satznegation steht „nicht“ hier vor dem Partizip am Ende der Satzklammer.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [keine, nicht, niemand]. Ergänze: Für die neue Aufgabe brauchen wir ___ zusätzliche Software.",
+      "options": [],
+      "correct_answer": "keine",
+      "accepted_answers": ["keine"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das unbestimmte Nomen „Software“ wird mit „keine“ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [nichts, niemand, nie]. Ergänze die Personennegation: ___ konnte die technische Frage beantworten.",
+      "options": [],
+      "correct_answer": "niemand",
+      "accepted_answers": ["niemand"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Niemand“ ersetzt eine verneinte Personenangabe im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [heute nicht, kein heute, nicht heute]. Verneine gezielt den Tag: Der Termin ist ___, sondern morgen.",
+      "options": [],
+      "correct_answer": "nicht heute",
+      "accepted_answers": ["nicht heute"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Vor dem korrigierten Zeitpunkt markiert „nicht“ den verneinten Kontrast.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gar nichts, noch nicht, nicht mehr]. Ergänze: Die Pflegekraft hat die Dokumentation ___ abgeschlossen; sie arbeitet noch daran.",
+      "options": [],
+      "correct_answer": "noch nicht",
+      "accepted_answers": ["noch nicht"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Noch nicht“ zeigt, dass der Abschluss erwartet wird, aber bisher fehlt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verneint das unbestimmte Objekt neutral?",
+      "options": [
+        "Der Arzt hat nicht eine neue Untersuchung angeordnet.",
+        "Der Arzt hat keine neue Untersuchung angeordnet.",
+        "Der Arzt hat keinen neue Untersuchung angeordnet.",
+        "Der Arzt hat nicht keine neue Untersuchung angeordnet."
+      ],
+      "correct_answer": "Der Arzt hat keine neue Untersuchung angeordnet.",
+      "accepted_answers": [
+        "Der Arzt hat keine neue Untersuchung angeordnet."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Ein unbestimmtes feminines Akkusativobjekt wird hier mit „keine“ verneint.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verneint nur den Ort und nennt danach den richtigen Ort?",
+      "options": [
+        "Die Schulung findet kein Haupthaus, aber im Nebengebäude statt.",
+        "Die Schulung findet im Haupthaus nicht, sondern statt im Nebengebäude.",
+        "Die Schulung findet nicht im Haupthaus, sondern im Nebengebäude statt.",
+        "Die Schulung nicht findet im Haupthaus, sondern im Nebengebäude statt."
+      ],
+      "correct_answer": "Die Schulung findet nicht im Haupthaus, sondern im Nebengebäude statt.",
+      "accepted_answers": [
+        "Die Schulung findet nicht im Haupthaus, sondern im Nebengebäude statt."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Nicht“ steht direkt vor der verneinten Ortsangabe; „sondern“ führt den korrigierten Ort ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Arbeitsplan verwendet alle drei Negationsformen passend?",
+      "options": [
+        "Am Montag gibt es nicht Teamtreffen. Der neue Termin steht kein fest. Wir treffen uns noch nicht vormittags, aber nicht nachmittags.",
+        "Am Montag gibt es keine Teamtreffen. Der neue Termin nicht steht fest. Wir treffen uns nicht vormittags, sondern nicht nachmittags.",
+        "Am Montag gibt es niemand Teamtreffen. Der neue Termin steht nie fest. Wir treffen uns kein Vormittag, sondern am Nachmittag.",
+        "Am Montag gibt es kein Teamtreffen. Der neue Termin steht noch nicht fest. Wir treffen uns nicht vormittags, sondern nachmittags."
+      ],
+      "correct_answer": "Am Montag gibt es kein Teamtreffen. Der neue Termin steht noch nicht fest. Wir treffen uns nicht vormittags, sondern nachmittags.",
+      "accepted_answers": [
+        "Am Montag gibt es kein Teamtreffen. Der neue Termin steht noch nicht fest. Wir treffen uns nicht vormittags, sondern nachmittags."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Kein“ verneint ein Nomen, „noch nicht“ einen ausstehenden Zustand und „nicht ..., sondern ...“ korrigiert gezielt eine Angabe.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

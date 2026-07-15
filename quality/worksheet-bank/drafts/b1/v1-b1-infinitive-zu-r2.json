@@ -1,0 +1,178 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-infinitive-zu-r2",
+    "template_key": "v1-b1-infinitive-zu-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Infinitive with zu accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Infinitiv mit zu: Komplexe Formen sicher anwenden",
+  "level": "B1",
+  "grammar_topic": { "slug": "infinitive-zu", "name": "Infinitiv mit zu" },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "infinitive-zu",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Infinitivgruppen verbinden Pläne, Ziele und Begleitumstände knapp mit einem Hauptsatz. Häufig stehen sie nach Verben wie planen, versuchen oder brauchen.",
+    "key_rule": "Bei einfachen Verben steht „zu“ vor dem Infinitiv, bei trennbaren Verben zwischen Vorsilbe und Stamm. Auch nach „nicht brauchen“ und in „um ... zu“ oder „ohne ... zu“ gehört „zu“ zum Infinitiv.",
+    "correct_examples": [
+      "Das Team hofft, den Raum rechtzeitig zu erreichen.",
+      "Wir gingen, ohne lange zu warten."
+    ],
+    "common_mistake_warning": "Setze „zu“ bei trennbaren Verben nicht vor die Vorsilbe und verwende nach „nicht brauchen“ nicht den bloßen Infinitiv.",
+    "what_to_revise": "Übe um ... zu, ohne ... zu, nicht brauchen zu und Infinitive trennbarer Verben."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz mit „versuchen“ ist korrekt?",
+      "options": [
+        "Die Pflegekraft versucht, die wichtigsten Angaben zusammenzufassen.",
+        "Die Pflegekraft versucht, die wichtigsten Angaben zu zusammenfassen.",
+        "Die Pflegekraft versucht, die wichtigsten Angaben zusammenfassen zu."
+      ],
+      "correct_answer": "Die Pflegekraft versucht, die wichtigsten Angaben zusammenzufassen.",
+      "accepted_answers": [
+        "Die Pflegekraft versucht, die wichtigsten Angaben zusammenzufassen."
+      ],
+      "explanation": "Bei dem trennbaren Verb „zusammenfassen“ steht „zu“ zwischen Vorsilbe und Stamm: „zusammenzufassen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Konstruktion mit „ohne“ ist korrekt?",
+      "options": [
+        "Ohne sich verabschieden zu, verließ er das Büro.",
+        "Ohne sich zu verabschieden, verließ er das Büro.",
+        "Ohne zu sich verabschieden, verließ er das Büro."
+      ],
+      "correct_answer": "Ohne sich zu verabschieden, verließ er das Büro.",
+      "accepted_answers": ["Ohne sich zu verabschieden, verließ er das Büro."],
+      "explanation": "In der Konstruktion „ohne ... zu“ steht das Reflexivpronomen vor „zu verabschieden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz mit „nicht brauchen“ ist korrekt?",
+      "options": [
+        "Das Pflegeteam braucht den Bericht nicht zu ausdrucken.",
+        "Das Pflegeteam braucht den Bericht nicht ausdrucken zu.",
+        "Das Pflegeteam braucht den Bericht nicht auszudrucken."
+      ],
+      "correct_answer": "Das Pflegeteam braucht den Bericht nicht auszudrucken.",
+      "accepted_answers": [
+        "Das Pflegeteam braucht den Bericht nicht auszudrucken."
+      ],
+      "explanation": "Nach „nicht brauchen“ steht ein Infinitiv mit „zu“; bei „ausdrucken“ lautet er „auszudrucken“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [abzusagen, zu absagen, absagen zu]. Ergänze: Er plant, den Termin frühzeitig ___.",
+      "options": [],
+      "correct_answer": "abzusagen",
+      "accepted_answers": ["abzusagen"],
+      "explanation": "Beim trennbaren Verb „absagen“ steht „zu“ zwischen Vorsilbe und Verbstamm.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dokumentieren zu, dokumentiert zu, zu dokumentieren]. Ergänze: Es ist wichtig, die Übergabe klar ___.",
+      "options": [],
+      "correct_answer": "zu dokumentieren",
+      "accepted_answers": ["zu dokumentieren"],
+      "explanation": "Nach „Es ist wichtig“ ergänzt „zu dokumentieren“ die Aussage als einfache Infinitivgruppe.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [teilnehmen zu, teilzunehmen, zu teilnehmen]. Ergänze: Die Expertin hat zugesagt, an der Diskussion ___.",
+      "options": [],
+      "correct_answer": "teilzunehmen",
+      "accepted_answers": ["teilzunehmen"],
+      "explanation": "Bei „teilnehmen“ wird „zu“ zwischen „teil“ und „nehmen“ eingefügt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [einarbeiten zu, einzuarbeiten, zu einarbeiten]. Ergänze: Die Praxisanleiterin plant, die neue Pflegekraft sorgfältig ___.",
+      "options": [],
+      "correct_answer": "einzuarbeiten",
+      "accepted_answers": ["einzuarbeiten"],
+      "explanation": "Beim trennbaren Verb „einarbeiten“ steht „zu“ zwischen Vorsilbe und Stamm.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile und beginne mit „Ohne“: [Ohne / lange / zu zögern / nahm / sie / das Angebot / an].",
+      "options": [],
+      "correct_answer": "Ohne lange zu zögern, nahm sie das Angebot an.",
+      "rubric": {
+        "criteria": [
+          "Alle Satzteile werden genau einmal verwendet.",
+          "Die Infinitivgruppe lautet „Ohne lange zu zögern“ und wird mit einem Komma abgetrennt.",
+          "Im Hauptsatz steht „nahm“ vor dem Subjekt und die Vorsilbe „an“ am Satzende."
+        ],
+        "sample_answer": "Ohne lange zu zögern, nahm sie das Angebot an."
+      },
+      "explanation": "Die vorangestellte Infinitivgruppe besetzt das Vorfeld; der Hauptsatz folgt mit finitem Verb und Subjekt.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Ersetze den ohne-dass-Satz durch eine Infinitivgruppe: Er ging, ohne dass er sich verabschiedete.",
+      "options": [],
+      "correct_answer": "Er ging, ohne sich zu verabschieden.",
+      "rubric": {
+        "criteria": [
+          "Der Nebensatz wird vollständig durch „ohne sich zu verabschieden“ ersetzt.",
+          "Das gemeinsame Subjekt wird in der Infinitivgruppe nicht wiederholt.",
+          "Hauptaussage, Reflexivpronomen und Komma bleiben korrekt."
+        ],
+        "sample_answer": "Er ging, ohne sich zu verabschieden."
+      },
+      "explanation": "Bei identischem Subjekt kann „ohne dass“ durch „ohne ... zu“ verkürzt werden.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe vier Sätze über die sprachliche Vorbereitung einer Arbeitsschicht. Verwende mindestens drei unterschiedliche Infinitivkonstruktionen, darunter „um ... zu“, „ohne ... zu“ und ein trennbares Verb.",
+      "options": [],
+      "correct_answer": "Ich plane, vor der Schicht den Dienstplan zu prüfen. Um die Übergabe gut vorzubereiten, lese ich die aktuellen Hinweise. Ich beginne die Arbeit, ohne wichtige Informationen zu übersehen. Danach versuche ich, offene sprachliche Fragen mit dem Team zu klären.",
+      "rubric": {
+        "criteria": [
+          "Der Text besteht aus vier sachlich zusammenhängenden Sätzen über die sprachliche Vorbereitung einer Arbeitsschicht.",
+          "Mindestens drei unterschiedliche Infinitivkonstruktionen werden grammatisch korrekt verwendet.",
+          "Eine um-zu-Gruppe, eine ohne-zu-Gruppe und mindestens ein trennbares Verb mit „zu“ sind enthalten."
+        ],
+        "sample_answer": "Ich plane, vor der Schicht den Dienstplan zu prüfen. Um die Übergabe gut vorzubereiten, lese ich die aktuellen Hinweise. Ich beginne die Arbeit, ohne wichtige Informationen zu übersehen. Danach versuche ich, offene sprachliche Fragen mit dem Team zu klären."
+      },
+      "explanation": "Verschiedene B1-Infinitivkonstruktionen verbinden Plan, Ziel, Begleitumstand und sprachliche Klärung in einem zusammenhängenden Text.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

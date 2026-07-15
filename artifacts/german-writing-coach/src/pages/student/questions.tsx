@@ -1,40 +1,43 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useLocation } from "wouter";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { PromptText } from "@/components/prompt-text";
 import { Search, Clock, Edit3, KeyRound } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/lib/auth";
 import { formatErrorMessage, LEVEL_OPTIONS } from "@/lib/workspaceData";
-import { listStudentAssignedQuestions, type WorkspaceQuestion } from "@/services/questionService";
-import { listStudentSubmissions, type WritingSubmission } from "@/services/submissionService";
-import { listMyBatchAssignments, listMyBatchJoinRequests, requestJoinBatchByCode, type BatchJoinRequest, type StudentBatchAssignment } from "@/services/studentService";
-import { MOCK_QUESTIONS } from "@/data/mockData";
-
-function mockToWorkspaceQuestion(question: (typeof MOCK_QUESTIONS)[number]): WorkspaceQuestion {
-  const [min, max] = question.expected_word_range.split("-").map((value) => Number(value));
-  return {
-    id: question.id,
-    workspace_id: "mock",
-    source: "workspace",
-    batch_id: null,
-    title: question.title,
-    prompt: question.prompt,
-    level: question.level,
-    topic: question.topic,
-    task_type: "writing",
-    expected_word_min: Number.isFinite(min) ? min : null,
-    expected_word_max: Number.isFinite(max) ? max : null,
-    estimated_minutes: Number.parseInt(question.estimated_time, 10) || null,
-    is_active: question.active,
-    created_by: null,
-    created_at: "",
-    updated_at: "",
-  };
-}
+import {
+  listStudentAssignedQuestionsPage,
+  STUDENT_ASSIGNED_QUESTION_PAGE_SIZE,
+  type StudentAssignedQuestionCursor,
+  type StudentWritingTaskState,
+  type WorkspaceQuestion,
+} from "@/services/questionService";
+import {
+  getProminentJoinRequest,
+  requestJoinBatchByCode,
+} from "@/services/studentService";
+import { appQueryKeys, SHARED_QUERY_STALE_MS } from "@/lib/appQueryKeys";
+import { createStudentAccessQueries } from "@/lib/dashboardQueries";
+import { useStudentClass } from "@/lib/studentClassContext";
 
 function wordRange(question: WorkspaceQuestion) {
   if (question.expected_word_min && question.expected_word_max) {
@@ -45,99 +48,158 @@ function wordRange(question: WorkspaceQuestion) {
   return "Flexible";
 }
 
-const completedSubmissionStatuses = new Set(["submitted", "checked", "needs_review"]);
-
-function questionSubmissionKey(question: WorkspaceQuestion) {
-  return `${question.source}:${question.id}`;
+export function getWordGuidance(question: WorkspaceQuestion) {
+  if (question.expected_word_min && question.expected_word_max) {
+    return `Suggested length: ${question.expected_word_min}–${question.expected_word_max} words`;
+  }
+  if (question.expected_word_min) {
+    return `Suggested length: at least ${question.expected_word_min} words`;
+  }
+  if (question.expected_word_max) {
+    return `Suggested length: up to ${question.expected_word_max} words`;
+  }
+  return "Suggested length: no fixed word limit";
 }
 
-function submissionQuestionKey(submission: WritingSubmission) {
-  if (submission.question_source === "global_question" && submission.global_question_id) {
-    return `global:${submission.global_question_id}`;
+const taskPresentations: Record<
+  StudentWritingTaskState,
+  {
+    badge: string | null;
+    action: string;
+    className: string;
   }
-  if (submission.question_source === "workspace_question" && submission.question_id) {
-    return `workspace:${submission.question_id}`;
-  }
-  return null;
+> = {
+  not_started: { badge: null, action: "Start Writing", className: "" },
+  submitted: {
+    badge: "Submitted",
+    action: "View Submission",
+    className: "bg-blue-50 text-blue-800 border-blue-200",
+  },
+  queued: {
+    badge: "Queued",
+    action: "View Progress",
+    className: "bg-blue-50 text-blue-800 border-blue-200",
+  },
+  processing: {
+    badge: "Checking",
+    action: "View Progress",
+    className: "bg-blue-50 text-blue-800 border-blue-200",
+  },
+  scheduled: {
+    badge: "Feedback scheduled",
+    action: "View Submission",
+    className: "bg-amber-50 text-amber-900 border-amber-200",
+  },
+  needs_review: {
+    badge: "Held for review",
+    action: "View Submission",
+    className: "bg-amber-50 text-amber-900 border-amber-200",
+  },
+  feedback_held: {
+    badge: "Waiting for teacher",
+    action: "View Submission",
+    className: "bg-amber-50 text-amber-900 border-amber-200",
+  },
+  feedback_released: {
+    badge: "Feedback ready",
+    action: "View Feedback",
+    className: "bg-green-50 text-green-800 border-green-200",
+  },
+  failed: {
+    badge: "Evaluation failed",
+    action: "View Submission",
+    className: "bg-red-50 text-red-800 border-red-200",
+  },
+};
+
+export function getStudentTaskPresentation(state: StudentWritingTaskState) {
+  return taskPresentations[state];
 }
 
 export default function StudentQuestions() {
-  const { authMode, user } = useAuth();
+  const { user } = useAuth();
   const { toast } = useToast();
-  const useRealData = authMode === "supabase" && Boolean(user);
+  const queryClient = useQueryClient();
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [levelFilter, setLevelFilter] = useState<string>("All");
-  const [realQuestions, setRealQuestions] = useState<WorkspaceQuestion[]>([]);
-  const [realSubmissions, setRealSubmissions] = useState<WritingSubmission[]>([]);
-  const [batchAssignments, setBatchAssignments] = useState<StudentBatchAssignment[]>([]);
-  const [joinRequests, setJoinRequests] = useState<BatchJoinRequest[]>([]);
   const [joinCode, setJoinCode] = useState("");
-  const [submittingJoinCode, setSubmittingJoinCode] = useState(false);
-  const [loading, setLoading] = useState(useRealData);
-  const [error, setError] = useState<string | null>(null);
+  const [questionCursorTrail, setQuestionCursorTrail] = useState<
+    Array<StudentAssignedQuestionCursor | null>
+  >([null]);
+  const questionCursor =
+    questionCursorTrail[questionCursorTrail.length - 1] ?? null;
+  const questionPageNumber = questionCursorTrail.length;
   const [, setLocation] = useLocation();
+  const studentId = user?.id ?? "inactive-student";
+  const queryEnabled = Boolean(user);
+  const accessQueries = createStudentAccessQueries(studentId);
+  const {
+    activeBatchId: selectedBatchId,
+    assignments: batchAssignments,
+    error: assignmentsError,
+    isLoading: assignmentsLoading,
+    selectActiveBatch,
+  } = useStudentClass();
+  const joinRequestsQuery = useQuery({
+    ...accessQueries.joinRequests,
+    enabled: queryEnabled,
+  });
+  const questionsQuery = useQuery({
+    queryKey: appQueryKeys.studentAssignedQuestionsPage({
+      studentId,
+      batchId: selectedBatchId ?? "inactive-class",
+      search: debouncedSearch,
+      level: levelFilter === "All" ? null : levelFilter,
+      pageSize: STUDENT_ASSIGNED_QUESTION_PAGE_SIZE,
+      cursor: questionCursor,
+    }),
+    queryFn: () =>
+      listStudentAssignedQuestionsPage({
+        studentId,
+        batchId: selectedBatchId!,
+        search: debouncedSearch,
+        level:
+          levelFilter === "All"
+            ? null
+            : (levelFilter as WorkspaceQuestion["level"]),
+        pageSize: STUDENT_ASSIGNED_QUESTION_PAGE_SIZE,
+        cursor: questionCursor,
+      }),
+    enabled: queryEnabled && Boolean(selectedBatchId),
+    staleTime: SHARED_QUERY_STALE_MS,
+  });
+  const realQuestionPage = questionsQuery.data;
+  const realQuestions = realQuestionPage?.items ?? [];
+  const joinRequests = joinRequestsQuery.data ?? [];
+  const loading =
+    queryEnabled &&
+    ((Boolean(selectedBatchId) && questionsQuery.isPending) ||
+      assignmentsLoading ||
+      joinRequestsQuery.isPending);
+  const loadError = [
+    questionsQuery.error,
+    assignmentsError,
+    joinRequestsQuery.error,
+  ].find(Boolean);
+  const error = loadError
+    ? formatErrorMessage(loadError, "Unable to load assigned writing tasks.")
+    : null;
+  const joinBatchMutation = useMutation({ mutationFn: requestJoinBatchByCode });
 
   useEffect(() => {
-    if (!useRealData || !user) return;
+    const timer = window.setTimeout(
+      () => setDebouncedSearch(search.trim()),
+      250,
+    );
+    return () => window.clearTimeout(timer);
+  }, [search]);
 
-    async function loadQuestions() {
-      try {
-        setLoading(true);
-        setError(null);
-        const [nextQuestions, nextAssignments, nextJoinRequests, nextSubmissions] = await Promise.all([
-          listStudentAssignedQuestions(user!.id),
-          listMyBatchAssignments(user!.id),
-          listMyBatchJoinRequests(user!.id),
-          listStudentSubmissions(user!.id, 100),
-        ]);
-        setRealQuestions(nextQuestions);
-        setBatchAssignments(nextAssignments);
-        setJoinRequests(nextJoinRequests);
-        setRealSubmissions(nextSubmissions);
-      } catch (loadError) {
-        setError(formatErrorMessage(loadError, "Unable to load assigned writing tasks."));
-      } finally {
-        setLoading(false);
-      }
-    }
+  useEffect(() => {
+    setQuestionCursorTrail([null]);
+  }, [debouncedSearch, levelFilter, selectedBatchId, studentId]);
 
-    void loadQuestions();
-  }, [useRealData, user]);
-
-  const reloadStudentData = async () => {
-    if (!user) return;
-    const [nextQuestions, nextAssignments, nextJoinRequests, nextSubmissions] = await Promise.all([
-      listStudentAssignedQuestions(user.id),
-      listMyBatchAssignments(user.id),
-      listMyBatchJoinRequests(user.id),
-      listStudentSubmissions(user.id, 100),
-    ]);
-    setRealQuestions(nextQuestions);
-    setBatchAssignments(nextAssignments);
-    setJoinRequests(nextJoinRequests);
-    setRealSubmissions(nextSubmissions);
-  };
-
-  const questions = useRealData ? realQuestions : MOCK_QUESTIONS.map(mockToWorkspaceQuestion);
-
-  const filteredQuestions = useMemo(() => questions.filter((question) => {
-    const query = search.toLowerCase();
-    const matchesSearch =
-      question.title.toLowerCase().includes(query) ||
-      question.topic.toLowerCase().includes(query);
-    const matchesLevel = levelFilter === "All" || question.level === levelFilter;
-    return matchesSearch && matchesLevel && question.is_active;
-  }), [levelFilter, questions, search]);
-
-  const latestSubmissionByQuestion = useMemo(() => {
-    const map = new Map<string, WritingSubmission>();
-    for (const submission of realSubmissions) {
-      if (!completedSubmissionStatuses.has(submission.status)) continue;
-      const key = submissionQuestionKey(submission);
-      if (key && !map.has(key)) map.set(key, submission);
-    }
-    return map;
-  }, [realSubmissions]);
+  const filteredQuestions = realQuestions;
 
   const startWritingTask = (question: WorkspaceQuestion) => {
     sessionStorage.setItem(
@@ -146,12 +208,15 @@ export default function StudentQuestions() {
         id: question.id,
         title: question.title,
         source: question.source,
-        batch_id: question.batch_id,
+        workspace_id: question.workspace_id,
+        batch_id: question.batch_id ?? selectedBatchId,
         level: question.level,
         topic: question.topic,
         prompt: question.prompt,
         expected_word_range: wordRange(question),
-        estimated_time: question.estimated_minutes ? `${question.estimated_minutes} mins` : "flexible",
+        estimated_time: question.estimated_minutes
+          ? `${question.estimated_minutes} mins`
+          : "flexible",
         active: question.is_active,
       }),
     );
@@ -160,61 +225,128 @@ export default function StudentQuestions() {
 
   const submitJoinCode = async () => {
     if (!joinCode.trim()) {
-      toast({ title: "Batch code required", description: "Enter the code your teacher shared." });
+      toast({
+        title: "Class code required",
+        description: "Enter the code your teacher shared.",
+      });
       return;
     }
 
     try {
-      setSubmittingJoinCode(true);
-      const result = await requestJoinBatchByCode(joinCode);
-      await reloadStudentData();
+      const result = await joinBatchMutation.mutateAsync(joinCode);
+      await Promise.all([
+        queryClient.invalidateQueries({
+          queryKey: appQueryKeys.studentBatchAssignments(studentId),
+        }),
+        queryClient.invalidateQueries({
+          queryKey: appQueryKeys.studentJoinRequests(studentId),
+        }),
+        queryClient.invalidateQueries({
+          queryKey: appQueryKeys.studentAssignedQuestions(studentId),
+        }),
+      ]);
       setJoinCode("");
-      toast({
-        title: result.status === "approved" ? "Joined batch" : "Request sent",
-        description: result.status === "approved"
-          ? `${result.batch_name} is ready.`
-          : "Waiting for teacher approval.",
-      });
+      toast(
+        result.status === "approved"
+          ? {
+              title: "Already joined",
+              description: `You already have access to ${result.batch_name}.`,
+            }
+          : {
+              title: "Request sent",
+              description: "Waiting for teacher approval.",
+            },
+      );
     } catch (joinError) {
       toast({
-        title: "Could not request batch",
-        description: formatErrorMessage(joinError, "Check the code and try again."),
+        title: "Could not request class",
+        description: formatErrorMessage(
+          joinError,
+          "Check the code and try again.",
+        ),
       });
-    } finally {
-      setSubmittingJoinCode(false);
     }
   };
+  const submittingJoinCode = joinBatchMutation.isPending;
 
-  const latestJoinRequest = joinRequests[0];
+  const latestJoinRequest = getProminentJoinRequest(joinRequests);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Writing Tasks</h1>
-          <p className="text-muted-foreground mt-1">Choose an Aufgabe to practice your writing skills.</p>
+          <p className="text-muted-foreground mt-1">
+            Choose a writing task to practice your writing skills.
+          </p>
         </div>
       </div>
+
+      {batchAssignments.length > 1 && (
+        <div className="mb-6 rounded-lg border bg-card p-4">
+          <label
+            htmlFor="writing-class"
+            className="mb-2 block text-sm font-medium"
+          >
+            Class for this writing
+          </label>
+          <Select
+            value={selectedBatchId ?? ""}
+            onValueChange={selectActiveBatch}
+          >
+            <SelectTrigger
+              id="writing-class"
+              aria-label="Class for this writing"
+              className="w-full sm:w-80"
+            >
+              <SelectValue placeholder="Choose a class before writing" />
+            </SelectTrigger>
+            <SelectContent>
+              {batchAssignments.map((assignment) => (
+                <SelectItem
+                  key={assignment.batch_id}
+                  value={assignment.batch_id}
+                >
+                  {assignment.batch_name} · {assignment.level}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          {!selectedBatchId && (
+            <p className="mt-2 text-sm text-amber-700" role="status">
+              Choose the class that should receive this writing.
+            </p>
+          )}
+        </div>
+      )}
 
       <div className="flex flex-col md:flex-row gap-4 mb-8">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
             placeholder="Search topics..."
+            aria-label="Search writing tasks"
             className="pl-9 bg-card border-border shadow-sm"
             value={search}
             onChange={(event) => setSearch(event.target.value)}
           />
         </div>
-        <div className="flex gap-2 flex-wrap">
+        <div
+          className="flex gap-2 flex-wrap"
+          role="group"
+          aria-label="Filter by CEFR level"
+        >
           {["All", ...LEVEL_OPTIONS].map((level) => (
             <Button
               key={level}
               variant={levelFilter === level ? "default" : "outline"}
-              className={levelFilter === level
-                ? "min-w-[4.5rem]"
-                : "min-w-[4.5rem] bg-card text-foreground"}
+              className={
+                levelFilter === level
+                  ? "min-w-[4.5rem]"
+                  : "min-w-[4.5rem] bg-card text-foreground"
+              }
               onClick={() => setLevelFilter(level)}
+              aria-pressed={levelFilter === level}
             >
               {level === "All" ? "All Levels" : level}
             </Button>
@@ -224,11 +356,13 @@ export default function StudentQuestions() {
 
       {error && (
         <Card className="mb-6 border-destructive/30 bg-destructive/5">
-          <CardContent className="py-4 text-sm text-destructive">{error}</CardContent>
+          <CardContent className="py-4 text-sm text-destructive" role="alert">
+            {error}
+          </CardContent>
         </Card>
       )}
 
-      {useRealData && !loading && batchAssignments.length === 0 && (
+      {!loading && (
         <Card className="mb-8 border-primary/25 bg-primary/5">
           <CardHeader>
             <div className="flex items-center gap-3">
@@ -236,8 +370,15 @@ export default function StudentQuestions() {
                 <KeyRound className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <CardTitle>Join your batch</CardTitle>
-                <CardDescription>Enter the code your teacher shared. Most batches wait for teacher approval.</CardDescription>
+                <CardTitle>
+                  {batchAssignments.length > 0
+                    ? "Join another class"
+                    : "Join your first class"}
+                </CardTitle>
+                <CardDescription>
+                  Enter the class code your teacher shared. Every request waits
+                  for teacher approval.
+                </CardDescription>
               </div>
             </div>
           </CardHeader>
@@ -245,8 +386,11 @@ export default function StudentQuestions() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Input
                 value={joinCode}
-                onChange={(event) => setJoinCode(event.target.value.toUpperCase())}
-                placeholder="Enter batch code"
+                onChange={(event) =>
+                  setJoinCode(event.target.value.toUpperCase())
+                }
+                placeholder="Enter class code"
+                aria-label="Class join code"
                 className="font-mono tracking-wider bg-card"
               />
               <Button onClick={submitJoinCode} disabled={submittingJoinCode}>
@@ -255,7 +399,8 @@ export default function StudentQuestions() {
             </div>
             {latestJoinRequest && (
               <p className="mt-3 text-sm text-muted-foreground">
-                Latest request: {latestJoinRequest.batch_name} · {latestJoinRequest.batch_level} · {latestJoinRequest.status}
+                Latest request: {latestJoinRequest.batch_name} ·{" "}
+                {latestJoinRequest.batch_level} · {latestJoinRequest.status}
               </p>
             )}
           </CardContent>
@@ -269,15 +414,25 @@ export default function StudentQuestions() {
               <Edit3 className="w-5 h-5 text-primary" />
             </div>
             <CardTitle className="text-xl">Free Writing</CardTitle>
-            <CardDescription>Practice without a specific writing task</CardDescription>
+            <CardDescription>
+              Practice without a specific writing task
+            </CardDescription>
           </CardHeader>
           <CardContent className="flex-1">
             <p className="text-sm text-muted-foreground">
-              Have something specific in mind? Write about your day, a recent trip, or just paste text you want to check.
+              Have something specific in mind? Write about your day, a recent
+              trip, or just paste text you want to check.
             </p>
           </CardContent>
           <CardFooter>
-            <Button className="w-full shadow-sm" onClick={() => setLocation("/student/write?mode=free")}>
+            <Button
+              className="w-full shadow-sm"
+              disabled={!selectedBatchId}
+              onClick={() =>
+                selectedBatchId &&
+                setLocation(`/student/write?mode=free&batch=${selectedBatchId}`)
+              }
+            >
               Start Free Writing
             </Button>
           </CardFooter>
@@ -285,57 +440,99 @@ export default function StudentQuestions() {
 
         {loading ? (
           <Card>
-            <CardContent className="py-10 text-center text-muted-foreground">Loading assigned writing tasks...</CardContent>
+            <CardContent
+              className="py-10 text-center text-muted-foreground"
+              role="status"
+            >
+              Loading assigned writing tasks...
+            </CardContent>
           </Card>
-        ) : filteredQuestions.length === 0 ? (
+        ) : error ? null : filteredQuestions.length === 0 ? (
           <Card className="border-dashed">
             <CardContent className="py-10 text-center">
-              <h2 className="text-lg font-semibold mb-2">No assigned writing tasks yet</h2>
-              <p className="text-sm text-muted-foreground">Your teacher can assign batches and writing tasks from the workspace.</p>
+              <h2 className="text-lg font-semibold mb-2">
+                {batchAssignments.length > 1 && !selectedBatchId
+                  ? "Choose a class to see its writing tasks"
+                  : "No assigned writing tasks yet"}
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                {batchAssignments.length > 1 && !selectedBatchId
+                  ? "Your writing is always attached to the class you select."
+                  : "Your teacher can add writing tasks for this class."}
+              </p>
             </CardContent>
           </Card>
         ) : (
           filteredQuestions.map((question, i) => {
-            const latestSubmission = useRealData
-              ? latestSubmissionByQuestion.get(questionSubmissionKey(question))
-              : null;
+            const presentation = getStudentTaskPresentation(
+              question.task_state,
+            );
+            const latestSubmissionId = question.latest_submission_id;
 
             return (
-              <Card key={question.id} className="flex flex-col group hover:shadow-md transition-all duration-300 animate-in slide-in-from-bottom-4" style={{ animationDelay: `${i * 50}ms` }}>
+              <Card
+                key={`${question.batch_id}:${question.source}:${question.id}`}
+                className="flex flex-col group hover:shadow-md transition-all duration-300 animate-in slide-in-from-bottom-4"
+                style={{ animationDelay: `${i * 50}ms` }}
+              >
                 <CardHeader className="pb-4">
                   <div className="flex justify-between items-start mb-2">
                     <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
+                      <Badge
+                        variant="secondary"
+                        className="bg-secondary text-secondary-foreground"
+                      >
                         {question.level}
                       </Badge>
-                      {question.source === "global" && <Badge variant="outline">Global Task</Badge>}
-                      {latestSubmission && (
-                        <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                          Submitted
+                      {question.source === "global" && (
+                        <Badge variant="outline">Global Task</Badge>
+                      )}
+                      {presentation.badge && (
+                        <Badge
+                          variant="outline"
+                          className={presentation.className}
+                        >
+                          {presentation.badge}
                         </Badge>
                       )}
                     </div>
                     <div className="flex items-center text-xs text-muted-foreground bg-muted px-2 py-1 rounded-md">
                       <Clock className="w-3 h-3 mr-1" />
-                      {question.estimated_minutes ? `${question.estimated_minutes} mins` : "flex"}
+                      {question.estimated_minutes
+                        ? `${question.estimated_minutes} mins`
+                        : "flex"}
                     </div>
                   </div>
-                  <CardTitle className="text-lg line-clamp-2">{question.title}</CardTitle>
-                  <CardDescription className="text-xs font-medium text-primary">Topic: {question.topic}</CardDescription>
+                  <CardTitle className="text-lg line-clamp-2">
+                    {question.title}
+                  </CardTitle>
+                  <CardDescription className="text-xs font-medium text-primary">
+                    Topic: {question.topic}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1 pb-4">
-                  <PromptText prompt={question.prompt} preview className="text-sm text-foreground line-clamp-3 mb-4" />
+                  <PromptText
+                    prompt={question.prompt}
+                    preview
+                    className="text-sm text-foreground line-clamp-3 mb-4"
+                  />
                   <div className="text-xs text-muted-foreground bg-accent/10 text-accent-foreground border border-accent/20 px-3 py-2 rounded-md inline-block">
-                    Expected: {wordRange(question)} words
+                    {getWordGuidance(question)}
                   </div>
                 </CardContent>
                 <CardFooter>
                   <Button
                     variant="outline"
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors"
-                    onClick={() => latestSubmission ? setLocation(`/student/submission/${latestSubmission.id}`) : startWritingTask(question)}
+                    onClick={() =>
+                      latestSubmissionId
+                        ? setLocation(
+                            `/student/submission/${latestSubmissionId}`,
+                          )
+                        : startWritingTask(question)
+                    }
                   >
-                    {latestSubmission ? "View Submission" : "Start Writing"}
+                    {presentation.action}
                   </Button>
                 </CardFooter>
               </Card>
@@ -343,6 +540,56 @@ export default function StudentQuestions() {
           })
         )}
       </div>
+
+      {realQuestionPage && realQuestionPage.total_count > 0 && (
+        <nav
+          className="mt-6 flex flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+          aria-label="Writing task pages"
+        >
+          <p role="status">
+            Showing {(questionPageNumber - 1) * realQuestionPage.page_size + 1}
+            {"–"}
+            {Math.min(
+              (questionPageNumber - 1) * realQuestionPage.page_size +
+                realQuestionPage.returned_count,
+              realQuestionPage.total_count,
+            )}{" "}
+            of {realQuestionPage.total_count} tasks
+          </p>
+          <div className="flex gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              aria-label="Previous writing task page"
+              disabled={
+                questionCursorTrail.length === 1 || questionsQuery.isFetching
+              }
+              onClick={() =>
+                setQuestionCursorTrail((current) => current.slice(0, -1))
+              }
+            >
+              Previous
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              aria-label="Next writing task page"
+              disabled={!realQuestionPage.has_more || questionsQuery.isFetching}
+              onClick={() => {
+                if (!realQuestionPage.next_cursor) return;
+                setQuestionCursorTrail((current) => [
+                  ...current,
+                  realQuestionPage.next_cursor,
+                ]);
+              }}
+            >
+              Next
+            </Button>
+          </div>
+        </nav>
+      )}
     </div>
   );
 }

@@ -1,0 +1,195 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-relative-clauses-r1",
+    "template_key": "v1-b2-relative-clauses-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Relative clauses pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Relativsätze: Personen und Sachverhalte präzisieren",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "relative-clauses",
+    "name": "Relativsätze"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "relative-clauses",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Relativsätze ergänzen Informationen zu einem Bezugswort. Genus und Numerus kommen vom Bezugswort, der Kasus ergibt sich aus der Funktion des Relativpronomens im Nebensatz.",
+    "key_rule": "Bestimme zuerst das Bezugswort und dann die Funktion im Relativsatz; das konjugierte Verb steht am Ende und vor dem Relativsatz steht ein Komma.",
+    "correct_examples": [
+      "Die Pflegekraft, die heute die Übergabe leitet, arbeitet sehr strukturiert.",
+      "Das ist die Kollegin, mit der wir den Ablauf abgestimmt haben."
+    ],
+    "common_mistake_warning": "Übernimm den Kasus nicht automatisch aus dem Hauptsatz: Eine Präposition oder das Verb im Relativsatz kann einen anderen Kasus verlangen.",
+    "what_to_revise": "Wiederhole die Relativpronomen der, die, das, den, dem, denen sowie deren und dessen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet das Relativpronomen als Subjekt korrekt?",
+      "options": [
+        "Die Kollegin, die das Projekt leitet, arbeitet in Berlin.",
+        "Die Kollegin, der das Projekt leitet, arbeitet in Berlin.",
+        "Die Kollegin, die das Projekt leitet, arbeitet sie in Berlin."
+      ],
+      "correct_answer": "Die Kollegin, die das Projekt leitet, arbeitet in Berlin.",
+      "accepted_answers": [
+        "Die Kollegin, die das Projekt leitet, arbeitet in Berlin."
+      ],
+      "explanation": "Das feminine Bezugswort „Kollegin“ verlangt im Nominativ Singular „die“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ergänzung enthält das passende Relativpronomen als Akkusativobjekt im Plural?",
+      "options": [
+        "Die Unterlagen, denen du angefordert hast, liegen bereit.",
+        "Die Unterlagen, der du angefordert hast, liegen bereit.",
+        "Die Unterlagen, die du angefordert hast, liegen bereit."
+      ],
+      "correct_answer": "Die Unterlagen, die du angefordert hast, liegen bereit.",
+      "accepted_answers": [
+        "Die Unterlagen, die du angefordert hast, liegen bereit."
+      ],
+      "explanation": "„Anfordern“ verlangt ein Akkusativobjekt; im Plural lautet das Relativpronomen „die“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Relativsatz verwendet die Präposition „mit“ und den passenden Kasus korrekt?",
+      "options": [
+        "Das ist der Kunde, dem mit wir gestern gesprochen haben.",
+        "Das ist der Kunde, mit dem wir gestern gesprochen haben.",
+        "Das ist der Kunde, mit den wir gestern gesprochen haben."
+      ],
+      "correct_answer": "Das ist der Kunde, mit dem wir gestern gesprochen haben.",
+      "accepted_answers": [
+        "Das ist der Kunde, mit dem wir gestern gesprochen haben."
+      ],
+      "explanation": "„Mit“ verlangt den Dativ; für das maskuline Bezugswort steht deshalb „dem“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den, dem, der]. Setze das Relativpronomen als Subjekt ein: Der Mitarbeiter, ___ die Präsentation vorbereitet, kommt später.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "explanation": "Das Relativpronomen ist Subjekt von „vorbereitet“ und steht maskulin im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [denen, deren, dessen]. Ergänze den Genitiv passend zum femininen Bezugswort: Die Autorin, ___ Roman ausgezeichnet wurde, hält eine Lesung.",
+      "options": [],
+      "correct_answer": "deren",
+      "accepted_answers": [
+        "deren"
+      ],
+      "explanation": "Der Roman gehört zur Autorin; beim femininen Bezugswort lautet das Genitivpronomen „deren“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [denen, die, deren]. Setze das Dativpronomen im Plural ein: Die Pflegefachkräfte, ___ wir die aktualisierten Übergaberegeln geschickt haben, melden sich morgen.",
+      "options": [],
+      "correct_answer": "denen",
+      "accepted_answers": [
+        "denen"
+      ],
+      "explanation": "„Jemandem etwas schicken“ verlangt für die empfangenden Personen den Dativ; im Plural steht „denen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dem, dessen, das]. Ergänze das Akkusativpronomen passend zu „das Konzept“: Das Konzept, ___ der Ausschuss gestern beschlossen hat, wird veröffentlicht.",
+      "options": [],
+      "correct_answer": "das",
+      "accepted_answers": [
+        "das"
+      ],
+      "explanation": "„Beschließen“ verlangt hier ein Akkusativobjekt; bei einem neutralen Bezugswort lautet es „das“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet das Relativpronomen als Nominativsubjekt des Relativsatzes korrekt?",
+      "options": [
+        "Der Experte, dessen den Vortrag hält, beantwortet anschließend Fragen.",
+        "Der Experte, dem den Vortrag hält, beantwortet anschließend Fragen.",
+        "Der Experte, der den Vortrag hält, beantwortet anschließend Fragen.",
+        "Der Experte, den der Vortrag hält, beantwortet anschließend Fragen."
+      ],
+      "correct_answer": "Der Experte, der den Vortrag hält, beantwortet anschließend Fragen.",
+      "rubric": null,
+      "explanation": "Das Relativpronomen führt selbst die Handlung „hält“ aus und muss daher im Nominativ stehen.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Der Experte, der den Vortrag hält, beantwortet anschließend Fragen."
+      ]
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verbindet die Aussagen mit „mit“ plus passendem Relativpronomen, ohne das Nomen zu wiederholen?",
+      "options": [
+        "Das ist das Verfahren, womit dem sich Fehler früh erkennen lassen.",
+        "Das ist das Verfahren, mit dem sich Fehler früh erkennen lassen.",
+        "Das ist das Verfahren, das mit sich Fehler früh erkennen lassen.",
+        "Das ist das Verfahren, mit das sich Fehler früh erkennen lassen."
+      ],
+      "correct_answer": "Das ist das Verfahren, mit dem sich Fehler früh erkennen lassen.",
+      "rubric": null,
+      "explanation": "Die Verbindung „mit dem“ bleibt im Relativsatz bestehen, während das Bezugswort nicht wiederholt wird.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Das ist das Verfahren, mit dem sich Fehler früh erkennen lassen."
+      ]
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung verwendet sowohl das genitivische Relativpronomen als auch das Relativpronomen nach „mit“ korrekt?",
+      "options": [
+        "Die Projektgruppe, dessen Vorschlag angenommen wurde, arbeitet nun mit den Fachkräften zusammen, mit denen sie die Umsetzung vorbereitet.",
+        "Die Projektgruppe, deren Vorschlag angenommen wurde, arbeitet nun mit den Fachkräften zusammen, mit die sie die Umsetzung vorbereitet.",
+        "Die Projektgruppe, deren Vorschlag angenommen wurde, arbeitet nun mit den Fachkräften zusammen, mit dessen sie die Umsetzung vorbereitet.",
+        "Die Projektgruppe, deren Vorschlag angenommen wurde, arbeitet nun mit den Fachkräften zusammen, mit denen sie die Umsetzung vorbereitet."
+      ],
+      "correct_answer": "Die Projektgruppe, deren Vorschlag angenommen wurde, arbeitet nun mit den Fachkräften zusammen, mit denen sie die Umsetzung vorbereitet.",
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Bezugswort „Projektgruppe“ verlangt im Genitiv „deren“. Nach „mit“ steht für die pluralischen „Fachkräfte“ das Dativpronomen „denen“.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Die Projektgruppe, deren Vorschlag angenommen wurde, arbeitet nun mit den Fachkräften zusammen, mit denen sie die Umsetzung vorbereitet."
+      ]
+    }
+  ]
+}

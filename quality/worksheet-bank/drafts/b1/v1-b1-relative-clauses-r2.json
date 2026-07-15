@@ -1,0 +1,180 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-relative-clauses-r2",
+    "template_key": "v1-b1-relative-clauses-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Relative clauses accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Relativsätze: Kasus sicher übertragen",
+  "level": "B1",
+  "grammar_topic": { "slug": "relative-clauses", "name": "Relativsätze" },
+  "difficulty": "hard",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "relative-clauses",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Komplexere Relativsätze verbinden Präpositionen, verschiedene Kasus und Besitzangaben mit „dessen“ oder „deren“.",
+    "key_rule": "Bestimme zuerst das Bezugswort und anschließend die Aufgabe des Pronomens im Relativsatz; eine Präposition steht unmittelbar vor dem Relativpronomen.",
+    "correct_examples": [
+      "Die Autorin, deren Roman ausgezeichnet wurde, kommt zur Lesung.",
+      "Die Häuser, vor denen die Busse halten, sind neu."
+    ],
+    "common_mistake_warning": "„Dessen“ und „deren“ richten sich nach dem Bezugswort, nicht nach dem folgenden Nomen.",
+    "what_to_revise": "Übe Präposition plus Relativpronomen sowie dessen und deren für Besitzbeziehungen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt die Besitzbeziehung korrekt aus?",
+      "options": [
+        "Der Bewerber, denen Unterlagen vollständig sind, wird eingeladen.",
+        "Der Bewerber, dessen Unterlagen vollständig sind, wird eingeladen.",
+        "Der Bewerber, deren Unterlagen vollständig sind, wird eingeladen."
+      ],
+      "correct_answer": "Der Bewerber, dessen Unterlagen vollständig sind, wird eingeladen.",
+      "accepted_answers": [
+        "Der Bewerber, dessen Unterlagen vollständig sind, wird eingeladen."
+      ],
+      "explanation": "Das maskuline Bezugswort „Bewerber“ verlangt für die Besitzangabe „dessen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Verbindung mit „bei“ ist korrekt?",
+      "options": [
+        "Die Firmen, bei denen sie gearbeitet hat, sind international.",
+        "Die Firmen, bei deren sie gearbeitet hat, sind international.",
+        "Die Firmen, bei die sie gearbeitet hat, sind international."
+      ],
+      "correct_answer": "Die Firmen, bei denen sie gearbeitet hat, sind international.",
+      "accepted_answers": [
+        "Die Firmen, bei denen sie gearbeitet hat, sind international."
+      ],
+      "explanation": "„Bei“ verlangt den Dativ; das Relativpronomen im Plural lautet „denen“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet „über“ korrekt?",
+      "options": [
+        "Das Problem, über dem wir gesprochen haben, ist gelöst.",
+        "Das Problem, das über wir gesprochen haben, ist gelöst.",
+        "Das Problem, über das wir gesprochen haben, ist gelöst."
+      ],
+      "correct_answer": "Das Problem, über das wir gesprochen haben, ist gelöst.",
+      "accepted_answers": [
+        "Das Problem, über das wir gesprochen haben, ist gelöst."
+      ],
+      "explanation": "„Über etwas sprechen“ verlangt den Akkusativ; beim neutralen Bezugswort steht „das“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den, dem, der]. Ergänze: Der Kollege, ___ wir vor der Übergabe angerufen haben, wartet auf eine Antwort.",
+      "options": [],
+      "correct_answer": "den",
+      "accepted_answers": ["den"],
+      "explanation": "„Jemanden anrufen“ verlangt den Akkusativ; maskulin Singular lautet das Relativpronomen „den“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [dessen, denen, deren]. Ergänze: Die Autorinnen, ___ Bücher wir gelesen haben, kommen zur Messe.",
+      "options": [],
+      "correct_answer": "deren",
+      "accepted_answers": ["deren"],
+      "explanation": "Bei einem Bezugswort im Plural wird Besitz mit „deren“ ausgedrückt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [den, dem, das]. Ergänze: Das Hotel, in ___ wir übernachtet haben, liegt am See.",
+      "options": [],
+      "correct_answer": "dem",
+      "accepted_answers": ["dem"],
+      "explanation": "Bei einer Ortsangabe verlangt „in“ den Dativ; beim neutralen Bezugswort steht „dem“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die, denen, deren]. Ergänze: Die Dokumente, ___ auf dem Tisch liegen, müssen unterschrieben werden.",
+      "options": [],
+      "correct_answer": "die",
+      "accepted_answers": ["die"],
+      "explanation": "Das Relativpronomen ist Subjekt des Relativsatzes; im Plural lautet es „die“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Ordne alle Satzteile zu einem Satz: [Die Pflegekraft / der / wir / bei der Vorbereitung geholfen haben / bedankt sich].",
+      "options": [],
+      "correct_answer": "Die Pflegekraft, der wir bei der Vorbereitung geholfen haben, bedankt sich.",
+      "rubric": {
+        "criteria": [
+          "Alle Satzteile werden genau einmal verwendet.",
+          "Der Relativsatz folgt direkt auf „Die Pflegekraft“ und wird durch zwei Kommas abgegrenzt.",
+          "„Der“ steht als Dativobjekt von „geholfen haben“, und die Verbgruppe steht am Ende des Relativsatzes."
+        ],
+        "sample_answer": "Die Pflegekraft, der wir bei der Vorbereitung geholfen haben, bedankt sich."
+      },
+      "explanation": "Das Verb „helfen“ verlangt den Dativ, während das feminine Bezugswort die Form „der“ bestimmt.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 9,
+      "question_type": "rewrite_sentence",
+      "prompt": "Vermeide die Wiederholung, bilde einen Relativsatz und verwende „über das“: Wir besuchen das Museum. Über das Museum wurde gestern im Radio berichtet.",
+      "options": [],
+      "correct_answer": "Wir besuchen das Museum, über das gestern im Radio berichtet wurde.",
+      "rubric": {
+        "criteria": [
+          "Die Wiederholung von „das Museum“ entfällt.",
+          "„Über das“ leitet den Relativsatz passend ein.",
+          "Die Passivgruppe „berichtet wurde“ steht am Ende; Zeit- und Ortsangabe bleiben erhalten."
+        ],
+        "sample_answer": "Wir besuchen das Museum, über das gestern im Radio berichtet wurde."
+      },
+      "explanation": "Die Präposition des zweiten Satzes bleibt vor dem Relativpronomen erhalten.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 10,
+      "question_type": "mini_writing",
+      "prompt": "Schreibe vier Sätze über ein Krankenhaus-Team oder eine berufliche Sprachschule. Verwende einen Relativsatz mit „dessen“ oder „deren“, einen mit Präposition und einen weiteren Relativsatz in einem anderen Kasus.",
+      "options": [],
+      "correct_answer": "Ich kenne eine Sprachschule, deren Kurse sich an Pflegekräfte richten. Die Leiterin, mit der ich gestern gesprochen habe, plant ein neues Training. Sie entwickelt einen Kurs, den alle Mitarbeitenden besuchen können. Der Raum, in dem das Training stattfindet, liegt neben der Station.",
+      "rubric": {
+        "criteria": [
+          "Der Text besteht aus vier zusammenhängenden Sätzen über ein Krankenhaus-Team oder eine berufliche Sprachschule.",
+          "Ein Besitzverhältnis wird korrekt mit „dessen“ oder „deren“ ausgedrückt.",
+          "Mindestens ein Relativsatz enthält eine Präposition, und ein weiterer verwendet einen anderen Kasus; Verbendstellung und Kommas stimmen."
+        ],
+        "sample_answer": "Ich kenne eine Sprachschule, deren Kurse sich an Pflegekräfte richten. Die Leiterin, mit der ich gestern gesprochen habe, plant ein neues Training. Sie entwickelt einen Kurs, den alle Mitarbeitenden besuchen können. Der Raum, in dem das Training stattfindet, liegt neben der Station."
+      },
+      "explanation": "Mehrere Relativsatztypen verbinden Besitz, Präpositionen und Objektfunktionen in einem zusammenhängenden Text.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

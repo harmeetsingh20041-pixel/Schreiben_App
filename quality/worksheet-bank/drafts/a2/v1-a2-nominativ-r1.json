@@ -1,0 +1,163 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-nominativ-r1",
+    "template_key": "v1-a2-nominativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Nominativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Nominativ: Subjekte klar erkennen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "nominativ",
+    "name": "Nominativ"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "nominativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Nominativ kennzeichnet meist das Subjekt: die Person oder Sache, die handelt oder beschrieben wird.",
+    "key_rule": "Frage nach dem Subjekt mit „Wer?“ oder „Was?“; nach sein, werden und bleiben steht auch die Beschreibung im Nominativ.",
+    "correct_examples": [
+      "Die neue Kollegin arbeitet heute.",
+      "Mein Bruder ist Krankenpfleger."
+    ],
+    "common_mistake_warning": "Nach „sein“ steht kein Akkusativ, auch wenn zwei Nomen im Satz vorkommen.",
+    "what_to_revise": "Übe Nominativartikel bei maskulinen, femininen, neutralen und pluralischen Subjekten."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz hat ein korrekt markiertes maskulines Subjekt?",
+      "options": [
+        "Den neuen Arzt kommt um acht Uhr.",
+        "Dem neue Arzt kommt um acht Uhr.",
+        "Einen neuer Arzt kommt um acht Uhr.",
+        "Der neue Arzt kommt um acht Uhr."
+      ],
+      "correct_answer": "Der neue Arzt kommt um acht Uhr.",
+      "accepted_answers": ["Der neue Arzt kommt um acht Uhr."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Arzt“ führt die Handlung aus und steht deshalb mit „der neue“ im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ergänzung ist nach „ist“ korrekt?",
+      "options": [
+        "Mira ist die erfahrenen Pflegekraft.",
+        "Mira ist eine erfahrene Pflegekraft.",
+        "Mira ist einen erfahrenen Pflegekraft.",
+        "Mira ist einer erfahrenen Pflegekraft."
+      ],
+      "correct_answer": "Mira ist eine erfahrene Pflegekraft.",
+      "accepted_answers": ["Mira ist eine erfahrene Pflegekraft."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „sein“ steht die Berufsbezeichnung als Gleichsetzung im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Dem, Der, Den]. Ergänze das handelnde Subjekt: ___ Fahrer öffnet die Tür.",
+      "options": [],
+      "correct_answer": "Der",
+      "accepted_answers": ["Der"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Fahrer handelt und steht als maskulines Subjekt im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Die, Der, Den]. Ergänze das Subjekt: ___ Besprechung beginnt gleich.",
+      "options": [],
+      "correct_answer": "Die",
+      "accepted_answers": ["Die"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Besprechung“ ist feminin und steht als Subjekt im Nominativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Dem, Den, Das]. Ergänze nach „bleibt“: ___ Zimmer bleibt heute frei.",
+      "options": [],
+      "correct_answer": "Das",
+      "accepted_answers": ["Das"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Zimmer“ ist ein neutrales Subjekt im Nominativ; der Artikel ist „das“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den richtigen Nominativartikel: ___ neue Kollege arbeitet heute.",
+      "options": [
+        "Der",
+        "Den",
+        "Dem",
+        "Des"
+      ],
+      "correct_answer": "Der",
+      "accepted_answers": [
+        "Der"
+      ],
+      "rubric": null,
+      "explanation": "Der neue Kollege ist das Subjekt des Satzes und steht maskulin im Nominativ; deshalb lautet der Artikel der.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Einem, Eine, Einen, Einer]. ___ erfahrene Pflegekraft übernimmt die Übergabe.",
+      "options": [],
+      "correct_answer": "Eine",
+      "accepted_answers": [
+        "Eine"
+      ],
+      "rubric": null,
+      "explanation": "Die Pflegekraft ist das feminine Subjekt im Nominativ; der unbestimmte Artikel lautet eine.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Verbform zum Nominativsubjekt: Die beiden Ärztinnen ___ im Büro.",
+      "options": [
+        "bin",
+        "ist",
+        "sind",
+        "seid"
+      ],
+      "correct_answer": "sind",
+      "accepted_answers": [
+        "sind"
+      ],
+      "rubric": null,
+      "explanation": "Die beiden Ärztinnen bilden ein Pluralsubjekt im Nominativ; dazu gehört die Verbform sind.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

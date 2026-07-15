@@ -1,0 +1,173 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-praeteritum-r1",
+    "template_key": "v1-a2-praeteritum-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Praeteritum pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Präteritum: War, hatte und Modalverben",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "praeteritum",
+    "name": "Präteritum"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "praeteritum",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Das Präteritum berichtet über Vergangenes. Im gesprochenen Alltag sind vor allem war, hatte und Präteritumformen der Modalverben häufig.",
+    "key_rule": "Sein wird zu war oder waren, haben zu hatte oder hatten; Modalverben verlieren im Präteritum meist den Umlaut.",
+    "correct_examples": [
+      "Gestern war der Kurs kurz.",
+      "Wir konnten die Aufgabe lösen."
+    ],
+    "common_mistake_warning": "Mische in einer einfachen Verbform nicht Präteritum und Perfekt miteinander.",
+    "what_to_revise": "Übe war, hatte, konnte, musste, durfte und wollte mit passenden Subjekten."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Präteritumform von „sein“ passt zum Pluralsubjekt?",
+      "options": [
+        "Die Räume war gestern leer.",
+        "Die Räume gewesen gestern leer.",
+        "Die Räume sind gestern leer war.",
+        "Die Räume waren gestern leer."
+      ],
+      "correct_answer": "Die Räume waren gestern leer.",
+      "accepted_answers": [
+        "Die Räume waren gestern leer."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Pluralsubjekt „Die Räume“ verlangt die Präteritumform „waren“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz verwendet „müssen“ im Präteritum korrekt?",
+      "options": [
+        "Ich gemusst länger arbeiten.",
+        "Ich musste länger gearbeitet.",
+        "Ich musste länger arbeiten.",
+        "Ich müsste länger arbeiten gestern."
+      ],
+      "correct_answer": "Ich musste länger arbeiten.",
+      "accepted_answers": [
+        "Ich musste länger arbeiten."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Präteritumform „musste“ steht mit dem Vollverbinfinitiv „arbeiten“ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [waren, ist, war]. Ergänze: Der Termin ___ gestern um zehn Uhr.",
+      "options": [],
+      "correct_answer": "war",
+      "accepted_answers": [
+        "war"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Singularsubjekt „Der Termin“ verlangt im Präteritum die Form „war“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hatten, habe, hatte]. Ergänze: Wir ___ früher mehr Zeit.",
+      "options": [],
+      "correct_answer": "hatten",
+      "accepted_answers": [
+        "hatten"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Zu „wir“ gehört die Präteritumform „hatten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [kann, konnte, könnte]. Ergänze den Vergangenheitsbericht: Wegen des Lärms ___ ich nicht schlafen.",
+      "options": [],
+      "correct_answer": "konnte",
+      "accepted_answers": [
+        "konnte"
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Konnte“ berichtet hier über eine fehlende Möglichkeit in der Vergangenheit.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Präteritumform: Gestern ___ die Station ruhig.",
+      "options": [
+        "war",
+        "ist",
+        "wird",
+        "sei"
+      ],
+      "correct_answer": "war",
+      "accepted_answers": [
+        "war"
+      ],
+      "rubric": null,
+      "explanation": "Die Präteritumform von sein in der dritten Person Singular lautet war.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wird, ist, hatte, hat]. Früher ___ die Praxis weniger Räume.",
+      "options": [],
+      "correct_answer": "hatte",
+      "accepted_answers": [
+        "hatte"
+      ],
+      "rubric": null,
+      "explanation": "Die Präteritumform von haben in der dritten Person Singular lautet hatte.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht vollständig im Präteritum?",
+      "options": [
+        "Ravi wird früh kommen und beginnt sofort.",
+        "Ravi kam früh und begann sofort.",
+        "Ravi kommt früh und beginnt sofort.",
+        "Ravi ist früh gekommen und beginnt sofort."
+      ],
+      "correct_answer": "Ravi kam früh und begann sofort.",
+      "accepted_answers": [
+        "Ravi kam früh und begann sofort."
+      ],
+      "rubric": null,
+      "explanation": "Kam und begann sind beide Präteritumformen und berichten über Vergangenes.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

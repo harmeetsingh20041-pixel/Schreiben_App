@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "currency": "USD",
+  "pricing_verified_at": "2026-07-13",
+  "pricing_sources": [
+    "https://api-docs.deepseek.com/quick_start/pricing",
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ],
+  "operating_target_eur_per_active_student_month": 1,
+  "fair_share_reserve_basis_points": 1000,
+  "emergency_ceiling_eur_per_active_student_month": 2,
+  "stale_exchange_rate_fallback_microrate": 1500000,
+  "maximum_exchange_rate_age_days": 7,
+  "approved_exchange_rate_sources": [
+    "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A"
+  ],
+  "global_monthly_limit_microusd": 225000000,
+  "default_workspace_monthly_limit_microusd": 100000000,
+  "policies": [
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "purpose": "writing_generation",
+      "cached_input_rate_microusd_per_million": 2800,
+      "input_rate_microusd_per_million": 140000,
+      "output_rate_microusd_per_million": 280000,
+      "maximum_reservation_microusd": 75000
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "purpose": "worksheet_critique",
+      "cached_input_rate_microusd_per_million": 2800,
+      "input_rate_microusd_per_million": 140000,
+      "output_rate_microusd_per_million": 280000,
+      "maximum_reservation_microusd": 50000
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "purpose": "worksheet_answer_evaluation",
+      "cached_input_rate_microusd_per_million": 2800,
+      "input_rate_microusd_per_million": 140000,
+      "output_rate_microusd_per_million": 280000,
+      "maximum_reservation_microusd": 50000
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
+      "purpose": "writing_generation",
+      "cached_input_rate_microusd_per_million": 3625,
+      "input_rate_microusd_per_million": 435000,
+      "output_rate_microusd_per_million": 870000,
+      "maximum_reservation_microusd": 100000
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
+      "purpose": "writing_adjudication",
+      "cached_input_rate_microusd_per_million": 3625,
+      "input_rate_microusd_per_million": 435000,
+      "output_rate_microusd_per_million": 870000,
+      "maximum_reservation_microusd": 75000
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
+      "purpose": "worksheet_generation",
+      "cached_input_rate_microusd_per_million": 3625,
+      "input_rate_microusd_per_million": 435000,
+      "output_rate_microusd_per_million": 870000,
+      "maximum_reservation_microusd": 100000
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro",
+      "purpose": "worksheet_answer_adjudication",
+      "cached_input_rate_microusd_per_million": 3625,
+      "input_rate_microusd_per_million": 435000,
+      "output_rate_microusd_per_million": 870000,
+      "maximum_reservation_microusd": 50000
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "purpose": "writing_critique",
+      "cached_input_rate_microusd_per_million": 25000,
+      "input_rate_microusd_per_million": 250000,
+      "output_rate_microusd_per_million": 1500000,
+      "maximum_reservation_microusd": 150000
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "purpose": "worksheet_critique",
+      "cached_input_rate_microusd_per_million": 25000,
+      "input_rate_microusd_per_million": 250000,
+      "output_rate_microusd_per_million": 1500000,
+      "maximum_reservation_microusd": 150000
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "purpose": "worksheet_answer_evaluation",
+      "cached_input_rate_microusd_per_million": 25000,
+      "input_rate_microusd_per_million": 250000,
+      "output_rate_microusd_per_million": 1500000,
+      "maximum_reservation_microusd": 50000
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "purpose": "writing_generation",
+      "cached_input_rate_microusd_per_million": 25000,
+      "input_rate_microusd_per_million": 250000,
+      "output_rate_microusd_per_million": 1500000,
+      "maximum_reservation_microusd": 300000
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "purpose": "writing_final_critique",
+      "cached_input_rate_microusd_per_million": 25000,
+      "input_rate_microusd_per_million": 250000,
+      "output_rate_microusd_per_million": 1500000,
+      "maximum_reservation_microusd": 150000
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.1-flash-lite",
+      "purpose": "worksheet_generation",
+      "cached_input_rate_microusd_per_million": 25000,
+      "input_rate_microusd_per_million": 250000,
+      "output_rate_microusd_per_million": 1500000,
+      "maximum_reservation_microusd": 200000
+    }
+  ]
+}

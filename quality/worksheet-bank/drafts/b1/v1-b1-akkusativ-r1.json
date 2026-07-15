@@ -1,0 +1,199 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-akkusativ-r1",
+    "template_key": "v1-b1-akkusativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Akkusativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Akkusativ: Direkte Objekte und Präpositionen anwenden",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "akkusativ",
+    "name": "Akkusativ"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "akkusativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Akkusativ markiert häufig das direkte Objekt, also die Person oder Sache, auf die sich eine Handlung unmittelbar richtet. Er steht außerdem nach Präpositionen wie „für“, „ohne“, „durch“, „gegen“ und „um“.",
+    "key_rule": "Frage beim direkten Objekt mit „Wen oder was?“. Besonders sichtbar ist der Akkusativ beim Maskulinum: „der“ wird zu „den“ und „ein“ zu „einen“.",
+    "correct_examples": [
+      "Die Kollegin aktualisiert den Pflegebericht.",
+      "Wir organisieren eine Vertretung für den Spätdienst."
+    ],
+    "common_mistake_warning": "Setze nach einem Akkusativverb oder einer festen Akkusativpräposition nicht versehentlich eine Dativform ein.",
+    "what_to_revise": "Wiederhole die Akkusativartikel, die Frage „Wen oder was?“ und die wichtigsten Akkusativpräpositionen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form ist als direktes maskulines Objekt korrekt? Die Pflegekraft begleitet ___ zum Untersuchungsraum.",
+      "options": [
+        "den neuen Patienten",
+        "der neue Patient",
+        "dem neuen Patienten"
+      ],
+      "correct_answer": "den neuen Patienten",
+      "accepted_answers": ["den neuen Patienten"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Begleiten“ verlangt hier ein direktes Objekt. Der maskuline Akkusativ lautet „den neuen Patienten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Ergänzung ist nach der Akkusativpräposition „für“ grammatisch korrekt?",
+      "options": [
+        "Die Fortbildung ist für einer neuen Mitarbeiterin gedacht.",
+        "Die Fortbildung ist für eine neue Mitarbeiterin gedachtet.",
+        "Die Fortbildung ist für eine neue Mitarbeiterin gedacht."
+      ],
+      "correct_answer": "Die Fortbildung ist für eine neue Mitarbeiterin gedacht.",
+      "accepted_answers": [
+        "Die Fortbildung ist für eine neue Mitarbeiterin gedacht."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Für“ steht immer mit dem Akkusativ; feminin Singular lautet die Gruppe „eine neue Mitarbeiterin“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Ersetze „den Medikamentenplan“ durch das passende Personalpronomen: Die Ärztin prüft den Medikamentenplan.",
+      "options": [
+        "Die Ärztin prüft er.",
+        "Die Ärztin prüft ihn.",
+        "Die Ärztin prüft ihm."
+      ],
+      "correct_answer": "Die Ärztin prüft ihn.",
+      "accepted_answers": ["Die Ärztin prüft ihn."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das maskuline Akkusativpronomen für „den Medikamentenplan“ lautet „ihn“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Gesucht ist das direkte Objekt im maskulinen Singular. Wortbank: [den, dem, der]. Ergänze: Die Abteilungsleitung informiert ___ neuen Kollegen über die Änderung.",
+      "options": [],
+      "correct_answer": "den",
+      "accepted_answers": ["den"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Informieren“ richtet sich hier direkt auf den Kollegen; deshalb steht der maskuline Artikel im Akkusativ als „den“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Die Maßnahme wird zugunsten eines bestimmten Bewohners getroffen. Wortbank: [mit dem, bei dem, für den]. Ergänze: Das Team erstellt einen neuen Tagesplan ___ Bewohner.",
+      "options": [],
+      "correct_answer": "für den",
+      "accepted_answers": ["für den"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Präposition „für“ verlangt den Akkusativ; bei einem bestimmten maskulinen Nomen folgt „den“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Der Satz fragt nach der Person als direktem Objekt. Wortbank: [Wer, Wen, Wem]. Ergänze: ___ ruft die Projektleiterin nach dem Gespräch zurück?",
+      "options": [],
+      "correct_answer": "Wen",
+      "accepted_answers": ["Wen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach einer Person als direktem Akkusativobjekt fragt man mit „Wen?“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Der Kurier benutzt den Haupteingang als Weg in das Gebäude. Wortbank: [bei dem, durch den, mit dem]. Ergänze: Der Kurier betritt das Gebäude ___ Haupteingang.",
+      "options": [],
+      "correct_answer": "durch den",
+      "accepted_answers": ["durch den"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Durch“ bezeichnet hier den benutzten Weg und verlangt den Akkusativ; maskulin lautet die Gruppe „durch den Haupteingang“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält die korrekte Akkusativgruppe?",
+      "options": [
+        "Die Sachbearbeiterin dokumentiert den auffälligen Vorgang sofort.",
+        "Die Sachbearbeiterin dokumentiert den auffälliger Vorgang sofort.",
+        "Die Sachbearbeiterin dokumentiert der auffällige Vorgang sofort.",
+        "Die Sachbearbeiterin dokumentiert dem auffälligen Vorgang sofort."
+      ],
+      "correct_answer": "Die Sachbearbeiterin dokumentiert den auffälligen Vorgang sofort.",
+      "accepted_answers": [
+        "Die Sachbearbeiterin dokumentiert den auffälligen Vorgang sofort."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Dokumentieren“ hat hier ein direktes maskulines Objekt. Deshalb lautet die Gruppe „den auffälligen Vorgang“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Pronomen ersetzen im zweiten Satz das wiederholte Subjekt und das wiederholte Akkusativobjekt korrekt? Die Juristin liest den Vertrag. Danach unterschreibt die Juristin den Vertrag.",
+      "options": [
+        "Die Juristin liest den Vertrag. Danach unterschreibt ihr ihn.",
+        "Die Juristin liest den Vertrag. Danach unterschreibt sie ihm.",
+        "Die Juristin liest den Vertrag. Danach unterschreibt sie ihn.",
+        "Die Juristin liest den Vertrag. Danach unterschreibt ihr ihm."
+      ],
+      "correct_answer": "Die Juristin liest den Vertrag. Danach unterschreibt sie ihn.",
+      "accepted_answers": [
+        "Die Juristin liest den Vertrag. Danach unterschreibt sie ihn."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Die Juristin“ wird als Subjekt durch „sie“ ersetzt; das maskuline Akkusativobjekt „den Vertrag“ wird zu „ihn“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Beschreibung verwendet alle Akkusativformen korrekt?",
+      "options": [
+        "Die Pflegekraft informiert dem Patienten, bereitet der Untersuchung vor und organisiert für der Transport einen Rollstuhl.",
+        "Die Pflegekraft informiert den Patient, bereitet die Untersuchung vor und organisiert mit den Transport einen Rollstuhl.",
+        "Die Pflegekraft informiert der Patient, bereitet die Untersuchung vor und organisiert für dem Transport einen Rollstuhl.",
+        "Die Pflegekraft informiert den Patienten, bereitet die Untersuchung vor und organisiert für den Transport einen Rollstuhl."
+      ],
+      "correct_answer": "Die Pflegekraft informiert den Patienten, bereitet die Untersuchung vor und organisiert für den Transport einen Rollstuhl.",
+      "accepted_answers": [
+        "Die Pflegekraft informiert den Patienten, bereitet die Untersuchung vor und organisiert für den Transport einen Rollstuhl."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Den Patienten“ und „die Untersuchung“ sind direkte Objekte; nach „für“ steht ebenfalls der Akkusativ: „für den Transport“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

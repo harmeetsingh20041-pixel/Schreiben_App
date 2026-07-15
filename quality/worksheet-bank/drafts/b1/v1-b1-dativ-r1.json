@@ -1,0 +1,193 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-dativ-r1",
+    "template_key": "v1-b1-dativ-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Dativ pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Dativ: Empfänger und feste Präpositionen ausdrücken",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "dativ",
+    "name": "Dativ"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "dativ",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Dativ bezeichnet häufig einen Empfänger oder eine beteiligte Person. Er steht außerdem nach Präpositionen wie „mit“, „bei“, „nach“, „seit“, „von“ und „zu“.",
+    "key_rule": "Frage bei Personen im Dativ mit „Wem?“. Im Dativ Plural erhalten viele Nomen zusätzlich ein -n, sofern ihre Pluralform nicht bereits auf -n oder -s endet.",
+    "correct_examples": [
+      "Die Praxisanleiterin zeigt dem Auszubildenden den Ablauf.",
+      "Nach der Visite spricht das Team mit den Angehörigen."
+    ],
+    "common_mistake_warning": "Vergiss im Dativ Plural nicht die zusätzliche Endung am Nomen: zum Beispiel „mit den Ärzten“.",
+    "what_to_revise": "Wiederhole die Dativartikel, Dativpronomen, typische Dativverben und feste Dativpräpositionen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form bezeichnet einen bereits genannten männlichen Patienten im Singular korrekt als Empfänger? Die Ärztin erklärt ___ die neue Behandlung.",
+      "options": ["dem Patienten", "den Patienten", "der Patient"],
+      "correct_answer": "dem Patienten",
+      "accepted_answers": ["dem Patienten"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Der Patient ist der Empfänger der Erklärung. Der maskuline Dativ Singular lautet „dem Patienten“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Wortgruppe ist nach „mit“ im Dativ Plural vollständig korrekt?",
+      "options": [
+        "mit die neuen Kollegen",
+        "mit den neue Kollegen",
+        "mit den neuen Kollegen"
+      ],
+      "correct_answer": "mit den neuen Kollegen",
+      "accepted_answers": ["mit den neuen Kollegen"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „mit“ steht der Dativ. Im Plural lauten Artikel und Adjektiv „den neuen“; „Kollegen“ endet bereits auf -n.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Ersetze „der Patientin“ durch das passende Dativpronomen: Die Pflegekraft bringt der Patientin ein Glas Wasser.",
+      "options": [
+        "Die Pflegekraft bringt ihrer ein Glas Wasser.",
+        "Die Pflegekraft bringt ihr ein Glas Wasser.",
+        "Die Pflegekraft bringt sie ein Glas Wasser."
+      ],
+      "correct_answer": "Die Pflegekraft bringt ihr ein Glas Wasser.",
+      "accepted_answers": ["Die Pflegekraft bringt ihr ein Glas Wasser."],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Dativpronomen zu „der Patientin“ lautet „ihr“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Gefragt wird nach der Person, die eine Information erhält. Wortbank: [Wem, Wen, Wer]. Ergänze: ___ nennt die Kursleiterin den neuen Termin?",
+      "options": [],
+      "correct_answer": "Wem",
+      "accepted_answers": ["Wem"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach dem Empfänger im Dativ fragt man mit „Wem?“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Das Gespräch findet gemeinsam mit einer bestimmten Kollegin statt. Wortbank: [für die, ohne die, mit der]. Ergänze: Die Abteilungsleitung bespricht den Vorfall ___ Kollegin.",
+      "options": [],
+      "correct_answer": "mit der",
+      "accepted_answers": ["mit der"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Mit“ verlangt den Dativ; der feminine bestimmte Artikel lautet im Dativ „der“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Die Information wird mehreren bereits genannten Personen mitgeteilt. Wortbank: [der Teilnehmenden, den Teilnehmenden, die Teilnehmenden]. Ergänze: Der Dozent erklärt ___ den weiteren Ablauf.",
+      "options": [],
+      "correct_answer": "den Teilnehmenden",
+      "accepted_answers": ["den Teilnehmenden"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Teilnehmenden sind Empfänger der Erklärung und stehen im Dativ Plural mit „den“; die Pluralform endet bereits auf -n.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Bedeutung: Die Tätigkeit dauert seit einem Zeitraum von einem Jahr an. Wortbank: [einer, einem, einen]. Ergänze: Seit ___ Jahr arbeitet die Beraterin in diesem Projekt.",
+      "options": [],
+      "correct_answer": "einem",
+      "accepted_answers": ["einem"],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Präposition „seit“ verlangt den Dativ; das neutrale Nomen „Jahr“ steht mit „einem“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung enthält nach „mit“ die korrekte Dativgruppe?",
+      "options": [
+        "Die neue Pflegekraft arbeitet mit einer erfahrenen Kolleginnen.",
+        "Die neue Pflegekraft arbeitet mit einen erfahrenen Kollegin.",
+        "Die neue Pflegekraft arbeitet mit eine erfahrene Kollegin.",
+        "Die neue Pflegekraft arbeitet mit einer erfahrenen Kollegin."
+      ],
+      "correct_answer": "Die neue Pflegekraft arbeitet mit einer erfahrenen Kollegin.",
+      "accepted_answers": [
+        "Die neue Pflegekraft arbeitet mit einer erfahrenen Kollegin."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "„Mit“ verlangt den Dativ; feminin Singular lautet die Gruppe „mit einer erfahrenen Kollegin“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Pronomen ersetzt „dem Patienten“ korrekt? Die Ärztin erklärt dem Patienten den Ablauf.",
+      "options": [
+        "Die Ärztin erklärt ihm den Ablauf.",
+        "Die Ärztin erklärt ihr den Ablauf.",
+        "Die Ärztin erklärt ihn den Ablauf.",
+        "Die Ärztin erklärt er den Ablauf."
+      ],
+      "correct_answer": "Die Ärztin erklärt ihm den Ablauf.",
+      "accepted_answers": [
+        "Die Ärztin erklärt ihm den Ablauf."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Die Person ist das Dativobjekt. Das maskuline Dativpronomen lautet „ihm“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Übergabe enthält in allen relevanten Gruppen korrekte Dativformen?",
+      "options": [
+        "Nach der Untersuchung spricht die Pflegekraft mit den Ärzten und gibt den Patientin einen Termin.",
+        "Nach der Untersuchung spricht die Pflegekraft mit dem Arzt und gibt der Patientin einen Termin.",
+        "Nach der Untersuchung spricht die Pflegekraft mit den Arzt und gibt die Patientin einen Termin.",
+        "Nach der Untersuchung spricht die Pflegekraft mit der Arzt und gibt dem Patientin einen Termin."
+      ],
+      "correct_answer": "Nach der Untersuchung spricht die Pflegekraft mit dem Arzt und gibt der Patientin einen Termin.",
+      "accepted_answers": [
+        "Nach der Untersuchung spricht die Pflegekraft mit dem Arzt und gibt der Patientin einen Termin."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Nach „mit“ steht „dem Arzt“; die empfangende Person bei „geben“ steht als Dativobjekt „der Patientin“.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-relative-clauses-r1",
+    "template_key": "v1-a1-relative-clauses-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Relative clauses pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Zusatztraining: Kurze Relativsätze erkennen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "relative-clauses",
+    "name": "Einfache Relativsätze"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "relative-clauses",
+    "stretch-practice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Auf A1 kannst du Personen und Dinge zuerst mit zwei kurzen Sätzen beschreiben. Dieses Zusatztraining hilft dir, dieselbe Information in einem Relativsatz zu erkennen.",
+    "key_rule": "Achte auf der, die oder das nach einem Nomen; im Relativsatz steht das finite Verb am Ende.",
+    "correct_examples": [
+      "Das ist ein Kurs, der heute beginnt.",
+      "Ich sehe eine Tasche, die blau ist."
+    ],
+    "common_mistake_warning": "Verwechsle das Relativpronomen nicht mit dem Bezugswort und achte auf das Verb am Ende.",
+    "what_to_revise": "Ordne zuerst bekannte Beispiele mit der, die und das; freie lange Relativsätze sind hier noch nicht das Ziel."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Relativpronomen passt zu ‚der Mann‘? Das ist der Mann, ___ hier arbeitet.",
+      "options": [
+        "die",
+        "das",
+        "der"
+      ],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das maskuline Nomen ‚der Mann‘ wird im einfachen Nominativsatz mit ‚der‘ aufgenommen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Relativpronomen passt zu ‚die Frau‘? Ich kenne die Frau, ___ in Berlin wohnt.",
+      "options": [
+        "das",
+        "die",
+        "der"
+      ],
+      "correct_answer": "die",
+      "accepted_answers": [
+        "die"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Nomen ‚die Frau‘ wird hier durch ‚die‘ aufgenommen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welches Relativpronomen passt zu ‚das Buch‘? Das ist das Buch, ___ neu ist.",
+      "options": [
+        "das",
+        "der",
+        "die"
+      ],
+      "correct_answer": "das",
+      "accepted_answers": [
+        "das"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Nomen ‚das Buch‘ verlangt hier das Relativpronomen ‚das‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [die | das | der]. Ergänze: Dort ist der Bus, ___ zum Bahnhof fährt.",
+      "options": [],
+      "correct_answer": "der",
+      "accepted_answers": [
+        "der"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das maskuline Bezugswort ‚der Bus‘ wird mit ‚der‘ aufgenommen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [das | die | der]. Ergänze: Das ist die Kollegin, ___ heute frei hat.",
+      "options": [],
+      "correct_answer": "die",
+      "accepted_answers": [
+        "die"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das feminine Bezugswort ‚die Kollegin‘ verlangt ‚die‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [das | die | der]. Ergänze: Ich suche das Handy, ___ auf dem Tisch liegt.",
+      "options": [],
+      "correct_answer": "das",
+      "accepted_answers": [
+        "das"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das neutrale Bezugswort ‚das Handy‘ wird durch ‚das‘ aufgenommen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha stellt eine Kollegin vor. Welches Relativpronomen passt zu ‚die Kollegin‘?",
+      "options": [
+        "Das ist die Kollegin, das heute arbeitet.",
+        "Das ist die Kollegin, die heute arbeitet.",
+        "Das ist die Kollegin, den heute arbeitet.",
+        "Das ist die Kollegin, der heute arbeitet."
+      ],
+      "correct_answer": "Das ist die Kollegin, die heute arbeitet.",
+      "accepted_answers": ["Das ist die Kollegin, die heute arbeitet."],
+      "rubric": null,
+      "explanation": "Das feminine Nomen ‚die Kollegin‘ wird im Nominativrelativsatz mit ‚die‘ aufgenommen.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi spricht über einen Deutschkurs. Welcher Relativsatz ist richtig?",
+      "options": [
+        "Das ist der Kurs, die heute beginnt.",
+        "Das ist der Kurs, der heute beginnen.",
+        "Das ist der Kurs, der heute beginnt.",
+        "Das ist der Kurs, der beginnt heute."
+      ],
+      "correct_answer": "Das ist der Kurs, der heute beginnt.",
+      "accepted_answers": ["Das ist der Kurs, der heute beginnt."],
+      "rubric": null,
+      "explanation": "Der Relativsatz beginnt mit ‚der‘ und endet mit dem finiten Verb ‚beginnt‘.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

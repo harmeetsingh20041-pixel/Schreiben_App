@@ -1,0 +1,195 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B2-konjunktiv-r1",
+    "template_key": "v1-b2-konjunktiv-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Konjunktiv pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B2 Konjunktiv II: Wünsche, Höflichkeit und irreale Bedingungen",
+  "level": "B2",
+  "grammar_topic": {
+    "slug": "konjunktiv",
+    "name": "Konjunktiv"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b2",
+    "konjunktiv",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Der Konjunktiv II beschreibt Irreales, Wünsche und höfliche Bitten. Häufig stehen die Formen hätte, wäre und könnte oder würde plus Infinitiv.",
+    "key_rule": "In irrealen Bedingungssätzen steht in beiden Teilsätzen der Konjunktiv II; für vergangene Situationen verwendet man hätte oder wäre plus Partizip II.",
+    "correct_examples": [
+      "Ohne den Zeitdruck wäre die Arbeit leichter.",
+      "Wären Sie so freundlich, das Formular zu prüfen?"
+    ],
+    "common_mistake_warning": "Mische bei derselben irrealen Zeitstufe nicht Indikativ und Konjunktiv und bilde die irreale Vergangenheit nicht mit würde plus Partizip.",
+    "what_to_revise": "Übe die Formen hätte, wäre, könnte und würde sowie die irreale Vergangenheit mit hätte oder wäre plus Partizip II."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt eine irreale Bedingung in der Gegenwart vollständig korrekt?",
+      "options": [
+        "Wenn ich mehr Zeit habe, würde ich einen Sprachkurs besuchen.",
+        "Wenn ich mehr Zeit hätte, werde ich einen Sprachkurs besuchen.",
+        "Wenn ich mehr Zeit hätte, würde ich einen Sprachkurs besuchen."
+      ],
+      "correct_answer": "Wenn ich mehr Zeit hätte, würde ich einen Sprachkurs besuchen.",
+      "accepted_answers": [
+        "Wenn ich mehr Zeit hätte, würde ich einen Sprachkurs besuchen."
+      ],
+      "explanation": "Beide Teilsätze markieren die nicht reale Situation mit dem Konjunktiv II.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Bitte ist höflich und grammatisch korrekt im Konjunktiv II formuliert?",
+      "options": [
+        "Könnten Sie mir bitte bis morgen geantwortet?",
+        "Könnten Sie mir bitte bis morgen antworten?",
+        "Konnten Sie mir bitte bis morgen antworten?"
+      ],
+      "correct_answer": "Könnten Sie mir bitte bis morgen antworten?",
+      "accepted_answers": [
+        "Könnten Sie mir bitte bis morgen antworten?"
+      ],
+      "explanation": "Die Form „könnten“ signalisiert eine höfliche Bitte; der Infinitiv „antworten“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz drückt eine nicht eingetretene Bedingung in der Vergangenheit korrekt aus?",
+      "options": [
+        "Wenn sie früher losgefahren wäre, hätte sie den Zug erreicht.",
+        "Wenn sie früher losgefahren würde, hätte sie den Zug erreicht.",
+        "Wenn sie früher losgefahren wäre, hätte sie den Zug erreichen."
+      ],
+      "correct_answer": "Wenn sie früher losgefahren wäre, hätte sie den Zug erreicht.",
+      "accepted_answers": [
+        "Wenn sie früher losgefahren wäre, hätte sie den Zug erreicht."
+      ],
+      "explanation": "Die irreale Vergangenheit wird hier mit „wäre losgefahren“ und „hätte erreicht“ gebildet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [würde, hätte, wäre]. Setze die passende Form ein: Wenn ich mehr Erfahrung in der Intensivpflege ___, würde ich mich auf die Stelle bewerben.",
+      "options": [],
+      "correct_answer": "hätte",
+      "accepted_answers": [
+        "hätte"
+      ],
+      "explanation": "Der Besitz von Erfahrung wird mit der Konjunktiv-II-Form „hätte“ ausgedrückt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [konnte, kann, könnte]. Setze ausdrücklich den Konjunktiv II von „können“ ein: Ohne den Lärm ___ ich mich besser konzentrieren.",
+      "options": [],
+      "correct_answer": "könnte",
+      "accepted_answers": [
+        "könnte"
+      ],
+      "explanation": "„Könnte“ ist die verlangte Konjunktiv-II-Form und bezeichnet eine nur gedachte Möglichkeit.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wäre, sei, ist]. Setze ausdrücklich den Konjunktiv II von „sein“ ein: Wenn die Wohnung größer ___, könnten wir dort arbeiten.",
+      "options": [],
+      "correct_answer": "wäre",
+      "accepted_answers": [
+        "wäre"
+      ],
+      "explanation": "Die nicht reale Eigenschaft der Wohnung verlangt die Form „wäre“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wären, hätten, würden]. Ergänze die Folge in der irrealen Vergangenheit: Wenn ihr rechtzeitig reserviert hättet, ___ die Plätze für euch frei gewesen.",
+      "options": [],
+      "correct_answer": "wären",
+      "accepted_answers": [
+        "wären"
+      ],
+      "explanation": "Mit „frei gewesen“ bildet „wären“ die Folge in der irrealen Vergangenheit.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung formuliert mit „an deiner Stelle“ einen hypothetischen Rat im Konjunktiv II?",
+      "options": [
+        "An deiner Stelle wäre ich das Angebot genauer prüfen.",
+        "An deiner Stelle wurde ich das Angebot genauer prüfen.",
+        "An deiner Stelle würde ich das Angebot genauer prüfen.",
+        "An deiner Stelle werde ich das Angebot genauer prüfen."
+      ],
+      "correct_answer": "An deiner Stelle würde ich das Angebot genauer prüfen.",
+      "rubric": null,
+      "explanation": "Die feste Perspektive „an deiner Stelle“ bezeichnet einen hypothetischen Rat und verlangt hier „würde“.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "An deiner Stelle würde ich das Angebot genauer prüfen."
+      ]
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung stellt die fehlende Voraussetzung und ihre gedachte Folge als irreale Gegenwartsbedingung dar?",
+      "options": [
+        "Wenn ich genug Geld hätte, würde ich das Fahrrad kaufen.",
+        "Wenn ich genug Geld habe, würde ich das Fahrrad kaufen.",
+        "Wenn ich genug Geld hätte, werde ich das Fahrrad kaufen.",
+        "Wenn ich genug Geld würde haben, kaufte ich das Fahrrad."
+      ],
+      "correct_answer": "Wenn ich genug Geld hätte, würde ich das Fahrrad kaufen.",
+      "rubric": null,
+      "explanation": "Die fehlende Voraussetzung wird als irreale Bedingung dargestellt; die gedachte Folge steht ebenfalls im Konjunktiv II.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Wenn ich genug Geld hätte, würde ich das Fahrrad kaufen."
+      ]
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung formuliert sowohl die nicht erfüllte Bedingung als auch ihre Folge in der irrealen Vergangenheit korrekt?",
+      "options": [
+        "Wenn die Zugriffsrechte rechtzeitig überprüft worden wären, hätte der Vorfall vermieden können werden.",
+        "Wenn die Zugriffsrechte rechtzeitig überprüft worden wären, hätte der Vorfall vermieden werden können.",
+        "Wenn die Zugriffsrechte rechtzeitig überprüft worden wären, wäre der Vorfall vermieden werden können.",
+        "Wenn die Zugriffsrechte rechtzeitig überprüft wurden, hätte der Vorfall vermieden werden können."
+      ],
+      "correct_answer": "Wenn die Zugriffsrechte rechtzeitig überprüft worden wären, hätte der Vorfall vermieden werden können.",
+      "rubric": null,
+      "explanation": "Die irreale Vergangenheit verlangt im Bedingungssatz „überprüft worden wären“. Die passive Folge mit Modalverb lautet „hätte … vermieden werden können“.",
+      "evaluation_mode": "local_exact",
+      "accepted_answers": [
+        "Wenn die Zugriffsrechte rechtzeitig überprüft worden wären, hätte der Vorfall vermieden werden können."
+      ],
+      "answer_contract_version": 1
+    }
+  ]
+}

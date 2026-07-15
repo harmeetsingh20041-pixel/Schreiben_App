@@ -1,0 +1,166 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-connectors-r1",
+    "template_key": "v1-a1-connectors-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Connectors pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Zeitliche Verbindungen im Tagesablauf",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "connectors",
+    "name": "Konnektoren"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "connectors",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Zeitliche Konnektoren verbinden kurze Aussagen zu einem nachvollziehbaren Ablauf.",
+    "key_rule": "Zuerst nennt den Anfang, dann und danach führen weiter, und am Ende oder zum Schluss beendet den Ablauf.",
+    "correct_examples": [
+      "Zuerst frühstücke ich. Später fahre ich los.",
+      "Danach rufe ich meine Freundin an."
+    ],
+    "common_mistake_warning": "Nutze nicht gleichzeitig zwei verschiedene Reihenfolgesignale für denselben Schritt.",
+    "what_to_revise": "Erzähle einen einfachen Morgen mit vier verschiedenen Zeitverbindungen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Konnektor markiert den ersten Schritt? ___ öffne ich das Fenster.",
+      "options": [
+        "Zuerst",
+        "Danach",
+        "Zum Schluss"
+      ],
+      "correct_answer": "Zuerst",
+      "accepted_answers": [
+        "Zuerst"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Zuerst‘ leitet den Beginn einer Handlungskette ein.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Das Zähneputzen passiert nach dem Frühstück. Welcher Konnektor führt diesen nächsten Schritt ein? Ich frühstücke. ___ putze ich die Zähne.",
+      "options": [
+        "Trotzdem",
+        "Danach",
+        "Vorher"
+      ],
+      "correct_answer": "Danach",
+      "accepted_answers": [
+        "Danach"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Zähneputzen folgt in diesem Ablauf auf das Frühstück.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Ausdruck beendet den Ablauf?",
+      "options": [
+        "Am Anfang",
+        "Zuerst",
+        "Am Ende"
+      ],
+      "correct_answer": "Am Ende",
+      "accepted_answers": [
+        "Am Ende"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Am Ende‘ bezeichnet den abschließenden Teil einer Reihenfolge.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Zuerst | Später | Trotzdem]. Ergänze den ersten Schritt: ___ ziehe ich meine Jacke an; danach gehe ich hinaus.",
+      "options": [],
+      "correct_answer": "Zuerst",
+      "accepted_answers": [
+        "Zuerst"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Anziehen geschieht vor dem Hinausgehen und wird mit ‚Zuerst‘ markiert.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Der Heimweg folgt direkt auf das Arbeitsende. Wortbank: [Oder | Danach | Vorher]. Ergänze: Ich beende die Arbeit. ___ fahre ich nach Hause.",
+      "options": [],
+      "correct_answer": "Danach",
+      "accepted_answers": [
+        "Danach"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Danach‘ zeigt die zeitliche Folge nach dem Arbeitsende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Am Morgen | Vorher | Zum Schluss]. Ergänze den letzten Schritt des Ablaufs: ___ schließe ich die Tür ab.",
+      "options": [],
+      "correct_answer": "Zum Schluss",
+      "accepted_answers": [
+        "Zum Schluss"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Der Ausdruck kennzeichnet das Abschließen als letzten Schritt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha beginnt ihren Dienst. Welcher Ablauf verwendet die Zeitsignale eindeutig?",
+      "options": [
+        "Danach zieht Asha die Arbeitskleidung an. Zuerst wäscht sie die Hände.",
+        "Zuerst zieht Asha die Arbeitskleidung an. Zuerst wäscht sie danach die Hände.",
+        "Zum Schluss zieht Asha die Arbeitskleidung an. Zuerst beginnt der Dienst.",
+        "Zuerst zieht Asha die Arbeitskleidung an. Danach wäscht sie die Hände."
+      ],
+      "correct_answer": "Zuerst zieht Asha die Arbeitskleidung an. Danach wäscht sie die Hände.",
+      "accepted_answers": ["Zuerst zieht Asha die Arbeitskleidung an. Danach wäscht sie die Hände."],
+      "rubric": null,
+      "explanation": "‚Zuerst‘ markiert den ersten Schritt und ‚Danach‘ den folgenden Schritt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi beendet den Kurs und fährt anschließend zur Arbeit. Welche Lösung ist richtig?",
+      "options": [
+        "Danach fährt Ravi zur Arbeit.",
+        "Danach fahren Ravi zur Arbeit.",
+        "Danach zur Arbeit Ravi fährt.",
+        "Danach Ravi fährt zur Arbeit."
+      ],
+      "correct_answer": "Danach fährt Ravi zur Arbeit.",
+      "accepted_answers": ["Danach fährt Ravi zur Arbeit."],
+      "rubric": null,
+      "explanation": "Steht ‚Danach‘ im Vorfeld, folgt das finite Verb an zweiter Stelle.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

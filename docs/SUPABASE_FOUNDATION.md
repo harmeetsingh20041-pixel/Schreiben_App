@@ -32,10 +32,10 @@ Frontend-safe Vite variables:
 - `VITE_SUPABASE_URL`
 - `VITE_SUPABASE_ANON_KEY`
 
-Current local Vite config also requires:
+Optional local Vite overrides:
 
-- `PORT`
-- `BASE_PATH`
+- `PORT` (defaults to `5173`)
+- `BASE_PATH` (defaults to `/`)
 
 Future server-only variables:
 
@@ -165,4 +165,3 @@ Recommended Phase 3 tasks:
 - resolve workspace membership
 - protect routes using real role data
 - keep mock content available as fallback until Phase 4
-

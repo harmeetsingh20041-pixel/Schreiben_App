@@ -1,0 +1,140 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-adjective-endings-r1",
+    "template_key": "v1-a2-adjective-endings-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Adjective endings pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Adjektivendungen: Artikel und Kasus erkennen",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "adjective-endings",
+    "name": "Adjektivendungen"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "adjective-endings",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Adjektive vor einem Nomen bekommen eine Endung. Die Endung hängt von Artikel, Genus, Numerus und Kasus ab.",
+    "key_rule": "Nach einem bestimmten Artikel steht oft -e oder -en; nach ein-Wörtern zeigt das Adjektiv manchmal die fehlende Kasusinformation.",
+    "correct_examples": ["der alte Koffer", "mit einer netten Kollegin"],
+    "common_mistake_warning": "Ein Adjektiv vor einem Nomen bleibt nicht in der Grundform.",
+    "what_to_revise": "Vergleiche der alte Koffer, einen alten Koffer und mit einem alten Koffer."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige vollständige Adjektivform: Der ___ Mantel hängt im Flur.",
+      "options": ["neuen","neuer","neues","neue"],
+      "correct_answer": "neue",
+      "accepted_answers": ["neue"],
+      "explanation": "Nach dem bestimmten Artikel der steht das Adjektiv im Nominativ Maskulin mit der Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende vollständige Adjektivform: Wir suchen eine ___ Wohnung.",
+      "options": ["kleine", "kleinen", "kleiner", "kleines"],
+      "correct_answer": "kleine",
+      "accepted_answers": ["kleine"],
+      "explanation": "Nach eine steht das Adjektiv im Akkusativ Feminin mit der Endung -e.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [rote, rotes, roten]. Setze die passende Form von rot ein: Er trägt den ___ Pullover.",
+      "options": [],
+      "correct_answer": "roten",
+      "accepted_answers": ["roten"],
+      "explanation": "Nach den steht das Adjektiv im Akkusativ Maskulin mit der Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [guten, gute, guter]. Setze die passende Form von gut ein: Sie spricht mit einem ___ Freund.",
+      "options": [],
+      "correct_answer": "guten",
+      "accepted_answers": ["guten"],
+      "explanation": "Nach einem steht das Adjektiv im Dativ Maskulin mit der Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [frischen, frisches, frische]. Setze die passende Form von frisch ein: Wir kaufen ___ Brot.",
+      "options": [],
+      "correct_answer": "frisches",
+      "accepted_answers": ["frisches"],
+      "explanation": "Ohne Artikel zeigt das Adjektiv beim neutralen Akkusativ die Endung -es.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die passende Adjektivform: Die Pflegekraft bringt dem ___ Patienten Wasser.",
+      "options": [
+        "kranke",
+        "kranken",
+        "krankes",
+        "kranker"
+      ],
+      "correct_answer": "kranken",
+      "accepted_answers": [
+        "kranken"
+      ],
+      "rubric": null,
+      "explanation": "Nach dem bestimmten Artikel dem steht das Adjektiv im Dativ Maskulin mit der Endung -en.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [sauberes, saubere, sauberen, sauberer]. Im Schrank liegt ein ___ Handtuch.",
+      "options": [],
+      "correct_answer": "sauberes",
+      "accepted_answers": [
+        "sauberes"
+      ],
+      "rubric": null,
+      "explanation": "Nach ein zeigt das Adjektiv beim neutralen Nominativ die Endung -es: ein sauberes Handtuch.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle die richtige Form: Wir kaufen eine ___ Tasche.",
+      "options": [
+        "leichter",
+        "leichtes",
+        "leichte",
+        "leichten"
+      ],
+      "correct_answer": "leichte",
+      "accepted_answers": [
+        "leichte"
+      ],
+      "rubric": null,
+      "explanation": "Nach eine steht das Adjektiv im femininen Akkusativ mit der Endung -e.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

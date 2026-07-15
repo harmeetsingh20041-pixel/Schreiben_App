@@ -1,0 +1,167 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-future-tense-r1",
+    "template_key": "v1-a1-future-tense-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Future tense pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Zusatztraining: Pläne mit werden erkennen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "future-tense",
+    "name": "Futur"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "future-tense",
+    "stretch-practice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Auf A1 kannst du Zukunft meist mit dem Präsens und einem Zeitwort ausdrücken: ‚Morgen lerne ich.‘ Dieses Zusatztraining zeigt dir zusätzlich das Muster mit werden.",
+    "key_rule": "Erkenne beim Zukunftsmuster die Form von werden an Position zwei und den Infinitiv am Satzende: ‚Ich werde morgen lernen.‘",
+    "correct_examples": [
+      "Mira wird später anrufen.",
+      "Nächste Woche fahren wir nach Delhi."
+    ],
+    "common_mistake_warning": "Nach ‚werden‘ steht am Ende der Infinitiv ohne Personenendung.",
+    "what_to_revise": "Vergleiche zuerst ‚Morgen lerne ich‘ mit der Zusatzform ‚Ich werde morgen lernen‘."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Zukunftsform ist richtig?",
+      "options": [
+        "Ich morgen arbeiten werde.",
+        "Ich werde morgen arbeiten.",
+        "Ich werde morgen arbeite."
+      ],
+      "correct_answer": "Ich werde morgen arbeiten.",
+      "accepted_answers": [
+        "Ich werde morgen arbeiten."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die Form ‚werde‘ passt zu ‚ich‘ und der Infinitiv ‚arbeiten‘ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form von ‚werden‘ passt? Du ___ am Abend lernen.",
+      "options": [
+        "wirst",
+        "werde",
+        "wird"
+      ],
+      "correct_answer": "wirst",
+      "accepted_answers": [
+        "wirst"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die Form von ‚werden‘ für das Subjekt ‚du‘ lautet ‚wirst‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz beschreibt einen Plan für morgen?",
+      "options": [
+        "Gestern bin ich früh aufgestanden.",
+        "Ich stehe gerade vor der Tür.",
+        "Morgen werde ich früh aufstehen."
+      ],
+      "correct_answer": "Morgen werde ich früh aufstehen.",
+      "accepted_answers": [
+        "Morgen werde ich früh aufstehen."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Morgen‘ und die Form ‚werde … aufstehen‘ zeigen einen zukünftigen Plan.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wird | werde | wirst]. Ergänze: Ich ___ am Wochenende meine Familie besuchen.",
+      "options": [],
+      "correct_answer": "werde",
+      "accepted_answers": [
+        "werde"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Zum Subjekt ‚ich‘ gehört die Zukunftsform ‚werde‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wird | wirst | werden]. Ergänze: Anita ___ später zurückkommen.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": [
+        "wird"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Ein einzelner Name verlangt die Form ‚wird‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [lernt | gelernt | lernen]. Ergänze: Wir werden morgen Deutsch ___.",
+      "options": [],
+      "correct_answer": "lernen",
+      "accepted_answers": [
+        "lernen"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach der Form ‚werden‘ steht der Infinitiv ‚lernen‘ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Ravi hat morgen Dienst. Welche Zukunftsform ist richtig?",
+      "options": [
+        "Ravi wird morgen arbeitet.",
+        "Ravi werden morgen arbeiten.",
+        "Ravi wird morgen arbeiten.",
+        "Ravi wird morgen gearbeitet."
+      ],
+      "correct_answer": "Ravi wird morgen arbeiten.",
+      "accepted_answers": ["Ravi wird morgen arbeiten."],
+      "rubric": null,
+      "explanation": "Die Konstruktion mit ‚wird‘ verlangt am Satzende den Infinitiv.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Das Team beginnt nächste Woche einen Deutschkurs. Welche Zukunftsform ist richtig?",
+      "options": [
+        "Nächste Woche werden wir einen Deutschkurs beginnen.",
+        "Nächste Woche werden wir einen Deutschkurs beginnt.",
+        "Nächste Woche wird wir einen Deutschkurs beginnen.",
+        "Nächste Woche wir werden einen Deutschkurs beginnen."
+      ],
+      "correct_answer": "Nächste Woche werden wir einen Deutschkurs beginnen.",
+      "accepted_answers": ["Nächste Woche werden wir einen Deutschkurs beginnen."],
+      "rubric": null,
+      "explanation": "Beim Futur steht die finite Form von ‚werden‘ im Hauptsatz an Position zwei und der Infinitiv am Ende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

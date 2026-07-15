@@ -1,0 +1,153 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A2-separable-verbs-r1",
+    "template_key": "v1-a2-separable-verbs-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Separable verbs pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A2 Trennbare Verben: Hauptsätze sicher bilden",
+  "level": "A2",
+  "grammar_topic": {
+    "slug": "separable-verbs",
+    "name": "Trennbare Verben"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A2 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a2",
+    "separable-verbs",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Bei trennbaren Verben steht der konjugierte Verbstamm im Hauptsatz an Position zwei und die Vorsilbe am Satzende.",
+    "key_rule": "Im Hauptsatz wird zum Beispiel aus anrufen: Ich rufe dich an. Im Nebensatz bleibt das Verb zusammen: weil ich dich anrufe.",
+    "correct_examples": [
+      "Der Zug kommt um acht Uhr an.",
+      "Sie hat gestern eingekauft."
+    ],
+    "common_mistake_warning": "Setze die Vorsilbe im Hauptsatz nicht direkt vor den konjugierten Verbstamm.",
+    "what_to_revise": "Übe anrufen, aufstehen, einkaufen, mitbringen und zurückkommen in Haupt- und Nebensätzen."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den korrekten Satz mit aufstehen.",
+      "options": [
+        "Er steht jeden Tag früh auf.",
+        "Er aufsteht jeden Tag früh.",
+        "Er steht auf jeden Tag früh.",
+        "Er jeden Tag aufsteht früh."
+      ],
+      "correct_answer": "Er steht jeden Tag früh auf.",
+      "accepted_answers": ["Er steht jeden Tag früh auf."],
+      "explanation": "Im Hauptsatz steht der konjugierte Stamm steht an Position zwei und die Vorsilbe auf am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den korrekten Satz mit einkaufen.",
+      "options": [
+        "Wir am Samstag einkaufen.",
+        "Wir kaufen am Samstag ein.",
+        "Wir einkaufen am Samstag.",
+        "Wir ein kaufen am Samstag."
+      ],
+      "correct_answer": "Wir kaufen am Samstag ein.",
+      "accepted_answers": ["Wir kaufen am Samstag ein."],
+      "explanation": "Bei einkaufen steht kaufen im Hauptsatz an Position zwei und die Vorsilbe ein am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [an, auf, ein]. Setze die passende Vorsilbe von anrufen ein: Ich rufe meine Freundin heute Abend ___.",
+      "options": [],
+      "correct_answer": "an",
+      "accepted_answers": ["an"],
+      "explanation": "Das trennbare Verb anrufen wird im Hauptsatz in rufe und die Vorsilbe an am Ende geteilt.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [aus, mit, um]. Setze die passende Vorsilbe von umsteigen ein: Am Hauptbahnhof steigen wir ___.",
+      "options": [],
+      "correct_answer": "um",
+      "accepted_answers": ["um"],
+      "explanation": "Bei umsteigen steht die Vorsilbe um im Hauptsatz getrennt am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [vor, an, ab]. Setze die passende Vorsilbe von anfangen ein: Der Sprachkurs fängt nächste Woche ___.",
+      "options": [],
+      "correct_answer": "an",
+      "accepted_answers": ["an"],
+      "explanation": "Das Verb anfangen wird zu fängt ... an; die Vorsilbe steht am Ende des Hauptsatzes.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "multiple_choice",
+      "prompt": "Wähle den richtigen Verbteil: Die Pflegekraft ruft den Arzt ___.",
+      "options": [
+        "ein",
+        "vor",
+        "an",
+        "auf"
+      ],
+      "correct_answer": "an",
+      "accepted_answers": [
+        "an"
+      ],
+      "rubric": null,
+      "explanation": "Das trennbare Verb anrufen wird im Hauptsatz geteilt: ruft ... an.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [ein, mit, auf, vor]. Wir stehen morgen um sechs Uhr ___.",
+      "options": [],
+      "correct_answer": "auf",
+      "accepted_answers": [
+        "auf"
+      ],
+      "rubric": null,
+      "explanation": "Das trennbare Verb aufstehen wird im Hauptsatz geteilt: Wir stehen ... auf.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Frage verwendet aufmachen richtig?",
+      "options": [
+        "Aufmachst du das Fenster?",
+        "Machst auf du das Fenster?",
+        "Du aufmachst das Fenster?",
+        "Machst du das Fenster auf?"
+      ],
+      "correct_answer": "Machst du das Fenster auf?",
+      "accepted_answers": [
+        "Machst du das Fenster auf?"
+      ],
+      "rubric": null,
+      "explanation": "In der Ja-Nein-Frage steht machst zuerst; der abgetrennte Verbteil auf steht am Ende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

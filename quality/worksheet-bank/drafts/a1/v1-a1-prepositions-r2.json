@@ -1,0 +1,153 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-prepositions-r2",
+    "template_key": "v1-a1-prepositions-r2",
+    "revision_number": 2,
+    "revision_objective_id": "transfer-error-repair-and-production",
+    "revision_objective_category": "transfer_and_repair",
+    "revision_objective": "Repair and transfer Prepositions accurately in varied sentence contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Präpositionen im Alltag: Ort und Bewegung",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "prepositions",
+    "name": "Präpositionen"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "prepositions",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "transfer-error-repair-and-production"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Einige häufige A1-Ausdrücke unterscheiden einen Ort von einer Bewegung. Man ist ‚zu Hause‘, aber man geht ‚nach Hause‘. Zu Städten und Ländern ohne Artikel fährt man meist mit ‚nach‘.",
+    "key_rule": "Ort: zu Hause oder im Park. Bewegung: nach Hause oder nach Berlin. Begleitung und Verkehrsmittel: mit.",
+    "correct_examples": [
+      "Am Abend bin ich zu Hause.",
+      "Morgen fahre ich nach Berlin."
+    ],
+    "common_mistake_warning": "Verwechsle den Ort ‚zu Hause‘ nicht mit der Richtung ‚nach Hause‘.",
+    "what_to_revise": "Übe feste Paare für Ort, Richtung, Wochentag und Jahreszeit."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche feste Verbindung beschreibt einen Ort ohne Bewegung?",
+      "options": [
+        "Ich bin heute um Hause.",
+        "Ich bin heute zu Hause.",
+        "Ich bin heute nach Hause."
+      ],
+      "correct_answer": "Ich bin heute zu Hause.",
+      "accepted_answers": ["Ich bin heute zu Hause."],
+      "explanation": "‚Zu Hause‘ bezeichnet den Ort, an dem sich jemand befindet.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche feste Verbindung beschreibt die Bewegung zum eigenen Zuhause?",
+      "options": [
+        "Nach der Arbeit gehe ich zu Hause.",
+        "Nach der Arbeit gehe ich aus Hause.",
+        "Nach der Arbeit gehe ich nach Hause."
+      ],
+      "correct_answer": "Nach der Arbeit gehe ich nach Hause.",
+      "accepted_answers": ["Nach der Arbeit gehe ich nach Hause."],
+      "explanation": "Bei einer Bewegung in Richtung Zuhause verwendet man ‚nach Hause‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [zu, mit, nach]. Setze die Richtung ein: Morgen fahren wir ___ Berlin.",
+      "options": [],
+      "correct_answer": "nach",
+      "accepted_answers": ["nach"],
+      "explanation": "Vor einer Stadt ohne Artikel steht bei einer Richtung die Präposition ‚nach‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [Um, Im, Am]. Setze die passende Form ein: ___ Sommer spielen wir oft draußen.",
+      "options": [],
+      "correct_answer": "Im",
+      "accepted_answers": ["Im"],
+      "explanation": "Vor einer Jahreszeit steht hier ‚im‘; am Satzanfang schreibt man ‚Im‘ groß.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [am, im, nach]. Setze die passende Form ein: Wir treffen uns ___ Mittwoch.",
+      "options": [],
+      "correct_answer": "am",
+      "accepted_answers": ["am"],
+      "explanation": "Ein Wochentag wird mit der festen Verbindung ‚am‘ angegeben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "sentence_correction",
+      "prompt": "Korrigiere die Präposition für das Ziel: Am Wochenende fahren wir zu Berlin.",
+      "options": [],
+      "correct_answer": "Am Wochenende fahren wir nach Berlin.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "‚Zu Berlin‘ wird durch die feste Richtungsangabe ‚nach Berlin‘ ersetzt.",
+          "Zeitangabe, Subjekt, Verb und Satzzeichen bleiben unverändert korrekt."
+        ],
+        "sample_answer": "Am Wochenende fahren wir nach Berlin."
+      },
+      "explanation": "Bei einer Reise in eine Stadt ohne Artikel verwendet man ‚nach‘.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 7,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz über einen Ort: im Park / die Kinder / sind / am Nachmittag",
+      "options": [],
+      "correct_answer": "Die Kinder sind am Nachmittag im Park.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "Die Zeitangabe ‚am Nachmittag‘ und der Ort ‚im Park‘ werden korrekt verwendet.",
+          "Alle Satzteile erscheinen genau einmal in einem grammatischen Aussagesatz."
+        ],
+        "sample_answer": "Die Kinder sind am Nachmittag im Park."
+      },
+      "explanation": "Die festen Präpositionalgruppen geben Zeit und Ort eindeutig an.",
+      "evaluation_mode": "open_evaluation"
+    },
+    {
+      "question_number": 8,
+      "question_type": "word_order",
+      "prompt": "Bilde einen Satz über eine Bewegung: nach Hause / ich / mit dem Bus / fahre",
+      "options": [],
+      "correct_answer": "Ich fahre mit dem Bus nach Hause.",
+      "accepted_answers": [],
+      "rubric": {
+        "criteria": [
+          "‚Mit dem Bus‘ nennt das Verkehrsmittel und ‚nach Hause‘ die Richtung.",
+          "Subjekt und Verb stehen korrekt; alle vorgegebenen Teile werden verwendet."
+        ],
+        "sample_answer": "Ich fahre mit dem Bus nach Hause."
+      },
+      "explanation": "Verkehrsmittel und Richtung behalten jeweils ihre feste Präposition.",
+      "evaluation_mode": "open_evaluation"
+    }
+  ]
+}

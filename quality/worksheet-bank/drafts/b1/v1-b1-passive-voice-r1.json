@@ -1,0 +1,188 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "B1-passive-voice-r1",
+    "template_key": "v1-b1-passive-voice-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Passive voice pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "B1 Vorgangspassiv: Abläufe in den Mittelpunkt stellen",
+  "level": "B1",
+  "grammar_topic": {
+    "slug": "passive-voice",
+    "name": "Passiv"
+  },
+  "difficulty": "medium",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 B1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "b1",
+    "passive-voice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Im Vorgangspassiv ist die Handlung wichtiger als die handelnde Person. Es wird häufig in Anleitungen, Meldungen und sachlichen Beschreibungen verwendet.",
+    "key_rule": "Bilde das Präsenspassiv mit einer konjugierten Form von „werden“ und dem Partizip II am Satzende. Der Handelnde kann mit „von“ ergänzt werden.",
+    "correct_examples": [
+      "Die Räume werden täglich gereinigt.",
+      "Der Termin wird von der Leitung bestätigt."
+    ],
+    "common_mistake_warning": "Verwechsle das Vorgangspassiv mit „sein + Partizip II“ nicht: „wird geöffnet“ beschreibt den Vorgang, „ist geöffnet“ den Zustand.",
+    "what_to_revise": "Wiederhole die Formen von „werden“, häufige Partizipien und die Umwandlung vom Akkusativobjekt zum Passivsubjekt."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz steht korrekt im Präsenspassiv?",
+      "options": [
+        "Die Anträge werden heute prüfen.",
+        "Die Anträge sind heute prüfen.",
+        "Die Anträge werden heute geprüft.",
+        "Die Anträge wird heute geprüft."
+      ],
+      "correct_answer": "Die Anträge werden heute geprüft.",
+      "accepted_answers": ["Die Anträge werden heute geprüft."],
+      "explanation": "Das Pluralsubjekt „die Anträge“ verlangt „werden“; das Partizip „geprüft“ steht am Ende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Passivform passt zum Singularsubjekt „das Paket“?",
+      "options": [
+        "wird geliefert",
+        "werden geliefert",
+        "wird liefern",
+        "ist liefern"
+      ],
+      "correct_answer": "wird geliefert",
+      "accepted_answers": ["wird geliefert"],
+      "explanation": "Das neutrale Singularsubjekt verlangt „wird“ und das Partizip II „geliefert“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welcher Satz nennt die handelnde Person im Passiv korrekt?",
+      "options": [
+        "Der Vertrag wird durch der Abteilungsleiterin unterschrieben.",
+        "Der Vertrag unterschreibt von der Abteilungsleiterin.",
+        "Der Vertrag wird von die Abteilungsleiterin unterschreiben.",
+        "Der Vertrag wird von der Abteilungsleiterin unterschrieben."
+      ],
+      "correct_answer": "Der Vertrag wird von der Abteilungsleiterin unterschrieben.",
+      "accepted_answers": [
+        "Der Vertrag wird von der Abteilungsleiterin unterschrieben."
+      ],
+      "explanation": "Eine handelnde Person wird mit „von“ plus Dativ genannt; die Passivform lautet „wird unterschrieben“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [werden, wurde, wird]. Ergänze: Die Übergabe ___ schriftlich dokumentiert.",
+      "options": [],
+      "correct_answer": "wird",
+      "accepted_answers": ["wird"],
+      "explanation": "Zum Singularsubjekt „die Übergabe“ gehört im Präsenspassiv die Form „wird“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wurden, werden, wird]. Ergänze: Die Ergebnisse ___ morgen veröffentlicht.",
+      "options": [],
+      "correct_answer": "werden",
+      "accepted_answers": ["werden"],
+      "explanation": "Das Pluralsubjekt „die Ergebnisse“ verlangt im Präsens „werden“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [von, durch, mit]. Ergänze die Präposition für die handelnde Person: Die neuen Mitarbeitenden werden ___ einer erfahrenen Kollegin eingearbeitet.",
+      "options": [],
+      "correct_answer": "von",
+      "accepted_answers": ["von"],
+      "explanation": "Die handelnde Person wird im Passiv mit „von“ plus Dativ angegeben.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [reparieren, reparierte, repariert]. Ergänze: Das defekte Gerät wird noch heute ___.",
+      "options": [],
+      "correct_answer": "repariert",
+      "accepted_answers": ["repariert"],
+      "explanation": "Das Vorgangspassiv benötigt nach „wird“ das Partizip II „repariert“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Fassung bildet das Präsenspassiv korrekt?",
+      "options": [
+        "Die Beobachtung wird im Bericht dokumentieren.",
+        "Die Beobachtung wird im Bericht dokumentiert.",
+        "Die Beobachtung ist im Bericht dokumentieren.",
+        "Die Beobachtung wurde im Bericht dokumentiert wird."
+      ],
+      "correct_answer": "Die Beobachtung wird im Bericht dokumentiert.",
+      "accepted_answers": [
+        "Die Beobachtung wird im Bericht dokumentiert."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das Präsenspassiv besteht aus der Präsensform von „werden“ und dem Partizip II „dokumentiert“.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 9,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Passivform entspricht „Die Mitarbeitenden bearbeiten die Anträge“ und nennt die Handelnden?",
+      "options": [
+        "Die Anträge sind die Mitarbeitenden bearbeitet.",
+        "Die Anträge werden von den Mitarbeitenden bearbeitet.",
+        "Die Anträge werden durch die Mitarbeitenden bearbeiten.",
+        "Die Mitarbeitenden werden von den Anträgen bearbeitet."
+      ],
+      "correct_answer": "Die Anträge werden von den Mitarbeitenden bearbeitet.",
+      "accepted_answers": [
+        "Die Anträge werden von den Mitarbeitenden bearbeitet."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "Das frühere Objekt wird zum Passivsubjekt; die Handelnden erscheinen mit „von“ plus Dativ.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 10,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Prozessbeschreibung enthält drei korrekte Präsenspassivformen?",
+      "options": [
+        "Zuerst wird die neue Pflegekraft begrüßen. Danach werden ihr die Räume zeigen. Schließlich wird ein Termin vereinbaren.",
+        "Zuerst ist die neue Pflegekraft begrüßt wird. Danach wird ihr die Räume gezeigt. Schließlich werden ein Termin vereinbart.",
+        "Zuerst die neue Pflegekraft wird begrüßt. Danach ihr werden die Räume gezeigt. Schließlich ein Termin wird vereinbart.",
+        "Zuerst wird die neue Pflegekraft begrüßt. Danach werden ihr die Räume gezeigt. Schließlich wird ein Termin vereinbart."
+      ],
+      "correct_answer": "Zuerst wird die neue Pflegekraft begrüßt. Danach werden ihr die Räume gezeigt. Schließlich wird ein Termin vereinbart.",
+      "accepted_answers": [
+        "Zuerst wird die neue Pflegekraft begrüßt. Danach werden ihr die Räume gezeigt. Schließlich wird ein Termin vereinbart."
+      ],
+      "rubric": null,
+      "answer_contract_version": 1,
+      "explanation": "In jedem Satz stimmt „werden“ mit dem Passivsubjekt überein und das Partizip II steht am Satzende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}

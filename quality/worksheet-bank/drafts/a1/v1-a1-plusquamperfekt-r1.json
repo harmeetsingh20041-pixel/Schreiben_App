@@ -1,0 +1,167 @@
+{
+  "draft_metadata": {
+    "schema_version": 1,
+    "slot_id": "A1-plusquamperfekt-r1",
+    "template_key": "v1-a1-plusquamperfekt-r1",
+    "revision_number": 1,
+    "revision_objective_id": "controlled-recognition-and-application",
+    "revision_objective_category": "controlled_application",
+    "revision_objective": "Recognize and apply the core Plusquamperfekt pattern in constrained contexts.",
+    "authoring_status": "draft_unapproved",
+    "certification_status": "not_certified",
+    "approval_status": "unapproved"
+  },
+  "title": "A1 Zusatztraining: Frühere Vergangenheit erkennen",
+  "level": "A1",
+  "grammar_topic": {
+    "slug": "plusquamperfekt",
+    "name": "Plusquamperfekt"
+  },
+  "difficulty": "easy",
+  "visibility": "private",
+  "source": "manual_import",
+  "source_label": "V1 A1 draft worksheet; unapproved and not certified",
+  "tags": [
+    "a1",
+    "plusquamperfekt",
+    "stretch-practice",
+    "draft",
+    "unapproved",
+    "not-certified",
+    "controlled-recognition-and-application"
+  ],
+  "mini_lesson": {
+    "short_explanation": "Für A1 reicht beim Erzählen meist das Perfekt. Dieses Zusatztraining hilft dir, in einem Text auch eine noch frühere Handlung zu erkennen.",
+    "key_rule": "Achte auf hatte oder war plus Partizip: ‚Ich hatte gegessen‘ bedeutet, dass das Essen schon vor einem anderen vergangenen Ereignis fertig war.",
+    "correct_examples": [
+      "Mira hatte schon bezahlt.",
+      "Der Bus war bereits abgefahren."
+    ],
+    "common_mistake_warning": "Verwechsle ‚hatte gegessen‘ nicht mit dem normalen Perfekt ‚hat gegessen‘.",
+    "what_to_revise": "Erkenne zuerst die häufigen Formen hatte, hatten, war und waren mit bekannten Partizipien."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form zeigt eine Handlung vor einer anderen Vergangenheit?",
+      "options": [
+        "Ich esse jetzt, bevor ich losgehe.",
+        "Ich werde essen, bevor ich losgehe.",
+        "Ich hatte schon gegessen, bevor ich losging."
+      ],
+      "correct_answer": "Ich hatte schon gegessen, bevor ich losging.",
+      "accepted_answers": [
+        "Ich hatte schon gegessen, bevor ich losging."
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Hatte gegessen‘ bezeichnet die bereits abgeschlossene frühere Handlung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 2,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form bildet das Plusquamperfekt? Wir ___ die Aufgabe schon gemacht.",
+      "options": [
+        "werden",
+        "hatten",
+        "haben"
+      ],
+      "correct_answer": "hatten",
+      "accepted_answers": [
+        "hatten"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Zum Subjekt ‚wir‘ gehört im Plusquamperfekt die Form ‚hatten‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 3,
+      "question_type": "multiple_choice",
+      "prompt": "Welche Form passt zu ‚gehen‘? Mira ___ schon nach Hause gegangen.",
+      "options": [
+        "war",
+        "hatte",
+        "wurde"
+      ],
+      "correct_answer": "war",
+      "accepted_answers": [
+        "war"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Das Singularsubjekt ‚Mira‘ und das Verb ‚gehen‘ bilden diese Form mit dem Hilfsverb ‚war‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 4,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [hat | wird | hatte]. Ergänze im Plusquamperfekt: Ravi ___ den Bericht schon gelesen.",
+      "options": [],
+      "correct_answer": "hatte",
+      "accepted_answers": [
+        "hatte"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Die Form ‚hatte gelesen‘ zeigt die frühere abgeschlossene Handlung.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 5,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [wurden | waren | hatten]. Ergänze: Die Gäste ___ schon angekommen.",
+      "options": [],
+      "correct_answer": "waren",
+      "accepted_answers": [
+        "waren"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "‚Ankommen‘ bildet das Plusquamperfekt im Plural mit ‚waren‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 6,
+      "question_type": "fill_blank",
+      "prompt": "Wortbank: [gemacht | machen | gemacht haben]. Ergänze: Ich hatte die Arbeit schon ___.",
+      "options": [],
+      "correct_answer": "gemacht",
+      "accepted_answers": [
+        "gemacht"
+      ],
+      "answer_contract_version": 1,
+      "explanation": "Nach ‚hatte‘ steht das Partizip ‚gemacht‘ am Satzende.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 7,
+      "question_type": "multiple_choice",
+      "prompt": "Asha hatte den Bericht vor dem Gespräch fertig. Welcher Satz verwendet das richtige Partizip?",
+      "options": [
+        "Asha hatte den Bericht schon geschreiben.",
+        "Asha hatte den Bericht schon geschreibt.",
+        "Asha hatte den Bericht schon geschrieben.",
+        "Asha hatte den Bericht schon schreiben."
+      ],
+      "correct_answer": "Asha hatte den Bericht schon geschrieben.",
+      "accepted_answers": ["Asha hatte den Bericht schon geschrieben."],
+      "rubric": null,
+      "explanation": "Das Partizip von ‚schreiben‘ lautet auch im Plusquamperfekt ‚geschrieben‘.",
+      "evaluation_mode": "local_exact"
+    },
+    {
+      "question_number": 8,
+      "question_type": "multiple_choice",
+      "prompt": "Das Team kannte den Dienstplan schon vor der Besprechung. Welcher Plusquamperfektsatz ist richtig?",
+      "options": [
+        "Wir hatten den Dienstplan vorher gelesen.",
+        "Wir haben den Dienstplan vorher gelesen gehabt.",
+        "Wir hatten den Dienstplan vorher lesen.",
+        "Wir hatte den Dienstplan vorher gelesen."
+      ],
+      "correct_answer": "Wir hatten den Dienstplan vorher gelesen.",
+      "accepted_answers": ["Wir hatten den Dienstplan vorher gelesen."],
+      "rubric": null,
+      "explanation": "Im Plusquamperfekt steht das Hilfsverb im Hauptsatz früh und das Partizip am Ende.",
+      "evaluation_mode": "local_exact"
+    }
+  ]
+}
