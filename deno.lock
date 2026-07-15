@@ -39,6 +39,7 @@
     "packageJson": {
       "dependencies": [
         "npm:@supabase/supabase-js@2.110.0",
+        "npm:diff@9.0.0",
         "npm:jsonrepair@3.15.0",
         "npm:prettier@^3.8.4",
         "npm:typescript@~5.9.3"
